@@ -42,8 +42,8 @@ PDF 物理页从文件第一面起按 1 计数；没有印刷页码的页面明�
 
 ## 关键术语
 
-- 习题解答（solutions to exercises）。
-- 版本（version）。
+- 习题解答（solutions to exercises）：资料使用用语，保留原词，不建立学科概念占位。
+- 版本（version）：资料使用用语，保留原词，不建立学科概念占位。
 
 ## 来源问题与边界
 

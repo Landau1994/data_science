@@ -43,8 +43,8 @@ PDF 物理页从文件第一面起按 1 计数；没有印刷页码的页面明�
 
 ## 关键术语
 
-- 选定习题（selected problems）。
-- 配套答案（worked answers）。
+- 选定习题（selected problems）：资料使用用语，保留原词，不建立学科概念占位。
+- 配套答案（worked answers）：资料使用用语，保留原词，不建立学科概念占位。
 
 ## 来源问题与边界
 

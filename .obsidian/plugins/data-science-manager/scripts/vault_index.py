@@ -27,11 +27,12 @@ TOPIC_DIRS = {
     "04 - 统计学习": ("statistical-learning", "统计学习"),
     "05 - 概率模型与推断": ("probabilistic-models", "概率模型与推断"),
     "06 - 深度学习": ("deep-learning", "深度学习"),
-    "07 - 因果推断与实验": ("causal-inference", "因果推断与实验"),
+    "07 - 因果推断与实验设计": ("causal-inference", "因果推断与实验"),
     "08 - 随机过程与时间序列": ("stochastic-processes", "随机过程与时间序列"),
     "09 - 数据计算与可复现性": ("data-computing", "数据计算与可复现性"),
+    "10 - AI工程": ("ai-engineering", "AI工程"),
 }
-NOTE_ROOTS = (*TOPIC_DIRS, "00 - 首页/教材归档", "10 - 项目与案例")
+NOTE_ROOTS = (*TOPIC_DIRS, "00 - 首页/教材归档", "11 - 项目与案例")
 PUBLIC_FIELDS = ("path", "title", "kind", "topic", "topic_label", "status",
                  "difficulty", "source_id", "source_exercise", "excerpt")
 FILTER_FIELDS = ("kind", "topic", "status", "source_id")

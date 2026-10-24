@@ -2,7 +2,7 @@
 
 // 即时目录只读 Obsidian 已解析的元数据，不依赖索引或模型。
 const KINDS = Object.freeze([
-  Object.freeze({ value: "source", label: "教材" }),
+  Object.freeze({ value: "source", label: "来源" }),
   Object.freeze({ value: "concept", label: "概念" }),
   Object.freeze({ value: "exercise", label: "习题" }),
   Object.freeze({ value: "project", label: "项目" }),
@@ -19,6 +19,7 @@ const TOPICS = Object.freeze([
   Object.freeze({ value: "causal-inference", label: "因果推断与实验" }),
   Object.freeze({ value: "stochastic-processes", label: "随机过程与时间序列" }),
   Object.freeze({ value: "data-computing", label: "数据计算与可复现性" }),
+  Object.freeze({ value: "ai-engineering", label: "AI工程" }),
 ]);
 
 const STATES = Object.freeze([

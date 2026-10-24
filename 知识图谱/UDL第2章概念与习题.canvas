@@ -1,0 +1,318 @@
+{
+  "nodes": [
+    {
+      "id": "legend",
+      "type": "text",
+      "x": 0,
+      "y": -210,
+      "width": 1600,
+      "height": 160,
+      "text": "# UDL第2章：概念与习题\n\n双向箭头只表示实际笔记互相引用：习题链接先修概念，概念的推导或例子回指本题；完整相关习题仍由Dataview动态生成。该图不表示所有概念都是严格逻辑先修，也不表示已完成学习。",
+      "color": "5"
+    },
+    {
+      "id": "c0",
+      "type": "file",
+      "file": "04 - 统计学习/概念/监督学习.md",
+      "x": 0,
+      "y": 0,
+      "width": 380,
+      "height": 180,
+      "color": "2"
+    },
+    {
+      "id": "c1",
+      "type": "file",
+      "file": "04 - 统计学习/概念/损失函数与经验风险.md",
+      "x": 0,
+      "y": 255,
+      "width": 380,
+      "height": 180,
+      "color": "2"
+    },
+    {
+      "id": "c2",
+      "type": "file",
+      "file": "04 - 统计学习/概念/一元最小二乘回归.md",
+      "x": 0,
+      "y": 510,
+      "width": 380,
+      "height": 180,
+      "color": "2"
+    },
+    {
+      "id": "c3",
+      "type": "file",
+      "file": "03 - 线性代数与优化/概念/梯度与驻点.md",
+      "x": 0,
+      "y": 765,
+      "width": 380,
+      "height": 180,
+      "color": "2"
+    },
+    {
+      "id": "c4",
+      "type": "file",
+      "file": "03 - 线性代数与优化/概念/梯度下降.md",
+      "x": 0,
+      "y": 1020,
+      "width": 380,
+      "height": 180,
+      "color": "2"
+    },
+    {
+      "id": "c5",
+      "type": "file",
+      "file": "03 - 线性代数与优化/概念/正规方程.md",
+      "x": 0,
+      "y": 1275,
+      "width": 380,
+      "height": 180,
+      "color": "2"
+    },
+    {
+      "id": "c6",
+      "type": "file",
+      "file": "03 - 线性代数与优化/概念/凸函数.md",
+      "x": 1200,
+      "y": 0,
+      "width": 380,
+      "height": 180,
+      "color": "2"
+    },
+    {
+      "id": "c7",
+      "type": "file",
+      "file": "03 - 线性代数与优化/概念/最优性条件.md",
+      "x": 1200,
+      "y": 255,
+      "width": 380,
+      "height": 180,
+      "color": "2"
+    },
+    {
+      "id": "c8",
+      "type": "file",
+      "file": "04 - 统计学习/概念/判别式模型.md",
+      "x": 1200,
+      "y": 510,
+      "width": 380,
+      "height": 180,
+      "color": "2"
+    },
+    {
+      "id": "c9",
+      "type": "file",
+      "file": "05 - 概率模型与推断/概念/生成模型.md",
+      "x": 1200,
+      "y": 765,
+      "width": 380,
+      "height": 180,
+      "color": "2"
+    },
+    {
+      "id": "c10",
+      "type": "file",
+      "file": "04 - 统计学习/概念/预测、推断与决策.md",
+      "x": 1200,
+      "y": 1020,
+      "width": 380,
+      "height": 180,
+      "color": "2"
+    },
+    {
+      "id": "e0",
+      "type": "file",
+      "file": "04 - 统计学习/习题/习题 ML001 - 平方损失的梯度.md",
+      "x": 600,
+      "y": 140,
+      "width": 400,
+      "height": 230,
+      "color": "4"
+    },
+    {
+      "id": "e1",
+      "type": "file",
+      "file": "04 - 统计学习/习题/习题 ML002 - 一元最小二乘的闭式解.md",
+      "x": 600,
+      "y": 610,
+      "width": 400,
+      "height": 230,
+      "color": "4"
+    },
+    {
+      "id": "e2",
+      "type": "file",
+      "file": "04 - 统计学习/习题/习题 ML003 - 生成式与判别式线性回归.md",
+      "x": 600,
+      "y": 1080,
+      "width": 400,
+      "height": 230,
+      "color": "4"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e0c0",
+      "fromNode": "e0",
+      "fromSide": "left",
+      "toNode": "c0",
+      "toSide": "right",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e0c1",
+      "fromNode": "e0",
+      "fromSide": "left",
+      "toNode": "c1",
+      "toSide": "right",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e0c2",
+      "fromNode": "e0",
+      "fromSide": "left",
+      "toNode": "c2",
+      "toSide": "right",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e0c3",
+      "fromNode": "e0",
+      "fromSide": "left",
+      "toNode": "c3",
+      "toSide": "right",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e0c4",
+      "fromNode": "e0",
+      "fromSide": "left",
+      "toNode": "c4",
+      "toSide": "right",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e1c1",
+      "fromNode": "e1",
+      "fromSide": "left",
+      "toNode": "c1",
+      "toSide": "right",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e1c2",
+      "fromNode": "e1",
+      "fromSide": "left",
+      "toNode": "c2",
+      "toSide": "right",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e1c3",
+      "fromNode": "e1",
+      "fromSide": "left",
+      "toNode": "c3",
+      "toSide": "right",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e1c5",
+      "fromNode": "e1",
+      "fromSide": "left",
+      "toNode": "c5",
+      "toSide": "right",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e1c6",
+      "fromNode": "e1",
+      "fromSide": "right",
+      "toNode": "c6",
+      "toSide": "left",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e1c7",
+      "fromNode": "e1",
+      "fromSide": "right",
+      "toNode": "c7",
+      "toSide": "left",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e2c1",
+      "fromNode": "e2",
+      "fromSide": "left",
+      "toNode": "c1",
+      "toSide": "right",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e2c2",
+      "fromNode": "e2",
+      "fromSide": "left",
+      "toNode": "c2",
+      "toSide": "right",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e2c3",
+      "fromNode": "e2",
+      "fromSide": "left",
+      "toNode": "c3",
+      "toSide": "right",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e2c5",
+      "fromNode": "e2",
+      "fromSide": "left",
+      "toNode": "c5",
+      "toSide": "right",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e2c8",
+      "fromNode": "e2",
+      "fromSide": "right",
+      "toNode": "c8",
+      "toSide": "left",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e2c9",
+      "fromNode": "e2",
+      "fromSide": "right",
+      "toNode": "c9",
+      "toSide": "left",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "e2c10",
+      "fromNode": "e2",
+      "fromSide": "right",
+      "toNode": "c10",
+      "toSide": "left",
+      "fromEnd": "arrow",
+      "toEnd": "arrow"
+    }
+  ]
+}

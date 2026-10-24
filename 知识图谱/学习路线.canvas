@@ -1,41 +1,406 @@
 {
-	"nodes":[
-		{"id":"b152f35fc8c72cec","type":"text","x":0,"y":-270,"width":1660,"height":160,"text":"# 建议学习路线\n\n主线：概率论 → 数理统计 → 统计学习／概率模型与推断 → 深度学习。线性代数与优化、数据计算与可复现性贯穿各阶段；因果与时序按研究问题选择。","color":"5"},
-		{"id":"a029e34e01d1d7c3","type":"text","x":0,"y":0,"width":340,"height":145,"text":"## 第一阶段：基础\n\n先建立概率语言、矩阵直觉与可靠计算习惯。","color":"1"},
-		{"id":"fb0b17878c51182c","type":"text","x":0,"y":210,"width":340,"height":95,"text":"## 概率论\n\nProbability Theory","color":"1"},
-		{"id":"404ab3e0edd5b27b","type":"file","file":"01 - 概率论/概率论导航.md","x":0,"y":320,"width":340,"height":180,"color":"1"},
-		{"id":"a45b289d2583d917","type":"text","x":0,"y":600,"width":340,"height":95,"text":"## 线性代数与优化\n\nLinear Algebra and Optimization","color":"1"},
-		{"id":"7e7f4f22bf6bc23f","type":"file","file":"03 - 线性代数与优化/线性代数与优化导航.md","x":0,"y":710,"width":340,"height":180,"color":"1"},
-		{"id":"d7cc7a5d47093f86","type":"text","x":0,"y":990,"width":340,"height":95,"text":"## 数据计算与可复现性\n\nData Computing and Reproducibility","color":"1"},
-		{"id":"b9a9d076ba731b88","type":"file","file":"09 - 数据计算与可复现性/数据计算与可复现性导航.md","x":0,"y":1100,"width":340,"height":180,"color":"1"},
-		{"id":"977b34c6b53e6f61","type":"text","x":440,"y":0,"width":340,"height":145,"text":"## 第二阶段：推断\n\n理解抽样、估计与不确定性，再连接概率模型。","color":"2"},
-		{"id":"cc764e0a64627554","type":"text","x":440,"y":210,"width":340,"height":95,"text":"## 数理统计\n\nMathematical Statistics","color":"2"},
-		{"id":"16807df1f481016f","type":"file","file":"02 - 数理统计/数理统计导航.md","x":440,"y":320,"width":340,"height":180,"color":"2"},
-		{"id":"ff2bef6ddf69da47","type":"text","x":440,"y":600,"width":340,"height":95,"text":"## 概率模型与推断\n\nProbabilistic Models and Inference","color":"2"},
-		{"id":"457cf42ee7ac4088","type":"file","file":"05 - 概率模型与推断/概率模型与推断导航.md","x":440,"y":710,"width":340,"height":180,"color":"2"},
-		{"id":"78683867e6eb05e5","type":"text","x":880,"y":0,"width":340,"height":145,"text":"## 第三阶段：学习\n\n从风险与泛化进入表征学习，结合概率和优化。","color":"3"},
-		{"id":"e69ec78438cc148f","type":"text","x":880,"y":210,"width":340,"height":95,"text":"## 统计学习\n\nStatistical Learning","color":"3"},
-		{"id":"0efefcefe57b875a","type":"file","file":"04 - 统计学习/统计学习导航.md","x":880,"y":320,"width":340,"height":180,"color":"3"},
-		{"id":"90e5acc9cc60b1cf","type":"text","x":880,"y":600,"width":340,"height":95,"text":"## 深度学习\n\nDeep Learning","color":"3"},
-		{"id":"6d51dc0732c479ab","type":"file","file":"06 - 深度学习/深度学习导航.md","x":880,"y":710,"width":340,"height":180,"color":"3"},
-		{"id":"4252240c11ee1344","type":"text","x":1320,"y":0,"width":340,"height":145,"text":"## 第四阶段：应用\n\n围绕干预或动态问题组织案例与可复现项目。","color":"4"},
-		{"id":"65fbbc94d2e93dd2","type":"text","x":1320,"y":210,"width":340,"height":95,"text":"## 因果推断与实验\n\nCausal Inference and Experiments","color":"4"},
-		{"id":"f97a91c10ec1f42c","type":"file","file":"07 - 因果推断与实验设计/因果推断与实验设计导航.md","x":1320,"y":320,"width":340,"height":180,"color":"4"},
-		{"id":"64d2ad34e7e408d1","type":"text","x":1320,"y":600,"width":340,"height":95,"text":"## 随机过程与时间序列\n\nStochastic Processes and Time Series","color":"4"},
-		{"id":"5582823b888008e1","type":"file","file":"08 - 随机过程与时间序列/随机过程与时间序列导航.md","x":1320,"y":710,"width":340,"height":180,"color":"4"},
-		{"id":"29f555ea86d08b7b","type":"text","x":1320,"y":990,"width":340,"height":95,"text":"## 项目与案例\n\nProjects and Case Studies","color":"4"},
-		{"id":"4a9e30434eda9931","type":"file","file":"10 - 项目与案例/项目与案例导航.md","x":1320,"y":1100,"width":340,"height":180,"color":"4"}
-	],
-	"edges":[
-		{"id":"801c681fe8ff1be6","fromNode":"404ab3e0edd5b27b","fromSide":"bottom","toNode":"16807df1f481016f","toSide":"top","label":"主线","color":"4","toEnd":"arrow"},
-		{"id":"633dfa3232d1d732","fromNode":"16807df1f481016f","fromSide":"bottom","toNode":"0efefcefe57b875a","toSide":"top","label":"估计到学习","color":"4","toEnd":"arrow"},
-		{"id":"a7dbab070b5f4558","fromNode":"16807df1f481016f","fromSide":"bottom","toNode":"457cf42ee7ac4088","toSide":"top","label":"统计到概率推断","color":"4","toEnd":"arrow"},
-		{"id":"63053454619eb830","fromNode":"0efefcefe57b875a","fromSide":"bottom","toNode":"6d51dc0732c479ab","toSide":"top","label":"基础到表征","color":"4","toEnd":"arrow"},
-		{"id":"727a2733b1076218","fromNode":"457cf42ee7ac4088","fromSide":"bottom","toNode":"6d51dc0732c479ab","toSide":"top","label":"概率视角","color":"4","toEnd":"arrow"},
-		{"id":"4aa4b40eded98f88","fromNode":"7e7f4f22bf6bc23f","fromSide":"bottom","toNode":"0efefcefe57b875a","toSide":"top","label":"持续补充优化工具","color":"4","toEnd":"arrow"},
-		{"id":"78e2abe28589cb6b","fromNode":"b9a9d076ba731b88","fromSide":"bottom","toNode":"4a9e30434eda9931","toSide":"top","label":"持续记录复现条件","color":"4","toEnd":"arrow"},
-		{"id":"5a69be28c07fb93d","fromNode":"6d51dc0732c479ab","fromSide":"bottom","toNode":"4a9e30434eda9931","toSide":"top","label":"选择预测与表征任务","color":"4","toEnd":"arrow"},
-		{"id":"32260c0597674220","fromNode":"f97a91c10ec1f42c","fromSide":"bottom","toNode":"4a9e30434eda9931","toSide":"top","label":"选择干预问题","color":"4","toEnd":"arrow"},
-		{"id":"16242d5b264e5076","fromNode":"5582823b888008e1","fromSide":"bottom","toNode":"4a9e30434eda9931","toSide":"top","label":"选择动态问题","color":"4","toEnd":"arrow"}
-	]
+  "nodes": [
+    {
+      "id": "b152f35fc8c72cec",
+      "type": "text",
+      "x": 0,
+      "y": -270,
+      "width": 1660,
+      "height": 160,
+      "text": "# 建议学习路线\n\n主线：概率论 → 数理统计 → 统计学习／概率模型与推断 → 深度学习。线性代数与优化、数据计算与可复现性贯穿各阶段；因果与时序按研究问题选择。",
+      "color": "5"
+    },
+    {
+      "id": "a029e34e01d1d7c3",
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "width": 340,
+      "height": 145,
+      "text": "## 第一阶段：基础\n\n先建立概率语言、矩阵直觉与可靠计算习惯。",
+      "color": "1"
+    },
+    {
+      "id": "fb0b17878c51182c",
+      "type": "text",
+      "x": 0,
+      "y": 210,
+      "width": 340,
+      "height": 95,
+      "text": "## 概率论\n\nProbability Theory",
+      "color": "1"
+    },
+    {
+      "id": "404ab3e0edd5b27b",
+      "type": "file",
+      "file": "01 - 概率论/概率论导航.md",
+      "x": 0,
+      "y": 320,
+      "width": 340,
+      "height": 180,
+      "color": "1"
+    },
+    {
+      "id": "a45b289d2583d917",
+      "type": "text",
+      "x": 0,
+      "y": 600,
+      "width": 340,
+      "height": 95,
+      "text": "## 线性代数与优化\n\nLinear Algebra and Optimization",
+      "color": "1"
+    },
+    {
+      "id": "7e7f4f22bf6bc23f",
+      "type": "file",
+      "file": "03 - 线性代数与优化/线性代数与优化导航.md",
+      "x": 0,
+      "y": 710,
+      "width": 340,
+      "height": 180,
+      "color": "1"
+    },
+    {
+      "id": "d7cc7a5d47093f86",
+      "type": "text",
+      "x": 0,
+      "y": 990,
+      "width": 340,
+      "height": 95,
+      "text": "## 数据计算与可复现性\n\nData Computing and Reproducibility",
+      "color": "1"
+    },
+    {
+      "id": "b9a9d076ba731b88",
+      "type": "file",
+      "file": "09 - 数据计算与可复现性/数据计算与可复现性导航.md",
+      "x": 0,
+      "y": 1100,
+      "width": 340,
+      "height": 180,
+      "color": "1"
+    },
+    {
+      "id": "977b34c6b53e6f61",
+      "type": "text",
+      "x": 440,
+      "y": 0,
+      "width": 340,
+      "height": 145,
+      "text": "## 第二阶段：推断\n\n理解抽样、估计与不确定性，再连接概率模型。",
+      "color": "2"
+    },
+    {
+      "id": "cc764e0a64627554",
+      "type": "text",
+      "x": 440,
+      "y": 210,
+      "width": 340,
+      "height": 95,
+      "text": "## 数理统计\n\nMathematical Statistics",
+      "color": "2"
+    },
+    {
+      "id": "16807df1f481016f",
+      "type": "file",
+      "file": "02 - 数理统计/数理统计导航.md",
+      "x": 440,
+      "y": 320,
+      "width": 340,
+      "height": 180,
+      "color": "2"
+    },
+    {
+      "id": "ff2bef6ddf69da47",
+      "type": "text",
+      "x": 440,
+      "y": 600,
+      "width": 340,
+      "height": 95,
+      "text": "## 概率模型与推断\n\nProbabilistic Models and Inference",
+      "color": "2"
+    },
+    {
+      "id": "457cf42ee7ac4088",
+      "type": "file",
+      "file": "05 - 概率模型与推断/概率模型与推断导航.md",
+      "x": 440,
+      "y": 710,
+      "width": 340,
+      "height": 180,
+      "color": "2"
+    },
+    {
+      "id": "78683867e6eb05e5",
+      "type": "text",
+      "x": 880,
+      "y": 0,
+      "width": 340,
+      "height": 145,
+      "text": "## 第三阶段：学习\n\n从风险与泛化进入表征学习，结合概率和优化。",
+      "color": "3"
+    },
+    {
+      "id": "e69ec78438cc148f",
+      "type": "text",
+      "x": 880,
+      "y": 210,
+      "width": 340,
+      "height": 95,
+      "text": "## 统计学习\n\nStatistical Learning",
+      "color": "3"
+    },
+    {
+      "id": "0efefcefe57b875a",
+      "type": "file",
+      "file": "04 - 统计学习/统计学习导航.md",
+      "x": 880,
+      "y": 320,
+      "width": 340,
+      "height": 180,
+      "color": "3"
+    },
+    {
+      "id": "90e5acc9cc60b1cf",
+      "type": "text",
+      "x": 880,
+      "y": 600,
+      "width": 340,
+      "height": 95,
+      "text": "## 深度学习\n\nDeep Learning",
+      "color": "3"
+    },
+    {
+      "id": "6d51dc0732c479ab",
+      "type": "file",
+      "file": "06 - 深度学习/深度学习导航.md",
+      "x": 880,
+      "y": 710,
+      "width": 340,
+      "height": 180,
+      "color": "3"
+    },
+    {
+      "id": "4252240c11ee1344",
+      "type": "text",
+      "x": 1320,
+      "y": 0,
+      "width": 340,
+      "height": 145,
+      "text": "## 第四阶段：应用\n\n围绕干预或动态问题组织案例与可复现项目。",
+      "color": "4"
+    },
+    {
+      "id": "65fbbc94d2e93dd2",
+      "type": "text",
+      "x": 1320,
+      "y": 210,
+      "width": 340,
+      "height": 95,
+      "text": "## 因果推断与实验\n\nCausal Inference and Experiments",
+      "color": "4"
+    },
+    {
+      "id": "f97a91c10ec1f42c",
+      "type": "file",
+      "file": "07 - 因果推断与实验设计/因果推断与实验设计导航.md",
+      "x": 1320,
+      "y": 320,
+      "width": 340,
+      "height": 180,
+      "color": "4"
+    },
+    {
+      "id": "64d2ad34e7e408d1",
+      "type": "text",
+      "x": 1320,
+      "y": 600,
+      "width": 340,
+      "height": 95,
+      "text": "## 随机过程与时间序列\n\nStochastic Processes and Time Series",
+      "color": "4"
+    },
+    {
+      "id": "5582823b888008e1",
+      "type": "file",
+      "file": "08 - 随机过程与时间序列/随机过程与时间序列导航.md",
+      "x": 1320,
+      "y": 710,
+      "width": 340,
+      "height": 180,
+      "color": "4"
+    },
+    {
+      "id": "29f555ea86d08b7b",
+      "type": "text",
+      "x": 1320,
+      "y": 1460,
+      "width": 340,
+      "height": 95,
+      "text": "## 项目与案例\n\nProjects and Case Studies",
+      "color": "4"
+    },
+    {
+      "id": "4a9e30434eda9931",
+      "type": "file",
+      "file": "11 - 项目与案例/项目与案例导航.md",
+      "x": 1320,
+      "y": 1565,
+      "width": 340,
+      "height": 180,
+      "color": "4"
+    },
+    {
+      "id": "ai-engineering-label",
+      "type": "text",
+      "x": 440,
+      "y": 990,
+      "width": 400,
+      "height": 90,
+      "text": "## AI工程\n\nAI Engineering",
+      "color": "6"
+    },
+    {
+      "id": "ai-engineering-nav",
+      "type": "file",
+      "file": "10 - AI工程/AI工程导航.md",
+      "x": 440,
+      "y": 1100,
+      "width": 400,
+      "height": 210,
+      "color": "6"
+    }
+  ],
+  "edges": [
+    {
+      "id": "801c681fe8ff1be6",
+      "fromNode": "404ab3e0edd5b27b",
+      "fromSide": "bottom",
+      "toNode": "16807df1f481016f",
+      "toSide": "top",
+      "label": "主线",
+      "color": "4",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "633dfa3232d1d732",
+      "fromNode": "16807df1f481016f",
+      "fromSide": "bottom",
+      "toNode": "0efefcefe57b875a",
+      "toSide": "top",
+      "label": "估计到学习",
+      "color": "4",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "a7dbab070b5f4558",
+      "fromNode": "16807df1f481016f",
+      "fromSide": "bottom",
+      "toNode": "457cf42ee7ac4088",
+      "toSide": "top",
+      "label": "统计到概率推断",
+      "color": "4",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "63053454619eb830",
+      "fromNode": "0efefcefe57b875a",
+      "fromSide": "bottom",
+      "toNode": "6d51dc0732c479ab",
+      "toSide": "top",
+      "label": "基础到表征",
+      "color": "4",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "727a2733b1076218",
+      "fromNode": "457cf42ee7ac4088",
+      "fromSide": "bottom",
+      "toNode": "6d51dc0732c479ab",
+      "toSide": "top",
+      "label": "概率视角",
+      "color": "4",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "4aa4b40eded98f88",
+      "fromNode": "7e7f4f22bf6bc23f",
+      "fromSide": "bottom",
+      "toNode": "0efefcefe57b875a",
+      "toSide": "top",
+      "label": "持续补充优化工具",
+      "color": "4",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "78e2abe28589cb6b",
+      "fromNode": "b9a9d076ba731b88",
+      "fromSide": "bottom",
+      "toNode": "4a9e30434eda9931",
+      "toSide": "top",
+      "label": "持续记录复现条件",
+      "color": "4",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "5a69be28c07fb93d",
+      "fromNode": "6d51dc0732c479ab",
+      "fromSide": "bottom",
+      "toNode": "4a9e30434eda9931",
+      "toSide": "top",
+      "label": "选择预测与表征任务",
+      "color": "4",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "32260c0597674220",
+      "fromNode": "f97a91c10ec1f42c",
+      "fromSide": "bottom",
+      "toNode": "4a9e30434eda9931",
+      "toSide": "top",
+      "label": "选择干预问题",
+      "color": "4",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "16242d5b264e5076",
+      "fromNode": "5582823b888008e1",
+      "fromSide": "bottom",
+      "toNode": "4a9e30434eda9931",
+      "toSide": "top",
+      "label": "选择动态问题",
+      "color": "4",
+      "toEnd": "arrow"
+    },
+    {
+      "id": "ai-link-6d51dc0732c479ab",
+      "fromNode": "6d51dc0732c479ab",
+      "fromSide": "bottom",
+      "toNode": "ai-engineering-nav",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "label": "模型与生成能力",
+      "color": "6"
+    },
+    {
+      "id": "ai-link-b9a9d076ba731b88",
+      "fromNode": "b9a9d076ba731b88",
+      "fromSide": "bottom",
+      "toNode": "ai-engineering-nav",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "label": "工具、状态与可复现执行",
+      "color": "6"
+    },
+    {
+      "id": "ai-link-4a9e30434eda9931",
+      "fromNode": "ai-engineering-nav",
+      "fromSide": "bottom",
+      "toNode": "4a9e30434eda9931",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "label": "任务与实验落地",
+      "color": "6"
+    }
+  ]
 }

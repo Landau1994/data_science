@@ -43,8 +43,8 @@ PDF 物理页从文件第一面起按 1 计数；没有印刷页码的页面明�
 
 ## 关键术语
 
-- 概率习题（probability exercises）。
-- 解答（solutions）。
+- 概率习题（probability exercises）：资料使用用语，保留原词，不建立学科概念占位。
+- 解答（solutions）：资料使用用语，保留原词，不建立学科概念占位。
 
 ## 来源问题与边界
 

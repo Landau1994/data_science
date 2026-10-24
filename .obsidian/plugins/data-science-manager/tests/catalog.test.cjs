@@ -61,9 +61,9 @@ test("空状态保持空，不根据习题标题猜测学习进度", () => {
   assert.equal(record.title, file.basename);
 });
 
-test("九个主题及三个稳定学习状态完整且没有重复", () => {
-  assert.equal(TOPICS.length, 9);
-  assert.equal(new Set(TOPICS.map(({ value }) => value)).size, 9);
+test("十个主题及三个稳定学习状态完整且没有重复", () => {
+  assert.equal(TOPICS.length, 10);
+  assert.equal(new Set(TOPICS.map(({ value }) => value)).size, 10);
   assert.deepEqual(STATES.map(({ value }) => value), ["not-started", "in-progress", "completed"]);
   assert.deepEqual(KINDS.map(({ value }) => value), ["source", "concept", "exercise", "project", "experiment"]);
 });

@@ -92,7 +92,7 @@ def audit(manifest: dict, chapter: int) -> dict:
         if str(source_chapter) != str(chapter):
             continue
         relative = path.relative_to(ROOT).as_posix()
-        if not re.fullmatch(r"习题 (?:P|ST|LA|ML|PM|DL|CI|TS|DC)[0-9]+ - .+\.md", path.name):
+        if not re.fullmatch(r"习题 (?:P|ST|LA|ML|PM|DL|CI|TS|DC|AE)[0-9]+ - .+\.md", path.name):
             errors.append(f"习题文件名不符合约定：{relative}")
         found.append((key, relative))
         states[relative] = fields.get("status")
@@ -112,9 +112,10 @@ def audit(manifest: dict, chapter: int) -> dict:
             "statistical-learning": "04 - 统计学习",
             "probabilistic-models": "05 - 概率模型与推断",
             "deep-learning": "06 - 深度学习",
-            "causal-inference": "07 - 因果推断与实验",
+            "causal-inference": "07 - 因果推断与实验设计",
             "stochastic-processes": "08 - 随机过程与时间序列",
             "data-computing": "09 - 数据计算与可复现性",
+            "ai-engineering": "10 - AI工程",
         }
         if topic_folders.get(fields.get("topic")) != path.relative_to(ROOT).parts[0]:
             errors.append(f"主题与实际路径不一致：{relative}")
@@ -166,7 +167,7 @@ def preview(manifest: dict, chapter: int, count: int, day: str, report: dict) ->
         lines.append(f"{index}. [[{target}|{item['local_id']}：{item['title_zh']}]] — 原题 {item['source_exercise']}{star}。")
     lines.extend(["", "### 阅读与作答", "", "- 建议先读本章第 2.1–2.3 节，再独立尝试题目。", "- 本页的生成不代表已经开始或完成学习；需要调整学习状态时，以习题笔记为准。", "", END])
     block = "\n".join(lines)
-    output = inside(f"11 - 每日题单/UDL 试运行 - {day}.md")
+    output = inside(f"12 - 每日题单/UDL 试运行 - {day}.md")
     if output.exists():
         original = output.read_text(encoding="utf-8")
         if original.count(BEGIN) != 1 or original.count(END) != 1 or original.index(BEGIN) > original.index(END):
