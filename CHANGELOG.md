@@ -5,7 +5,7 @@
 ### 2026-10-24（Git 版本控制配置与首次发布）
 
 - 配置：本库提交身份设为 `Landau1994 <longtenwang@gmail.com>`；全局配置中的邮箱拼写（`longtenwang@gmail`，缺 `.com`）按用户要求保持不动，仅本库使用正确地址。默认分支由 `master` 改为 `main`，`core.quotepath` 关闭以便中文路径正常显示；新增 `.gitattributes`，文本统一以 LF 入库、二进制文件不做换行转换。
-- 忽略：`.gitignore` 增加 `.data-science-index/`（可由工具重建的 LanceDB 索引）与 `附件/books/*.pdf`（19 份教材约 330 MB，其中 Murphy 进阶册单个 144 MB 超过 GitHub 100 MB 限制，且教材 PDF 涉及版权，仅本地保留）；书目 `附件/books/README.md` 照常入库。
+- 忽略：`.gitignore` 增加 `.data-science-index/`（可由工具重建的 LanceDB 索引）与 `附件/books/*.pdf`（17 份教材 PDF 约 330 MB，其中 Murphy 进阶册单个 144 MB 超过 GitHub 100 MB 限制，且教材 PDF 涉及版权，仅本地保留）；书目 `附件/books/README.md` 照常入库。
 - 发布：首次提交 102 个文件并推送到公开仓库 [github.com/Landau1994/data_science](https://github.com/Landau1994/data_science)，远端默认分支 `main`，并添加 `data-science`、`knowledge-base`、`machine-learning`、`obsidian`、`probability`、`statistics` 主题标签。
 - 验证：`git ls-tree -r origin/main` 共 102 个文件、PDF 数为 0；提交作者为 `Landau1994 <longtenwang@gmail.com>`；工作区干净且与 `origin/main` 同步。推送使用系统已登录的 GitHub CLI 凭据，未额外写入令牌；未在 Obsidian 中实际渲染验证，obsidian-git 插件未写入配置文件。
 
