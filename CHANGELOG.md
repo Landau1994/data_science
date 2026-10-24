@@ -2,6 +2,13 @@
 
 保留完整历史，最新条目在前。
 
+### 2026-10-24（修复 Git 连接与插件加载）
+
+- 连接诊断：在正常本机环境复现 GitHub 443 端口直连超时；确认凭据辅助程序实际路径有效，现有 Windows 本地代理可连通 GitHub。仅在当前仓库保存 GitHub URL 对应的 HTTP 代理，未修改全局 Git、系统代理、其他仓库或认证数据；保存后 `git push --dry-run origin HEAD:refs/heads/main` 成功。
+- 提交边界：保留已有待推送提交 `801789d`，没有新建、修改或推送提交，也未改变远端；本轮修复文件由用户通过 Git 插件提交与同步。
+- 加载修复：依据本机 Obsidian 1.14.5 实际加载器确认，相对 `require('./catalog')` 不会以插件目录解析。保留 `main.source.js` 和 `catalog.js` 开发源，新增无外部依赖的 `build.cjs`，将发布入口 `main.js` 打包为自包含单文件，用户无需构建。
+- 回归检查：新增旧入口复现、单文件加载／实例化、模拟 onload 与构建确定性检查；原 25 项 Node 检查加 4 项加载回归共 29 项通过。未改动数据库、模型、学习进度或插件启用列表，未操作 Obsidian 界面。
+
 ### 2026-10-24（LanceDB 知识库管理器）
 
 - 添加：`.obsidian/plugins/data-science-manager` 独立 Obsidian 桌面插件，参考原代数库 Exercise Manager 的本地索引架构并保留 MIT 许可；纯 CommonJS 前端与 Python JSON 行通信，无需构建或常驻 HTTP 服务。

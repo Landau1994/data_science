@@ -4,7 +4,8 @@
 
 ## 文件与运行
 
-- `manifest.json`、`main.js`、`styles.css`、`catalog.js` 可直接由 Obsidian 加载，不需要 Node 构建。
+- Obsidian 直接加载 `manifest.json`、已生成的单文件 `main.js` 与 `styles.css`；普通使用无需构建。`main.js` 已内含目录模块，不依赖 Obsidian 不支持的插件目录相对 `require`。
+- `main.source.js`、`catalog.js` 为开发源文件。修改后运行 `node .obsidian/plugins/data-science-manager/build.cjs` 重新生成入口；构建仅使用 Node 内置模块，无需安装构建依赖。
 - `scripts/vault_index.py` 通过逐行 JSON 提供 `status`、`sync`、`search`、`related`。插件启动隐藏的 Python 子进程，串行处理请求，超时、错误与卸载时清理；不开 HTTP 端口。
 - 前端关键词即时读取笔记，语义与关联查询使用本库真实 LanceDB；后端也提供中英文关键词查询供测试。
 - 学习状态使用 Obsidian `processFrontMatter`，仅在用户选择后更新该笔记的 `status`。后端只读 Markdown。
@@ -17,7 +18,8 @@
 
 ```powershell
 node --check .obsidian/plugins/data-science-manager/main.js
-node --test .obsidian/plugins/data-science-manager/tests/catalog.test.cjs .obsidian/plugins/data-science-manager/tests/frontend.test.cjs
+node .obsidian/plugins/data-science-manager/build.cjs --check
+node --test .obsidian/plugins/data-science-manager/tests/catalog.test.cjs .obsidian/plugins/data-science-manager/tests/frontend.test.cjs .obsidian/plugins/data-science-manager/tests/loading.test.cjs
 & 'C:\Users\Administrator\.conda\envs\localllm\python.exe' -B -X utf8 .obsidian/plugins/data-science-manager/tests/test_vault_index.py -v
 ```
 
