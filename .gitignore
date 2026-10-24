@@ -1,0 +1,20 @@
+.obsidian/workspace*.json
+.obsidian/cache/
+.obsidian/plugins/copilot/data.json
+.obsidian/exercise-manager-daily-state.json*
+.obsidian/plugins/exercise_manager/
+# 本地生成的 LanceDB 索引，可由工具重建
+.data-science-index/
+
+# 教材 PDF：体积大且可能受版权限制，仅本地保留；附件/books/README.md 书目仍入库
+附件/books/*.pdf
+
+.env
+.env.*
+!.env.example
+**/*.pem
+**/*.key
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db

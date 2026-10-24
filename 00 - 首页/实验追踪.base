@@ -1,0 +1,40 @@
+filters:
+  and:
+  - file.hasTag("experiment")
+properties:
+  status:
+    displayName: 状态
+  project:
+    displayName: 项目
+  question:
+    displayName: 研究问题
+  primary_metric:
+    displayName: 主要指标
+  dataset:
+    displayName: 数据
+  code_ref:
+    displayName: 代码版本
+  source_id:
+    displayName: 来源编号
+  source_kind:
+    displayName: 来源类型
+  source_status:
+    displayName: 核对状态
+  author:
+    displayName: 作者
+  year:
+    displayName: 年份
+views:
+- type: table
+  name: 实验追踪
+  order:
+  - file.name
+  - project
+  - status
+  - dataset
+  - code_ref
+  - primary_metric
+  - file.mtime
+  sort:
+  - property: file.mtime
+    direction: DESC

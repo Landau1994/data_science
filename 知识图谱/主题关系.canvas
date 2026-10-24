@@ -1,0 +1,42 @@
+{
+	"nodes":[
+		{"id":"dcc651c71c72135e","type":"text","x":0,"y":-260,"width":1280,"height":165,"text":"# 主题之间的联系\n\n箭头表示学习中常用的方法衔接与支撑关系，并不声称所有研究路线都具有严格的先修依赖。项目把理论、数据与计算检验连接起来。","color":"5"},
+		{"id":"d24f65824da2668d","type":"text","x":0,"y":0,"width":360,"height":95,"text":"## 概率论\n\nProbability Theory","color":"4"},
+		{"id":"7d5149f316c36920","type":"file","file":"01 - 概率论/概率论导航.md","x":0,"y":110,"width":360,"height":180,"color":"4"},
+		{"id":"c4f3270ea198c586","type":"text","x":460,"y":0,"width":360,"height":95,"text":"## 线性代数与优化\n\nLinear Algebra and Optimization","color":"2"},
+		{"id":"da2955558036081d","type":"file","file":"03 - 线性代数与优化/线性代数与优化导航.md","x":460,"y":110,"width":360,"height":180,"color":"2"},
+		{"id":"fac0769bae1c52c7","type":"text","x":920,"y":0,"width":360,"height":95,"text":"## 数据计算与可复现性\n\nData Computing and Reproducibility","color":"2"},
+		{"id":"6ae7034cc8221cc9","type":"file","file":"09 - 数据计算与可复现性/数据计算与可复现性导航.md","x":920,"y":110,"width":360,"height":180,"color":"2"},
+		{"id":"6f277793bdf73dc7","type":"text","x":0,"y":500,"width":360,"height":95,"text":"## 数理统计\n\nMathematical Statistics","color":"4"},
+		{"id":"bc102f1ce8d96b65","type":"file","file":"02 - 数理统计/数理统计导航.md","x":0,"y":610,"width":360,"height":180,"color":"4"},
+		{"id":"088964a0f7afad6f","type":"text","x":460,"y":500,"width":360,"height":95,"text":"## 统计学习\n\nStatistical Learning","color":"4"},
+		{"id":"0171044b57507f1c","type":"file","file":"04 - 统计学习/统计学习导航.md","x":460,"y":610,"width":360,"height":180,"color":"4"},
+		{"id":"4cfd80a3cdb9b3d9","type":"text","x":920,"y":500,"width":360,"height":95,"text":"## 概率模型与推断\n\nProbabilistic Models and Inference","color":"4"},
+		{"id":"ab34526c620eafe6","type":"file","file":"05 - 概率模型与推断/概率模型与推断导航.md","x":920,"y":610,"width":360,"height":180,"color":"4"},
+		{"id":"b58fdbe78758d21c","type":"text","x":0,"y":1000,"width":360,"height":95,"text":"## 因果推断与实验\n\nCausal Inference and Experiments","color":"4"},
+		{"id":"d7c231dd0611f884","type":"file","file":"07 - 因果推断与实验设计/因果推断与实验设计导航.md","x":0,"y":1110,"width":360,"height":180,"color":"4"},
+		{"id":"e11b1011c52628e7","type":"text","x":460,"y":1000,"width":360,"height":95,"text":"## 深度学习\n\nDeep Learning","color":"4"},
+		{"id":"5b3769e8d4493aef","type":"file","file":"06 - 深度学习/深度学习导航.md","x":460,"y":1110,"width":360,"height":180,"color":"4"},
+		{"id":"77e66f1dafe8fa16","type":"text","x":920,"y":1000,"width":360,"height":95,"text":"## 随机过程与时间序列\n\nStochastic Processes and Time Series","color":"4"},
+		{"id":"d09d5045d2e9ff4a","type":"file","file":"08 - 随机过程与时间序列/随机过程与时间序列导航.md","x":920,"y":1110,"width":360,"height":180,"color":"4"},
+		{"id":"1e0815769103e105","type":"text","x":460,"y":1500,"width":360,"height":95,"text":"## 项目与案例\n\nProjects and Case Studies","color":"6"},
+		{"id":"a4fbf113b6ab8de4","type":"file","file":"10 - 项目与案例/项目与案例导航.md","x":460,"y":1610,"width":360,"height":180,"color":"6"}
+	],
+	"edges":[
+		{"id":"bc34c8110dd1e863","fromNode":"7d5149f316c36920","fromSide":"bottom","toNode":"bc102f1ce8d96b65","toSide":"top","label":"抽样模型与极限定理","color":"4","toEnd":"arrow"},
+		{"id":"f242a333b72009fa","fromNode":"7d5149f316c36920","fromSide":"bottom","toNode":"ab34526c620eafe6","toSide":"top","label":"条件分布与随机变量","color":"4","toEnd":"arrow"},
+		{"id":"ef2346e166ea14e8","fromNode":"7d5149f316c36920","fromSide":"bottom","toNode":"d09d5045d2e9ff4a","toSide":"top","label":"过程与条件期望","color":"4","toEnd":"arrow"},
+		{"id":"3f05daf7b5a9e8ca","fromNode":"bc102f1ce8d96b65","fromSide":"bottom","toNode":"0171044b57507f1c","toSide":"top","label":"估计、泛化与模型比较","color":"4","toEnd":"arrow"},
+		{"id":"41c7efc15ce302e4","fromNode":"bc102f1ce8d96b65","fromSide":"bottom","toNode":"d7c231dd0611f884","toSide":"top","label":"估计与不确定性","color":"4","toEnd":"arrow"},
+		{"id":"9ca2eed2c46b9b63","fromNode":"bc102f1ce8d96b65","fromSide":"bottom","toNode":"d09d5045d2e9ff4a","toSide":"top","label":"参数估计与检验","color":"4","toEnd":"arrow"},
+		{"id":"164213f7e01cc61d","fromNode":"da2955558036081d","fromSide":"bottom","toNode":"0171044b57507f1c","toSide":"top","label":"正则化与数值求解","color":"2","toEnd":"arrow"},
+		{"id":"cbe82fb86a91d679","fromNode":"da2955558036081d","fromSide":"bottom","toNode":"5b3769e8d4493aef","toSide":"top","label":"梯度与矩阵运算","color":"2","toEnd":"arrow"},
+		{"id":"1112ad1bf2c51133","fromNode":"ab34526c620eafe6","fromSide":"bottom","toNode":"5b3769e8d4493aef","toSide":"top","label":"隐变量与生成模型","color":"4","toEnd":"arrow"},
+		{"id":"738584125771d18b","fromNode":"0171044b57507f1c","fromSide":"bottom","toNode":"5b3769e8d4493aef","toSide":"top","label":"风险最小化与表征","color":"4","toEnd":"arrow"},
+		{"id":"eedcea90270d058e","fromNode":"6ae7034cc8221cc9","fromSide":"bottom","toNode":"0171044b57507f1c","toSide":"top","label":"数据划分与评估实现","color":"2","toEnd":"arrow"},
+		{"id":"d4e9cfa233e873cb","fromNode":"6ae7034cc8221cc9","fromSide":"bottom","toNode":"a4fbf113b6ab8de4","toSide":"top","label":"环境、数据版本与复现","color":"2","toEnd":"arrow"},
+		{"id":"e459c3c24b9508c1","fromNode":"d7c231dd0611f884","fromSide":"bottom","toNode":"a4fbf113b6ab8de4","toSide":"top","label":"识别假设与实验设计","color":"4","toEnd":"arrow"},
+		{"id":"da87eb72c641cf66","fromNode":"5b3769e8d4493aef","fromSide":"bottom","toNode":"a4fbf113b6ab8de4","toSide":"top","label":"表征与预测","color":"4","toEnd":"arrow"},
+		{"id":"e64d0c95ab18b72f","fromNode":"d09d5045d2e9ff4a","fromSide":"bottom","toNode":"a4fbf113b6ab8de4","toSide":"top","label":"动态建模与回测","color":"4","toEnd":"arrow"}
+	]
+}

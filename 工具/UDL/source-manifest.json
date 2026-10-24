@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "source_id": "DS001",
+  "source_language": "en",
+  "source_file": "附件/books/UnderstandingDeepLearning_02_09_26_C.pdf",
+  "source_sha256": "f8237d393163900fa8e43210e680a3f987b45ccac7750b372e156fae3df0bf32",
+  "scope": "仅第2章的原始题号与笔记映射；不含个人学习状态",
+  "chapters": {
+    "2": {
+      "title_zh": "监督学习",
+      "title_en": "Supervised learning",
+      "printed_problem_pages": [
+        24
+      ],
+      "pdf_problem_pages": [
+        38
+      ],
+      "expected_exercises": [
+        "2.1",
+        "2.2",
+        "2.3"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "2.1",
+          "local_id": "ML001",
+          "title_zh": "平方损失的梯度",
+          "note": "04 - 统计学习/习题/习题 ML001 - 平方损失的梯度.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "2.2",
+          "local_id": "ML002",
+          "title_zh": "一元最小二乘的闭式解",
+          "note": "04 - 统计学习/习题/习题 ML002 - 一元最小二乘的闭式解.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "2.3",
+          "local_id": "ML003",
+          "title_zh": "生成式与判别式线性回归",
+          "note": "04 - 统计学习/习题/习题 ML003 - 生成式与判别式线性回归.md",
+          "starred": true
+        }
+      ]
+    }
+  }
+}

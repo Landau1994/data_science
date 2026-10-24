@@ -1,0 +1,88 @@
+summaries:
+  avg_completion: values.filter(value.isType("number")).mean().round(0).toString()
+    + "%"
+filters:
+  and:
+  - file.hasTag("exercise")
+formulas:
+  folder_topic: file.folder.split("/")[0]
+  completion: if(status == "completed", 100, if(status == "in-progress", 50, 0))
+  priority_score: if(difficulty == "beginner", 1, if(difficulty == "intermediate",
+    2, 3))
+  status_icon: if(status == "completed", "✅", if(status == "in-progress", "🔄", "⏳"))
+  difficulty_stars: if(difficulty == "beginner", "⭐", if(difficulty == "intermediate",
+    "⭐⭐", if(difficulty == "advanced", "⭐⭐⭐", "—")))
+  metadata_status: if(topic, if(difficulty, if(status, "已补全", "待补全"), "待补全"), "待补全")
+properties:
+  status:
+    displayName: 状态
+  difficulty:
+    displayName: 难度
+  source:
+    displayName: 来源
+  formula.folder_topic:
+    displayName: 主题目录
+  formula.completion:
+    displayName: 完成度
+  formula.status_icon:
+    displayName: 进度
+  formula.difficulty_stars:
+    displayName: 难度等级
+  formula.metadata_status:
+    displayName: 元数据
+views:
+- type: table
+  name: 学习队列
+  filters:
+    and:
+    - status != "completed"
+  groupBy:
+    property: difficulty
+    direction: ASC
+  order:
+  - formula.status_icon
+  - file.name
+  - formula.folder_topic
+  - formula.difficulty_stars
+  - source
+  sort: []
+  limit: 20
+- type: cards
+  name: 进度卡片
+  groupBy:
+    property: formula.folder_topic
+    direction: ASC
+  order:
+  - file.name
+  - formula.status_icon
+  - formula.difficulty_stars
+  - formula.completion
+- type: table
+  name: 入门习题
+  filters:
+    and:
+    - difficulty == "beginner"
+  order:
+  - file.name
+  - formula.status_icon
+  - source
+- type: table
+  name: 进阶习题
+  filters:
+    and:
+    - difficulty == "advanced"
+  order:
+  - file.name
+  - formula.status_icon
+  - source
+- type: table
+  name: 元数据待补全
+  filters:
+    and:
+    - formula.metadata_status == "待补全"
+  order:
+  - file.name
+  - formula.folder_topic
+  - topic_label
+  - difficulty
+  - status

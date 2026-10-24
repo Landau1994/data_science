@@ -1,0 +1,37 @@
+filters:
+  and:
+  - file.hasTag("concept")
+formulas:
+  link_count: file.links.length
+  backlink_count: file.backlinks.length
+  last_updated: file.mtime.relative()
+properties:
+  formula.link_count:
+    displayName: 出链数
+  formula.backlink_count:
+    displayName: 反向链接数
+  formula.last_updated:
+    displayName: 更新时间
+  topic_label:
+    displayName: 主题
+views:
+- type: table
+  name: 全部概念
+  groupBy:
+    property: topic_label
+    direction: ASC
+  order:
+  - file.name
+  - topic_label
+  - formula.link_count
+  - formula.backlink_count
+  - formula.last_updated
+  - source
+  - source_status
+- type: table
+  name: 引用较多
+  order:
+  - file.name
+  - topic_label
+  - formula.backlink_count
+  limit: 20

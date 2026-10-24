@@ -1,0 +1,76 @@
+summaries:
+  completion_rate: values.filter(value == "completed").length.toString() + "/" + values.length.toString()
+filters:
+  and:
+  - file.hasTag("exercise")
+formulas:
+  days_since_created: ((now() - file.ctime) / 86400000).round(0)
+  status_icon: if(status == "completed", "✅", if(status == "in-progress", "🔄", "⏳"))
+  difficulty_stars: if(difficulty == "beginner", "⭐", if(difficulty == "intermediate",
+    "⭐⭐", "⭐⭐⭐"))
+properties:
+  status:
+    displayName: 状态
+  difficulty:
+    displayName: 难度
+  source:
+    displayName: 来源
+  formula.difficulty_stars:
+    displayName: 难度等级
+  topic_label:
+    displayName: 主题
+views:
+- type: table
+  name: 全部习题
+  groupBy:
+    property: topic_label
+    direction: ASC
+  order:
+  - formula.status_icon
+  - file.name
+  - topic_label
+  - formula.difficulty_stars
+  - source
+  - status
+  - difficulty
+  sort:
+  - property: difficulty
+    direction: ASC
+  - property: status
+    direction: DESC
+  - property: source
+    direction: ASC
+  summaries:
+    status: completion_rate
+  columnSize:
+    file.name: 185
+    note.source: 447
+- type: table
+  name: 待学习
+  filters:
+    and:
+    - status != "completed"
+  order:
+  - file.name
+  - topic_label
+  - formula.difficulty_stars
+  - source
+- type: table
+  name: 已完成
+  filters:
+    and:
+    - status == "completed"
+  order:
+  - file.name
+  - topic_label
+  - file.mtime
+- type: table
+  name: 按难度
+  groupBy:
+    property: difficulty
+    direction: ASC
+  order:
+  - formula.status_icon
+  - file.name
+  - topic_label
+  - source

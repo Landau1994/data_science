@@ -1,0 +1,27 @@
+# 文本统一以 LF 存入仓库，避免 Windows 与 macOS/Linux 之间的换行差异
+* text=auto
+
+*.md text
+*.json text
+*.jsonl text
+*.py text
+*.canvas text
+*.css text
+*.js text
+*.yml text
+*.yaml text
+*.toml text
+*.sh text
+
+# 二进制文件不做换行转换
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.xlsx binary
+*.docx binary
+*.ipynb binary
