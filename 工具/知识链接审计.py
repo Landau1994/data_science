@@ -73,6 +73,8 @@ def main():
                 errors.append(f"概念缺字段 {field}：{key}")
         if not isinstance(meta.get("source"), str) or "[[" in meta.get("source", "") or re.search(r"\[[^\]]+\]\(", meta.get("source", "")):
             errors.append(f"概念source应为教材名和定位的普通文字：{key}")
+        if isinstance(meta.get("source"), str) and re.match(r"^DS\d{3}(?:\b|\s|；|，)", meta["source"]):
+            errors.append(f"概念source需写完整题名，不能仅用来源编号：{key}")
         if meta.get("topic") != TOPICS.get(key.split("/", 1)[0]):
             errors.append(f"概念主题与路径不符：{key}")
         if meta.get("source_status") not in {"unverified", "partially-verified", "verified"}:
