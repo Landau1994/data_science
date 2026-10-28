@@ -15,7 +15,7 @@ created: 2026-10-24
 
 ## 学习范围
 
-研究如何把模型、工具、数据、状态与评价组织成可检查的工作系统。当前入口集中在智能体（agent）、运行支撑（harness）及实验室闭环（lab in the loop）；这些笔记记录概念和设计边界，不表示本库已有对应运行系统或真实实验成果。
+研究如何把模型、工具、数据、状态与评价组织成可检查的工作系统。当前入口包括智能体（agent）、运行支撑（harness）、实验室闭环（lab in the loop）与价值对齐（value alignment）；这些笔记记录概念和设计边界，不表示本库已有对应运行系统或真实实验成果。
 
 ## 学习路线
 
@@ -30,6 +30,7 @@ created: 2026-10-24
 - [[10 - AI工程/概念/实验室闭环|实验室闭环]]
 - [[10 - AI工程/概念/智能体|智能体]]
 - [[10 - AI工程/概念/智能体运行支撑|智能体运行支撑]]
+- [[10 - AI工程/概念/价值对齐|价值对齐]]
 
 ```dataview
 TABLE WITHOUT ID file.link AS "概念", source_status AS "来源状态"
@@ -49,6 +50,7 @@ SORT file.name ASC
 
 ## 来源入口
 
+- [[00 - 首页/教材归档/DS001 - Understanding Deep Learning|DS001：第21章价值对齐与目标代理]]。
 - [[00 - 首页/教材归档/DS018 - Building Effective Agents|DS018：智能体与预设工作流的区分]]。
 - [[00 - 首页/教材归档/DS019 - Effective Harnesses for Long-running Agents|DS019：跨会话推进和验证]]。
 - [[00 - 首页/教材归档/DS020 - Scaling Managed Agents|DS020：会话、运行循环与执行环境的接口]]。
