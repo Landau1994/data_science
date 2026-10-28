@@ -1,0 +1,39 @@
+{
+  "python": "3.10.6",
+  "numpy": "1.26.2",
+  "scipy": "1.11.4",
+  "matplotlib": "3.8.2",
+  "seed": 20261028,
+  "rng": "PCG64",
+  "sample_count_per_dimension": 20000,
+  "statistics": [
+    {
+      "dimension": 25,
+      "n": 20000,
+      "sample_mean": 4.94565148693957,
+      "sample_std_ddof0": 0.7081272593695032,
+      "sample_relative_std": 0.14318179540946607,
+      "theoretical_mean": 4.950262344204532,
+      "theoretical_std": 0.703493229214505
+    },
+    {
+      "dimension": 100,
+      "n": 20000,
+      "sample_mean": 9.977590432481634,
+      "sample_std_ddof0": 0.6993447685509304,
+      "sample_relative_std": 0.07009154898503775,
+      "theoretical_mean": 9.975031639551357,
+      "theoretical_std": 0.7062179479093961
+    },
+    {
+      "dimension": 500,
+      "n": 20000,
+      "sample_mean": 22.346606818130994,
+      "sample_std_ddof0": 0.7045229486498659,
+      "sample_relative_std": 0.03152706602768206,
+      "theoretical_mean": 22.34950223717924,
+      "theoretical_std": 0.7069298057941257
+    }
+  ],
+  "scope": "Finite independent samples in the three specified dimensions; exact law derived in note"
+}

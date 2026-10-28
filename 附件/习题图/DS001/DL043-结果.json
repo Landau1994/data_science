@@ -1,0 +1,14 @@
+{
+  "python": "3.10.6",
+  "numpy": "1.26.2",
+  "matplotlib": "3.8.2",
+  "seed": 20261028,
+  "rng": "PCG64",
+  "n_per_class": 10,
+  "grid_shape": [
+    161,
+    161
+  ],
+  "grid_minimum": 1.4873401270709934,
+  "finite_scope": "Only the stated 20 draws and 161x161 grid; convexity proved analytically in note"
+}

@@ -1,0 +1,27 @@
+{
+  "script_sha256": "3c83ac9238f038b693932012c084feedd9fb6b2661e121127c658c91520f7e02",
+  "script_snapshot": "analysis-script.R",
+  "runs": {
+    "6.8": {
+      "listed_outputs": 51,
+      "checksum_errors": [],
+      "bytes": 183798
+    },
+    "6.9": {
+      "listed_outputs": 28,
+      "checksum_errors": [],
+      "bytes": 982520,
+      "rows": 777,
+      "train": 543,
+      "test": 234
+    },
+    "6.11": {
+      "listed_outputs": 24,
+      "checksum_errors": [],
+      "bytes": 269059,
+      "rows": 506,
+      "train": 354,
+      "test": 152
+    }
+  }
+}

@@ -2,9 +2,15 @@
 title: "统计学习原理（The Elements of Statistical Learning）"
 tags:
   - source
+  - exercise-archive
+  - reading-ledger
 status: not-started
 source_id: DS014
 source_kind: book
+archive_status: in-progress
+archived_chapters: []
+partially_archived_chapters: [3]
+archived_exercise_count: 1
 source_status: partially-verified
 author: ["Trevor Hastie","Robert Tibshirani","Jerome Friedman"]
 year: null
@@ -12,7 +18,8 @@ edition: "第二版；封面图像注明 2017-01-13 更正第 12 次印刷；原
 location: "附件/books/ESLII_print12.pdf"
 url: ""
 pdf_pages: 764
-checked: 2026-10-24
+checked: 2026-10-25
+updated: 2026-10-25
 created: 2026-10-24
 ---
 
@@ -39,6 +46,9 @@ PDF 物理页从文件第一面起按 1 计数；下表区分印刷页码与物�
 | 第二版前言及落款 | vii–ix（首面未显页码） | 4–6 |
 | 目录 | xiii–xxii（首面未显页码） | 10–19 |
 | 第 1 章起始页 | 1（本页未显页码） | 20 |
+| §3.4.3 式 (3.54)：弹性网络惩罚及权重约定 | 73 | 92 |
+| 第 3 章 Exercise 3.30：弹性网络的增广数据表示 | 99 | 118 |
+| §18.4 式 (18.20)–(18.21)：另一权重约定与应用语境 | 662–663 | 681–682 |
 
 ### 本轮概念正文核对入口
 
@@ -55,6 +65,25 @@ PDF 物理页从文件第一面起按 1 计数；下表区分印刷页码与物�
 - [[04 - 统计学习/概念/正则化|正则化]]（regularization）。
 - [[04 - 统计学习/概念/模型评价|模型评价]]（model assessment）。
 - [[04 - 统计学习/概念/集成学习|集成学习]]（ensemble learning）。
+- [[04 - 统计学习/概念/弹性网络|弹性网络]]（elastic net）：第 3 章与第 18 章的 $\alpha$ 权重位置相反，概念与习题均明确所用约定。
+
+## 学习与归档
+
+本轮只归档第 3 章 **Exercise 3.30，共 1 题**，作为 ISLR 正则化习题的弹性网络补充。题目已查看原页，英文原题、中文转述与增广目标恒等式独立推导见下表中的 ML013。选题映射检查：预期 1、实际 1，缺失、重复、多余、无法解析均为 0。未审计第 3 章全部题号和总数，因此本章及全书均不标归档完成；个人学习仍为 `not-started`。
+
+### 习题归档
+
+```dataview
+TABLE WITHOUT ID
+  source_chapter AS "章节",
+  source_exercise AS "原书题号",
+  file.link AS "习题",
+  choice(difficulty = "beginner", "入门", choice(difficulty = "intermediate", "中级", "进阶")) AS "难度",
+  choice(status = "completed", "已完成", choice(status = "in-progress", "正在学习", "尚未开始")) AS "学习状态"
+FROM #exercise
+WHERE this.source_id AND source_id = this.source_id
+SORT number(source_chapter) ASC, number(split(source_exercise, "[.]")[1]) ASC
+```
 
 ## 来源问题与边界
 

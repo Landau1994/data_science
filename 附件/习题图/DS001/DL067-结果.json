@@ -1,0 +1,24 @@
+{
+  "python": "3.10.6",
+  "torch": "2.1.2+cpu",
+  "numpy": "1.26.2",
+  "matplotlib": "3.8.2",
+  "seed": 20261028,
+  "device": "cpu",
+  "threads": 1,
+  "architecture": [
+    10,
+    40,
+    40,
+    1
+  ],
+  "epochs": 100,
+  "batch_size": 10,
+  "optimizer": "SGD lr=.1 momentum=.9",
+  "scheduler": "StepLR step_size=10 gamma=.5",
+  "loss": "BCELoss",
+  "first_epoch_sum": 8.06045377254486,
+  "final_epoch_sum": 0.03872584167402238,
+  "final_full_training_mean": 0.003871877444908023,
+  "finite_scope": "One seeded synthetic training run, no held-out evaluation"
+}

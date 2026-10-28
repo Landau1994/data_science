@@ -1,0 +1,15 @@
+{
+  "python": "3.10.6",
+  "numpy": "1.26.2",
+  "matplotlib": "3.8.2",
+  "display_domain": [
+    -2,
+    2
+  ],
+  "continuous_penalty_grid": [
+    601,
+    601
+  ],
+  "L0": "2 off axes; 1 on axes except origin; 0 at origin. Axes and origin are explicitly drawn with visible width, not smoothed neighborhoods.",
+  "formula": "sum_j abs(phi_j)^P for P>0; nonzero count for P=0"
+}

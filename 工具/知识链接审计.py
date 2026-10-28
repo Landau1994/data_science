@@ -107,9 +107,10 @@ def main():
     for key, note in exercises.items():
         for concept in sorted({resolve(v) for v in links(note["body"])} & concepts.keys()):
             physical_return = key in {resolve(v) for v in links(concepts[concept]["body"])}
-            relation_rows.append({"exercise": key, "concept": concept, "dynamic_return": True, "explicit_return": physical_return})
-            if not physical_return:
-                errors.append(f"习题概念缺正文回指：{key} <-> {concept}")
+            dynamic_return = bool(re.search(r"FROM\s+#exercise\s+WHERE\s+contains\(file\.outlinks,\s*this\.file\.link\)", concepts[concept]["body"]))
+            relation_rows.append({"exercise": key, "concept": concept, "dynamic_return": dynamic_return, "explicit_return": physical_return})
+            if not dynamic_return:
+                errors.append(f"习题概念缺动态回查：{key} <-> {concept}")
     for concept, note in concepts.items():
         for exercise in {resolve(v) for v in links(note["body"])} & exercises.keys():
             if concept not in {resolve(v) for v in links(exercises[exercise]["body"])}:

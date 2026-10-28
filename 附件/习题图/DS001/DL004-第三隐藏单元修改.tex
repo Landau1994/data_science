@@ -1,0 +1,86 @@
+\documentclass[border=4mm]{standalone}
+\usepackage[UTF8,fontset=none]{ctex}
+\setCJKmainfont[Script=Default]{FandolSong-Regular}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.18}
+\definecolor{unitone}{HTML}{D47D5A}
+\definecolor{unittwo}{HTML}{79C4BF}
+\definecolor{unitthree}{HTML}{424C50}
+\definecolor{outputline}{HTML}{456577}
+% Independent solution figure for UDL Problem 3.4.
+% Sources: UDL Fig.3.3 (printed28/PDF42), Fig.3.14c (printed39/PDF53),
+% original unchanged coefficients explicitly listed in Problem3.8 (printed40/PDF54).
+% Fig.3.14c does NOT print exact changed coefficients.
+% Chosen illustrative realization only: z3=-1.1+0.7x, gamma=.7, t=11/7.
+% Panel order and shared coordinate scales follow Fig.3.3.
+% Three exact breakpoints .5, 1, 11/7; no smoothing across joints.
+\begin{document}
+\begin{tikzpicture}
+\begin{groupplot}[
+  group style={group size=3 by 4,horizontal sep=9mm,vertical sep=11mm},
+  width=49mm,height=42mm,
+  xmin=0,xmax=2,ymin=-1,ymax=1,
+  xtick={0,1,2},ytick={-1,0,1},
+  tick label style={font=\footnotesize},
+  label style={font=\small},
+  axis line style={black,thin},tick style={black,thin},
+  every axis plot/.append style={line width=1.1pt},
+  clip=true,
+  title style={at={(-0.02,1.01)},anchor=south east,font=\small},
+  every axis/.append style={
+    extra y ticks={0},extra y tick labels={},
+    extra y tick style={grid=major,grid style={gray!45,densely dotted}},
+  },
+]
+\nextgroupplot[title={a)},ylabel={输出}]
+\addplot[unitone] coordinates {(0,-0.2)(2,0.6)};
+\node[font=\small,text=unitone!80!black] at (rel axis cs:0.5,0.08) {$z_1=-0.2+0.4x$};
+\nextgroupplot[title={b)}]
+\addplot[unittwo] coordinates {(0,-0.9)(2,0.9)};
+\node[font=\small,text=unittwo!70!black] at (rel axis cs:0.5,0.08) {$z_2=-0.9+0.9x$};
+\nextgroupplot[title={c)}]
+\addplot[unitthree] coordinates {(0,-1.1)(2,0.3)};
+\node[font=\small,text=unitthree] at (rel axis cs:0.5,0.85) {$z'_3=-1.1+0.7x$};
+\nextgroupplot[title={d)},ylabel={输出}]
+\addplot[gray!50,densely dashed,thin] coordinates {(0.5,-1)(0.5,1)};
+\addplot[unitone] coordinates {(0,0)(0.5,0)(2,0.6)};
+\node[font=\small,text=unitone!80!black] at (rel axis cs:0.5,0.08) {$h_1=\max(0,z_1)$};
+\nextgroupplot[title={e)}]
+\addplot[gray!50,densely dashed,thin] coordinates {(1,-1)(1,1)};
+\addplot[unittwo] coordinates {(0,0)(1,0)(2,0.9)};
+\node[font=\small,text=unittwo!70!black] at (rel axis cs:0.5,0.08) {$h_2=\max(0,z_2)$};
+\nextgroupplot[title={f)}]
+\addplot[gray!50,densely dashed,thin] coordinates {(1.5714285714,-1)(1.5714285714,1)};
+\addplot[unitthree] coordinates {(0,0)(1.5714285714,0)(2,0.3)};
+\node[font=\small,text=unitthree] at (rel axis cs:0.5,0.08) {$h'_3=\max(0,z'_3)$};
+\nextgroupplot[title={g)},ylabel={输出},xlabel={输入 $x$}]
+\addplot[gray!50,densely dashed,thin] coordinates {(0.5,-1)(0.5,1)};
+\addplot[unitone] coordinates {(0,0)(0.5,0)(2,-0.78)};
+\node[font=\small,text=unitone!80!black] at (rel axis cs:0.5,0.08) {$\phi_1h_1=-1.3h_1$};
+\nextgroupplot[title={h)},xlabel={输入 $x$}]
+\addplot[gray!50,densely dashed,thin] coordinates {(1,-1)(1,1)};
+\addplot[unittwo] coordinates {(0,0)(1,0)(2,1.17)};
+\node[font=\small,text=unittwo!70!black] at (rel axis cs:0.5,0.08) {$\phi_2h_2=1.3h_2$};
+\nextgroupplot[title={i)},xlabel={输入 $x$}]
+\addplot[gray!50,densely dashed,thin] coordinates {(1.5714285714,-1)(1.5714285714,1)};
+\addplot[unitthree] coordinates {(0,0)(1.5714285714,0)(2,0.198)};
+\node[font=\small,text=unitthree] at (rel axis cs:0.5,0.08) {$\phi_3h'_3=0.66h'_3$};
+\nextgroupplot[group/empty plot]
+\nextgroupplot[title={j)},ylabel={输出 $y$},xlabel={输入 $x$}]
+\addplot[gray!50,densely dashed,thin] coordinates {(0.5,-1)(0.5,1)};
+\addplot[gray!50,densely dashed,thin] coordinates {(1,-1)(1,1)};
+\addplot[gray!50,densely dashed,thin] coordinates {(1.5714285714,-1)(1.5714285714,1)};
+\addplot[outputline] coordinates {(0,-0.23)(0.5,-0.23)(1,-0.49)(1.5714285714,-0.1185714286)(2,0.358)};
+\node[font=\footnotesize,text=outputline] at (rel axis cs:0.5,0.84)
+  {$\begin{gathered}y=-0.23-1.3h_1\\{}+1.3h_2+0.66h'_3\end{gathered}$};
+\nextgroupplot[group/empty plot]
+\end{groupplot}
+\node[anchor=north,text width=155mm,align=center,font=\small]
+at ([yshift=-14mm]group c2r4.south) {
+  习题 DL004：第三隐藏单元改为递增后的十面板计算图。\\
+  本图选取 $z'_3=-1.1+0.7x$ 作独立数值示意；原图未标明精确修改系数。
+};
+\end{tikzpicture}
+\end{document}

@@ -4,11 +4,33 @@
   "source_language": "en",
   "source_file": "附件/books/UnderstandingDeepLearning_02_09_26_C.pdf",
   "source_sha256": "f8237d393163900fa8e43210e680a3f987b45ccac7750b372e156fae3df0bf32",
-  "scope": "仅第2章的原始题号与笔记映射；不含个人学习状态",
+  "scope": "本地2026-02-08修订稿第1–21章的全部章末编号习题；第1、14章已逐页核对为零题；不含个人学习状态",
   "chapters": {
+    "1": {
+      "title_zh": "导论",
+      "title_en": "Introduction",
+      "checked": "2026-10-25",
+      "printed_page_range": [
+        1,
+        16
+      ],
+      "pdf_page_range": [
+        15,
+        30
+      ],
+      "boundary_pdf_pages": [
+        31
+      ],
+      "audit_note": "逐页检查本章及下一章起始页，未设 Problems 或编号习题；§1.7 的 Notebook 1.1 是配套 notebook 提示，不计为来源习题。空题号集合表示已核对为零题。",
+      "printed_problem_pages": [],
+      "pdf_problem_pages": [],
+      "expected_exercises": [],
+      "exercises": []
+    },
     "2": {
       "title_zh": "监督学习",
       "title_en": "Supervised learning",
+      "checked": "2026-10-25",
       "printed_problem_pages": [
         24
       ],
@@ -43,6 +65,2103 @@
           "starred": true
         }
       ]
+    },
+    "3": {
+      "title_zh": "浅层神经网络",
+      "title_en": "Shallow neural networks",
+      "checked": "2026-10-25",
+      "printed_page_range": [
+        25,
+        40
+      ],
+      "pdf_page_range": [
+        39,
+        54
+      ],
+      "boundary_pdf_pages": [
+        55
+      ],
+      "printed_problem_pages": [
+        39,
+        40
+      ],
+      "pdf_problem_pages": [
+        53,
+        54
+      ],
+      "expected_exercises": [
+        "3.1",
+        "3.2",
+        "3.3",
+        "3.4",
+        "3.5",
+        "3.6",
+        "3.7",
+        "3.8",
+        "3.9",
+        "3.10",
+        "3.11",
+        "3.12",
+        "3.13",
+        "3.14",
+        "3.15",
+        "3.16",
+        "3.17",
+        "3.18"
+      ],
+      "starred_exercises": [
+        "3.3",
+        "3.9",
+        "3.11",
+        "3.15",
+        "3.17",
+        "3.18"
+      ],
+      "audit_note": "原题位于连续两页，3.1–3.5在印刷39/PDF53，3.6–3.18在印刷40/PDF54；全部分问各归入同题笔记。3.4原图未标改后系数精确数值，解答采用参数化关系并明确区分绘图示例取值。",
+      "figure_dependencies": [
+        {
+          "figure": "3.3",
+          "printed_page": 28,
+          "pdf_page": 42,
+          "asset": "附件/习题图/DS001/原图-3.3.png"
+        },
+        {
+          "figure": "3.6",
+          "printed_page": 31,
+          "pdf_page": 45,
+          "asset": "附件/习题图/DS001/原图-3.6.png"
+        },
+        {
+          "figure": "3.7",
+          "printed_page": 31,
+          "pdf_page": 45,
+          "asset": "附件/习题图/DS001/原图-3.7.png"
+        },
+        {
+          "figure": "3.8",
+          "printed_page": 32,
+          "pdf_page": 46,
+          "asset": "附件/习题图/DS001/原图-3.8.png"
+        },
+        {
+          "figure": "3.11",
+          "printed_page": 35,
+          "pdf_page": 49,
+          "asset": "附件/习题图/DS001/原图-3.11.png"
+        },
+        {
+          "figure": "3.14",
+          "printed_page": 39,
+          "pdf_page": 53,
+          "asset": "附件/习题图/DS001/原图-3.14.png"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": "3.1",
+          "local_id": "DL001",
+          "title_zh": "线性激活下的网络退化",
+          "note": "06 - 深度学习/习题/习题 DL001 - 线性激活下的网络退化.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "3.2",
+          "local_id": "DL002",
+          "title_zh": "四个区间的激活模式",
+          "note": "06 - 深度学习/习题/习题 DL002 - 四个区间的激活模式.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "3.3",
+          "local_id": "DL003",
+          "title_zh": "折点位置与分段斜率",
+          "note": "06 - 深度学习/习题/习题 DL003 - 折点位置与分段斜率.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "3.4",
+          "local_id": "DL004",
+          "title_zh": "改变第三隐藏单元后的网络",
+          "note": "06 - 深度学习/习题/习题 DL004 - 改变第三隐藏单元后的网络.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "3.5",
+          "local_id": "DL005",
+          "title_zh": "ReLU的非负齐次性",
+          "note": "06 - 深度学习/习题/习题 DL005 - ReLU的非负齐次性.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "3.6",
+          "local_id": "DL006",
+          "title_zh": "隐藏单元的缩放对称性",
+          "note": "06 - 深度学习/习题/习题 DL006 - 隐藏单元的缩放对称性.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "3.7",
+          "local_id": "DL007",
+          "title_zh": "最小二乘拟合的参数不唯一",
+          "note": "06 - 深度学习/习题/习题 DL007 - 最小二乘拟合的参数不唯一.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "3.8",
+          "local_id": "DL008",
+          "title_zh": "三种激活函数的逐层计算图",
+          "note": "06 - 深度学习/习题/习题 DL008 - 三种激活函数的逐层计算图.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "3.9",
+          "local_id": "DL009",
+          "title_zh": "四个线性区域的斜率关系",
+          "note": "06 - 深度学习/习题/习题 DL009 - 四个线性区域的斜率关系.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "3.10",
+          "local_id": "DL010",
+          "title_zh": "少于四个线性区域的条件",
+          "note": "06 - 深度学习/习题/习题 DL010 - 少于四个线性区域的条件.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "3.11",
+          "local_id": "DL011",
+          "title_zh": "一输入四隐藏单元双输出的参数量",
+          "note": "06 - 深度学习/习题/习题 DL011 - 一输入四隐藏单元双输出的参数量.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "3.12",
+          "local_id": "DL012",
+          "title_zh": "双输入三隐藏单元单输出的参数量",
+          "note": "06 - 深度学习/习题/习题 DL012 - 双输入三隐藏单元单输出的参数量.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "3.13",
+          "local_id": "DL013",
+          "title_zh": "二维输入的七种激活模式",
+          "note": "06 - 深度学习/习题/习题 DL013 - 二维输入的七种激活模式.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "3.14",
+          "local_id": "DL014",
+          "title_zh": "三输入双输出网络的方程",
+          "note": "06 - 深度学习/习题/习题 DL014 - 三输入双输出网络的方程.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "3.15",
+          "local_id": "DL015",
+          "title_zh": "三个隐藏单元的三维区域数",
+          "note": "06 - 深度学习/习题/习题 DL015 - 三个隐藏单元的三维区域数.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "3.16",
+          "local_id": "DL016",
+          "title_zh": "两输入四隐藏三输出网络",
+          "note": "06 - 深度学习/习题/习题 DL016 - 两输入四隐藏三输出网络.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "3.17",
+          "local_id": "DL017",
+          "title_zh": "浅层全连接网络的参数总数",
+          "note": "06 - 深度学习/习题/习题 DL017 - 浅层全连接网络的参数总数.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "3.18",
+          "local_id": "DL018",
+          "title_zh": "二维浅层网络的最大区域数",
+          "note": "06 - 深度学习/习题/习题 DL018 - 二维浅层网络的最大区域数.md",
+          "starred": true
+        }
+      ]
+    },
+    "4": {
+      "title_zh": "深层神经网络",
+      "title_en": "Deep neural networks",
+      "checked": "2026-10-28",
+      "printed_page_range": [
+        41,
+        55
+      ],
+      "pdf_page_range": [
+        55,
+        69
+      ],
+      "boundary_pdf_pages": [
+        70
+      ],
+      "printed_problem_pages": [
+        53,
+        54,
+        55
+      ],
+      "pdf_problem_pages": [
+        67,
+        68,
+        69
+      ],
+      "expected_exercises": [
+        "4.1",
+        "4.2",
+        "4.3",
+        "4.4",
+        "4.5",
+        "4.6",
+        "4.7",
+        "4.8",
+        "4.9",
+        "4.10",
+        "4.11"
+      ],
+      "starred_exercises": [
+        "4.1",
+        "4.8",
+        "4.9",
+        "4.11"
+      ],
+      "audit_note": "原题4.1–4.2在印刷53/PDF67，4.3–4.6在印刷54/PDF68，4.7–4.11在印刷55/PDF69；图4.8在题4.1下一页。保留4.3原文非负缩放的零分母问题，4.8复合次数约定，以及4.11所引式(4.17)的一般精确性疑误；分别在习题中说明。",
+      "figure_dependencies": [
+        {
+          "figure": "4.6",
+          "printed_page": 48,
+          "pdf_page": 62,
+          "asset": "附件/习题图/DS001/原图-4.6.png"
+        },
+        {
+          "figure": "4.8",
+          "printed_page": 54,
+          "pdf_page": 68,
+          "asset": "附件/习题图/DS001/原图-4.8.png"
+        },
+        {
+          "figure": "4.9",
+          "printed_page": 55,
+          "pdf_page": 69,
+          "asset": "附件/习题图/DS001/原图-4.9.png"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": "4.1",
+          "local_id": "DL019",
+          "title_zh": "两个折线网络的复合",
+          "note": "06 - 深度学习/习题/习题 DL019 - 两个折线网络的复合.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "4.2",
+          "local_id": "DL020",
+          "title_zh": "深层网络的四个结构超参数",
+          "note": "06 - 深度学习/习题/习题 DL020 - 深层网络的四个结构超参数.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "4.3",
+          "local_id": "DL021",
+          "title_zh": "两层ReLU网络的尺度重分配",
+          "note": "06 - 深度学习/习题/习题 DL021 - 两层ReLU网络的尺度重分配.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "4.4",
+          "local_id": "DL022",
+          "title_zh": "三隐藏层网络的矩阵方程与维数",
+          "note": "06 - 深度学习/习题/习题 DL022 - 三隐藏层网络的矩阵方程与维数.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "4.5",
+          "local_id": "DL023",
+          "title_zh": "网络深度与宽度的读法",
+          "note": "06 - 深度学习/习题/习题 DL023 - 网络深度与宽度的读法.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "4.6",
+          "local_id": "DL024",
+          "title_zh": "增加深度和宽度的权重代价",
+          "note": "06 - 深度学习/习题/习题 DL024 - 增加深度和宽度的权重代价.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "4.7",
+          "local_id": "DL025",
+          "title_zh": "用ReLU网络表示恒等映射",
+          "note": "06 - 深度学习/习题/习题 DL025 - 用ReLU网络表示恒等映射.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "4.8",
+          "local_id": "DL026",
+          "title_zh": "四段折叠函数及其重复复合",
+          "note": "06 - 深度学习/习题/习题 DL026 - 四段折叠函数及其重复复合.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "4.9",
+          "local_id": "DL027",
+          "title_zh": "两单元与四单元的满幅往返能力",
+          "note": "06 - 深度学习/习题/习题 DL027 - 两单元与四单元的满幅往返能力.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "4.10",
+          "local_id": "DL028",
+          "title_zh": "等宽深层网络的参数量",
+          "note": "06 - 深度学习/习题/习题 DL028 - 等宽深层网络的参数量.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "4.11",
+          "local_id": "DL029",
+          "title_zh": "同参数量深浅网络的区域数与计算",
+          "note": "06 - 深度学习/习题/习题 DL029 - 同参数量深浅网络的区域数与计算.md",
+          "starred": true
+        }
+      ]
+    },
+    "5": {
+      "title_zh": "损失函数",
+      "title_en": "Loss functions",
+      "checked": "2026-10-28",
+      "printed_problem_pages": [
+        74,
+        75,
+        76
+      ],
+      "pdf_problem_pages": [
+        88,
+        89,
+        90
+      ],
+      "expected_exercises": [
+        "5.1",
+        "5.2",
+        "5.3",
+        "5.4",
+        "5.5",
+        "5.6",
+        "5.7",
+        "5.8",
+        "5.9",
+        "5.10"
+      ],
+      "starred_exercises": [
+        "5.3",
+        "5.4",
+        "5.8",
+        "5.9"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "5.1",
+          "local_id": "DL030",
+          "title_zh": "Sigmoid的端点与极限",
+          "note": "06 - 深度学习/习题/习题 DL030 - Sigmoid的端点与极限.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "5.2",
+          "local_id": "DL031",
+          "title_zh": "二元交叉熵的两条损失曲线",
+          "note": "06 - 深度学习/习题/习题 DL031 - 二元交叉熵的两条损失曲线.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "5.3",
+          "local_id": "DL032",
+          "title_zh": "风向的vonMises损失",
+          "note": "06 - 深度学习/习题/习题 DL032 - 风向的vonMises损失.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "5.4",
+          "local_id": "DL033",
+          "title_zh": "双高斯混合的条件似然",
+          "note": "06 - 深度学习/习题/习题 DL033 - 双高斯混合的条件似然.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "5.5",
+          "local_id": "DL034",
+          "title_zh": "双vonMises混合的网络输出",
+          "note": "06 - 深度学习/习题/习题 DL034 - 双vonMises混合的网络输出.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "5.6",
+          "local_id": "DL035",
+          "title_zh": "泊松计数回归损失",
+          "note": "06 - 深度学习/习题/习题 DL035 - 泊松计数回归损失.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "5.7",
+          "local_id": "DL036",
+          "title_zh": "十维独立高斯与平方损失",
+          "note": "06 - 深度学习/习题/习题 DL036 - 十维独立高斯与平方损失.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "5.8",
+          "local_id": "DL037",
+          "title_zh": "多维异方差高斯损失",
+          "note": "06 - 深度学习/习题/习题 DL037 - 多维异方差高斯损失.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "5.9",
+          "local_id": "DL038",
+          "title_zh": "不同物理量尺度的回归",
+          "note": "06 - 深度学习/习题/习题 DL038 - 不同物理量尺度的回归.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "5.10",
+          "local_id": "DL039",
+          "title_zh": "风向与风速的联合损失",
+          "note": "06 - 深度学习/习题/习题 DL039 - 风向与风速的联合损失.md",
+          "starred": false
+        }
+      ]
+    },
+    "6": {
+      "title_zh": "模型拟合",
+      "title_en": "Fitting models",
+      "checked": "2026-10-28",
+      "printed_problem_pages": [
+        94,
+        95
+      ],
+      "pdf_problem_pages": [
+        108,
+        109
+      ],
+      "expected_exercises": [
+        "6.1",
+        "6.2",
+        "6.3",
+        "6.4",
+        "6.5",
+        "6.6",
+        "6.7",
+        "6.8",
+        "6.9",
+        "6.10",
+        "6.11"
+      ],
+      "starred_exercises": [
+        "6.4",
+        "6.5",
+        "6.7",
+        "6.8"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "6.1",
+          "local_id": "DL040",
+          "title_zh": "最小二乘损失的参数导数",
+          "note": "06 - 深度学习/习题/习题 DL040 - 最小二乘损失的参数导数.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "6.2",
+          "local_id": "DL041",
+          "title_zh": "线性回归Hessian的正定性",
+          "note": "06 - 深度学习/习题/习题 DL041 - 线性回归Hessian的正定性.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "6.3",
+          "local_id": "DL042",
+          "title_zh": "Gabor模型的平方损失梯度",
+          "note": "06 - 深度学习/习题/习题 DL042 - Gabor模型的平方损失梯度.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "6.4",
+          "local_id": "DL043",
+          "title_zh": "逻辑回归的损失梯度与热图",
+          "note": "06 - 深度学习/习题/习题 DL043 - 逻辑回归的损失梯度与热图.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "6.5",
+          "local_id": "DL044",
+          "title_zh": "三ReLU网络的十个参数梯度",
+          "note": "06 - 深度学习/习题/习题 DL044 - 三ReLU网络的十个参数梯度.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "6.6",
+          "local_id": "DL045",
+          "title_zh": "读图判断凸性与极小值",
+          "note": "06 - 深度学习/习题/习题 DL045 - 读图判断凸性与极小值.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "6.7",
+          "local_id": "DL046",
+          "title_zh": "谷底振荡与线搜索正交",
+          "note": "06 - 深度学习/习题/习题 DL046 - 谷底振荡与线搜索正交.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "6.8",
+          "local_id": "DL047",
+          "title_zh": "固定步长能否跨出局部谷",
+          "note": "06 - 深度学习/习题/习题 DL047 - 固定步长能否跨出局部谷.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "6.9",
+          "local_id": "DL048",
+          "title_zh": "小批次迭代与训练轮数",
+          "note": "06 - 深度学习/习题/习题 DL048 - 小批次迭代与训练轮数.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "6.10",
+          "local_id": "DL049",
+          "title_zh": "动量的历史梯度权重",
+          "note": "06 - 深度学习/习题/习题 DL049 - 动量的历史梯度权重.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "6.11",
+          "local_id": "DL050",
+          "title_zh": "百万参数Hessian的形状",
+          "note": "06 - 深度学习/习题/习题 DL050 - 百万参数Hessian的形状.md",
+          "starred": false
+        }
+      ]
+    },
+    "7": {
+      "title_zh": "梯度与初始化",
+      "title_en": "Gradients and initialization",
+      "checked": "2026-10-28",
+      "printed_problem_pages": [
+        114,
+        115,
+        116,
+        117
+      ],
+      "pdf_problem_pages": [
+        128,
+        129,
+        130,
+        131
+      ],
+      "expected_exercises": [
+        "7.1",
+        "7.2",
+        "7.3",
+        "7.4",
+        "7.5",
+        "7.6",
+        "7.7",
+        "7.8",
+        "7.9",
+        "7.10",
+        "7.11",
+        "7.12",
+        "7.13",
+        "7.14",
+        "7.15",
+        "7.16",
+        "7.17"
+      ],
+      "starred_exercises": [
+        "7.6",
+        "7.9",
+        "7.10",
+        "7.12",
+        "7.13"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "7.1",
+          "local_id": "DL051",
+          "title_zh": "双层网络的十三个直接导数",
+          "note": "06 - 深度学习/习题/习题 DL051 - 双层网络的十三个直接导数.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "7.2",
+          "local_id": "DL052",
+          "title_zh": "反向链条中的局部导数",
+          "note": "06 - 深度学习/习题/习题 DL052 - 反向链条中的局部导数.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "7.3",
+          "local_id": "DL053",
+          "title_zh": "矩阵导数链的维数",
+          "note": "06 - 深度学习/习题/习题 DL053 - 矩阵导数链的维数.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "7.4",
+          "local_id": "DL054",
+          "title_zh": "平方损失对模型输出的导数",
+          "note": "06 - 深度学习/习题/习题 DL054 - 平方损失对模型输出的导数.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "7.5",
+          "local_id": "DL055",
+          "title_zh": "二元交叉熵对logit的导数",
+          "note": "06 - 深度学习/习题/习题 DL055 - 二元交叉熵对logit的导数.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "7.6",
+          "local_id": "DL056",
+          "title_zh": "仿射层的转置Jacobian约定",
+          "note": "06 - 深度学习/习题/习题 DL056 - 仿射层的转置Jacobian约定.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "7.7",
+          "local_id": "DL057",
+          "title_zh": "Sigmoid激活的饱和导数",
+          "note": "06 - 深度学习/习题/习题 DL057 - Sigmoid激活的饱和导数.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "7.8",
+          "local_id": "DL058",
+          "title_zh": "阶跃与矩形激活的训练障碍",
+          "note": "06 - 深度学习/习题/习题 DL058 - 阶跃与矩形激活的训练障碍.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "7.9",
+          "local_id": "DL059",
+          "title_zh": "仿射权重梯度的外积形式",
+          "note": "06 - 深度学习/习题/习题 DL059 - 仿射权重梯度的外积形式.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "7.10",
+          "local_id": "DL060",
+          "title_zh": "LeakyReLU网络的反向传播",
+          "note": "06 - 深度学习/习题/习题 DL060 - LeakyReLU网络的反向传播.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "7.11",
+          "local_id": "DL061",
+          "title_zh": "五十层网络的梯度检查点",
+          "note": "06 - 深度学习/习题/习题 DL061 - 五十层网络的梯度检查点.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "7.12",
+          "local_id": "DL062",
+          "title_zh": "分叉计算图的反向微分",
+          "note": "06 - 深度学习/习题/习题 DL062 - 分叉计算图的反向微分.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "7.13",
+          "local_id": "DL063",
+          "title_zh": "前向微分与参数梯度成本",
+          "note": "06 - 深度学习/习题/习题 DL063 - 前向微分与参数梯度成本.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "7.14",
+          "local_id": "DL064",
+          "title_zh": "对称变量经ReLU后的二阶矩",
+          "note": "06 - 深度学习/习题/习题 DL064 - 对称变量经ReLU后的二阶矩.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "7.15",
+          "local_id": "DL065",
+          "title_zh": "全零初始化与隐藏单元对称",
+          "note": "06 - 深度学习/习题/习题 DL065 - 全零初始化与隐藏单元对称.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "7.16",
+          "local_id": "DL066",
+          "title_zh": "实际运行双隐藏层训练代码",
+          "note": "06 - 深度学习/习题/习题 DL066 - 实际运行双隐藏层训练代码.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "7.17",
+          "local_id": "DL067",
+          "title_zh": "把训练代码改为二元分类",
+          "note": "06 - 深度学习/习题/习题 DL067 - 把训练代码改为二元分类.md",
+          "starred": false
+        }
+      ]
+    },
+    "8": {
+      "title_zh": "性能评价",
+      "title_en": "Measuring performance",
+      "checked": "2026-10-28",
+      "printed_problem_pages": [
+        136,
+        137
+      ],
+      "pdf_problem_pages": [
+        150,
+        151
+      ],
+      "expected_exercises": [
+        "8.1",
+        "8.2",
+        "8.3",
+        "8.4",
+        "8.5",
+        "8.6",
+        "8.7",
+        "8.8",
+        "8.9"
+      ],
+      "starred_exercises": [
+        "8.3",
+        "8.8"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "8.1",
+          "local_id": "DL068",
+          "title_zh": "交叉熵能否精确降为零",
+          "note": "06 - 深度学习/习题/习题 DL068 - 交叉熵能否精确降为零.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "8.2",
+          "local_id": "DL069",
+          "title_zh": "等间距ReLU折点的固定参数",
+          "note": "06 - 深度学习/习题/习题 DL069 - 等间距ReLU折点的固定参数.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "8.3",
+          "local_id": "DL070",
+          "title_zh": "固定ReLU特征的闭式最小二乘",
+          "note": "06 - 深度学习/习题/习题 DL070 - 固定ReLU特征的闭式最小二乘.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "8.4",
+          "local_id": "DL071",
+          "title_zh": "增加样本与双下降阈值",
+          "note": "06 - 深度学习/习题/习题 DL071 - 增加样本与双下降阈值.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "8.5",
+          "local_id": "DL072",
+          "title_zh": "插值下异方差似然的方差塌缩",
+          "note": "06 - 深度学习/习题/习题 DL072 - 插值下异方差似然的方差塌缩.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "8.6",
+          "local_id": "DL073",
+          "title_zh": "高维高斯向量的近似正交",
+          "note": "06 - 深度学习/习题/习题 DL073 - 高维高斯向量的近似正交.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "8.7",
+          "local_id": "DL074",
+          "title_zh": "单位直径高维球的体积极限",
+          "note": "06 - 深度学习/习题/习题 DL074 - 单位直径高维球的体积极限.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "8.8",
+          "local_id": "DL075",
+          "title_zh": "高维球外百分之一薄壳",
+          "note": "06 - 深度学习/习题/习题 DL075 - 高维球外百分之一薄壳.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "8.9",
+          "local_id": "DL076",
+          "title_zh": "高斯样本半径的卡分布实验",
+          "note": "06 - 深度学习/习题/习题 DL076 - 高斯样本半径的卡分布实验.md",
+          "starred": false
+        }
+      ]
+    },
+    "9": {
+      "title_zh": "正则化",
+      "title_en": "Regularization",
+      "checked": "2026-10-28",
+      "printed_problem_pages": [
+        160
+      ],
+      "pdf_problem_pages": [
+        174
+      ],
+      "expected_exercises": [
+        "9.1",
+        "9.2",
+        "9.3",
+        "9.4",
+        "9.5",
+        "9.6"
+      ],
+      "starred_exercises": [
+        "9.3",
+        "9.4"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "9.1",
+          "local_id": "DL077",
+          "title_zh": "高斯参数先验与L2惩罚",
+          "note": "06 - 深度学习/习题/习题 DL077 - 高斯参数先验与L2惩罚.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "9.2",
+          "local_id": "DL078",
+          "title_zh": "L2正则化增加的梯度",
+          "note": "06 - 深度学习/习题/习题 DL078 - L2正则化增加的梯度.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "9.3",
+          "local_id": "DL079",
+          "title_zh": "输入高斯噪声的期望平方损失",
+          "note": "06 - 深度学习/习题/习题 DL079 - 输入高斯噪声的期望平方损失.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "9.4",
+          "local_id": "DL080",
+          "title_zh": "标签平滑的多类交叉熵",
+          "note": "06 - 深度学习/习题/习题 DL080 - 标签平滑的多类交叉熵.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "9.5",
+          "local_id": "DL081",
+          "title_zh": "权重衰减与普通梯度下降等价",
+          "note": "06 - 深度学习/习题/习题 DL081 - 权重衰减与普通梯度下降等价.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "9.6",
+          "local_id": "DL082",
+          "title_zh": "零次半次与一次正则项热图",
+          "note": "06 - 深度学习/习题/习题 DL082 - 零次半次与一次正则项热图.md",
+          "starred": false
+        }
+      ]
+    },
+    "10": {
+      "title_zh": "卷积网络",
+      "title_en": "Convolutional networks",
+      "checked": "2026-10-28",
+      "printed_problem_pages": [
+        184,
+        185
+      ],
+      "pdf_problem_pages": [
+        198,
+        199
+      ],
+      "expected_exercises": [
+        "10.1",
+        "10.2",
+        "10.3",
+        "10.4",
+        "10.5",
+        "10.6",
+        "10.7",
+        "10.8",
+        "10.9",
+        "10.10",
+        "10.11",
+        "10.12",
+        "10.13",
+        "10.14",
+        "10.15",
+        "10.16",
+        "10.17",
+        "10.18",
+        "10.19"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "10.1",
+          "local_id": "DL083",
+          "title_zh": "一维卷积的平移等变性",
+          "note": "06 - 深度学习/习题/习题 DL083 - 一维卷积的平移等变性.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "10.2",
+          "local_id": "DL084",
+          "title_zh": "步幅二卷积的索引公式",
+          "note": "06 - 深度学习/习题/习题 DL084 - 步幅二卷积的索引公式.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "10.3",
+          "local_id": "DL085",
+          "title_zh": "膨胀率二卷积的索引公式",
+          "note": "06 - 深度学习/习题/习题 DL085 - 膨胀率二卷积的索引公式.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "10.4",
+          "local_id": "DL086",
+          "title_zh": "核七膨胀三步幅三的卷积公式",
+          "note": "06 - 深度学习/习题/习题 DL086 - 核七膨胀三步幅三的卷积公式.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "10.5",
+          "local_id": "DL087",
+          "title_zh": "步幅核大小与膨胀卷积的权重矩阵",
+          "note": "06 - 深度学习/习题/习题 DL087 - 步幅核大小与膨胀卷积的权重矩阵.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "10.6",
+          "local_id": "DL088",
+          "title_zh": "单输入双输出通道的卷积矩阵",
+          "note": "06 - 深度学习/习题/习题 DL088 - 单输入双输出通道的卷积矩阵.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "10.7",
+          "local_id": "DL089",
+          "title_zh": "双输入单输出通道的卷积矩阵",
+          "note": "06 - 深度学习/习题/习题 DL089 - 双输入单输出通道的卷积矩阵.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "10.8",
+          "local_id": "DL090",
+          "title_zh": "一维多通道卷积的权重与偏置数量",
+          "note": "06 - 深度学习/习题/习题 DL090 - 一维多通道卷积的权重与偏置数量.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "10.9",
+          "local_id": "DL091",
+          "title_zh": "三层核三卷积的感受野",
+          "note": "06 - 深度学习/习题/习题 DL091 - 三层核三卷积的感受野.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "10.10",
+          "local_id": "DL092",
+          "title_zh": "三层核七卷积的感受野",
+          "note": "06 - 深度学习/习题/习题 DL092 - 三层核七卷积的感受野.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "10.11",
+          "local_id": "DL093",
+          "title_zh": "混合步幅与膨胀下的逐层感受野",
+          "note": "06 - 深度学习/习题/习题 DL093 - 混合步幅与膨胀下的逐层感受野.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "10.12",
+          "local_id": "DL094",
+          "title_zh": "由更新步数换算训练轮数",
+          "note": "06 - 深度学习/习题/习题 DL094 - 由更新步数换算训练轮数.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "10.13",
+          "local_id": "DL095",
+          "title_zh": "二维卷积的24阶共享权重矩阵",
+          "note": "06 - 深度学习/习题/习题 DL095 - 二维卷积的24阶共享权重矩阵.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "10.14",
+          "local_id": "DL096",
+          "title_zh": "二维多通道卷积的参数数量",
+          "note": "06 - 深度学习/习题/习题 DL096 - 二维多通道卷积的参数数量.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "10.15",
+          "local_id": "DL097",
+          "title_zh": "隔点抽样矩阵与步幅卷积的复合",
+          "note": "06 - 深度学习/习题/习题 DL097 - 隔点抽样矩阵与步幅卷积的复合.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "10.16",
+          "local_id": "DL098",
+          "title_zh": "AlexNet逐层参数的完整计数",
+          "note": "06 - 深度学习/习题/习题 DL098 - AlexNet逐层参数的完整计数.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "10.17",
+          "local_id": "DL099",
+          "title_zh": "AlexNet前三卷积层的感受野",
+          "note": "06 - 深度学习/习题/习题 DL099 - AlexNet前三卷积层的感受野.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "10.18",
+          "local_id": "DL100",
+          "title_zh": "VGG十九层网络的逐层参数",
+          "note": "06 - 深度学习/习题/习题 DL100 - VGG十九层网络的逐层参数.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "10.19",
+          "local_id": "DL101",
+          "title_zh": "三乘三卷积核的He初始化",
+          "note": "06 - 深度学习/习题/习题 DL101 - 三乘三卷积核的He初始化.md",
+          "starred": true
+        }
+      ]
+    },
+    "11": {
+      "title_zh": "残差网络",
+      "title_en": "Residual networks",
+      "checked": "2026-10-28",
+      "printed_problem_pages": [
+        205,
+        206
+      ],
+      "pdf_problem_pages": [
+        219,
+        220
+      ],
+      "expected_exercises": [
+        "11.1",
+        "11.2",
+        "11.3",
+        "11.4",
+        "11.5",
+        "11.6",
+        "11.7",
+        "11.8",
+        "11.9"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "11.1",
+          "local_id": "DL102",
+          "title_zh": "残差网络的逐层代入展开",
+          "note": "06 - 深度学习/习题/习题 DL102 - 残差网络的逐层代入展开.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "11.2",
+          "local_id": "DL103",
+          "title_zh": "残差路径长度的二项式计数",
+          "note": "06 - 深度学习/习题/习题 DL103 - 残差路径长度的二项式计数.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "11.3",
+          "local_id": "DL104",
+          "title_zh": "残差网络关于首分支输出的导数",
+          "note": "06 - 深度学习/习题/习题 DL104 - 残差网络关于首分支输出的导数.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "11.4",
+          "local_id": "DL105",
+          "title_zh": "残差分支不相关的条件与方差相加",
+          "note": "06 - 深度学习/习题/习题 DL105 - 残差分支不相关的条件与方差相加.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "11.5",
+          "local_id": "DL106",
+          "title_zh": "批归一化的计算图反向传播",
+          "note": "06 - 深度学习/习题/习题 DL106 - 批归一化的计算图反向传播.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "11.6",
+          "local_id": "DL107",
+          "title_zh": "加入批归一化后的参数数量",
+          "note": "06 - 深度学习/习题/习题 DL107 - 加入批归一化后的参数数量.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "11.7",
+          "local_id": "DL108",
+          "title_zh": "卷积权重衰减与批归一化的缩放自由度",
+          "note": "06 - 深度学习/习题/习题 DL108 - 卷积权重衰减与批归一化的缩放自由度.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "11.8",
+          "local_id": "DL109",
+          "title_zh": "标准残差序列与瓶颈块的参数比较",
+          "note": "06 - 深度学习/习题/习题 DL109 - 标准残差序列与瓶颈块的参数比较.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "11.9",
+          "local_id": "DL110",
+          "title_zh": "U-Net训练中图像尺寸与批处理",
+          "note": "06 - 深度学习/习题/习题 DL110 - U-Net训练中图像尺寸与批处理.md",
+          "starred": false
+        }
+      ]
+    },
+    "12": {
+      "title_zh": "Transformer",
+      "title_en": "Transformers",
+      "checked": "2026-10-28",
+      "printed_problem_pages": [
+        239
+      ],
+      "pdf_problem_pages": [
+        253
+      ],
+      "expected_exercises": [
+        "12.1",
+        "12.2",
+        "12.3",
+        "12.4",
+        "12.5",
+        "12.6",
+        "12.7",
+        "12.8",
+        "12.9",
+        "12.10"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "12.1",
+          "local_id": "DL111",
+          "title_zh": "自注意力的参数与交互数量",
+          "note": "06 - 深度学习/习题/习题 DL111 - 自注意力的参数与交互数量.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "12.2",
+          "local_id": "DL112",
+          "title_zh": "自注意力保持输入输出维度的意义",
+          "note": "06 - 深度学习/习题/习题 DL112 - 自注意力保持输入输出维度的意义.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "12.3",
+          "local_id": "DL113",
+          "title_zh": "自注意力的置换等变性",
+          "note": "06 - 深度学习/习题/习题 DL113 - 自注意力的置换等变性.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "12.4",
+          "local_id": "DL114",
+          "title_zh": "饱和softmax的全部偏导数",
+          "note": "06 - 深度学习/习题/习题 DL114 - 饱和softmax的全部偏导数.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "12.5",
+          "local_id": "DL115",
+          "title_zh": "多头注意力按头拆分维度的代价",
+          "note": "06 - 深度学习/习题/习题 DL115 - 多头注意力按头拆分维度的代价.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "12.6",
+          "local_id": "DL116",
+          "title_zh": "语言模型的生成式与对比式预训练",
+          "note": "06 - 深度学习/习题/习题 DL116 - 语言模型的生成式与对比式预训练.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "12.7",
+          "local_id": "DL117",
+          "title_zh": "因果注意力新增token的增量计算",
+          "note": "06 - 深度学习/习题/习题 DL117 - 因果注意力新增token的增量计算.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "12.8",
+          "local_id": "DL118",
+          "title_zh": "降低图像注意力交互的两种方案",
+          "note": "06 - 深度学习/习题/习题 DL118 - 降低图像注意力交互的两种方案.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "12.9",
+          "local_id": "DL119",
+          "title_zh": "空间注意力与通道注意力的成本比较",
+          "note": "06 - 深度学习/习题/习题 DL119 - 空间注意力与通道注意力的成本比较.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "12.10",
+          "local_id": "DL120",
+          "title_zh": "可分解核与线性注意力聚合",
+          "note": "06 - 深度学习/习题/习题 DL120 - 可分解核与线性注意力聚合.md",
+          "starred": true
+        }
+      ]
+    },
+    "13": {
+      "title_zh": "图神经网络",
+      "title_en": "Graph neural networks",
+      "checked": "2026-10-28",
+      "printed_page_range": [
+        240,
+        268
+      ],
+      "pdf_page_range": [
+        254,
+        282
+      ],
+      "boundary_pdf_pages": [
+        283
+      ],
+      "printed_problem_pages": [
+        266,
+        267,
+        268
+      ],
+      "pdf_problem_pages": [
+        280,
+        281,
+        282
+      ],
+      "expected_exercises": [
+        "13.1",
+        "13.2",
+        "13.3",
+        "13.4",
+        "13.5",
+        "13.6",
+        "13.7",
+        "13.8",
+        "13.9",
+        "13.10",
+        "13.11",
+        "13.12",
+        "13.13",
+        "13.14"
+      ],
+      "starred_exercises": [
+        "13.2",
+        "13.3",
+        "13.7",
+        "13.10",
+        "13.11",
+        "13.12",
+        "13.14"
+      ],
+      "audit_note": "章末13.1–13.14原页及7处星号核对；13.7跨PDF280–281，281页两幅题干图分别13.14和13.15。邻接/度/置换矩阵依原节点编号；13.3整数矩阵幂与递归枚举交叉核验；13.2/10/11/12附独立可编辑解答图。13.13明确简单图公式及多重边/自环边界。",
+      "figure_dependencies": [
+        {
+          "figure": "13.14",
+          "printed_page": 267,
+          "pdf_page": 281,
+          "asset": "附件/习题图/DS001/原图-13.14.png"
+        },
+        {
+          "figure": "13.4",
+          "printed_page": 244,
+          "pdf_page": 258,
+          "asset": "附件/习题图/DS001/原图-13.4.png"
+        },
+        {
+          "figure": "13.5",
+          "printed_page": 246,
+          "pdf_page": 260,
+          "asset": "附件/习题图/DS001/原图-13.5.png"
+        },
+        {
+          "figure": "13.12",
+          "printed_page": 259,
+          "pdf_page": 273,
+          "asset": "附件/习题图/DS001/原图-13.12.png"
+        },
+        {
+          "figure": "13.15",
+          "printed_page": 267,
+          "pdf_page": 281,
+          "asset": "附件/习题图/DS001/原图-13.15.png"
+        }
+      ],
+      "exercises": [
+        {
+          "source_exercise": "13.1",
+          "local_id": "DL121",
+          "title_zh": "从原图写出邻接矩阵",
+          "note": "06 - 深度学习/习题/习题 DL121 - 从原图写出邻接矩阵.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "13.2",
+          "local_id": "DL122",
+          "title_zh": "按邻接矩阵绘制两个图",
+          "note": "06 - 深度学习/习题/习题 DL122 - 按邻接矩阵绘制两个图.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "13.3",
+          "local_id": "DL123",
+          "title_zh": "邻接矩阵幂与定长游走计数",
+          "note": "06 - 深度学习/习题/习题 DL123 - 邻接矩阵幂与定长游走计数.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "13.4",
+          "local_id": "DL124",
+          "title_zh": "邻接矩阵平方的对角线",
+          "note": "06 - 深度学习/习题/习题 DL124 - 邻接矩阵平方的对角线.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "13.5",
+          "local_id": "DL125",
+          "title_zh": "节点重编号的置换矩阵",
+          "note": "06 - 深度学习/习题/习题 DL125 - 节点重编号的置换矩阵.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "13.6",
+          "local_id": "DL126",
+          "title_zh": "求和读出对节点置换不变",
+          "note": "06 - 深度学习/习题/习题 DL126 - 求和读出对节点置换不变.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "13.7",
+          "local_id": "DL127",
+          "title_zh": "拼接消息传递层的置换等变性",
+          "note": "06 - 深度学习/习题/习题 DL127 - 拼接消息传递层的置换等变性.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "13.8",
+          "local_id": "DL128",
+          "title_zh": "两个原图的度矩阵",
+          "note": "06 - 深度学习/习题/习题 DL128 - 两个原图的度矩阵.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "13.9",
+          "local_id": "DL129",
+          "title_zh": "含自身的邻居均值池化",
+          "note": "06 - 深度学习/习题/习题 DL129 - 含自身的邻居均值池化.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "13.10",
+          "local_id": "DL130",
+          "title_zh": "带图掩码的点积自注意力",
+          "note": "06 - 深度学习/习题/习题 DL130 - 带图掩码的点积自注意力.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "13.11",
+          "local_id": "DL131",
+          "title_zh": "由节点图构造边图",
+          "note": "06 - 深度学习/习题/习题 DL131 - 由节点图构造边图.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "13.12",
+          "local_id": "DL132",
+          "title_zh": "从给定边图构造节点图",
+          "note": "06 - 深度学习/习题/习题 DL132 - 从给定边图构造节点图.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "13.13",
+          "local_id": "DL133",
+          "title_zh": "节点图与边图邻接矩阵的联系",
+          "note": "06 - 深度学习/习题/习题 DL133 - 节点图与边图邻接矩阵的联系.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "13.14",
+          "local_id": "DL134",
+          "title_zh": "融合不同维数节点与边的消息层",
+          "note": "06 - 深度学习/习题/习题 DL134 - 融合不同维数节点与边的消息层.md",
+          "starred": true
+        }
+      ]
+    },
+    "14": {
+      "title_zh": "无监督学习",
+      "title_en": "Unsupervised learning",
+      "checked": "2026-10-28",
+      "printed_page_range": [
+        269,
+        275
+      ],
+      "pdf_page_range": [
+        283,
+        289
+      ],
+      "boundary_pdf_pages": [
+        290
+      ],
+      "printed_problem_pages": [],
+      "pdf_problem_pages": [],
+      "expected_exercises": [],
+      "starred_exercises": [],
+      "audit_note": "逐页查看PDF283–289（印刷269–275）：§14.1–14.4、Summary和Notes后即结束，未设Problems或编号习题；PDF290是第15章起始页。空题集表示已核对为零题，不代表验证全章所有论断。",
+      "exercises": []
+    },
+    "15": {
+      "title_zh": "生成对抗网络",
+      "title_en": "Generative adversarial networks",
+      "checked": "2026-10-28",
+      "printed_problem_pages": [
+        303
+      ],
+      "pdf_problem_pages": [
+        317
+      ],
+      "expected_exercises": [
+        "15.1",
+        "15.2",
+        "15.3",
+        "15.4",
+        "15.5",
+        "15.6"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "15.1",
+          "local_id": "DL135",
+          "title_zh": "相同分布下的GAN损失",
+          "note": "06 - 深度学习/习题/习题 DL135 - 相同分布下的GAN损失.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "15.2",
+          "local_id": "DL136",
+          "title_zh": "GAN损失与JS散度的精确关系",
+          "note": "06 - 深度学习/习题/习题 DL136 - GAN损失与JS散度的精确关系.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "15.3",
+          "local_id": "DL137",
+          "title_zh": "离散运输问题的边缘约束矩阵",
+          "note": "06 - 深度学习/习题/习题 DL137 - 离散运输问题的边缘约束矩阵.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "15.4",
+          "local_id": "DL138",
+          "title_zh": "平移均匀分布的四种距离",
+          "note": "06 - 深度学习/习题/习题 DL138 - 平移均匀分布的四种距离.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "15.5",
+          "local_id": "DL139",
+          "title_zh": "高斯分布距离随均值差的变化",
+          "note": "06 - 深度学习/习题/习题 DL139 - 高斯分布距离随均值差的变化.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "15.6",
+          "local_id": "DL140",
+          "title_zh": "百维高斯逐坐标截断的弃置质量",
+          "note": "06 - 深度学习/习题/习题 DL140 - 百维高斯逐坐标截断的弃置质量.md",
+          "starred": false
+        }
+      ]
+    },
+    "16": {
+      "title_zh": "归一化流",
+      "title_en": "Normalizing flows",
+      "checked": "2026-10-28",
+      "printed_problem_pages": [
+        325,
+        326
+      ],
+      "pdf_problem_pages": [
+        339,
+        340
+      ],
+      "expected_exercises": [
+        "16.1",
+        "16.2",
+        "16.3",
+        "16.4",
+        "16.5",
+        "16.6",
+        "16.7",
+        "16.8",
+        "16.9",
+        "16.10",
+        "16.11"
+      ],
+      "starred_exercises": [
+        "16.2",
+        "16.3",
+        "16.6",
+        "16.9",
+        "16.11"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "16.1",
+          "local_id": "DL141",
+          "title_zh": "均匀变量平方后的密度",
+          "note": "06 - 深度学习/习题/习题 DL141 - 均匀变量平方后的密度.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "16.2",
+          "local_id": "DL142",
+          "title_zh": "正态变量经Sigmoid后的密度",
+          "note": "06 - 深度学习/习题/习题 DL142 - 正态变量经Sigmoid后的密度.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "16.3",
+          "local_id": "DL143",
+          "title_zh": "复合逆映射的雅可比",
+          "note": "06 - 深度学习/习题/习题 DL143 - 复合逆映射的雅可比.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "16.4",
+          "local_id": "DL144",
+          "title_zh": "对角与三角矩阵的逆和行列式",
+          "note": "06 - 深度学习/习题/习题 DL144 - 对角与三角矩阵的逆和行列式.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "16.5",
+          "local_id": "DL145",
+          "title_zh": "仿射变换的均值与协方差",
+          "note": "06 - 深度学习/习题/习题 DL145 - 仿射变换的均值与协方差.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "16.6",
+          "local_id": "DL146",
+          "title_zh": "正态密度的可逆仿射变换",
+          "note": "06 - 深度学习/习题/习题 DL146 - 正态密度的可逆仿射变换.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "16.7",
+          "local_id": "DL147",
+          "title_zh": "Leaky ReLU的逆与体积因子",
+          "note": "06 - 深度学习/习题/习题 DL147 - Leaky ReLU的逆与体积因子.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "16.8",
+          "local_id": "DL148",
+          "title_zh": "逐坐标分段线性流的雅可比",
+          "note": "06 - 深度学习/习题/习题 DL148 - 逐坐标分段线性流的雅可比.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "16.9",
+          "local_id": "DL149",
+          "title_zh": "平方根分箱流及其逆函数",
+          "note": "06 - 深度学习/习题/习题 DL149 - 平方根分箱流及其逆函数.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "16.10",
+          "local_id": "DL150",
+          "title_zh": "残差耦合流的雅可比零模式",
+          "note": "06 - 深度学习/习题/习题 DL150 - 残差耦合流的雅可比零模式.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "16.11",
+          "local_id": "DL151",
+          "title_zh": "目标密度归一化与反向KL边界",
+          "note": "06 - 深度学习/习题/习题 DL151 - 目标密度归一化与反向KL边界.md",
+          "starred": true
+        }
+      ]
+    },
+    "17": {
+      "title_zh": "变分自编码器",
+      "title_en": "Variational autoencoders",
+      "checked": "2026-10-28",
+      "printed_problem_pages": [
+        347,
+        348
+      ],
+      "pdf_problem_pages": [
+        361,
+        362
+      ],
+      "expected_exercises": [
+        "17.1",
+        "17.2",
+        "17.3",
+        "17.4",
+        "17.5",
+        "17.6",
+        "17.7"
+      ],
+      "starred_exercises": [
+        "17.4",
+        "17.7"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "17.1",
+          "local_id": "DL152",
+          "title_zh": "一维高斯混合的参数与自由度",
+          "note": "06 - 深度学习/习题/习题 DL152 - 一维高斯混合的参数与自由度.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "17.2",
+          "local_id": "DL153",
+          "title_zh": "对数函数的凹性",
+          "note": "06 - 深度学习/习题/习题 DL153 - 对数函数的凹性.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "17.3",
+          "local_id": "DL154",
+          "title_zh": "偶次幂凸性与均值平方界",
+          "note": "06 - 深度学习/习题/习题 DL154 - 偶次幂凸性与均值平方界.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "17.4",
+          "local_id": "DL155",
+          "title_zh": "由后验相对熵推导证据下界",
+          "note": "06 - 深度学习/习题/习题 DL155 - 由后验相对熵推导证据下界.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "17.5",
+          "local_id": "DL156",
+          "title_zh": "得分函数梯度估计的推导",
+          "note": "06 - 深度学习/习题/习题 DL156 - 得分函数梯度估计的推导.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "17.6",
+          "local_id": "DL157",
+          "title_zh": "潜空间插值与高维典型集",
+          "note": "06 - 深度学习/习题/习题 DL157 - 潜空间插值与高维典型集.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "17.7",
+          "local_id": "DL158",
+          "title_zh": "一维高斯混合的EM算法",
+          "note": "06 - 深度学习/习题/习题 DL158 - 一维高斯混合的EM算法.md",
+          "starred": true
+        }
+      ]
+    },
+    "18": {
+      "title_zh": "扩散模型",
+      "title_en": "Diffusion models",
+      "checked": "2026-10-28",
+      "printed_problem_pages": [
+        372,
+        373
+      ],
+      "pdf_problem_pages": [
+        386,
+        387
+      ],
+      "expected_exercises": [
+        "18.1",
+        "18.2",
+        "18.3",
+        "18.4",
+        "18.5",
+        "18.6",
+        "18.7",
+        "18.8",
+        "18.9",
+        "18.10",
+        "18.11",
+        "18.12"
+      ],
+      "starred_exercises": [
+        "18.4",
+        "18.5",
+        "18.6",
+        "18.7",
+        "18.8",
+        "18.9",
+        "18.10",
+        "18.11"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "18.1",
+          "local_id": "DL159",
+          "title_zh": "前向扩散的协方差保持",
+          "note": "06 - 深度学习/习题/习题 DL159 - 前向扩散的协方差保持.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "18.2",
+          "local_id": "DL160",
+          "title_zh": "独立高斯噪声的合并",
+          "note": "06 - 深度学习/习题/习题 DL160 - 独立高斯噪声的合并.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "18.3",
+          "local_id": "DL161",
+          "title_zh": "三步扩散核的直接表达",
+          "note": "06 - 深度学习/习题/习题 DL161 - 三步扩散核的直接表达.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "18.4",
+          "local_id": "DL162",
+          "title_zh": "线性高斯似然的配方",
+          "note": "06 - 深度学习/习题/习题 DL162 - 线性高斯似然的配方.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "18.5",
+          "local_id": "DL163",
+          "title_zh": "两个高斯密度乘积的配方",
+          "note": "06 - 深度学习/习题/习题 DL163 - 两个高斯密度乘积的配方.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "18.6",
+          "local_id": "DL164",
+          "title_zh": "扩散后验的均值与方差",
+          "note": "06 - 深度学习/习题/习题 DL164 - 扩散后验的均值与方差.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "18.7",
+          "local_id": "DL165",
+          "title_zh": "扩散证据下界的KL分解",
+          "note": "06 - 深度学习/习题/习题 DL165 - 扩散证据下界的KL分解.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "18.8",
+          "local_id": "DL166",
+          "title_zh": "高斯KL中的可学习均值项",
+          "note": "06 - 深度学习/习题/习题 DL166 - 高斯KL中的可学习均值项.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "18.9",
+          "local_id": "DL167",
+          "title_zh": "累计信号系数的相邻比",
+          "note": "06 - 深度学习/习题/习题 DL167 - 累计信号系数的相邻比.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "18.10",
+          "local_id": "DL168",
+          "title_zh": "扩散均值系数的代数化简",
+          "note": "06 - 深度学习/习题/习题 DL168 - 扩散均值系数的代数化简.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "18.11",
+          "local_id": "DL169",
+          "title_zh": "首步重构项的噪声预测形式",
+          "note": "06 - 深度学习/习题/习题 DL169 - 首步重构项的噪声预测形式.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "18.12",
+          "local_id": "DL170",
+          "title_zh": "生成模型的典型性与多样性取舍",
+          "note": "06 - 深度学习/习题/习题 DL170 - 生成模型的典型性与多样性取舍.md",
+          "starred": false
+        }
+      ]
+    },
+    "19": {
+      "title_zh": "强化学习",
+      "title_en": "Reinforcement learning",
+      "checked": "2026-10-28",
+      "printed_problem_pages": [
+        400,
+        401
+      ],
+      "pdf_problem_pages": [
+        414,
+        415
+      ],
+      "expected_exercises": [
+        "19.1",
+        "19.2",
+        "19.3",
+        "19.4",
+        "19.5",
+        "19.6",
+        "19.7",
+        "19.8"
+      ],
+      "starred_exercises": [
+        "19.2",
+        "19.5",
+        "19.7"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "19.1",
+          "local_id": "DL171",
+          "title_zh": "马尔可夫轨迹的折扣回报",
+          "note": "06 - 深度学习/习题/习题 DL171 - 马尔可夫轨迹的折扣回报.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "19.2",
+          "local_id": "DL172",
+          "title_zh": "策略改进定理的递推证明",
+          "note": "06 - 深度学习/习题/习题 DL172 - 策略改进定理的递推证明.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "19.3",
+          "local_id": "DL173",
+          "title_zh": "两轮同步策略评估与改进",
+          "note": "06 - 深度学习/习题/习题 DL173 - 两轮同步策略评估与改进.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "19.4",
+          "local_id": "DL174",
+          "title_zh": "Boltzmann策略的温度极限",
+          "note": "06 - 深度学习/习题/习题 DL174 - Boltzmann策略的温度极限.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "19.5",
+          "local_id": "DL175",
+          "title_zh": "Bellman最优算子的压缩性质",
+          "note": "06 - 深度学习/习题/习题 DL175 - Bellman最优算子的压缩性质.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "19.6",
+          "local_id": "DL176",
+          "title_zh": "策略梯度常数基线的无偏性",
+          "note": "06 - 深度学习/习题/习题 DL176 - 策略梯度常数基线的无偏性.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "19.7",
+          "local_id": "DL177",
+          "title_zh": "控制变量的最优系数",
+          "note": "06 - 深度学习/习题/习题 DL177 - 控制变量的最优系数.md",
+          "starred": true
+        },
+        {
+          "source_exercise": "19.8",
+          "local_id": "DL178",
+          "title_zh": "策略梯度的最小方差常数基线",
+          "note": "06 - 深度学习/习题/习题 DL178 - 策略梯度的最小方差常数基线.md",
+          "starred": false
+        }
+      ]
+    },
+    "20": {
+      "title_zh": "深度学习为什么有效",
+      "title_en": "Why does deep learning work?",
+      "checked": "2026-10-28",
+      "printed_problem_pages": [
+        420
+      ],
+      "pdf_problem_pages": [
+        434
+      ],
+      "expected_exercises": [
+        "20.1",
+        "20.2",
+        "20.3"
+      ],
+      "starred_exercises": [],
+      "exercises": [
+        {
+          "source_exercise": "20.1",
+          "local_id": "DL179",
+          "title_zh": "图像输入空间与训练样本覆盖",
+          "note": "06 - 深度学习/习题/习题 DL179 - 图像输入空间与训练样本覆盖.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "20.2",
+          "local_id": "DL180",
+          "title_zh": "随机输入与随机标签的拟合速度",
+          "note": "06 - 深度学习/习题/习题 DL180 - 随机输入与随机标签的拟合速度.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "20.3",
+          "local_id": "DL181",
+          "title_zh": "成功拟合不能推出损失凸性",
+          "note": "06 - 深度学习/习题/习题 DL181 - 成功拟合不能推出损失凸性.md",
+          "starred": false
+        }
+      ]
+    },
+    "21": {
+      "title_zh": "深度学习与伦理",
+      "title_en": "Deep learning and ethics",
+      "checked": "2026-10-28",
+      "printed_page_range": [
+        421,
+        436
+      ],
+      "pdf_page_range": [
+        435,
+        450
+      ],
+      "boundary_pdf_pages": [
+        451
+      ],
+      "printed_problem_pages": [
+        436
+      ],
+      "pdf_problem_pages": [
+        450
+      ],
+      "expected_exercises": [
+        "21.1",
+        "21.2",
+        "21.3",
+        "21.4",
+        "21.5",
+        "21.6",
+        "21.7",
+        "21.8",
+        "21.9",
+        "21.10",
+        "21.11",
+        "21.12",
+        "21.13"
+      ],
+      "starred_exercises": [],
+      "audit_note": "原页印刷436/PDF450的Problems完整包含21.1–21.13，无星号；PDF451进入附录A。讨论题给出独立参考论证，不视为唯一答案，不变更学习状态。21.10采用有日期的真实公开预测；21.12分别核对公开信和两个署名/机构反应实例，不声称舆情调查。",
+      "exercises": [
+        {
+          "source_exercise": "21.1",
+          "local_id": "DL182",
+          "title_zh": "价值对齐问题中未说明的选择",
+          "note": "06 - 深度学习/习题/习题 DL182 - 价值对齐问题中未说明的选择.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "21.2",
+          "local_id": "DL183",
+          "title_zh": "古德哈特定律与代理目标",
+          "note": "06 - 深度学习/习题/习题 DL183 - 古德哈特定律与代理目标.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "21.3",
+          "local_id": "DL184",
+          "title_zh": "学生成功预测中的四阶段偏差",
+          "note": "06 - 深度学习/习题/习题 DL184 - 学生成功预测中的四阶段偏差.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "21.4",
+          "local_id": "DL185",
+          "title_zh": "三种透明性的独立变化",
+          "note": "06 - 深度学习/习题/习题 DL185 - 三种透明性的独立变化.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "21.5",
+          "local_id": "DL186",
+          "title_zh": "公开研究后的滥用责任",
+          "note": "06 - 深度学习/习题/习题 DL186 - 公开研究后的滥用责任.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "21.6",
+          "local_id": "DL187",
+          "title_zh": "人工智能军事化的必然性",
+          "note": "06 - 深度学习/习题/习题 DL187 - 人工智能军事化的必然性.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "21.7",
+          "local_id": "DL188",
+          "title_zh": "深度学习开放研究的利弊",
+          "note": "06 - 深度学习/习题/习题 DL188 - 深度学习开放研究的利弊.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "21.8",
+          "local_id": "DL189",
+          "title_zh": "个人数据的权力与集体隐私",
+          "note": "06 - 深度学习/习题/习题 DL189 - 个人数据的权力与集体隐私.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "21.9",
+          "local_id": "DL190",
+          "title_zh": "生成式人工智能与创作制度",
+          "note": "06 - 深度学习/习题/习题 DL190 - 生成式人工智能与创作制度.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "21.10",
+          "local_id": "DL191",
+          "title_zh": "检验公开人工智能预测的质量",
+          "note": "06 - 深度学习/习题/习题 DL191 - 检验公开人工智能预测的质量.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "21.11",
+          "local_id": "DL192",
+          "title_zh": "人工智能民主化的对象理由与机制",
+          "note": "06 - 深度学习/习题/习题 DL192 - 人工智能民主化的对象理由与机制.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "21.12",
+          "local_id": "DL193",
+          "title_zh": "暂停大型人工智能实验与集体行动",
+          "note": "06 - 深度学习/习题/习题 DL193 - 暂停大型人工智能实验与集体行动.md",
+          "starred": false
+        },
+        {
+          "source_exercise": "21.13",
+          "local_id": "DL194",
+          "title_zh": "伦理前进方向的四点讨论",
+          "note": "06 - 深度学习/习题/习题 DL194 - 伦理前进方向的四点讨论.md",
+          "starred": false
+        }
+      ]
     }
-  }
+  },
+  "checked": "2026-10-28"
 }

@@ -1,0 +1,141 @@
+\documentclass[tikz,border=9pt]{standalone}
+\usepackage{amsmath,amssymb}
+\begin{document}
+\begin{tikzpicture}
+\definecolor{c1}{HTML}{416A8A}
+\definecolor{c2}{HTML}{A44732}
+\definecolor{c3}{HTML}{D89164}
+\definecolor{c4}{HTML}{457C74}
+\definecolor{c5}{HTML}{AD7F26}
+\definecolor{c6}{HTML}{785789}
+\definecolor{c7}{HTML}{BA5F7D}
+\definecolor{c8}{HTML}{578AC0}
+\definecolor{c9}{HTML}{75943B}
+\begin{scope}[shift={(0,0)},x=0.66cm,y=-0.66cm]
+\node[anchor=south west] at (-.5,-1.4) {$W\in\mathbb{R}^{12\times6}$};
+\node[font=\scriptsize] at (0.5,-.5) {$x_{1}$};
+\node[font=\scriptsize] at (1.5,-.5) {$x_{2}$};
+\node[font=\scriptsize] at (2.5,-.5) {$x_{3}$};
+\node[font=\scriptsize] at (3.5,-.5) {$x_{4}$};
+\node[font=\scriptsize] at (4.5,-.5) {$x_{5}$};
+\node[font=\scriptsize] at (5.5,-.5) {$x_{6}$};
+\node[anchor=east,font=\scriptsize] at (-.15,0.5) {$h_{1}$};
+\filldraw[fill=c2!26,draw=black!55,line width=.3pt] (0,0) rectangle ++(1,1);
+\node[font=\scriptsize] at (0.5,0.5) {$\omega_{2}$};
+\filldraw[fill=c3!26,draw=black!55,line width=.3pt] (1,0) rectangle ++(1,1);
+\node[font=\scriptsize] at (1.5,0.5) {$\omega_{3}$};
+\filldraw[fill=white,draw=black!55,line width=.3pt] (2,0) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (3,0) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (4,0) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (5,0) rectangle ++(1,1);
+\node[anchor=east,font=\scriptsize] at (-.15,1.5) {$h_{2}$};
+\filldraw[fill=c1!26,draw=black!55,line width=.3pt] (0,1) rectangle ++(1,1);
+\node[font=\scriptsize] at (0.5,1.5) {$\omega_{1}$};
+\filldraw[fill=c2!26,draw=black!55,line width=.3pt] (1,1) rectangle ++(1,1);
+\node[font=\scriptsize] at (1.5,1.5) {$\omega_{2}$};
+\filldraw[fill=c3!26,draw=black!55,line width=.3pt] (2,1) rectangle ++(1,1);
+\node[font=\scriptsize] at (2.5,1.5) {$\omega_{3}$};
+\filldraw[fill=white,draw=black!55,line width=.3pt] (3,1) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (4,1) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (5,1) rectangle ++(1,1);
+\node[anchor=east,font=\scriptsize] at (-.15,2.5) {$h_{3}$};
+\filldraw[fill=white,draw=black!55,line width=.3pt] (0,2) rectangle ++(1,1);
+\filldraw[fill=c1!26,draw=black!55,line width=.3pt] (1,2) rectangle ++(1,1);
+\node[font=\scriptsize] at (1.5,2.5) {$\omega_{1}$};
+\filldraw[fill=c2!26,draw=black!55,line width=.3pt] (2,2) rectangle ++(1,1);
+\node[font=\scriptsize] at (2.5,2.5) {$\omega_{2}$};
+\filldraw[fill=c3!26,draw=black!55,line width=.3pt] (3,2) rectangle ++(1,1);
+\node[font=\scriptsize] at (3.5,2.5) {$\omega_{3}$};
+\filldraw[fill=white,draw=black!55,line width=.3pt] (4,2) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (5,2) rectangle ++(1,1);
+\node[anchor=east,font=\scriptsize] at (-.15,3.5) {$h_{4}$};
+\filldraw[fill=white,draw=black!55,line width=.3pt] (0,3) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (1,3) rectangle ++(1,1);
+\filldraw[fill=c1!26,draw=black!55,line width=.3pt] (2,3) rectangle ++(1,1);
+\node[font=\scriptsize] at (2.5,3.5) {$\omega_{1}$};
+\filldraw[fill=c2!26,draw=black!55,line width=.3pt] (3,3) rectangle ++(1,1);
+\node[font=\scriptsize] at (3.5,3.5) {$\omega_{2}$};
+\filldraw[fill=c3!26,draw=black!55,line width=.3pt] (4,3) rectangle ++(1,1);
+\node[font=\scriptsize] at (4.5,3.5) {$\omega_{3}$};
+\filldraw[fill=white,draw=black!55,line width=.3pt] (5,3) rectangle ++(1,1);
+\node[anchor=east,font=\scriptsize] at (-.15,4.5) {$h_{5}$};
+\filldraw[fill=white,draw=black!55,line width=.3pt] (0,4) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (1,4) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (2,4) rectangle ++(1,1);
+\filldraw[fill=c1!26,draw=black!55,line width=.3pt] (3,4) rectangle ++(1,1);
+\node[font=\scriptsize] at (3.5,4.5) {$\omega_{1}$};
+\filldraw[fill=c2!26,draw=black!55,line width=.3pt] (4,4) rectangle ++(1,1);
+\node[font=\scriptsize] at (4.5,4.5) {$\omega_{2}$};
+\filldraw[fill=c3!26,draw=black!55,line width=.3pt] (5,4) rectangle ++(1,1);
+\node[font=\scriptsize] at (5.5,4.5) {$\omega_{3}$};
+\node[anchor=east,font=\scriptsize] at (-.15,5.5) {$h_{6}$};
+\filldraw[fill=white,draw=black!55,line width=.3pt] (0,5) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (1,5) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (2,5) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (3,5) rectangle ++(1,1);
+\filldraw[fill=c1!26,draw=black!55,line width=.3pt] (4,5) rectangle ++(1,1);
+\node[font=\scriptsize] at (4.5,5.5) {$\omega_{1}$};
+\filldraw[fill=c2!26,draw=black!55,line width=.3pt] (5,5) rectangle ++(1,1);
+\node[font=\scriptsize] at (5.5,5.5) {$\omega_{2}$};
+\node[anchor=east,font=\scriptsize] at (-.15,6.5) {$h_{7}$};
+\filldraw[fill=c5!26,draw=black!55,line width=.3pt] (0,6) rectangle ++(1,1);
+\node[font=\scriptsize] at (0.5,6.5) {$\omega_{5}$};
+\filldraw[fill=c6!26,draw=black!55,line width=.3pt] (1,6) rectangle ++(1,1);
+\node[font=\scriptsize] at (1.5,6.5) {$\omega_{6}$};
+\filldraw[fill=white,draw=black!55,line width=.3pt] (2,6) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (3,6) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (4,6) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (5,6) rectangle ++(1,1);
+\node[anchor=east,font=\scriptsize] at (-.15,7.5) {$h_{8}$};
+\filldraw[fill=c4!26,draw=black!55,line width=.3pt] (0,7) rectangle ++(1,1);
+\node[font=\scriptsize] at (0.5,7.5) {$\omega_{4}$};
+\filldraw[fill=c5!26,draw=black!55,line width=.3pt] (1,7) rectangle ++(1,1);
+\node[font=\scriptsize] at (1.5,7.5) {$\omega_{5}$};
+\filldraw[fill=c6!26,draw=black!55,line width=.3pt] (2,7) rectangle ++(1,1);
+\node[font=\scriptsize] at (2.5,7.5) {$\omega_{6}$};
+\filldraw[fill=white,draw=black!55,line width=.3pt] (3,7) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (4,7) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (5,7) rectangle ++(1,1);
+\node[anchor=east,font=\scriptsize] at (-.15,8.5) {$h_{9}$};
+\filldraw[fill=white,draw=black!55,line width=.3pt] (0,8) rectangle ++(1,1);
+\filldraw[fill=c4!26,draw=black!55,line width=.3pt] (1,8) rectangle ++(1,1);
+\node[font=\scriptsize] at (1.5,8.5) {$\omega_{4}$};
+\filldraw[fill=c5!26,draw=black!55,line width=.3pt] (2,8) rectangle ++(1,1);
+\node[font=\scriptsize] at (2.5,8.5) {$\omega_{5}$};
+\filldraw[fill=c6!26,draw=black!55,line width=.3pt] (3,8) rectangle ++(1,1);
+\node[font=\scriptsize] at (3.5,8.5) {$\omega_{6}$};
+\filldraw[fill=white,draw=black!55,line width=.3pt] (4,8) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (5,8) rectangle ++(1,1);
+\node[anchor=east,font=\scriptsize] at (-.15,9.5) {$h_{10}$};
+\filldraw[fill=white,draw=black!55,line width=.3pt] (0,9) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (1,9) rectangle ++(1,1);
+\filldraw[fill=c4!26,draw=black!55,line width=.3pt] (2,9) rectangle ++(1,1);
+\node[font=\scriptsize] at (2.5,9.5) {$\omega_{4}$};
+\filldraw[fill=c5!26,draw=black!55,line width=.3pt] (3,9) rectangle ++(1,1);
+\node[font=\scriptsize] at (3.5,9.5) {$\omega_{5}$};
+\filldraw[fill=c6!26,draw=black!55,line width=.3pt] (4,9) rectangle ++(1,1);
+\node[font=\scriptsize] at (4.5,9.5) {$\omega_{6}$};
+\filldraw[fill=white,draw=black!55,line width=.3pt] (5,9) rectangle ++(1,1);
+\node[anchor=east,font=\scriptsize] at (-.15,10.5) {$h_{11}$};
+\filldraw[fill=white,draw=black!55,line width=.3pt] (0,10) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (1,10) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (2,10) rectangle ++(1,1);
+\filldraw[fill=c4!26,draw=black!55,line width=.3pt] (3,10) rectangle ++(1,1);
+\node[font=\scriptsize] at (3.5,10.5) {$\omega_{4}$};
+\filldraw[fill=c5!26,draw=black!55,line width=.3pt] (4,10) rectangle ++(1,1);
+\node[font=\scriptsize] at (4.5,10.5) {$\omega_{5}$};
+\filldraw[fill=c6!26,draw=black!55,line width=.3pt] (5,10) rectangle ++(1,1);
+\node[font=\scriptsize] at (5.5,10.5) {$\omega_{6}$};
+\node[anchor=east,font=\scriptsize] at (-.15,11.5) {$h_{12}$};
+\filldraw[fill=white,draw=black!55,line width=.3pt] (0,11) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (1,11) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (2,11) rectangle ++(1,1);
+\filldraw[fill=white,draw=black!55,line width=.3pt] (3,11) rectangle ++(1,1);
+\filldraw[fill=c4!26,draw=black!55,line width=.3pt] (4,11) rectangle ++(1,1);
+\node[font=\scriptsize] at (4.5,11.5) {$\omega_{4}$};
+\filldraw[fill=c5!26,draw=black!55,line width=.3pt] (5,11) rectangle ++(1,1);
+\node[font=\scriptsize] at (5.5,11.5) {$\omega_{5}$};
+\end{scope}
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,17 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{pgfplots}\pgfplotsset{compat=1.18}
+\begin{document}\begin{tikzpicture}
+\begin{axis}[name=forward,width=7cm,height=6cm,xmin=0,xmax=1,ymin=0,ymax=2.2,xlabel={$h$},ylabel={$h^\prime$},title={$f(h)$}]
+\addplot[thick,domain=0.0:0.2,samples=101]{sqrt(max(0,(5*x-0)*0.1))+0};
+\addplot[thick,domain=0.2:0.4,samples=101]{sqrt(max(0,(5*x-1)*0.2))+0.31622776601683794};
+\addplot[thick,domain=0.4:0.6,samples=101]{sqrt(max(0,(5*x-2)*0.5))+0.7634413615167959};
+\addplot[thick,domain=0.6:0.8,samples=101]{sqrt(max(0,(5*x-3)*0.1))+1.4705481427033433};
+\addplot[thick,domain=0.8:1.0,samples=101]{sqrt(max(0,(5*x-4)*0.1))+1.7867759087201813};
+\end{axis}
+\begin{axis}[at={(8cm,0)},anchor=south west,width=7cm,height=6cm,xmin=0,xmax=2.2,ymin=0,ymax=1,xlabel={$h^\prime$},ylabel={$h$},title={$f^{-1}(h^\prime)$}]
+\addplot[thick,domain=0:0.31622776601683794,samples=101]{(0+(x-0)^2/0.1)/5};
+\addplot[thick,domain=0.31622776601683794:0.7634413615167959,samples=101]{(1+(x-0.31622776601683794)^2/0.2)/5};
+\addplot[thick,domain=0.7634413615167959:1.4705481427033433,samples=101]{(2+(x-0.7634413615167959)^2/0.5)/5};
+\addplot[thick,domain=1.4705481427033433:1.7867759087201813,samples=101]{(3+(x-1.4705481427033433)^2/0.1)/5};
+\addplot[thick,domain=1.7867759087201813:2.1030036747370193,samples=101]{(4+(x-1.7867759087201813)^2/0.1)/5};
+\end{axis}\end{tikzpicture}\end{document}
