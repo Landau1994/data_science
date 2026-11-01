@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "source_id": "DS003",
+  "source_language": "en",
+  "source_file": "附件/books/Christopher M. Bishop, Hugh Bishop - Deep Learning_ Foundations and Concepts-Springer (2024).pdf",
+  "source_sha256": "277ac35c73df83a72a6fefde790c097168959c7c054bf1d25f8f5ebf0ed195c7",
+  "scope": "2024年版本第1–2章；第1章核对为零道编号习题，第2章全部41题。未审计第3–20章，不含个人学习完成记录。",
+  "chapters": {
+    "1": {
+      "title_zh": "深度学习革命",
+      "title_en": "The Deep Learning Revolution",
+      "checked": "2026-11-01",
+      "printed_page_range": [
+        1,
+        22
+      ],
+      "pdf_page_range": [
+        21,
+        42
+      ],
+      "boundary_pdf_pages": [
+        43
+      ],
+      "printed_problem_pages": [],
+      "pdf_problem_pages": [],
+      "expected_exercises": [],
+      "exercises": [],
+      "audit_note": "逐页扫描原始页面及下一章边界，未发现本章Exercises或编号习题；边栏Exercise4.1和4.2是指向后文的引用，不是本章习题。"
+    },
+    "2": {
+      "title_zh": "概率",
+      "title_en": "Probabilities",
+      "checked": "2026-11-01",
+      "printed_page_range": [
+        23,
+        63
+      ],
+      "pdf_page_range": [
+        43,
+        83
+      ],
+      "boundary_pdf_pages": [
+        84
+      ],
+      "printed_problem_pages": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "pdf_problem_pages": [
+        78,
+        79,
+        80,
+        81,
+        82,
+        83
+      ],
+      "expected_exercises": [
+        "2.1",
+        "2.2",
+        "2.3",
+        "2.4",
+        "2.5",
+        "2.6",
+        "2.7",
+        "2.8",
+        "2.9",
+        "2.10",
+        "2.11",
+        "2.12",
+        "2.13",
+        "2.14",
+        "2.15",
+        "2.16",
+        "2.17",
+        "2.18",
+        "2.19",
+        "2.20",
+        "2.21",
+        "2.22",
+        "2.23",
+        "2.24",
+        "2.25",
+        "2.26",
+        "2.27",
+        "2.28",
+        "2.29",
+        "2.30",
+        "2.31",
+        "2.32",
+        "2.33",
+        "2.34",
+        "2.35",
+        "2.36",
+        "2.37",
+        "2.38",
+        "2.39",
+        "2.40",
+        "2.41"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "2.1",
+          "local_id": "P001",
+          "title_zh": "低患病率下的阳性预测概率",
+          "note": "01 - 概率论/习题/习题 P001 - 低患病率下的阳性预测概率.md",
+          "stars": 1,
+          "printed_page": 58,
+          "pdf_page": 78
+        },
+        {
+          "source_exercise": "2.2",
+          "local_id": "P002",
+          "title_zh": "Efron骰子的非传递胜率",
+          "note": "01 - 概率论/习题/习题 P002 - Efron骰子的非传递胜率.md",
+          "stars": 2,
+          "printed_page": 58,
+          "pdf_page": 78
+        },
+        {
+          "source_exercise": "2.3",
+          "local_id": "P003",
+          "title_zh": "独立随机变量之和的卷积密度",
+          "note": "01 - 概率论/习题/习题 P003 - 独立随机变量之和的卷积密度.md",
+          "stars": 1,
+          "printed_page": 58,
+          "pdf_page": 78
+        },
+        {
+          "source_exercise": "2.4",
+          "local_id": "P004",
+          "title_zh": "均匀分布的归一化与矩",
+          "note": "01 - 概率论/习题/习题 P004 - 均匀分布的归一化与矩.md",
+          "stars": 2,
+          "printed_page": 58,
+          "pdf_page": 78
+        },
+        {
+          "source_exercise": "2.5",
+          "local_id": "P005",
+          "title_zh": "指数分布与Laplace分布的归一化",
+          "note": "01 - 概率论/习题/习题 P005 - 指数分布与Laplace分布的归一化.md",
+          "stars": 2,
+          "printed_page": 58,
+          "pdf_page": 78
+        },
+        {
+          "source_exercise": "2.6",
+          "local_id": "P006",
+          "title_zh": "经验分布的Dirac归一化",
+          "note": "01 - 概率论/习题/习题 P006 - 经验分布的Dirac归一化.md",
+          "stars": 1,
+          "printed_page": 59,
+          "pdf_page": 79
+        },
+        {
+          "source_exercise": "2.7",
+          "local_id": "P007",
+          "title_zh": "经验分布下的样本均值近似",
+          "note": "01 - 概率论/习题/习题 P007 - 经验分布下的样本均值近似.md",
+          "stars": 1,
+          "printed_page": 59,
+          "pdf_page": 79
+        },
+        {
+          "source_exercise": "2.8",
+          "local_id": "P008",
+          "title_zh": "方差的二阶矩恒等式",
+          "note": "01 - 概率论/习题/习题 P008 - 方差的二阶矩恒等式.md",
+          "stars": 1,
+          "printed_page": 59,
+          "pdf_page": 79
+        },
+        {
+          "source_exercise": "2.9",
+          "local_id": "P009",
+          "title_zh": "独立变量的协方差为零",
+          "note": "01 - 概率论/习题/习题 P009 - 独立变量的协方差为零.md",
+          "stars": 1,
+          "printed_page": 59,
+          "pdf_page": 79
+        },
+        {
+          "source_exercise": "2.10",
+          "local_id": "P010",
+          "title_zh": "独立变量和的均值与方差",
+          "note": "01 - 概率论/习题/习题 P010 - 独立变量和的均值与方差.md",
+          "stars": 1,
+          "printed_page": 59,
+          "pdf_page": 79
+        },
+        {
+          "source_exercise": "2.11",
+          "local_id": "P011",
+          "title_zh": "全期望与全方差公式",
+          "note": "01 - 概率论/习题/习题 P011 - 全期望与全方差公式.md",
+          "stars": 1,
+          "printed_page": 59,
+          "pdf_page": 79
+        },
+        {
+          "source_exercise": "2.12",
+          "local_id": "P012",
+          "title_zh": "极坐标计算高斯归一化积分",
+          "note": "01 - 概率论/习题/习题 P012 - 极坐标计算高斯归一化积分.md",
+          "stars": 3,
+          "printed_page": 59,
+          "pdf_page": 79
+        },
+        {
+          "source_exercise": "2.13",
+          "local_id": "P013",
+          "title_zh": "高斯均值与方差的积分求导",
+          "note": "01 - 概率论/习题/习题 P013 - 高斯均值与方差的积分求导.md",
+          "stars": 2,
+          "printed_page": 60,
+          "pdf_page": 80
+        },
+        {
+          "source_exercise": "2.14",
+          "local_id": "P014",
+          "title_zh": "高斯分布的唯一众数",
+          "note": "01 - 概率论/习题/习题 P014 - 高斯分布的唯一众数.md",
+          "stars": 1,
+          "printed_page": 60,
+          "pdf_page": 80
+        },
+        {
+          "source_exercise": "2.15",
+          "local_id": "ST001",
+          "title_zh": "一元高斯均值与方差的最大似然估计",
+          "note": "02 - 数理统计/习题/习题 ST001 - 一元高斯均值与方差的最大似然估计.md",
+          "stars": 1,
+          "printed_page": 60,
+          "pdf_page": 80
+        },
+        {
+          "source_exercise": "2.16",
+          "local_id": "ST002",
+          "title_zh": "高斯样本均值与方差估计的偏差",
+          "note": "02 - 数理统计/习题/习题 ST002 - 高斯样本均值与方差估计的偏差.md",
+          "stars": 2,
+          "printed_page": 60,
+          "pdf_page": 80
+        },
+        {
+          "source_exercise": "2.17",
+          "local_id": "ST003",
+          "title_zh": "已知真实均值时方差估计的无偏性",
+          "note": "02 - 数理统计/习题/习题 ST003 - 已知真实均值时方差估计的无偏性.md",
+          "stars": 2,
+          "printed_page": 60,
+          "pdf_page": 80
+        },
+        {
+          "source_exercise": "2.18",
+          "local_id": "ST004",
+          "title_zh": "高斯回归噪声方差的最大似然估计",
+          "note": "02 - 数理统计/习题/习题 ST004 - 高斯回归噪声方差的最大似然估计.md",
+          "stars": 1,
+          "printed_page": 60,
+          "pdf_page": 80
+        },
+        {
+          "source_exercise": "2.19",
+          "local_id": "P015",
+          "title_zh": "分位数变换与目标密度的构造条件",
+          "note": "01 - 概率论/习题/习题 P015 - 分位数变换与目标密度的构造条件.md",
+          "stars": 2,
+          "printed_page": 60,
+          "pdf_page": 80
+        },
+        {
+          "source_exercise": "2.20",
+          "local_id": "LA001",
+          "title_zh": "二维非线性变换的正反向雅可比",
+          "note": "03 - 线性代数与优化/习题/习题 LA001 - 二维非线性变换的正反向雅可比.md",
+          "stars": 1,
+          "printed_page": 60,
+          "pdf_page": 80
+        },
+        {
+          "source_exercise": "2.21",
+          "local_id": "P016",
+          "title_zh": "可加信息量的对数形式",
+          "note": "01 - 概率论/习题/习题 P016 - 可加信息量的对数形式.md",
+          "stars": 1,
+          "printed_page": 60,
+          "pdf_page": 80
+        },
+        {
+          "source_exercise": "2.22",
+          "local_id": "P017",
+          "title_zh": "用拉格朗日乘子求离散最大熵分布",
+          "note": "01 - 概率论/习题/习题 P017 - 用拉格朗日乘子求离散最大熵分布.md",
+          "stars": 1,
+          "printed_page": 61,
+          "pdf_page": 81
+        },
+        {
+          "source_exercise": "2.23",
+          "local_id": "P018",
+          "title_zh": "用Jensen不等式证明离散熵上界",
+          "note": "01 - 概率论/习题/习题 P018 - 用Jensen不等式证明离散熵上界.md",
+          "stars": 1,
+          "printed_page": 61,
+          "pdf_page": 81
+        },
+        {
+          "source_exercise": "2.24",
+          "local_id": "P019",
+          "title_zh": "固定均值方差下的高斯最大熵性质",
+          "note": "01 - 概率论/习题/习题 P019 - 固定均值方差下的高斯最大熵性质.md",
+          "stars": 2,
+          "printed_page": 61,
+          "pdf_page": 81
+        },
+        {
+          "source_exercise": "2.25",
+          "local_id": "P020",
+          "title_zh": "一元高斯微分熵的计算",
+          "note": "01 - 概率论/习题/习题 P020 - 一元高斯微分熵的计算.md",
+          "stars": 1,
+          "printed_page": 61,
+          "pdf_page": 81
+        },
+        {
+          "source_exercise": "2.26",
+          "local_id": "P021",
+          "title_zh": "正向KL高斯逼近的矩匹配",
+          "note": "01 - 概率论/习题/习题 P021 - 正向KL高斯逼近的矩匹配.md",
+          "stars": 2,
+          "printed_page": 61,
+          "pdf_page": 81
+        },
+        {
+          "source_exercise": "2.27",
+          "local_id": "P022",
+          "title_zh": "两个一元高斯之间的KL散度",
+          "note": "01 - 概率论/习题/习题 P022 - 两个一元高斯之间的KL散度.md",
+          "stars": 2,
+          "printed_page": 61,
+          "pdf_page": 81
+        },
+        {
+          "source_exercise": "2.28",
+          "local_id": "P023",
+          "title_zh": "alpha散度在两个端点的KL极限",
+          "note": "01 - 概率论/习题/习题 P023 - alpha散度在两个端点的KL极限.md",
+          "stars": 2,
+          "printed_page": 61,
+          "pdf_page": 81
+        },
+        {
+          "source_exercise": "2.29",
+          "local_id": "P024",
+          "title_zh": "联合微分熵的次可加性",
+          "note": "01 - 概率论/习题/习题 P024 - 联合微分熵的次可加性.md",
+          "stars": 2,
+          "printed_page": 61,
+          "pdf_page": 81
+        },
+        {
+          "source_exercise": "2.30",
+          "local_id": "P025",
+          "title_zh": "线性变换下的微分熵与行列式",
+          "note": "01 - 概率论/习题/习题 P025 - 线性变换下的微分熵与行列式.md",
+          "stars": 1,
+          "printed_page": 61,
+          "pdf_page": 81
+        },
+        {
+          "source_exercise": "2.31",
+          "local_id": "P026",
+          "title_zh": "条件熵为零与确定性关系",
+          "note": "01 - 概率论/习题/习题 P026 - 条件熵为零与确定性关系.md",
+          "stars": 2,
+          "printed_page": 61,
+          "pdf_page": 81
+        },
+        {
+          "source_exercise": "2.32",
+          "local_id": "LA002",
+          "title_zh": "严格凸性与二阶导数条件的区别",
+          "note": "03 - 线性代数与优化/习题/习题 LA002 - 严格凸性与二阶导数条件的区别.md",
+          "stars": 1,
+          "printed_page": 62,
+          "pdf_page": 82
+        },
+        {
+          "source_exercise": "2.33",
+          "local_id": "LA003",
+          "title_zh": "Jensen不等式的有限权重归纳证明",
+          "note": "03 - 线性代数与优化/习题/习题 LA003 - Jensen不等式的有限权重归纳证明.md",
+          "stars": 2,
+          "printed_page": 62,
+          "pdf_page": 82
+        },
+        {
+          "source_exercise": "2.34",
+          "local_id": "ST005",
+          "title_zh": "经验分布与负对数似然的精确关系",
+          "note": "02 - 数理统计/习题/习题 ST005 - 经验分布与负对数似然的精确关系.md",
+          "stars": 1,
+          "printed_page": 62,
+          "pdf_page": 82
+        },
+        {
+          "source_exercise": "2.35",
+          "local_id": "P027",
+          "title_zh": "条件熵与联合熵的链式法则",
+          "note": "01 - 概率论/习题/习题 P027 - 条件熵与联合熵的链式法则.md",
+          "stars": 1,
+          "printed_page": 62,
+          "pdf_page": 82
+        },
+        {
+          "source_exercise": "2.36",
+          "local_id": "P028",
+          "title_zh": "二元联合分布的六种信息量",
+          "note": "01 - 概率论/习题/习题 P028 - 二元联合分布的六种信息量.md",
+          "stars": 3,
+          "printed_page": 62,
+          "pdf_page": 82
+        },
+        {
+          "source_exercise": "2.37",
+          "local_id": "LA004",
+          "title_zh": "用Jensen不等式证明算术几何平均不等式",
+          "note": "03 - 线性代数与优化/习题/习题 LA004 - 用Jensen不等式证明算术几何平均不等式.md",
+          "stars": 1,
+          "printed_page": 62,
+          "pdf_page": 82
+        },
+        {
+          "source_exercise": "2.38",
+          "local_id": "P029",
+          "title_zh": "互信息与条件熵差的恒等式",
+          "note": "01 - 概率论/习题/习题 P029 - 互信息与条件熵差的恒等式.md",
+          "stars": 1,
+          "printed_page": 62,
+          "pdf_page": 82
+        },
+        {
+          "source_exercise": "2.39",
+          "local_id": "P030",
+          "title_zh": "独立不相关与平方关系反例",
+          "note": "01 - 概率论/习题/习题 P030 - 独立不相关与平方关系反例.md",
+          "stars": 2,
+          "printed_page": 62,
+          "pdf_page": 82
+        },
+        {
+          "source_exercise": "2.40",
+          "local_id": "P031",
+          "title_zh": "弯硬币的贝叶斯更新与预测",
+          "note": "01 - 概率论/习题/习题 P031 - 弯硬币的贝叶斯更新与预测.md",
+          "stars": 1,
+          "printed_page": 62,
+          "pdf_page": 82
+        },
+        {
+          "source_exercise": "2.41",
+          "local_id": "ML014",
+          "title_zh": "高斯先验导出的正则化平方损失",
+          "note": "04 - 统计学习/习题/习题 ML014 - 高斯先验导出的正则化平方损失.md",
+          "stars": 1,
+          "printed_page": 63,
+          "pdf_page": 83
+        }
+      ],
+      "audit_note": "按原页核对完整有序题号2.1–2.41及所有星数；每个编号的全部任务合并一篇。PDF83印刷63之后直接进入PDF84印刷65，不能把+20偏移套用后续章节。原题疑误和独立修正写在各题。",
+      "figure_dependencies": [
+        {
+          "figure": "2.16",
+          "printed_page": 58,
+          "pdf_page": 78,
+          "asset": "附件/习题图/DS003/原图-2.16.png"
+        },
+        {
+          "figure": "2.2",
+          "printed_page": 25,
+          "pdf_page": 45,
+          "note": "2.40保留原图引用并在中文转述完整给出凹面0.6、凸面0.4，不另复制图像"
+        }
+      ],
+      "independent_figures": [
+        {
+          "source_exercise": "2.19",
+          "asset": "附件/习题图/DS003/解答-2.19.png",
+          "vector": "附件/习题图/DS003/解答-2.19.pdf",
+          "editable": "附件/习题图/DS003/解答-2.19.tex",
+          "verification": "按logistic到Uniform(0,1)公式构造；已编译、渲染并目视检查；阴影为对应等概率区间，子图坐标尺度不同。"
+        },
+        {
+          "source_exercise": "2.36",
+          "asset": "附件/习题图/DS003/解答-2.36.png",
+          "vector": "附件/习题图/DS003/解答-2.36.pdf",
+          "editable": "附件/习题图/DS003/解答-2.36.tex",
+          "verification": "两变量信息Venn关系独立构造，已编译、渲染并目视检查；区域面积不按熵值比例。"
+        }
+      ]
+    }
+  }
+}
