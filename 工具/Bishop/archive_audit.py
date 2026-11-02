@@ -17,6 +17,8 @@ TOPICS = {
     "ST": ("02 - 数理统计", "mathematical-statistics", "数理统计"),
     "LA": ("03 - 线性代数与优化", "linear-algebra-optimization", "线性代数与优化"),
     "ML": ("04 - 统计学习", "statistical-learning", "统计学习"),
+    "PM": ("05 - 概率模型与推断", "probabilistic-models", "概率模型与推断"),
+    "DL": ("06 - 深度学习", "deep-learning", "深度学习"),
 }
 
 

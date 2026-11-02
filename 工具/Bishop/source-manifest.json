@@ -4,7 +4,7 @@
   "source_language": "en",
   "source_file": "附件/books/Christopher M. Bishop, Hugh Bishop - Deep Learning_ Foundations and Concepts-Springer (2024).pdf",
   "source_sha256": "277ac35c73df83a72a6fefde790c097168959c7c054bf1d25f8f5ebf0ed195c7",
-  "scope": "2024年版本第1–2章；第1章核对为零道编号习题，第2章全部41题。未审计第3–20章，不含个人学习完成记录。",
+  "scope": "2024年版本第1–20章全部352道编号习题；第1章零题，其余19章均按原始页面核对有序题号、星数、跨页与映射。归档及解答不表示个人学习完成；附录仅按题内引用查用。",
   "chapters": {
     "1": {
       "title_zh": "深度学习革命",
@@ -503,6 +503,5580 @@
           "verification": "两变量信息Venn关系独立构造，已编译、渲染并目视检查；区域面积不按熵值比例。"
         }
       ]
+    },
+    "3": {
+      "title_zh": "标准分布",
+      "title_en": "Standard Distributions",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        65,
+        110
+      ],
+      "pdf_page_range": [
+        84,
+        129
+      ],
+      "boundary_pdf_pages": [
+        84,
+        130
+      ],
+      "printed_problem_pages": [
+        105,
+        106,
+        107,
+        108,
+        109,
+        110
+      ],
+      "pdf_problem_pages": [
+        124,
+        125,
+        126,
+        127,
+        128,
+        129
+      ],
+      "expected_exercises": [
+        "3.1",
+        "3.2",
+        "3.3",
+        "3.4",
+        "3.5",
+        "3.6",
+        "3.7",
+        "3.8",
+        "3.9",
+        "3.10",
+        "3.11",
+        "3.12",
+        "3.13",
+        "3.14",
+        "3.15",
+        "3.16",
+        "3.17",
+        "3.18",
+        "3.19",
+        "3.20",
+        "3.21",
+        "3.22",
+        "3.23",
+        "3.24",
+        "3.25",
+        "3.26",
+        "3.27",
+        "3.28",
+        "3.29",
+        "3.30",
+        "3.31",
+        "3.32",
+        "3.33",
+        "3.34",
+        "3.35",
+        "3.36",
+        "3.37",
+        "3.38"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "3.1",
+          "local_id": "P033",
+          "title_zh": "Bernoulli分布的归一化矩与熵",
+          "note": "01 - 概率论/习题/习题 P033 - Bernoulli分布的归一化矩与熵.md",
+          "stars": 1,
+          "printed_page": 105,
+          "pdf_page": 124,
+          "printed_pages": [
+            105
+          ],
+          "pdf_pages": [
+            124
+          ]
+        },
+        {
+          "source_exercise": "3.2",
+          "local_id": "P034",
+          "title_zh": "正负一Bernoulli编码的矩与熵",
+          "note": "01 - 概率论/习题/习题 P034 - 正负一Bernoulli编码的矩与熵.md",
+          "stars": 2,
+          "printed_page": 105,
+          "pdf_page": 124,
+          "printed_pages": [
+            105
+          ],
+          "pdf_pages": [
+            124
+          ]
+        },
+        {
+          "source_exercise": "3.3",
+          "local_id": "P035",
+          "title_zh": "Pascal恒等式二项式定理与二项分布归一化",
+          "note": "01 - 概率论/习题/习题 P035 - Pascal恒等式二项式定理与二项分布归一化.md",
+          "stars": 2,
+          "printed_page": 105,
+          "pdf_page": 124,
+          "printed_pages": [
+            105,
+            106
+          ],
+          "pdf_pages": [
+            124,
+            125
+          ]
+        },
+        {
+          "source_exercise": "3.4",
+          "local_id": "P036",
+          "title_zh": "由归一化求导计算二项分布的均值方差",
+          "note": "01 - 概率论/习题/习题 P036 - 由归一化求导计算二项分布的均值方差.md",
+          "stars": 2,
+          "printed_page": 106,
+          "pdf_page": 125,
+          "printed_pages": [
+            106
+          ],
+          "pdf_pages": [
+            125
+          ]
+        },
+        {
+          "source_exercise": "3.5",
+          "local_id": "P037",
+          "title_zh": "多元高斯的唯一众数",
+          "note": "01 - 概率论/习题/习题 P037 - 多元高斯的唯一众数.md",
+          "stars": 1,
+          "printed_page": 106,
+          "pdf_page": 125,
+          "printed_pages": [
+            106
+          ],
+          "pdf_pages": [
+            125
+          ]
+        },
+        {
+          "source_exercise": "3.6",
+          "local_id": "P038",
+          "title_zh": "仿射变换下的高斯均值与协方差",
+          "note": "01 - 概率论/习题/习题 P038 - 仿射变换下的高斯均值与协方差.md",
+          "stars": 2,
+          "printed_page": 106,
+          "pdf_page": 125,
+          "printed_pages": [
+            106
+          ],
+          "pdf_pages": [
+            125
+          ]
+        },
+        {
+          "source_exercise": "3.7",
+          "local_id": "P039",
+          "title_zh": "两个多元高斯之间的KL散度",
+          "note": "01 - 概率论/习题/习题 P039 - 两个多元高斯之间的KL散度.md",
+          "stars": 3,
+          "printed_page": 106,
+          "pdf_page": 125,
+          "printed_pages": [
+            106
+          ],
+          "pdf_pages": [
+            125
+          ]
+        },
+        {
+          "source_exercise": "3.8",
+          "local_id": "P040",
+          "title_zh": "固定均值协方差下的多元高斯最大熵",
+          "note": "01 - 概率论/习题/习题 P040 - 固定均值协方差下的多元高斯最大熵.md",
+          "stars": 2,
+          "printed_page": 106,
+          "pdf_page": 125,
+          "printed_pages": [
+            106
+          ],
+          "pdf_pages": [
+            125
+          ]
+        },
+        {
+          "source_exercise": "3.9",
+          "local_id": "P041",
+          "title_zh": "多元高斯微分熵的迹计算",
+          "note": "01 - 概率论/习题/习题 P041 - 多元高斯微分熵的迹计算.md",
+          "stars": 3,
+          "printed_page": 107,
+          "pdf_page": 126,
+          "printed_pages": [
+            107
+          ],
+          "pdf_pages": [
+            126
+          ]
+        },
+        {
+          "source_exercise": "3.10",
+          "local_id": "P042",
+          "title_zh": "独立高斯之和的卷积与微分熵",
+          "note": "01 - 概率论/习题/习题 P042 - 独立高斯之和的卷积与微分熵.md",
+          "stars": 3,
+          "printed_page": 107,
+          "pdf_page": 126,
+          "printed_pages": [
+            107
+          ],
+          "pdf_pages": [
+            126
+          ]
+        },
+        {
+          "source_exercise": "3.11",
+          "local_id": "LA007",
+          "title_zh": "高斯二次型中反对称部分的消失",
+          "note": "03 - 线性代数与优化/习题/习题 LA007 - 高斯二次型中反对称部分的消失.md",
+          "stars": 1,
+          "printed_page": 107,
+          "pdf_page": 126,
+          "printed_pages": [
+            107
+          ],
+          "pdf_pages": [
+            126
+          ]
+        },
+        {
+          "source_exercise": "3.12",
+          "local_id": "LA008",
+          "title_zh": "实对称矩阵的实谱与正交特征基",
+          "note": "03 - 线性代数与优化/习题/习题 LA008 - 实对称矩阵的实谱与正交特征基.md",
+          "stars": 3,
+          "printed_page": 107,
+          "pdf_page": 126,
+          "printed_pages": [
+            107
+          ],
+          "pdf_pages": [
+            126
+          ]
+        },
+        {
+          "source_exercise": "3.13",
+          "local_id": "LA009",
+          "title_zh": "对称矩阵与逆矩阵的谱展开",
+          "note": "03 - 线性代数与优化/习题/习题 LA009 - 对称矩阵与逆矩阵的谱展开.md",
+          "stars": 2,
+          "printed_page": 107,
+          "pdf_page": 126,
+          "printed_pages": [
+            107
+          ],
+          "pdf_pages": [
+            126
+          ]
+        },
+        {
+          "source_exercise": "3.14",
+          "local_id": "LA010",
+          "title_zh": "对称正定与特征值全正的等价性",
+          "note": "03 - 线性代数与优化/习题/习题 LA010 - 对称正定与特征值全正的等价性.md",
+          "stars": 2,
+          "printed_page": 107,
+          "pdf_page": 126,
+          "printed_pages": [
+            107
+          ],
+          "pdf_pages": [
+            126
+          ]
+        },
+        {
+          "source_exercise": "3.15",
+          "local_id": "LA011",
+          "title_zh": "实对称矩阵的独立参数计数",
+          "note": "03 - 线性代数与优化/习题/习题 LA011 - 实对称矩阵的独立参数计数.md",
+          "stars": 1,
+          "printed_page": 107,
+          "pdf_page": 126,
+          "printed_pages": [
+            107
+          ],
+          "pdf_pages": [
+            126
+          ]
+        },
+        {
+          "source_exercise": "3.16",
+          "local_id": "LA012",
+          "title_zh": "可逆对称矩阵的逆仍对称",
+          "note": "03 - 线性代数与优化/习题/习题 LA012 - 可逆对称矩阵的逆仍对称.md",
+          "stars": 1,
+          "printed_page": 108,
+          "pdf_page": 127,
+          "printed_pages": [
+            108
+          ],
+          "pdf_pages": [
+            127
+          ]
+        },
+        {
+          "source_exercise": "3.17",
+          "local_id": "LA013",
+          "title_zh": "Mahalanobis球对应椭球的体积",
+          "note": "03 - 线性代数与优化/习题/习题 LA013 - Mahalanobis球对应椭球的体积.md",
+          "stars": 2,
+          "printed_page": 108,
+          "pdf_page": 127,
+          "printed_pages": [
+            108
+          ],
+          "pdf_pages": [
+            127
+          ]
+        },
+        {
+          "source_exercise": "3.18",
+          "local_id": "LA014",
+          "title_zh": "由Schur补验证分块矩阵求逆",
+          "note": "03 - 线性代数与优化/习题/习题 LA014 - 由Schur补验证分块矩阵求逆.md",
+          "stars": 2,
+          "printed_page": 108,
+          "pdf_page": 127,
+          "printed_pages": [
+            108
+          ],
+          "pdf_pages": [
+            127
+          ]
+        },
+        {
+          "source_exercise": "3.19",
+          "local_id": "P043",
+          "title_zh": "三组高斯变量边缘化后的条件分布",
+          "note": "01 - 概率论/习题/习题 P043 - 三组高斯变量边缘化后的条件分布.md",
+          "stars": 3,
+          "printed_page": 108,
+          "pdf_page": 127,
+          "printed_pages": [
+            108
+          ],
+          "pdf_pages": [
+            127
+          ]
+        },
+        {
+          "source_exercise": "3.20",
+          "local_id": "LA015",
+          "title_zh": "Woodbury矩阵求逆恒等式的乘法验证",
+          "note": "03 - 线性代数与优化/习题/习题 LA015 - Woodbury矩阵求逆恒等式的乘法验证.md",
+          "stars": 2,
+          "printed_page": 108,
+          "pdf_page": 127,
+          "printed_pages": [
+            108
+          ],
+          "pdf_pages": [
+            127
+          ]
+        },
+        {
+          "source_exercise": "3.21",
+          "local_id": "P044",
+          "title_zh": "独立随机向量之和的均值与协方差",
+          "note": "01 - 概率论/习题/习题 P044 - 独立随机向量之和的均值与协方差.md",
+          "stars": 1,
+          "printed_page": 108,
+          "pdf_page": 127,
+          "printed_pages": [
+            108
+          ],
+          "pdf_pages": [
+            127
+          ]
+        },
+        {
+          "source_exercise": "3.22",
+          "local_id": "P045",
+          "title_zh": "由线性高斯联合矩恢复边缘与条件分布",
+          "note": "01 - 概率论/习题/习题 P045 - 由线性高斯联合矩恢复边缘与条件分布.md",
+          "stars": 3,
+          "printed_page": 108,
+          "pdf_page": 127,
+          "printed_pages": [
+            108
+          ],
+          "pdf_pages": [
+            127
+          ]
+        },
+        {
+          "source_exercise": "3.23",
+          "local_id": "P046",
+          "title_zh": "线性高斯精度矩阵的分块逆",
+          "note": "01 - 概率论/习题/习题 P046 - 线性高斯精度矩阵的分块逆.md",
+          "stars": 2,
+          "printed_page": 109,
+          "pdf_page": 128,
+          "printed_pages": [
+            109
+          ],
+          "pdf_pages": [
+            128
+          ]
+        },
+        {
+          "source_exercise": "3.24",
+          "local_id": "P047",
+          "title_zh": "线性高斯联合均值的分块乘法",
+          "note": "01 - 概率论/习题/习题 P047 - 线性高斯联合均值的分块乘法.md",
+          "stars": 2,
+          "printed_page": 109,
+          "pdf_page": 128,
+          "printed_pages": [
+            109
+          ],
+          "pdf_pages": [
+            128
+          ]
+        },
+        {
+          "source_exercise": "3.25",
+          "local_id": "P048",
+          "title_zh": "独立多元高斯相加的线性模型证明",
+          "note": "01 - 概率论/习题/习题 P048 - 独立多元高斯相加的线性模型证明.md",
+          "stars": 2,
+          "printed_page": 109,
+          "pdf_page": 128,
+          "printed_pages": [
+            109
+          ],
+          "pdf_pages": [
+            128
+          ]
+        },
+        {
+          "source_exercise": "3.26",
+          "local_id": "P049",
+          "title_zh": "配方积分求线性高斯模型的边缘",
+          "note": "01 - 概率论/习题/习题 P049 - 配方积分求线性高斯模型的边缘.md",
+          "stars": 3,
+          "printed_page": 109,
+          "pdf_page": 128,
+          "printed_pages": [
+            109
+          ],
+          "pdf_pages": [
+            128
+          ]
+        },
+        {
+          "source_exercise": "3.27",
+          "local_id": "P050",
+          "title_zh": "配方求线性高斯模型的后验",
+          "note": "01 - 概率论/习题/习题 P050 - 配方求线性高斯模型的后验.md",
+          "stars": 3,
+          "printed_page": 109,
+          "pdf_page": 128,
+          "printed_pages": [
+            109
+          ],
+          "pdf_pages": [
+            128
+          ]
+        },
+        {
+          "source_exercise": "3.28",
+          "local_id": "ST006",
+          "title_zh": "多元高斯协方差的最大似然与奇异边界",
+          "note": "02 - 数理统计/习题/习题 ST006 - 多元高斯协方差的最大似然与奇异边界.md",
+          "stars": 2,
+          "printed_page": 109,
+          "pdf_page": 128,
+          "printed_pages": [
+            109
+          ],
+          "pdf_pages": [
+            128
+          ]
+        },
+        {
+          "source_exercise": "3.29",
+          "local_id": "ST007",
+          "title_zh": "多元高斯样本协方差的偏差",
+          "note": "02 - 数理统计/习题/习题 ST007 - 多元高斯样本协方差的偏差.md",
+          "stars": 2,
+          "printed_page": 109,
+          "pdf_page": 128,
+          "printed_pages": [
+            109
+          ],
+          "pdf_pages": [
+            128
+          ]
+        },
+        {
+          "source_exercise": "3.30",
+          "local_id": "LA016",
+          "title_zh": "由Euler公式推导周期变量的三角恒等式",
+          "note": "03 - 线性代数与优化/习题/习题 LA016 - 由Euler公式推导周期变量的三角恒等式.md",
+          "stars": 1,
+          "printed_page": 109,
+          "pdf_page": 128,
+          "printed_pages": [
+            109,
+            110
+          ],
+          "pdf_pages": [
+            128,
+            129
+          ]
+        },
+        {
+          "source_exercise": "3.31",
+          "local_id": "P051",
+          "title_zh": "von Mises分布的局部高斯极限",
+          "note": "01 - 概率论/习题/习题 P051 - von Mises分布的局部高斯极限.md",
+          "stars": 2,
+          "printed_page": 110,
+          "pdf_page": 129,
+          "printed_pages": [
+            110
+          ],
+          "pdf_pages": [
+            129
+          ]
+        },
+        {
+          "source_exercise": "3.32",
+          "local_id": "ST008",
+          "title_zh": "圆周位置参数的驻点与正确象限",
+          "note": "02 - 数理统计/习题/习题 ST008 - 圆周位置参数的驻点与正确象限.md",
+          "stars": 1,
+          "printed_page": 110,
+          "pdf_page": 129,
+          "printed_pages": [
+            110
+          ],
+          "pdf_pages": [
+            129
+          ]
+        },
+        {
+          "source_exercise": "3.33",
+          "local_id": "P052",
+          "title_zh": "von Mises密度的极大与极小位置",
+          "note": "01 - 概率论/习题/习题 P052 - von Mises密度的极大与极小位置.md",
+          "stars": 1,
+          "printed_page": 110,
+          "pdf_page": 129,
+          "printed_pages": [
+            110
+          ],
+          "pdf_pages": [
+            129
+          ]
+        },
+        {
+          "source_exercise": "3.34",
+          "local_id": "ST009",
+          "title_zh": "von Mises浓度估计与平均合向量长度",
+          "note": "02 - 数理统计/习题/习题 ST009 - von Mises浓度估计与平均合向量长度.md",
+          "stars": 1,
+          "printed_page": 110,
+          "pdf_page": 129,
+          "printed_pages": [
+            110
+          ],
+          "pdf_pages": [
+            129
+          ]
+        },
+        {
+          "source_exercise": "3.35",
+          "local_id": "P053",
+          "title_zh": "多元高斯的指数族自然参数",
+          "note": "01 - 概率论/习题/习题 P053 - 多元高斯的指数族自然参数.md",
+          "stars": 1,
+          "printed_page": 110,
+          "pdf_page": 129,
+          "printed_pages": [
+            110
+          ],
+          "pdf_pages": [
+            129
+          ]
+        },
+        {
+          "source_exercise": "3.36",
+          "local_id": "P054",
+          "title_zh": "指数族对数归一化因子的Hessian与协方差",
+          "note": "01 - 概率论/习题/习题 P054 - 指数族对数归一化因子的Hessian与协方差.md",
+          "stars": 1,
+          "printed_page": 110,
+          "pdf_page": 129,
+          "printed_pages": [
+            110
+          ],
+          "pdf_pages": [
+            129
+          ]
+        },
+        {
+          "source_exercise": "3.37",
+          "local_id": "ST010",
+          "title_zh": "分区常数密度的最大似然高度",
+          "note": "02 - 数理统计/习题/习题 ST010 - 分区常数密度的最大似然高度.md",
+          "stars": 2,
+          "printed_page": 110,
+          "pdf_page": 129,
+          "printed_pages": [
+            110
+          ],
+          "pdf_pages": [
+            129
+          ]
+        },
+        {
+          "source_exercise": "3.38",
+          "local_id": "ST011",
+          "title_zh": "K近邻密度的尾部积分发散",
+          "note": "02 - 数理统计/习题/习题 ST011 - K近邻密度的尾部积分发散.md",
+          "stars": 1,
+          "printed_page": 110,
+          "pdf_page": 129,
+          "printed_pages": [
+            110
+          ],
+          "pdf_pages": [
+            129
+          ]
+        }
+      ],
+      "audit_note": "完整核对3.1–3.38共38题；3.3和3.30跨页。原3.8误称maximum likelihood、3.10/3.25缺独立性、3.14未排零向量、3.22缺联合高斯与3.32反正切象限均保留原文并另给修正或反例。",
+      "figure_dependencies": [
+        {
+          "figure": "3.9",
+          "printed_page": 90,
+          "pdf_page": 109,
+          "asset": "附件/习题图/DS003/原图-3.9.png"
+        }
+      ]
+    },
+    "4": {
+      "title_zh": "单层网络：回归",
+      "title_en": "Single-layer Networks: Regression",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        111,
+        130
+      ],
+      "pdf_page_range": [
+        130,
+        149
+      ],
+      "boundary_pdf_pages": [
+        130,
+        150
+      ],
+      "printed_problem_pages": [
+        128,
+        129,
+        130
+      ],
+      "pdf_problem_pages": [
+        147,
+        148,
+        149
+      ],
+      "expected_exercises": [
+        "4.1",
+        "4.2",
+        "4.3",
+        "4.4",
+        "4.5",
+        "4.6",
+        "4.7",
+        "4.8",
+        "4.9",
+        "4.10",
+        "4.11",
+        "4.12"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "4.1",
+          "local_id": "ML015",
+          "title_zh": "多项式最小二乘的正规方程",
+          "note": "04 - 统计学习/习题/习题 ML015 - 多项式最小二乘的正规方程.md",
+          "stars": 1,
+          "printed_page": 128,
+          "pdf_page": 147
+        },
+        {
+          "source_exercise": "4.2",
+          "local_id": "ML016",
+          "title_zh": "正则化多项式拟合的耦合方程",
+          "note": "04 - 统计学习/习题/习题 ML016 - 正则化多项式拟合的耦合方程.md",
+          "stars": 1,
+          "printed_page": 128,
+          "pdf_page": 147
+        },
+        {
+          "source_exercise": "4.3",
+          "local_id": "ML017",
+          "title_zh": "Sigmoid与tanh基函数的等价参数化",
+          "note": "04 - 统计学习/习题/习题 ML017 - Sigmoid与tanh基函数的等价参数化.md",
+          "stars": 1,
+          "printed_page": 128,
+          "pdf_page": 147,
+          "printed_pages": [
+            128,
+            129
+          ],
+          "pdf_pages": [
+            147,
+            148
+          ]
+        },
+        {
+          "source_exercise": "4.4",
+          "local_id": "ML018",
+          "title_zh": "最小二乘解的正交投影矩阵",
+          "note": "04 - 统计学习/习题/习题 ML018 - 最小二乘解的正交投影矩阵.md",
+          "stars": 3,
+          "printed_page": 129,
+          "pdf_page": 148
+        },
+        {
+          "source_exercise": "4.5",
+          "local_id": "ML019",
+          "title_zh": "加权最小二乘的解与两种解释",
+          "note": "04 - 统计学习/习题/习题 ML019 - 加权最小二乘的解与两种解释.md",
+          "stars": 1,
+          "printed_page": 129,
+          "pdf_page": 148
+        },
+        {
+          "source_exercise": "4.6",
+          "local_id": "ML020",
+          "title_zh": "正则化最小二乘的闭式解与秩亏边界",
+          "note": "04 - 统计学习/习题/习题 ML020 - 正则化最小二乘的闭式解与秩亏边界.md",
+          "stars": 1,
+          "printed_page": 129,
+          "pdf_page": 148
+        },
+        {
+          "source_exercise": "4.7",
+          "local_id": "ML021",
+          "title_zh": "相关多目标高斯回归的最大似然估计",
+          "note": "04 - 统计学习/习题/习题 ML021 - 相关多目标高斯回归的最大似然估计.md",
+          "stars": 2,
+          "printed_page": 129,
+          "pdf_page": 148
+        },
+        {
+          "source_exercise": "4.8",
+          "local_id": "ML022",
+          "title_zh": "用变分法求多目标平方损失的最优预测",
+          "note": "04 - 统计学习/习题/习题 ML022 - 用变分法求多目标平方损失的最优预测.md",
+          "stars": 1,
+          "printed_page": 130,
+          "pdf_page": 149
+        },
+        {
+          "source_exercise": "4.9",
+          "local_id": "ML023",
+          "title_zh": "向量平方风险的条件均值分解",
+          "note": "04 - 统计学习/习题/习题 ML023 - 向量平方风险的条件均值分解.md",
+          "stars": 1,
+          "printed_page": 130,
+          "pdf_page": 149
+        },
+        {
+          "source_exercise": "4.10",
+          "local_id": "ML024",
+          "title_zh": "按坐标重推向量平方风险最小解",
+          "note": "04 - 统计学习/习题/习题 ML024 - 按坐标重推向量平方风险最小解.md",
+          "stars": 2,
+          "printed_page": 130,
+          "pdf_page": 149
+        },
+        {
+          "source_exercise": "4.11",
+          "local_id": "ML025",
+          "title_zh": "广义高斯噪声与Lq回归似然",
+          "note": "04 - 统计学习/习题/习题 ML025 - 广义高斯噪声与Lq回归似然.md",
+          "stars": 2,
+          "printed_page": 130,
+          "pdf_page": 149
+        },
+        {
+          "source_exercise": "4.12",
+          "local_id": "ML026",
+          "title_zh": "Lq损失的最优预测与众数极限反例",
+          "note": "04 - 统计学习/习题/习题 ML026 - Lq损失的最优预测与众数极限反例.md",
+          "stars": 2,
+          "printed_page": 130,
+          "pdf_page": 149
+        }
+      ],
+      "audit_note": "完整有序集合4.1–4.12共12题，星数依次为1,1,1,3,1,1,2,1,1,2,2,2。4.3跨PDF147–148完整归一篇；4.9和4.10虽近重复，仍分别保留。4.11原Gamma积分下限为负无穷，英文与中文照录，另行修正为0；4.12一般连续密度的q趋零众数断言不成立，ML026给出解析反例及有限离散范围内可成立的结论。第3章未因归档第4章而被标为已归档。",
+      "figure_dependencies": [
+        {
+          "figure": "4.3",
+          "printed_page": 117,
+          "pdf_page": 136,
+          "asset": "附件/习题图/DS003/原图-4.3.png"
+        }
+      ]
+    },
+    "5": {
+      "title_zh": "单层网络：分类",
+      "title_en": "Single-layer Networks: Classification",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        131,
+        169
+      ],
+      "pdf_page_range": [
+        150,
+        188
+      ],
+      "boundary_pdf_pages": [
+        150,
+        189
+      ],
+      "printed_problem_pages": [
+        166,
+        167,
+        168,
+        169
+      ],
+      "pdf_problem_pages": [
+        185,
+        186,
+        187,
+        188
+      ],
+      "expected_exercises": [
+        "5.1",
+        "5.2",
+        "5.3",
+        "5.4",
+        "5.5",
+        "5.6",
+        "5.7",
+        "5.8",
+        "5.9",
+        "5.10",
+        "5.11",
+        "5.12",
+        "5.13",
+        "5.14",
+        "5.15",
+        "5.16",
+        "5.17",
+        "5.18",
+        "5.19",
+        "5.20",
+        "5.21",
+        "5.22",
+        "5.23",
+        "5.24"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "5.1",
+          "local_id": "ML027",
+          "title_zh": "独热目标的条件期望与类别后验",
+          "note": "04 - 统计学习/习题/习题 ML027 - 独热目标的条件期望与类别后验.md",
+          "stars": 1,
+          "printed_page": 166,
+          "pdf_page": 185
+        },
+        {
+          "source_exercise": "5.2",
+          "local_id": "ML028",
+          "title_zh": "线性可分性与凸包不相交",
+          "note": "04 - 统计学习/习题/习题 ML028 - 线性可分性与凸包不相交.md",
+          "stars": 2,
+          "printed_page": 166,
+          "pdf_page": 185
+        },
+        {
+          "source_exercise": "5.3",
+          "local_id": "ML029",
+          "title_zh": "最小二乘预测保持仿射目标约束的条件",
+          "note": "04 - 统计学习/习题/习题 ML029 - 最小二乘预测保持仿射目标约束的条件.md",
+          "stars": 2,
+          "printed_page": 166,
+          "pdf_page": 185
+        },
+        {
+          "source_exercise": "5.4",
+          "local_id": "ML030",
+          "title_zh": "多重仿射目标约束的最小二乘保持性",
+          "note": "04 - 统计学习/习题/习题 ML030 - 多重仿射目标约束的最小二乘保持性.md",
+          "stars": 2,
+          "printed_page": 166,
+          "pdf_page": 185
+        },
+        {
+          "source_exercise": "5.5",
+          "local_id": "ML031",
+          "title_zh": "由精确率与召回率推导F分数",
+          "note": "04 - 统计学习/习题/习题 ML031 - 由精确率与召回率推导F分数.md",
+          "stars": 1,
+          "printed_page": 166,
+          "pdf_page": 185
+        },
+        {
+          "source_exercise": "5.6",
+          "local_id": "ML032",
+          "title_zh": "最小分类错误率的几何均值上界",
+          "note": "04 - 统计学习/习题/习题 ML032 - 最小分类错误率的几何均值上界.md",
+          "stars": 2,
+          "printed_page": 166,
+          "pdf_page": 185
+        },
+        {
+          "source_exercise": "5.7",
+          "local_id": "ML033",
+          "title_zh": "零一损失下的最大后验决策",
+          "note": "04 - 统计学习/习题/习题 ML033 - 零一损失下的最大后验决策.md",
+          "stars": 1,
+          "printed_page": 166,
+          "pdf_page": 185,
+          "printed_pages": [
+            166,
+            167
+          ],
+          "pdf_pages": [
+            185,
+            186
+          ]
+        },
+        {
+          "source_exercise": "5.8",
+          "local_id": "ML034",
+          "title_zh": "一般损失与类别先验下的贝叶斯决策",
+          "note": "04 - 统计学习/习题/习题 ML034 - 一般损失与类别先验下的贝叶斯决策.md",
+          "stars": 1,
+          "printed_page": 167,
+          "pdf_page": 186
+        },
+        {
+          "source_exercise": "5.9",
+          "local_id": "ML035",
+          "title_zh": "后验概率样本平均与类别先验",
+          "note": "04 - 统计学习/习题/习题 ML035 - 后验概率样本平均与类别先验.md",
+          "stars": 1,
+          "printed_page": 167,
+          "pdf_page": 186
+        },
+        {
+          "source_exercise": "5.10",
+          "local_id": "ML036",
+          "title_zh": "一般损失矩阵下的最优拒绝规则",
+          "note": "04 - 统计学习/习题/习题 ML036 - 一般损失矩阵下的最优拒绝规则.md",
+          "stars": 2,
+          "printed_page": 167,
+          "pdf_page": 186
+        },
+        {
+          "source_exercise": "5.11",
+          "local_id": "ML037",
+          "title_zh": "Sigmoid的对称性与logit逆函数",
+          "note": "04 - 统计学习/习题/习题 ML037 - Sigmoid的对称性与logit逆函数.md",
+          "stars": 1,
+          "printed_page": 167,
+          "pdf_page": 186
+        },
+        {
+          "source_exercise": "5.12",
+          "local_id": "ML038",
+          "title_zh": "共享协方差高斯分类的线性对数赔率",
+          "note": "04 - 统计学习/习题/习题 ML038 - 共享协方差高斯分类的线性对数赔率.md",
+          "stars": 1,
+          "printed_page": 167,
+          "pdf_page": 186
+        },
+        {
+          "source_exercise": "5.13",
+          "local_id": "ML039",
+          "title_zh": "多类别生成模型先验的最大似然估计",
+          "note": "04 - 统计学习/习题/习题 ML039 - 多类别生成模型先验的最大似然估计.md",
+          "stars": 1,
+          "printed_page": 167,
+          "pdf_page": 186
+        },
+        {
+          "source_exercise": "5.14",
+          "local_id": "ML040",
+          "title_zh": "共享高斯协方差分类器的均值与池化估计",
+          "note": "04 - 统计学习/习题/习题 ML040 - 共享高斯协方差分类器的均值与池化估计.md",
+          "stars": 2,
+          "printed_page": 167,
+          "pdf_page": 186,
+          "printed_pages": [
+            167,
+            168
+          ],
+          "pdf_pages": [
+            186,
+            187
+          ]
+        },
+        {
+          "source_exercise": "5.15",
+          "local_id": "ML041",
+          "title_zh": "二元朴素贝叶斯特征概率的最大似然估计",
+          "note": "04 - 统计学习/习题/习题 ML041 - 二元朴素贝叶斯特征概率的最大似然估计.md",
+          "stars": 2,
+          "printed_page": 168,
+          "pdf_page": 187
+        },
+        {
+          "source_exercise": "5.16",
+          "local_id": "ML042",
+          "title_zh": "多状态朴素贝叶斯的线性softmax分数",
+          "note": "04 - 统计学习/习题/习题 ML042 - 多状态朴素贝叶斯的线性softmax分数.md",
+          "stars": 2,
+          "printed_page": 168,
+          "pdf_page": 187
+        },
+        {
+          "source_exercise": "5.17",
+          "local_id": "ML043",
+          "title_zh": "多状态朴素贝叶斯的最大似然估计",
+          "note": "04 - 统计学习/习题/习题 ML043 - 多状态朴素贝叶斯的最大似然估计.md",
+          "stars": 2,
+          "printed_page": 168,
+          "pdf_page": 187
+        },
+        {
+          "source_exercise": "5.18",
+          "local_id": "ML044",
+          "title_zh": "Logistic sigmoid的导数恒等式",
+          "note": "04 - 统计学习/习题/习题 ML044 - Logistic sigmoid的导数恒等式.md",
+          "stars": 1,
+          "printed_page": 168,
+          "pdf_page": 187
+        },
+        {
+          "source_exercise": "5.19",
+          "local_id": "ML045",
+          "title_zh": "二元交叉熵对线性参数的梯度",
+          "note": "04 - 统计学习/习题/习题 ML045 - 二元交叉熵对线性参数的梯度.md",
+          "stars": 1,
+          "printed_page": 168,
+          "pdf_page": 187
+        },
+        {
+          "source_exercise": "5.20",
+          "local_id": "ML046",
+          "title_zh": "严格可分逻辑回归的无穷大参数极限",
+          "note": "04 - 统计学习/习题/习题 ML046 - 严格可分逻辑回归的无穷大参数极限.md",
+          "stars": 1,
+          "printed_page": 168,
+          "pdf_page": 187
+        },
+        {
+          "source_exercise": "5.21",
+          "local_id": "ML047",
+          "title_zh": "Softmax激活的全部偏导数",
+          "note": "04 - 统计学习/习题/习题 ML047 - Softmax激活的全部偏导数.md",
+          "stars": 1,
+          "printed_page": 168,
+          "pdf_page": 187
+        },
+        {
+          "source_exercise": "5.22",
+          "local_id": "ML048",
+          "title_zh": "多类交叉熵对Softmax参数的梯度",
+          "note": "04 - 统计学习/习题/习题 ML048 - 多类交叉熵对Softmax参数的梯度.md",
+          "stars": 1,
+          "printed_page": 169,
+          "pdf_page": 188
+        },
+        {
+          "source_exercise": "5.23",
+          "local_id": "ML049",
+          "title_zh": "Probit与两种erf约定的换元关系",
+          "note": "04 - 统计学习/习题/习题 ML049 - Probit与两种erf约定的换元关系.md",
+          "stars": 1,
+          "printed_page": 169,
+          "pdf_page": 188
+        },
+        {
+          "source_exercise": "5.24",
+          "local_id": "ML050",
+          "title_zh": "在原点匹配Sigmoid与Probit的斜率",
+          "note": "04 - 统计学习/习题/习题 ML050 - 在原点匹配Sigmoid与Probit的斜率.md",
+          "stars": 2,
+          "printed_page": 169,
+          "pdf_page": 188
+        }
+      ],
+      "audit_note": "按原页完整核对5.1–5.24共24题及全部星数。5.7跨PDF185–186，5.14跨186–187；所有跨页内容各归同一笔记。式(5.100)原求和下标大写N=1保留，解答另修n=1。5.1按分量解释向量期望，5.3–5.4补明满秩和秩亏外推条件，5.20区分严格可分时的似然上确界与不存在的有限MLE。5.23保留主书式(5.87)非标准erf定义及与之自洽的(5.88)，另区分DS004所用标准erf。PDF188印刷169后直接进入PDF189印刷171，不能沿用本章偏移到后续章节。",
+      "figure_dependencies": []
+    },
+    "6": {
+      "title_zh": "深度神经网络",
+      "title_en": "Deep Neural Networks",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        171,
+        207
+      ],
+      "pdf_page_range": [
+        189,
+        225
+      ],
+      "boundary_pdf_pages": [
+        189,
+        226
+      ],
+      "printed_problem_pages": [
+        204,
+        205,
+        206,
+        207
+      ],
+      "pdf_problem_pages": [
+        222,
+        223,
+        224,
+        225
+      ],
+      "expected_exercises": [
+        "6.1",
+        "6.2",
+        "6.3",
+        "6.4",
+        "6.5",
+        "6.6",
+        "6.7",
+        "6.8",
+        "6.9",
+        "6.10",
+        "6.11",
+        "6.12",
+        "6.13",
+        "6.14",
+        "6.15",
+        "6.16",
+        "6.17",
+        "6.18",
+        "6.19",
+        "6.20",
+        "6.21"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "6.1",
+          "local_id": "LA005",
+          "title_zh": "由高斯积分求高维单位球的面积与体积",
+          "note": "03 - 线性代数与优化/习题/习题 LA005 - 由高斯积分求高维单位球的面积与体积.md",
+          "stars": 3,
+          "printed_page": 204,
+          "pdf_page": 222
+        },
+        {
+          "source_exercise": "6.2",
+          "local_id": "LA006",
+          "title_zh": "高维球与外接立方体的体积比",
+          "note": "03 - 线性代数与优化/习题/习题 LA006 - 高维球与外接立方体的体积比.md",
+          "stars": 3,
+          "printed_page": 204,
+          "pdf_page": 222,
+          "printed_pages": [
+            204,
+            205
+          ],
+          "pdf_pages": [
+            222,
+            223
+          ]
+        },
+        {
+          "source_exercise": "6.3",
+          "local_id": "P032",
+          "title_zh": "高维高斯的径向薄壳与峰值展开",
+          "note": "01 - 概率论/习题/习题 P032 - 高维高斯的径向薄壳与峰值展开.md",
+          "stars": 3,
+          "printed_page": 205,
+          "pdf_page": 223
+        },
+        {
+          "source_exercise": "6.4",
+          "local_id": "DL195",
+          "title_zh": "Sigmoid隐藏层改写为tanh网络",
+          "note": "06 - 深度学习/习题/习题 DL195 - Sigmoid隐藏层改写为tanh网络.md",
+          "stars": 2,
+          "printed_page": 205,
+          "pdf_page": 223
+        },
+        {
+          "source_exercise": "6.5",
+          "local_id": "DL196",
+          "title_zh": "Swish激活及其导数与ReLU极限",
+          "note": "06 - 深度学习/习题/习题 DL196 - Swish激活及其导数与ReLU极限.md",
+          "stars": 2,
+          "printed_page": 205,
+          "pdf_page": 223,
+          "printed_pages": [
+            205,
+            206
+          ],
+          "pdf_pages": [
+            223,
+            224
+          ]
+        },
+        {
+          "source_exercise": "6.6",
+          "local_id": "DL197",
+          "title_zh": "tanh导数的函数值表达",
+          "note": "06 - 深度学习/习题/习题 DL197 - tanh导数的函数值表达.md",
+          "stars": 1,
+          "printed_page": 206,
+          "pdf_page": 224
+        },
+        {
+          "source_exercise": "6.7",
+          "local_id": "DL198",
+          "title_zh": "Softplus的恒等式导数与逆函数",
+          "note": "06 - 深度学习/习题/习题 DL198 - Softplus的恒等式导数与逆函数.md",
+          "stars": 2,
+          "printed_page": 206,
+          "pdf_page": 224
+        },
+        {
+          "source_exercise": "6.8",
+          "local_id": "DL199",
+          "title_zh": "单输出高斯网络的噪声方差估计",
+          "note": "06 - 深度学习/习题/习题 DL199 - 单输出高斯网络的噪声方差估计.md",
+          "stars": 1,
+          "printed_page": 206,
+          "pdf_page": 224
+        },
+        {
+          "source_exercise": "6.9",
+          "local_id": "DL200",
+          "title_zh": "多输出高斯网络的平方误差与共享方差",
+          "note": "06 - 深度学习/习题/习题 DL200 - 多输出高斯网络的平方误差与共享方差.md",
+          "stars": 1,
+          "printed_page": 206,
+          "pdf_page": 224
+        },
+        {
+          "source_exercise": "6.10",
+          "local_id": "DL201",
+          "title_zh": "相关高斯目标的马氏误差与协方差耦合",
+          "note": "06 - 深度学习/习题/习题 DL201 - 相关高斯目标的马氏误差与协方差耦合.md",
+          "stars": 2,
+          "printed_page": 206,
+          "pdf_page": 224
+        },
+        {
+          "source_exercise": "6.11",
+          "local_id": "DL202",
+          "title_zh": "对称标签翻转下的二元分类似然",
+          "note": "06 - 深度学习/习题/习题 DL202 - 对称标签翻转下的二元分类似然.md",
+          "stars": 2,
+          "printed_page": 206,
+          "pdf_page": 224,
+          "printed_pages": [
+            206,
+            207
+          ],
+          "pdf_pages": [
+            224,
+            225
+          ]
+        },
+        {
+          "source_exercise": "6.12",
+          "local_id": "DL203",
+          "title_zh": "正负一标签与tanh输出的分类损失",
+          "note": "06 - 深度学习/习题/习题 DL203 - 正负一标签与tanh输出的分类损失.md",
+          "stars": 2,
+          "printed_page": 207,
+          "pdf_page": 225
+        },
+        {
+          "source_exercise": "6.13",
+          "local_id": "DL204",
+          "title_zh": "多类神经网络的类别似然与交叉熵",
+          "note": "06 - 深度学习/习题/习题 DL204 - 多类神经网络的类别似然与交叉熵.md",
+          "stars": 1,
+          "printed_page": 207,
+          "pdf_page": 225
+        },
+        {
+          "source_exercise": "6.14",
+          "local_id": "DL205",
+          "title_zh": "Sigmoid交叉熵对输出预激活的导数",
+          "note": "06 - 深度学习/习题/习题 DL205 - Sigmoid交叉熵对输出预激活的导数.md",
+          "stars": 1,
+          "printed_page": 207,
+          "pdf_page": 225
+        },
+        {
+          "source_exercise": "6.15",
+          "local_id": "DL206",
+          "title_zh": "多类交叉熵对输出预激活的导数",
+          "note": "06 - 深度学习/习题/习题 DL206 - 多类交叉熵对输出预激活的导数.md",
+          "stars": 1,
+          "printed_page": 207,
+          "pdf_page": 225
+        },
+        {
+          "source_exercise": "6.16",
+          "local_id": "DL207",
+          "title_zh": "双连杆机械臂的正向运动学",
+          "note": "06 - 深度学习/习题/习题 DL207 - 双连杆机械臂的正向运动学.md",
+          "stars": 2,
+          "printed_page": 207,
+          "pdf_page": 225
+        },
+        {
+          "source_exercise": "6.17",
+          "local_id": "DL208",
+          "title_zh": "混合分量责任度的条件后验解释",
+          "note": "06 - 深度学习/习题/习题 DL208 - 混合分量责任度的条件后验解释.md",
+          "stars": 2,
+          "printed_page": 207,
+          "pdf_page": 225
+        },
+        {
+          "source_exercise": "6.18",
+          "local_id": "DL209",
+          "title_zh": "混合权重Softmax预激活的梯度",
+          "note": "06 - 深度学习/习题/习题 DL209 - 混合权重Softmax预激活的梯度.md",
+          "stars": 2,
+          "printed_page": 207,
+          "pdf_page": 225
+        },
+        {
+          "source_exercise": "6.19",
+          "local_id": "DL210",
+          "title_zh": "混合高斯均值输出的责任度梯度",
+          "note": "06 - 深度学习/习题/习题 DL210 - 混合高斯均值输出的责任度梯度.md",
+          "stars": 2,
+          "printed_page": 207,
+          "pdf_page": 225
+        },
+        {
+          "source_exercise": "6.20",
+          "local_id": "DL211",
+          "title_zh": "混合高斯对数标准差输出的梯度",
+          "note": "06 - 深度学习/习题/习题 DL211 - 混合高斯对数标准差输出的梯度.md",
+          "stars": 2,
+          "printed_page": 207,
+          "pdf_page": 225
+        },
+        {
+          "source_exercise": "6.21",
+          "local_id": "DL212",
+          "title_zh": "混合密度网络的均值协方差与总方差",
+          "note": "06 - 深度学习/习题/习题 DL212 - 混合密度网络的均值协方差与总方差.md",
+          "stars": 3,
+          "printed_page": 207,
+          "pdf_page": 225
+        }
+      ],
+      "audit_note": "按原页完整核对6.1–6.21共21题及全部星数。6.2跨PDF222–223，6.5跨223–224，6.11跨224–225；全部内容各归同一笔记。6.3保留式(6.59)的错误局部展开，独立修正二次系数并区别精确众数与近似半径；6.9指出平方和本身不含方差，采用完整高斯似然。6.16按图6.16肘内角约定保留π偏移；6.20严格使用对数标准差参数化；6.21保留式(6.50)，另给出多维总方差所缺L因子、协方差矩阵与二维反例。PDF225印刷207之后直接进入PDF226印刷209，印刷208未收入本地文件，后续章节不能沿用本章偏移。",
+      "figure_dependencies": [
+        {
+          "figure": "6.16",
+          "printed_page": 199,
+          "pdf_page": 217,
+          "asset": "附件/习题图/DS003/原图-6.16.png"
+        }
+      ],
+      "independent_figures": [
+        {
+          "source_exercise": "6.5",
+          "asset": "附件/习题图/DS003/解答-6.5.png",
+          "vector": "附件/习题图/DS003/解答-6.5.pdf",
+          "editable": "附件/习题图/DS003/解答-6.5.tex",
+          "verification": "按Swish和解析一阶导数独立绘制β=0.1、1、10的双面板图，x∈[-4,4]；已编译、渲染并目视检查，包括导数负值、超过1及原点1/2。"
+        }
+      ]
+    },
+    "7": {
+      "title_zh": "梯度下降",
+      "title_en": "Gradient Descent",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        209,
+        232
+      ],
+      "pdf_page_range": [
+        226,
+        249
+      ],
+      "boundary_pdf_pages": [
+        226,
+        250
+      ],
+      "printed_problem_pages": [
+        230,
+        231,
+        232
+      ],
+      "pdf_problem_pages": [
+        247,
+        248,
+        249
+      ],
+      "expected_exercises": [
+        "7.1",
+        "7.2",
+        "7.3",
+        "7.4",
+        "7.5",
+        "7.6",
+        "7.7",
+        "7.8",
+        "7.9",
+        "7.10",
+        "7.11",
+        "7.12",
+        "7.13",
+        "7.14"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "7.1",
+          "local_id": "LA017",
+          "title_zh": "在Hessian特征基中展开二次误差",
+          "note": "03 - 线性代数与优化/习题/习题 LA017 - 在Hessian特征基中展开二次误差.md",
+          "stars": 1,
+          "printed_page": 230,
+          "pdf_page": 247,
+          "printed_pages": [
+            230
+          ],
+          "pdf_pages": [
+            247
+          ]
+        },
+        {
+          "source_exercise": "7.2",
+          "local_id": "LA018",
+          "title_zh": "对称Hessian正定的谱判据",
+          "note": "03 - 线性代数与优化/习题/习题 LA018 - 对称Hessian正定的谱判据.md",
+          "stars": 1,
+          "printed_page": 230,
+          "pdf_page": 247,
+          "printed_pages": [
+            230
+          ],
+          "pdf_pages": [
+            247
+          ]
+        },
+        {
+          "source_exercise": "7.3",
+          "local_id": "LA019",
+          "title_zh": "局部最小值的二阶判据与退化反例",
+          "note": "03 - 线性代数与优化/习题/习题 LA019 - 局部最小值的二阶判据与退化反例.md",
+          "stars": 2,
+          "printed_page": 230,
+          "pdf_page": 247,
+          "printed_pages": [
+            230
+          ],
+          "pdf_pages": [
+            247
+          ]
+        },
+        {
+          "source_exercise": "7.4",
+          "local_id": "LA020",
+          "title_zh": "一元线性回归Hessian与设计秩",
+          "note": "03 - 线性代数与优化/习题/习题 LA020 - 一元线性回归Hessian与设计秩.md",
+          "stars": 2,
+          "printed_page": 230,
+          "pdf_page": 247,
+          "printed_pages": [
+            230
+          ],
+          "pdf_pages": [
+            247
+          ]
+        },
+        {
+          "source_exercise": "7.5",
+          "local_id": "LA021",
+          "title_zh": "逻辑回归Hessian的符号与秩条件",
+          "note": "03 - 线性代数与优化/习题/习题 LA021 - 逻辑回归Hessian的符号与秩条件.md",
+          "stars": 2,
+          "printed_page": 230,
+          "pdf_page": 247,
+          "printed_pages": [
+            230,
+            231
+          ],
+          "pdf_pages": [
+            247,
+            248
+          ]
+        },
+        {
+          "source_exercise": "7.6",
+          "local_id": "LA022",
+          "title_zh": "二次误差等高面的特征轴长度",
+          "note": "03 - 线性代数与优化/习题/习题 LA022 - 二次误差等高面的特征轴长度.md",
+          "stars": 2,
+          "printed_page": 231,
+          "pdf_page": 248,
+          "printed_pages": [
+            231
+          ],
+          "pdf_pages": [
+            248
+          ]
+        },
+        {
+          "source_exercise": "7.7",
+          "local_id": "LA023",
+          "title_zh": "二次误差模型独立系数的计数",
+          "note": "03 - 线性代数与优化/习题/习题 LA023 - 二次误差模型独立系数的计数.md",
+          "stars": 1,
+          "printed_page": 231,
+          "pdf_page": 248,
+          "printed_pages": [
+            231
+          ],
+          "pdf_pages": [
+            248
+          ]
+        },
+        {
+          "source_exercise": "7.8",
+          "local_id": "LA024",
+          "title_zh": "样本均值的均方误差与独立性",
+          "note": "03 - 线性代数与优化/习题/习题 LA024 - 样本均值的均方误差与独立性.md",
+          "stars": 1,
+          "printed_page": 231,
+          "pdf_page": 248,
+          "printed_pages": [
+            231
+          ],
+          "pdf_pages": [
+            248
+          ]
+        },
+        {
+          "source_exercise": "7.9",
+          "local_id": "LA025",
+          "title_zh": "ReLU初始化的二阶矩与方差之别",
+          "note": "03 - 线性代数与优化/习题/习题 LA025 - ReLU初始化的二阶矩与方差之别.md",
+          "stars": 2,
+          "printed_page": 231,
+          "pdf_page": 248,
+          "printed_pages": [
+            231
+          ],
+          "pdf_pages": [
+            248
+          ]
+        },
+        {
+          "source_exercise": "7.10",
+          "local_id": "LA026",
+          "title_zh": "特征方向上的梯度下降递推",
+          "note": "03 - 线性代数与优化/习题/习题 LA026 - 特征方向上的梯度下降递推.md",
+          "stars": 2,
+          "printed_page": 231,
+          "pdf_page": 248,
+          "printed_pages": [
+            231
+          ],
+          "pdf_pages": [
+            248
+          ]
+        },
+        {
+          "source_exercise": "7.11",
+          "local_id": "LA027",
+          "title_zh": "Nesterov与普通动量的小步近似",
+          "note": "03 - 线性代数与优化/习题/习题 LA027 - Nesterov与普通动量的小步近似.md",
+          "stars": 1,
+          "printed_page": 231,
+          "pdf_page": 248,
+          "printed_pages": [
+            231
+          ],
+          "pdf_pages": [
+            248
+          ]
+        },
+        {
+          "source_exercise": "7.12",
+          "local_id": "LA028",
+          "title_zh": "指数移动平均的初始化偏差修正",
+          "note": "03 - 线性代数与优化/习题/习题 LA028 - 指数移动平均的初始化偏差修正.md",
+          "stars": 2,
+          "printed_page": 231,
+          "pdf_page": 248,
+          "printed_pages": [
+            231,
+            232
+          ],
+          "pdf_pages": [
+            248,
+            249
+          ]
+        },
+        {
+          "source_exercise": "7.13",
+          "local_id": "LA029",
+          "title_zh": "精确线搜索终点的梯度正交性",
+          "note": "03 - 线性代数与优化/习题/习题 LA029 - 精确线搜索终点的梯度正交性.md",
+          "stars": 1,
+          "printed_page": 232,
+          "pdf_page": 249,
+          "printed_pages": [
+            232
+          ],
+          "pdf_pages": [
+            249
+          ]
+        },
+        {
+          "source_exercise": "7.14",
+          "local_id": "LA030",
+          "title_zh": "经验标准化后的均值与方差",
+          "note": "03 - 线性代数与优化/习题/习题 LA030 - 经验标准化后的均值与方差.md",
+          "stars": 1,
+          "printed_page": 232,
+          "pdf_page": 249,
+          "printed_pages": [
+            232
+          ],
+          "pdf_pages": [
+            249
+          ]
+        }
+      ],
+      "audit_note": "完整核对7.1–7.14共14题，7.5和7.12跨页；二阶极小值判据、分类对数似然符号、ReLU二阶矩与方差、移动平均及常数特征边界分别说明。",
+      "figure_dependencies": []
+    },
+    "8": {
+      "title_zh": "反向传播",
+      "title_en": "Backpropagation",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        233,
+        252
+      ],
+      "pdf_page_range": [
+        250,
+        269
+      ],
+      "boundary_pdf_pages": [
+        250,
+        270
+      ],
+      "printed_problem_pages": [
+        250,
+        251,
+        252
+      ],
+      "pdf_problem_pages": [
+        267,
+        268,
+        269
+      ],
+      "expected_exercises": [
+        "8.1",
+        "8.2",
+        "8.3",
+        "8.4",
+        "8.5",
+        "8.6",
+        "8.7",
+        "8.8",
+        "8.9",
+        "8.10",
+        "8.11",
+        "8.12",
+        "8.13",
+        "8.14",
+        "8.15",
+        "8.16",
+        "8.17",
+        "8.18"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "8.1",
+          "local_id": "DL213",
+          "title_zh": "由链式法则推导隐藏单元反向传播",
+          "note": "06 - 深度学习/习题/习题 DL213 - 由链式法则推导隐藏单元反向传播.md",
+          "stars": 1,
+          "printed_page": 250,
+          "pdf_page": 267,
+          "printed_pages": [
+            250
+          ],
+          "pdf_pages": [
+            267
+          ]
+        },
+        {
+          "source_exercise": "8.2",
+          "local_id": "DL214",
+          "title_zh": "分层网络反向传播的矩阵转置",
+          "note": "06 - 深度学习/习题/习题 DL214 - 分层网络反向传播的矩阵转置.md",
+          "stars": 2,
+          "printed_page": 250,
+          "pdf_page": 267,
+          "printed_pages": [
+            250
+          ],
+          "pdf_pages": [
+            267
+          ]
+        },
+        {
+          "source_exercise": "8.3",
+          "local_id": "DL215",
+          "title_zh": "中心差分的一阶误差消去",
+          "note": "06 - 深度学习/习题/习题 DL215 - 中心差分的一阶误差消去.md",
+          "stars": 1,
+          "printed_page": 251,
+          "pdf_page": 268,
+          "printed_pages": [
+            251
+          ],
+          "pdf_pages": [
+            268
+          ]
+        },
+        {
+          "source_exercise": "8.4",
+          "local_id": "DL216",
+          "title_zh": "跨层连接的参数导数",
+          "note": "06 - 深度学习/习题/习题 DL216 - 跨层连接的参数导数.md",
+          "stars": 2,
+          "printed_page": 251,
+          "pdf_page": 268,
+          "printed_pages": [
+            251
+          ],
+          "pdf_pages": [
+            268
+          ]
+        },
+        {
+          "source_exercise": "8.5",
+          "local_id": "DL217",
+          "title_zh": "前向传播计算完整输入Jacobian",
+          "note": "06 - 深度学习/习题/习题 DL217 - 前向传播计算完整输入Jacobian.md",
+          "stars": 3,
+          "printed_page": 251,
+          "pdf_page": 268,
+          "printed_pages": [
+            251
+          ],
+          "pdf_pages": [
+            268
+          ]
+        },
+        {
+          "source_exercise": "8.6",
+          "local_id": "DL218",
+          "title_zh": "两层网络精确Hessian的三个分块",
+          "note": "06 - 深度学习/习题/习题 DL218 - 两层网络精确Hessian的三个分块.md",
+          "stars": 3,
+          "printed_page": 251,
+          "pdf_page": 268,
+          "printed_pages": [
+            251
+          ],
+          "pdf_pages": [
+            268
+          ]
+        },
+        {
+          "source_exercise": "8.7",
+          "local_id": "DL219",
+          "title_zh": "含跳连网络的精确Hessian扩展",
+          "note": "06 - 深度学习/习题/习题 DL219 - 含跳连网络的精确Hessian扩展.md",
+          "stars": 3,
+          "printed_page": 251,
+          "pdf_page": 268,
+          "printed_pages": [
+            251
+          ],
+          "pdf_pages": [
+            268
+          ]
+        },
+        {
+          "source_exercise": "8.8",
+          "local_id": "DL220",
+          "title_zh": "多输出平方损失的外积Hessian近似",
+          "note": "06 - 深度学习/习题/习题 DL220 - 多输出平方损失的外积Hessian近似.md",
+          "stars": 2,
+          "printed_page": 251,
+          "pdf_page": 268,
+          "printed_pages": [
+            251
+          ],
+          "pdf_pages": [
+            268
+          ]
+        },
+        {
+          "source_exercise": "8.9",
+          "local_id": "DL221",
+          "title_zh": "条件均值处总体平方风险的Hessian",
+          "note": "06 - 深度学习/习题/习题 DL221 - 条件均值处总体平方风险的Hessian.md",
+          "stars": 2,
+          "printed_page": 251,
+          "pdf_page": 268,
+          "printed_pages": [
+            251
+          ],
+          "pdf_pages": [
+            268
+          ]
+        },
+        {
+          "source_exercise": "8.10",
+          "local_id": "DL222",
+          "title_zh": "Sigmoid交叉熵的外积Hessian近似",
+          "note": "06 - 深度学习/习题/习题 DL222 - Sigmoid交叉熵的外积Hessian近似.md",
+          "stars": 2,
+          "printed_page": 251,
+          "pdf_page": 268,
+          "printed_pages": [
+            251
+          ],
+          "pdf_pages": [
+            268
+          ]
+        },
+        {
+          "source_exercise": "8.11",
+          "local_id": "DL223",
+          "title_zh": "Softmax交叉熵的广义GaussNewton矩阵",
+          "note": "06 - 深度学习/习题/习题 DL223 - Softmax交叉熵的广义GaussNewton矩阵.md",
+          "stars": 2,
+          "printed_page": 252,
+          "pdf_page": 269,
+          "printed_pages": [
+            252
+          ],
+          "pdf_pages": [
+            269
+          ]
+        },
+        {
+          "source_exercise": "8.12",
+          "local_id": "DL224",
+          "title_zh": "逐样本更新外积Hessian的逆矩阵",
+          "note": "06 - 深度学习/习题/习题 DL224 - 逐样本更新外积Hessian的逆矩阵.md",
+          "stars": 3,
+          "printed_page": 252,
+          "pdf_page": 269,
+          "printed_pages": [
+            252
+          ],
+          "pdf_pages": [
+            269
+          ]
+        },
+        {
+          "source_exercise": "8.13",
+          "local_id": "DL225",
+          "title_zh": "嵌套Softplus的符号求导",
+          "note": "06 - 深度学习/习题/习题 DL225 - 嵌套Softplus的符号求导.md",
+          "stars": 2,
+          "printed_page": 252,
+          "pdf_page": 269,
+          "printed_pages": [
+            252
+          ],
+          "pdf_pages": [
+            269
+          ]
+        },
+        {
+          "source_exercise": "8.14",
+          "local_id": "DL226",
+          "title_zh": "Logistic迭代映射的求值轨迹与导数",
+          "note": "06 - 深度学习/习题/习题 DL226 - Logistic迭代映射的求值轨迹与导数.md",
+          "stars": 2,
+          "printed_page": 252,
+          "pdf_page": 269,
+          "printed_pages": [
+            252
+          ],
+          "pdf_pages": [
+            269
+          ]
+        },
+        {
+          "source_exercise": "8.15",
+          "local_id": "DL227",
+          "title_zh": "由原变量轨迹推导前向切变量",
+          "note": "06 - 深度学习/习题/习题 DL227 - 由原变量轨迹推导前向切变量.md",
+          "stars": 2,
+          "printed_page": 252,
+          "pdf_page": 269,
+          "printed_pages": [
+            252
+          ],
+          "pdf_pages": [
+            269
+          ]
+        },
+        {
+          "source_exercise": "8.16",
+          "local_id": "DL228",
+          "title_zh": "求值图上的反向伴随变量与源式修正",
+          "note": "06 - 深度学习/习题/习题 DL228 - 求值图上的反向伴随变量与源式修正.md",
+          "stars": 2,
+          "printed_page": 252,
+          "pdf_page": 269,
+          "printed_pages": [
+            252
+          ],
+          "pdf_pages": [
+            269
+          ]
+        },
+        {
+          "source_exercise": "8.17",
+          "local_id": "DL229",
+          "title_zh": "前向与反向自动微分的数值对照",
+          "note": "06 - 深度学习/习题/习题 DL229 - 前向与反向自动微分的数值对照.md",
+          "stars": 3,
+          "printed_page": 252,
+          "pdf_page": 269,
+          "printed_pages": [
+            252
+          ],
+          "pdf_pages": [
+            269
+          ]
+        },
+        {
+          "source_exercise": "8.18",
+          "local_id": "DL230",
+          "title_zh": "一次前向传播计算Jacobian向量积",
+          "note": "06 - 深度学习/习题/习题 DL230 - 一次前向传播计算Jacobian向量积.md",
+          "stars": 2,
+          "printed_page": 252,
+          "pdf_page": 269,
+          "printed_pages": [
+            252
+          ],
+          "pdf_pages": [
+            269
+          ]
+        }
+      ],
+      "audit_note": "完整核对8.1–8.18共18题；精确Hessian全部分块、外积近似适用条件、阻尼逆边界与自动微分求值迹均给独立推导，原式符号问题另注。",
+      "figure_dependencies": [
+        {
+          "figure": "8.4",
+          "printed_page": 247,
+          "pdf_page": 264,
+          "asset": "附件/习题图/DS003/原图-8.4.png",
+          "type": "source-crop",
+          "visually_checked": true
+        }
+      ]
+    },
+    "9": {
+      "title_zh": "正则化",
+      "title_en": "Regularization",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        253,
+        285
+      ],
+      "pdf_page_range": [
+        270,
+        302
+      ],
+      "boundary_pdf_pages": [
+        270,
+        303
+      ],
+      "printed_problem_pages": [
+        281,
+        282,
+        283,
+        284,
+        285
+      ],
+      "pdf_problem_pages": [
+        298,
+        299,
+        300,
+        301,
+        302
+      ],
+      "expected_exercises": [
+        "9.1",
+        "9.2",
+        "9.3",
+        "9.4",
+        "9.5",
+        "9.6",
+        "9.7",
+        "9.8",
+        "9.9",
+        "9.10",
+        "9.11",
+        "9.12",
+        "9.13",
+        "9.14",
+        "9.15",
+        "9.16",
+        "9.17",
+        "9.18"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "9.1",
+          "local_id": "DL231",
+          "title_zh": "平面旋转和平移的群公理",
+          "note": "06 - 深度学习/习题/习题 DL231 - 平面旋转和平移的群公理.md",
+          "stars": 1,
+          "printed_page": 281,
+          "pdf_page": 298,
+          "printed_pages": [
+            281
+          ],
+          "pdf_pages": [
+            298
+          ]
+        },
+        {
+          "source_exercise": "9.2",
+          "local_id": "DL232",
+          "title_zh": "输入高斯噪声产生不罚偏置的权重衰减",
+          "note": "06 - 深度学习/习题/习题 DL232 - 输入高斯噪声产生不罚偏置的权重衰减.md",
+          "stars": 2,
+          "printed_page": 281,
+          "pdf_page": 298,
+          "printed_pages": [
+            281,
+            282
+          ],
+          "pdf_pages": [
+            298,
+            299
+          ]
+        },
+        {
+          "source_exercise": "9.3",
+          "local_id": "DL233",
+          "title_zh": "权重衰减梯度流与原式符号勘误",
+          "note": "06 - 深度学习/习题/习题 DL233 - 权重衰减梯度流与原式符号勘误.md",
+          "stars": 2,
+          "printed_page": 282,
+          "pdf_page": 299,
+          "printed_pages": [
+            282
+          ],
+          "pdf_pages": [
+            299
+          ]
+        },
+        {
+          "source_exercise": "9.4",
+          "local_id": "DL234",
+          "title_zh": "两层网络对输入输出仿射变换的协变性",
+          "note": "06 - 深度学习/习题/习题 DL234 - 两层网络对输入输出仿射变换的协变性.md",
+          "stars": 1,
+          "printed_page": 282,
+          "pdf_page": 299,
+          "printed_pages": [
+            282
+          ],
+          "pdf_pages": [
+            299
+          ]
+        },
+        {
+          "source_exercise": "9.5",
+          "local_id": "DL235",
+          "title_zh": "惩罚正则化与范数约束的对应边界",
+          "note": "06 - 深度学习/习题/习题 DL235 - 惩罚正则化与范数约束的对应边界.md",
+          "stars": 2,
+          "printed_page": 282,
+          "pdf_page": 299,
+          "printed_pages": [
+            282
+          ],
+          "pdf_pages": [
+            299
+          ]
+        },
+        {
+          "source_exercise": "9.6",
+          "local_id": "DL236",
+          "title_zh": "二次误差上的早停特征方向滤波",
+          "note": "06 - 深度学习/习题/习题 DL236 - 二次误差上的早停特征方向滤波.md",
+          "stars": 3,
+          "printed_page": 282,
+          "pdf_page": 299,
+          "printed_pages": [
+            282,
+            283
+          ],
+          "pdf_pages": [
+            299,
+            300
+          ]
+        },
+        {
+          "source_exercise": "9.7",
+          "local_id": "DL237",
+          "title_zh": "共享权重的反向传播梯度求和",
+          "note": "06 - 深度学习/习题/习题 DL237 - 共享权重的反向传播梯度求和.md",
+          "stars": 2,
+          "printed_page": 283,
+          "pdf_page": 300,
+          "printed_pages": [
+            283
+          ],
+          "pdf_pages": [
+            300
+          ]
+        },
+        {
+          "source_exercise": "9.8",
+          "local_id": "DL238",
+          "title_zh": "高斯混合权重先验的分量后验",
+          "note": "06 - 深度学习/习题/习题 DL238 - 高斯混合权重先验的分量后验.md",
+          "stars": 1,
+          "printed_page": 283,
+          "pdf_page": 300,
+          "printed_pages": [
+            283
+          ],
+          "pdf_pages": [
+            300
+          ]
+        },
+        {
+          "source_exercise": "9.9",
+          "local_id": "DL239",
+          "title_zh": "软权重共享正则项对网络权重的导数",
+          "note": "06 - 深度学习/习题/习题 DL239 - 软权重共享正则项对网络权重的导数.md",
+          "stars": 2,
+          "printed_page": 283,
+          "pdf_page": 300,
+          "printed_pages": [
+            283
+          ],
+          "pdf_pages": [
+            300
+          ]
+        },
+        {
+          "source_exercise": "9.10",
+          "local_id": "DL240",
+          "title_zh": "软权重共享混合中心的梯度",
+          "note": "06 - 深度学习/习题/习题 DL240 - 软权重共享混合中心的梯度.md",
+          "stars": 2,
+          "printed_page": 283,
+          "pdf_page": 300,
+          "printed_pages": [
+            283
+          ],
+          "pdf_pages": [
+            300
+          ]
+        },
+        {
+          "source_exercise": "9.11",
+          "local_id": "DL241",
+          "title_zh": "对数方差参数的混合先验梯度",
+          "note": "06 - 深度学习/习题/习题 DL241 - 对数方差参数的混合先验梯度.md",
+          "stars": 2,
+          "printed_page": 283,
+          "pdf_page": 300,
+          "printed_pages": [
+            283
+          ],
+          "pdf_pages": [
+            300
+          ]
+        },
+        {
+          "source_exercise": "9.12",
+          "local_id": "DL242",
+          "title_zh": "混合系数Softmax的梯度与责任度差",
+          "note": "06 - 深度学习/习题/习题 DL242 - 混合系数Softmax的梯度与责任度差.md",
+          "stars": 2,
+          "printed_page": 283,
+          "pdf_page": 300,
+          "printed_pages": [
+            283
+          ],
+          "pdf_pages": [
+            300
+          ]
+        },
+        {
+          "source_exercise": "9.13",
+          "local_id": "DL243",
+          "title_zh": "三个残差块的完整复合展开",
+          "note": "06 - 深度学习/习题/习题 DL243 - 三个残差块的完整复合展开.md",
+          "stars": 1,
+          "printed_page": 283,
+          "pdf_page": 300,
+          "printed_pages": [
+            283
+          ],
+          "pdf_pages": [
+            300
+          ]
+        },
+        {
+          "source_exercise": "9.14",
+          "local_id": "DL244",
+          "title_zh": "不相关模型误差的委员会风险缩减",
+          "note": "06 - 深度学习/习题/习题 DL244 - 不相关模型误差的委员会风险缩减.md",
+          "stars": 2,
+          "printed_page": 283,
+          "pdf_page": 300,
+          "printed_pages": [
+            283
+          ],
+          "pdf_pages": [
+            300
+          ]
+        },
+        {
+          "source_exercise": "9.15",
+          "local_id": "DL245",
+          "title_zh": "平方损失下模型平均的Jensen风险界",
+          "note": "06 - 深度学习/习题/习题 DL245 - 平方损失下模型平均的Jensen风险界.md",
+          "stars": 2,
+          "printed_page": 284,
+          "pdf_page": 301,
+          "printed_pages": [
+            284
+          ],
+          "pdf_pages": [
+            301
+          ]
+        },
+        {
+          "source_exercise": "9.16",
+          "local_id": "DL246",
+          "title_zh": "任意凸预测损失的模型平均界",
+          "note": "06 - 深度学习/习题/习题 DL246 - 任意凸预测损失的模型平均界.md",
+          "stars": 2,
+          "printed_page": 284,
+          "pdf_page": 301,
+          "printed_pages": [
+            284
+          ],
+          "pdf_pages": [
+            301
+          ]
+        },
+        {
+          "source_exercise": "9.17",
+          "local_id": "DL247",
+          "title_zh": "加权委员会保持预测范围的条件与量词",
+          "note": "06 - 深度学习/习题/习题 DL247 - 加权委员会保持预测范围的条件与量词.md",
+          "stars": 2,
+          "printed_page": 284,
+          "pdf_page": 301,
+          "printed_pages": [
+            284
+          ],
+          "pdf_pages": [
+            301
+          ]
+        },
+        {
+          "source_exercise": "9.18",
+          "local_id": "DL248",
+          "title_zh": "线性Dropout期望损失及闭式权重解",
+          "note": "06 - 深度学习/习题/习题 DL248 - 线性Dropout期望损失及闭式权重解.md",
+          "stars": 3,
+          "printed_page": 284,
+          "pdf_page": 301,
+          "printed_pages": [
+            284,
+            285
+          ],
+          "pdf_pages": [
+            301,
+            302
+          ]
+        }
+      ],
+      "audit_note": "完整核对9.1–9.18共18题；9.2、9.6、9.18跨页。罚项及更新时标、早停步长条件、非凸罚约束关系、委员会量词与dropout标签误式均显式区分。 本地PDF在印刷285后直接进入287，中间未收入的印刷空白页不能用于统一偏移。",
+      "figure_dependencies": []
+    },
+    "10": {
+      "title_zh": "卷积网络",
+      "title_en": "Convolutional Networks",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        287,
+        324
+      ],
+      "pdf_page_range": [
+        303,
+        340
+      ],
+      "boundary_pdf_pages": [
+        303,
+        341
+      ],
+      "printed_problem_pages": [
+        322,
+        323,
+        324
+      ],
+      "pdf_problem_pages": [
+        338,
+        339,
+        340
+      ],
+      "expected_exercises": [
+        "10.1",
+        "10.2",
+        "10.3",
+        "10.4",
+        "10.5",
+        "10.6",
+        "10.7",
+        "10.8",
+        "10.9",
+        "10.10",
+        "10.11",
+        "10.12",
+        "10.13"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "10.1",
+          "local_id": "DL249",
+          "title_zh": "固定范数下激活线性单元的最优输入",
+          "note": "06 - 深度学习/习题/习题 DL249 - 固定范数下激活线性单元的最优输入.md",
+          "stars": 1,
+          "printed_page": 322,
+          "pdf_page": 338,
+          "printed_pages": [
+            322
+          ],
+          "pdf_pages": [
+            338
+          ]
+        },
+        {
+          "source_exercise": "10.2",
+          "local_id": "DL250",
+          "title_zh": "一维共享卷积的稀疏权重矩阵",
+          "note": "06 - 深度学习/习题/习题 DL250 - 一维共享卷积的稀疏权重矩阵.md",
+          "stars": 2,
+          "printed_page": 322,
+          "pdf_page": 338,
+          "printed_pages": [
+            322
+          ],
+          "pdf_pages": [
+            338
+          ]
+        },
+        {
+          "source_exercise": "10.3",
+          "local_id": "DL251",
+          "title_zh": "二维卷积的九个输出元素",
+          "note": "06 - 深度学习/习题/习题 DL251 - 二维卷积的九个输出元素.md",
+          "stars": 1,
+          "printed_page": 322,
+          "pdf_page": 338,
+          "printed_pages": [
+            322
+          ],
+          "pdf_pages": [
+            338
+          ]
+        },
+        {
+          "source_exercise": "10.4",
+          "local_id": "DL252",
+          "title_zh": "有限图像互相关卷积的求和界与核翻转",
+          "note": "06 - 深度学习/习题/习题 DL252 - 有限图像互相关卷积的求和界与核翻转.md",
+          "stars": 2,
+          "printed_page": 322,
+          "pdf_page": 338,
+          "printed_pages": [
+            322
+          ],
+          "pdf_pages": [
+            338
+          ]
+        },
+        {
+          "source_exercise": "10.5",
+          "local_id": "DL253",
+          "title_zh": "连续卷积的离散近似与CNN核",
+          "note": "06 - 深度学习/习题/习题 DL253 - 连续卷积的离散近似与CNN核.md",
+          "stars": 1,
+          "printed_page": 322,
+          "pdf_page": 338,
+          "printed_pages": [
+            322
+          ],
+          "pdf_pages": [
+            338
+          ]
+        },
+        {
+          "source_exercise": "10.6",
+          "local_id": "DL254",
+          "title_zh": "奇数核的对称same填充尺寸",
+          "note": "06 - 深度学习/习题/习题 DL254 - 奇数核的对称same填充尺寸.md",
+          "stars": 1,
+          "printed_page": 323,
+          "pdf_page": 339,
+          "printed_pages": [
+            323
+          ],
+          "pdf_pages": [
+            339
+          ]
+        },
+        {
+          "source_exercise": "10.7",
+          "local_id": "DL255",
+          "title_zh": "带填充步幅卷积的输出尺寸勘误",
+          "note": "06 - 深度学习/习题/习题 DL255 - 带填充步幅卷积的输出尺寸勘误.md",
+          "stars": 1,
+          "printed_page": 323,
+          "pdf_page": 339,
+          "printed_pages": [
+            323
+          ],
+          "pdf_pages": [
+            339
+          ]
+        },
+        {
+          "source_exercise": "10.8",
+          "local_id": "DL256",
+          "title_zh": "VGG16逐层连接数与独立参数总数",
+          "note": "06 - 深度学习/习题/习题 DL256 - VGG16逐层连接数与独立参数总数.md",
+          "stars": 2,
+          "printed_page": 323,
+          "pdf_page": 339,
+          "printed_pages": [
+            323
+          ],
+          "pdf_pages": [
+            339
+          ]
+        },
+        {
+          "source_exercise": "10.9",
+          "local_id": "DL257",
+          "title_zh": "可分离二维卷积的两次一维实现",
+          "note": "06 - 深度学习/习题/习题 DL257 - 可分离二维卷积的两次一维实现.md",
+          "stars": 2,
+          "printed_page": 323,
+          "pdf_page": 339,
+          "printed_pages": [
+            323
+          ],
+          "pdf_pages": [
+            339
+          ]
+        },
+        {
+          "source_exercise": "10.10",
+          "local_id": "DL258",
+          "title_zh": "DeepDream的输入梯度与能量目标",
+          "note": "06 - 深度学习/习题/习题 DL258 - DeepDream的输入梯度与能量目标.md",
+          "stars": 1,
+          "printed_page": 323,
+          "pdf_page": 339,
+          "printed_pages": [
+            323
+          ],
+          "pdf_pages": [
+            339
+          ]
+        },
+        {
+          "source_exercise": "10.11",
+          "local_id": "DL259",
+          "title_zh": "背景类别与目标存在条件类别概率的换算",
+          "note": "06 - 深度学习/习题/习题 DL259 - 背景类别与目标存在条件类别概率的换算.md",
+          "stars": 2,
+          "printed_page": 323,
+          "pdf_page": 339,
+          "printed_pages": [
+            323
+          ],
+          "pdf_pages": [
+            339
+          ]
+        },
+        {
+          "source_exercise": "10.12",
+          "local_id": "DL260",
+          "title_zh": "滑动窗口网络的运算计数与池化相位",
+          "note": "06 - 深度学习/习题/习题 DL260 - 滑动窗口网络的运算计数与池化相位.md",
+          "stars": 2,
+          "printed_page": 323,
+          "pdf_page": 339,
+          "printed_pages": [
+            323
+          ],
+          "pdf_pages": [
+            339
+          ]
+        },
+        {
+          "source_exercise": "10.13",
+          "local_id": "DL261",
+          "title_zh": "步幅卷积与六维转置卷积矩阵",
+          "note": "06 - 深度学习/习题/习题 DL261 - 步幅卷积与六维转置卷积矩阵.md",
+          "stars": 2,
+          "printed_page": 324,
+          "pdf_page": 340,
+          "printed_pages": [
+            324
+          ],
+          "pdf_pages": [
+            340
+          ]
+        }
+      ],
+      "audit_note": "完整核对10.1–10.13共13题；按原图核对卷积、VGG-16和滑窗成本，分别保留题面与图参数冲突、卷积核翻转、输出尺寸和池化步长问题。",
+      "figure_dependencies": [
+        {
+          "figure": "10.2",
+          "printed_page": 292,
+          "pdf_page": 308,
+          "asset": "附件/习题图/DS003/原图-10.2.png",
+          "type": "source-crop",
+          "visually_checked": true
+        },
+        {
+          "figure": "10.10",
+          "printed_page": 301,
+          "pdf_page": 317,
+          "asset": "附件/习题图/DS003/原图-10.10.png",
+          "type": "source-crop",
+          "visually_checked": true
+        },
+        {
+          "figure": "10.22",
+          "printed_page": 312,
+          "pdf_page": 328,
+          "asset": "附件/习题图/DS003/原图-10.22.png",
+          "type": "source-crop",
+          "visually_checked": true
+        },
+        {
+          "figure": "10.23",
+          "printed_page": 313,
+          "pdf_page": 329,
+          "asset": "附件/习题图/DS003/原图-10.23.png",
+          "type": "source-crop",
+          "visually_checked": true
+        }
+      ]
+    },
+    "11": {
+      "title_zh": "结构化分布",
+      "title_en": "Structured Distributions",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        325,
+        356
+      ],
+      "pdf_page_range": [
+        341,
+        372
+      ],
+      "boundary_pdf_pages": [
+        341,
+        373
+      ],
+      "printed_problem_pages": [
+        353,
+        354,
+        355,
+        356
+      ],
+      "pdf_problem_pages": [
+        369,
+        370,
+        371,
+        372
+      ],
+      "expected_exercises": [
+        "11.1",
+        "11.2",
+        "11.3",
+        "11.4",
+        "11.5",
+        "11.6",
+        "11.7",
+        "11.8",
+        "11.9",
+        "11.10",
+        "11.11",
+        "11.12",
+        "11.13",
+        "11.14",
+        "11.15",
+        "11.16",
+        "11.17",
+        "11.18",
+        "11.19"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "11.1",
+          "local_id": "PM001",
+          "title_zh": "有向无环图的局部归一化推出联合归一化",
+          "note": "05 - 概率模型与推断/习题/习题 PM001 - 有向无环图的局部归一化推出联合归一化.md",
+          "stars": 1,
+          "printed_page": 353,
+          "pdf_page": 369,
+          "printed_pages": [
+            353
+          ],
+          "pdf_pages": [
+            369
+          ]
+        },
+        {
+          "source_exercise": "11.2",
+          "local_id": "PM002",
+          "title_zh": "拓扑编号排除有向环",
+          "note": "05 - 概率模型与推断/习题/习题 PM002 - 拓扑编号排除有向环.md",
+          "stars": 1,
+          "printed_page": 353,
+          "pdf_page": 369,
+          "printed_pages": [
+            353
+          ],
+          "pdf_pages": [
+            369
+          ]
+        },
+        {
+          "source_exercise": "11.3",
+          "local_id": "PM003",
+          "title_zh": "三元二值分布的边缘相关与条件独立",
+          "note": "05 - 概率模型与推断/习题/习题 PM003 - 三元二值分布的边缘相关与条件独立.md",
+          "stars": 2,
+          "printed_page": 353,
+          "pdf_page": 369,
+          "printed_pages": [
+            353
+          ],
+          "pdf_pages": [
+            369
+          ]
+        },
+        {
+          "source_exercise": "11.4",
+          "local_id": "PM004",
+          "title_zh": "三元二值分布的有向链分解",
+          "note": "05 - 概率模型与推断/习题/习题 PM004 - 三元二值分布的有向链分解.md",
+          "stars": 2,
+          "printed_page": 354,
+          "pdf_page": 370,
+          "printed_pages": [
+            354
+          ],
+          "pdf_pages": [
+            370
+          ]
+        },
+        {
+          "source_exercise": "11.5",
+          "local_id": "PM005",
+          "title_zh": "带泄漏概率的Noisy-OR模型",
+          "note": "05 - 概率模型与推断/习题/习题 PM005 - 带泄漏概率的Noisy-OR模型.md",
+          "stars": 1,
+          "printed_page": 354,
+          "pdf_page": 370,
+          "printed_pages": [
+            354
+          ],
+          "pdf_pages": [
+            370
+          ]
+        },
+        {
+          "source_exercise": "11.6",
+          "local_id": "PM006",
+          "title_zh": "线性高斯图模型的均值递推",
+          "note": "05 - 概率模型与推断/习题/习题 PM006 - 线性高斯图模型的均值递推.md",
+          "stars": 2,
+          "printed_page": 354,
+          "pdf_page": 370,
+          "printed_pages": [
+            354
+          ],
+          "pdf_pages": [
+            370
+          ]
+        },
+        {
+          "source_exercise": "11.7",
+          "local_id": "PM007",
+          "title_zh": "线性高斯协方差递推的适用顺序",
+          "note": "05 - 概率模型与推断/习题/习题 PM007 - 线性高斯协方差递推的适用顺序.md",
+          "stars": 2,
+          "printed_page": 354,
+          "pdf_page": 370,
+          "printed_pages": [
+            354
+          ],
+          "pdf_pages": [
+            370
+          ]
+        },
+        {
+          "source_exercise": "11.8",
+          "local_id": "PM008",
+          "title_zh": "完全线性高斯图的协方差参数数目",
+          "note": "05 - 概率模型与推断/习题/习题 PM008 - 完全线性高斯图的协方差参数数目.md",
+          "stars": 2,
+          "printed_page": 354,
+          "pdf_page": 370,
+          "printed_pages": [
+            354
+          ],
+          "pdf_pages": [
+            370
+          ]
+        },
+        {
+          "source_exercise": "11.9",
+          "local_id": "PM009",
+          "title_zh": "三节点高斯链的均值与协方差",
+          "note": "05 - 概率模型与推断/习题/习题 PM009 - 三节点高斯链的均值与协方差.md",
+          "stars": 2,
+          "printed_page": 354,
+          "pdf_page": 370,
+          "printed_pages": [
+            354
+          ],
+          "pdf_pages": [
+            370
+          ]
+        },
+        {
+          "source_exercise": "11.10",
+          "local_id": "PM010",
+          "title_zh": "向量节点线性高斯模型的联合高斯性",
+          "note": "05 - 概率模型与推断/习题/习题 PM010 - 向量节点线性高斯模型的联合高斯性.md",
+          "stars": 1,
+          "printed_page": 354,
+          "pdf_page": 370,
+          "printed_pages": [
+            354
+          ],
+          "pdf_pages": [
+            370
+          ]
+        },
+        {
+          "source_exercise": "11.11",
+          "local_id": "PM011",
+          "title_zh": "条件独立对变量边缘化的封闭性",
+          "note": "05 - 概率模型与推断/习题/习题 PM011 - 条件独立对变量边缘化的封闭性.md",
+          "stars": 1,
+          "printed_page": 354,
+          "pdf_page": 370,
+          "printed_pages": [
+            354
+          ],
+          "pdf_pages": [
+            370
+          ]
+        },
+        {
+          "source_exercise": "11.12",
+          "local_id": "PM012",
+          "title_zh": "马尔可夫毯的d分离证明",
+          "note": "05 - 概率模型与推断/习题/习题 PM012 - 马尔可夫毯的d分离证明.md",
+          "stars": 1,
+          "printed_page": 354,
+          "pdf_page": 370,
+          "printed_pages": [
+            354
+          ],
+          "pdf_pages": [
+            370
+          ]
+        },
+        {
+          "source_exercise": "11.13",
+          "local_id": "PM013",
+          "title_zh": "观测碰撞点的后代诱导相关",
+          "note": "05 - 概率模型与推断/习题/习题 PM013 - 观测碰撞点的后代诱导相关.md",
+          "stars": 1,
+          "printed_page": 354,
+          "pdf_page": 370,
+          "printed_pages": [
+            354
+          ],
+          "pdf_pages": [
+            370
+          ]
+        },
+        {
+          "source_exercise": "11.14",
+          "local_id": "PM014",
+          "title_zh": "不可靠司机报告下的解释消除",
+          "note": "05 - 概率模型与推断/习题/习题 PM014 - 不可靠司机报告下的解释消除.md",
+          "stars": 2,
+          "printed_page": 355,
+          "pdf_page": 371,
+          "printed_pages": [
+            355
+          ],
+          "pdf_pages": [
+            371
+          ]
+        },
+        {
+          "source_exercise": "11.15",
+          "local_id": "PM015",
+          "title_zh": "朴素贝叶斯极大似然的分解",
+          "note": "05 - 概率模型与推断/习题/习题 PM015 - 朴素贝叶斯极大似然的分解.md",
+          "stars": 2,
+          "printed_page": 355,
+          "pdf_page": 371,
+          "printed_pages": [
+            355
+          ],
+          "pdf_pages": [
+            371
+          ]
+        },
+        {
+          "source_exercise": "11.16",
+          "local_id": "PM016",
+          "title_zh": "从联合分解验证一阶与二阶马尔可夫性",
+          "note": "05 - 概率模型与推断/习题/习题 PM016 - 从联合分解验证一阶与二阶马尔可夫性.md",
+          "stars": 2,
+          "printed_page": 355,
+          "pdf_page": 371,
+          "printed_pages": [
+            355
+          ],
+          "pdf_pages": [
+            371
+          ]
+        },
+        {
+          "source_exercise": "11.17",
+          "local_id": "PM017",
+          "title_zh": "用d分离验证一阶与二阶马尔可夫性",
+          "note": "05 - 概率模型与推断/习题/习题 PM017 - 用d分离验证一阶与二阶马尔可夫性.md",
+          "stars": 1,
+          "printed_page": 355,
+          "pdf_page": 371,
+          "printed_pages": [
+            355
+          ],
+          "pdf_pages": [
+            371
+          ]
+        },
+        {
+          "source_exercise": "11.18",
+          "local_id": "PM018",
+          "title_zh": "用相邻变量对将二阶过程转为一阶过程",
+          "note": "05 - 概率模型与推断/习题/习题 PM018 - 用相邻变量对将二阶过程转为一阶过程.md",
+          "stars": 1,
+          "printed_page": 356,
+          "pdf_page": 372,
+          "printed_pages": [
+            356
+          ],
+          "pdf_pages": [
+            372
+          ]
+        },
+        {
+          "source_exercise": "11.19",
+          "local_id": "PM019",
+          "title_zh": "状态空间图的观测依赖与马尔可夫性边界",
+          "note": "05 - 概率模型与推断/习题/习题 PM019 - 状态空间图的观测依赖与马尔可夫性边界.md",
+          "stars": 1,
+          "printed_page": 356,
+          "pdf_page": 372,
+          "printed_pages": [
+            356
+          ],
+          "pdf_pages": [
+            372
+          ]
+        }
+      ],
+      "audit_note": "完整核对11.1–11.19共19题及三元二值表；图模型归一化、协方差拓扑顺序、d分离和有限阶马尔可夫性的参数边界均单独证明，绘制11.4有向链。",
+      "figure_dependencies": [
+        {
+          "figure": "11.6",
+          "type": "source-crop",
+          "printed_page": 332,
+          "pdf_page": 348,
+          "asset": "附件/习题图/DS003/原图-11.6.png",
+          "visually_checked": true
+        },
+        {
+          "figure": "11.7",
+          "type": "source-crop",
+          "printed_page": 333,
+          "pdf_page": 349,
+          "asset": "附件/习题图/DS003/原图-11.7.png",
+          "visually_checked": true
+        },
+        {
+          "figure": "11.20",
+          "type": "source-crop",
+          "printed_page": 341,
+          "pdf_page": 357,
+          "asset": "附件/习题图/DS003/原图-11.20.png",
+          "visually_checked": true
+        },
+        {
+          "figure": "11.29",
+          "type": "source-crop",
+          "printed_page": 351,
+          "pdf_page": 367,
+          "asset": "附件/习题图/DS003/原图-11.29.png",
+          "visually_checked": true
+        },
+        {
+          "figure": "11.30",
+          "type": "source-crop",
+          "printed_page": 352,
+          "pdf_page": 368,
+          "asset": "附件/习题图/DS003/原图-11.30.png",
+          "visually_checked": true
+        },
+        {
+          "figure": "11.31",
+          "type": "source-crop",
+          "printed_page": 352,
+          "pdf_page": 368,
+          "asset": "附件/习题图/DS003/原图-11.31.png",
+          "visually_checked": true
+        },
+        {
+          "figure": "11.32",
+          "type": "source-crop",
+          "printed_page": 355,
+          "pdf_page": 371,
+          "asset": "附件/习题图/DS003/原图-11.32.png",
+          "visually_checked": true
+        }
+      ],
+      "independent_figures": [
+        {
+          "source_exercise": "11.4",
+          "note": "05 - 概率模型与推断/习题/习题 PM004 - 三元二值分布的有向链分解.md",
+          "format": "mermaid",
+          "verification": "按三因子分解逐条核对方向；未声称Obsidian实际渲染"
+        }
+      ]
+    },
+    "12": {
+      "title_zh": "Transformer",
+      "title_en": "Transformers",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        357,
+        406
+      ],
+      "pdf_page_range": [
+        373,
+        422
+      ],
+      "boundary_pdf_pages": [
+        373,
+        423
+      ],
+      "printed_problem_pages": [
+        403,
+        404,
+        405,
+        406
+      ],
+      "pdf_problem_pages": [
+        419,
+        420,
+        421,
+        422
+      ],
+      "expected_exercises": [
+        "12.1",
+        "12.2",
+        "12.3",
+        "12.4",
+        "12.5",
+        "12.6",
+        "12.7",
+        "12.8",
+        "12.9",
+        "12.10",
+        "12.11",
+        "12.12",
+        "12.13",
+        "12.14",
+        "12.15",
+        "12.16"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "12.1",
+          "local_id": "DL262",
+          "title_zh": "单纯形注意力权重的上界",
+          "note": "06 - 深度学习/习题/习题 DL262 - 单纯形注意力权重的上界.md",
+          "stars": 2,
+          "printed_page": 403,
+          "pdf_page": 419,
+          "printed_pages": [
+            403,
+            404
+          ],
+          "pdf_pages": [
+            419,
+            420
+          ]
+        },
+        {
+          "source_exercise": "12.2",
+          "local_id": "DL263",
+          "title_zh": "Softmax注意力权重的非负性与归一化",
+          "note": "06 - 深度学习/习题/习题 DL263 - Softmax注意力权重的非负性与归一化.md",
+          "stars": 1,
+          "printed_page": 404,
+          "pdf_page": 420,
+          "printed_pages": [
+            404
+          ],
+          "pdf_pages": [
+            420
+          ]
+        },
+        {
+          "source_exercise": "12.3",
+          "local_id": "DL264",
+          "title_zh": "正交输入并不使有限Softmax注意力成为恒等映射",
+          "note": "06 - 深度学习/习题/习题 DL264 - 正交输入并不使有限Softmax注意力成为恒等映射.md",
+          "stars": 1,
+          "printed_page": 404,
+          "pdf_page": 420,
+          "printed_pages": [
+            404
+          ],
+          "pdf_pages": [
+            420
+          ]
+        },
+        {
+          "source_exercise": "12.4",
+          "local_id": "DL265",
+          "title_zh": "独立标准高斯向量内积的二阶矩",
+          "note": "06 - 深度学习/习题/习题 DL265 - 独立标准高斯向量内积的二阶矩.md",
+          "stars": 1,
+          "printed_page": 404,
+          "pdf_page": 420,
+          "printed_pages": [
+            404
+          ],
+          "pdf_pages": [
+            420
+          ]
+        },
+        {
+          "source_exercise": "12.5",
+          "local_id": "DL266",
+          "title_zh": "多头注意力输出分块与低秩合并",
+          "note": "06 - 深度学习/习题/习题 DL266 - 多头注意力输出分块与低秩合并.md",
+          "stars": 3,
+          "printed_page": 404,
+          "pdf_page": 420,
+          "printed_pages": [
+            404
+          ],
+          "pdf_pages": [
+            420
+          ]
+        },
+        {
+          "source_exercise": "12.6",
+          "local_id": "DL267",
+          "title_zh": "自注意力的共享稀疏投影与动态混合矩阵",
+          "note": "06 - 深度学习/习题/习题 DL267 - 自注意力的共享稀疏投影与动态混合矩阵.md",
+          "stars": 2,
+          "printed_page": 404,
+          "pdf_page": 420,
+          "printed_pages": [
+            404
+          ],
+          "pdf_pages": [
+            420
+          ]
+        },
+        {
+          "source_exercise": "12.7",
+          "local_id": "DL268",
+          "title_zh": "无位置编码多头注意力的置换等变性",
+          "note": "06 - 深度学习/习题/习题 DL268 - 无位置编码多头注意力的置换等变性.md",
+          "stars": 1,
+          "printed_page": 404,
+          "pdf_page": 420,
+          "printed_pages": [
+            404
+          ],
+          "pdf_pages": [
+            420
+          ]
+        },
+        {
+          "source_exercise": "12.8",
+          "local_id": "DL269",
+          "title_zh": "高维独立随机方向近似正交",
+          "note": "06 - 深度学习/习题/习题 DL269 - 高维独立随机方向近似正交.md",
+          "stars": 3,
+          "printed_page": 404,
+          "pdf_page": 420,
+          "printed_pages": [
+            404,
+            405
+          ],
+          "pdf_pages": [
+            420,
+            421
+          ]
+        },
+        {
+          "source_exercise": "12.9",
+          "local_id": "DL270",
+          "title_zh": "拼接位置编码经线性变换的可加分解",
+          "note": "06 - 深度学习/习题/习题 DL270 - 拼接位置编码经线性变换的可加分解.md",
+          "stars": 2,
+          "printed_page": 405,
+          "pdf_page": 421,
+          "printed_pages": [
+            405
+          ],
+          "pdf_pages": [
+            421
+          ]
+        },
+        {
+          "source_exercise": "12.10",
+          "local_id": "DL271",
+          "title_zh": "正弦余弦位置编码的线性平移",
+          "note": "06 - 深度学习/习题/习题 DL271 - 正弦余弦位置编码的线性平移.md",
+          "stars": 2,
+          "printed_page": 405,
+          "pdf_page": 421,
+          "printed_pages": [
+            405
+          ],
+          "pdf_pages": [
+            421
+          ]
+        },
+        {
+          "source_exercise": "12.11",
+          "local_id": "DL272",
+          "title_zh": "词袋模型的频率极大似然估计",
+          "note": "06 - 深度学习/习题/习题 DL272 - 词袋模型的频率极大似然估计.md",
+          "stars": 1,
+          "printed_page": 405,
+          "pdf_page": 421,
+          "printed_pages": [
+            405
+          ],
+          "pdf_pages": [
+            421
+          ]
+        },
+        {
+          "source_exercise": "12.12",
+          "local_id": "DL273",
+          "title_zh": "自回归一般条件概率表的指数增长",
+          "note": "06 - 深度学习/习题/习题 DL273 - 自回归一般条件概率表的指数增长.md",
+          "stars": 1,
+          "printed_page": 405,
+          "pdf_page": 421,
+          "printed_pages": [
+            405
+          ],
+          "pdf_pages": [
+            421
+          ]
+        },
+        {
+          "source_exercise": "12.13",
+          "local_id": "DL274",
+          "title_zh": "n元语法计数的条件概率与序列末端",
+          "note": "06 - 深度学习/习题/习题 DL274 - n元语法计数的条件概率与序列末端.md",
+          "stars": 1,
+          "printed_page": 405,
+          "pdf_page": 421,
+          "printed_pages": [
+            405
+          ],
+          "pdf_pages": [
+            421
+          ]
+        },
+        {
+          "source_exercise": "12.14",
+          "local_id": "DL275",
+          "title_zh": "共享参数循环网络的前向推理",
+          "note": "06 - 深度学习/习题/习题 DL275 - 共享参数循环网络的前向推理.md",
+          "stars": 2,
+          "printed_page": 405,
+          "pdf_page": 421,
+          "printed_pages": [
+            405
+          ],
+          "pdf_pages": [
+            421
+          ]
+        },
+        {
+          "source_exercise": "12.15",
+          "local_id": "DL276",
+          "title_zh": "贪心解码原题概率表的矛盾与修复示例",
+          "note": "06 - 深度学习/习题/习题 DL276 - 贪心解码原题概率表的矛盾与修复示例.md",
+          "stars": 2,
+          "printed_page": 405,
+          "pdf_page": 421,
+          "printed_pages": [
+            405,
+            406
+          ],
+          "pdf_pages": [
+            421,
+            422
+          ]
+        },
+        {
+          "source_exercise": "12.16",
+          "local_id": "DL277",
+          "title_zh": "BERT大型编码器的参数量估算",
+          "note": "06 - 深度学习/习题/习题 DL277 - BERT大型编码器的参数量估算.md",
+          "stars": 1,
+          "printed_page": 406,
+          "pdf_page": 422,
+          "printed_pages": [
+            406
+          ],
+          "pdf_pages": [
+            422
+          ]
+        }
+      ],
+      "audit_note": "完整核对12.1–12.16共16题，12.1、12.8、12.15跨页。保留正交Softmax误断言、多头输出记号维度冲突与未归一化解码表，另给反例或修正；12.6附共享投影图，12.14含完整伪代码，12.16说明参数计数口径。",
+      "figure_dependencies": [
+        {
+          "figure": "12.7",
+          "type": "source-crop",
+          "printed_page": 368,
+          "pdf_page": 384,
+          "asset": "附件/习题图/DS003/原图-12.7.png",
+          "visually_checked": true
+        },
+        {
+          "figure": "12.13",
+          "type": "source-crop",
+          "printed_page": 380,
+          "pdf_page": 396,
+          "asset": "附件/习题图/DS003/原图-12.13.png",
+          "visually_checked": true
+        }
+      ],
+      "independent_figures": [
+        {
+          "source_exercise": "12.6",
+          "asset": "附件/习题图/DS003/解答-12.6.png",
+          "vector": "附件/习题图/DS003/解答-12.6.pdf",
+          "editable": "附件/习题图/DS003/解答-12.6.tex",
+          "verification": "按题中矩阵或邻接关系独立构造；TikZ已编译，最终PNG已实际目视检查。"
+        }
+      ]
+    },
+    "13": {
+      "title_zh": "图神经网络",
+      "title_en": "Graph Neural Networks",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        407,
+        427
+      ],
+      "pdf_page_range": [
+        423,
+        443
+      ],
+      "boundary_pdf_pages": [
+        423,
+        444
+      ],
+      "printed_problem_pages": [
+        425,
+        426,
+        427
+      ],
+      "pdf_problem_pages": [
+        441,
+        442,
+        443
+      ],
+      "expected_exercises": [
+        "13.1",
+        "13.2",
+        "13.3",
+        "13.4",
+        "13.5",
+        "13.6",
+        "13.7",
+        "13.8",
+        "13.9",
+        "13.10"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "13.1",
+          "local_id": "DL278",
+          "title_zh": "邻接矩阵节点排序的具体置换",
+          "note": "06 - 深度学习/习题/习题 DL278 - 邻接矩阵节点排序的具体置换.md",
+          "stars": 1,
+          "printed_page": 425,
+          "pdf_page": 441,
+          "printed_pages": [
+            425
+          ],
+          "pdf_pages": [
+            441
+          ]
+        },
+        {
+          "source_exercise": "13.2",
+          "local_id": "DL279",
+          "title_zh": "邻接矩阵平方的对角元与节点度",
+          "note": "06 - 深度学习/习题/习题 DL279 - 邻接矩阵平方的对角元与节点度.md",
+          "stars": 2,
+          "printed_page": 425,
+          "pdf_page": 441,
+          "printed_pages": [
+            425
+          ],
+          "pdf_pages": [
+            441
+          ]
+        },
+        {
+          "source_exercise": "13.3",
+          "local_id": "DL280",
+          "title_zh": "由五阶邻接矩阵画出无向图",
+          "note": "06 - 深度学习/习题/习题 DL280 - 由五阶邻接矩阵画出无向图.md",
+          "stars": 1,
+          "printed_page": 425,
+          "pdf_page": 441,
+          "printed_pages": [
+            425
+          ],
+          "pdf_pages": [
+            441
+          ]
+        },
+        {
+          "source_exercise": "13.4",
+          "local_id": "DL281",
+          "title_zh": "置换矩阵左乘数据矩阵的逐行作用",
+          "note": "06 - 深度学习/习题/习题 DL281 - 置换矩阵左乘数据矩阵的逐行作用.md",
+          "stars": 2,
+          "printed_page": 426,
+          "pdf_page": 442,
+          "printed_pages": [
+            426
+          ],
+          "pdf_pages": [
+            442
+          ]
+        },
+        {
+          "source_exercise": "13.5",
+          "local_id": "DL282",
+          "title_zh": "邻接矩阵置换同时重排行与列",
+          "note": "06 - 深度学习/习题/习题 DL282 - 邻接矩阵置换同时重排行与列.md",
+          "stars": 2,
+          "printed_page": 426,
+          "pdf_page": 442,
+          "printed_pages": [
+            426
+          ],
+          "pdf_pages": [
+            442
+          ]
+        },
+        {
+          "source_exercise": "13.6",
+          "local_id": "DL283",
+          "title_zh": "图卷积更新的矩阵形式与偏置维度",
+          "note": "06 - 深度学习/习题/习题 DL283 - 图卷积更新的矩阵形式与偏置维度.md",
+          "stars": 2,
+          "printed_page": 426,
+          "pdf_page": 442,
+          "printed_pages": [
+            426
+          ],
+          "pdf_pages": [
+            442
+          ]
+        },
+        {
+          "source_exercise": "13.7",
+          "local_id": "DL284",
+          "title_zh": "逐层置换等变推出深图网络等变",
+          "note": "06 - 深度学习/习题/习题 DL284 - 逐层置换等变推出深图网络等变.md",
+          "stars": 2,
+          "printed_page": 426,
+          "pdf_page": 442,
+          "printed_pages": [
+            426
+          ],
+          "pdf_pages": [
+            442
+          ]
+        },
+        {
+          "source_exercise": "13.8",
+          "local_id": "DL285",
+          "title_zh": "共享注意力聚合的节点置换等变性",
+          "note": "06 - 深度学习/习题/习题 DL285 - 共享注意力聚合的节点置换等变性.md",
+          "stars": 2,
+          "printed_page": 426,
+          "pdf_page": 442,
+          "printed_pages": [
+            426
+          ],
+          "pdf_pages": [
+            442
+          ]
+        },
+        {
+          "source_exercise": "13.9",
+          "local_id": "DL286",
+          "title_zh": "完全图注意力与Transformer等价的条件",
+          "note": "06 - 深度学习/习题/习题 DL286 - 完全图注意力与Transformer等价的条件.md",
+          "stars": 1,
+          "printed_page": 426,
+          "pdf_page": 442,
+          "printed_pages": [
+            426
+          ],
+          "pdf_pages": [
+            442
+          ]
+        },
+        {
+          "source_exercise": "13.10",
+          "local_id": "DL287",
+          "title_zh": "几何图网络在欧氏变换下的不变与等变",
+          "note": "06 - 深度学习/习题/习题 DL287 - 几何图网络在欧氏变换下的不变与等变.md",
+          "stars": 2,
+          "printed_page": 426,
+          "pdf_page": 442,
+          "printed_pages": [
+            426,
+            427
+          ],
+          "pdf_pages": [
+            442,
+            443
+          ]
+        }
+      ],
+      "audit_note": "完整核对13.1–13.10共10题，13.10跨页；画出13.3邻接图，修正原偏置复制向量的维度，补明完全图注意力与Transformer模块匹配条件及欧氏等变假设。 本地PDF在印刷427后直接进入429，中间未收入的印刷空白页不能用于统一偏移。",
+      "figure_dependencies": [
+        {
+          "figure": "13.2",
+          "type": "source-crop",
+          "printed_page": 410,
+          "pdf_page": 426,
+          "asset": "附件/习题图/DS003/原图-13.2.png",
+          "visually_checked": true
+        }
+      ],
+      "independent_figures": [
+        {
+          "source_exercise": "13.3",
+          "asset": "附件/习题图/DS003/解答-13.3.png",
+          "vector": "附件/习题图/DS003/解答-13.3.pdf",
+          "editable": "附件/习题图/DS003/解答-13.3.tex",
+          "verification": "按题中矩阵或邻接关系独立构造；TikZ已编译，最终PNG已实际目视检查。"
+        }
+      ]
+    },
+    "14": {
+      "title_zh": "采样",
+      "title_en": "Sampling",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        429,
+        458
+      ],
+      "pdf_page_range": [
+        444,
+        473
+      ],
+      "boundary_pdf_pages": [
+        444,
+        474
+      ],
+      "printed_problem_pages": [
+        456,
+        457,
+        458
+      ],
+      "pdf_problem_pages": [
+        471,
+        472,
+        473
+      ],
+      "expected_exercises": [
+        "14.1",
+        "14.2",
+        "14.3",
+        "14.4",
+        "14.5",
+        "14.6",
+        "14.7",
+        "14.8",
+        "14.9",
+        "14.10",
+        "14.11",
+        "14.12",
+        "14.13",
+        "14.14",
+        "14.15",
+        "14.16",
+        "14.17",
+        "14.18"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "14.1",
+          "local_id": "PM020",
+          "title_zh": "Monte Carlo样本平均的无偏性",
+          "note": "05 - 概率模型与推断/习题/习题 PM020 - Monte Carlo样本平均的无偏性.md",
+          "stars": 1,
+          "printed_page": 456,
+          "pdf_page": 471,
+          "printed_pages": [
+            456
+          ],
+          "pdf_pages": [
+            471
+          ]
+        },
+        {
+          "source_exercise": "14.2",
+          "local_id": "PM021",
+          "title_zh": "独立Monte Carlo平均的方差",
+          "note": "05 - 概率模型与推断/习题/习题 PM021 - 独立Monte Carlo平均的方差.md",
+          "stars": 1,
+          "printed_page": 456,
+          "pdf_page": 471,
+          "printed_pages": [
+            456
+          ],
+          "pdf_pages": [
+            471
+          ]
+        },
+        {
+          "source_exercise": "14.3",
+          "local_id": "PM022",
+          "title_zh": "逆分布函数变换的抽样正确性",
+          "note": "05 - 概率模型与推断/习题/习题 PM022 - 逆分布函数变换的抽样正确性.md",
+          "stars": 1,
+          "printed_page": 456,
+          "pdf_page": 471,
+          "printed_pages": [
+            456
+          ],
+          "pdf_pages": [
+            471
+          ]
+        },
+        {
+          "source_exercise": "14.4",
+          "local_id": "PM023",
+          "title_zh": "由均匀变量生成标准Cauchy分布",
+          "note": "05 - 概率模型与推断/习题/习题 PM023 - 由均匀变量生成标准Cauchy分布.md",
+          "stars": 2,
+          "printed_page": 456,
+          "pdf_page": 471,
+          "printed_pages": [
+            456
+          ],
+          "pdf_pages": [
+            471
+          ]
+        },
+        {
+          "source_exercise": "14.5",
+          "local_id": "PM024",
+          "title_zh": "圆盘极坐标形式的Box–Muller变换",
+          "note": "05 - 概率模型与推断/习题/习题 PM024 - 圆盘极坐标形式的Box–Muller变换.md",
+          "stars": 2,
+          "printed_page": 456,
+          "pdf_page": 471,
+          "printed_pages": [
+            456
+          ],
+          "pdf_pages": [
+            471
+          ]
+        },
+        {
+          "source_exercise": "14.6",
+          "local_id": "PM025",
+          "title_zh": "Cholesky变换生成一般多元高斯",
+          "note": "05 - 概率模型与推断/习题/习题 PM025 - Cholesky变换生成一般多元高斯.md",
+          "stars": 2,
+          "printed_page": 456,
+          "pdf_page": 471,
+          "printed_pages": [
+            456
+          ],
+          "pdf_pages": [
+            471
+          ]
+        },
+        {
+          "source_exercise": "14.7",
+          "local_id": "PM026",
+          "title_zh": "拒绝抽样的条件分布与接受率",
+          "note": "05 - 概率模型与推断/习题/习题 PM026 - 拒绝抽样的条件分布与接受率.md",
+          "stars": 2,
+          "printed_page": 456,
+          "pdf_page": 471,
+          "printed_pages": [
+            456,
+            457
+          ],
+          "pdf_pages": [
+            471,
+            472
+          ]
+        },
+        {
+          "source_exercise": "14.8",
+          "local_id": "PM027",
+          "title_zh": "Cauchy正切抽样中的角度区间错误",
+          "note": "05 - 概率模型与推断/习题/习题 PM027 - Cauchy正切抽样中的角度区间错误.md",
+          "stars": 1,
+          "printed_page": 457,
+          "pdf_page": 472,
+          "printed_pages": [
+            457
+          ],
+          "pdf_pages": [
+            472
+          ]
+        },
+        {
+          "source_exercise": "14.9",
+          "local_id": "PM028",
+          "title_zh": "分段指数包络的连续性与归一化常数",
+          "note": "05 - 概率模型与推断/习题/习题 PM028 - 分段指数包络的连续性与归一化常数.md",
+          "stars": 2,
+          "printed_page": 457,
+          "pdf_page": 472,
+          "printed_pages": [
+            457
+          ],
+          "pdf_pages": [
+            472
+          ]
+        },
+        {
+          "source_exercise": "14.10",
+          "local_id": "PM029",
+          "title_zh": "分段指数分布的区间选择与逆变换抽样",
+          "note": "05 - 概率模型与推断/习题/习题 PM029 - 分段指数分布的区间选择与逆变换抽样.md",
+          "stars": 2,
+          "printed_page": 457,
+          "pdf_page": 472,
+          "printed_pages": [
+            457
+          ],
+          "pdf_pages": [
+            472
+          ]
+        },
+        {
+          "source_exercise": "14.11",
+          "local_id": "PM030",
+          "title_zh": "惰性整数随机游走的二阶矩递推",
+          "note": "05 - 概率模型与推断/习题/习题 PM030 - 惰性整数随机游走的二阶矩递推.md",
+          "stars": 1,
+          "printed_page": 457,
+          "pdf_page": 472,
+          "printed_pages": [
+            457
+          ],
+          "pdf_pages": [
+            472
+          ]
+        },
+        {
+          "source_exercise": "14.12",
+          "local_id": "PM031",
+          "title_zh": "Gibbs单步细致平衡与整轮扫描反例",
+          "note": "05 - 概率模型与推断/习题/习题 PM031 - Gibbs单步细致平衡与整轮扫描反例.md",
+          "stars": 2,
+          "printed_page": 457,
+          "pdf_page": 472,
+          "printed_pages": [
+            457
+          ],
+          "pdf_pages": [
+            472
+          ]
+        },
+        {
+          "source_exercise": "14.13",
+          "local_id": "PM032",
+          "title_zh": "分离支撑下Gibbs抽样的非遍历性",
+          "note": "05 - 概率模型与推断/习题/习题 PM032 - 分离支撑下Gibbs抽样的非遍历性.md",
+          "stars": 1,
+          "printed_page": 457,
+          "pdf_page": 472,
+          "printed_pages": [
+            457
+          ],
+          "pdf_pages": [
+            472
+          ]
+        },
+        {
+          "source_exercise": "14.14",
+          "local_id": "PM033",
+          "title_zh": "过松弛更新的均值方差与独立噪声条件",
+          "note": "05 - 概率模型与推断/习题/习题 PM033 - 过松弛更新的均值方差与独立噪声条件.md",
+          "stars": 1,
+          "printed_page": 457,
+          "pdf_page": 472,
+          "printed_pages": [
+            457
+          ],
+          "pdf_pages": [
+            472
+          ]
+        },
+        {
+          "source_exercise": "14.15",
+          "local_id": "PM034",
+          "title_zh": "似然加权抽样的证据权重",
+          "note": "05 - 概率模型与推断/习题/习题 PM034 - 似然加权抽样的证据权重.md",
+          "stars": 1,
+          "printed_page": 458,
+          "pdf_page": 473,
+          "printed_pages": [
+            458
+          ],
+          "pdf_pages": [
+            473
+          ]
+        },
+        {
+          "source_exercise": "14.16",
+          "local_id": "PM035",
+          "title_zh": "能量模型配分函数与可归一化条件",
+          "note": "05 - 概率模型与推断/习题/习题 PM035 - 能量模型配分函数与可归一化条件.md",
+          "stars": 1,
+          "printed_page": 458,
+          "pdf_page": 473,
+          "printed_pages": [
+            458
+          ],
+          "pdf_pages": [
+            473
+          ]
+        },
+        {
+          "source_exercise": "14.17",
+          "local_id": "PM036",
+          "title_zh": "能量模型的样本对数似然与参数梯度",
+          "note": "05 - 概率模型与推断/习题/习题 PM036 - 能量模型的样本对数似然与参数梯度.md",
+          "stars": 2,
+          "printed_page": 458,
+          "pdf_page": 473,
+          "printed_pages": [
+            458
+          ],
+          "pdf_pages": [
+            473
+          ]
+        },
+        {
+          "source_exercise": "14.18",
+          "local_id": "PM037",
+          "title_zh": "能量模型似然梯度的数据相与模型相",
+          "note": "05 - 概率模型与推断/习题/习题 PM037 - 能量模型似然梯度的数据相与模型相.md",
+          "stars": 2,
+          "printed_page": 458,
+          "pdf_page": 473,
+          "printed_pages": [
+            458
+          ],
+          "pdf_pages": [
+            473
+          ]
+        }
+      ],
+      "audit_note": "完整核对14.1–14.18共18题，14.7跨页；拒绝与分段指数抽样算法完整，14.8的错误均匀角度、14.12单坐标可逆与固定扫描反例、14.14方差记号及独立噪声、14.17对数似然引用均保留另释。",
+      "figure_dependencies": [
+        {
+          "figure": "14.3",
+          "printed_page": 433,
+          "pdf_page": 448,
+          "asset": "附件/习题图/DS003/原图-14.3.png"
+        },
+        {
+          "figure": "14.14",
+          "printed_page": 457,
+          "pdf_page": 472,
+          "asset": "附件/习题图/DS003/原图-14.14.png"
+        }
+      ]
+    },
+    "15": {
+      "title_zh": "离散潜变量",
+      "title_en": "Discrete Latent Variables",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        459,
+        493
+      ],
+      "pdf_page_range": [
+        474,
+        508
+      ],
+      "boundary_pdf_pages": [
+        474,
+        509
+      ],
+      "printed_problem_pages": [
+        490,
+        491,
+        492,
+        493
+      ],
+      "pdf_problem_pages": [
+        505,
+        506,
+        507,
+        508
+      ],
+      "expected_exercises": [
+        "15.1",
+        "15.2",
+        "15.3",
+        "15.4",
+        "15.5",
+        "15.6",
+        "15.7",
+        "15.8",
+        "15.9",
+        "15.10",
+        "15.11",
+        "15.12",
+        "15.13",
+        "15.14",
+        "15.15",
+        "15.16",
+        "15.17",
+        "15.18",
+        "15.19",
+        "15.20",
+        "15.21",
+        "15.22",
+        "15.23",
+        "15.24"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "15.1",
+          "local_id": "PM038",
+          "title_zh": "K均值有限终止的分配与平局条件",
+          "note": "05 - 概率模型与推断/习题/习题 PM038 - K均值有限终止的分配与平局条件.md",
+          "stars": 1,
+          "printed_page": 490,
+          "pdf_page": 505,
+          "printed_pages": [
+            490
+          ],
+          "pdf_pages": [
+            505
+          ]
+        },
+        {
+          "source_exercise": "15.2",
+          "local_id": "PM039",
+          "title_zh": "顺序K均值中心的精确均值更新",
+          "note": "05 - 概率模型与推断/习题/习题 PM039 - 顺序K均值中心的精确均值更新.md",
+          "stars": 2,
+          "printed_page": 491,
+          "pdf_page": 506,
+          "printed_pages": [
+            491
+          ],
+          "pdf_pages": [
+            506
+          ]
+        },
+        {
+          "source_exercise": "15.3",
+          "local_id": "PM040",
+          "title_zh": "边缘化独热潜变量得到高斯混合",
+          "note": "05 - 概率模型与推断/习题/习题 PM040 - 边缘化独热潜变量得到高斯混合.md",
+          "stars": 1,
+          "printed_page": 491,
+          "pdf_page": 506,
+          "printed_pages": [
+            491
+          ],
+          "pdf_pages": [
+            506
+          ]
+        },
+        {
+          "source_exercise": "15.4",
+          "local_id": "PM041",
+          "title_zh": "混合模型标签置换与等价参数计数",
+          "note": "05 - 概率模型与推断/习题/习题 PM041 - 混合模型标签置换与等价参数计数.md",
+          "stars": 1,
+          "printed_page": 491,
+          "pdf_page": 506,
+          "printed_pages": [
+            491
+          ],
+          "pdf_pages": [
+            506
+          ]
+        },
+        {
+          "source_exercise": "15.5",
+          "local_id": "PM042",
+          "title_zh": "最大后验EM的先验修正M步",
+          "note": "05 - 概率模型与推断/习题/习题 PM042 - 最大后验EM的先验修正M步.md",
+          "stars": 2,
+          "printed_page": 491,
+          "pdf_page": 506,
+          "printed_pages": [
+            491
+          ],
+          "pdf_pages": [
+            506
+          ]
+        },
+        {
+          "source_exercise": "15.6",
+          "local_id": "PM043",
+          "title_zh": "给定参数后高斯混合的潜标签后验分解",
+          "note": "05 - 概率模型与推断/习题/习题 PM043 - 给定参数后高斯混合的潜标签后验分解.md",
+          "stars": 1,
+          "printed_page": 491,
+          "pdf_page": 506,
+          "printed_pages": [
+            491
+          ],
+          "pdf_pages": [
+            506
+          ]
+        },
+        {
+          "source_exercise": "15.7",
+          "local_id": "PM044",
+          "title_zh": "共享协方差高斯混合的EM更新",
+          "note": "05 - 概率模型与推断/习题/习题 PM044 - 共享协方差高斯混合的EM更新.md",
+          "stars": 2,
+          "printed_page": 491,
+          "pdf_page": 506,
+          "printed_pages": [
+            491
+          ],
+          "pdf_pages": [
+            506
+          ]
+        },
+        {
+          "source_exercise": "15.8",
+          "local_id": "PM045",
+          "title_zh": "已知潜标签时高斯混合的完整数据估计",
+          "note": "05 - 概率模型与推断/习题/习题 PM045 - 已知潜标签时高斯混合的完整数据估计.md",
+          "stars": 2,
+          "printed_page": 491,
+          "pdf_page": 506,
+          "printed_pages": [
+            491
+          ],
+          "pdf_pages": [
+            506
+          ]
+        },
+        {
+          "source_exercise": "15.9",
+          "local_id": "PM046",
+          "title_zh": "固定责任度高斯混合的均值M步",
+          "note": "05 - 概率模型与推断/习题/习题 PM046 - 固定责任度高斯混合的均值M步.md",
+          "stars": 2,
+          "printed_page": 491,
+          "pdf_page": 506,
+          "printed_pages": [
+            491
+          ],
+          "pdf_pages": [
+            506
+          ]
+        },
+        {
+          "source_exercise": "15.10",
+          "local_id": "PM047",
+          "title_zh": "固定责任度高斯混合的协方差与权重M步",
+          "note": "05 - 概率模型与推断/习题/习题 PM047 - 固定责任度高斯混合的协方差与权重M步.md",
+          "stars": 2,
+          "printed_page": 491,
+          "pdf_page": 506,
+          "printed_pages": [
+            491
+          ],
+          "pdf_pages": [
+            506
+          ]
+        },
+        {
+          "source_exercise": "15.11",
+          "local_id": "PM048",
+          "title_zh": "给定部分观测后的混合分布",
+          "note": "05 - 概率模型与推断/习题/习题 PM048 - 给定部分观测后的混合分布.md",
+          "stars": 2,
+          "printed_page": 492,
+          "pdf_page": 507,
+          "printed_pages": [
+            492
+          ],
+          "pdf_pages": [
+            507
+          ]
+        },
+        {
+          "source_exercise": "15.12",
+          "local_id": "PM049",
+          "title_zh": "小方差高斯混合与K均值目标的尺度",
+          "note": "05 - 概率模型与推断/习题/习题 PM049 - 小方差高斯混合与K均值目标的尺度.md",
+          "stars": 1,
+          "printed_page": 492,
+          "pdf_page": 507,
+          "printed_pages": [
+            492
+          ],
+          "pdf_pages": [
+            507
+          ]
+        },
+        {
+          "source_exercise": "15.13",
+          "local_id": "PM050",
+          "title_zh": "独立伯努利向量的均值与协方差",
+          "note": "05 - 概率模型与推断/习题/习题 PM050 - 独立伯努利向量的均值与协方差.md",
+          "stars": 2,
+          "printed_page": 492,
+          "pdf_page": 507,
+          "printed_pages": [
+            492
+          ],
+          "pdf_pages": [
+            507
+          ]
+        },
+        {
+          "source_exercise": "15.14",
+          "local_id": "PM051",
+          "title_zh": "一般混合分布的全协方差分解",
+          "note": "05 - 概率模型与推断/习题/习题 PM051 - 一般混合分布的全协方差分解.md",
+          "stars": 2,
+          "printed_page": 492,
+          "pdf_page": 507,
+          "printed_pages": [
+            492
+          ],
+          "pdf_pages": [
+            507
+          ]
+        },
+        {
+          "source_exercise": "15.15",
+          "local_id": "PM052",
+          "title_zh": "伯努利混合均值匹配与对称初始化固定点",
+          "note": "05 - 概率模型与推断/习题/习题 PM052 - 伯努利混合均值匹配与对称初始化固定点.md",
+          "stars": 2,
+          "printed_page": 492,
+          "pdf_page": 507,
+          "printed_pages": [
+            492
+          ],
+          "pdf_pages": [
+            507
+          ]
+        },
+        {
+          "source_exercise": "15.16",
+          "local_id": "PM053",
+          "title_zh": "独热潜标签边缘化得到伯努利混合",
+          "note": "05 - 概率模型与推断/习题/习题 PM053 - 独热潜标签边缘化得到伯努利混合.md",
+          "stars": 1,
+          "printed_page": 492,
+          "pdf_page": 507,
+          "printed_pages": [
+            492
+          ],
+          "pdf_pages": [
+            507
+          ]
+        },
+        {
+          "source_exercise": "15.17",
+          "local_id": "PM054",
+          "title_zh": "伯努利混合均值的责任度加权M步",
+          "note": "05 - 概率模型与推断/习题/习题 PM054 - 伯努利混合均值的责任度加权M步.md",
+          "stars": 1,
+          "printed_page": 493,
+          "pdf_page": 508,
+          "printed_pages": [
+            493
+          ],
+          "pdf_pages": [
+            508
+          ]
+        },
+        {
+          "source_exercise": "15.18",
+          "local_id": "PM055",
+          "title_zh": "伯努利混合权重的拉格朗日M步",
+          "note": "05 - 概率模型与推断/习题/习题 PM055 - 伯努利混合权重的拉格朗日M步.md",
+          "stars": 1,
+          "printed_page": 493,
+          "pdf_page": 508,
+          "printed_pages": [
+            493
+          ],
+          "pdf_pages": [
+            508
+          ]
+        },
+        {
+          "source_exercise": "15.19",
+          "local_id": "PM056",
+          "title_zh": "伯努利混合似然的有限上界",
+          "note": "05 - 概率模型与推断/习题/习题 PM056 - 伯努利混合似然的有限上界.md",
+          "stars": 1,
+          "printed_page": 493,
+          "pdf_page": 508,
+          "printed_pages": [
+            493
+          ],
+          "pdf_pages": [
+            508
+          ]
+        },
+        {
+          "source_exercise": "15.20",
+          "local_id": "PM057",
+          "title_zh": "独热类别向量混合的完整EM推导",
+          "note": "05 - 概率模型与推断/习题/习题 PM057 - 独热类别向量混合的完整EM推导.md",
+          "stars": 3,
+          "printed_page": 493,
+          "pdf_page": 508,
+          "printed_pages": [
+            493
+          ],
+          "pdf_pages": [
+            508
+          ]
+        },
+        {
+          "source_exercise": "15.21",
+          "local_id": "PM058",
+          "title_zh": "证据下界与后验KL的恒等分解",
+          "note": "05 - 概率模型与推断/习题/习题 PM058 - 证据下界与后验KL的恒等分解.md",
+          "stars": 1,
+          "printed_page": 493,
+          "pdf_page": 508,
+          "printed_pages": [
+            493
+          ],
+          "pdf_pages": [
+            508
+          ]
+        },
+        {
+          "source_exercise": "15.22",
+          "local_id": "PM059",
+          "title_zh": "后验处ELBO与对数似然的切向梯度",
+          "note": "05 - 概率模型与推断/习题/习题 PM059 - 后验处ELBO与对数似然的切向梯度.md",
+          "stars": 1,
+          "printed_page": 493,
+          "pdf_page": 508,
+          "printed_pages": [
+            493
+          ],
+          "pdf_pages": [
+            508
+          ]
+        },
+        {
+          "source_exercise": "15.23",
+          "local_id": "PM060",
+          "title_zh": "增量EM的有效计数与均值更新",
+          "note": "05 - 概率模型与推断/习题/习题 PM060 - 增量EM的有效计数与均值更新.md",
+          "stars": 2,
+          "printed_page": 493,
+          "pdf_page": 508,
+          "printed_pages": [
+            493
+          ],
+          "pdf_pages": [
+            508
+          ]
+        },
+        {
+          "source_exercise": "15.24",
+          "local_id": "PM061",
+          "title_zh": "增量EM的协方差与混合权重更新",
+          "note": "05 - 概率模型与推断/习题/习题 PM061 - 增量EM的协方差与混合权重更新.md",
+          "stars": 2,
+          "printed_page": 493,
+          "pdf_page": 508,
+          "printed_pages": [
+            493
+          ],
+          "pdf_pages": [
+            508
+          ]
+        }
+      ],
+      "audit_note": "完整核对15.1–15.24共24题；EM全部任务分别归档。空簇、平局、重复分量、零权重、奇异协方差、缺失小方差尺度、ELBO支持及微分换序条件另行明确。 本地PDF在印刷493后直接进入495，中间未收入的印刷空白页不能用于统一偏移。",
+      "figure_dependencies": [
+        {
+          "figure": "15.9",
+          "type": "source-crop",
+          "printed_page": 476,
+          "pdf_page": 491,
+          "asset": "附件/习题图/DS003/原图-15.9.png",
+          "visually_checked": true
+        }
+      ]
+    },
+    "16": {
+      "title_zh": "连续潜变量",
+      "title_en": "Continuous Latent Variables",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        495,
+        531
+      ],
+      "pdf_page_range": [
+        509,
+        545
+      ],
+      "boundary_pdf_pages": [
+        509,
+        546
+      ],
+      "printed_problem_pages": [
+        527,
+        528,
+        529,
+        530,
+        531
+      ],
+      "pdf_problem_pages": [
+        541,
+        542,
+        543,
+        544,
+        545
+      ],
+      "expected_exercises": [
+        "16.1",
+        "16.2",
+        "16.3",
+        "16.4",
+        "16.5",
+        "16.6",
+        "16.7",
+        "16.8",
+        "16.9",
+        "16.10",
+        "16.11",
+        "16.12",
+        "16.13",
+        "16.14",
+        "16.15",
+        "16.16",
+        "16.17",
+        "16.18",
+        "16.19",
+        "16.20",
+        "16.21",
+        "16.22",
+        "16.23",
+        "16.24",
+        "16.25",
+        "16.26"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "16.1",
+          "local_id": "ML051",
+          "title_zh": "PCA最大投影方差的归纳证明",
+          "note": "04 - 统计学习/习题/习题 ML051 - PCA最大投影方差的归纳证明.md",
+          "stars": 2,
+          "printed_page": 527,
+          "pdf_page": 541,
+          "printed_pages": [
+            527,
+            528
+          ],
+          "pdf_pages": [
+            541,
+            542
+          ]
+        },
+        {
+          "source_exercise": "16.2",
+          "local_id": "ML052",
+          "title_zh": "PCA误差最小化的矩阵乘子与子空间旋转",
+          "note": "04 - 统计学习/习题/习题 ML052 - PCA误差最小化的矩阵乘子与子空间旋转.md",
+          "stars": 2,
+          "printed_page": 528,
+          "pdf_page": 542,
+          "printed_pages": [
+            528
+          ],
+          "pdf_pages": [
+            542
+          ]
+        },
+        {
+          "source_exercise": "16.3",
+          "local_id": "ML053",
+          "title_zh": "快照PCA特征向量的归一化",
+          "note": "04 - 统计学习/习题/习题 ML053 - 快照PCA特征向量的归一化.md",
+          "stars": 1,
+          "printed_page": 528,
+          "pdf_page": 542,
+          "printed_pages": [
+            528
+          ],
+          "pdf_pages": [
+            542
+          ]
+        },
+        {
+          "source_exercise": "16.4",
+          "local_id": "ML054",
+          "title_zh": "一般高斯潜变量的标准化与模型等价范围",
+          "note": "04 - 统计学习/习题/习题 ML054 - 一般高斯潜变量的标准化与模型等价范围.md",
+          "stars": 1,
+          "printed_page": 528,
+          "pdf_page": 542,
+          "printed_pages": [
+            528
+          ],
+          "pdf_pages": [
+            542
+          ]
+        },
+        {
+          "source_exercise": "16.5",
+          "local_id": "ML055",
+          "title_zh": "仿射高斯的矩与降维升维退化性",
+          "note": "04 - 统计学习/习题/习题 ML055 - 仿射高斯的矩与降维升维退化性.md",
+          "stars": 2,
+          "printed_page": 528,
+          "pdf_page": 542,
+          "printed_pages": [
+            528
+          ],
+          "pdf_pages": [
+            542
+          ]
+        },
+        {
+          "source_exercise": "16.6",
+          "local_id": "ML056",
+          "title_zh": "全期望全协方差推导PPCA边缘分布",
+          "note": "04 - 统计学习/习题/习题 ML056 - 全期望全协方差推导PPCA边缘分布.md",
+          "stars": 2,
+          "printed_page": 528,
+          "pdf_page": 542,
+          "printed_pages": [
+            528
+          ],
+          "pdf_pages": [
+            542
+          ]
+        },
+        {
+          "source_exercise": "16.7",
+          "local_id": "ML057",
+          "title_zh": "PPCA分量概率图与朴素Bayes条件独立",
+          "note": "04 - 统计学习/习题/习题 ML057 - PPCA分量概率图与朴素Bayes条件独立.md",
+          "stars": 1,
+          "printed_page": 528,
+          "pdf_page": 542,
+          "printed_pages": [
+            528,
+            529
+          ],
+          "pdf_pages": [
+            542,
+            543
+          ]
+        },
+        {
+          "source_exercise": "16.8",
+          "local_id": "ML058",
+          "title_zh": "由线性高斯条件公式得到PPCA后验",
+          "note": "04 - 统计学习/习题/习题 ML058 - 由线性高斯条件公式得到PPCA后验.md",
+          "stars": 2,
+          "printed_page": 529,
+          "pdf_page": 543,
+          "printed_pages": [
+            529
+          ],
+          "pdf_pages": [
+            543
+          ]
+        },
+        {
+          "source_exercise": "16.9",
+          "local_id": "ML059",
+          "title_zh": "PPCA均值的最大似然估计",
+          "note": "04 - 统计学习/习题/习题 ML059 - PPCA均值的最大似然估计.md",
+          "stars": 1,
+          "printed_page": 529,
+          "pdf_page": 543,
+          "printed_pages": [
+            529
+          ],
+          "pdf_pages": [
+            543
+          ]
+        },
+        {
+          "source_exercise": "16.10",
+          "local_id": "ML060",
+          "title_zh": "PPCA均值对数似然的严格凹性",
+          "note": "04 - 统计学习/习题/习题 ML060 - PPCA均值对数似然的严格凹性.md",
+          "stars": 2,
+          "printed_page": 529,
+          "pdf_page": 543,
+          "printed_pages": [
+            529
+          ],
+          "pdf_pages": [
+            543
+          ]
+        },
+        {
+          "source_exercise": "16.11",
+          "local_id": "ML061",
+          "title_zh": "PPCA零噪声极限的正交投影与潜坐标",
+          "note": "04 - 统计学习/习题/习题 ML061 - PPCA零噪声极限的正交投影与潜坐标.md",
+          "stars": 2,
+          "printed_page": 529,
+          "pdf_page": 543,
+          "printed_pages": [
+            529
+          ],
+          "pdf_pages": [
+            543
+          ]
+        },
+        {
+          "source_exercise": "16.12",
+          "local_id": "ML062",
+          "title_zh": "PPCA后验均值的谱收缩",
+          "note": "04 - 统计学习/习题/习题 ML062 - PPCA后验均值的谱收缩.md",
+          "stars": 2,
+          "printed_page": 529,
+          "pdf_page": 543,
+          "printed_pages": [
+            529
+          ],
+          "pdf_pages": [
+            543
+          ]
+        },
+        {
+          "source_exercise": "16.13",
+          "local_id": "ML063",
+          "title_zh": "由PPCA后验恢复最小二乘投影重构",
+          "note": "04 - 统计学习/习题/习题 ML063 - 由PPCA后验恢复最小二乘投影重构.md",
+          "stars": 2,
+          "printed_page": 529,
+          "pdf_page": 543,
+          "printed_pages": [
+            529
+          ],
+          "pdf_pages": [
+            543
+          ]
+        },
+        {
+          "source_exercise": "16.14",
+          "local_id": "ML064",
+          "title_zh": "PPCA协方差参数计数的两个极端",
+          "note": "04 - 统计学习/习题/习题 ML064 - PPCA协方差参数计数的两个极端.md",
+          "stars": 1,
+          "printed_page": 529,
+          "pdf_page": 543,
+          "printed_pages": [
+            529
+          ],
+          "pdf_pages": [
+            543
+          ]
+        },
+        {
+          "source_exercise": "16.15",
+          "local_id": "ML065",
+          "title_zh": "因子分析的旋转冗余与参数计数范围",
+          "note": "04 - 统计学习/习题/习题 ML065 - 因子分析的旋转冗余与参数计数范围.md",
+          "stars": 1,
+          "printed_page": 529,
+          "pdf_page": 543,
+          "printed_pages": [
+            529
+          ],
+          "pdf_pages": [
+            543
+          ]
+        },
+        {
+          "source_exercise": "16.16",
+          "local_id": "ML066",
+          "title_zh": "因子分析在潜空间正交旋转下的不变性",
+          "note": "04 - 统计学习/习题/习题 ML066 - 因子分析在潜空间正交旋转下的不变性.md",
+          "stars": 2,
+          "printed_page": 529,
+          "pdf_page": 543,
+          "printed_pages": [
+            529
+          ],
+          "pdf_pages": [
+            543
+          ]
+        },
+        {
+          "source_exercise": "16.17",
+          "local_id": "ML067",
+          "title_zh": "线性高斯最大似然在数据坐标变换下的协变性",
+          "note": "04 - 统计学习/习题/习题 ML067 - 线性高斯最大似然在数据坐标变换下的协变性.md",
+          "stars": 2,
+          "printed_page": 529,
+          "pdf_page": 543,
+          "printed_pages": [
+            529,
+            530
+          ],
+          "pdf_pages": [
+            543,
+            544
+          ]
+        },
+        {
+          "source_exercise": "16.18",
+          "local_id": "ML068",
+          "title_zh": "连续潜变量的ELBO与后验KL恒等式",
+          "note": "04 - 统计学习/习题/习题 ML068 - 连续潜变量的ELBO与后验KL恒等式.md",
+          "stars": 1,
+          "printed_page": 530,
+          "pdf_page": 544,
+          "printed_pages": [
+            530
+          ],
+          "pdf_pages": [
+            544
+          ]
+        },
+        {
+          "source_exercise": "16.19",
+          "local_id": "ML069",
+          "title_zh": "独立样本ELBO的可加分解",
+          "note": "04 - 统计学习/习题/习题 ML069 - 独立样本ELBO的可加分解.md",
+          "stars": 1,
+          "printed_page": 530,
+          "pdf_page": 544,
+          "printed_pages": [
+            530
+          ],
+          "pdf_pages": [
+            544
+          ]
+        },
+        {
+          "source_exercise": "16.20",
+          "local_id": "ML070",
+          "title_zh": "PPCA混合模型与完全共享参数的概率图",
+          "note": "04 - 统计学习/习题/习题 ML070 - PPCA混合模型与完全共享参数的概率图.md",
+          "stars": 2,
+          "printed_page": 530,
+          "pdf_page": 544,
+          "printed_pages": [
+            530
+          ],
+          "pdf_pages": [
+            544
+          ]
+        },
+        {
+          "source_exercise": "16.21",
+          "local_id": "ML071",
+          "title_zh": "PPCA期望完整对数似然的M步",
+          "note": "04 - 统计学习/习题/习题 ML071 - PPCA期望完整对数似然的M步.md",
+          "stars": 2,
+          "printed_page": 530,
+          "pdf_page": 544,
+          "printed_pages": [
+            530
+          ],
+          "pdf_pages": [
+            544
+          ]
+        },
+        {
+          "source_exercise": "16.22",
+          "local_id": "ML072",
+          "title_zh": "含缺失观测的PPCA联合潜变量EM",
+          "note": "04 - 统计学习/习题/习题 ML072 - 含缺失观测的PPCA联合潜变量EM.md",
+          "stars": 3,
+          "printed_page": 530,
+          "pdf_page": 544,
+          "printed_pages": [
+            530
+          ],
+          "pdf_pages": [
+            544
+          ]
+        },
+        {
+          "source_exercise": "16.23",
+          "local_id": "ML073",
+          "title_zh": "PCA交替最小二乘的中心化E步和M步",
+          "note": "04 - 统计学习/习题/习题 ML073 - PCA交替最小二乘的中心化E步和M步.md",
+          "stars": 2,
+          "printed_page": 530,
+          "pdf_page": 544,
+          "printed_pages": [
+            530,
+            531
+          ],
+          "pdf_pages": [
+            544,
+            545
+          ]
+        },
+        {
+          "source_exercise": "16.24",
+          "local_id": "ML074",
+          "title_zh": "因子分析的高斯后验E步",
+          "note": "04 - 统计学习/习题/习题 ML074 - 因子分析的高斯后验E步.md",
+          "stars": 2,
+          "printed_page": 531,
+          "pdf_page": 545,
+          "printed_pages": [
+            531
+          ],
+          "pdf_pages": [
+            545
+          ]
+        },
+        {
+          "source_exercise": "16.25",
+          "local_id": "ML075",
+          "title_zh": "因子分析的完整数据目标与载荷噪声M步",
+          "note": "04 - 统计学习/习题/习题 ML075 - 因子分析的完整数据目标与载荷噪声M步.md",
+          "stars": 2,
+          "printed_page": 531,
+          "pdf_page": 545,
+          "printed_pages": [
+            531
+          ],
+          "pdf_pages": [
+            545
+          ]
+        },
+        {
+          "source_exercise": "16.26",
+          "local_id": "ML076",
+          "title_zh": "因子分析均值最大似然的唯一性",
+          "note": "04 - 统计学习/习题/习题 ML076 - 因子分析均值最大似然的唯一性.md",
+          "stars": 2,
+          "printed_page": 531,
+          "pdf_page": 545,
+          "printed_pages": [
+            531
+          ],
+          "pdf_pages": [
+            545
+          ]
+        }
+      ],
+      "audit_note": "完整核对16.1–16.26共26题，16.1、16.7、16.23跨页；含PCA、概率PCA、因子分析、缺失数据完整EM及混合概率PCA。16.7/16.20附独立概率图，奇异/边界/不可识别与缺失机制分别说明。 本地PDF在印刷531后直接进入533，中间未收入的印刷空白页不能用于统一偏移。",
+      "figure_dependencies": [],
+      "independent_figures": [
+        {
+          "source_exercise": "16.7",
+          "asset": "附件/习题图/DS003/解答-16.7.png",
+          "vector": "附件/习题图/DS003/解答-16.7.pdf",
+          "editable": "附件/习题图/DS003/解答-16.7.tex",
+          "verification": "按已实际查看的模型(16.31)–(16.32)，印刷507/PDF521和样本图16.8，印刷509/PDF523，新绘连续潜向量父节点与分别观测子节点；TikZ编译成功，渲染最终PNG后实际view_image目视核对，无裁切或标签碰撞。"
+        },
+        {
+          "source_exercise": "16.20",
+          "asset": "附件/习题图/DS003/解答-16.20.png",
+          "vector": "附件/习题图/DS003/解答-16.20.pdf",
+          "editable": "附件/习题图/DS003/解答-16.20.tex",
+          "verification": "按实际查看的PPCA模型印刷507–509/PDF521–523与题面新绘成分专属／完全共享两面板，全部参数共享时删除冗余c到x边；TikZ编译成功，最终PDF渲染PNG后实际view_image核对箭头、参数与plate。"
+        }
+      ]
+    },
+    "17": {
+      "title_zh": "生成对抗网络",
+      "title_en": "Generative Adversarial Networks",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        533,
+        545
+      ],
+      "pdf_page_range": [
+        546,
+        558
+      ],
+      "boundary_pdf_pages": [
+        546,
+        559
+      ],
+      "printed_problem_pages": [
+        544,
+        545
+      ],
+      "pdf_problem_pages": [
+        557,
+        558
+      ],
+      "expected_exercises": [
+        "17.1",
+        "17.2",
+        "17.3"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "17.1",
+          "local_id": "DL288",
+          "title_zh": "最优GAN判别器与生成目标的符号核对",
+          "note": "06 - 深度学习/习题/习题 DL288 - 最优GAN判别器与生成目标的符号核对.md",
+          "stars": 3,
+          "printed_page": 544,
+          "pdf_page": 557,
+          "printed_pages": [
+            544
+          ],
+          "pdf_pages": [
+            557
+          ]
+        },
+        {
+          "source_exercise": "17.2",
+          "local_id": "DL289",
+          "title_zh": "双线性对抗优化的周期轨道",
+          "note": "06 - 深度学习/习题/习题 DL289 - 双线性对抗优化的周期轨道.md",
+          "stars": 3,
+          "printed_page": 544,
+          "pdf_page": 557,
+          "printed_pages": [
+            544,
+            545
+          ],
+          "pdf_pages": [
+            557,
+            558
+          ]
+        },
+        {
+          "source_exercise": "17.3",
+          "local_id": "DL290",
+          "title_zh": "只生成狗时的最优GAN判别概率",
+          "note": "06 - 深度学习/习题/习题 DL290 - 只生成狗时的最优GAN判别概率.md",
+          "stars": 1,
+          "printed_page": 545,
+          "pdf_page": 558,
+          "printed_pages": [
+            545
+          ],
+          "pdf_pages": [
+            558
+          ]
+        }
+      ],
+      "audit_note": "完整核对17.1–17.3共3题，17.2跨页；GAN目标交叉熵的原符号冲突另行修正，对抗双线性轨道及条件分布匹配范围给独立论证。 本地PDF在印刷545后直接进入547，中间未收入的印刷空白页不能用于统一偏移。",
+      "figure_dependencies": []
+    },
+    "18": {
+      "title_zh": "归一化流",
+      "title_en": "Normalizing Flows",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        547,
+        561
+      ],
+      "pdf_page_range": [
+        559,
+        573
+      ],
+      "boundary_pdf_pages": [
+        559,
+        574
+      ],
+      "printed_problem_pages": [
+        559,
+        560,
+        561
+      ],
+      "pdf_problem_pages": [
+        571,
+        572,
+        573
+      ],
+      "expected_exercises": [
+        "18.1",
+        "18.2",
+        "18.3",
+        "18.4",
+        "18.5",
+        "18.6",
+        "18.7",
+        "18.8",
+        "18.9",
+        "18.10",
+        "18.11"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "18.1",
+          "local_id": "DL291",
+          "title_zh": "逆映射Jacobian与密度换元",
+          "note": "06 - 深度学习/习题/习题 DL291 - 逆映射Jacobian与密度换元.md",
+          "stars": 2,
+          "printed_page": 559,
+          "pdf_page": 571,
+          "printed_pages": [
+            559
+          ],
+          "pdf_pages": [
+            571
+          ]
+        },
+        {
+          "source_exercise": "18.2",
+          "local_id": "DL292",
+          "title_zh": "多层可逆变换的逆序求逆",
+          "note": "06 - 深度学习/习题/习题 DL292 - 多层可逆变换的逆序求逆.md",
+          "stars": 1,
+          "printed_page": 559,
+          "pdf_page": 571,
+          "printed_pages": [
+            559
+          ],
+          "pdf_pages": [
+            571
+          ]
+        },
+        {
+          "source_exercise": "18.3",
+          "local_id": "DL293",
+          "title_zh": "平移变换的体积保持性质",
+          "note": "06 - 深度学习/习题/习题 DL293 - 平移变换的体积保持性质.md",
+          "stars": 1,
+          "printed_page": 559,
+          "pdf_page": 571,
+          "printed_pages": [
+            559
+          ],
+          "pdf_pages": [
+            571
+          ]
+        },
+        {
+          "source_exercise": "18.4",
+          "local_id": "DL294",
+          "title_zh": "自回归流的下三角Jacobian",
+          "note": "06 - 深度学习/习题/习题 DL294 - 自回归流的下三角Jacobian.md",
+          "stars": 2,
+          "printed_page": 559,
+          "pdf_page": 571,
+          "printed_pages": [
+            559
+          ],
+          "pdf_pages": [
+            571
+          ]
+        },
+        {
+          "source_exercise": "18.5",
+          "local_id": "DL295",
+          "title_zh": "残差网络小步长极限与神经ODE",
+          "note": "06 - 深度学习/习题/习题 DL295 - 残差网络小步长极限与神经ODE.md",
+          "stars": 1,
+          "printed_page": 559,
+          "pdf_page": 571,
+          "printed_pages": [
+            559
+          ],
+          "pdf_pages": [
+            571
+          ]
+        },
+        {
+          "source_exercise": "18.6",
+          "local_id": "DL296",
+          "title_zh": "神经ODE伴随方程的离散反向极限",
+          "note": "06 - 深度学习/习题/习题 DL296 - 神经ODE伴随方程的离散反向极限.md",
+          "stars": 2,
+          "printed_page": 560,
+          "pdf_page": 572,
+          "printed_pages": [
+            560
+          ],
+          "pdf_pages": [
+            572
+          ]
+        },
+        {
+          "source_exercise": "18.7",
+          "local_id": "DL297",
+          "title_zh": "共享参数神经ODE梯度与积分符号修正",
+          "note": "06 - 深度学习/习题/习题 DL297 - 共享参数神经ODE梯度与积分符号修正.md",
+          "stars": 2,
+          "printed_page": 560,
+          "pdf_page": 572,
+          "printed_pages": [
+            560
+          ],
+          "pdf_pages": [
+            572
+          ]
+        },
+        {
+          "source_exercise": "18.8",
+          "local_id": "DL298",
+          "title_zh": "一维连续流的概率质量与对数密度变化",
+          "note": "06 - 深度学习/习题/习题 DL298 - 一维连续流的概率质量与对数密度变化.md",
+          "stars": 3,
+          "printed_page": 560,
+          "pdf_page": 572,
+          "printed_pages": [
+            560
+          ],
+          "pdf_pages": [
+            572
+          ]
+        },
+        {
+          "source_exercise": "18.9",
+          "local_id": "DL299",
+          "title_zh": "等概率分位数轨迹与连续流速度",
+          "note": "06 - 深度学习/习题/习题 DL299 - 等概率分位数轨迹与连续流速度.md",
+          "stars": 2,
+          "printed_page": 560,
+          "pdf_page": 572,
+          "printed_pages": [
+            560
+          ],
+          "pdf_pages": [
+            572
+          ]
+        },
+        {
+          "source_exercise": "18.10",
+          "local_id": "DL300",
+          "title_zh": "连续流的逆向积分与计算量范围",
+          "note": "06 - 深度学习/习题/习题 DL300 - 连续流的逆向积分与计算量范围.md",
+          "stars": 2,
+          "printed_page": 560,
+          "pdf_page": 572,
+          "printed_pages": [
+            560
+          ],
+          "pdf_pages": [
+            572
+          ]
+        },
+        {
+          "source_exercise": "18.11",
+          "local_id": "DL301",
+          "title_zh": "Hutchinson迹估计的任意样本量无偏性",
+          "note": "06 - 深度学习/习题/习题 DL301 - Hutchinson迹估计的任意样本量无偏性.md",
+          "stars": 1,
+          "printed_page": 561,
+          "pdf_page": 573,
+          "printed_pages": [
+            561
+          ],
+          "pdf_pages": [
+            573
+          ]
+        }
+      ],
+      "audit_note": "完整核对18.1–18.11共11题；保留原图18.6/18.7，明确Jacobian方向、流的初值、列伴随及参数梯度符号，区分非正式连续极限与所需光滑条件。 本地PDF在印刷561后直接进入563，中间未收入的印刷空白页不能用于统一偏移。",
+      "figure_dependencies": [
+        {
+          "figure": "18.7",
+          "printed_page": 560,
+          "pdf_page": 572,
+          "asset": "附件/习题图/DS003/原图-18.7.png",
+          "verification": "实际查看原PDF572，裁切完整图18.7含图注和坐标／位移标签，再实际view_image查看最终裁图。"
+        },
+        {
+          "figure": "18.6",
+          "printed_page": 558,
+          "pdf_page": 570,
+          "asset": "附件/习题图/DS003/原图-18.6.png",
+          "verification": "实际查看原PDF570，裁切完整图18.6含图注、三个分布／流线面板和z轴，再实际view_image查看最终裁图。"
+        }
+      ]
+    },
+    "19": {
+      "title_zh": "自编码器",
+      "title_en": "Autoencoders",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        563,
+        579
+      ],
+      "pdf_page_range": [
+        574,
+        590
+      ],
+      "boundary_pdf_pages": [
+        574,
+        591
+      ],
+      "printed_problem_pages": [
+        578,
+        579
+      ],
+      "pdf_problem_pages": [
+        589,
+        590
+      ],
+      "expected_exercises": [
+        "19.1",
+        "19.2",
+        "19.3",
+        "19.4",
+        "19.5",
+        "19.6"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "19.1",
+          "local_id": "DL302",
+          "title_zh": "得分函数梯度估计与样本平均修正",
+          "note": "06 - 深度学习/习题/习题 DL302 - 得分函数梯度估计与样本平均修正.md",
+          "stars": 2,
+          "printed_page": 578,
+          "pdf_page": 589,
+          "printed_pages": [
+            578
+          ],
+          "pdf_pages": [
+            589
+          ]
+        },
+        {
+          "source_exercise": "19.2",
+          "local_id": "DL303",
+          "title_zh": "一维高斯重参数化的分布验证",
+          "note": "06 - 深度学习/习题/习题 DL303 - 一维高斯重参数化的分布验证.md",
+          "stars": 1,
+          "printed_page": 578,
+          "pdf_page": 589,
+          "printed_pages": [
+            578
+          ],
+          "pdf_pages": [
+            589
+          ]
+        },
+        {
+          "source_exercise": "19.3",
+          "local_id": "DL304",
+          "title_zh": "全协方差VAE编码器与Cholesky参数化",
+          "note": "06 - 深度学习/习题/习题 DL304 - 全协方差VAE编码器与Cholesky参数化.md",
+          "stars": 2,
+          "printed_page": 578,
+          "pdf_page": 589,
+          "printed_pages": [
+            578
+          ],
+          "pdf_pages": [
+            589
+          ]
+        },
+        {
+          "source_exercise": "19.4",
+          "local_id": "DL305",
+          "title_zh": "VAE高斯KL项及编码器梯度的符号",
+          "note": "06 - 深度学习/习题/习题 DL305 - VAE高斯KL项及编码器梯度的符号.md",
+          "stars": 2,
+          "printed_page": 579,
+          "pdf_page": 590,
+          "printed_pages": [
+            579
+          ],
+          "pdf_pages": [
+            590
+          ]
+        },
+        {
+          "source_exercise": "19.5",
+          "local_id": "DL306",
+          "title_zh": "ELBO的期望联合对数密度与熵分解",
+          "note": "06 - 深度学习/习题/习题 DL306 - ELBO的期望联合对数密度与熵分解.md",
+          "stars": 1,
+          "printed_page": 579,
+          "pdf_page": 590,
+          "printed_pages": [
+            579
+          ],
+          "pdf_pages": [
+            590
+          ]
+        },
+        {
+          "source_exercise": "19.6",
+          "local_id": "DL307",
+          "title_zh": "ELBO的先验期望与似然熵比值分解",
+          "note": "06 - 深度学习/习题/习题 DL307 - ELBO的先验期望与似然熵比值分解.md",
+          "stars": 1,
+          "printed_page": 579,
+          "pdf_page": 590,
+          "printed_pages": [
+            579
+          ],
+          "pdf_pages": [
+            590
+          ]
+        }
+      ],
+      "audit_note": "完整核对19.1–19.6共6题；原Monte Carlo平均因子、负KL标注与高斯重参数化式问题保留另释，全协方差编码器及ELBO恒等式独立给出。 本地PDF在印刷579后直接进入581，中间未收入的印刷空白页不能用于统一偏移。",
+      "figure_dependencies": []
+    },
+    "20": {
+      "title_zh": "扩散模型",
+      "title_en": "Diffusion Models",
+      "checked": "2026-11-02",
+      "printed_page_range": [
+        581,
+        607
+      ],
+      "pdf_page_range": [
+        591,
+        617
+      ],
+      "boundary_pdf_pages": [
+        591,
+        618
+      ],
+      "printed_problem_pages": [
+        603,
+        604,
+        605,
+        606,
+        607
+      ],
+      "pdf_problem_pages": [
+        613,
+        614,
+        615,
+        616,
+        617
+      ],
+      "expected_exercises": [
+        "20.1",
+        "20.2",
+        "20.3",
+        "20.4",
+        "20.5",
+        "20.6",
+        "20.7",
+        "20.8",
+        "20.9",
+        "20.10",
+        "20.11",
+        "20.12",
+        "20.13",
+        "20.14",
+        "20.15",
+        "20.16",
+        "20.17",
+        "20.18",
+        "20.19",
+        "20.20"
+      ],
+      "exercises": [
+        {
+          "source_exercise": "20.1",
+          "local_id": "DL308",
+          "title_zh": "扩散前向一步的均值与协方差收缩",
+          "note": "06 - 深度学习/习题/习题 DL308 - 扩散前向一步的均值与协方差收缩.md",
+          "stars": 1,
+          "printed_page": 603,
+          "pdf_page": 613,
+          "printed_pages": [
+            603
+          ],
+          "pdf_pages": [
+            613
+          ]
+        },
+        {
+          "source_exercise": "20.2",
+          "local_id": "DL309",
+          "title_zh": "扩散噪声重参数化与条件高斯密度",
+          "note": "06 - 深度学习/习题/习题 DL309 - 扩散噪声重参数化与条件高斯密度.md",
+          "stars": 1,
+          "printed_page": 603,
+          "pdf_page": 613,
+          "printed_pages": [
+            603
+          ],
+          "pdf_pages": [
+            613
+          ]
+        },
+        {
+          "source_exercise": "20.3",
+          "local_id": "DL310",
+          "title_zh": "扩散核闭式分布的归纳证明",
+          "note": "06 - 深度学习/习题/习题 DL310 - 扩散核闭式分布的归纳证明.md",
+          "stars": 3,
+          "printed_page": 603,
+          "pdf_page": 613,
+          "printed_pages": [
+            603
+          ],
+          "pdf_pages": [
+            613
+          ]
+        },
+        {
+          "source_exercise": "20.4",
+          "local_id": "DL311",
+          "title_zh": "前向扩散趋于标准高斯的噪声日程条件",
+          "note": "06 - 深度学习/习题/习题 DL311 - 前向扩散趋于标准高斯的噪声日程条件.md",
+          "stars": 1,
+          "printed_page": 603,
+          "pdf_page": 613,
+          "printed_pages": [
+            603
+          ],
+          "pdf_pages": [
+            613
+          ]
+        },
+        {
+          "source_exercise": "20.5",
+          "local_id": "DL312",
+          "title_zh": "协方差线性运算与扩散矩固定点",
+          "note": "06 - 深度学习/习题/习题 DL312 - 协方差线性运算与扩散矩固定点.md",
+          "stars": 2,
+          "printed_page": 604,
+          "pdf_page": 614,
+          "printed_pages": [
+            604
+          ],
+          "pdf_pages": [
+            614
+          ]
+        },
+        {
+          "source_exercise": "20.6",
+          "local_id": "DL313",
+          "title_zh": "配方推导扩散后向条件高斯",
+          "note": "06 - 深度学习/习题/习题 DL313 - 配方推导扩散后向条件高斯.md",
+          "stars": 3,
+          "printed_page": 604,
+          "pdf_page": 614,
+          "printed_pages": [
+            604
+          ],
+          "pdf_pages": [
+            614
+          ]
+        },
+        {
+          "source_exercise": "20.7",
+          "local_id": "DL314",
+          "title_zh": "小噪声反向扩散的局部高斯修正",
+          "note": "06 - 深度学习/习题/习题 DL314 - 小噪声反向扩散的局部高斯修正.md",
+          "stars": 3,
+          "printed_page": 604,
+          "pdf_page": 614,
+          "printed_pages": [
+            604
+          ],
+          "pdf_pages": [
+            614
+          ]
+        },
+        {
+          "source_exercise": "20.8",
+          "local_id": "DL315",
+          "title_zh": "扩散模型的对数证据与ELBO分解",
+          "note": "06 - 深度学习/习题/习题 DL315 - 扩散模型的对数证据与ELBO分解.md",
+          "stars": 2,
+          "printed_page": 604,
+          "pdf_page": 614,
+          "printed_pages": [
+            604
+          ],
+          "pdf_pages": [
+            614
+          ]
+        },
+        {
+          "source_exercise": "20.9",
+          "local_id": "DL316",
+          "title_zh": "扩散ELBO的一致性KL项分解",
+          "note": "06 - 深度学习/习题/习题 DL316 - 扩散ELBO的一致性KL项分解.md",
+          "stars": 2,
+          "printed_page": 604,
+          "pdf_page": 614,
+          "printed_pages": [
+            604
+          ],
+          "pdf_pages": [
+            614
+          ]
+        },
+        {
+          "source_exercise": "20.10",
+          "local_id": "DL317",
+          "title_zh": "完整扩散ELBO的终端KL及其符号",
+          "note": "06 - 深度学习/习题/习题 DL317 - 完整扩散ELBO的终端KL及其符号.md",
+          "stars": 2,
+          "printed_page": 604,
+          "pdf_page": 614,
+          "printed_pages": [
+            604,
+            605
+          ],
+          "pdf_pages": [
+            614,
+            615
+          ]
+        },
+        {
+          "source_exercise": "20.11",
+          "local_id": "DL318",
+          "title_zh": "扩散反向条件的一致性高斯KL",
+          "note": "06 - 深度学习/习题/习题 DL318 - 扩散反向条件的一致性高斯KL.md",
+          "stars": 2,
+          "printed_page": 605,
+          "pdf_page": 615,
+          "printed_pages": [
+            605
+          ],
+          "pdf_pages": [
+            615
+          ]
+        },
+        {
+          "source_exercise": "20.12",
+          "local_id": "DL319",
+          "title_zh": "扩散后向均值的累计噪声表示",
+          "note": "06 - 深度学习/习题/习题 DL319 - 扩散后向均值的累计噪声表示.md",
+          "stars": 2,
+          "printed_page": 605,
+          "pdf_page": 615,
+          "printed_pages": [
+            605
+          ],
+          "pdf_pages": [
+            615
+          ]
+        },
+        {
+          "source_exercise": "20.13",
+          "local_id": "DL320",
+          "title_zh": "扩散重建似然的噪声预测平方项",
+          "note": "06 - 深度学习/习题/习题 DL320 - 扩散重建似然的噪声预测平方项.md",
+          "stars": 2,
+          "printed_page": 605,
+          "pdf_page": 615,
+          "printed_pages": [
+            605
+          ],
+          "pdf_pages": [
+            615
+          ]
+        },
+        {
+          "source_exercise": "20.14",
+          "local_id": "DL321",
+          "title_zh": "标量势函数得分的对称Jacobian",
+          "note": "06 - 深度学习/习题/习题 DL321 - 标量势函数得分的对称Jacobian.md",
+          "stars": 1,
+          "printed_page": 605,
+          "pdf_page": 615,
+          "printed_pages": [
+            605
+          ],
+          "pdf_pages": [
+            615
+          ]
+        },
+        {
+          "source_exercise": "20.15",
+          "local_id": "DL322",
+          "title_zh": "直接得分网络与势函数自动微分的计算量",
+          "note": "06 - 深度学习/习题/习题 DL322 - 直接得分网络与势函数自动微分的计算量.md",
+          "stars": 2,
+          "printed_page": 605,
+          "pdf_page": 615,
+          "printed_pages": [
+            605
+          ],
+          "pdf_pages": [
+            615
+          ]
+        },
+        {
+          "source_exercise": "20.16",
+          "local_id": "DL323",
+          "title_zh": "分部积分消去未知数据得分",
+          "note": "06 - 深度学习/习题/习题 DL323 - 分部积分消去未知数据得分.md",
+          "stars": 3,
+          "printed_page": 605,
+          "pdf_page": 615,
+          "printed_pages": [
+            605,
+            606
+          ],
+          "pdf_pages": [
+            615,
+            616
+          ]
+        },
+        {
+          "source_exercise": "20.17",
+          "local_id": "DL324",
+          "title_zh": "去噪得分匹配与边缘得分匹配等价",
+          "note": "06 - 深度学习/习题/习题 DL324 - 去噪得分匹配与边缘得分匹配等价.md",
+          "stars": 2,
+          "printed_page": 606,
+          "pdf_page": 616,
+          "printed_pages": [
+            606
+          ],
+          "pdf_pages": [
+            616
+          ]
+        },
+        {
+          "source_exercise": "20.18",
+          "local_id": "DL325",
+          "title_zh": "不相交混合分布的得分与混合权重不可识别",
+          "note": "06 - 深度学习/习题/习题 DL325 - 不相交混合分布的得分与混合权重不可识别.md",
+          "stars": 1,
+          "printed_page": 606,
+          "pdf_page": 616,
+          "printed_pages": [
+            606,
+            607
+          ],
+          "pdf_pages": [
+            616,
+            617
+          ]
+        },
+        {
+          "source_exercise": "20.19",
+          "local_id": "DL326",
+          "title_zh": "离散前向扩散的方差保持SDE极限",
+          "note": "06 - 深度学习/习题/习题 DL326 - 离散前向扩散的方差保持SDE极限.md",
+          "stars": 2,
+          "printed_page": 607,
+          "pdf_page": 617,
+          "printed_pages": [
+            607
+          ],
+          "pdf_pages": [
+            617
+          ]
+        },
+        {
+          "source_exercise": "20.20",
+          "local_id": "DL327",
+          "title_zh": "无分类器引导得分的代数重写",
+          "note": "06 - 深度学习/习题/习题 DL327 - 无分类器引导得分的代数重写.md",
+          "stars": 1,
+          "printed_page": 607,
+          "pdf_page": 617,
+          "printed_pages": [
+            607
+          ],
+          "pdf_pages": [
+            617
+          ]
+        }
+      ],
+      "audit_note": "完整核对20.1–20.20共20题，20.10、20.16、20.18跨页；明确终端噪声日程、负终端KL、局部反向近似、原得分漏log、分部积分边界及不相交混合的权重不可识别，未把有限步近似当作精确采样。 本地PDF在印刷607后直接进入609，中间未收入的印刷空白页不能用于统一偏移。",
+      "figure_dependencies": []
     }
   }
 }
