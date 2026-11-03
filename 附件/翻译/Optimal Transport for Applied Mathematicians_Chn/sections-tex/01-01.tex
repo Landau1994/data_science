@@ -1,0 +1,238 @@
+% 原书印刷1--9页，PDF物理29--37页，止于§1.2标题之前.
+本章首先讨论从空间 $X$ 上的测度 $\mu$ 到空间 $Y$ 上另一测度 $\nu$ 的传输问题的一般性质. 一般而言，$X$ 和 $Y$ 可以是完备可分度量空间，但我们很快就会集中讨论它们同为 $\mathbb R^d$ 的一个子集 $\Omega$（通常为紧集）的情形. 我们假设成本函数 $c:X\times Y\to[0,+\infty]$ 连续或半连续，随后分析一些特殊情形（例如严格凸函数 $h$ 所给出的 $c(x,y)=h(x-y)$）.
+
+为便于叙述，本章的结构略显曲折，需要作一说明. 在\autoref{sec:1.1}中，我们介绍 Monge 与 Kantorovich 问题，并证明 Kantorovich 问题（KP）解的存在性. 在\autoref{sec:1.2}中，我们介绍对偶问题（DP），但不证明对偶性结果 $\min(\mathrm{KP})=\sup(\mathrm{DP})$. 在\autoref{sec:1.3}中，我们把这一对偶性结果视为已经证明，讨论（KP）的解由某个传输映射诱导、因而也解出（MP）的情形. \autoref{sec:1.4}和\autoref{sec:1.5}讨论（MP）解的存在性的反例，以及等式 $\min(\mathrm{MP})=\min(\mathrm{KP})$. 在\autoref{sec:1.6}中，我们引入循环单调性的概念，借此证明对偶性 $\min(\mathrm{KP})=\sup(\mathrm{DP})$、稳定性结果及充分最优性条件. 我们还给出一个独立的对偶性证明，其依据是凸分析中的一个概念；这个概念也在该节的知识框中介绍. 本章最后以\autoref{sec:1.7}中的一段较长讨论收尾.
+
+\subsection{Kantorovich 问题与 Monge 问题}\label{sec:1.1}
+
+最优传输（optimal transport）的起点是 Monge 的经典问题\cite{b239}，用现代语言写出其最一般的形式如下.
+
+\begin{problem}\label{obj:1.1}
+给定两个概率测度 $\mu\in\mathscr P(X)$、$\nu\in\mathscr P(Y)$ 和成本函数 $c:X\times Y\to[0,+\infty]$，求解
+\begin{equation}\label{eq:1.1}
+(\mathrm{MP})\qquad
+\inf\left\{M(\mathrm{T}):=\int c(x,\mathrm{T}(x))\,d\mu(x):\mathrm{T}_\#\mu=\nu\right\}.
+\end{equation}
+这里回顾一下，记作 $\mathrm{T}_\#\mu$ 的测度对每个 $A$ 由 $(\mathrm{T}_\#\mu)(A):=\mu(\mathrm{T}^{-1}(A))$ 定义，称为 $\mu$ 经 $\mathrm{T}$ 的\emph{像测度}（image measure）或\emph{推前}（pushforward）.
+\end{problem}
+
+正如导论中指出的，问题（MP）\footnote{为明确记号，强调一下：我们用（MP）表示极小化问题的\emph{名称}，后面的（KP）、（BP）及许多其他记号也一样. 对其最小值，我们写作 $\min(\mathrm{MP})$.}的困难在于约束. 特别是，对 $\mathrm{T}$ 的这一约束在弱收敛下不封闭：见\orig{348}{习题(1)}，或者考虑 $[0,2\pi]$ 上的 $\mathrm{T}_n(x)=\sin(nx)$.
+
+由于这一困难，我们暂且搁置（MP），转而考虑从 Kantorovich 的工作\cite{b200}中自然产生的推广：
+
+\begin{problem}\label{obj:1.2}
+给定 $\mu\in\mathscr P(X)$、$\nu\in\mathscr P(Y)$ 和 $c:X\times Y\to[0,+\infty]$，考虑问题
+\begin{equation}\label{eq:1.2}
+(\mathrm{KP})\qquad
+\inf\left\{K(\gamma):=\int_{X\times Y}c\,d\gamma:\gamma\in\Pi(\mu,\nu)\right\},
+\end{equation}
+其中 $\Pi(\mu,\nu)$ 是所谓\emph{传输方案}（transport plans）的集合，即
+\[
+\Pi(\mu,\nu)=\left\{\gamma\in\mathscr P(X\times Y):(\pi_x)_\#\gamma=\mu,\ (\pi_y)_\#\gamma=\nu\right\};
+\]
+这里 $\pi_x$、$\pi_y$ 分别为 $X\times Y$ 到 $X$、$Y$ 的两个投影. 这些 $X\times Y$ 上的概率测度提供了另一种描述 $\mu$ 中粒子位移的方式：我们不再为每个 $x$ 指定原来位于 $x$ 的粒子的终点 $\mathrm{T}(x)$，而是为每对 $(x,y)$ 指定从 $x$ 到 $y$ 有多少粒子. 更确切地说，$\gamma(A\times B)$ 的值表示从 $A$ 移到 $B$ 的质量. 显然，这种描述容许更一般的运动，因为从一个点 $x$ 出发，粒子原则上可以移到不同终点 $y$. 如果确实出现多个终点，这一运动就不能用映射 $\mathrm{T}$ 来描述. 注意，对 $(\pi_x)_\#\gamma$ 和 $(\pi_y)_\#\gamma$ 的约束恰好意味着，我们只考虑那些把依照分布 $\mu$ 分布的粒子移成分布 $\nu$ 的运动.
+
+这一问题的极小元称为 $\mu$ 与 $\nu$ 之间的\emph{最优传输方案}. 如果对于某个可测映射 $\mathrm{T}:X\to Y$，$\gamma$ 具有 $(\mathrm{id},\mathrm{T})_\#\mu$ 的形式（即不发生质量分裂），那么映射 $\mathrm{T}$ 就称为从 $\mu$ 到 $\nu$ 的\emph{最优传输映射}.
+\end{problem}
+
+\begin{remark}\label{obj:1.3}
+容易验证，$(\mathrm{id},\mathrm{T})_\#\mu$（这一传输方案将记作 $\gamma_\mathrm{T}$）属于 $\Pi(\mu,\nu)$，当且仅当 $\mathrm{T}$ 把 $\mu$ 推前为 $\nu$（即对任意 Borel 集 $A$，$\nu(A)=\mu(\mathrm{T}^{-1}(A))$），而且泛函变成 $\int c(x,\mathrm{T}(x))\,d\mu(x)$；因而它推广了 Monge 问题.
+\end{remark}
+
+Kantorovich 的这一推广问题，比 Monge 原来提出的问题容易处理得多；例如，在 Monge 情形，我们至少需要存在一个满足约束的映射 $\mathrm{T}$. 当 $\mu=\delta_0$ 而 $\nu$ 不是单个 Dirac 质量时，这一点就不成立（见\autoref{sec:1.4}）. 相反，$\Pi(\mu,\nu)$ 中总存在传输方案（例如 $\mu\otimes\nu\in\Pi(\mu,\nu)$）. 此外，可以说（KP）是 Monge 原问题的松弛（relaxation）（这一点将在\autoref{sec:1.5}中说明；粗略地说，它意味着（KP）在某种意义上是（MP）的最小扩张，而这一扩张有希望取得极小元）.
+
+无论如何，重要的是注意到，简单应用变分法中的直接法，就能证明最小值确实存在. 也就是说，我们取一条极小化序列，说明它在某种拓扑下具有紧性（这里采用概率测度的弱收敛），然后找出极限并证明所极小化泛函的半连续性（或连续性），从而该极限就是一个极小元.
+
+\begin{sourcebox}{备忘：极小元存在的 Weierstrass 判据与半连续性}\label{box:1.1}
+证明函数存在极小元的最常用方法，称为“变分法中的直接法”. 它就是经典的 Weierstrass 定理，必要时把连续性替换为半连续性.
+
+\begin{definition*}
+在度量空间 $X$ 上，如果对每条序列 $x_n\to x$ 都有 $f(x)\le\liminf_n f(x_n)$，则称函数 $f:X\to\mathbb R\cup\{+\infty\}$ 为\emph{下半连续}（lower semi-continuous，简称 l.s.c.）.
+\end{definition*}
+
+\begin{definition*}
+如果从任意序列 $x_n$ 都能抽出收敛子列 $x_{n_k}\to x\in X$，则称度量空间 $X$ 是\emph{紧的}.
+\end{definition*}
+
+\begin{theorem*}[Weierstrass]
+如果 $f:X\to\mathbb R\cup\{+\infty\}$ 下半连续，且 $X$ 紧，则存在 $\bar x\in X$ 使得 $f(\bar x)=\min\{f(x):x\in X\}$.
+\end{theorem*}
+
+\begin{proof}
+定义 $\ell:=\inf\{f(x):x\in X\}\in\mathbb R\cup\{-\infty\}$（仅当 $f$ 恒等于 $+\infty$ 时才有 $\ell=+\infty$，但在这种情形，$X$ 中任意一点都使 $f$ 达到最小）. 根据定义，存在一条极小化序列 $x_n$，即 $X$ 中满足 $f(x_n)\to\ell$ 的点. 由紧性，可以假设 $x_n\to\bar x$. 由下半连续性，有 $f(\bar x)\le\liminf_n f(x_n)=\ell$. 另一方面，因为 $\ell$ 是下确界，所以 $f(\bar x)\ge\ell$. 这就证明了 $\ell=f(\bar x)\in\mathbb R$，而且这一数值是 $f$ 的最小值，在 $\bar x$ 处取得.
+\end{proof}
+\end{sourcebox}
+
+\begin{sourcebox}{备忘：对偶空间中的弱紧性}\label{box:1.2}
+\begin{definition*}
+若 Banach 空间 $\mathscr X$ 中的序列 $x_n$ 满足：对每个 $\xi\in\mathscr X'$（其中 $\mathscr X'$ 为 $\mathscr X$ 的拓扑对偶，$\langle\cdot,\cdot\rangle$ 表示两空间间的对偶配对），都有 $\langle\xi,x_n\rangle\to\langle\xi,x\rangle$，则称 $x_n$ \emph{弱收敛}于 $x$，记为 $x_n\rightharpoonup x$. 若序列 $\xi_n\in\mathscr X'$ 满足：对每个 $x\in\mathscr X$ 都有 $\langle\xi_n,x\rangle\to\langle\xi,x\rangle$，则称其\emph{弱-*收敛}于 $\xi$，记为 $\xi_n\overset{*}{\rightharpoonup}\xi$.
+\end{definition*}
+
+\begin{theorem*}[Banach--Alaoglu]
+如果 $\mathscr X$ 可分，且 $\xi_n$ 是 $\mathscr X'$ 中的有界序列，则存在子列 $\xi_{n_k}$ 弱收敛于某个 $\xi\in\mathscr X'$.
+\end{theorem*}
+
+泛函分析的全部细节可参见例如\cite{b90}.
+\end{sourcebox}
+
+\begin{sourcebox}{备忘：$C_0$ 与 $\mathscr M$ 之间的对偶性}\label{box:1.3}
+\begin{definition*}
+度量空间 $X$ 上的\emph{有限符号测度}，是一个给每个 Borel 子集 $A\subset X$ 指定数值 $\lambda(A)\in\mathbb R$ 的映射（我们将在\orig{146}{第4章}讨论向量测度，即 $\lambda$ 取值于 $\mathbb R^d$ 的情形），使得对每个可数不交并 $A=\bigcup_i A_i$（当 $i\ne j$ 时 $A_i\cap A_j=\varnothing$），都有
+\[
+\sum_i|\lambda(A_i)|<+\infty\qquad\text{且}\qquad\lambda(A)=\sum_i\lambda(A_i).
+\]
+\end{definition*}
+
+以 $\mathscr M(X)$ 表示 $X$ 上有限符号测度的集合. 对这样的测度，可以通过
+\[
+|\lambda|(A):=\sup\left\{\sum_i|\lambda(A_i)|:A=\bigcup_i A_i,\ i\ne j\text{ 时 }A_i\cap A_j=\varnothing\right\}
+\]
+给它关联一个正标量测度 $|\lambda|\in\mathscr M_+(X)$.
+
+\begin{theorem*}[Riesz表示定理]
+假设 $X$ 是可分、局部紧的度量空间. 令 $\mathscr X=C_0(X)$ 为 $X$ 上在无穷远处消失的连续函数空间，即 $f\in C_0(X)$ 当且仅当 $f\in C(X)$，且对每个 $\varepsilon>0$，都存在紧子集 $K\subset X$，使得在 $X\setminus K$ 上 $|f|<\varepsilon$. 因为 $C_0(X)\subset C_b(X)$（后者为 $X$ 上有界连续函数的空间），给这一空间赋予上确界范数. 注意 $C_0(X)$ 是 Banach 空间，且是 $C_b(X)$ 的闭子集. 那么 $\mathscr X'$ 中的每个元素都能唯一地表示为 $\mathscr M(X)$ 中的元素：对所有 $\xi\in\mathscr X'$，存在唯一的 $\lambda\in\mathscr M(X)$，使得对每个 $\phi\in\mathscr X$ 都有 $\langle\xi,\phi\rangle=\int\phi\,d\lambda$；此外，$\mathscr X'$ 与赋予范数 $\|\lambda\|:=|\lambda|(X)$ 的 $\mathscr M(X)$ 同构.
+\end{theorem*}
+
+对 $\mathscr M(X)$ 中的符号测度，我们应把与 $C_0(X)$ 对偶意义下的收敛称为弱-*收敛. 不过，另一种值得关注的收敛概念是与 $C_b(X)$ 对偶意义下的收敛. 我们将把它称为\emph{弱收敛}（这是一种记号上的滥用），并用符号 $\rightharpoonup$ 表示：$\mu_n\rightharpoonup\mu$ 当且仅当对每个 $\phi\in C_b(X)$ 都有 $\int\phi\,d\mu_n\to\int\phi\,d\mu$（注意，取 $\phi=1$ 还能得到 $\mu_n(X)\to\mu(X)$，而 $\overset{*}{\rightharpoonup}$ 收敛则不具有这一性质）. 注意，当 $X$ 紧时，$C_0(X)=C_b(X)=C(X)$，这时两种收敛概念相同. 另一方面，对非紧的 $X$，空间 $\mathscr M(X)$ 并不是 $C_b(X)$ 的对偶：由 Hahn--Banach 定理，可以构造出（例如见\cite{b292}第1.3节）$C_b(X)'$ 中的元素，它们只看 $C_b(X)$ 中函数“在紧子集之外”（即在无穷远处或边界处）的行为. 与 $C_b$ 对偶意义下的弱收敛，有时也称为\emph{窄收敛}（narrow convergence）. 测度论的全部细节可参见例如\cite{b268}.
+\end{sourcebox}
+
+\begin{sourcebox}{备忘：概率测度的弱收敛}\label{box:1.4}
+概率测度是 $\mathscr M(X)$ 中的特殊测度：$\mu\in\mathscr P(X)$ 当且仅当 $\mu\in\mathscr M_+(X)$ 且 $\mu(X)=1$（注意，对正测度，$\mu$ 与 $|\mu|$ 相同）.
+
+\begin{definition*}
+若对每个 $\varepsilon>0$，都存在紧子集 $K\subset X$，使得对每个 $n$ 都有 $\mu_n(X\setminus K)<\varepsilon$，则称 $X$ 上的概率测度序列 $\mu_n$ 是\emph{紧的}（tight）.
+\end{definition*}
+
+\begin{theorem*}[Prokhorov]
+假设 $\mu_n$ 是完备可分度量空间 $X$（这种空间也称为 Polish 空间）上的紧概率测度序列. 则存在 $\mu\in\mathscr P(X)$ 和子列 $\mu_{n_k}$，使得 $\mu_{n_k}\rightharpoonup\mu$（在与 $C_b(X)$ 对偶的意义下）. 反之，每条满足 $\mu_n\rightharpoonup\mu$ 的序列必定是紧的.
+\end{theorem*}
+
+\begin{proof}[正向蕴含的证明草图]
+对每个紧集 $K\subset X$，测度 $(\mu_n)\mathbin{\vrule height 1.4ex depth -0.3ex width 0.07ex\vrule height 0.07ex depth 0ex width 0.7ex}K$ 都存在收敛子列（在与 $C(K)$ 对偶的意义下）. 由紧性，可取递增的紧集序列 $K_i$，使得对每个 $i$ 和每个 $n$，$\mu_n(K_i^c)<\varepsilon_i=1/i$. 由对角线论证，可以抽出子列 $\mu_{n_h}$，使得 $(\mu_{n_h})\mathbin{\vrule height 1.4ex depth -0.3ex width 0.07ex\vrule height 0.07ex depth 0ex width 0.7ex}K_i\rightharpoonup\nu_i$（当 $n\to\infty$ 时在与 $C(K_i)$ 对偶意义下弱收敛）. 测度 $\nu_i$ 关于 $i$ 递增，并定义一个测度 $\mu=\sup_i\nu_i$（即 $\mu(A)=\sup_i\nu_i(A\cap K_i)$）. 为证明 $\mu_{n_h}\rightharpoonup\mu$，取 $\phi\in C_b(X)$，并写成
+\[
+\int_X\phi\,d(\mu_{n_h}-\mu)\le 2\varepsilon_i+\int_{K_i}\phi\,d(\mu_{n_h}-\nu_i).
+\]
+这就可以证明收敛. 为证明 $\mu\in\mathscr P(X)$，只需用 $\phi=1$ 作检验，核查 $\mu(X)=1$.
+\end{proof}
+\end{sourcebox}
+
+现在可以陈述一些存在性结果了.
+
+\Needspace{5\baselineskip}
+\begin{theorem}\label{obj:1.4}
+设 $X$、$Y$ 是紧度量空间，$\mu\in\mathscr P(X)$、$\nu\in\mathscr P(Y)$，且 $c:X\times Y\to\mathbb R$ 为连续函数. 则（KP）有解.
+\end{theorem}
+\begin{proof}
+只需证明集合 $\Pi(\mu,\nu)$ 紧，映射 $\gamma\mapsto K(\gamma)=\int c\,d\gamma$ 连续，再应用 Weierstrass 定理. 为此需要选取一种收敛概念；我们选取概率测度的弱收敛（在与 $C_b(X\times Y)$ 对偶的意义下，在这里它与 $C(X\times Y)$ 或 $C_0(X\times Y)$ 相同）. 由于 $c\in C(X\times Y)$，根据定义，$K$ 连续.
+
+至于紧性，取序列 $\gamma_n\in\Pi(\mu,\nu)$. 它们是概率测度，因此质量为 $1$，从而在 $C(X\times Y)$ 的对偶中有界. 所以，对偶空间中通常的弱-*紧性保证，存在子列 $\gamma_{n_k}\rightharpoonup\gamma$ 收敛于某个概率测度 $\gamma$. 我们只需核查 $\gamma\in\Pi(\mu,\nu)$. 为此可以固定 $\phi\in C(X)$，利用 $\int\phi(x)\,d\gamma_{n_k}=\int\phi\,d\mu$ 并取极限，得到 $\int\phi(x)\,d\gamma=\int\phi\,d\mu$. 这表明 $(\pi_x)_\#\gamma=\mu$. 对 $\pi_y$ 可以作同样的处理. 更一般地，经连续映射得到的像测度保持弱收敛（这里使用映射 $(x,y)\mapsto x$ 或 \mbox{$(x,y)\mapsto y$）.}
+\end{proof}
+
+\begin{theorem}\label{obj:1.5}
+设 $X$、$Y$ 是紧度量空间，$\mu\in\mathscr P(X)$、$\nu\in\mathscr P(Y)$，且 $c:X\times Y\to\mathbb R\cup\{+\infty\}$ 下半连续并且有下界. 则（KP）有解.
+\end{theorem}
+\begin{proof}
+唯一的区别是：$K$ 不再连续，而是对概率测度的弱收敛下半连续. 这是下面引理的推论，只需在空间 $X\times Y$ 上取 $f=c$.
+\end{proof}
+
+\begin{lemma}\label{obj:1.6}
+如果 $f:X\to\mathbb R\cup\{+\infty\}$ 是度量空间 $X$ 上有下界的下半连续函数，则在 $X$ 上正测度中由 $J(\mu):=\int f\,d\mu$ 定义的泛函 $J:\mathscr M_+(X)\to\mathbb R\cup\{+\infty\}$，关于测度的弱收敛下半连续.
+\end{lemma}
+\begin{proof}
+考虑一列递增收敛到 $f$ 的连续有界函数 $f_k$. 写成 $J(\mu)=\sup_k J_k(\mu)$，其中 $J_k(\mu):=\int f_k\,d\mu$（实际上 $J_k\le J$，且由单调收敛定理，对每个 $\mu$ 都有 $J_k(\mu)\to J(\mu)$）. 每个 $J_k$ 对弱收敛连续，因此作为连续泛函的上确界，$J$ 下半连续.
+\end{proof}
+
+\begin{sourcebox}{备忘：下半连续函数作为 Lipschitz 函数的上确界}\label{box:1.5}
+\begin{theorem*}
+如果 $f_\alpha$ 是 $X$ 上任意一族下半连续函数，则 $f=\sup_\alpha f_\alpha$（即 $f(x):=\sup_\alpha f_\alpha(x)$）也下半连续.
+\end{theorem*}
+
+\begin{proof}
+取 $x_n\to x$，并写成 $f_\alpha(x)\le\liminf_n f_\alpha(x_n)\le\liminf_n f(x_n)$. 然后对 $\alpha$ 取上确界，得到 $f(x)\le\liminf_n f(x_n)$. 也可以利用上图集检验同一事实：一个函数下半连续，当且仅当其上图集 $\{(x,t):t\ge f(x)\}\subset X\times\mathbb R$ 闭；而上确界的上图集就是各上图集的交.
+\end{proof}
+
+\begin{theorem*}
+设 $f:X\to\mathbb R\cup\{+\infty\}$ 是有下界的函数. 则 $f$ 下半连续，当且仅当存在一列 $k$-Lipschitz 函数 $f_k$，使得对每个 $x\in X$，$f_k(x)$ 递增收敛于 $f(x)$.
+\end{theorem*}
+
+\begin{proof}
+一个方向很容易，因为函数 $f_k$ 连续，因而下半连续，且 $f$ 是 $f_k$ 的上确界. 另一个方向较为细致. 给定有下界的下半连续函数 $f$，定义
+\[
+f_k(x)=\inf_y\bigl(f(y)+k d(x,y)\bigr).
+\]
+这些函数是 $k$-Lipschitz 连续的，因为 $x\mapsto f(y)+k d(x,y)$ 是 $k$-Lipschitz 的. 对固定的 $x$，序列 $f_k(x)$ 递增，且 $\inf f\le f_k(x)\le f(x)$. 只需证明 $\ell:=\lim_k f_k(x)=\sup_k f_k(x)=f(x)$. 反设 $\ell<f(x)$，这尤其意味着 $\ell<+\infty$. 对每个 $k$，选取一点 $y_k$，使得 $f(y_k)+k d(y_k,x)<f_k(x)+1/k$. 由 $f$ 有下界及 $\ell<\infty$，得到
+\[
+d(y_k,x)\le\frac{\ell+1/k-f(y_k)}{k}\le\frac Ck.
+\]
+因此 $y_k\to x$. 然而，$f_k(x)+1/k\ge f(y_k)$，故 $\lim_k f_k(x)\ge\liminf_k f(y_k)\ge f(x)$. 这证明了 $\ell\ge f(x)$. 最后，通过取 $f_k\wedge k$，可以使函数 $f_k$ 有界.
+\end{proof}
+\end{sourcebox}
+
+\begin{theorem}\label{obj:1.7}
+设 $X$、$Y$ 是 Polish 空间，即完备可分度量空间，$\mu\in\mathscr P(X)$、$\nu\in\mathscr P(Y)$，且 $c:X\times Y\to[0,+\infty]$ 下半连续. 则（KP）有解.
+\end{theorem}
+\begin{proof}
+现在不再显然的是紧性. 我们需要使用 Prokhorov 定理，也就是证明 $\Pi(\mu,\nu)$ 中的任意序列都是紧的. 为此，固定 $\varepsilon>0$，找出两个紧集 $K_X\subset X$、$K_Y\subset Y$，使得 $\mu(X\setminus K_X),\nu(Y\setminus K_Y)<\frac12\varepsilon$（由 Prokhorov 定理的逆向蕴含，这是可能的，因为单个测度总是紧的）. 则集合 $K_X\times K_Y$ 在 $X\times Y$ 中紧，且对任意 $\gamma_n\in\Pi(\mu,\nu)$，都有
+\begin{equation*}
+\begin{aligned}
+\gamma_n\bigl((X\times Y)\setminus(K_X\times K_Y)\bigr)
+&\le\gamma_n\bigl((X\setminus K_X)\times Y\bigr)+\gamma_n\bigl(X\times(Y\setminus K_Y)\bigr)\\
+&=\mu(X\setminus K_X)+\nu(Y\setminus K_Y)<\varepsilon.
+\end{aligned}
+\end{equation*}
+这就证明了 $\Pi(\mu,\nu)$ 中所有序列的紧性（tightness）（因而也证明了紧致性）.
+\end{proof}
+
+本节最后补充上述连续性与半连续性结果的一个改进，在成本函数不连续时可能会有用.
+
+\begin{lemma}\label{obj:1.8}
+设 $\gamma_n,\gamma\in\Pi(\mu,\nu)$ 是 $X\times Y$ 上的概率测度，$a:X\to\widetilde X$、$b:Y\to\widetilde Y$ 是取值于两个可分度量空间 $\widetilde X$、$\widetilde Y$ 的可测映射. 设 $c:\widetilde X\times\widetilde Y\to\mathbb R_+$ 为连续函数，且 $c(a,b)\le f(a)+g(b)$，其中 $f,g$ 连续，并且 $\int(f\circ a)\,d\mu,\int(g\circ b)\,d\nu<+\infty$. 则
+\[
+\gamma_n\rightharpoonup\gamma\implies
+\int_{X\times Y}c(a(x),b(y))\,d\gamma_n\to
+\int_{X\times Y}c(a(x),b(y))\,d\gamma.
+\]
+\end{lemma}
+\begin{proof}
+先考虑 $c$ 有界的情形，设 $0\le c\le M$. 可以对取值于 $\widetilde X$ 和 $\widetilde Y$ 的映射应用 Lusin 定理的弱版本（见下面\autoref{box:1.6}中的说明）. 固定 $\delta>0$，找出两个紧集 $K_X\subset X$、$K_Y\subset Y$，满足 $\mu(X\setminus K_X)<\delta$、$\nu(Y\setminus K_Y)<\delta$，且 $a$ 和 $b$ 分别限制在 $K_X$ 和 $K_Y$ 上时连续. 令 $K:=K_X\times K_Y\subset X\times Y$，它是乘积空间中的紧集.
+
+可以写成
+\[
+\int c(a,b)\,d\gamma_n\le\int\mathbf1_K c(a,b)\,d\gamma_n+2M\delta,
+\]
+而函数 $\mathbf1_K c(a,b)$ 在 $X\times Y$ 上上半连续（因为它在一个闭集上连续且非负，在该集之外为零）. 因此
+\begin{equation*}
+\begin{aligned}
+\limsup_n\int c(a,b)\,d\gamma_n
+&\le\int\mathbf1_K c(a,b)\,d\gamma+2M\delta\\
+&\le\int c(a,b)\,d\gamma+2M\delta.
+\end{aligned}
+\end{equation*}
+由于 $\delta$ 任意，$\limsup_n\int c(a,b)\,d\gamma_n\le\int c(a,b)\,d\gamma$. 这就证明了当 $c$ 以 $M$ 为界时积分泛函的上半连续性. 以 $M-c$ 替换 $c$ 作类似计算，即得下半连续性.
+
+如果 $c$ 非负但无界，只需用截断 $c_M=c\wedge M$ 从下方逼近它，就证明了积分泛函的下半连续性，因为它是下半连续泛函的上确界. 再把 $c$ 替换为函数 $\widetilde X\times\widetilde Y\ni(\widetilde x,\widetilde y)\mapsto f(\widetilde x)+g(\widetilde y)-c(\widetilde x,\widetilde y)$，也就证明了上半连续性.
+\end{proof}
+
+\begin{sourcebox}{备忘：Lusin 定理}\label{box:1.6}
+测度论中的一个著名定理断言，合理的测度空间 $(X,\mu)$ 上的每个可测函数 $f$，实际上在某个满足 $\mu(X\setminus K)$ 很小的集合 $K$ 上连续. 这个 $K$ 可以取为紧集. 事实上，至少可以有两种表述：或者只要求 $f$ 在 $K$ 上连续，或者要求 $f$ 在 $K$ 上与某个定义于 $X$ 的连续函数相同. 这个定理通常针对实值函数陈述，但我们需要它用于取值于更一般空间的函数. 更确切地说，取赋有有限正则测度 $\mu$ 的拓扑空间 $X$（即任意 Borel 集 $A\subset X$ 满足 $\mu(A)=\sup\{\mu(K):K\subset A,\ K\text{ 紧}\}=\inf\{\mu(B):B\supset A,\ B\text{ 开}\}$）. 假设目标空间 $Y$ 满足第二可数公理（即存在可数开集族 $(B_i)_i$，使得任意其他开集 $B\subset Y$ 都可以写成若干 $B_i$ 的并；例如，可分度量空间满足第二可数公理）.
+
+\begin{theorem*}[弱Lusin定理]
+在上述关于 $X,Y,\mu$ 的假设下，如果 $f:X\to Y$ 可测，则对每个 $\varepsilon>0$，都存在紧集 $K\subset X$，使得 $\mu(X\setminus K)<\varepsilon$，且 $f$ 在 $K$ 上的限制连续.
+\end{theorem*}
+
+\begin{proof}
+对每个 $i\in\mathbb N$，令 $A_i^+=f^{-1}(B_i)$、$A_i^-=f^{-1}(B_i^c)$. 取紧集 $K_i^\pm\subset A_i^\pm$，使得 $\mu(A_i^\pm\setminus K_i^\pm)<\varepsilon2^{-i}$. 令 $K_i=K_i^+\cup K_i^-$，$K=\bigcap_i K_i$. 对每个 $i$，有 $\mu(X\setminus K_i)<\varepsilon2^{1-i}$. 根据构造，$K$ 紧，且 $\mu(X\setminus K)<4\varepsilon$. 为证明 $f$ 在 $K$ 上连续，只需核查对每个开集 $B$，$f^{-1}(B)\cap K$ 在 $K$ 中相对开，而只对 $B=B_i$ 核查就已足够. 等价地，只需证明 $f^{-1}(B_i^c)\cap K$ 闭；这确实成立，因为它等于 $K_i^-\cap K$.
+\end{proof}
+
+\begin{theorem*}[强Lusin定理]
+在对 $X$ 的同样假设下，如果 $f:X\to\mathbb R$ 可测，则对每个 $\varepsilon>0$，都存在紧集 $K\subset X$ 和连续函数 $g:X\to\mathbb R$，使得 $\mu(X\setminus K)<\varepsilon$，且在 $K$ 上 $f=g$.
+\end{theorem*}
+
+\begin{proof}
+由于 $\mathbb R$ 满足第二可数公理，先应用弱 Lusin 定理. 随后只需把 $f|_K$ 延拓成整个 $X$ 上的连续函数 $g$. 这是可能的，因为 $f|_K$ 一致连续（它是紧集上的连续函数），因而有一个连续模 $\omega$：$|f(x)-f(x')|\le\omega(d(x,x'))$（函数 $\omega$ 可以取成次可加且连续的）. 然后定义 $g(x)=\inf\{f(x')+\omega(d(x,x')):x'\in K\}$. 容易验证，$g$ 连续，且在 $K$ 上与 $f$ 相同.
+\end{proof}
+
+注意，最后这个证明强烈依赖于目标空间是 $\mathbb R$ 这一事实. 对 $\mathbb R^d$，只需逐分量延拓，就能加以改写. 另一方面，显然强 Lusin 定理不可能对任意空间 $Y$ 成立：只需取 $X$ 连通、$Y$ 不连通. 若可测函数 $f:X\to Y$ 在两个正测度集合上取值于两个不同的连通分支，就不可能在强 Lusin 定理的意义下用连续函数来逼近它.
+\end{sourcebox}
+
+上述全部连续性、半连续性和紧性结果的后果是，在对成本与空间非常宽松的假设下，存在最优传输方案 $\gamma$. 此后，如果关心 Monge 问题，就可以问：“这一极小化方案 $\gamma$ 是否来自传输映射 $\mathrm{T}$？”若答案为是，则（MP）有解，而且这个解也解决了一个范围更大的问题，即在传输方案中极小化. 这就是接下来的\autoref{sec:1.2}和\autoref{sec:1.3}的主题. 另一方面，在某些情形，证明最优传输方案来自某个传输映射（或证明至少存在一个来自映射的最优方案），等价于证明（MP）有解，因为在传输方案中和传输映射中取的下确界往往相同. 这取决于是否存在原子（见\autoref{sec:1.4}和\autoref{sec:1.5}）.

@@ -1,0 +1,8 @@
+# 逐页提取、渲染与编译中间件可重建；正式源稿和核验报告保留。
+work/*
+!work/*.md
+!work/*.py
+!work/*.json
+!work/source-sha256.txt
+!work/*_Chn.log
+!work/build-*.log

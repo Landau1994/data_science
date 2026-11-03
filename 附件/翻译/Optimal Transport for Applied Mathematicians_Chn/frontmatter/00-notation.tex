@@ -1,0 +1,72 @@
+% 印刷xxv–xxvii／物理26–28.
+\clearpage\section*{记号}\label{sec:notation}\addcontentsline{toc}{section}{记号}
+以下是全书使用而不总是重新说明其含义的标准符号.
+\begin{itemize}
+\item “区域”：$\mathbb R^d$中的非空连通集，等于其内部的闭包.
+\item $\mathbb R_+$：非负实数，即$[0,+\infty[$.
+\item $\log$：正数的自然对数，即Napier对数.
+\item $\lim_n,\liminf_n,\limsup_n$：当$n\to\infty$时的极限、下极限和上极限；$n$也可以换成$k,h,j,\ldots$.
+\item $\nabla$和$\nabla\cdot$分别表示梯度与散度.
+\item $\Delta$表示Laplace算子：$\Delta u:=\nabla\cdot(\nabla u)$，而不是其相反数.
+\item $\Delta_p$表示$p$-Laplace算子：$\Delta_p u:=\nabla\cdot(|\nabla u|^{p-2}\nabla u)$.
+\item $D^2u$：标量函数$u$的Hessian矩阵.
+\item $\mathscr P(X),\mathscr M(X),\mathscr M_+(X),\mathscr M^d(X)$：分别为$X$上的概率测度、有限测度、正有限测度和取值于$\mathbb R^d$的向量测度所成空间.
+\item $\mathscr M^d_{\rm div}(\Omega)$：对于$\Omega\subset\mathbb R^d$，满足$\nabla\cdot\mathbf w\in\mathscr M(\Omega)$的测度$\mathbf w\in\mathscr M^d(\Omega)$所成空间.
+\item $\mathbb R^d,\mathbb T^d,\mathbb S^d$：$d$维欧氏空间、平坦环面与球面.
+\item $C(X),C_b(X),C_c(X),C_0(X)$：$X$上连续、有界连续、紧支集连续，以及在无穷远处消失的连续函数.
+\item $L_c^\infty(\Omega)$：$\Omega$中具有紧支集的$L^\infty$函数.
+\item $\delta_a$：集中于点$a$的Dirac质量.
+\item $\mathbbm{1}_A$：集合$A$的示性函数，在$A$上为1，在$A^c$上为0.
+\item $\wedge,\vee$：最小值与最大值运算，即$a\wedge b:=\min\{a,b\}$、$a\vee b:=\max\{a,b\}$.
+\item $|A|,\mathscr L^d(A)$：集合$A\subset\mathbb R^d$的Lebesgue测度；对此测度积分记为$dx$或$d\mathscr L^d$.
+\item $\omega_d$：$\mathbb R^d$中单位球的测度.
+\item $\mathscr H^k$：$k$维Hausdorff测度.
+\item $\operatorname{Per}(A)$：$\mathbb R^d$中集合$A$的周长；对光滑集$A$等于$\mathscr H^{d-1}(\partial A)$.
+\item $\mu\ll\nu$：测度$\mu$关于$\nu$绝对连续.
+\item $\mu_n\rightharpoonup\mu$：概率测度序列$\mu_n$在与$C_b$对偶的意义下收敛于$\mu$.
+\item $f\cdot\mu$：关于$\mu$具有密度$f$的测度.
+\item $\mu\restr A$：$\mu$在集合$A$上的限制，即$\mathbbm{1}_A\cdot\mu$.
+\item $f|_A$：函数$f$在集合$A$上的限制.
+\item $\mathrm T_\#\mu$：测度$\mu$通过映射$\mathrm T$得到的像测度.
+\item $\mathrm M^{k\times h}$：$k$行$h$列实矩阵的集合.
+\item $\mathrm I$：单位矩阵.
+\item $\operatorname{Tr}$：矩阵的迹算子.
+\item $M^t$：矩阵$M$的转置.
+\item $\operatorname{cof}(M)$：$M$的余子式矩阵，满足$\operatorname{cof}(M)\cdot M=\det(M)\mathrm I$.
+\item $\operatorname{id}$：恒等映射.
+\item 若$\mathrm T:X\to Y$，则$(\operatorname{id},\mathrm T)$是从$X$到$X\times Y$的映射，定义为$x\mapsto(x,\mathrm T(x))$.
+\item $\Pi(\mu,\nu)$：从$\mu$到$\nu$的运输方案集合.
+\item $\mu\otimes\nu$：$\mu$与$\nu$的乘积测度，满足$(\mu\otimes\nu)(A\times B)=\mu(A)\nu(B)$.
+\item $\gamma_{\mathrm T}$：与满足$\mathrm T_\#\mu=\nu$的映射$\mathrm T$关联的$\Pi(\mu,\nu)$中的运输方案.
+\item $M(\mathrm T),K(\gamma)$：映射$\mathrm T$的Monge成本与方案$\gamma$的Kantorovich成本.
+\item $\pi_x,\pi_y,\pi_i$：把乘积空间投影到各分量的映射.
+\item $\mathrm{AC}(\Omega)$，或无歧义时记为$\mathscr C$：在$[0,1]$上参数化、取值于$\Omega$的绝对连续曲线空间.
+\item $L(\omega),L_k(\omega)$：曲线$\omega$的长度或系数为$k$的加权长度.
+\item $e_t:\mathrm{AC}(\Omega)\to\Omega$：时刻$t$的取值映射，即$e_t(\omega):=\omega(t)$.
+\item $a^i_j,a^{ij}_{kh},\ldots$：上指标表示向量、矩阵等的分量，下指标表示导数；不区分向量与协向量.
+\item $x_1,\ldots,x_d$：欧氏空间点的坐标用下指标表示.
+\item $\varrho_t,\mathbf v_t,\ldots$：下指标$t$表示时刻$t$的值，而不表示时间导数；时间导数记为$\partial_t$或$\frac d{dt}$.
+\item $\mathbf n$：给定区域的外法向量.
+\item $W_p,\mathbb W_p$：分别为$p$阶Wasserstein距离与Wasserstein空间.
+\item $\mathscr T_c(\mu,\nu)$：成本$c$下从$\mu$到$\nu$的最小运输成本.
+\item $\operatorname{Lip}_1(\Omega)$：1-Lipschitz函数的集合.
+\item $\frac{\delta F}{\delta\varrho}$：$F:\mathscr P(\Omega)\to\mathbb R$的第一变分，定义为
+\[
+\left.\frac d{d\varepsilon}F(\varrho+\varepsilon\chi)\right|_{\varepsilon=0}
+=\int\frac{\delta F}{\delta\varrho}\,d\chi.
+\]
+\end{itemize}
+\begin{center}---\end{center}
+以下则是标准的记号选择.
+\begin{itemize}
+\item 环境空间的维数记为$d$；当$N$表示粒子数或离散化中的点数等时，使用$\mathbb R^N$.
+\item $\mathrm T$是运输映射，而$T$通常表示终止时刻.
+\item $\omega$通常是曲线，有时也表示连续模.
+\item $\Omega$通常是$\mathbb R^d$中的区域，一般度量空间通常记为$X$.
+\item $\mathscr X$通常是抽象Banach空间.
+\item $\xi$通常是向量函数，常为测试函数.
+\item $Q$通常是$\mathscr C$上的测度.
+\item $\phi$通常是测试函数，而$\varphi$是Kantorovich势或类似对象.
+\item $u$通常是成本$|x-y|$的Kantorovich势，或在$|x-y|^2$情形下满足$\mathrm T=\nabla u$的凸势.
+\item 速度场通常记为$\mathbf v$；动量场在不依赖时间时通常记为$\mathbf w$，在可能依赖时间时记为$E$.
+\end{itemize}

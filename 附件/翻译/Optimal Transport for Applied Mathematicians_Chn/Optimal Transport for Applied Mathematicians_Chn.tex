@@ -1,0 +1,296 @@
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\documentclass[UTF8,12pt]{ctexart}
+
+% 显式给 Fandol 中文字体登记 small-caps 形状。
+% 模板的 \ChapterSectionLabel 与 titlepage 都用到 \textsc / \scshape，
+% 默认查不到 CJK 字体的 sc 形状会出现 "Font shape ... sc undefined" 警告；
+% 这里把 sc 显式落到 Regular/Hei，警告消失，输出无可见变化（中文本无大小写之分）。
+\setCJKmainfont{FandolSong-Regular}[
+  Extension  = .otf,
+  ItalicFont = FandolKai-Regular,
+  BoldItalicFont = FandolKai-Regular,
+  Script = Default,
+  BoldFont   = FandolHei-Regular,
+  FontFace   = {m}{sc}{Font=FandolSong-Regular},
+  FontFace   = {bx}{sc}{Font=FandolHei-Regular},
+]
+
+\usepackage[paper=a4paper,left=2.5cm,right=2.5cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{amsmath,amsthm,amssymb,mathrsfs,bbm,needspace}
+\usepackage{graphicx,tikz-cd,titlesec}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[
+    colorlinks=true,
+    linkcolor=MidnightBlue,
+    citecolor=BrickRed,
+    urlcolor=MidnightBlue,
+    linktoc=all
+]{hyperref}
+
+\pagestyle{plain}
+
+% 设置环境
+\usepackage{aliascnt}
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}[section]
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{定义}
+\aliascntresetthe{definition}
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{引理}
+\aliascntresetthe{lemma}
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{推论}
+\aliascntresetthe{corollary}
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{注}
+\aliascntresetthe{remark}
+\newaliascnt{example}{theorem}
+\newtheorem{example}[example]{例}
+\aliascntresetthe{example}
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{命题}
+\aliascntresetthe{proposition}
+\newaliascnt{problem}{theorem}
+\newtheorem{problem}[problem]{问题}
+\aliascntresetthe{problem}
+\newtheorem{exercise}{习题}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+% autoref names
+\providecommand{\sectionautorefname}{章}
+\renewcommand{\sectionautorefname}{章}
+
+\providecommand{\subsectionautorefname}{节}
+\renewcommand{\subsectionautorefname}{节}
+
+\providecommand{\definitionautorefname}{定义}
+\renewcommand{\definitionautorefname}{定义}
+
+\providecommand{\theoremautorefname}{定理}
+\renewcommand{\theoremautorefname}{定理}
+
+\providecommand{\lemmaautorefname}{引理}
+\renewcommand{\lemmaautorefname}{引理}
+
+\providecommand{\propositionautorefname}{命题}
+\renewcommand{\propositionautorefname}{命题}
+
+\providecommand{\corollaryautorefname}{推论}
+\renewcommand{\corollaryautorefname}{推论}
+
+\providecommand{\exampleautorefname}{例}
+\renewcommand{\exampleautorefname}{例}
+
+\providecommand{\remarkautorefname}{注}
+\renewcommand{\remarkautorefname}{注}
+
+\providecommand{\exerciseautorefname}{习题}
+\renewcommand{\exerciseautorefname}{习题}
+
+\providecommand{\problemautorefname}{问题}
+\renewcommand{\problemautorefname}{问题}
+
+\providecommand{\figureautorefname}{图}
+\renewcommand{\figureautorefname}{图}
+
+\providecommand{\tableautorefname}{表}
+\renewcommand{\tableautorefname}{表}
+
+% 设置 proof 样式
+\makeatletter
+\renewcommand{\proofname}{\textbf{证明}}
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont
+  \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+        \normalfont\bfseries
+    #1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+\renewcommand{\qedsymbol}{\ensuremath{\square}}
+
+% 设置 section 样式
+\newlength{\chapterNumSpace}
+\setlength{\chapterNumSpace}{1.4cm}
+
+% 附录判断：正文显示 Chapter，\appendix 后显示 Appendix
+\newif\ifInAppendix
+\InAppendixfalse
+
+% 目录中的附录判断
+\newif\ifInAppendixToc
+\InAppendixTocfalse
+
+% 目录可调参数
+\newlength{\tocSectionLabelWidth}
+\setlength{\tocSectionLabelWidth}{4.2em}
+
+\newlength{\tocAppendixGap}
+\setlength{\tocAppendixGap}{0.2em}
+
+\newlength{\tocSubIndent}
+\setlength{\tocSubIndent}{1.2em}
+
+\newlength{\tocSubNumWidth}
+\setlength{\tocSubNumWidth}{3.0em}
+
+% 目录 section 编号文字
+\newcommand{\TocSectionNumber}[1]{%
+  \ifInAppendixToc
+    附录\hspace{\tocAppendixGap}#1%
+  \else
+    第~#1~章%
+  \fi
+}
+
+\makeatletter
+
+% section 目录格式：
+% 正文：第 1 章 群的定义与性质
+% 附录：附录A 集合论补遗
+\renewcommand*\l@section[2]{%
+  \ifnum\c@tocdepth>\z@
+    \addvspace{0.55em}%
+    \begingroup
+      \parindent\z@
+      \rightskip\@pnumwidth
+      \parfillskip-\@pnumwidth
+      \leavevmode
+      \bfseries
+      \setlength{\@tempdima}{\tocSectionLabelWidth}%
+      \advance\leftskip\@tempdima
+      \hskip-\leftskip
+      \def\numberline##1{%
+        \makebox[\@tempdima][l]{\TocSectionNumber{##1}}%
+      }%
+      #1\nobreak\hfill\nobreak\makebox[\@pnumwidth][r]{#2}\par
+    \endgroup
+  \fi
+}
+
+% subsection 目录格式：
+% 1.1 循环群 / A.1 集合基础
+\renewcommand*\l@subsection{%
+  \@dottedtocline{2}{\tocSubIndent}{\tocSubNumWidth}%
+}
+
+\makeatother
+
+\let\OriginalAppendix\appendix
+\renewcommand{\appendix}{%
+  \OriginalAppendix
+  \InAppendixtrue
+  \addtocontents{toc}{\protect\InAppendixToctrue}%
+}
+
+\newcommand{\ChapterSectionLabel}{%
+  \thispagestyle{plain}%
+  \vspace*{-0.5cm}%
+  \makebox[\textwidth][r]{%
+    {\fontsize{18pt}{18pt}\selectfont\scshape
+      \ifInAppendix 附录\else 第\fi
+    }\enspace
+    {\fontsize{62pt}{62pt}\selectfont\bfseries\thesection}\enspace{\fontsize{18pt}{18pt}\selectfont\ifInAppendix\else 章\fi}%
+  }%
+  \par\vspace{-0.25cm}%
+  \noindent\rule{\dimexpr\textwidth-\chapterNumSpace\relax}{0.45pt}%
+}
+
+\titleformat{\section}[display]
+  {\normalfont}
+  {\ChapterSectionLabel}
+  {0cm}
+  {\raggedleft\rightskip=\chapterNumSpace\fontsize{30pt}{35pt}\selectfont\bfseries}
+  [\vspace{0.3cm}]
+
+\newcommand{\sectionbreak}{\clearpage}
+
+% 不编号 section，例如前言、目录
+\titleformat{name=\section,numberless}[block]
+  {\normalfont\Large\bfseries\centering}
+  {}
+  {0pt}
+  {}
+
+% section 整体间距
+\titlespacing{\section}
+  {0pt}
+  {0pt}
+  {0pt}
+
+% subsection 样式
+\ctexset{
+  subsection = {
+    format = \large\bfseries
+  }
+}
+
+
+
+\usepackage[most]{tcolorbox}
+\usepackage{xurl,longtable}
+% 仅登记平均积分符号，保留模板原有积分字体.
+\DeclareSymbolFont{sourceaveragesymbols}{U}{esint}{m}{n}
+\DeclareMathSymbol{\fintop}{\mathop}{sourceaveragesymbols}{'037}
+\newcommand{\fint}{\fintop\nolimits}
+\newfontfamily\SourceAccentFont{Times New Roman}
+\newtheoremstyle{boxedsource}{0pt}{0pt}{\normalfont}{}{\bfseries}{.}{.5em}{}
+\theoremstyle{boxedsource}
+\newtheorem*{definition*}{定义}
+\newtheorem*{example*}{例}
+\newtheorem*{proposition*}{命题}
+\newtheorem*{theorem*}{定理}
+\newtheorem*{problem*}{问题}
+\newtheorem*{openproblem}{未解问题}
+\theoremstyle{plain}
+\setlength{\emergencystretch}{1em}
+\newcounter{boxcounter}[section]
+\renewcommand{\theboxcounter}{\thesection.\arabic{boxcounter}}
+\providecommand{\boxcounterautorefname}{知识框}
+\newenvironment{sourcebox}[1]{\refstepcounter{boxcounter}\begin{tcolorbox}[breakable,colback=gray!4,colframe=gray!55,title={知识框~\theboxcounter\quad #1},fonttitle=\bfseries,coltitle=black]}{\end{tcolorbox}}
+\newcommand{\orig}[2]{\href[page=#1]{../../books/Santambrogio 2015 Optiomal Transport For Applied Mathematicians.pdf}{#2}}
+\providecommand{\subsubsectionautorefname}{节}
+\renewcommand{\subsubsectionautorefname}{节}
+\renewcommand{\refname}{参考文献}
+\hypersetup{pdftitle={应用数学家的最优运输：前置内容与第1章中文译稿},pdfauthor={Filippo Santambrogio},bookmarksnumbered=true}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\spt}{\operatorname{spt}}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\Per}{\operatorname{Per}}
+\newcommand{\cof}{\operatorname{cof}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\restr}{\mathbin{\vrule height 1.4ex depth -.1ex width .07ex\vrule height .07ex depth -.0ex width .7ex}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\input{frontmatter/00-title.tex}
+\pagenumbering{roman}\hypersetup{pageanchor=true}
+\input{frontmatter/00-publication.tex}
+\input{frontmatter/00-preface.tex}
+\input{frontmatter/00-introduction.tex}
+\input{frontmatter/00-acknowledgments.tex}
+\clearpage\tableofcontents\clearpage
+\input{frontmatter/00-source-contents.tex}
+\input{frontmatter/00-notation.tex}
+\clearpage\pagenumbering{arabic}\setcounter{footnote}{0}
+\section{原问题与对偶问题}\label{sec:1}
+\input{sections-tex/01-01.tex}
+\input{sections-tex/01-02.tex}
+\input{sections-tex/01-03.tex}
+\input{sections-tex/01-04.tex}
+\input{sections-tex/01-05.tex}
+\input{sections-tex/01-06.tex}
+\input{sections-tex/01-07.tex}
+\clearpage\phantomsection\addcontentsline{toc}{section}{参考文献}
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{bib/references}
+\end{document}

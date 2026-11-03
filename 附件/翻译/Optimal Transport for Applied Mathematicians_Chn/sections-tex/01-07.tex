@@ -1,0 +1,392 @@
+% 原书印刷41下部--57页，PDF物理69--85；不含物理69页上部的定理1.52.
+\subsection{讨论}\label{sec:1.7}
+\setcounter{theorem}{52}
+\setcounter{boxcounter}{13}
+\setcounter{equation}{6}
+\setcounter{footnote}{12}
+
+本节介绍若干其他观点（概率语言、极分解），与经济学和金融学的联系，以及一些推广；还将简要介绍最优运输映射及最优势的正则性问题.
+
+\subsubsection{概率解释}\label{sec:1.7.1}
+
+迄今为止，我们完全略去了涉及概率的解释；事实上，这类解释在当前框架中十分自然. 暂时换一种语言，可以如下描述这一情形.
+
+给定某些空间（通常为 $\mathbb R^d$）上的两个概率测度 $\mu$ 与 $\nu$，可将它们理解为两个随机变量的分布. 不过，我们不指定这两个随机变量的联合分布（它对应于 $\gamma$），而考虑优化问题
+\[
+ \min\bigl\{\mathbb E[c(X,Y)]:X\sim\mu,\ Y\sim\nu\bigr\},
+\]
+其中 $\mathbb E$ 表示期望，它相对于概率空间 $\Omega$ 上的某个概率 $\mathbb P$ 而言；该概率空间与极小化本身无关，但可认为它“足够大”，或者把它也作为优化的一部分. 这一期望显然依赖于 $(X,Y)$ 的联合分布，而联合分布正是主要的未知量.
+
+对于实值（或向量值）随机变量，取 $c(X,Y)=|X-Y|^p$ 的特殊情形可写为
+\[
+ \min\bigl\{\|X-Y\|_{L^p}:X\sim\mu,\ Y\sim\nu\bigr\}.
+\]
+$p=2$ 的情形更有意思，因为这时可用协方差来表述问题. 确切地说，令 $x_0=\mathbb E[X]=\int x\,\mathrm d\mu$，$y_0=\mathbb E[Y]=\int y\,\mathrm d\nu$，二者分别是 $X$ 与 $Y$ 的均值. 有
+\begin{equation*}
+\begin{aligned}
+ \mathbb E[|X-Y|^2]
+ &=\mathbb E[|(X-x_0)-(Y-y_0)+(x_0-y_0)|^2]\\
+ &=\mathbb E[|X-x_0|^2]+\mathbb E[|Y-y_0|^2]+|x_0-y_0|^2\\
+ &\quad+2\mathbb E[X-x_0]\cdot(x_0-y_0)
+       -2\mathbb E[Y-y_0]\cdot(x_0-y_0)\\
+ &\quad-2\mathbb E[(X-x_0)\cdot(Y-y_0)].
+\end{aligned}
+\end{equation*}
+在此式中，前三项分别只依赖于 $X$ 与 $Y$ 各自的分布：第一项为 $X$ 的方差，第二项为 $Y$ 的方差，第三项为两个均值之间的距离平方. 接下来的两项为零，因为 $X-x_0$ 与 $Y-y_0$ 的均值均为零. 因而，问题归结为极大化 $\mathbb E[(X-x_0)\cdot(Y-y_0)]$. 换言之，需要在给定两个随机变量分布的情况下，寻找使其协方差最大（也就是在某种意义下使其依赖性最大）的联合分布. 在实值随机变量的情形（见\orig{86}{下一章}），答案是：当 $X$ 与 $Y$ 完全依赖，且其中一个是另一个的递增函数时，就得到最优耦合. 在多维情形中，这种递增性自然被其他单调性所取代.
+
+\subsubsection{极分解}\label{sec:1.7.2}
+
+线性代数中的一个经典结论指出，每个矩阵 $A\in\mathrm M^{N\times N}$ 都可分解为乘积 $A=S\cdot U$，其中 $S$ 对称且半正定，$U$ 是酉矩阵，即 $U\cdot U^t=\mathrm{I}$. 当 $A$ 非奇异时，该分解唯一（否则 $U$ 不唯一），而且此时 $S$ 正定. 还可以看出，该分解中的矩阵 $U$ 也是下列问题的一个解（当 $A$ 非奇异时是唯一解）：
+\[
+ \max\{A:R:R\cdot R^t=\mathrm{I}\},
+\]
+其中 $A:R$ 表示矩阵之间的标量积，定义为 $A:R:=\operatorname{Tr}(A\cdot R^t)$.
+
+确实，可以写成
+\[
+ A:R=(S\cdot U):R
+ =\operatorname{Tr}(S\cdot U\cdot R^t)
+ =\sum_{i,j}S^{ii}U^{ij}R^{ij},
+\]
+这里选取坐标使 $S$ 为对角矩阵（从而 $S^{ii}\geq0$）. 注意，$U\cdot U^t=\mathrm{I}$ 要求以 $u(i)^j:=U^{ij}$ 为分量的向量 $u(i)$ 是单位向量；同样，由矩阵 $R$ 定义单位向量 $r(i)$. 于是
+\begin{equation*}
+\begin{aligned}
+ A:R
+ &=\sum_{i,j}S^{ii}U^{ij}R^{ij}
+   =\sum_i S^{ii}u(i)\cdot r(i)\\
+ &\leq\sum_i S^{ii}
+   =\operatorname{Tr}(S)
+   =\operatorname{Tr}(S\cdot U\cdot U^t)\\
+ &=\operatorname{Tr}(A\cdot U^t)=A:U.
+\end{aligned}
+\end{equation*}
+还要注意，极大化 $A:R$ 等价于极小化 $\|A-R\|^2$，这里矩阵的范数定义为它与自身的标量积的平方根. 确实，$\|A-R\|^2=\|A\|^2-2A:R+\|R\|^2$，而 $\|A\|^2$ 与 $\|R\|^2=\operatorname{Tr}(R\cdot R^t)=\operatorname{Tr}(\mathrm{I})=N$ 都是常数.
+
+类似地，Y.~Brenier 在有关二次最优运输的早期工作中注意到，Monge--Kantorovich 理论能够给向量场提供与线性映射类似的分解（见\cite{b82,b84}，另见\cite{b174}）.
+
+其陈述如下：
+\begin{theorem}\label{obj:1.53}
+给定向量映射 $\xi:\Omega\to\mathbb R^d$，其中 $\Omega\subset\mathbb R^d$. 考虑 $\Omega$ 上经归一化的 Lebesgue 测度 $\mathscr L_\Omega$，并假设 $\xi_\#\mathscr L_\Omega$ 绝对连续. 则存在凸函数 $u:\Omega\to\mathbb R$ 以及保测映射 $s:\Omega\to\Omega$（即 $s_\#\mathscr L_\Omega=\mathscr L_\Omega$），使得 $\xi=(\nabla u)\circ s$. 此外，$s$ 与 $\nabla u$ 都在几乎处处意义下唯一确定，且 $s$ 解下列问题：
+\[
+ \max\left\{\int\xi(x)\cdot r(x)\,\mathrm dx:
+                 r_\#\mathscr L_\Omega=\mathscr L_\Omega\right\}.
+\]
+\end{theorem}
+注意，取 $\Omega=B(0,1)$ 时，关于非奇异矩阵的陈述恰好对应于此：有关像测度的假设对应于线性映射 $x\mapsto Ax$ 的非退化性，矩阵 $S$ 是凸函数 $x\mapsto\frac12(Sx)\cdot x$ 的梯度，而酉矩阵 $U$ 保测.
+
+下面给出这一陈述的证明；另见\cite{b84}.
+\begin{proof}
+令 $\mu=\xi_\#\mathscr L_\Omega$，并取从 $\mu$ 到 $\mathscr L_\Omega$、以二次函数为成本的最优运输. 此运输是某个凸函数的梯度，将这个凸函数记作 $u^*$. 令 $s:=(\nabla u^*)\circ\xi$，注意
+\[
+ s_\#\mathscr L_\Omega
+ =(\nabla u^*)_\#(\xi_\#\mathscr L_\Omega)
+ =(\nabla u^*)_\#\mu=\mathscr L_\Omega,
+\]
+所以 $s$ 保测. 然后取 $u^*$ 的 Legendre 变换 $u$，并注意
+\[
+ (\nabla u)\circ s
+ =(\nabla u)\circ(\nabla u^*)\circ\xi=\xi;
+\]
+事实上，$u$ 与 $u^*$ 的梯度都几乎处处有定义，而且总有 $(\nabla u)\circ(\nabla u^*)=\mathrm{id}$. 这样便得到所需分解.
+
+$\nabla u$ 的唯一性来自如下事实：$\xi=(\nabla u)\circ s$ 且 $s$ 保测，蕴含 $(\nabla u)_\#\mathscr L_\Omega=\mu$. 将一个给定测度（这里为 $\mathscr L_\Omega$）运输至另一个给定测度（这里为 $\mu$）的凸函数梯度只有一个，它就是二者之间的最优运输.
+
+一旦 $\nabla u$ 唯一，复合 $\nabla u^*$ 就得到 $s$ 的唯一性.
+
+对于 $s$ 的最优性，利用 $\nabla u$ 的最优性即可. 将二次成本的极小化改写为标量积的极大化，便有
+\[
+ \int(\nabla u(x)\cdot x)\,\mathrm dx
+ \geq\int_{\Omega\times\mathbb R^d}(y\cdot x)\,\mathrm d\gamma(x,y)
+\]
+对每个 $\gamma\in\Pi(\mathscr L_\Omega,\mu)$ 成立. 若取保测映射 $r:\Omega\to\Omega$ 并构造 $\gamma=(r,\xi)_\#\mathscr L_\Omega$，则得到
+\begin{equation*}
+\begin{aligned}
+ \int(\xi(x)\cdot r(x))\,\mathrm dx
+ &=\int(y\cdot x)\,\mathrm d\gamma(x,y)\\
+ &\leq\int(\nabla u(x)\cdot x)\,\mathrm dx\\
+ &=\int(\nabla u(s(x))\cdot s(x))\,\mathrm dx\\
+ &=\int(\xi(x)\cdot s(x))\,\mathrm dx,
+\end{aligned}
+\end{equation*}
+这就给出了 $s$ 的最优性.
+\end{proof}
+
+\subsubsection{匹配问题与经济学解释}\label{sec:1.7.3}
+
+最优运输问题有若干“抽象的”经济学解释. 在这些解释中，运输方案 $\gamma$ 表示经济中不同参与者之间的匹配，函数 $c(x,y)$ 也不再代表从 $x$ 移动到 $y$ 的成本，而是表示对象 $x$ 与 $y$ 的相容程度，或将 $x$ 与 $y$ 配对的“效用”的相反数.\footnote{有关最优运输在经济学中若干应用的系统介绍，另见\cite{b228}.} 要注意，经济学通常极大化效用，而非极小化成本.
+
+第一个简单且众所周知的例子是生产率的极大化. 某公司拥有一定数量、类型各异的雇员（以变量 $x$ 表示类型，以测度 $\mu$ 表示这些类型的分布，即各类型雇员的数量），并有一些待分配的任务（以 $y$ 表示任务的不同种类，以 $\nu$ 表示不同任务的分布）. 若已知类型为 $x$ 的雇员执行任务 $y$ 时的生产率 $p(x,y)$，那么公司的目标就是求解
+\[
+ \max\left\{\int p(x,y)\,\mathrm d\gamma:
+                       \gamma\in\Pi(\mu,\nu)\right\}.
+\]
+这个问题容易理解，但我们还想分析一些 Kantorovich 势同样发挥作用的问题.
+
+第一个例子是稳定婚姻. 给定女性群体 $W$ 和男性群体 $M$，分别用 $W$ 上的测度 $\mu$ 和 $M$ 上的测度 $\nu$ 表示. 用 $u_w(x,y)$ 表示女士 $x$ 对先生 $y$ 的兴趣，用 $u_m(x,y)$ 表示先生 $y$ 对女士 $x$ 的兴趣. 问题是寻找一组稳定婚姻，即寻找 $W\times M$ 上的测度 $\gamma$，描述有多少 $x$ 型女性与多少 $y$ 型男性结婚. 这个 $\gamma$ 显然必须属于 $\Pi(\mu,\nu)$；我们还希望选出的 $\gamma$ 稳定，也就是说，不会出现某一对 $(x,y)$ 决定各自与现有伴侣离婚而走到一起. 我们关注的是\emph{可转移效用}情形：假设 $x$ 与 $y$ 一旦结婚，就商定如何分配总效用 $u_w(x,y)+u_m(x,y)$. 将其分为女士 $x$ 的效用盈余 $\varphi(x)$（她现在是 $y$ 夫人，但仍用她的婚前姓名称呼她）与先生 $y$ 的效用盈余 $\psi(y)$. 注意，这时真正起作用的只有和 $U(x,y):=u_w(x,y)+u_m(x,y)$. 稳定婚姻是三元组 $(\gamma,\varphi,\psi)$，满足 $U(x,y)=\varphi(x)+\psi(y)$ 在 $\gamma$-几乎处处成立（表示 $\varphi$ 与 $\psi$ 分配了总效用），并且对所有 $(x,y)$ 有 $U(x,y)\leq\varphi(x)+\psi(y)$（表示没有一对 $(x,y)$ 愿意离开现状）. 容易看出，这对应于一个最优 $\gamma$ 及其势. 文献\cite{b125} 对此问题有有趣的讨论. 另一方面，不可转移效用情形复杂得多，也不对应于运输问题.
+
+在上例中，势表示分配后的效用；还可以考虑势真正表示价格的情形. 确切地说，设变量 $x$ 表示市场上供应的商品，$\mu$ 表示这些商品的分布（各类型有多少），并将其视为固定. 变量 $y$ 表示消费者的类型，$\nu$ 是其分布. 以 $u(x,y)$ 表示消费者 $y$ 购买商品 $x$ 时的效用. 目标是确定商品的价格，以及谁购买什么. 暂且假设各商品的价格 $\varphi(x)$ 已知，那么每个消费者都通过求解 $\max_x u(x,y)-\varphi(x)$ 来决定购买什么. 将此值记为 $\varphi^u(y)$；这略微滥用了记号，因为此前我们通常采用极小化而非极大化. 用测度 $\gamma\in\Pi(\mu,\nu)$ 描述消费者的选择，其中 $\gamma(A\times B)$ 表示购买商品 $x\in A$ 的 $y\in B$ 型消费者的数量. 约束 $\gamma\in\Pi(\mu,\nu)$ 表示市场供需所给出的约束（称市场出清）. 另一个自然条件是，每个消费者只购买对自己最优的商品，即 $\gamma$ 集中在满足 $\varphi^u(y)=u(x,y)-\varphi(x)$ 的点对 $(x,y)$ 上；换言之，在给定 $\varphi$ 时，$x$ 是 $y$ 的最优选择.
+
+这就导出如下问题：
+\begin{equation*}
+\begin{gathered}
+ \text{寻找 }(\gamma,\varphi)\text{，使 }\gamma\in\Pi(\mu,\nu),\\
+ \varphi(x)+\varphi^u(y)=u(x,y)\quad\gamma\text{-几乎处处}.
+\end{gathered}
+\end{equation*}
+我们再次看到一个极大化成本 $u$ 的最优运输问题. 确实，点对 $(\gamma,\varphi)$ 可以表征为 Kantorovich 问题
+\[
+ \max\left\{\int u\,\mathrm d\gamma:\gamma\in\Pi(\mu,\nu)\right\}
+\]
+以及对偶问题
+\[
+ \min\left\{\int\varphi\,\mathrm d\mu+\int\varphi^u\,\mathrm d\nu\right\}
+\]
+的解. 顺便说来，这一最优运输解释表明，一个简单的均衡条件（市场出清，且消费者仅作理性选择）会带来好结果：总体满意度 $\int u\,\mathrm d\gamma$ 得到极大化.
+
+可以注意到，函数 $\varphi$ 与 $\varphi^u$ 的值只确定到相差加性常数，这意味着该过程只选定不同商品价格的相对差异，而非完整价格表. 不过，自然的假设可保证对偶问题的解在相差加性常数的意义下唯一（例如，$x$ 与 $y$ 属于 Euclid 空间，$u(x,y)$ 可微，并且两个测度之一几乎处处具有严格正的密度时，就是如此）. 此时，只要已知某个特殊商品 $\bar x$ 的价格，一切便唯一确定. 将“空”商品纳入市场，就得到一个典型例子. 用 $x_0$ 表示“不购买任何商品”这一特殊商品. 可以将效用归一化，使每个 $y$ 均满足 $u(y,x_0)=0$，但这并非真正重要的条件. 然而，可以假设任何卖方在出售该空商品时，都不会收取非零价格. 这便固定了 $\varphi(x_0)=0$，从而可计算其他价格. 若测度 $\mu$ 满足 $\mu(\{x_0\})>0$，则意味着市场上没有足够的商品来满足全部需求，一部分消费者会留在“市场之外”，也就是购买空商品.
+
+当商品集合上的测度 $\mu$ 不固定时，可得到另一个有趣问题. 考虑一类由某个公司独家出售的商品，该公司是这一市场的垄断者. 假设可行商品集合 $X$（即公司在技术上能够生产的商品）已知，且包含空商品 $x_0$. 于是，公司希望同时选择测度 $\mu$（各类型商品的产量）和满足 $\varphi(x_0)=0$ 的价格表 $\varphi:X\to\mathbb R$，以极大化利润；假设每个消费者都按照 $x\mapsto u(x-y)-\varphi(x)$ 的极大化来购买商品.
+
+这个问题有两种表述方式：前一个问题（$\mu$ 固定时）的均衡条件诱导出 $\mu$ 与 $\varphi$ 之间的关系，因此可以选择其中任意一个作为问题的变量.
+
+或许最容易描述的方式是：公司选择价格表 $\varphi$，每个消费者 $y$ 选择最优商品 $X(y)\in\operatorname*{argmin}_x u(x,y)-\varphi(x)$，于是公司的总收入（假设生产成本为零）为
+\[
+ \int\varphi(X(y))\,\mathrm d\nu(y)=\int\varphi\,\mathrm d\mu,
+ \qquad\mu=X_\#\nu.
+\]
+测度 $\mu$ 同时也是公司实际实施的商品生产测度. 换言之，公司将根据消费者的选择调整生产. 无论如何，在选择 $\varphi$ 以极大化 $\int\varphi(X(y))\,\mathrm d\nu(y)$ 时，必须考虑映射 $X$ 对 $\varphi$ 的依赖. 也可用函数 $c:X\to\mathbb R$ 表示生产成本，将其纳入问题；这时极大化的量变为
+\[
+ \int(\varphi-c)(X(y))\,\mathrm d\nu(y)=\int(\varphi-c)\,\mathrm d\mu.
+\]
+若最优点 $X(y)$ 不唯一，就应重新审视这一表述，因为消费者不同的最优选择可能使公司的收入截然不同. 文献\cite{b178} 提出了不同的松弛表述，称为“乐观”与“悲观”表述. 不过，稍后将看到，在一个十分合理的情形中不存在歧义.
+
+另一种方式与之互补：可以赋予公司选择生产测度 $\mu$ 的权利；根据前面的讨论，市场随之出清，从而确定一个测度 $\gamma\in\Pi(\mu,\nu)$ 和一个势 $\varphi$. 公司的目标是极大化 $\int(\varphi-c)\,\mathrm d\mu$，其中 $\mu$ 未知，而 $\varphi$ 依赖于 $\mu$. 注意，这是测度空间上的一个优化问题，涉及从给定测度 $\nu$ 到 $\mu$ 的运输中的 Kantorovich 势 $\varphi$.
+
+研究最多的是 $x$ 与 $y$ 分别属于凸集 $X,Y\subset\mathbb R^d$，且函数 $u(x,y)=x\cdot y$ 为标量积的情形. 如果把商品描述为一组参数（以汽车为例，可以使用座位数、行李厢容积、油耗、最高车速等），并用消费者对各参数的重视程度描述消费者，这种情形就十分自然. 类型为 $y=(y_1,\ldots,y_n)$ 的消费者，愿意为商品第 $i$ 个参数每增加一个单位，多付出 $y_i$ 个货币单位. 因此，系数 $y_i$ 的值给出了商品各项特征相对于货币的价值（以汽车为例，较富裕的人不太在意金钱，或非常喜欢汽车、极其需要汽车的人，其系数通常会较高）. 空商品可选为点 $x_0=0\in\mathbb R^d$.
+
+此时容易验证，$\varphi^u$ 就是凸分析中的 Legendre 变换 $\varphi^*$. 凸分析中的标准论证表明，若 $\varphi^*$ 在 $y$ 处可微，那么 $\max_x x\cdot y-\varphi(x)$ 中的最优选择 $x$ 恰为 $x=\nabla\varphi^*(y)$；当 $\nu$ 绝对连续时，凸函数的可微性使该选择几乎处处唯一. 于是，映射 $\nabla\varphi^*(y)$ 将 $\nu$ 送至 $\mu$，反过来，$\nabla\varphi$ 将 $\mu$ 送至 $\nu$. 因而，优化问题写为
+\[
+ \max\left\{\int\varphi_\mu\,\mathrm d\mu:
+                            \mu\in\mathscr P(X)\right\},
+\]
+其中，对每个 $\mu$，$\varphi_\mu$ 是满足 $(\nabla\varphi)_\#\mu=\nu$ 和 $\varphi(x_0)=0$ 的唯一凸函数. 也可取 $\psi=\varphi^*$ 为未知量，将其改写为凸函数类中的优化问题；因为在这种情况下，需要极大化
+\[
+ \int\psi^*\,\mathrm d(\nabla\psi)_\#\nu
+ =\int\bigl(\psi^*(\nabla\psi(y))-c(\nabla\psi(y))\bigr)\,\mathrm d\nu,
+\]
+而我们知道 $\psi^*(\nabla\psi(y))+\psi(y)=y\cdot\nabla\psi(y)$，故问题变成
+\begin{equation*}
+\begin{aligned}
+ \max\biggl\{&\int\bigl(y\cdot\nabla\psi(y)-\psi(y)
+                           -c(\nabla\psi(y))\bigr)\,\mathrm d\nu(y):\\
+             &\min\psi=0,\quad\psi\text{ 为凸函数}\biggr\}.
+\end{aligned}
+\end{equation*}
+约束 $\min\psi=0$ 来自 $0=\psi^*(0)=\sup_y 0\cdot y-\psi(y)$. 这是一个标准的变分法问题，但被限制在凸函数类中. 文献\cite{b262} 对其进行了深入研究，通常称之为\emph{委托人--代理人问题}（principal-agent problem）.
+
+对于更一般的耦合函数 $u(x,y)$，文献\cite{b168} 研究了该问题的细致性质，特别研究了对效用 $u$ 施加哪些假设能够使优化问题成为凸优化问题. 有趣的是，保证这种凸性的条件，与\autoref{sec:1.7.6} 中就正则性所要提到的 MTW 假设有关.
+
+\subsubsection{多边缘运输问题}\label{sec:1.7.4}
+
+最优运输理论中这一较新的部分正日益受到重视，并在许多不同领域得到应用. 这里仅简述这一主题已经开展或可以开展的工作.
+
+不难设想，不再使用两个因子 $X$ 和 $Y$ 上边缘分布给定的测度 $\gamma\in\mathscr P(X\times Y)$，而是考虑两个以上的边缘. 取空间 $X_1,X_2,\ldots,X_N$，定义 $\mathscr X:=X_1\times X_2\times\cdots\times X_N$，取成本函数 $c:\mathscr X\to\mathbb R\cup\{+\infty\}$ 和测度 $\mu_i\in\mathscr P(X_i)$，求解
+\[
+ \min\left\{\int_{\mathscr X}c(x_1,\ldots,x_N)\,\mathrm d\gamma:
+       \gamma\in\mathscr P(\mathscr X),\ (\pi_i)_\#\gamma=\mu_i\right\},
+\]
+其中 $\pi_i:\mathscr X\to X_i$ 为典范投影映射. 可以与双边缘情形相同的方式处理对偶，得到形如下式的问题：
+\begin{equation*}
+\begin{aligned}
+ \max\biggl\{&\sum_i\int_{X_i}\varphi_i\,\mathrm d\mu_i:
+        \varphi_i:X_i\to\mathbb R,\\
+       &\sum_i\varphi_i(x_i)\leq c(x_1,\ldots,x_N)\biggr\}.
+\end{aligned}
+\end{equation*}
+运输映射的存在性（即存在映射 $\mathrm{T}_i:X_1\to X_i$，$i\geq2$，使最优 $\gamma$ 具有 $\gamma=(\mathrm{id},\mathrm{T}_2,\ldots,\mathrm{T}_N)_\#\mu_1$ 的形式）比通常的情形微妙得多. 在某种意义下，这相当于把上述运输问题视为 $X_1$ 与 $X_2\times\cdots\times X_N$ 之间的双边缘 Monge 问题. 然而，源空间与目标空间之间的“维数”差异使最优映射的存在性更难处理. 另一方面，$X_2\times\cdots\times X_N$ 上的像测度其实并未给定，固定的只是它在 $X_2,\ldots,X_N$ 上的边缘. 这意味着还应考虑额外的最优性性质.
+
+这类问题可以有多种解释. 关于多边缘运输问题及其在物理学和经济学中应用的系统综述，见\cite{b249}.
+
+在这一框架最早处理的一些例子中，可以举出成本
+\[
+ c(x_1,\ldots,x_N):=\sum_{i,j}|x_i-x_j|^2,
+\]
+它具有许多与双边缘情形类似的性质（见\cite{b177}）；还有行列式成本，其目标是极大化
+\begin{equation*}
+\begin{gathered}
+ c(x_1,\ldots,x_d):=\det(x_1,\ldots,x_d),\qquad\text{或}\\
+ c(x_1,\ldots,x_d):=|\det(x_1,\ldots,x_d)|.
+\end{gathered}
+\end{equation*}
+这里，$\mathbb R^d$ 中 $d$ 个向量组成的族的行列式，是以这些向量为列的矩阵的行列式（见\cite{b109}）. $d>2$ 时该问题才有意思，因为在二维中，由 $\det(x,y)=x\cdot Ry$（其中 $R$ 为 $90^\circ$ 旋转）可通过变量代换回到 Brenier 问题（另比较\orig{348}{习题2}）. 文献\cite{b177} 的情形还将在\orig{239}{第5.5.5节}讨论重心时出现.
+
+不过，我们更愿意介绍一些重要应用自然导出多边缘运输问题的例子. 例如，在经济学中（见\cite{b108}），可以考虑涉及两个以上参与者的合约：卖方将商品交给买方并换取货币，是两个参与者之间的合约；某人想建造房屋，购买土地并雇用木匠和建筑师时，则至少涉及四个参与者. 此时，空间 $\mathscr X$ 中的一点表示参与者 $x_1,x_2,\ldots,x_N$ 之间的一份可能合约，$c(x_1,\ldots,x_N)$ 是该合约的总效用.
+
+在物理学的一些近期工作中，电子密度泛函理论（Electronic Density Functional Theory）框架提供了一个完全不同的背景（见\cite{b97,b128}）. 为了极其简化地描述这些问题，考虑围绕原子核运动的 $N$ 个电子. 在量子物理学中，电子的构型由波函数 $\psi:\Omega^N\to\mathbb C$ 描述，其中 $\Omega$ 是电子所处的物理区域（通常 $\Omega=\mathbb R^3$）. 为简单起见，忽略自旋问题，以及 $\psi$ 的对称性依赖于粒子是费米子还是玻色子这一事实. 只考虑 $|\psi|^2$ 在变量置换下不变. 这个标量函数也表示电子位置的联合分布. 因此，由 $(\pi_1)_\#(|\psi|^2)$ 给出的概率测度 $\varrho\in\mathscr P(\mathbb R^3)$ 表示单个电子位置的分布. 状态的能量表示为下列各项之和：
+\begin{equation*}
+\begin{aligned}
+ &\hbar\int_{\Omega^N}|\nabla\psi|^2\,\mathrm dx
+ +\int_{\Omega^N}\bigl(V(x_1)+\cdots+V(x_N)\bigr)|\psi|^2\,\mathrm dx\\
+ &\qquad+\int_{\Omega^N}
+       \left(\sum_{i<j}\frac1{|x_i-x_j|}\right)|\psi|^2\,\mathrm dx.
+\end{aligned}
+\end{equation*}
+第一项表示动能，第二项表示势能（例如由原子核产生），最后一项是电子之间的电相互作用能. 参数 $N$ 表示原子的原子序数，因此其范围是从二到一两百. 一旦取半经典极限 $\hbar\to0$，上述能量的极小化就变成一个多边缘运输问题（见\cite{b128,b129}；$N>2$ 时严格的极限论证仍在进行）. 这样可去掉能量中的第一项，而第二项容易看出只依赖于 $\varrho$. 因此，唯一的未知量是 $N$ 个电子位置的联合分布，即概率 $\gamma\in\mathscr P((\Omega)^N)$，由 $\gamma=|\psi|^2\,\mathrm dx_1\cdots\mathrm dx_N$ 给出，各边缘均等于 $\varrho$. 成本 $c$ 为
+\[
+ c(x_1,\ldots,x_N):=\sum_{i<j}\frac1{|x_i-x_j|},
+\]
+因而 $\gamma$ 应在边缘约束下极小化 $\int c\,\mathrm d\gamma$. $c$ 既非有界也非处处有限（只要两个电子互相靠近，它就趋于 $+\infty$），即便在“容易的” $N=2$ 情形，这也是一个很大的困难. 顺便说来，这是一个有趣的运输问题：满足 $x_i=x_j$ 的构型成本最高，因此即便各边缘完全相同，该问题仍然有意义且引人入胜，尤其在边缘相同时如此；对随距离递增的成本，则并非这样.
+
+可以看到，我们已经遇到数个边缘相同时仍有意义的“对称”成本函数的例子（文献\cite{b177} 和\cite{b109} 的成本不具有这一特点）. 这引出了关于对称极小解的若干问题. 确实，所有这些问题都可限制在分量置换下不变的方案 $\gamma$ 的集合上. N.~Ghoussoub 及其合作者深入研究了对称运输问题的理论，并将它与极分解理论的一个变体以及自对偶凸问题联系起来；可参阅\cite{b179,b180}，此处不再展开.
+
+本小节最后强调另一个要点：在演化问题中，特别是在流体力学中，一个自然的 Lagrange 观点是用可能轨迹集合上的测度描述整体运动. 这通常需要使用定义在 $[0,1]$ 上的连续或 Lipschitz 路径集合上的概率，但对这一框架所作的任何时间离散化，都可理解为 $\Omega^N$ 上的测度；其中 $\Omega$ 是状态空间，$N$ 表示时间步数，每步长度为 $\tau=1/N$. 这时，各边缘在某种意义上是“有序的”，成本也考虑到了这一特征；例如，自然的成本可以为
+\begin{equation*}
+\begin{aligned}
+ c(x_1,\ldots,x_N)&=\sum_{i=1}^{N-1}|x_i-x_{i+1}|,\qquad\text{或}\\
+ c(x_1,\ldots,x_N)&=\sum_{i=1}^{N-1}\frac{|x_i-x_{i+1}|^2}{\tau},
+\end{aligned}
+\end{equation*}
+二者分别是离散路径的总长度和总动能（其中 $|x-y|^2/\tau$ 表示速度 $|x-y|/\tau$ 在长度为 $\tau$ 的时间区间上的积分）. 还要提到，后一成本的连续对应物，即对于 $\omega\in\mathscr C:=H^1([0,1];\Omega)$ 定义的 $c(\omega):=\int_0^1|\omega'(t)|^2\,\mathrm dt$，出现在 Brenier 对不可压缩 Euler 方程的变分表述中（见\cite{b83}），由此导出形如
+\begin{equation*}
+\begin{aligned}
+ \min\biggl\{&\int_Hc(\omega)\,\mathrm dQ(\omega):
+        Q\in\mathscr P(\mathscr C),\\
+       &(e_t)_\#Q=\mathscr L_\Omega,
+         \quad(e_0,e_1)_\#Q=\gamma_{0,1}\biggr\}
+\end{aligned}
+\end{equation*}
+的极小化问题. 这里 $e_t:\mathscr C\to\Omega$ 是取值映射 $e_t(\omega):=\omega(t)$，$\mathscr L_\Omega$ 是 $\Omega$ 上归一化的 Lebesgue 测度，$\gamma_{0,1}$ 是 $\mathscr P(\Omega\times\Omega)$ 中的给定测度，且其两个边缘均等于 $\mathscr L_\Omega$.
+
+\subsubsection{鞅最优运输与金融应用}\label{sec:1.7.5}
+
+本小节介绍数理金融中涉及多边缘最优运输的两个问题. 要分析它们，首先应了解期权是什么. 期权是一种合约，赋予持有人在给定条件下买入或卖出某种金融资产的权利，从而可能带来金钱收益. 最典型的是欧式看涨期权，其条款是：“在时刻 $T$，你有权以价格 $K$ 买入该资产.” 如果届时价格为 $S_T$ 且高于 $K$，你就获得收益 $S_T-K$；如果价格低于 $K$，则不行使期权，最终收益为 $(S_T-K)_+$. 更一般地，凡是给予持有人某种收益、且该收益为给定资产（如股票）在时刻 $T$ 的价值 $S_T$ 的函数的金融合约，都称为期权. 这一价值是随时间演化的随机变量（以概率 $\mathbb P$ 为基础）. 还有一些更复杂的奇异期权，其收益依赖于资产价值的整个历史 $(S_t)_t$. 数理金融的主要问题之一，是给出计算这些合约合理价格的公式. 这建立在无套利假设上：合约唯一合理的价格，是使市场不存在套利\footnote{不存在套利通常称为“没有免费午餐”（no free lunch）.}机会的价格；套利是指在买卖该合约及相关标的资产时，能够无中生有地创造正的金额. 更精确地说，由于所有价值都是随机变量，这意味着以概率 $1$ 产生非负金额，并以严格正的概率产生严格正的金额. 数理金融中的一个一般定理（有关参考文献可见\cite{b139}）指出，所有这些无套利价格，实际上都是合约在某个概率 $\mathbb Q$ 下的期望值. 一般来说 $\mathbb Q$ 不同于 $\mathbb P$（但 $\mathbb P\ll\mathbb Q$ 且 $\mathbb Q\ll\mathbb P$，因此两者具有相同的零测集），并且在 $\mathbb Q$ 下，市场中所有资产的价值都是鞅. 因而，例如，欧式看涨期权的价格应为 $\mathbb E^{\mathbb Q}[(S_T-K)_+]$. 注意，知道每个 $K$ 对应的这个价格，就知道了 $S_T$ 在 $\mathbb Q$ 下的分布.
+
+金融中可能出现的第一个问题如下：考虑一种复杂期权，其收益同时依赖于若干资产在时刻 $T$ 的价值 $S_T^i$. 需要计算 $\mathbb E^{\mathbb Q}[f(S_T^1,S_T^2,\ldots,S_T^N)]$. 然而，这依赖于这些资产在未知概率 $\mathbb Q$ 下的联合分布. 假设该期权是市场上的新品种，但对每种资产 $S^i$、每个执行价格 $K$，相应的欧式看涨期权都已在市场上正常交易，那么我们便知道各资产在 $\mathbb Q$ 下的边缘分布 $\mu^i$，而只缺少联合分布. 可以通过计算
+\[
+ \min/\max\left\{\int f(x_1,x_2,\ldots,x_N)\,\mathrm d\gamma:
+                  (\pi_i)_\#\gamma=\mu_i\right\}
+\]
+来估计该期权的合理价格，这无非是一个运输问题. 这里忽略了 $\mathbb Q$ 应使资产价值过程成为鞅的约束，因为这些约束已经包含在各资产自身的分布中，不涉及联合分布. 确实，此处不同边缘代表不同的金融资产，而不是不同的时刻，因此鞅条件不起作用.\footnote{这个问题本可放在\autoref{sec:1.7.4}，但我们选择在此介绍，以便引入鞅的框架.}
+
+另一个更有意思的问题来自只考虑一种资产、却使用多个时间步对应的多个边缘. 这样便可以考虑依赖于资产价值整个历史的奇异期权. 考虑定义于若干时刻的过程 $(S_t)_t$（为简单起见，考虑离散时间模型：$t=0,1,\ldots,N$）. 假设某期权支付 $f(S_0,S_1,\ldots,S_N)$. 还假设对每个到期时刻 $t$、每个执行价格 $K$，市场都有欧式看涨期权交易，由此得到未知鞅测度 $\mathbb Q$ 下 $S_t$ 的分布. 那么，可通过求解
+\begin{equation*}
+\begin{aligned}
+ \min/\max\bigl\{&\mathbb E^{\mathbb Q}[f(S_0,S_1,\ldots,S_N)]:
+      (S_t)_\#\mathbb Q=\mu^t,\\
+      &(S_t)_t\text{ 在 }\mathbb Q\text{ 下为鞅}\bigr\}
+\end{aligned}
+\end{equation*}
+来估计期权价格. 用测度 $\gamma=(S_0,S_1,\ldots,S_N)_\#\mathbb Q$，还可将它写为
+\[
+ \min/\max\left\{\int f(x_1,x_2,\ldots,x_N)\,\mathrm d\gamma:
+       (\pi_i)_\#\gamma=\mu_i,\ \gamma\in\operatorname{Mart}_N\right\},
+\]
+其中集合 $\operatorname{Mart}_T$ 是离散时间鞅测度 $\gamma$ 的集合，对每个 $t\leq N-1$，它满足
+\begin{equation}\label{eq:1.7}
+ \int x_{t+1}\phi(x_0,x_1,\ldots,x_t)\,\mathrm d\gamma
+ =\int x_t\phi(x_0,x_1,\ldots,x_t))\,\mathrm d\gamma.
+\end{equation}
+这些问题现在称为鞅最优运输问题，超出了此前介绍的通常运输问题的框架. 顺便指出，一般没有理由期待最优运输映射存在；即使最简单的双边缘情形也不是如此. 原因在于，形如 $\gamma_{\mathrm{T}}=(\mathrm{id},\mathrm{T})_\#\mu$ 的鞅测度只能对应 $\mathrm{T}=\mathrm{id}$. 这可由\eqref{eq:1.7} 看出，因为它给出
+\begin{equation*}
+\begin{aligned}
+ \int \mathrm{T}(x)\phi(x)\,\mathrm d\mu
+ &=\int y\phi(x)\,\mathrm d\gamma_{\mathrm{T}}
+  =\int x\phi(x)\,\mathrm d\gamma_{\mathrm{T}}\\
+ &=\int x\phi(x)\,\mathrm d\mu.
+\end{aligned}
+\end{equation*}
+由于 $\phi$ 是任意测试函数，得到 $\mathrm{T}(x)=x$ 在 $\mu$-几乎处处成立. 这意味着，除非 $\nu=\mu$，否则双边缘鞅运输问题不存在由运输映射诱导的可行运输方案. 另一方面，可以将 $\gamma$ 实现为两个运输映射的组合；文献\cite{b31,b193} 证明了这类最优性结果. 鞅最优运输问题的一般介绍可见\cite{b32,b173}.
+
+本小节最后介绍另一种方法，它基于最优对冲思想并导出同样的问题. 设 $f(S_0,\allowbreak\ldots,\allowbreak S_N)$ 是公司可能面临的损失，取决于资产 $S$ 的价格（即公司因债务或其他合约而必须支付的金额）. 公司希望利用市场中的机会“覆盖”（或“对冲”）这一金额. 为此，公司可以
+\begin{itemize}
+ \item 购买依赖于资产在时刻 $t$ 的价值的通常期权，即购买到时价值为 $\phi(S_t)$ 的合约，其已知价格为 $\int\phi\,\mathrm d\mu_t$；
+ \item 购买一定数量的资产本身：在时刻 $t\leq N-1$，可以按价格 $S_t$ 买入，再按价格 $S_{t+1}$ 卖出. 买入数量只能根据时刻 $t$ 已有的信息选择，也就是说，可以买入（随后卖出）形如 $\psi(S_0,S_1,\ldots,S_t)$ 的数量；这样便以零成本覆盖金额 $\psi(S_0,S_1,\ldots,S_t)(S_{t+1}-S_t)$.
+\end{itemize}
+最优对冲问题变成
+\begin{equation*}
+\begin{aligned}
+ \min\biggl\{&\sum_{t=0}^N\int\varphi_t\,\mathrm d\mu_t:\quad
+     \sum_{t=0}^N\varphi_t(x_t)\\
+    &+\sum_{t=0}^{N-1}\psi(x_0,x_1,\ldots,x_t)(x_{t+1}-x_t)
+         \geq f(x_0,x_1,\ldots,x_N)\biggr\}.
+\end{aligned}
+\end{equation*}
+由边缘约束和鞅条件\eqref{eq:1.7}，不难验证，此问题正是上述鞅运输问题的对偶.
+
+\subsubsection{Monge--Amp\`ere 方程与正则性}\label{sec:1.7.6}
+
+我们已在\autoref{sec:1.3.1} 看到，二次情形的最优运输具有 $\mathrm{T}(x)=\nabla u(x)$ 的形式，其中 $u$ 为凸函数. 若该函数光滑且严格凸，两个测度 $\mu$ 与 $\nu$ 都绝对连续（设密度分别为 $f$ 与 $g$），则可将条件 $\mathrm{T}_\#\mu=\nu$ 写成偏微分方程的形式. 确切地说，若 $\mu=f(x)\,\mathrm dx$、$\nu=g(y)\,\mathrm dy$，且 $\mathrm{T}$ 为 $C^1$ 单射，那么这个条件等价于 Jacobian 条件
+\[
+ \det(D\mathrm{T}(x))=\frac{f(x)}{g(\mathrm{T}(x))},
+\]
+它可由一个简单的变量代换计算得到，说明如下.
+
+\begin{sourcebox}{知识回顾：变量代换与像测度}\label{box:1.14}
+\begin{proposition*}
+假设 $\varrho\in L^1(\Omega)$ 是 $\Omega\subset\mathbb R^d$ 上的正密度，$\mathrm{T}:\Omega\to\mathbb R^d$ 是 Lipschitz 单射，因而几乎处处可微. 假设在 $\{\varrho>0\}$ 上几乎处处有 $\det(D\mathrm{T})\neq0$. 则像测度 $\mathrm{T}_\#\varrho$ 绝对连续，其密度 $\varrho_{\mathrm{T}}$ 为
+\[
+ \varrho_{\mathrm{T}}(y)=\frac{\varrho(\mathrm{T}^{-1}(y))}{\det(D\mathrm{T}(\mathrm{T}^{-1}(y)))}.
+\]
+若 $\mathrm{T}$ 非单射，则公式变为 $\mathrm{T}_\#\varrho=\varrho_{\mathrm{T}}\cdot\mathscr L^d$，其中 $\varrho_{\mathrm{T}}$ 由
+\[
+ \varrho_{\mathrm{T}}(y)=\sum_{x:\mathrm{T}(x)=y}\frac{\varrho(x)}{\det(D\mathrm{T}(x))}
+\]
+给出.
+
+若 $\mathrm{T}$ 不是 Lipschitz 映射，但存在可测集 $E_i$，使 $|\Omega\setminus\bigcup_iE_i|=0$，且 $\mathrm{T}$ 在每个 $E_i$ 上 Lipschitz 连续，则上述公式仍然成立（关于可数 Lipschitz 函数，另见\orig{122}{定义3.13}）. 此处的微分 $D\mathrm{T}$ 实际上是 $\mathrm{T}$ 限制在各个使其 Lipschitz 连续的集合上之后的微分，因此与 $\mathrm{T}$ 的近似微分一致，见\orig{139}{第3.3.2节}.
+\end{proposition*}
+\end{sourcebox}
+
+特别地，当 $\mathrm{T}=\nabla u$ 时（此处假设 $u$ 严格凸，仅为保证 $\mathrm{T}$ 单射），上式变成所谓的 Monge--Amp\`ere 方程
+\begin{equation}\label{eq:1.8}
+ \det(D^2u(x))=\frac{f(x)}{g(\nabla u(x))},
+\end{equation}
+这是一个椭圆型非线性偏微分方程. 非线性既来自右端的 $g(\nabla u)$，也来自高阶项 $\det(D^2u)$. 这一 Jacobian 项是非线性的，但在假设矩阵 $D^2u$ 为正时（凸函数就是如此）具有一定单调性，因为 $0\leq A\leq B\implies\det(A)\leq\det(B)$. 这种单调性很退化，但足以将这个非线性偏微分方程归为完全非线性（退化）椭圆方程. 关于这一方程的一般理论，例如可参阅\cite{b190}.
+
+在我们的情形中，重要的是理解该方程的意义及应与之配合的边界条件.
+
+先考虑边界条件. 鉴于这一偏微分方程的运输意义，若考虑 $\mu\in\mathscr P(\Omega)$ 和 $\nu\in\mathscr P(\Omega')$，规定 $u$ 或 $\nabla u$ 在 $\partial\Omega$ 上的行为并无意义. 自然条件只是 $\nabla u(\Omega)=\Omega'$，它是关于 $u$ 的一个整体条件. 粗略地说，而且仅当 $u$ 为同胚时，这对应于 $u(\partial\Omega)=\partial\Omega'$. 这种特殊的“边界”条件通常称为 Monge--Amp\`ere 方程的\emph{第二边值问题}.
+
+对\eqref{eq:1.8}，可以定义几种不同的解：
+\begin{itemize}
+ \item 若 $(\nabla u)_\#(f\cdot\mathscr L^d)=g\cdot\mathscr L^d$，则称 $u$ 在 Brenier 意义下满足\eqref{eq:1.8}；这事实上就是最优运输中应赋予该方程的意义；
+ \item 若通过 $\varrho(A):=|\bigcup_{x\in A}\partial u(x)|$ 定义的测度 $\varrho$ 绝对连续，且其密度几乎处处等于\eqref{eq:1.8} 的右端，则称 $u$ 在 Alexandroff 意义下满足\eqref{eq:1.8}（注意：$\varrho$ 是测度这一事实并不显然，必须使用凸函数的性质，例如\cite{b190} 中的引理1.1.12和定理1.1.13）；
+ \item 若 $u$ 满足黏性理论要求的通常比较性质，但将比较限制于正则凸测试函数，则称 $u$ 在黏性意义下满足\eqref{eq:1.8}；行列式的单调性使这种限制成为可能；
+ \item 若 $u$ 属于 $C^2$ 类，且方程逐点成立，则称 $u$ 在经典意义下满足\eqref{eq:1.8}.
+\end{itemize}
+注意，除第一种以外，所有这些概念也可用于更一般的方程 $\det D^2u=f$（$f$ 固定，不具有 $f/g\circ \mathrm{T}$ 的结构），而第一种仅适用于这一特殊的运输情形.
+
+\eqref{eq:1.8} 的解的正则性能够给出最优运输映射的正则性. Caffaelli 在20世纪90年代研究了这一问题，得到了很强的结果. 我们要使用的结果在\cite{b292} 的定理50中有很好的概括：
+\begin{theorem}\label{obj:1.54}
+若 $f$ 与 $g$ 均属于 $C^{0,\alpha}(\Omega)$，在整个 $\Omega$ 上均有正常数上界和正常数下界，且 $\Omega$ 是凸开集，则\eqref{eq:1.8} 的唯一 Brenier 解 $u$ 属于 $C^{2,\alpha}(\Omega)\cap C^{1,\alpha}(\overline\Omega)$，并且 $u$ 在经典意义下满足该方程（从而也在 Alexandroff 意义及黏性意义下满足它）.
+\end{theorem}
+这里只详述一条通往该结果的可能文献路径. Brenier 解不易直接处理，因此思路是考虑黏性解，后者一般容易用 Perron 方法证明存在性. 随后证明黏性解的一些正则性，直至得到经典解. 一旦得到 Monge--Amp\`ere 方程的经典凸解，它也就是 Brenier 解. 由于这种解在相差加性常数的意义下唯一，便得到 Brenier 解的正则性结论. 关于黏性解的结果可见\cite{b98,b100} 以及\cite{b99}. 文献\cite{b98} 给出了一些条件，以便在 $f$ 有上、下界时保证 $\det D^2u=f$ 的解严格凸. 对同一个方程，文献\cite{b100} 在严格凸的前提下证明了 $C^{1,\alpha}$ 正则性. 这样一来，$f/g(\nabla u)$ 成为 $C^{0,\alpha}$ 函数，而\cite{b99} 证明了 $f\in C^{0,\alpha}$ 时，$\det D^2u=f$ 的解具有 $C^{2,\alpha}$ 正则性.
+
+这一正则性理论的一些近期改进由 De Philippis 与 Figalli 获得. 他们研究了如下自然问题：若 $f$ 与 $g$ 有上、下界，则运输映射是 BV 映射（因为它是凸函数的梯度），并且它连续（因为 $u\in C^{1,\alpha}$）；其导数没有跳跃部分（由于连续性）. 由此便问，是否有 $\mathrm{T}\in W^{1,1}$，即 $u\in W^{2,1}$？答案是肯定的，见\cite{b147,b148,b150}；甚至还能证明更精细的估计：$D^2u$ 不仅属于 $L^1$，而且稍好一些，包括某些 $L^{1+\varepsilon}$ 结果，Schmidt 在\cite{b281} 中也证明了此类结果. 关于 Monge--Amp\`ere 方程与最优运输的联系及其正则性的系统综述，见\cite{b149}.
+
+处理二次成本以外的成本时，情况复杂得多. 若成本 $c$ 满足扭转条件（twist condition），则仍可用一个梯度表示最优映射 $\mathrm{T}$，即 $\mathrm{T}(x)=(\nabla_xc(x,\cdot))^{-1}(\nabla\varphi(x))$. 写成 $\nabla_xc(x,\mathrm{T}(x))=\nabla\varphi(x)$ 并求导，得到
+\[
+ D^2_{xx}c(x,\mathrm{T}(x))+D^2_{xy}c(x,\mathrm{T}(x))D\mathrm{T}(x)=D^2\varphi(x),
+\]
+这意味着关于 $\det(D\mathrm{T})$ 的方程为
+\begin{equation*}
+\begin{aligned}
+ &\det(D^2_{xy}c(x,\mathrm{T}(x)))\det(D\mathrm{T}(x))\\
+ &\qquad=\det\bigl(D^2\varphi(x)-D^2_{xx}c(x,\mathrm{T}(x))\bigr),
+\end{aligned}
+\end{equation*}
+也就是
+\begin{equation*}
+\begin{aligned}
+ &\det\bigl(D^2\varphi(x)-D^2_{xx}c(x,\mathrm{T}(x))\bigr)\\
+ &\qquad=\det(D^2_{xy}c(x,\mathrm{T}(x)))\frac{f(x)}{g(\mathrm{T}(x))}.
+\end{aligned}
+\end{equation*}
+它是形如
+\[
+ \det\bigl(D^2\varphi(x)-A(x,\nabla\varphi(x))\bigr)
+   =F(x,\nabla\varphi(x))
+\]
+的 Monge--Amp\`ere 型方程.
+
+一般成本下 Kantorovich 势的正则性长期以来是一个难题，在\cite{b292} 中还被列为未解决问题. Ma、Trudinger 与 Wang 的一篇重要论文使情况变得相当清楚：他们在\cite{b219} 中找到了成本 $c$ 的一个关键假设，从而能够基于某些 Pogorelov 型方法建立正则性估计. 关于 $c$ 的这一假设非常技术性，要求其四阶导数满足某些不等式. 此处不写出这些不等式，但应指出，Loeper 后来在\cite{b216} 中证明了这些假设是尖锐的. 特别地，$c(x,y)=|x-y|^2$ 满足该假设，但它是一个极限情形；对 $p\in(1,+\infty)$，其他任何幂成本 $|x-y|^p$ 都不满足. 对每个 $\varepsilon>0$，成本 $\sqrt{\varepsilon^2+|x-y|^2}$ 也满足 MTW 假设，由此可以得到对线性成本 $|x-y|$ 的某些逼近结果（见\cite{b210}）. 区域 $\Omega$ 的凸性也要替换为一种适当的 $c$-凸性概念，此处不详述. 正如\autoref{sec:1.7.3} 所见，文献\cite{b168} 也强调了它与 $c$-凹函数相关凸性之间的联系. 在这一发现之后，该理论得到了深入研究，并考察了许多成本；还可以研究流形上的距离平方，此时这一条件转化为流形上的曲率条件. 关于整个理论的一篇有趣综述，见\cite{b164}.

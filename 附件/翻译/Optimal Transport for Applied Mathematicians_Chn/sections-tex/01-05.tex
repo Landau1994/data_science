@@ -1,0 +1,125 @@
+% 原书印刷21--25页，PDF物理49--53页.
+\subsection{Kantorovich问题作为Monge问题的松弛}\label{sec:1.5}
+
+再次令$K(\gamma):=\int_{\Omega\times\Omega}c\,d\gamma$. 我们知道，对任何映射$\mathrm{T}$，都有
+\[
+M(\mathrm{T})=\int_\Omega c(x,\mathrm{T}(x))\,d\mu
+=\int_{\Omega\times\Omega}c\,d\gamma_\mathrm{T}=K(\gamma_\mathrm{T}),
+\]
+所以Monge问题可以改写为
+\[
+\min\{J(\gamma):\gamma\in\Pi(\mu,\nu)\},
+\qquad
+J(\gamma)=\begin{cases}
+K(\gamma)=M(\mathrm{T}),&\gamma=\gamma_\mathrm{T},\\
++\infty,&\text{其他情形}.
+\end{cases}
+\]
+这很容易理解：$J$的定义迫使最小化仅限于由传输映射诱导的计划. 这有助于把(MP)和(KP)视为定义在\emph{同一组可行对象}上的两个问题，唯一差别是待最小化的泛函为$J$还是$K$.
+
+现在的问题是：Kantorovich为什么决定用$K$代替$J$？能否容易地证明$\inf K=\inf J$？如果$K$的极小元恰好形如$\gamma=\gamma_\mathrm{T}$，这当然成立，因为此时两个最小值相等. 但能否在一般情形下为这个过程提供依据？主要的数学依据来自下面的松弛概念.
+
+\begin{sourcebox}{知识回顾：松弛}\label{box:1.10}
+设$F:X\to\mathbb R\cup\{+\infty\}$是度量空间$X$上给定的有下界泛函. 我们把$F$的\emph{松弛}定义为泛函$\overline F:X\to\mathbb R\cup\{+\infty\}$：在所有下半连续且满足$G\le F$的泛函$G:X\to\mathbb R\cup\{+\infty\}$中，它是最大的一个. 这一泛函存在，因为任意一族下半连续函数的上确界仍然下半连续. 此外，我们还有一个容易证明的表示公式：
+\[
+\overline F(x)=\inf\{\liminf_n F(x_n):x_n\to x\}.
+\]
+定义还推出$\inf F=\inf\overline F$（后一项，即$\overline F$的下确界，在$X$紧时通常是最小值）. 这很容易验证：$F\ge\overline F$推出$\inf F\ge\inf\overline F$；另一方面，令$\ell:=\inf F$，则$F\ge\ell$，而常值函数是下半连续的. 因此$\overline F\ge\ell$，从而$\inf\overline F\ge\inf F$.
+\end{sourcebox}
+
+我们断言，在一定假设下，$K$正是$J$的松弛. 在这种情形中，这个松弛恰好不仅半连续，而且连续，并在$\{J<+\infty\}$上与$J$一致.
+
+假设如下：取紧集$\Omega\subset\mathbb R^d$，假设$c$连续，$\mu$无原子（即对每个$x\in\Omega$，都有$\mu(\{x\})=0$）. 假设紧性是为了简化叙述，而结论在更一般的假设下也可能成立. 关于这一主题可参阅\cite{b253,b8}.
+
+我们需要若干预备结果. 第一个涉及一维情形；我们会在\orig{86}{第2章}详细分析，但现在就可以陈述.
+
+\begin{lemma}\label{obj:1.27}
+若$\mu,\nu$是实直线$\mathbb R$上的两个概率测度，且$\mu$无原子，则至少存在一个传输映射$\mathrm{T}$满足$\mathrm{T}_\#\mu=\nu$.
+\end{lemma}
+\begin{proof}
+只需考虑\autoref{obj:1.23}给出的单调递增映射$\mathrm{T}$. 这个映射还使二次成本最优，但这里我们并不关心这一点.
+\end{proof}
+
+\begin{lemma}\label{obj:1.28}
+存在Borel映射$\sigma_d:\mathbb R^d\to\mathbb R$，它是单射，其像是$\mathbb R$的Borel子集，并且逆映射也是Borel可测的.
+\end{lemma}
+\begin{proof}
+首先，只需对$d=2$证明结论，然后便可归纳：若已经给定$\mathbb R^{d-1}$上的映射$\sigma_{d-1}$，则可以令
+\[
+\sigma_d(x_1,x_2,\ldots,x_d)
+=\sigma_2(x_1,\sigma_{d-1}(x_2,x_3,\ldots,x_d))
+\]
+构造$\sigma_d$.
+
+其次，只需在$]0,1[^2$上定义这样的映射，因为可以用
+\[
+(x,y)\longmapsto
+\left(\frac12+\frac1\pi\arctan x,\frac12+\frac1\pi\arctan y\right)
+\]
+从$\mathbb R^2$转到$]0,1[^2$.
+
+然后，对十进制（或二进制）表示$x=0,x_1x_2x_3\ldots$与$y=0,y_1y_2y_3\ldots$，考虑把$(x,y)$送到$0,x_1y_1x_2y_2x_3y_3\ldots$的映射. 为避免歧义，我们约定不允许十进制表示以循环的$9$结尾（即$0.347299999\ldots$必须写成$0.3473$）. 因此，像不会是整个区间，例如$0.39393939\ldots$这样的点就无法通过该映射得到. 但这个点集确实是Borel可测的.
+
+也不难验证该映射及其逆映射都是Borel可测的：通过指定实数前$2k$位数字所定义的每个区间，其原像恰是$\mathbb R^2$中的一个矩形，即分别指定两个分量前$k$位数字所定义的两个区间之积. 这些特殊区间构成Borel $\sigma$-代数的一组基，因而证明了所需的可测性.
+\end{proof}
+
+\begin{corollary}\label{obj:1.29}
+若$\mu,\nu$是$\mathbb R^d$上的两个概率测度，且$\mu$无原子，则至少存在一个传输映射$\mathrm{T}$满足$\mathrm{T}_\#\mu=\nu$.
+\end{corollary}
+\begin{proof}
+只需考虑从$(\sigma_d)_\#\mu$到$(\sigma_d)_\#\nu$的传输映射$\mathrm{T}$，然后与$\sigma_d$和$(\sigma_d)^{-1}$复合即可.
+\end{proof}
+
+\begin{remark}\label{obj:1.30}
+这里，我们通过\autoref{obj:1.28}，给出了环境空间为$\mathbb R^d$时，在无原子测度$\mu$与任意测度$\nu$之间显式构造传输映射的方法. 事实上，这一事实要一般得多：众所周知，任何配备无原子测度的测度空间都与带Lebesgue测度的$[0,1]$同构.\footnote{注意，这正是\cite{b175}用来得到一般空间上传输映射存在性的论证；\cite{b253}指出，与把任意空间送到$[0,1]$的同构复合后，成本函数不再连续. 不过，可用\autoref{obj:1.8}处理，因为它允许使用如下形式的成本：连续函数与分别关于$x$和$y$的可测映射的复合.} 但当显式构造已足以处理欧氏情形、并满足我们的目的时，我们不想引入这类论证.
+\end{remark}
+
+最后还需要一个引理：
+
+\begin{lemma}\label{obj:1.31}
+设$X$是紧度量空间，配备概率测度$\varrho\in\mathscr P(X)$. 考虑划分序列$G_n$，其中每个$G_n$都是一族互不相交的子集$C_{i,n}$，对每个$n$都有$\bigcup_{i\in I_n}C_{i,n}=X$. 假设$\operatorname{size}(G_n):=\max_i\operatorname{diam}(C_{i,n})$在$n\to\infty$时趋于$0$，并考虑$X$上的概率测度序列$\varrho_n$，满足对每个$n$及$i\in I_n$都有$\varrho_n(C_{i,n})=\varrho(C_{i,n})$. 则$\varrho_n\rightharpoonup\varrho$.
+\end{lemma}
+\begin{proof}
+令$m_{i,n}:=\varrho_n(C_{i,n})=\varrho(C_{i,n})$. 只需取连续函数$\phi\in C(X)$并注意到
+\begin{equation*}
+\begin{aligned}
+\left|\int_X\phi\,d\varrho_n-\int_X\phi\,d\varrho\right|
+&\le\sum_{i\in I_n}\left|\int_{C_{i,n}}\phi\,d\varrho_n-\int_{C_{i,n}}\phi\,d\varrho\right|\\
+&\le\omega(\operatorname{diam}(C_{i,n}))\sum_{i\in I_n}m_{i,n}
+=\omega(\operatorname{diam}(C_{i,n}))\to0,
+\end{aligned}
+\end{equation*}
+其中$\omega$是$\phi$的连续模. 依据在于：当两个测度在集合$C\subset X$上具有相同质量时，由于$\phi$在该集合上的振幅不超过$\omega(\operatorname{diam}(C))$，两个积分之差至多为这个数乘以共同质量.
+
+这证明$\int\phi\,d\varrho_n\to\int\phi\,d\varrho$，从而$\varrho_n\to\varrho$.
+\end{proof}
+
+现在可以证明以下结论.
+
+\begin{theorem}\label{obj:1.32}
+在紧子集$\Omega\subset\mathbb R^d$上，只要$\mu$无原子，由传输映射诱导的计划$\gamma_\mathrm{T}$组成的集合就在计划集$\Pi(\mu,\nu)$中稠密.
+\end{theorem}
+\begin{proof}
+固定$n$，任取$\Omega$的一个划分，使各集合$K_{i,n}$的直径小于$1/(2n)$（例如小立方体）. 集合$C_{i,j,n}:=K_{i,n}\times K_{j,n}$构成$\Omega\times\Omega$的一个网格尺度小于$1/n$的划分.
+
+现在任取测度$\gamma\in\Pi(\mu,\nu)$. 由\autoref{obj:1.31}，只需构造把$\mu$送到$\nu$的传输$\mathrm{T}$，使$\gamma_\mathrm{T}$在每个集合$C_{i,j,n}$上的质量都与$\gamma$相同. 为此，定义列$\operatorname{Col}_{i,n}:=K_{i,n}\times\Omega$，并以$\gamma_{i,n}$表示$\gamma$在$\operatorname{Col}_{i,n}$上的限制. 其边缘测度记为$\mu_{i,n}$与$\nu_{i,n}$. 对每个$i$，考虑把$\mu_{i,n}$送到$\nu_{i,n}$的传输映射$\mathrm{T}_{i,n}$. 由\autoref{obj:1.29}它存在，因为对每个$(i,n)$都有$\mu_{i,n}\le\mu$，所以这些测度无原子. 由于各$\mu_{i,n}$集中于互不相交的集合，把传输$\mathrm{T}_{i,n}$“粘合”起来便得到把$\mu$送到$\nu$的传输$\mathrm{T}$（这里使用了$\sum_i\mu_{i,n}=\mu$与$\sum_i\nu_{i,n}=\nu$）.
+
+只需验证$\gamma_\mathrm{T}$在每个$C_{i,j,n}$上赋予与$\gamma$相同的质量，\footnote{注意，\cite{b8,b253}以更复杂的方式证明了同一事实；事实上，对每一列使用唯一一个传输映射就足够了. 相同想法也曾在\cite{b146}中用于另一个涉及Lipschitz传输映射的稠密性结果.}而这很容易. 事实上，这一质量等于$\gamma_{\mathrm{T}_{i,n}}$的相应质量，并且
+\begin{equation*}
+\begin{aligned}
+\gamma_{\mathrm{T}_{i,n}}(C_{i,j,n})
+&=\mu_{i,n}(\{x:x\in K_{i,n},\ \mathrm{T}_{i,n}(x)\in K_{j,n}\})\\
+&=\mu_{i,n}(\{x:\mathrm{T}_{i,n}(x)\in K_{j,n}\})\\
+&=\nu_{i,n}(K_{j,n})=\gamma(K_{i,n}\times K_{j,n}).
+\end{aligned}
+\end{equation*}
+\end{proof}
+
+松弛结论只是它的一个推论.
+
+\begin{theorem}\label{obj:1.33}
+在上述假设下，$K$是$J$的松弛. 特别地，$\inf J=\min K$，所以Monge问题与Kantorovich问题具有相同的下确界.
+\end{theorem}
+\begin{proof}
+首先，由于$K$连续，它下半连续；又有$K\le J$，所以$K$必不大于$J$的松弛. 只需证明：对每个$\gamma$，都能找到传输序列$\mathrm{T}_n$，使$\gamma_{\mathrm{T}_n}\rightharpoonup\gamma$且$J(\gamma_{\mathrm{T}_n})\to K(\gamma)$，这样松弛泛函的序列刻画（见定义）中的下确界便不大于$K$，从而证明相等. 事实上，由于在$\gamma=\gamma_{\mathrm{T}_n}$时两个泛函$K,J$一致，而$K$连续，我们只需构造满足$\gamma_{\mathrm{T}_n}\rightharpoonup\gamma$的序列$\mathrm{T}_n$. 由\autoref{obj:1.32}这是可能的.
+\end{proof}

@@ -1,0 +1,158 @@
+% 原书印刷9--13页，PDF物理37--41页，止于§1.3标题之前.
+\subsection{对偶性}\label{sec:1.2}
+
+问题（KP）是在由线性等式或不等式给出的凸约束下的线性优化. 因此，对偶理论将是一项重要工具，它通常用于凸问题. 我们将为（KP）找出一个对偶问题（DP），并利用对偶问题与原问题之间的联系.
+
+首先，通过交换下确界与上确界，形式地找出一个对偶问题.
+
+用如下方式表达约束 $\gamma\in\Pi(\mu,\nu)$：注意，如果 $\gamma\in\mathscr M_+(X\times Y)$，则
+\begin{equation*}
+\begin{aligned}
+&\sup_{\varphi,\psi}\left(\int_X\varphi\,d\mu+\int_Y\psi\,d\nu
+-\int_{X\times Y}\bigl(\varphi(x)+\psi(y)\bigr)\,d\gamma\right)\\
+&\hspace{3em}=\begin{cases}
+0,&\gamma\in\Pi(\mu,\nu),\\
++\infty,&\text{否则},
+\end{cases}
+\end{aligned}
+\end{equation*}
+其中上确界在有界连续函数 $\varphi,\psi$ 中取得.
+
+于是，只要加上前面的上确界，就可以去掉对 $\gamma$ 的约束：若约束得到满足，所加的量为零；若不满足，则得到 $+\infty$（极小化时会避开这种情形）. 因此，可以考察如下问题：
+\begin{equation}\label{eq:1.3}
+\min_\gamma\left(\int_{X\times Y}c\,d\gamma+
+\sup_{\varphi,\psi}\left[\int_X\varphi\,d\mu+\int_Y\psi\,d\nu
+-\int_{X\times Y}\bigl(\varphi(x)+\psi(y)\bigr)\,d\gamma\right]\right),
+\end{equation}
+并考虑交换上确界与下确界：
+\begin{equation*}
+\sup_{\varphi,\psi}\left(\int_X\varphi\,d\mu+\int_Y\psi\,d\nu+
+\inf_\gamma\int_{X\times Y}\bigl(c(x,y)-(\varphi(x)+\psi(y))\bigr)\,d\gamma\right).
+\end{equation*}
+
+我们希望上述两个优化问题（“$\inf\sup$”与“$\sup\inf$”）等价，且数值相同. 这并不总能做到，而实现这一交换的主要工具是 Rockafellar 的一个定理（见\cite{b260}第37节），它要求对一个变量凹、对另一个变量凸，以及某种紧性假设. 然而，Rockafellar 的陈述涉及有限维空间，而这里并非如此. 为处理无限维情形，需要使用更一般的极小极大定理\footnote{我们将在\autoref{sec:1.6.3}中按这一思路给出一个证明.}.
+
+目前，我们暂不进一步研究如何得到对偶等式的问题. 这一结果在适当假设下成立，后面将看到如何证明它. 现在先把它作为成立的结果接受下来.
+
+回到关于 $(\varphi,\psi)$ 的极大化，可以把关于 $\gamma$ 的下确界改写为对 $\varphi$ 与 $\psi$ 的约束：
+\[
+\inf_{\gamma\ge0}\int_{X\times Y}(c-\varphi\oplus\psi)\,d\gamma
+=\begin{cases}
+0,&\text{在 }X\times Y\text{ 上 }\varphi\oplus\psi\le c,\\
+-\infty,&\text{否则},
+\end{cases}
+\]
+其中 $\varphi\oplus\psi$ 表示由 $(\varphi\oplus\psi)(x,y):=\varphi(x)+\psi(y)$ 定义的函数. 上述等式容易看出：如果在某处有 $\varphi\oplus\psi>c$，就取集中在这一严格不等式成立的集合上、质量趋于 $\infty$ 的测度 $\gamma$，积分便趋于 $-\infty$. 这就导出了如下对偶优化问题.
+
+\begin{problem}\label{obj:1.9}
+给定 $\mu\in\mathscr P(X)$、$\nu\in\mathscr P(Y)$ 和成本函数 $c:X\times Y\to[0,+\infty[$，考虑问题
+\begin{equation}\label{eq:1.4}
+(\mathrm{DP})\qquad
+\max\left\{\int_X\varphi\,d\mu+\int_Y\psi\,d\nu:
+\varphi\in C_b(X),\ \psi\in C_b(Y):\varphi\oplus\psi\le c\right\}.
+\end{equation}
+\end{problem}
+
+首先注意，$\sup(\mathrm{DP})\le\min(\mathrm{KP})$：只需对条件 $\varphi\oplus\psi\le c$ 关于 $\gamma$ 积分，便得到
+\[
+\int_X\varphi\,d\mu+\int_Y\psi\,d\nu
+=\int_{X\times Y}(\varphi\oplus\psi)\,d\gamma
+\le\int_{X\times Y}c\,d\gamma.
+\]
+这对每对可行的 $(\varphi,\psi)$ 及每个可行的 $\gamma$ 均成立，从而证明了所需不等式.
+
+不过，（DP）没有直接的存在性结果，因为可行函数类缺少紧性. 回顾一下连续函数空间中关于紧性的主要结果.
+
+\begin{sourcebox}{备忘：一致收敛意义下的紧性}\label{box:1.7}
+\begin{theorem*}[Ascoli--Arzelà]
+如果 $X$ 是紧度量空间，且 $f_n:X\to\mathbb R$ 等度连续（即对每个 $\varepsilon>0$，存在共同的 $\delta>0$，使得对所有满足 $d(x,y)<\delta$ 的点对 $x,y$ 以及所有 $n$，都有 $|f_n(x)-f_n(y)|<\varepsilon$），并且一致有界（即存在共同的常数 $C$，使得对所有 $x\in X$ 和所有 $n$，都有 $|f_n(x)|\le C$），则序列 $(f_n)$ 存在一致收敛于某个连续函数 $f:X\to\mathbb R$ 的子列 $f_{n_k}$.
+
+反之，$C(X)$ 的一个子集在一致收敛意义下相对紧，当且仅当其元素等度连续且一致有界.
+
+如果把目标空间 $\mathbb R$ 和一致有界假设替换为目标空间为紧度量空间，同一结果仍成立.
+\end{theorem*}
+\end{sourcebox}
+
+\begin{definition}\label{obj:1.10}
+给定函数 $\chi:X\to\overline{\mathbb R}$，通过
+\[
+\chi^c(y)=\inf_{x\in X}c(x,y)-\chi(x)
+\]
+定义它的 $c$-变换（$c$-transform，也称为 $c$-共轭函数）$\chi^c:Y\to\overline{\mathbb R}$.
+
+也通过
+\[
+\zeta^{\bar c}(x)=\inf_{y\in Y}c(x,y)-\zeta(y)
+\]
+定义 $\zeta:Y\to\overline{\mathbb R}$ 的 $\bar c$-变换.
+
+此外，如果存在 $\chi$ 使得 $\psi=\chi^c$，则称定义于 $Y$ 的函数 $\psi$ 为 $\bar c$-凹的；类似地，如果存在 $\zeta:Y\to\overline{\mathbb R}$ 使得 $\varphi=\zeta^{\bar c}$，则称 $X$ 上的函数 $\varphi$ 为 $c$-凹的. 我们分别以 $c\text{-}\mathrm{conc}(X)$ 和 $\bar c\text{-}\mathrm{conc}(Y)$ 表示 $c$-凹函数与 $\bar c$-凹函数的集合（当 $X=Y$ 且 $c$ 对称时，$c$ 与 $\bar c$ 之间的区别将不再有作用，我们会尽早略去这种区别）.
+\end{definition}
+
+重要的是注意到，$c$-凹性的概念蕴含一个对连续模的界.
+
+\begin{sourcebox}{备忘：以下确界或上确界定义的函数的连续性}\label{box:1.8}
+\begin{proposition*}
+设 $(f_\alpha)_\alpha$ 是一族函数（有限、无限、可数、不可数等等），全都满足同一条件
+\[
+|f_\alpha(x)-f_\alpha(x')|\le\omega(d(x,x')).
+\]
+考虑由 $f(x):=\inf_\alpha f_\alpha(x)$ 定义的 $f$. 则 $f$ 也满足同样的估计.
+\end{proposition*}
+
+由 $f_\alpha(x)\le f_\alpha(x')+\omega(d(x,x'))$ 可以很容易地看出这一点：因为 $f\le f_\alpha$，所以 $f(x)\le f_\alpha(x')+\omega(d(x,x'))$. 然后在右端对 $\alpha$ 取下确界，得到 $f(x)\le f(x')+\omega(d(x,x'))$. 交换 $x$ 与 $x'$，可得
+\[
+|f(x)-f(x')|\le\omega(d(x,x')).
+\]
+特别地，如果函数 $\omega:\mathbb R_+\to\mathbb R_+$ 满足 $\lim_{t\to0}\omega(t)=0$（即函数族 $(f_\alpha)_\alpha$ 等度连续），则 $f$ 与函数 $f_\alpha$ 具有相同的连续模（即相同的函数 $\omega$）. 显然，把下确界换成上确界，同样的思路仍然适用.
+\end{sourcebox}
+
+在我们的情形，如果 $c$ 在紧集上连续且有限，因而一致连续，就意味着存在递增连续函数 $\omega:\mathbb R_+\to\mathbb R_+$，满足 $\omega(0)=0$，使得
+\[
+|c(x,y)-c(x',y')|\le\omega(d(x,x')+d(y,y')).
+\]
+于是，由 $\chi^c$ 的定义，有 $\chi^c(y)=\inf_x g_x(y)$，其中 $g_x(y):=c(x,y)-\chi(x)$，而函数 $g_x$ 满足 $|g_x(y)-g_x(y')|\le\omega(d(y,y'))$. 这证明 $\chi^c$ 也具有相同的连续模.
+
+容易看出，给定极大化问题（DP）中的一对 $(\varphi,\psi)$，总可以先把它替换为 $(\varphi,\varphi^c)$，再替换为 $(\varphi^{c\bar c},\varphi^c)$，而约束保持成立，积分值增大. 事实上还可以继续下去，但我们将看到，对任意 $\varphi$ 都有 $\varphi^{c\bar cc}=\varphi^c$（见\autoref{sec:1.6}）. 这些变换旨在“改进”极大化序列，使其连续性具有统一的界.
+
+上述考虑的一个推论是如下存在性结果.
+
+\begin{proposition}\label{obj:1.11}
+假设 $X$、$Y$ 紧且 $c$ 连续. 则问题（DP）存在解 $(\varphi,\psi)$，其形式为 $\varphi\in c\text{-}\mathrm{conc}(X)$、$\psi\in\bar c\text{-}\mathrm{conc}(Y)$，且 $\psi=\varphi^c$. 特别地，
+\[
+\max(\mathrm{DP})=\max_{\varphi\in c\text{-}\mathrm{conc}(X)}\int_X\varphi\,d\mu+\int_Y\varphi^c\,d\nu.
+\]
+\end{proposition}
+\begin{proof}
+由前面的考虑，可以取一条极大化序列 $(\varphi_n,\psi_n)$，并借助 $c$-变换与 $\bar c$-变换加以改进，从而可以假设这些函数的连续性具有统一的界（与 $c$ 具有相同的连续模）. 我们不另行命名，仍把经过这些变换得到的新序列记作 $(\varphi_n,\psi_n)$. 为应用 Ascoli--Arzelà 定理，只需核查一致有界性. 注意到总可以给 $\varphi$ 加上一个常数，并从 $\psi$ 中减去它：泛函的值不变，约束也不受影响. 因为 $\varphi_n$ 在紧集上连续，因而有界，总可以减去它的最小值，不失一般性地假设 $\min\varphi_n=0$. 于是 $\max\varphi_n\le\omega(\operatorname{diam}X)$（因为函数的振幅总不超过其连续模在集合中最大可能距离处的取值）. 因此，如果选取 $\psi_n=\varphi_n^c$，还会有
+\[
+\psi_n(y)=\inf_x c(x,y)-\varphi_n(x)
+\in[\min c-\omega(\operatorname{diam}X),\max c].
+\]
+这给出 $\varphi_n$ 和 $\psi_n$ 的统一界，使我们可以应用 Ascoli--Arzelà 定理.
+
+抽取子列后，可以假设 $\varphi_n\to\varphi$、$\psi_n\to\psi$，且两者都一致收敛. 由一致收敛容易看出，
+\[
+\int_X\varphi_n\,d\mu+\int_Y\psi_n\,d\nu
+\to\int_X\varphi\,d\mu+\int_Y\psi\,d\nu.
+\]
+此外，
+\[
+\varphi_n(x)+\psi_n(y)\le c(x,y)\implies\varphi(x)+\psi(y)\le c(x,y)
+\]
+（这里逐点收敛就已足够）. 这表明 $(\varphi,\psi)$ 是（DP）的一对可行函数，并且是最优的.
+\end{proof}
+
+若接受对偶性结果 $\min(\mathrm{KP})=\max(\mathrm{DP})$（证明推迟到\autoref{sec:1.6}），则还得到
+\[
+\min(\mathrm{KP})=\max_{\varphi\in c\text{-}\mathrm{conc}(X)}\int_X\varphi\,d\mu+\int_Y\varphi^c\,d\nu,
+\]
+这也表明（KP）的最小值是 $(\mu,\nu)$ 的凸函数，因为它是线性泛函的上确界.
+
+\begin{definition}\label{obj:1.12}
+在\orig{114}{(3.1)}中实现最大值的函数 $\varphi$，称为从 $\mu$ 到 $\nu$ 的传输的 Kantorovich 势（Kantorovich potentials）. 这实际上是一种小小的滥用，因为这个术语传统上只用于 $c(x,y)=|x-y|$ 的情形，但如今也用于一般情形.
+\end{definition}
+
+\begin{remark}\label{obj:1.13}
+注意，Kantorovich 势 $\varphi$ 未必 $c$-凹，但它与 $c$-凹函数 $\varphi^{c\bar c}$ 在 $\mu$-几乎处处相同. 不过，总可以选取一个 $c$-凹的 Kantorovich 势，我们也将经常这样做.
+\end{remark}

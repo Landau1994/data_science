@@ -6,12 +6,12 @@ aliases:
   - "Book Catalog"
   - "Reading Guide"
 created: 2026-10-24
-updated: 2026-10-24
+updated: 2026-11-03
 ---
 
 # 书籍目录与阅读路线
 
-本目录目前有 **17 份 PDF：14 份教材／讲义／题集与 3 份配套答案册**。本说明按“已有一些基础，希望尽快进入深度学习与现代生成模型”的目标安排；阅读建议是本库的选读方案，不是作者规定的先修顺序，也不表示已经完成学习。
+本目录目前有 **18 份 PDF：15 份教材／讲义／题集与 3 份配套答案册**。本说明按“已有一些基础，希望尽快进入深度学习与现代生成模型”的目标安排；阅读建议是本库的选读方案，不是作者规定的先修顺序，也不表示已经完成学习。
 
 **已确定从 UDL 开始，以 Bishop 补概率建模和推导，再接 MIT 的流匹配与扩散讲义。现有资料足够启动这条路线，不必先通读所有概率统计书。** 用户手头有英文纸质版；具体印次、纸书页码及其与附件在线稿的对应关系尚未核对，台账先以附件英文 PDF 为来源锚点。
 
@@ -55,6 +55,7 @@ updated: 2026-10-24
 | [[00 - 首页/教材归档/DS015 - Elements of Information Theory\|DS015]] | [Elements of Information Theory](<Elements of information theory.pdf>)，Thomas M. Cover、Joy A. Thomas | 第 2 版，2006；758 页 | **信息论参考**。熵、相对熵、互信息、编码与容量；与学习目标相关时查阅。 |
 | [[00 - 首页/教材归档/DS016 - 信息论答案册\|DS016]] | [信息论基础答案册](<solution_Elements of Information Theory.pdf>)，Thomas M. Cover、Joy A. Thomas | 对应第 2 版；2006-10-17；397 页 | 来源前言自述提供全书题目答案；本库尚未逐题验证其完整性或正确性。 |
 | [[00 - 首页/教材归档/DS017 - Convex Optimization\|DS017]] | [Convex Optimization](<bv_cvxbook.pdf>)，Stephen Boyd、Lieven Vandenberghe | 2004 年初版；2009 年第 7 次更正印刷；730 页 | **优化参考**。凸性、对偶、最优性条件和算法；不要求先通读再学 UDL。 |
+| [[00 - 首页/教材归档/DS026 - Optimal Transport for Applied Mathematicians\|DS026]] | [Optimal Transport for Applied Mathematicians](<Santambrogio 2015 Optiomal Transport For Applied Mathematicians.pdf>)，Filippo Santambrogio | 2015年出版版；376页 | **最优运输分析与变分专题**。连接对偶、连续性方程、Wasserstein空间与偏微分方程；中文全书翻译已启动，首批为前置内容和第1章。 |
 
 ## 三、先读 UDL，还是 Bishop
 

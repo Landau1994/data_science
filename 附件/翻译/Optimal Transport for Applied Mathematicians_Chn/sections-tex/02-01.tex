@@ -1,0 +1,169 @@
+% 原书印刷59--63页，PDF物理86--90页，止于2.2标题之前.
+本章讨论一维情形的特殊性质，以及高维情形下一种较少为人所知的运输映射，称为Knothe映射. 它由一维构造得到，并与某种退化的运输成本有关. 讨论部分介绍一维运输映射在图像处理和几何不等式中的应用.
+
+\subsection{一维单调运输映射与运输方案}\label{sec:2.1}
+
+我们已在\autoref{sec:1.3}讨论过一维的二次成本：只要源测度$\mu$无原子，就存在最优映射，而且该映射单调不减.
+
+本节要借助两个给定测度的累积分布函数，讨论它们之间的单调运输映射（以下“单调”均指“单调不减”），并推广到$\mu$可能含有原子的情形. 这一讨论与最优运输的考虑无关.
+
+\begin{sourcebox}{知识回顾：累积分布函数}\label{box:2.1}
+\begin{definition*}
+给定概率测度$\mu\in\mathscr P(\mathbb R)$，通过下式定义它的\emph{累积分布函数}（cumulative distribution function，CDF）$F_\mu$：
+\[
+F_\mu(x)=\mu(({-\infty},x]).
+\]
+\end{definition*}
+容易看出，累积分布函数$F_\mu$单调不减且右连续，因为若$x_n\to x$且$x_n>x$，则$({-\infty},x]=\bigcap_n({-\infty},x_n]$，从而
+$\mu(({-\infty},x])=\lim_n\mu(({-\infty},x_n])=\inf_n\mu(({-\infty},x_n])$.
+它在$\mu$没有原子的每一点连续，因为若$x_n\to x$且$x_n<x$，则$\lim_n\mu(({-\infty},x_n])=\mu(({-\infty},x[)$.
+
+CDF $F_\mu$的重要性在于它刻画了测度$\mu$. 事实上，形如$({-\infty},x]$的集合足以生成所有开集：有
+$\mu(]a,b])=F_\mu(b)-F_\mu(a)$、
+$\mu(]a,b[)=\sup\{F_\mu(t)-F_\mu(a):t<b\}$，而任意开集的测度可通过开区间的可数不交并求得.
+
+在$\mathbb R^d$中，情形稍复杂，但与一维一样，知道每个$x=(x_1,\ldots,x_d)$对应的
+$\mu(]{-\infty},x_1]\times\cdots\times]{-\infty},x_d])$，就足以刻画$\mu$（通过有限差分可得到所有半开矩形$]x_1^-,x_1^+]\times\cdots\times]x_d^-,x_d^+]$，再通过可数不交并得到所有开集）.
+\end{sourcebox}
+
+遗憾的是，上述CDF并非总能求逆，因为它不一定严格递增，但我们可以定义一个伪逆.
+
+\begin{definition}\label{obj:2.1}
+给定单调不减且右连续的函数$F:\mathbb R\to[0,1]$，它的\emph{伪逆}（pseudo-inverse）是由
+\[
+F^{[-1]}(x):=\inf\{t\in\mathbb R:F(t)\ge x\}
+\]
+给出的函数$F^{[-1]}:[0,1]\to\mathbb R$；由于$F$右连续，只要所取下确界的集合非空（否则为$+\infty$）且有下界（否则为$-\infty$），该下确界就是最小值.
+\end{definition}
+
+注意，伪逆定义的一个简单推论是
+\begin{equation}\label{eq:2.1}
+F^{[-1]}(x)\le a\iff F(a)\ge x;
+\qquad F^{[-1]}(x)>a\iff F(a)<x.
+\end{equation}
+现在考察累积分布函数伪逆的若干性质.
+
+\begin{proposition}\label{obj:2.2}
+若$\mu\in\mathscr P(\mathbb R)$，且$F_\mu^{[-1]}$是其累积分布函数$F_\mu$的伪逆，则
+$(F_\mu^{[-1]})_\#(\mathscr L^1\mathbin{\vrule height 1.4ex depth -0.3ex width .07ex\vrule height .07ex depth 0ex width .7ex}[0,1])=\mu$.
+
+此外，给定$\mu,\nu\in\mathscr P(\mathbb R)$，若令
+$\eta:=(F_\mu^{[-1]},F_\nu^{[-1]})_\#(\mathscr L^1\mathbin{\vrule height 1.4ex depth -0.3ex width .07ex\vrule height .07ex depth 0ex width .7ex}[0,1])$，则$\eta\in\Pi(\mu,\nu)$，且
+$\eta(({-\infty},a]\times({-\infty},b])=F_\mu(a)\wedge F_\nu(b)$.
+\end{proposition}
+\begin{proof}
+对于陈述的第一部分，利用\eqref{eq:2.1}可写成
+\[
+|\{x\in[0,1]:F_\mu^{[-1]}(x)\le a\}|
+=|\{x\in[0,1]:F_\mu(a)\ge x\}|=F_\mu(a).
+\]
+借助测度由其CDF刻画这一事实（见上面的\autoref{box:2.1}），便知像测度为$\mu$.
+
+对于第二部分，$\eta\in\Pi(\mu,\nu)$直接来自第一部分. 再计算
+\[
+\begin{aligned}
+\eta(({-\infty},a]\times({-\infty},b])
+&=|\{x\in[0,1]:F_\mu^{[-1]}(x)\le a,\ F_\nu^{[-1]}(x)\le b\}|\\
+&=|\{x\in[0,1]:F_\mu(a)\ge x,\ F_\nu(b)\ge x\}|\\
+&=F_\mu(a)\wedge F_\nu(b),
+\end{aligned}
+\]
+这就是所需的等式.
+\end{proof}
+
+\begin{definition}\label{obj:2.3}
+我们把运输方案$\eta:=(F_\mu^{[-1]},F_\nu^{[-1]})_\#(\mathscr L^1\mathbin{\vrule height 1.4ex depth -0.3ex width .07ex\vrule height .07ex depth 0ex width .7ex}[0,1])$称为$\mu$与$\nu$之间的\emph{共单调运输方案}（co-monotone transport plan），记作$\gamma_{\rm mon}$.
+\end{definition}
+
+现在考虑两个测度$\mu,\nu\in\mathscr P(\mathbb R)$：我们要在$\mu$无原子的条件下，构造将$\mu$送到$\nu$的单调运输映射（而不只是运输方案）.
+
+首先需要一个关于无原子测度CDF的简单引理.
+
+\begin{lemma}\label{obj:2.4}
+若$\mu\in\mathscr P(\mathbb R)$无原子，则$(F_\mu)_\#\mu=\mathscr L^1\mathbin{\vrule height 1.4ex depth -0.3ex width .07ex\vrule height .07ex depth 0ex width .7ex}[0,1]$. 因而，对每个$\ell\in[0,1]$，集合$\{x:F_\mu(x)=\ell\}$都是$\mu$-零测集.
+\end{lemma}
+\begin{proof}
+先注意，由于$\mu$无原子，$F_\mu$连续. 因此，对$a\in]0,1[$，集合$\{x:F_\mu(x)\le a\}$是形如$]{-\infty},x_a]$的闭区间，且$F_\mu(x_a)=a$. 于是
+$\mu(\{x:F_\mu(x)\le a\})=F_\mu(x_a)=a$，这证明了$(F_\mu)_\#\mu=\mathscr L^1\mathbin{\vrule height 1.4ex depth -0.3ex width .07ex\vrule height .07ex depth 0ex width .7ex}[0,1]$.
+
+所以，对$\ell\in[0,1]$，集合$\{x:F_\mu(x)=\ell\}$为$\mu$-零测集；否则像测度$(F_\mu)_\#\mu$会在$\ell$处有原子，这与陈述的第一部分矛盾.
+\end{proof}
+
+\begin{theorem}\label{obj:2.5}
+给定$\mu,\nu\in\mathscr P(\mathbb R)$，假设$\mu$无原子. 则存在唯一的单调不减映射$\mathrm T_{\rm mon}:\mathbb R\to\mathbb R$使$(\mathrm T_{\rm mon})_\#\mu=\nu$.
+\end{theorem}
+\begin{proof}
+先构造一个这样的映射. 考虑累积分布函数$F_\mu$、$F_\nu$，通过
+\[
+\mathrm T_{\rm mon}(x):=F_\nu^{[-1]}(F_\mu(x))
+\]
+定义映射$\mathrm T_{\rm mon}$. 只要$F_\mu(x)\in]0,1[$，这一量就有良好定义且属于$\mathbb R$（这样，\autoref{obj:2.1}中所取下确界的集合既非空，也不会无下界）. 由\autoref{obj:2.4}，集合$\{x:F_\mu(x)=0\}$与$\{x:F_\mu(x)=1\}$都是$\mu$-零测集. 所以$\mathrm T_{\rm mon}$在$\mu$-几乎处处有良好定义.
+
+$\mathrm T_{\rm mon}$单调不减这一点显然；只需证明$(\mathrm T_{\rm mon})_\#\mu=\nu$. 已知$(F_\nu^{[-1]})_\#(\mathscr L^1\mathbin{\vrule height 1.4ex depth -0.3ex width .07ex\vrule height .07ex depth 0ex width .7ex}[0,1])=\nu$，因而通过复合，只需应用证明了$(F_\mu)_\#\mu=\mathscr L^1\mathbin{\vrule height 1.4ex depth -0.3ex width .07ex\vrule height .07ex depth 0ex width .7ex}[0,1]$的\autoref{obj:2.4}即可.
+
+现在证明唯一性. 考虑任意满足$\mathrm T_\#\mu=\nu$的单调不减函数$\mathrm T$. 由单调性，
+$\mathrm T^{-1}(]{-\infty},\mathrm T(x)])\supset]{-\infty},x]$. 于是
+\[
+\begin{aligned}
+F_\mu(x)&=\mu(]{-\infty},x])
+\le\mu(\mathrm T^{-1}(]{-\infty},\mathrm T(x)]))\\
+&=\nu(]{-\infty},\mathrm T(x)])=F_\nu(\mathrm T(x)),
+\end{aligned}
+\]
+即$\mathrm T(x)\ge F_\nu^{[-1]}(F_\mu(x))$. 假设这一不等式严格成立. 则存在$\varepsilon_0>0$，使每个$\varepsilon\in]0,\varepsilon_0[$均满足
+$F_\nu(\mathrm T(x)-\varepsilon)\ge F_\mu(x)$. 另一方面，由
+$\mathrm T^{-1}(]{-\infty},\mathrm T(x)-\varepsilon[)\subset]{-\infty},x[$，得到$F_\nu(\mathrm T(x)-\varepsilon)\le F_\mu(x)$.
+
+因此，对每个$\varepsilon\in]0,\varepsilon_0[$，都有$F_\nu(\mathrm T(x)-\varepsilon)=F_\mu(x)$. 所以$F_\nu(\mathrm T(x)-\varepsilon)$是$F_\nu$在某个常值区间上取得的值. 这样的区间可数，因而$F_\nu$在这些区间上的值也可数. 将这些值记作$\ell_i$. 于是满足$\mathrm T(x)>F_\nu^{[-1]}(F_\mu(x))$的点$x$包含于$\bigcup_i\{x:F_\mu(x)=\ell_i\}$. \autoref{obj:2.4}说明该集合为零测集. 由此得出$\mu$-几乎处处有$\mathrm T(x)=F_\nu^{[-1]}(F_\mu(x))$.
+\end{proof}
+
+\begin{remark}\label{obj:2.6}
+注意，前面的证明因累积分布函数可能不连续或不严格递增而变得复杂. 若$F_\nu$连续且严格单调（即$\nu$无原子，且支集为整个$\mathbb R$），则只需写成
+\[
+\mathrm T_{\rm mon}=(F_\nu)^{-1}\circ F_\mu.
+\]
+\end{remark}
+
+\begin{remark}\label{obj:2.7}
+利用上一注中的显式公式，还能根据$\mu$与$\nu$的正则性来研究映射$\mathrm T_{\rm mon}$的正则性. 事实上，只要这两个测度的支集均为全空间且无原子，函数$F_\mu$与$F_\nu$就是同胚，$\mathrm T_{\rm mon}$也如此. 此外，若$\mu$与$\nu$绝对连续，且密度连续、处处不为零，则它们还是微分同胚，$\mathrm T_{\rm mon}$亦然. 一般而言，$\mathrm T_{\rm mon}$的正则性比两个测度高一阶，正如$F_\mu$、$F_\nu$、$F_\mu^{-1}$和$F_\nu^{-1}$的情形一样.
+\end{remark}
+
+下一节将看到，刚构造出的映射$\mathrm T_{\rm mon}$能够使整类运输成本最优. 为此，需要下面对$\gamma_{\rm mon}$与$\mathrm T_{\rm mon}$的刻画.
+
+\begin{lemma}\label{obj:2.8}
+设$\gamma\in\Pi(\mu,\nu)$是两个测度$\mu,\nu\in\mathscr P(\mathbb R)$之间的运输方案. 假设它满足
+\begin{equation}\label{eq:2.2}
+(x,y),(x',y')\in\operatorname{spt}(\gamma),\quad x<x'\quad\Longrightarrow\quad y\le y'.
+\end{equation}
+则$\gamma=\gamma_{\rm mon}$. 特别地，满足\eqref{eq:2.2}的$\gamma$唯一.
+
+此外，若$\mu$无原子，则$\gamma=\gamma_{\mathrm T_{\rm mon}}$.
+\end{lemma}
+\begin{proof}
+对于陈述的第一部分，只需证明
+\[
+\gamma(({-\infty},a]\times({-\infty},b])=F_\mu(a)\wedge F_\nu(b).
+\]
+事实上，由\autoref{obj:2.2}，$\gamma_{\rm mon}$满足这一条件，而我们已经看到，这足以刻画$\mathbb R^2$上的一个测度.
+
+考虑集合$A=]{-\infty},a]\times]b,+\infty[$与$B=]a,+\infty[\times]{-\infty},b]$. 根据对$\gamma$的假设，不可能同时有$\gamma(A)>0$与$\gamma(B)>0$（否则$\operatorname{spt}(\gamma)$中会有违背条件\eqref{eq:2.2}的点）. 因而可以写成
+\[
+\begin{aligned}
+\gamma(({-\infty},a]\times({-\infty},b])
+={}&\gamma\bigl((({-\infty},a]\times({-\infty},b])\cup A\bigr)\\
+&\wedge\gamma\bigl((({-\infty},a]\times({-\infty},b])\cup B\bigr).
+\end{aligned}
+\]
+但有
+\[
+\gamma\bigl((({-\infty},a]\times({-\infty},b])\cup A\bigr)
+=\gamma(({-\infty},a]\times\mathbb R)=F_\mu(a)
+\]
+以及
+\[
+\gamma\bigl((({-\infty},a]\times({-\infty},b])\cup B\bigr)
+=\gamma(\mathbb R\times({-\infty},b])=F_\nu(b).
+\]
+这证明了断言的第一部分. 对于第二部分，假设$\mu$无原子. 对每个$x\in\mathbb R$，可定义$I_x$为满足
+$\operatorname{spt}(\gamma)\cap(\{x\}\times\mathbb R)\subset\{x\}\times I$的最小区间$I$. 该区间当然可能退化为单点. 对$\gamma$的假设意味着这些区间的内部两两不交（且有序）. 特别地，至多有可数多个点使$I_x$不是单点. 由于这些点为$\mu$-零测集（这是$\mu$无原子的推论），可以$\mu$-几乎处处定义映射$\mathrm T$，使$\gamma$集中于$\mathrm T$的图像. 由\eqref{eq:2.2}，这一映射单调不减；而具有给定边缘测度的单调不减映射唯一（\autoref{obj:2.5}），故$\mathrm T=\mathrm T_{\rm mon}$.
+\end{proof}

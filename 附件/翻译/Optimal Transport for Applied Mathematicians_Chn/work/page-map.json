@@ -1,0 +1,4120 @@
+[
+  {
+    "physical": 1,
+    "first": [
+      "Progress in Nonlinear Differential Equations",
+      "and Their Applications"
+    ],
+    "last": [
+      "Calculus of Variations, PDEs, and",
+      "Modeling"
+    ]
+  },
+  {
+    "physical": 2,
+    "first": [],
+    "last": []
+  },
+  {
+    "physical": 3,
+    "first": [
+      "Progress in Nonlinear Differential",
+      "Equations and Their Applications"
+    ],
+    "last": [
+      "John Toland, University of Bath, Bath, England",
+      "More information about this series at http://www.springer.com/series/4889"
+    ]
+  },
+  {
+    "physical": 4,
+    "first": [
+      "Filippo Santambrogio",
+      "Optimal Transport"
+    ],
+    "last": [
+      "for Applied Mathematicians",
+      "Calculus of Variations, PDEs, and Modeling"
+    ]
+  },
+  {
+    "physical": 5,
+    "first": [
+      "Filippo Santambrogio",
+      "Laboratoire de Mathématiques d’Orsay"
+    ],
+    "last": [
+      "Springer International Publishing AG Switzerland is part of Springer Science+Business Media (www.",
+      "springer.com)"
+    ]
+  },
+  {
+    "physical": 6,
+    "first": [
+      "To my sweet wife Anna,",
+      "who is furious for my book was conceived"
+    ],
+    "last": [
+      "after hers but is ready long before. . .",
+      "but she seems to love me anyway"
+    ]
+  },
+  {
+    "physical": 7,
+    "first": [],
+    "last": []
+  },
+  {
+    "physical": 8,
+    "first": [
+      "Preface",
+      "Why this book?"
+    ],
+    "last": [
+      "since 2003, the theory has enormously advanced. Also the books by ST Rachev",
+      "vii"
+    ]
+  },
+  {
+    "physical": 9,
+    "first": [
+      "viii                                                                                  Preface",
+      "and L Ruschednorf (two volumes, [257, 258]) should not be forgotten, as they"
+    ],
+    "last": [
+      "preparation and some of the bibliographical references of the present book are taken from such",
+      "an issue."
+    ]
+  },
+  {
+    "physical": 10,
+    "first": [
+      "Preface                                                                                        ix",
+      "What about this book?"
+    ],
+    "last": [
+      "The difference between the two is just that in the second case, I would rather consider it as a",
+      "Memo, but students usually do not agree."
+    ]
+  },
+  {
+    "physical": 11,
+    "first": [
+      "x                                                                                 Preface",
+      "that are introduced throughout the text are indeed measurable as desired, but I did"
+    ],
+    "last": [
+      "that the choice of a more concrete approach could help them in finding out what",
+      "kind of properties is important and reasonable. On the other hand, these readers are"
+    ]
+  },
+  {
+    "physical": 12,
+    "first": [
+      "Preface                                                                                xi",
+      "also expected to know some mathematical language, and for sure, they will need to"
+    ],
+    "last": [
+      "a secondary variational problem. Similar techniques are also needed for the other",
+      "limit case, i.e., p D 1, which is also detailed in the chapter. In the discussion"
+    ]
+  },
+  {
+    "physical": 13,
+    "first": [
+      "xii                                                                              Preface",
+      "section we present the main challenges and methods to tackle the general problem"
+    ],
+    "last": [
+      "and also other evolution equations where optimal transport plays a role, without",
+      "being gradient flows."
+    ]
+  },
+  {
+    "physical": 14,
+    "first": [
+      "Preface                                                                              xiii",
+      "Before the detailed bibliography and the index which conclude the book, there is"
+    ],
+    "last": [
+      "Orsay, France                                                    Filippo Santambrogio",
+      "May 2015"
+    ]
+  },
+  {
+    "physical": 15,
+    "first": [
+      "xiv                                                                                      Preface",
+      "Introduction to optimal transport"
+    ],
+    "last": [
+      "3",
+      "This happened in 1781, but we translate his problem into modern mathematical language."
+    ]
+  },
+  {
+    "physical": 16,
+    "first": [
+      "Preface                                                                                          xv",
+      "When we stay in the Euclidean setting, with two measures \u0002; \u0004 induced by"
+    ],
+    "last": [
+      "The reader can see [181] – in French, sorry – for more details on these historical questions about",
+      "the work by Monge and the content of the papers presented for this prize."
+    ]
+  },
+  {
+    "physical": 17,
+    "first": [
+      "xvi                                                                              Preface",
+      "are an alternative way to describing the displacement of the particles of \u0002: instead"
+    ],
+    "last": [
+      "has no atoms, one can define a monotone increasing transport, which is optimal for",
+      "any convex cost of the difference x \u0002 y."
+    ]
+  },
+  {
+    "physical": 18,
+    "first": [
+      "Preface                                                                             xvii",
+      "The strategy is clear, but there is a small drawback: the absolute continuity of the"
+    ],
+    "last": [
+      "steady state (see Section 5.3.5). Finally, other evolution models are connected either",
+      "to the minimization of some actions involving the kinetic energy, as it is standard"
+    ]
+  },
+  {
+    "physical": 19,
+    "first": [
+      "xviii                                                                           Preface",
+      "in physics (the speed of a curve of densities computed w.r.t. the W2 distance is"
+    ],
+    "last": [
+      "We will only try to give a taste of these topics as well as a rigorous analysis of",
+      "the mathematics which are behind them."
+    ]
+  },
+  {
+    "physical": 20,
+    "first": [
+      "Acknowledgments",
+      "Since the beginning of this project, in which my goal is to communicate some"
+    ],
+    "last": [
+      "in my studies in Pisa.",
+      "xix"
+    ]
+  },
+  {
+    "physical": 21,
+    "first": [
+      "xx                                                                   Acknowledgments",
+      "Julien Rabin, and Luca Nenna for their (hyper)active help with numerical figures"
+    ],
+    "last": [
+      "the support of CNRS, which allowed me to devote more time to the manuscript via",
+      "a délégation (a sort of sabbatical semester) in 2013/2014."
+    ]
+  },
+  {
+    "physical": 22,
+    "first": [
+      "Contents",
+      "Preface . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   vii"
+    ],
+    "last": [
+      "2.3 The Knothe transport . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                               67",
+      "xxi"
+    ]
+  },
+  {
+    "physical": 23,
+    "first": [
+      "xxii                                                                                                                                             Contents",
+      "2.4 Knothe as a limit of Brenier maps. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                                 72"
+    ],
+    "last": [
+      "5.4 Constant-speed geodesics in Wp . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                                 202",
+      "5.5 Discussion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     207"
+    ]
+  },
+  {
+    "physical": 24,
+    "first": [
+      "Contents                                                                                                                                                       xxiii",
+      "5.5.1          The W1 distance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                 207"
+    ],
+    "last": [
+      "References . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 339",
+      "Index . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 351"
+    ]
+  },
+  {
+    "physical": 25,
+    "first": [],
+    "last": []
+  },
+  {
+    "physical": 26,
+    "first": [
+      "Notation",
+      "The following are standard symbols used throughout the book without always"
+    ],
+    "last": [
+      "• f \u0007 \u0002: the measure with density f w.r.t. \u0002.",
+      "xxv"
+    ]
+  },
+  {
+    "physical": 27,
+    "first": [
+      "xxvi                                                                                Notation",
+      "• \u0002 A: the measure \u0002 restricted to a set A (i.e., 1A \u0007 \u0002)."
+    ],
+    "last": [
+      "• is usually a vector function (often a test function).",
+      "• Q is typically a measure on C ."
+    ]
+  },
+  {
+    "physical": 28,
+    "first": [
+      "Notation                                                                          xxvii",
+      "• \u0003 is typically a test function, while ' is a Kantorovich potential or similar."
+    ],
+    "last": [
+      "• Velocity fields are typically denoted by v, momentum fields by w (when they",
+      "are not time dependent) or E (when they could be time dependent)."
+    ]
+  },
+  {
+    "physical": 29,
+    "first": [
+      "Chapter 1",
+      "Primal and dual problems"
+    ],
+    "last": [
+      "Progress in Nonlinear Differential Equations and Their Applications 87,",
+      "DOI 10.1007/978-3-319-20828-2_1"
+    ]
+  },
+  {
+    "physical": 30,
+    "first": [
+      "2                                                                   1 Primal and dual problems",
+      "Problem 1.1. Given two probability measures \u0002 2 P.X/ and \u0004 2 P.Y/ and a"
+    ],
+    "last": [
+      "To clarify the notation, let us stress that we use (MP) to denote the name of the minimization",
+      "problem, as well as (KP), (BP), and many others later on. For its minimal value, we write min(MP)."
+    ]
+  },
+  {
+    "physical": 31,
+    "first": [
+      "1.1 Kantorovich and Monge problems                                                                    3",
+      "Remark 1.3. It can be easily checked that .id; T/# \u0002 (this transport plan will be"
+    ],
+    "last": [
+      "we have h n ; xi ! h ; xi.",
+      "(continued)"
+    ]
+  },
+  {
+    "physical": 32,
+    "first": [
+      "4                                                                            1 Primal and dual problems",
+      "Box 1.2. (continued)"
+    ],
+    "last": [
+      "of weak convergence in duality with Cb is also sometimes called narrow convergence. For",
+      "all details about measure theory, we refer, for instance, to [268]."
+    ]
+  },
+  {
+    "physical": 33,
+    "first": [
+      "1.1 Kantorovich and Monge problems                                                                     5",
+      "Box 1.4. Memo: Weak convergence of probability measures"
+    ],
+    "last": [
+      "f D c on the space X \u0005 Y.                                                       t",
+      "u"
+    ]
+  },
+  {
+    "physical": 34,
+    "first": [
+      "6                                                                        1 Primal and dual problems",
+      "Lemma 1.6. If f W X ! R [ fC1g is a lower semi-continuous function, bounded"
+    ],
+    "last": [
+      "Prokhorov theorem, since a single measure is always tight). Then the set KX \u0005 KY is",
+      "compact in X \u0005 Y and, for any \u0005n 2 ˘.\u0002; \u0004/, we have"
+    ]
+  },
+  {
+    "physical": 35,
+    "first": [
+      "1.1 Kantorovich and Monge problems                                                          7",
+      "\u0005n ..X \u0005 Y/ n .KX \u0005 KY // \b \u0005n ..X n KX / \u0005 Y/ C \u0005n .X \u0005 .Y n KY //"
+    ],
+    "last": [
+      "XQ \u0005 YQ 3 .Qx; yQ / 7! f .Qx/ C g.Qy/ \u0002 c.Qx; yQ /, upper semi-continuity is proven as well. u",
+      "t"
+    ]
+  },
+  {
+    "physical": 36,
+    "first": [
+      "8                                                                        1 Primal and dual problems",
+      "Box 1.6. Memo: Lusin’s theorem"
+    ],
+    "last": [
+      "some cases, proving that the optimal transport plan comes from a transport map (or",
+      "proving that there exists at least one optimal plan coming from a map) is equivalent"
+    ]
+  },
+  {
+    "physical": 37,
+    "first": [
+      "1.2 Duality                                                                                         9",
+      "to proving that (MP) has a solution, since very often the infimum among transport"
+    ],
+    "last": [
+      "2",
+      "We will give a proof in this spirit in Section 1.6.3."
+    ]
+  },
+  {
+    "physical": 38,
+    "first": [
+      "10                                                                         1 Primal and dual problems",
+      "If we come back to the maximization over .'; /, one can rewrite the inf in \u0005 as"
+    ],
+    "last": [
+      ".y/ D inf c.x; y/ \u0002 .x/:",
+      "x2X"
+    ]
+  },
+  {
+    "physical": 39,
+    "first": [
+      "1.2 Duality                                                                                            11",
+      "We also define the cN -transform of           W Y ! R by"
+    ],
+    "last": [
+      "(DP), one can always replace it with .'; ' c / and then with .' cNc ; ' c /, and the",
+      "constraints are preserved and the integrals increased. Actually one could go on,"
+    ]
+  },
+  {
+    "physical": 40,
+    "first": [
+      "12                                                                        1 Primal and dual problems",
+      "but we will see that ' cNcc D ' c for any ' (see Section 1.6). The goal of these"
+    ],
+    "last": [
+      "min .KP/ D max          ' d\u0002 C ' c d\u0004;",
+      "'2c\u0002conc.X/   X                 Y"
+    ]
+  },
+  {
+    "physical": 41,
+    "first": [
+      "1.3 Strictly convex and quadratic costs                                                                  13",
+      "which also shows that the minimum value of (KP) is a convex function of .\u0002; \u0004/, as"
+    ],
+    "last": [
+      "3",
+      "The general results of this section are essentially due to [176], as a generalization of [82, 84]."
+    ]
+  },
+  {
+    "physical": 42,
+    "first": [
+      "14                                                             1 Primal and dual problems",
+      "Definition 1.14. On a separable metric space X, the support of a measure \u0005 is"
+    ],
+    "last": [
+      "For this choice of c, if ' and h are differentiable at x0 and x0 \u0002 y0 , respectively,",
+      "and x0 … @˝, one gets r'.x0 / D rh.x0 \u0002 y0 /. This works if the function h"
+    ]
+  },
+  {
+    "physical": 43,
+    "first": [
+      "1.3 Strictly convex and quadratic costs                                                    15",
+      "is differentiable; if it is not, we shall write r'.x0 / 2 @h.x0 \u0002 y0 / (using the"
+    ],
+    "last": [
+      "boundary and the non-differentiability points of ') are \u0002-negligible as well. This",
+      "shows at the same time that every optimal transport plan is induced by a transport"
+    ]
+  },
+  {
+    "physical": 44,
+    "first": [
+      "16                                                           1 Primal and dual problems",
+      "map and that this transport map is x 7! x \u0002 .rh/\u00021 .r'.x//. Hence, it is uniquely"
+    ],
+    "last": [
+      "to the quadratic case c.x; y/ D 12 jx \u0002 yj2 , thus getting the existence of an optimal",
+      "transport map"
+    ]
+  },
+  {
+    "physical": 45,
+    "first": [
+      "1.3 Strictly convex and quadratic costs                                                       17",
+      "\u0006 2       \u0007"
+    ],
+    "last": [
+      "co-dimension 1” characterizes the class of measures \u0002 such that the optimal transport plans (for",
+      "the quadratic cost) from \u0002 are unique and induced by maps for every target measure \u0004."
+    ]
+  },
+  {
+    "physical": 46,
+    "first": [
+      "18                                                            1 Primal and dual problems",
+      "\u0002ˆ              ˆ                                              \u0003"
+    ],
+    "last": [
+      "It is useful and interesting to see what happens if we replace measures on Rd with",
+      "measures on the flat torus Td D Rd =Zd and the cost 12 jx \u0002 yj2 with the squared"
+    ]
+  },
+  {
+    "physical": 47,
+    "first": [
+      "1.3 Strictly convex and quadratic costs                                                        19",
+      "distance on the torus, i.e., c.x; y/ D 12 jŒx \u0002 y\bj2 , where"
+    ],
+    "last": [
+      "jx \u0002 y0 \u0002 k0 j2 \u0002 '.x/ \u0003         .y0 /;     jx0 \u0002 y0 \u0002 k0 j2 \u0002 '.x0 / D    .y0 /:",
+      "2                                           2"
+    ]
+  },
+  {
+    "physical": 48,
+    "first": [
+      "20                                                            1 Primal and dual problems",
+      "This means that the function x 7! 12 jx \u0002 y0 \u0002 k0 j2 \u0002 '.x/ is minimal at x D x0 ."
+    ],
+    "last": [
+      "atomic measures. In particular, the situation is very easy when \u0002 D ıa . In this case,",
+      "the set ˘.\u0002; \u0004/ contains a unique element, which is \u0005 D \u0002 ˝ \u0004 D ıa ˝ \u0004."
+    ]
+  },
+  {
+    "physical": 49,
+    "first": [
+      "1.5 Kantorovich as a relaxation of Monge                                             21",
+      "Transport can exist, but no optimal one"
+    ],
+    "last": [
+      "Let us set ´again K.\u0005 / WD ˝\u0003˝´ c d\u0005 . Since we know that for any map T, we have",
+      "M.T/ D ˝ c.x; T.x// d\u0002 D ˝\u0003˝ c d\u0005T D K.\u0005T /, the Monge problem may be"
+    ]
+  },
+  {
+    "physical": 50,
+    "first": [
+      "22                                                                    1 Primal and dual problems",
+      "rewritten as"
+    ],
+    "last": [
+      "We need some preliminary results. The first concerns the one-dimensional case,",
+      "we will analyze in detail in Chapter 2, but can be stated right now."
+    ]
+  },
+  {
+    "physical": 51,
+    "first": [
+      "1.5 Kantorovich as a relaxation of Monge                                                        23",
+      "Lemma 1.27. If \u0002; \u0004 are two probability measures on the real line R and \u0002 is"
+    ],
+    "last": [
+      "which allows us to use costs of this form: the composition of a continuous function with measurable",
+      "maps of x and y separately."
+    ]
+  },
+  {
+    "physical": 52,
+    "first": [
+      "24                                                                     1 Primal and dual problems",
+      "A last lemma:"
+    ],
+    "last": [
+      "unique transport map for every column is enough. The same idea has been used in [146] for a",
+      "different density result, concerning Lipschitz transport maps."
+    ]
+  },
+  {
+    "physical": 53,
+    "first": [
+      "1.6 c-concavity, duality and optimality                                                              25",
+      "The relaxation result is just a consequence."
+    ],
+    "last": [
+      "to be the family of all affine functions smaller than f .",
+      "(continued)"
+    ]
+  },
+  {
+    "physical": 54,
+    "first": [
+      "26                                                                       1 Primal and dual problems",
+      "Box 1.11. (continued)"
+    ],
+    "last": [
+      "like the convex function which is identically C1 nor any c-concave function which",
+      "is identically \u00021."
+    ]
+  },
+  {
+    "physical": 55,
+    "first": [
+      "1.6 c-concavity, duality and optimality                                                           27",
+      "Instead of proving the result on f                   D f , we may prove this more general one"
+    ],
+    "last": [
+      "convexity inequality. This is why the corresponding theorem for convex functions usually requires",
+      "the use of the Hahn-Banach theorem."
+    ]
+  },
+  {
+    "physical": 56,
+    "first": [
+      "28                                                                         1 Primal and dual problems",
+      "Yet, not all monotone graphs are the graphs of the subdifferential of a convex"
+    ],
+    "last": [
+      "Yet, the map x 7! Rx is not the gradient of convex functions (it is not a gradient at all), nor can it",
+      "be contained in the graph of the subdifferential of a convex function."
+    ]
+  },
+  {
+    "physical": 57,
+    "first": [
+      "1.6 c-concavity, duality and optimality                                                           29",
+      "X"
+    ],
+    "last": [
+      "straightforward, as it is also continuous, but this is based on the assumption that c is uniformly",
+      "continuous. Measurability and integrability in the general case are trickier."
+    ]
+  },
+  {
+    "physical": 58,
+    "first": [
+      "30                                                                             1 Primal and dual problems",
+      "X"
+    ],
+    "last": [
+      "\u0005Q WD \u0005 \u0002 \"0           \u0005i C \"0            \u0005Qi :",
+      "iD1                iD1"
+    ]
+  },
+  {
+    "physical": 59,
+    "first": [
+      "1.6 c-concavity, duality and optimality                                                              31",
+      "We want to find a contradiction by proving that  ´ \u0005Q is a´ better competitor than \u0005 in"
+    ],
+    "last": [
+      "one could first prove duality (see Section 1.6.3) and then prove cyclical monotonicity through",
+      "arguments as in Theorem 1.42."
+    ]
+  },
+  {
+    "physical": 60,
+    "first": [
+      "32                                                                       1 Primal and dual problems",
+      "From their c- (and cN -)concavity, ' and ' c are continuous. Moreover, from"
+    ],
+    "last": [
+      "L1 .\u0002/, from the assumption on \u0002. The same can be said on , i.e., C 2 L1 .\u0004/. We",
+      "can now integrate ' ˚ w.r.t. \u0005 , thus obtaining"
+    ]
+  },
+  {
+    "physical": 61,
+    "first": [
+      "1.6 c-concavity, duality and optimality                                                                 33",
+      "ˆ              ˆ                 ˆ                              ˆ"
+    ],
+    "last": [
+      "lim inf        cj d\u0005k \u0003         cj d\u0005 :",
+      "k"
+    ]
+  },
+  {
+    "physical": 62,
+    "first": [
+      "34                                                                   1 Primal and dual problems",
+      "Hence, we have obtained"
+    ],
+    "last": [
+      "since the value of c d\u0005 is the minimum of the primal problem, which is also the",
+      "maximum of the dual. Moreover, we have c.x; y/\u0002'h .x/C h .y/ \u0003 0, which implies"
+    ]
+  },
+  {
+    "physical": 63,
+    "first": [
+      "1.6 c-concavity, duality and optimality                                                               35",
+      "that the functions fh WD c.x; y/ \u0002 'h .x/ \u0002 h .y/, defined on X \u0005 Y, converge to 0 in"
+    ],
+    "last": [
+      "Chapter 1, applied to well-chosen functions and space. The present proof, suggested by C. Jimenez,",
+      "is essentially adapted from Section 4 in [70]."
+    ]
+  },
+  {
+    "physical": 64,
+    "first": [
+      "36                                                                                      1 Primal and dual problems",
+      "\u0002ˆ                ˆ                                                          \u0003"
+    ],
+    "last": [
+      "H .\u0005 / D sup               c.x; y/ d\u0005 C          ' d\u0002 \u0002                     '.x/ d\u0005 C             d\u0004 \u0002         .x/ d\u0005:",
+      "';     X\u0003Y                         X                        X\u0003Y                Y               X\u0003Y"
+    ]
+  },
+  {
+    "physical": 65,
+    "first": [
+      "1.6 c-concavity, duality and optimality                                                 37",
+      "But this is exactly the expression that we introduced in Section 1.2 (see Equa-"
+    ],
+    "last": [
+      "By assumption, y 7! rx c.x0 ; y/ is injective: this implies y0 D T.x0 /. This proves",
+      "'.x0 / C .T.x0 // D c.x0 ; T.x0 //, and this same equality is true for \u0002-a.e. x0 . If we"
+    ]
+  },
+  {
+    "physical": 66,
+    "first": [
+      "38                                                                          1 Primal and dual problems",
+      "integrate with respect to \u0002, we get"
+    ],
+    "last": [
+      "a c-CM set is optimal, at least in the most reasonable cases. We will prove this fact",
+      "in the easiest case, i.e., when c is uniformly continuous and bounded. Actually, we"
+    ]
+  },
+  {
+    "physical": 67,
+    "first": [
+      "1.6 c-concavity, duality and optimality                                                                  39",
+      "will see in the next proof that the main ingredient is Theorem (1.37), which only"
+    ],
+    "last": [
+      "c.xi ; yi / \b         c.xi ; y\u000e.i/ /:",
+      "iD1                   iD1"
+    ]
+  },
+  {
+    "physical": 68,
+    "first": [
+      "40                                                                      1 Primal and dual problems",
+      "This proves that \u000f is c-CM. Moreover, we know from the convergence \u0005n * \u0005"
+    ],
+    "last": [
+      "´    and weak converge of measures, we get d.x; An / d\u0002n ! d.x; A/ d\u0002. This",
+      "implies d.x; A/ d\u0002 D 0, and hence \u0002 is concentrated on A."
+    ]
+  },
+  {
+    "physical": 69,
+    "first": [
+      "1.7 Discussion                                                                     41",
+      "Let us also conclude with a result on the stability of the Kantorovich potentials."
+    ],
+    "last": [
+      "the optimization problem",
+      "minfEŒc.X; Y/\b W X      \u0002; Y     \u0004g"
+    ]
+  },
+  {
+    "physical": 70,
+    "first": [
+      "42                                                            1 Primal and dual problems",
+      "where E denotes the expected value (according to a probability P on a probability"
+    ],
+    "last": [
+      "where A W R stands for the scalar product between matrices, defined as A W R WD",
+      "Tr.A \u0007 Rt /."
+    ]
+  },
+  {
+    "physical": 71,
+    "first": [
+      "1.7 Discussion                                                                                      43",
+      "Indeed, one can write"
+    ],
+    "last": [
+      "L˝ ; hence s is measure preserving. Then, take the Legendre transform u of u and",
+      "note .ru/ ı s D .ru/ ı .ru / ı D (indeed, the gradients of both u and u"
+    ]
+  },
+  {
+    "physical": 72,
+    "first": [
+      "44                                                                          1 Primal and dual problems",
+      "are defined a.e. and we always have .ru/ ı .ru / D id). In this way, we have the"
+    ],
+    "last": [
+      "For a comprehensive introduction to some applications of otpimal transport to economics, see",
+      "also [228]."
+    ]
+  },
+  {
+    "physical": 73,
+    "first": [
+      "1.7 Discussion                                                                          45",
+      "\u0002ˆ                           \u0003"
+    ],
+    "last": [
+      "This means that we are led to the following problem:",
+      "find .\u0005; '/ such that \u0005 2 ˘.\u0002; \u0004/ and '.x/ C ' u .y/ D u.x; y/ \u0005 \u0002 a:e:;"
+    ]
+  },
+  {
+    "physical": 74,
+    "first": [
+      "46                                                           1 Primal and dual problems",
+      "and we can see again an optimal transport problem for the maximization of"
+    ],
+    "last": [
+      "chooses the price list ', that every consumer y selects its optimal good X.y/ 2",
+      "argminx u.x; y/ \u0002 '.x/, and that the total income (supposing zero production costs)"
+    ]
+  },
+  {
+    "physical": 75,
+    "first": [
+      "1.7 Discussion                                                                      47",
+      "´                   ´"
+    ],
+    "last": [
+      "of convex functions,",
+      "should maximize       d.r /# \u0004 D . .r .y// \u0002 c.r .y/// d\u0004, but we know"
+    ]
+  },
+  {
+    "physical": 76,
+    "first": [
+      "48                                                                       1 Primal and dual problems",
+      ".r .y// C            .y/ D y \u0007 r .y/, which turns the problem into"
+    ],
+    "last": [
+      "measure on X2 \u0005\u0007 \u0007 \u0007\u0005XN is not really prescribed, but only its marginals on X2 ; : : : ; XN",
+      "are fixed. This means that extra optimality properties should be taken into account."
+    ]
+  },
+  {
+    "physical": 77,
+    "first": [
+      "1.7 Discussion                                                                                                      49",
+      "This kind of problems may have several different interpretations. For a compre-"
+    ],
+    "last": [
+      "˝N                     ˝N                                                   ˝N   i<j",
+      "jxi \u0002 xj j"
+    ]
+  },
+  {
+    "physical": 78,
+    "first": [
+      "50                                                                              1 Primal and dual problems",
+      "where the first term represents the kinetic energy, the second the potential energy"
+    ],
+    "last": [
+      "iD1                                                    iD1",
+      "\u0010"
+    ]
+  },
+  {
+    "physical": 79,
+    "first": [
+      "1.7 Discussion                                                                         51",
+      "which are, respectively, the total length of a discrete path or the total kinetic energy"
+    ],
+    "last": [
+      "14",
+      "The absence of arbitrage is usually referred to as “no free lunch.”"
+    ]
+  },
+  {
+    "physical": 80,
+    "first": [
+      "52                                                                    1 Primal and dual problems",
+      "a European Call option should be EQ Œ.ST \u0002 K/C \b. Note that the knowledge of this"
+    ],
+    "last": [
+      "We could have presented this problem in Section 1.7.4, but we preferred to do it here in order to",
+      "introduce the martingale setting."
+    ]
+  },
+  {
+    "physical": 81,
+    "first": [
+      "1.7 Discussion                                                                                                        53",
+      "ˆ                                         ˆ"
+    ],
+    "last": [
+      "condition (1.7), that this problem is exactly the dual of the above martingale",
+      "transport problem."
+    ]
+  },
+  {
+    "physical": 82,
+    "first": [
+      "54                                                                      1 Primal and dual problems",
+      "1.7.6 Monge-Ampère equations and regularity"
+    ],
+    "last": [
+      "hand side with the term g.ru/ but also from the higher-order term det.D2 u/. This",
+      "Jacobian term is nonlinear but has some monotonicity property when we assume the"
+    ]
+  },
+  {
+    "physical": 83,
+    "first": [
+      "1.7 Discussion                                                                         55",
+      "matrix D2 u to be positive (which is the case for convex functions), as we have 0 \b"
+    ],
+    "last": [
+      "have a classical convex solution to Monge-Ampère equation, this will be a Brenier",
+      "solution too. Since this is unique (up to additive constants), we have got a regularity"
+    ]
+  },
+  {
+    "physical": 84,
+    "first": [
+      "56                                                             1 Primal and dual problems",
+      "statement for Brenier solutions. We can find results on viscosity solutions in [98,"
+    ],
+    "last": [
+      "by Loeper in [216]. In particular, the case c.x; y/ D jx \u0002 yj2 is covered by this",
+      "assumption but is a limit case, and no other power cost jx \u0002 yjp for p 2\b1; C1Œ"
+    ]
+  },
+  {
+    "physical": 85,
+    "first": [
+      "1.7 Discussion                                                                      57",
+      "p"
+    ],
+    "last": [
+      "and the condition translates into a curvature condition on the manifold. We refer to",
+      "[164] for an interesting survey of the whole theory."
+    ]
+  },
+  {
+    "physical": 86,
+    "first": [
+      "Chapter 2",
+      "One-dimensional issues"
+    ],
+    "last": [
+      "Progress in Nonlinear Differential Equations and Their Applications 87,",
+      "DOI 10.1007/978-3-319-20828-2_2"
+    ]
+  },
+  {
+    "physical": 87,
+    "first": [
+      "60                                                                           2 One-dimensional issues",
+      "Box 2.1. Memo: Cumulative distribution function"
+    ],
+    "last": [
+      "Moreover, given \u0002; \u0004 2 P.R/, if we set \u0011 WD .F\u0002 ; F\u0004 /# .L 1 Œ0; 1\b/, then",
+      "\u0011 2 ˘.\u0002; \u0004/ and \u0011..\u00021; a\b \u0005 .\u00021; b\b/ D F\u0002 .a/ ^ F\u0004 .b/."
+    ]
+  },
+  {
+    "physical": 88,
+    "first": [
+      "2.1 Monotone transport maps and plans in 1D                                           61",
+      "Proof. For the first part of the statement, using (2.1), we write"
+    ],
+    "last": [
+      ".Tmon /# \u0002 D \u0004. Since we already know .F\u0004 /# .L 1 Œ0; 1\b/ D \u0004, by composition",
+      "we just need to use Lemma 2.4, which proves .F\u0002 /# \u0002 D L 1 Œ0; 1\b."
+    ]
+  },
+  {
+    "physical": 89,
+    "first": [
+      "62                                                              2 One-dimensional issues",
+      "We now pass to the proof of uniqueness. Consider any nondecreasing function"
+    ],
+    "last": [
+      "Proof. For the first part of the statement, we just need to prove",
+      "\u0005..\u00021; a\b \u0005 .\u00021; b\b/ D F\u0002 .a/ ^ F\u0004 .b/:"
+    ]
+  },
+  {
+    "physical": 90,
+    "first": [
+      "2.2 The optimality of the monotone map                                             63",
+      "Indeed, from Proposition 2.2, this condition is satisfied by \u0005mon , and we saw that"
+    ],
+    "last": [
+      "has a finite value. Then, (KP) has a unique solution, which is given by \u0005mon . In the",
+      "case where \u0002 is atomless, this optimal plan is induced by the map Tmon ."
+    ]
+  },
+  {
+    "physical": 91,
+    "first": [
+      "64                                                            2 One-dimensional issues",
+      "Moreover, if the strict convexity assumption is withdrawn and h is only convex,"
+    ],
+    "last": [
+      "it is bounded from below by an affine function, and we have h.t/ \u0003 .at C b/C (we",
+      "take the positive part since we also know h \u0003 0). It can be checked that"
+    ]
+  },
+  {
+    "physical": 92,
+    "first": [
+      "2.2 The optimality of the monotone map                                                      65",
+      "1p               1"
+    ],
+    "last": [
+      "T.x/ D",
+      "x        if x > 1"
+    ]
+  },
+  {
+    "physical": 93,
+    "first": [
+      "66                                                                       2 One-dimensional issues",
+      "T"
+    ],
+    "last": [
+      "\b",
+      "C L 2 f.x; t/ 2 Œ0; 1\b \u0005 R W F\u0004Œ\u00021\b .x/ \b t < F\u0002Œ\u00021\b .x/g :"
+    ]
+  },
+  {
+    "physical": 94,
+    "first": [
+      "2.3 The Knothe transport                                                                              67",
+      "Then, by Fubini’s theorem, we have"
+    ],
+    "last": [
+      "F\u0002 j corresponds to seeing “horizontally” the graph on the left, while if seen “vertically,” we get",
+      "the integral of jF\u0002 \u0002 F\u0004 j"
+    ]
+  },
+  {
+    "physical": 95,
+    "first": [
+      "68                                                                                     2 One-dimensional issues",
+      "by Rosenblatt [264] for statistical purposes and by Knothe [203] for applications to"
+    ],
+    "last": [
+      "on the absence of atoms. Anyway, for the sake of simplicity, we will give most of",
+      "the results in the case of absolutely continuous measures."
+    ]
+  },
+  {
+    "physical": 96,
+    "first": [
+      "2.3 The Knothe transport                                                                                             69",
+      "Box 2.2. Important notion: Disintegrations of measures"
+    ],
+    "last": [
+      "gkO kC1               .",
+      "T      .xkC1 ;:::;xd /"
+    ]
+  },
+  {
+    "physical": 97,
+    "first": [
+      "70                                                                                    2 One-dimensional issues",
+      "Finally, the Knothe-Rosenblatt rearrangement T is defined by T D TO 1 ."
+    ],
+    "last": [
+      "and proves the claim.                                                                                                    u",
+      "t"
+    ]
+  },
+  {
+    "physical": 98,
+    "first": [
+      "2.3 The Knothe transport                                                                                71",
+      "Box 2.3. Memo: Stone-Weierstrass’s Theorem"
+    ],
+    "last": [
+      "transport map sending .\u0006d /# \u0002 onto .\u0006d /# \u0004. We need to suppose that .\u0006d /# \u0002 has no",
+      "atoms. Then, for each k we consider .\u0006k;d /# \u0002 and we disintegrate it with respect"
+    ]
+  },
+  {
+    "physical": 99,
+    "first": [
+      "72                                                                          2 One-dimensional issues",
+      "to .\u0006kC1;d /# \u0002, and we do the same for .\u0006k;d /# \u0004 with .\u0006kC1;d /# \u0004. We obtain some"
+    ],
+    "last": [
+      "T\" D p            p                                              pb",
+      "a\"2 C c C 2\" ac \u0002 b2                         b\"       c C \" ac \u0002 b2"
+    ]
+  },
+  {
+    "physical": 100,
+    "first": [
+      "2.4 Knothe as a limit of Brenier maps                                                     73",
+      "\u0006p                               p \u0007"
+    ],
+    "last": [
+      "x;y",
+      ".\u0006d /# \u0005K as far as the 1D quadratic cost is concerned. Consequently, we have"
+    ]
+  },
+  {
+    "physical": 101,
+    "first": [
+      "74                                                                                            2 One-dimensional issues",
+      "ˆ                                                       X"
+    ],
+    "last": [
+      "(and to prove an analogous equality for functions of yd\u00021 ). Since we want to prove it",
+      "for a.e. pair .xd ; yd /, it is sufficient to prove this equality:"
+    ]
+  },
+  {
+    "physical": 102,
+    "first": [
+      "2.4 Knothe as a limit of Brenier maps                                                         75",
+      "ˆ                                 ˆ"
+    ],
+    "last": [
+      "of the proof, we know that \u0011\";k converges to .\u0006xC ;yC /# \u0005K (since we suppose the",
+      "result to be true in dimension N)."
+    ]
+  },
+  {
+    "physical": 103,
+    "first": [
+      "76                                                                                               2 One-dimensional issues",
+      "We need to specify how to build the measure \u0005K\" (which is likely not to be"
+    ],
+    "last": [
+      "the marginals of the disintegrations coincide are sufficient to prove equality of the",
+      "measures. Here we will use test functions of the form"
+    ]
+  },
+  {
+    "physical": 104,
+    "first": [
+      "2.4 Knothe as a limit of Brenier maps                                                77",
+      ".xh ; xkC1 ; : : : ; xd ; yh ; ykC1 ; : : : ; yd /'.xk\u00021 /"
+    ],
+    "last": [
+      "a weak limit in L2 .X; \u0002/ up to subsequences. Let us call S this limit. To prove S D T,",
+      "take a continuous function 2 C.XI Rd / and consider the limit of"
+    ]
+  },
+  {
+    "physical": 105,
+    "first": [
+      "78                                                                              2 One-dimensional issues",
+      "ˆ                              ˆ                                           ˆ"
+    ],
+    "last": [
+      "in this example the optimal transportation maps fail to tend to the Knothe-Rosenblatt",
+      "map. The reason is the atom in the measure \u0004 2 D ı0 (Figure 2.3)."
+    ]
+  },
+  {
+    "physical": 106,
+    "first": [
+      "2.5 Discussion                                                                      79",
+      "m                                    ν"
+    ],
+    "last": [
+      "in the sense that we do not waste information by concentrating too much around a",
+      "same grey level."
+    ]
+  },
+  {
+    "physical": 107,
+    "first": [
+      "80                                                             2 One-dimensional issues",
+      "In all these cases, we want to perform a transformation which does not act pixel"
+    ],
+    "last": [
+      "connection with optimal transport, we refer to [163] and [255] and the references",
+      "therein (in particular some older papers such as [242, 259])."
+    ]
+  },
+  {
+    "physical": 108,
+    "first": [
+      "2.5 Discussion                                                                                  81",
+      "Fig. 2.4 First column: the images of a souq arcade and of a narrow Western street with tags on the"
+    ],
+    "last": [
+      "the jth coordinate of the selected basis; the map Tn is defined, in the corresponding",
+      "basis, as Tn .x/ D .T1n .x1 /; : : : ; Tdn .xd //."
+    ]
+  },
+  {
+    "physical": 109,
+    "first": [
+      "82                                                                      2 One-dimensional issues",
+      "There are two ideas behind this choice: first, all the maps Tn are easy to compute,"
+    ],
+    "last": [
+      "to \u0004. But if one fixes a small time step \u0010 > 0 and uses a displacement \u0010 S getting",
+      "a measure \u00021 D .id C \u0010 S/# \u0002, then it is possible to iterate the construction, as it is"
+    ]
+  },
+  {
+    "physical": 110,
+    "first": [
+      "2.5 Discussion                                                                                   83",
+      "Fig. 2.5 Optimal transport between a finite number of points on an annulus and on a duck."
+    ],
+    "last": [
+      "Gromov (see the appendix in [236]), while the original goal of Knothe in [203] was",
+      "to establish other inequalities concerning convex sets."
+    ]
+  },
+  {
+    "physical": 111,
+    "first": [
+      "84                                                            2 One-dimensional issues",
+      "The isoperimetric inequality states that every set E has a larger perimeter than"
+    ],
+    "last": [
+      "if a set E has the same volume of the unit ball, and is such that Per.E/ D d!d , then",
+      "it is a unit ball, up to negligible sets)."
+    ]
+  },
+  {
+    "physical": 112,
+    "first": [
+      "2.5 Discussion                                                                       85",
+      "The use of the Brenier map strongly simplifies the study of the equality"
+    ],
+    "last": [
+      "set, unit ball of another norm) was only proven with the optimal exponent via",
+      "optimal transport techniques (see [167] and [276] for a short review)."
+    ]
+  },
+  {
+    "physical": 113,
+    "first": [
+      "Chapter 3",
+      "L1 and L1 theory"
+    ],
+    "last": [
+      "Progress in Nonlinear Differential Equations and Their Applications 87,",
+      "DOI 10.1007/978-3-319-20828-2_3"
+    ]
+  },
+  {
+    "physical": 114,
+    "first": [
+      "88                                                                    3 L1 and L1 theory",
+      "3.1.1 Duality for distance costs"
+    ],
+    "last": [
+      "Corollary 3.2. If c W X \u0005 X ! R is a distance, given \u0002; \u0004; % 2 P.X/, we have",
+      "Tc .\u0002; \u0004/ \b Tc .\u0002; %/ C Tc .%; \u0004/:"
+    ]
+  },
+  {
+    "physical": 115,
+    "first": [
+      "3.1 The Monge case, with cost jx \u0002 yj                                                   89",
+      "Proof. Take an arbitrary function u 2 Lip1 and write"
+    ],
+    "last": [
+      "we have",
+      "\u0005 2 O.\u0002; \u0004/ , spt.\u0005 / \u0004 f.x; y/ W u.x/ \u0002 u.y/ D jx \u0002 yjg:                   (3.2)"
+    ]
+  },
+  {
+    "physical": 116,
+    "first": [
+      "90                                                                     3 L1 and L1 theory",
+      "´                       ´"
+    ],
+    "last": [
+      "every family .x1 ; y1 /; : : : ; .xk ; yk /; here we will only need to use the condition for",
+      "k D 2, which gives the following result."
+    ]
+  },
+  {
+    "physical": 117,
+    "first": [
+      "3.1 The Monge case, with cost jx \u0002 yj                                                          91",
+      "Lemma 3.4. Suppose that \u000f \u0004 ˝ \u0005 ˝ is c-CM for the cost c defined in (3.3). Then"
+    ],
+    "last": [
+      "q",
+      "u.z0 C th/ \u0002 u.z0 \u0002 t0 e/ D u.z0 C th/ \u0002 u.z0 / C u.z0 / \u0002 u.z0 \u0002 t0 e/ D ı C t0 \b        t2 C t02"
+    ]
+  },
+  {
+    "physical": 118,
+    "first": [
+      "92                                                                      3 L1 and L1 theory",
+      "as well as"
+    ],
+    "last": [
+      "h           e",
+      "•z"
+    ]
+  },
+  {
+    "physical": 119,
+    "first": [
+      "3.1 The Monge case, with cost jx \u0002 yj                                                  93",
+      "Corollary 3.8. Two different transport rays can only meet at a point z which is a"
+    ],
+    "last": [
+      "and that .x1 ; y1 /; .x2 ; y2 / 2 \u000f . Define an order relation on such a transport ray",
+      "through x \b x0 , u.x/ \u0003 u.x0 /. Then if x1 < x2 , we also have y1 \b y2 ."
+    ]
+  },
+  {
+    "physical": 120,
+    "first": [
+      "94                                                                         3 L1 and L1 theory",
+      "Proof. We already know that x1 \b y1 and x2 \b y2 (thanks to \u000f \u0004 A). Hence,"
+    ],
+    "last": [
+      "It is clear that \u0005 is induced by a transport map if \u0002. s Ns / D 0, i.e., if we can get",
+      "rid of a countable number of points on every transport ray."
+    ]
+  },
+  {
+    "physical": 121,
+    "first": [
+      "3.1 The Monge case, with cost jx \u0002 yj                                                          95",
+      "This could also be expressed in terms of disintegration of measures (if \u0002 is"
+    ],
+    "last": [
+      "onto \u0004s (and hence it inherits some measurability properties of the dependence of \u0002s and \u0004s w.r.t.",
+      "s, which are guaranteed by abstract disintegration theorems)."
+    ]
+  },
+  {
+    "physical": 122,
+    "first": [
+      "96                                                                       3 L1 and L1 theory",
+      "B\u0002 = f −1(B) ⊂ A                                                     B"
+    ],
+    "last": [
+      "convex and -concave if x 7! f .x/ C 2 jxj2 is concave. Note that the number is not",
+      "required to be positive, so that -convex functions for > 0 are strictly convex, and,"
+    ]
+  },
+  {
+    "physical": 123,
+    "first": [
+      "3.1 The Monge case, with cost jx \u0002 yj                                                                  97",
+      "for < 0, they just have second derivatives (where they exist) which are bounded"
+    ],
+    "last": [
+      "The previous theorem allows us to replace the function u with the functions uh ,",
+      "which are more regular (since they are -concave, they share the same regularity of"
+    ]
+  },
+  {
+    "physical": 124,
+    "first": [
+      "98                                                                                3 L1 and L1 theory",
+      "convex functions). Unfortunately, this is not enough yet, since convex functions in"
+    ],
+    "last": [
+      "Proposition 3.17. If u is a Kantorovich potential, then ru W Trans.u/ ! Rd is",
+      "countably Lipschitz."
+    ]
+  },
+  {
+    "physical": 125,
+    "first": [
+      "3.1 The Monge case, with cost jx \u0002 yj                                                   99",
+      "Proof. It is clear that the countably Lipschitz regularity of Theorem 3.16 is also true"
+    ],
+    "last": [
+      "continuous, as it gives positive mass to a graph, which is L 2 -negligible. The goal is",
+      "now to prove that no optimal transport map exists from \u0002 to \u0004 (Figure 3.3)."
+    ]
+  },
+  {
+    "physical": 126,
+    "first": [
+      "100                                                                          3 L1 and L1 theory",
+      "Fig. 3.3 The measure \u0002                                                     x2"
+    ],
+    "last": [
+      "different goal. The regularity degree is slightly different, and we decided to handle by hands",
+      "“vertical” Lipschitz curves in order to make a self-contained presentation."
+    ]
+  },
+  {
+    "physical": 127,
+    "first": [
+      "3.1 The Monge case, with cost jx \u0002 yj                                                 101",
+      "function on a 1-dimensional set. We can even say that ft 2 Œ0; 1\b W B.t/ D f .t/g has"
+    ],
+    "last": [
+      ".P\" / D min Tc ..\u0006y /# \u0005; \u0004/ C \"K1 .\u0005 / C \"2 K2 .\u0005 / C \"3dC3 #..\u0006y /# \u0005 / W",
+      "\u0005 2 P.˝ \u0005 ˝/; .\u0006x /# \u0005 D \u0002g ;"
+    ]
+  },
+  {
+    "physical": 128,
+    "first": [
+      "102                                                                      3 L1 and L1 theory",
+      "where Tc ´is the minimum value of the transport problem for the cost c.x; y/ D jx\u0002yj,"
+    ],
+    "last": [
+      "to a certain optimal plan \u0005Q from \u0002 to \u0004 (i.e., K1 .\u0005Q / D Tc .\u0002; \u0004/). Then, by optimality",
+      "of \u0005\" , we have"
+    ]
+  },
+  {
+    "physical": 129,
+    "first": [
+      "3.1 The Monge case, with cost jx \u0002 yj                                                     103",
+      "\"K1 .\u0005\" / \b Tc .\u0004 n ; \u0004/ C \"K1 .\u0005 n / C \"2 K2 .\u0005 n / C C\"3dC3 nd"
+    ],
+    "last": [
+      "K1 -minimizers).                                                           u",
+      "t"
+    ]
+  },
+  {
+    "physical": 130,
+    "first": [
+      "104                                                                   3 L1 and L1 theory",
+      "This approximation result will be useful in Chapter 4. It is mainly based on the"
+    ],
+    "last": [
+      "1",
+      "converge to K1 .\u0005 / as p ! C1. In particular, K1 .\u0005 / D supp\u00051 Kp .\u0005 / p and K1"
+    ]
+  },
+  {
+    "physical": 131,
+    "first": [
+      "3.2 The supremal case, L1                                                                       105",
+      "is l.s.c. for the weak convergence in P.˝ \u0005 ˝/. Thus, it admits a minimizer over"
+    ],
+    "last": [
+      "problem:",
+      "minfK2 .\u0005 / W \u0005 2 O1 .\u0002; \u0004/g:"
+    ]
+  },
+  {
+    "physical": 132,
+    "first": [
+      "106                                                                           3 L1 and L1 theory",
+      "This problem has a solution \u0005 since K2 is continuous for the weak convergence and"
+    ],
+    "last": [
+      "that the coordinates of the center and the radius are rational numbers). Consider now",
+      "Ai WD .\u0006x /.\u000f \\ .˝ \u0005 Bi //;"
+    ]
+  },
+  {
+    "physical": 133,
+    "first": [
+      "3.2 The supremal case, L1                                                            107",
+      "i.e., the set of all points x such that at least a point y with .x; y/ 2 \u000f belongs to Bi"
+    ],
+    "last": [
+      "B(x0,L)",
+      "Fig. 3.4 The points in the proof of Lemma 3.23"
+    ]
+  },
+  {
+    "physical": 134,
+    "first": [
+      "108                                                                    3 L1 and L1 theory",
+      "If we can prove that jx \u0002 z0 j; jx0 \u0002 yj \b L, then we should have"
+    ],
+    "last": [
+      "need to check \u0007 .x0 \u0002 z0 / < 0. We only need a vector satisfying \u0007 .y0 \u0002 x0 / < 0",
+      "and \u0007 .y0 \u0002 z0 / < 0, but the directions of y0 \u0002 x0 and y0 \u0002 z0 are the same, so that this"
+    ]
+  },
+  {
+    "physical": 135,
+    "first": [
+      "3.3 Discussion                                                                      109",
+      "can be guaranteed by many choices of , since we only need the scalar product with"
+    ],
+    "last": [
+      "(and not only on points on the same ray, as is the case for the Euclidean norm, or for",
+      "other strictly convex norms). To handle this problem, [14] develops a strategy with a"
+    ]
+  },
+  {
+    "physical": 136,
+    "first": [
+      "110                                                                  3 L1 and L1 theory",
+      "double approximation, where jjzjj is replaced by something like jjzjj C \"jzj C \"2 jzj2 ,"
+    ],
+    "last": [
+      "equivalent to",
+      "x0 \u0002 y0 2 @h .r'.x0 //:                           (3.6)"
+    ]
+  },
+  {
+    "physical": 137,
+    "first": [
+      "3.3 Discussion                                                                      111",
+      "Let us define"
+    ],
+    "last": [
+      "of h, then h is affine on K and in this case, the transport cost does not depend",
+      "any more on the transport plan."
+    ]
+  },
+  {
+    "physical": 138,
+    "first": [
+      "112                                                                   3 L1 and L1 theory",
+      "• The problem is reduced to find a transport map from \u0002K to \u0004K satisfying the"
+    ],
+    "last": [
+      "either strictly convex or has a countable number of faces. This can be achieved by",
+      "adapting the arguments of Section 3.2 and proving that, if .x0 ; y0 / and .x0 ; y1 / belong"
+    ]
+  },
+  {
+    "physical": 139,
+    "first": [
+      "3.3 Discussion                                                                               113",
+      "to spt.\u0005 / (and hence y0 \u0002 x0 ; y1 \u0002 x0 2 C), then the middle point 12 .y0 C y1 / \u0002 x0"
+    ],
+    "last": [
+      "We mean here costs which are concave functions of the distance jx \u0002 yj, not of the displacement",
+      "x \u0002 y, as instead we considered in Remark 2.12."
+    ]
+  },
+  {
+    "physical": 140,
+    "first": [
+      "114                                                                                  3 L1 and L1 theory",
+      "precisely c.x; y/ D `.jx \u0002 yj/ where ` W RC ! RC is a strictly concave and"
+    ],
+    "last": [
+      "4",
+      "We will not explicitly state it every time, but this also implies that ` is strictly increasing."
+    ]
+  },
+  {
+    "physical": 141,
+    "first": [
+      "3.3 Discussion                                                                      115",
+      "Fig. 3.5 The optimal plan in"
+    ],
+    "last": [
+      "being an atomic measure with an atom at each rational point, or other examples that",
+      "one can build with fully supported absolutely continuous measures concentrated on"
+    ]
+  },
+  {
+    "physical": 142,
+    "first": [
+      "116                                                                              3 L1 and L1 theory",
+      "disjoint sets A and ˝ n A (see Ex(20)). In the present section, we show how to"
+    ],
+    "last": [
+      "precisely, if there exists a vector v such that",
+      "(continued)"
+    ]
+  },
+  {
+    "physical": 143,
+    "first": [
+      "3.3 Discussion                                                                                  117",
+      "Box 3.3. (continued)"
+    ],
+    "last": [
+      "everywhere on f' D 'i g\\Bj . By countable union, ' admits an approximate gradient",
+      "a.e. on"
+    ]
+  },
+  {
+    "physical": 144,
+    "first": [
+      "118                                                                                      3 L1 and L1 theory",
+      "["
+    ],
+    "last": [
+      "decompose into a common part \u0002 ^ \u0004 and two mutually singular parts .\u0002 \u0002 \u0004/C and",
+      ".\u0004 \u0002 \u0002/C ."
+    ]
+  },
+  {
+    "physical": 145,
+    "first": [
+      "3.3 Discussion                                                                         119",
+      "Theorem 3.27. Suppose that \u0002 and \u0004 are probability measures on ˝ with .\u0002\u0002\u0004/C"
+    ],
+    "last": [
+      "where",
+      "C.x; e; ı; \u0012/ D C.x; e; ı/ \\ B.x; \u0012/ WD fy W hy \u0002 x; ei \u0003 .1 \u0002 ı/ jy \u0002 xjg \\ B.x; \u0012/:"
+    ]
+  },
+  {
+    "physical": 146,
+    "first": [
+      "Chapter 4",
+      "Minimal flows, divergence constraints,"
+    ],
+    "last": [
+      "Progress in Nonlinear Differential Equations and Their Applications 87,",
+      "DOI 10.1007/978-3-319-20828-2_4"
+    ]
+  },
+  {
+    "physical": 147,
+    "first": [
+      "122                                                                      4 Minimal flows",
+      "More refined models can be easily conceived: reducing a movement to the initial"
+    ],
+    "last": [
+      "standing for flows connecting these two measures must satisfy",
+      "r \u0007 w D \u0002 \u0002 \u0004:"
+    ]
+  },
+  {
+    "physical": 148,
+    "first": [
+      "4.1 Eulerian and Lagrangian points of view                                                      123",
+      "4.1.2 The continuity equation"
+    ],
+    "last": [
+      "Note that in this case t 7! %t is automatically continuous for the weak convergence,",
+      "and imposing the values of %0 and %1 may be done pointwisely in time."
+    ]
+  },
+  {
+    "physical": 149,
+    "first": [
+      "124                                                                          4 Minimal flows",
+      "Proposition 4.2. The two notions of solutions are equivalent: every weak solution"
+    ],
+    "last": [
+      "which is enough to prove .@t %/t0 C r \u0007 .%t0 vt0 / D 0 a.e. in x.                            t",
+      "u"
+    ]
+  },
+  {
+    "physical": 150,
+    "first": [
+      "4.1 Eulerian and Lagrangian points of view                                                            125",
+      "After checking the relations between these different notions of solutions, from"
+    ],
+    "last": [
+      "flow through (4.1). We will prove that we have a weak solution. Fix a test function",
+      "\u0003 2 C1 .Rd / such that both \u0003 and r\u0003 are bounded, and compute"
+    ]
+  },
+  {
+    "physical": 151,
+    "first": [
+      "126                                                                                                       4 Minimal flows",
+      "ˆ                          ˆ                                ˆ"
+    ],
+    "last": [
+      "is constant.                                                                                                              t",
+      "u"
+    ]
+  },
+  {
+    "physical": 152,
+    "first": [
+      "4.2 Beckmann’s problem                                                             127",
+      "4.2 Beckmann’s problem"
+    ],
+    "last": [
+      "sup       r\u0003 \u0007 w dx C         \u0003 d.\u0002 \u0002 \u0004/ D",
+      "\u0003   ˝                   ˝                      C1   otherwise."
+    ]
+  },
+  {
+    "physical": 153,
+    "first": [
+      "128                                                                                     4 Minimal flows",
+      "Hence one can write (BP) as"
+    ],
+    "last": [
+      "transformed into the so-called Benamou-Brenier problem, which we will discuss in Chapters 5",
+      "and 6, but we do not push this analogy to further conclusions."
+    ]
+  },
+  {
+    "physical": 154,
+    "first": [
+      "4.2 Beckmann’s problem                                                           129",
+      "which corresponds, by duality with the functions u such that jruj \b k, to"
+    ],
+    "last": [
+      "To avoid this difficulty, we will choose the natural setting for (BP), i.e., the",
+      "framework of vector measures."
+    ]
+  },
+  {
+    "physical": 155,
+    "first": [
+      "130                                                                                  4 Minimal flows",
+      "Box 4.2. Memo: Vector measures"
+    ],
+    "last": [
+      "d",
+      ".˝/ ; r \u0007 w D \u0002 \u0002 \u0004"
+    ]
+  },
+  {
+    "physical": 156,
+    "first": [
+      "4.2 Beckmann’s problem                                                                          131",
+      "(with"
+    ],
+    "last": [
+      "The strange notation wŒ\u0005 \b is chosen so as to distinguish from the object wQ that we will introduce",
+      "in Section 4.2.3."
+    ]
+  },
+  {
+    "physical": 157,
+    "first": [
+      "132                                                                                          4 Minimal flows",
+      "To estimate its mass, we can see that jwŒ\u0005\b j \b \u000e\u0005 , where the scalar measure \u000e\u0005 is"
+    ],
+    "last": [
+      "Pay attention to the use of the gradient of the Kantorovich potential u: we are using the result of",
+      "Lemma 3.6 which provides differentiability of u on transport rays."
+    ]
+  },
+  {
+    "physical": 158,
+    "first": [
+      "4.2 Beckmann’s problem                                                                   133",
+      "The mass of \u000e\u0005 is obviously"
+    ],
+    "last": [
+      "some regularity results. In this way, the dual of the Monge problem is approximated",
+      "by p0 -Laplacian equations, for p0 ! 1."
+    ]
+  },
+  {
+    "physical": 159,
+    "first": [
+      "134                                                                        4 Minimal flows",
+      "4.2.3 Traffic intensity and traffic flows for measures on curves"
+    ],
+    "last": [
+      "We will call wQ traffic flow induced by Q. Taking a gradient field            D r\u0003 in the",
+      "previous definition yields"
+    ]
+  },
+  {
+    "physical": 160,
+    "first": [
+      "4.2 Beckmann’s problem                                                                     135",
+      "ˆ                   ˆ                                   ˆ"
+    ],
+    "last": [
+      "lower semi-continuous w.r.t. !. Indeed, if we",
+      "bound \u0003 \u0003 \"0 > 0, we can assume that j!n0 .t/jdt is bounded. Then we can"
+    ]
+  },
+  {
+    "physical": 161,
+    "first": [
+      "136                                                                                           4 Minimal flows",
+      "infer !n0 * ! 0 weakly (as measures, or in L1 ), which implies, up to subsequences,"
+    ],
+    "last": [
+      "Letting ! 1 and taking the sup over with jj jj1 \b 1, we get the desired estimate",
+      "jjw \u0002 wQ jj \b i.˝/ \u0002 iQ .˝/."
+    ]
+  },
+  {
+    "physical": 162,
+    "first": [
+      "4.2 Beckmann’s problem                                                                                  137",
+      "The very last property is evident: indeed one can assume up to a subsequence that"
+    ],
+    "last": [
+      "D                 .y/ \u0007 vt .y/ft .y/dydt D        .y/ \u0007 w.y/dy;",
+      "0    ˝                                ˝"
+    ]
+  },
+  {
+    "physical": 163,
+    "first": [
+      "138                                                                                            4 Minimal flows",
+      "which shows wQ D w. Note that in this case we have jwQ j D iQ and this is due to"
+    ],
+    "last": [
+      "since jjı \" jjL1 ! 0 and jw                                                               t",
+      "u"
+    ]
+  },
+  {
+    "physical": 164,
+    "first": [
+      "4.2 Beckmann’s problem                                                                  139",
+      "Remark 4.9. Note that considering explicitly the dependence on ˝ 0 , it is also"
+    ],
+    "last": [
+      "tion. Imagine the following example (as in Figure 4.1): ˝ is composed of two parts",
+      "˝ C and ˝ \u0002 , with spt.\u0002/ [ spt.\u0004/ \u0004 ˝ C and a cycle of w is contained in ˝ \u0002 ."
+    ]
+  },
+  {
+    "physical": 165,
+    "first": [
+      "140                                                                      4 Minimal flows",
+      "Fig. 4.1 The decomposition"
+    ],
+    "last": [
+      "d",
+      "D BV when d D 1)."
+    ]
+  },
+  {
+    "physical": 166,
+    "first": [
+      "4.2 Beckmann’s problem                                                                             141",
+      "Box 4.4. Memo: Bounded variation functions in one variable"
+    ],
+    "last": [
+      "• The minimal cost in Beckmann’s problem is given by jjF\u0002 \u0002 F\u0004 jjL1 , which is",
+      "consistent with Proposition 2.17."
+    ]
+  },
+  {
+    "physical": 167,
+    "first": [
+      "142                                                                        4 Minimal flows",
+      "• The transport density \u000e , characterized by w D \u0002u0 \u0007 \u000e , is given by \u000e D jwj"
+    ],
+    "last": [
+      "have \u0002.S/ D 0, but we do not suppose \u0004.S/ D 0 (\u0004 is not supposed to be absolutely",
+      "continuous). However, \u0005 is concentrated on .\u0006x /\u00021 .Sc /. We can then disintegrate"
+    ]
+  },
+  {
+    "physical": 168,
+    "first": [
+      "4.2 Beckmann’s problem                                                                143",
+      "(see Section 2.3) \u0005 according to the transport ray containing the point x. More"
+    ],
+    "last": [
+      "Theorem 4.14 that all the fields wŒ\u0005\b coincide.                                u",
+      "t"
+    ]
+  },
+  {
+    "physical": 169,
+    "first": [
+      "144                                                                           4 Minimal flows",
+      "4.3 Summability of the transport density"
+    ],
+    "last": [
+      "approximation by atomic measures is also performed in [208], as here, but on both the source and",
+      "the target measure, which requires a geometric analysis of the transport rays as in [143]."
+    ]
+  },
+  {
+    "physical": 170,
+    "first": [
+      "4.3 Summability of the transport density                                                   145",
+      "Since ˝ is bounded, it is evident that we have"
+    ],
+    "last": [
+      "ˇ      1\u0002t        ˇ  .1 \u0002 t/d",
+      "i"
+    ]
+  },
+  {
+    "physical": 171,
+    "first": [
+      "146                                                                          4 Minimal flows",
+      "W                               W                                  W"
+    ],
+    "last": [
+      "\u0002t \u0006 L d passes to the limit, we need the first one, while to deduce \u000e \u0006 L d , we",
+      "need the second one."
+    ]
+  },
+  {
+    "physical": 172,
+    "first": [
+      "4.3 Summability of the transport density                                                147",
+      "T"
+    ],
+    "last": [
+      "Consider first the discrete case: we know that \u0002t is absolutely continuous and",
+      "that its density coincides on each set ˝i .t/ with the density of a homothetic image"
+    ]
+  },
+  {
+    "physical": 173,
+    "first": [
+      "148                                                                                        4 Minimal flows",
+      "of \u0002 on ˝i , the homothetic ratio being .1 \u0002 t/. Hence, if ft is the density of \u0002t , we"
+    ],
+    "last": [
+      "eties of ratio 1 \u0002 t. This regularity degenerates as t ! 1, but we saw two cases",
+      "where this degeneracy produced no problem: for proving absolute continuity, where"
+    ]
+  },
+  {
+    "physical": 174,
+    "first": [
+      "4.3 Summability of the transport density                                            149",
+      "the separate absolute continuous behavior of almost all the \u0002t was sufficient, and"
+    ],
+    "last": [
+      ".x; T.x// 2 spt.\u0005 / for all x. Then the map x 7! .1 \u0002 t/x C tT.x/ is injective for",
+      "t 2\b0; 1Œ."
+    ]
+  },
+  {
+    "physical": 175,
+    "first": [
+      "150                                                                         4 Minimal flows",
+      "Proof. Suppose that there exist x ¤ x0 such that"
+    ],
+    "last": [
+      "straightforward. Yet, this requires more sophisticated tools than what developed",
+      "so far."
+    ]
+  },
+  {
+    "physical": 176,
+    "first": [
+      "4.4 Discussion                                                                                        151",
+      "Example 4.26. We can provide examples (in dimension higher than one) where the"
+    ],
+    "last": [
+      "This problem is easily solvable since one can see that the optimal w must be a",
+      "gradient (we will develop this computation in a more general framework later), and"
+    ]
+  },
+  {
+    "physical": 177,
+    "first": [
+      "152                                                                      4 Minimal flows",
+      "setting w D ru one gets \u0007u D \u0002 \u0002 \u0004. This is complemented with Neumann"
+    ],
+    "last": [
+      "ie D               q! ;   8e 2 E;                     (4.15)",
+      "!2C W e2!"
+    ]
+  },
+  {
+    "physical": 178,
+    "first": [
+      "4.4 Discussion                                                                                      153",
+      "which means that i is a function of q. Given the edge flows i D .ie /e2E , the total cost"
+    ],
+    "last": [
+      "Note that this is just an example of Nash equilibrium with a continuum of players, as we will see",
+      "in Section 7.4.3 and, more particularly, in Box 7.3."
+    ]
+  },
+  {
+    "physical": 179,
+    "first": [
+      "154                                                                                   4 Minimal flows",
+      "so that"
+    ],
+    "last": [
+      "\u0004 is fixed. In this case, one also obtains as an optimality condition that \u0005 is efficient,",
+      "in the sense that it minimizes among transport plans in ˘.\u0002; \u0004/, the total cost"
+    ]
+  },
+  {
+    "physical": 180,
+    "first": [
+      "4.4 Discussion                                                                               155",
+      "X"
+    ],
+    "last": [
+      "Note that, even for \u000f D f\u0005g (which is the most restrictive case), assuming \u0002; \u0004 2 L1 ,",
+      "considerations from incompressible fluid mechanics in [83] allow to build a Q such that iQ 2 L1 ."
+    ]
+  },
+  {
+    "physical": 181,
+    "first": [
+      "156                                                                               4 Minimal flows",
+      "ˆ 1"
+    ],
+    "last": [
+      "then the second condition means that \u0005 solves a Monge-Kantorovich problem for a",
+      "distance cost depending on Q itself, which is a new equilibrium condition."
+    ]
+  },
+  {
+    "physical": 182,
+    "first": [
+      "4.4 Discussion                                                                                  157",
+      "As in the finite-dimensional network case, Wardrop equilibria have a variational"
+    ],
+    "last": [
+      "Note that the same duality trick is also used in the discrete problem over networks, where solving",
+      "the dual problem is much more convenient than the original one."
+    ]
+  },
+  {
+    "physical": 183,
+    "first": [
+      "158                                                                                 4 Minimal flows",
+      "Starting from this duality result, in [42] and [43], a consistent numerical scheme"
+    ],
+    "last": [
+      "the terms ck .x; y/ may be proven to be concave in k, we face a convex optimization",
+      "problem, and we can look at the subdifferential of J. Differentiating the equations"
+    ]
+  },
+  {
+    "physical": 184,
+    "first": [
+      "4.4 Discussion                                                                                       159",
+      "Fig. 4.4 Traffic intensity at equilibrium in a city with a river and a bridge, with two sources S1"
+    ],
+    "last": [
+      "allows to provide alternative numerical approaches, as it is done in [35], in the same spirit of the",
+      "Benamou-Brenier Augmented Lagrangian technique; see also Section 6.1"
+    ]
+  },
+  {
+    "physical": 185,
+    "first": [
+      "160                                                                            4 Minimal flows",
+      "prescribed divergence gives a smaller result than minimizing over the vector fields"
+    ],
+    "last": [
+      "Observe that the same result can also be directly obtained from duality arguments, as it is done",
+      "in Theorem 2.1 in [80]."
+    ]
+  },
+  {
+    "physical": 186,
+    "first": [
+      "4.4 Discussion                                                                      161",
+      "natural to have g.0/ > 0: the metric should be positive even if there is no traffic!"
+    ],
+    "last": [
+      "main difficulty being defining ckN for a noncontinuous k,N and this is the reason why",
+      "our previous arguments are only formal)."
+    ]
+  },
+  {
+    "physical": 187,
+    "first": [
+      "162                                                                    4 Minimal flows",
+      "4.4.2 Branched transport"
+    ],
+    "last": [
+      "graph G. A weighted oriented graph in Rd is just a system G D .sk ; \u0013k /k where sk is",
+      "a pair of points sk D .pk ; qk / representing an oriented segment in Rd and \u0013k 2 RC is"
+    ]
+  },
+  {
+    "physical": 188,
+    "first": [
+      "4.4 Discussion                                                                              163",
+      "a weight associated with the segment sk . We denote by sOk the orientation jqqkk \u0002p      k"
+    ],
+    "last": [
+      "problem with ˛ D 0, one needs to consider a measure \u0002 composed of a unique Dirac mass,",
+      "so that every point in spt.\u0004/ must be connected to it, hence getting connectedness of the graph."
+    ]
+  },
+  {
+    "physical": 189,
+    "first": [
+      "164                                                                                           4 Minimal flows",
+      "•                  •                                         •                    •"
+    ],
+    "last": [
+      "we get the well-known condition about Steiner trees, with three 120ı angles, and for ˛ D 0:5, we",
+      "have a 90ı angle (see Ex(30)); yet, in general, the angles depend on the masses \u0013k ."
+    ]
+  },
+  {
+    "physical": 190,
+    "first": [
+      "4.4 Discussion                                                                                  165",
+      "A relaxed continuous model (Xia)"
+    ],
+    "last": [
+      "union of Lipschitz curves. Anyway, the reader can easily pretend that “1-rectifiable” is a synonym",
+      "of “1D” and it should be enough to follow the rest of the discussion."
+    ]
+  },
+  {
+    "physical": 191,
+    "first": [
+      "166                                                                              4 Minimal flows",
+      "As a consequence of a famous rectifiability theorem by B. White [296], one can"
+    ],
+    "last": [
+      "Indeed, even if not completely evident, it can be proven that, at least in the case where spt.\u0002/ \\",
+      "spt.\u0004/ D ;, the condition d˛ .\u0002; \u0004/ < C1 is actually equivalent to d˛ .\u0002; ı0 /; d˛ .\u0004; ı0 / < C1."
+    ]
+  },
+  {
+    "physical": 192,
+    "first": [
+      "4.4 Discussion                                                                          167",
+      "Fig. 4.6 Different steps of the construction of Proposition 4.38"
+    ],
+    "last": [
+      ":̂                        :̂d satisfies the triangle inequality.               ;",
+      "(4.33)"
+    ]
+  },
+  {
+    "physical": 193,
+    "first": [
+      "168                                                                                    4 Minimal flows",
+      "The Lagrangian formulation"
+    ],
+    "last": [
+      "19",
+      "The terminology has been introduced for this very purpose by the authors of [48]."
+    ]
+  },
+  {
+    "physical": 194,
+    "first": [
+      "4.4 Discussion                                                                                    169",
+      "´"
+    ],
+    "last": [
+      "9 s < t such that !.s/ D x and !.t/ D yg; we say that Q is cycle-free if there are not x1 ; : : : ; xn",
+      "with x1 D xn such that Q.Œxi ; xiC1 \b/ > 0 or Q.ŒxiC1 ; xi \b/ > 0 for all i D 1; : : : ; n \u0002 1."
+    ]
+  },
+  {
+    "physical": 195,
+    "first": [
+      "170                                                                           4 Minimal flows",
+      "We denote by \u0014stop the set of curves ! such that Stop.!/ < 1. Then we define the"
+    ],
+    "last": [
+      "and Q is a measure on C representing \u0011 after a suitable reparametrization in time,",
+      "we have j!jt;\u0011 D \u0013Q .!.t// D mQ .!.t//, and this is true for every ! which is \u0011-good."
+    ]
+  },
+  {
+    "physical": 196,
+    "first": [
+      "4.4 Discussion                                                                                 171",
+      "An important point is the following: if !1 ; !2 are \u0011-good and \u0011 is optimal, if"
+    ],
+    "last": [
+      "bounds, i.e., it is Ahlfors regular of another exponent k < d, thus obtaining ˇ D d.˛ \u0002 .1 \u0002 1k //;",
+      "see [78]."
+    ]
+  },
+  {
+    "physical": 197,
+    "first": [
+      "172                                                                     4 Minimal flows",
+      "Regularity"
+    ],
+    "last": [
+      "continuous minimal flow problems. The numerical methods for finding a solution",
+      "have to face at least two difficulties: concavity (and hence the high number of local"
+    ]
+  },
+  {
+    "physical": 198,
+    "first": [
+      "4.4 Discussion                                                                             173",
+      "minimizers) and singularity (i.e., working with singular structures such as networks"
+    ],
+    "last": [
+      "´1p",
+      "where the constant c is given by c D 2 0 W.t/dt."
+    ]
+  },
+  {
+    "physical": 199,
+    "first": [
+      "174                                                                              4 Minimal flows",
+      "Inspired by this result, in [247] a similar result for branched transport"
+    ],
+    "last": [
+      "points and four points, and one point and the uniform distribution on a circle, for different values",
+      "of ˛ (increasing from left to right). Pictures partially taken from [247], with permission"
+    ]
+  },
+  {
+    "physical": 200,
+    "first": [
+      "4.4 Discussion                                                                  175",
+      "is found by gradient descent, then, following a continuation method, the value of \""
+    ],
+    "last": [
+      "minimizer). In the end we find a “well-chosen” local minimizer quite satisfactory in",
+      "practice (Figure 4.7)."
+    ]
+  },
+  {
+    "physical": 201,
+    "first": [
+      "Chapter 5",
+      "Wasserstein distances and curves"
+    ],
+    "last": [
+      "Progress in Nonlinear Differential Equations and Their Applications 87,",
+      "DOI 10.1007/978-3-319-20828-2_5"
+    ]
+  },
+  {
+    "physical": 202,
+    "first": [
+      "178                                                                             5 Wasserstein spaces",
+      "describe distances between equal amounts of mass distributed on a same space."
+    ],
+    "last": [
+      "2",
+      "In particular in image processing. Thanks to G. Peyré for pointing out this interpretation."
+    ]
+  },
+  {
+    "physical": 203,
+    "first": [
+      "5.1 Definition and triangle inequality                                                                    179",
+      "In several applications, this robustness of the Wasserstein distances w.r.t. pertur-"
+    ],
+    "last": [
+      "Wp .\u0002; \u0004/ \b CW1 .\u0002; \u0004/ p ;                                         (5.1)",
+      "for C D diam.˝/.p\u00021/=p ."
+    ]
+  },
+  {
+    "physical": 204,
+    "first": [
+      "180                                                                                             5 Wasserstein spaces",
+      "Proposition 5.1. The quantity Wp defined above is a distance over Pp .˝/."
+    ],
+    "last": [
+      "jx \u0002 yjp d\u0005\" D             jx \u0002 yjp d\u0005:",
+      "\"!0                                               \"!0"
+    ]
+  },
+  {
+    "physical": 205,
+    "first": [
+      "5.1 Definition and triangle inequality                                                              181",
+      "One can also obtain the opposite inequality by a standard semi-continuity"
+    ],
+    "last": [
+      "The proof above strongly uses the results about transport maps from Chapter 1 and",
+      "is somehow specific to Rd (in a general metric space, the tricky part would be to"
+    ]
+  },
+  {
+    "physical": 206,
+    "first": [
+      "182                                                                                    5 Wasserstein spaces",
+      "approximate arbitrary measures with measures such that the Wasserstein distance"
+    ],
+    "last": [
+      "It is not strictly necessary to use absolutely continuous measures: we actually need atomless",
+      "measures, and then we can apply Theorem 1.33."
+    ]
+  },
+  {
+    "physical": 207,
+    "first": [
+      "5.2 Topology induced by Wp                                                                       183",
+      "for every measurable function \u0003 of two variables. In the same way, one has a family"
+    ],
+    "last": [
+      "duality with the space of functions vanishing at infinity",
+      "C0 .X/ WD f\u0003 2 C.X/ W for all \" > 0 there is K \u0004 X compact s.t. j\u0003j < \" on X n Kg:"
+    ]
+  },
+  {
+    "physical": 208,
+    "first": [
+      "184                                                                       5 Wasserstein spaces",
+      "It is useful to point out some facts:"
+    ],
+    "last": [
+      "The existence of cutoff functions, i.e., a sequence of continuous compactly supported functions",
+      "converging pointwisely to 1, is indeed peculiar to the case of locally compact spaces."
+    ]
+  },
+  {
+    "physical": 209,
+    "first": [
+      "5.2 Topology induced by Wp                                                        185",
+      "To prove the opposite implication, let us first fix a subsequence \u0002nk such that"
+    ],
+    "last": [
+      "consequence of the weak convergence, since jxjp is not bounded), it is sufficient to",
+      "note that"
+    ]
+  },
+  {
+    "physical": 210,
+    "first": [
+      "186                                                                              5 Wasserstein spaces",
+      "ˆ                                                   ˆ"
+    ],
+    "last": [
+      "\b 2\" p C lim Wp ..\u0006R /# \u0002n ; .\u0006R /# \u0002/ D 2\" p :",
+      "n"
+    ]
+  },
+  {
+    "physical": 211,
+    "first": [
+      "5.3 Curves in Wp and continuity equation                                                        187",
+      "As the parameter \" > 0 is arbitrary, we get lim supn Wp .\u0002n ; \u0002/ D 0, and the proof"
+    ],
+    "last": [
+      "metric derivative of ! at time t, denoted by j! 0 j.t/ through",
+      "(continued)"
+    ]
+  },
+  {
+    "physical": 212,
+    "first": [
+      "188                                                                          5 Wasserstein spaces",
+      "Box 5.1. (continued)"
+    ],
+    "last": [
+      "we will only state it in the framework of a compact domain ˝ \u0004 Rd . We will explain",
+      "where we use the compactness assumption and how to get rid of it."
+    ]
+  },
+  {
+    "physical": 213,
+    "first": [
+      "5.3 Curves in Wp and continuity equation                                                    189",
+      "Theorem 5.14. Let .\u0002t /t2Œ0;1\b be an absolutely continuous curve in Wp .˝/ (for"
+    ],
+    "last": [
+      "Proof. First of all, we establish (5.2). Suppose t > 0: then it is clear that one should",
+      "take the maximal possible value of a in the sup, and hence a D \u0002 1q jbjq . This gives"
+    ]
+  },
+  {
+    "physical": 214,
+    "first": [
+      "190                                                                     5 Wasserstein spaces",
+      "\u0006              \u0007   \u0006                   \u0007"
+    ],
+    "last": [
+      "X, we can write Bp .%; E/ D X fp .%.x/; E.x// d .x/, where we identify % and E",
+      "with their densities w.r.t. ,"
+    ]
+  },
+  {
+    "physical": 215,
+    "first": [
+      "5.3 Curves in Wp and continuity equation                                                  191",
+      "4. Bp .%; E/ < C1 only if % \u0003 0 and E \u0006 %,               ´"
+    ],
+    "last": [
+      "b W Rd ! Rd satisfying a.x/ C 1q jb.x/jq \b 0 for all x. From standard properties of",
+      "convolutions, we have"
+    ]
+  },
+  {
+    "physical": 216,
+    "first": [
+      "192                                                                           5 Wasserstein spaces",
+      "ˆ              ˆ                 ˆ              ˆ"
+    ],
+    "last": [
+      "\b",
+      "\u0002kt WD .i C 1 \u0002 kt/id C .kt \u0002 i/Ti;k # \u0002ki=k ;"
+    ]
+  },
+  {
+    "physical": 217,
+    "first": [
+      "5.3 Curves in Wp and continuity equation                                                                                          193",
+      "which means that the particle located at x at time i=k goes to the position Ti;k .x/"
+    ],
+    "last": [
+      "jjvkt jjL1 .\u0002kt / dt \b                 jjvkt jjLp .\u0002kt / dt \b          jjvkt jjLp .\u0002k / dt          \b C:",
+      "0                                  0                                  0                 t"
+    ]
+  },
+  {
+    "physical": 218,
+    "first": [
+      "194                                                                                        5 Wasserstein spaces",
+      "Hence, up to a subsequence extraction, the sequence of vector measures Ek admits"
+    ],
+    "last": [
+      "strictly positive kernel \u0011\" (as a function of space only) and define \u0002\"t WD \u0011\" \u0002t and",
+      "Et\" WD \u0011\" Et , and v\"t WD Et\" =\u0002\"t . The choice is made so that @t \u0002\"t C r \u0007 .\u0002\"t v\"t / D 0."
+    ]
+  },
+  {
+    "physical": 219,
+    "first": [
+      "5.3 Curves in Wp and continuity equation                                                 195",
+      "Since we want to apply the characterization result of solutions of the continuity"
+    ],
+    "last": [
+      "Moreover, applying Theorem 4.4, we know that the only solution of @t %t C r \u0007",
+      ".v\"t %t / D 0 is given by the flow of v\" . Hence, we get"
+    ]
+  },
+  {
+    "physical": 220,
+    "first": [
+      "196                                                                               5 Wasserstein spaces",
+      "("
+    ],
+    "last": [
+      "We stress that the uniform bounds in the case of the torus are easier to obtain, but",
+      "we found conceptually easier to deal with measures on Rd (and in particular with"
+    ]
+  },
+  {
+    "physical": 221,
+    "first": [
+      "5.3 Curves in Wp and continuity equation                                                                                            197",
+      "optimal transport problems in Rd ). This is why we prefer the Euclidean construction"
+    ],
+    "last": [
+      "\b                                  jjvs jjLp .\u0002s / ds          :",
+      "jhj                       jhj      t"
+    ]
+  },
+  {
+    "physical": 222,
+    "first": [
+      "198                                                                           5 Wasserstein spaces",
+      "This provides Lipschitz behavior for \u0002t . Then, we take the limit h ! 0 at points t"
+    ],
+    "last": [
+      "much more elegant, approach can be found in [15] and does not use approximation. The approach",
+      "that we presented here is more or less inspired by a paper by Lisini, [212]."
+    ]
+  },
+  {
+    "physical": 223,
+    "first": [
+      "5.3 Curves in Wp and continuity equation                                                                     199",
+      "for a.e. t, where .'t ; t / is any pair of Kantorovich potentials in the transport"
+    ],
+    "last": [
+      "can try to find the precise set of times t such that differentiability occurs for every integrand, as in",
+      "[155], based on ideas from [15]."
+    ]
+  },
+  {
+    "physical": 224,
+    "first": [
+      "200                                                                                         5 Wasserstein spaces",
+      "original measure). Next, let us analyze the first part of the right-hand side (i.e., for"
+    ],
+    "last": [
+      "one could have problems in recovering full convergence of the sequence.",
+      "As a corollary of the previous result, we obtain the following useful formula."
+    ]
+  },
+  {
+    "physical": 225,
+    "first": [
+      "5.3 Curves in Wp and continuity equation                                              201",
+      "Corollary 5.25. Under the same assumptions of Theorem 5.24, we have"
+    ],
+    "last": [
+      "\bC       jx \u0002 T.x/j2 %t dx D CW22 .%t ; %t /:",
+      "˝"
+    ]
+  },
+  {
+    "physical": 226,
+    "first": [
+      "202                                                                               5 Wasserstein spaces",
+      ".1/   .2/"
+    ],
+    "last": [
+      "results.",
+      "(continued)"
+    ]
+  },
+  {
+    "physical": 227,
+    "first": [
+      "5.4 Constant-speed geodesics in Wp                                                               203",
+      "Box 5.2. (continued)"
+    ],
+    "last": [
+      "and considered as a dynamical version of the Kantorovich problem, will be crucial",
+      "in Section 6.1 to provide a numerical characterization."
+    ]
+  },
+  {
+    "physical": 228,
+    "first": [
+      "204                                                                     5 Wasserstein spaces",
+      "Theorem 5.28. On a convex and compact domain ˝, given \u0002; \u0004 2 P.˝/, we have"
+    ],
+    "last": [
+      "Proof. The claim is essentially the same as in Lemma 4.23, and the uniqueness of",
+      ".x; z/ 2 spt.\u0005 / comes from c-cyclical monotonicity of spt.\u0005 /. The continuity of Xt"
+    ]
+  },
+  {
+    "physical": 229,
+    "first": [
+      "5.4 Constant-speed geodesics in Wp                                                                  205",
+      "and Zt is obtained by compactness. Take yn ! y and suppose (up to subsequences)"
+    ],
+    "last": [
+      "to the Sobolev space W 1;p .Œ0; 1\b/ \u0004 AC.˝/). As usual, we write C for AC.˝/, for",
+      "short."
+    ]
+  },
+  {
+    "physical": 230,
+    "first": [
+      "206                                                                             5 Wasserstein spaces",
+      "Proposition 5.31. For every Lipschitz curve .\u0002t /t in Wp .˝/, there exists a measure"
+    ],
+    "last": [
+      "\b       Kp .!/ dQ.!/ \b           j\u00020 j.t/p dt \b Wpp .\u0002; \u0004/:",
+      "C                        0"
+    ]
+  },
+  {
+    "physical": 231,
+    "first": [
+      "5.5 Discussion                                                                                 207",
+      "Fig. 5.2 Nine time steps of the interpolation (top, left to right, and then bottom, left to right),"
+    ],
+    "last": [
+      "˚",
+      "W1 .\u0002; \u0004/ WD inf jjx \u0002 yjjL1 .\u0005/ W \u0005 2 ˘.\u0002; \u0004/ ;"
+    ]
+  },
+  {
+    "physical": 232,
+    "first": [
+      "208                                                                 5 Wasserstein spaces",
+      "where the minimization problem in the right-hand side is exactly the one studied in"
+    ],
+    "last": [
+      "papers using such a distance was [232], devoted to the shape of rotating stars. In",
+      "such a paper, the choice of W1 was motivated by the following observation (that"
+    ]
+  },
+  {
+    "physical": 233,
+    "first": [
+      "5.5 Discussion                                                                           209",
+      "we will develop better in Section 7.4.3): a measure \u0002 is a local minimizer in W1 of"
+    ],
+    "last": [
+      "spaces of the form W 1;q (for instance, with q D p0 D p=.p \u0002 1/). The answer is",
+      "obviously “not,” since not all probability measures belong to the dual space W \u00021;p"
+    ]
+  },
+  {
+    "physical": 234,
+    "first": [
+      "210                                                                         5 Wasserstein spaces",
+      "(in particular, Dirac masses only belong to the dual of W 1;q when functions in W 1;q"
+    ],
+    "last": [
+      "Indeed, for this choice of u, we have \u0003 d.\u0002 \u0002 \u0004/ D r\u0003 \u0007 ru \b jjr\u0003jjL2 jjrujjL2 ;",
+      "with equality for \u0003 D u=jjrujjL2 . We can also see that we have"
+    ]
+  },
+  {
+    "physical": 235,
+    "first": [
+      "5.5 Discussion                                                                    211",
+      "jj\u0002 \u0002 \u0004jjHP \u00021 .˝/ D min fjjwjjL2 W r \u0007 w D \u0002 \u0002 \u0004g ;"
+    ],
+    "last": [
+      "Another class of distances which has been compared to the Wasserstein distances is",
+      "that induced by branched transport. We recall that d˛ .\u0002; \u0004/ is defined as the minimal"
+    ]
+  },
+  {
+    "physical": 236,
+    "first": [
+      "212                                                                      5 Wasserstein spaces",
+      "value of the branched transport cost (see Section 4.4.2) between two measures \u0002; \u0004,"
+    ],
+    "last": [
+      "1",
+      "Wp .\u0002\" ; \u0004\" / D c\" p ), which makes the choice p D 1=˛ the good one."
+    ]
+  },
+  {
+    "physical": 237,
+    "first": [
+      "5.5 Discussion                                                                       213",
+      "Proposition 5.36. Let \u0002; \u0004 be two probabilities on Œ0; 1\bd and ˛ > 1 \u0002 d1 , p D 1=˛."
+    ],
+    "last": [
+      "the sum of the number of rows and columns (left as an exercise, Ex(41)), here 2nd .",
+      "Hence we have"
+    ]
+  },
+  {
+    "physical": 238,
+    "first": [
+      "214                                                                           5 Wasserstein spaces",
+      "0                  1 1p"
+    ],
+    "last": [
+      "SW2 \b W2 ) and bijective. Since the space where it is defined is compact, it is also a",
+      "homeomorphism."
+    ]
+  },
+  {
+    "physical": 239,
+    "first": [
+      "5.5 Discussion                                                                              215",
+      "ˇ"
+    ],
+    "last": [
+      "1=.dC1/                                       1=2",
+      "proves W1 \u0004 CSW1          ; then, one can compose with W2 \u0004 CW1 to obtain the result for p D 2."
+    ]
+  },
+  {
+    "physical": 240,
+    "first": [
+      "216                                                                         5 Wasserstein spaces",
+      "What about a barycenter between three or more measures? If we want to make"
+    ],
+    "last": [
+      "\u0002ˆ                                                  \u0003",
+      "min     c.x1 ; : : : ; xN / d\u0005 W \u0005 2 ˘.%1 ; : : : ; %N / ;"
+    ]
+  },
+  {
+    "physical": 241,
+    "first": [
+      "5.5 Discussion                                                                                       217",
+      "Fig. 5.3 Interpolation between a point distribution on an annulus and on a duck. On the first line,"
+    ],
+    "last": [
+      "Section 5.5.4). An example is given in Figure 5.3. More recent numerical algorithms",
+      "have also allowed to directly treat the W2 distance, as is shown in Figure 5.4."
+    ]
+  },
+  {
+    "physical": 242,
+    "first": [
+      "218                                                                         5 Wasserstein spaces",
+      "Fig. 5.4 Interpolation between three different shapes (a five-pointed star, a four-pointed one, and"
+    ],
+    "last": [
+      "the union of two small disks). Every image represents a barycenter between the three shapes,",
+      "computed in W2 . Pictures kindly provided by G. Peyré"
+    ]
+  },
+  {
+    "physical": 243,
+    "first": [
+      "Chapter 6",
+      "Benamou-Brenier and other continuous"
+    ],
+    "last": [
+      "Progress in Nonlinear Differential Equations and Their Applications 87,",
+      "DOI 10.1007/978-3-319-20828-2_6"
+    ]
+  },
+  {
+    "physical": 244,
+    "first": [
+      "220                                                                        6 Numerical methods",
+      "6.1 The Benamou-Brenier formula and its numerical"
+    ],
+    "last": [
+      "We choose to denote by % the interpolating measures, in order to stress the “continuous” flavor of",
+      "this method (typically, % is a density, and \u0002 a generic measure)."
+    ]
+  },
+  {
+    "physical": 245,
+    "first": [
+      "6.1 Benamou-Brenier                                                                            221",
+      "Problem 6.1. Solve"
+    ],
+    "last": [
+      "This is typical of 1-homogeneous functionals (the fact that the result is independent of the",
+      "reference measure)."
+    ]
+  },
+  {
+    "physical": 246,
+    "first": [
+      "222                                                                            6 Numerical methods",
+      "Box 6.1. (continued)"
+    ],
+    "last": [
+      "form ' i .x/ \u0004 0, with the Lagrangian L.x; / D f .x/ C i i ' i .x/ and 2 .RC /k , but we prefer",
+      "to stick to the equality constraints for simplicity of exposition."
+    ]
+  },
+  {
+    "physical": 247,
+    "first": [
+      "6.1 Benamou-Brenier                                                                     223",
+      "and the sup is computed over all functions defined on Œ0; 1\b\u0005˝ (we do not care here"
+    ],
+    "last": [
+      "Analogously, we denote D .a; b/. We also denote by rt;x \u0003 the space-time gradient",
+      "of \u0003, i.e., rt;x \u0003 D .@t \u0003; r\u0003/."
+    ]
+  },
+  {
+    "physical": 248,
+    "first": [
+      "224                                                                     6 Numerical methods",
+      "The problem may be rewritten as"
+    ],
+    "last": [
+      "set Kq . If we have a method for this projection in RnC1 , requiring a constant",
+      "number of operations, then the cost for this pointwise step is O.N/."
+    ]
+  },
+  {
+    "physical": 249,
+    "first": [
+      "6.2 Angenent-Hacker-Tannenbaum                                                        225",
+      "• Finally we update m by setting mkC1 D mk \u0002 \u0010. kC1 \u0002 rt;x \u0003kC1 /."
+    ],
+    "last": [
+      "y0x .t/ D vt .yx .t//;",
+      "yx .0/ D x:"
+    ]
+  },
+  {
+    "physical": 250,
+    "first": [
+      "226                                                                            6 Numerical methods",
+      "Fig. 6.1 Geodesics between a Gaussian on a 2D torus and the same Gaussian displaced of a vector"
+    ],
+    "last": [
+      "condition for v to preserve the measure f is that the solution of",
+      "@t %t C r \u0007 .%t v/ D 0       with %0 D f"
+    ]
+  },
+  {
+    "physical": 251,
+    "first": [
+      "6.2 Angenent-Hacker-Tannenbaum                                                               227",
+      "is the constant (in time) density %t D f . This requires r \u0007 .f v/ D 0. We will set"
+    ],
+    "last": [
+      "These decompositions have a variational origin: indeed one can solve",
+      "(continued)"
+    ]
+  },
+  {
+    "physical": 252,
+    "first": [
+      "228                                                                             6 Numerical methods",
+      "Box 6.2. (continued)"
+    ],
+    "last": [
+      "and we take smooth solutions %t of @t %t C r \u0006 .%t vt / D 0 and gt of @t gt C vt \u0006 rgt D 0,",
+      "(continued)"
+    ]
+  },
+  {
+    "physical": 253,
+    "first": [
+      "6.2 Angenent-Hacker-Tannenbaum                                                                         229",
+      "Box 6.3. (continued)"
+    ],
+    "last": [
+      "components and subscripts are derivations). It can be checked that this choice as",
+      "well guarantees that M.Tt / decreases in time."
+    ]
+  },
+  {
+    "physical": 254,
+    "first": [
+      "230                                                                  6 Numerical methods",
+      "Even if, as we noted, the method is general for any cost, it is in the case of the"
+    ],
+    "last": [
+      ".Tt /# f D g for every t, the value of j det.DTt /j can never be 0 (bounded from below",
+      "by inf f = sup g). If everything is smooth, this means that the sign of the determinant"
+    ]
+  },
+  {
+    "physical": 255,
+    "first": [
+      "6.2 Angenent-Hacker-Tannenbaum                                                       231",
+      "is preserved and that no eigenvalue can ever be zero (this is also underlined in [86])."
+    ],
+    "last": [
+      "Unfortunately, the above proof is really 2D as we characterized positive symmet-",
+      "ric matrices as those which have positive trace and positive determinant. Also, in"
+    ]
+  },
+  {
+    "physical": 256,
+    "first": [
+      "232                                                                 6 Numerical methods",
+      "practice it is almost impossible to guarantee the assumptions of the theorem above"
+    ],
+    "last": [
+      "The idea of Loeper and Rapetti in [217] is to solve the equation through an",
+      "iterative scheme, based on a Newton method."
+    ]
+  },
+  {
+    "physical": 257,
+    "first": [
+      "6.3 Numerical solution of Monge-Ampère                                                            233",
+      "Box 6.4. Memo: Newton’s method to solve F.x/ D 0"
+    ],
+    "last": [
+      "small value of \u0010 > 0. Typically, one takes '0 D 0.",
+      "• At every step n, compute %n WD det.I \u0002 D2 'n /."
+    ]
+  },
+  {
+    "physical": 258,
+    "first": [
+      "234                                                                  6 Numerical methods",
+      "• Define the matrix Mn .x/ WD cof.I \u0002 D2 'n /. Suppose that we can guarantee that"
+    ],
+    "last": [
+      "C\u0010 2 jjD2 n jj2C0;˛ \b C\u0010 2 jj%n \u0002 %jj2C0;˛ . Then, from %nC1 \u0002 % D .1 \u0002 \u0010 /.%n \u0002 %/ C rn ,",
+      "we get"
+    ]
+  },
+  {
+    "physical": 259,
+    "first": [
+      "6.4 Discussion                                                                            235",
+      "jj%nC1 \u0002%jjC0;˛ \b .1 \u0002 \u0010 /jj%n \u0002%jjC0;˛ C C\u0010 2 jj%n \u0002%jj2C0;˛ \b jj%n \u0002%jjC0;˛ .1 \u0002 \u0010 C C\u0010 2 /:"
+    ],
+    "last": [
+      "We strongly used in Chapter 1 the linear and convex structure of the Kantorovich",
+      "problem, which is indeed a linear programming problem in infinite dimension. It"
+    ]
+  },
+  {
+    "physical": 260,
+    "first": [
+      "236                                                                              6 Numerical methods",
+      "is natural to look for methods which exploit this fact, after discretization. Here"
+    ],
+    "last": [
+      "(where x \u0003 0 means xi \u0003 0 for every i). It can be solved, for instance, with the",
+      "simplex algorithm."
+    ]
+  },
+  {
+    "physical": 261,
+    "first": [
+      "6.4 Discussion                                                                                 237",
+      "Box 6.7. Good to know! Simplex algorithm"
+    ],
+    "last": [
+      "their computational cost can be way better than exponential. However, in practice they are all too",
+      "expensive."
+    ]
+  },
+  {
+    "physical": 262,
+    "first": [
+      "238                                                                  6 Numerical methods",
+      "Other methods have also been found, also specific to the transport problem and"
+    ],
+    "last": [
+      "We switch back to the language, of economists, who prefer to maximize utility rather than",
+      "minimizing costs."
+    ]
+  },
+  {
+    "physical": 263,
+    "first": [
+      "6.4 Discussion                                                                                 239",
+      "look now for a pair .p; \u000e / where all buyers are \"-happy. The algorithm evolves"
+    ],
+    "last": [
+      "each edge in the network interpretation, appears quite often and simplifies the complexity of other",
+      "algorithms as well. For instance, in [245] a polynomial bound on the cost of a network simplex"
+    ]
+  },
+  {
+    "physical": 264,
+    "first": [
+      "240                                                                                 6 Numerical methods",
+      "We remark that this cost can be indeed very high because of the presence of the"
+    ],
+    "last": [
+      "algorithm is given under this assumption, obtaining O.min.kh log.kC/; kh2 log k/ for a network",
+      "with k nodes, h edges, and maximal cost equal to C."
+    ]
+  },
+  {
+    "physical": 265,
+    "first": [
+      "6.4 Discussion                                                                            241",
+      "for this constraint (it is not a true barrier in the usual sense because it does not tend"
+    ],
+    "last": [
+      "It is also possible to deduce, from the limit value of the coefficients p and q, the",
+      "Kantorovich potentials ' and , but we leave it as an exercise (see Ex (42))."
+    ]
+  },
+  {
+    "physical": 266,
+    "first": [
+      "242                                                                               6 Numerical methods",
+      "6.4.2 Semidiscrete numerical methods"
+    ],
+    "last": [
+      "7",
+      "See also Example 1.6 in [176] for a first genesis of these ideas."
+    ]
+  },
+  {
+    "physical": 267,
+    "first": [
+      "6.4 Discussion                                                                                          243",
+      "Fig. 6.2 The optimal \u0005 in a 1D transport problem (the starting measure is a centered Gaussian;"
+    ],
+    "last": [
+      "The computation of the gradient, and its continuity, could have been simplified by looking at the",
+      "subdifferential; see [24]."
+    ]
+  },
+  {
+    "physical": 268,
+    "first": [
+      "244                                                                          6 Numerical methods",
+      "Box 6.8. Memo: Gradient algorithm"
+    ],
+    "last": [
+      "The pictures in the next pages have been kindly provided by B. Lévy and are produced with the",
+      "same algorithms as in [209]."
+    ]
+  },
+  {
+    "physical": 269,
+    "first": [
+      "6.4 Discussion                                                                                  245",
+      "Fig. 6.3 W2 geodesic between two different stars in 3D, computed via semi-discrete optimal"
+    ],
+    "last": [
+      "up to this invariance, we can expect it to be strictly convex. In order to do that, one",
+      "needs to fix a value i0 D 0 and to look at the behavior w.r.t. i for i ¤ i0 ."
+    ]
+  },
+  {
+    "physical": 270,
+    "first": [
+      "246                                                                            6 Numerical methods",
+      "Fig. 6.4 W2 geodesic between the uniform measure on the shapes of an “armadillo” and of a"
+    ],
+    "last": [
+      "P",
+      "(H2) there exists i such that M i;i > j¤i jM i;j j;"
+    ]
+  },
+  {
+    "physical": 271,
+    "first": [
+      "6.4 Discussion                                                                                                        247",
+      "(H3) for any pair .i; j/, there is a sequence i1 ; i2 ; : : : ; ik with i1 D i; ik D j"
+    ],
+    "last": [
+      "aspects both the AHT flow described in Section 6.2 (as it starts from the Knothe map, is continuous",
+      "in time but discretized for numerical purposes, and evolves by imposing prescribed image measure"
+    ]
+  },
+  {
+    "physical": 272,
+    "first": [
+      "248                                                                                                                                                                                                                         6 Numerical methods",
+      "1                                                                        1                                                                        1                                                                        1"
+    ],
+    "last": [
+      "at every time) and the LR Newton’s iterations of Section 6.3 (as the underlying PDE is based on a",
+      "linearization of the Monge-Ampère equation)."
+    ]
+  },
+  {
+    "physical": 273,
+    "first": [
+      "Chapter 7",
+      "Functionals on the space of probabilities"
+    ],
+    "last": [
+      "Progress in Nonlinear Differential Equations and Their Applications 87,",
+      "DOI 10.1007/978-3-319-20828-2_7"
+    ]
+  },
+  {
+    "physical": 274,
+    "first": [
+      "250                                                       7 Functionals over probabilities",
+      "• The integral of a function of the density"
+    ],
+    "last": [
+      "Proof. The continuity of \u0002 7! V d\u0002 for V 2 Cb is straightforward by definition",
+      "of weak convergence. If V is l.s.c. and bounded from below, we know that there"
+    ]
+  },
+  {
+    "physical": 275,
+    "first": [
+      "7.1 Semi-continuity                                                                               251",
+      "is a sequence of Lipschitz and bounded functions Vk increasingly converging"
+    ],
+    "last": [
+      "C.˝ \u0005 ˝/, and we are considering a sequence of probability measures, which is",
+      "bounded. This proves \u0002k ˝ \u0002k * \u0002 ˝ \u0002 in the compact case."
+    ]
+  },
+  {
+    "physical": 276,
+    "first": [
+      "252                                                                      7 Functionals over probabilities",
+      "If ˝ is not compact, one can use Stone-Weierstrass’s theorem to prove that"
+    ],
+    "last": [
+      "1",
+      "This is an approach used by P. L. Lions in his lectures at Collège de France; see [211]."
+    ]
+  },
+  {
+    "physical": 277,
+    "first": [
+      "7.1 Semi-continuity                                                                          253",
+      "Proposition 7.5. Let X be a Banach space of functions over ˝ such that X \\"
+    ],
+    "last": [
+      "Then jj\u0002jj2X 0 D       '\u0002 d\u0002 D        G.x; y/ d\u0002.x/ d\u0002.y/, where G.x; \u0007/ is defined as the",
+      "solution of"
+    ]
+  },
+  {
+    "physical": 278,
+    "first": [
+      "254                                                                7 Functionals over probabilities",
+      "("
+    ],
+    "last": [
+      "probabilities, then \u0002 C \u0004 is not a probability. Yet, we will see in this section some",
+      "functionals that can be defined over probability measures but could be also seen as"
+    ]
+  },
+  {
+    "physical": 279,
+    "first": [
+      "7.1 Semi-continuity                                                               255",
+      "the restriction to probabilities of functionals defined on more general measures. All"
+    ],
+    "last": [
+      "˝",
+      "(note that if L D C1, then F.\u0002/ D C1 whenever \u0002 has a singular part) is l.s.c."
+    ]
+  },
+  {
+    "physical": 280,
+    "first": [
+      "256                                                                  7 Functionals over probabilities",
+      "Proof. We will try to use the equality"
+    ],
+    "last": [
+      "which allows to conclude FQ D F .                                                                     t",
+      "u"
+    ]
+  },
+  {
+    "physical": 281,
+    "first": [
+      "7.1 Semi-continuity                                                                               257",
+      "Remark 7.8. The assumption that     ´     is a finite measure is necessary to avoid"
+    ],
+    "last": [
+      "space the variational problems that we will present in bounded domains in Section 8.3 for the",
+      "Fokker-Planck equation."
+    ]
+  },
+  {
+    "physical": 282,
+    "first": [
+      "258                                                              7 Functionals over probabilities",
+      "have G .\u0002n / \b C but G .\u0002/ D C1. This is a contradiction with semi-continuity and"
+    ],
+    "last": [
+      "s                     b",
+      "just defined as the remaining atoms (every \u0002n is purely atomic since G .\u0002n / < C1)."
+    ]
+  },
+  {
+    "physical": 283,
+    "first": [
+      "7.1 Semi-continuity                                                                   259",
+      "If we write"
+    ],
+    "last": [
+      "F .\u0002/ D jj\u0002jjLp D",
+      "C1              otherwise:"
+    ]
+  },
+  {
+    "physical": 284,
+    "first": [
+      "260                                                                 7 Functionals over probabilities",
+      "For the functionals of type G , we can instead consider the cardinality of the support,"
+    ],
+    "last": [
+      "these functionals?",
+      "We start from the very first question: Which among these functionals are convex?"
+    ]
+  },
+  {
+    "physical": 285,
+    "first": [
+      "7.2 Convexity, first variations, and subdifferentials                                               261",
+      "Convexity and strict convexity"
+    ],
+    "last": [
+      "subset of the Banach space M .˝/, we prefer to give an ad hoc, and pragmatic,",
+      "definition."
+    ]
+  },
+  {
+    "physical": 286,
+    "first": [
+      "262                                                            7 Functionals over probabilities",
+      "Definition 7.12. Given a functional F W P.˝/ ! R [ fC1g, we say that % 2"
+    ],
+    "last": [
+      "D \u0013 \u0007 , write F .% C \" / D f .%.x/ C \"\u0013.x// d .x/, and differentiate",
+      "under the integral sign (this requires some growth conditions): we get"
+    ]
+  },
+  {
+    "physical": 287,
+    "first": [
+      "7.2 Convexity, first variations, and subdifferentials                                   263",
+      "ˆ                        ˆ"
+    ],
+    "last": [
+      "applied to the functional F defined as F.'/ D 0 for jj'jj \b 1 and F.'/ D C1 for",
+      "jj'jj > 1.For the first part, take a perturbation such that \u0002 C \" belongs to X 0"
+    ]
+  },
+  {
+    "physical": 288,
+    "first": [
+      "264                                                         7 Functionals over probabilities",
+      "for small \". This implies that both \u0002 and belong to X 0 . From the definition of F,"
+    ],
+    "last": [
+      "Tc .\u0002; \u0004/ D sup         ' d\u0002 C       ' d\u0004 W ' 2 C .˝/ ;",
+      "c"
+    ]
+  },
+  {
+    "physical": 289,
+    "first": [
+      "7.2 Convexity, first variations, and subdifferentials                                                 265",
+      "which allows to see Tc .\u0007; \u0004/ as a supremum of affine functionals of \u0002. Here \u0004 is"
+    ],
+    "last": [
+      "´",
+      "which gives the lower bound lim inf\"!0 .Tc .\u0002\" ; \u0004/ \u0002 Tc .\u0002; \u0004//=\" \u0003                         '\u0002 d ."
+    ]
+  },
+  {
+    "physical": 290,
+    "first": [
+      "266                                                               7 Functionals over probabilities",
+      "To look at the lim sup, first fix a sequence of values of \"k realizing the limsup,"
+    ],
+    "last": [
+      "Wpp .\u0002t ; \u0004/ D .1 \u0002 t/Wpp .\u00020 ; \u0004/ C tWpp .\u00021 ; \u0004/, where \u0002t D .1 \u0002 t/\u00020 C t\u00021 . Let",
+      "\u00050 be the optimal transport plan in the transport from \u0004 to \u00020 (pay attention to the"
+    ]
+  },
+  {
+    "physical": 291,
+    "first": [
+      "7.2 Convexity, first variations, and subdifferentials                                          267",
+      "direction: it is a transport map if we see it backward: from \u0004 to \u00020 , since \u0004 \u0006 L d );"
+    ],
+    "last": [
+      "´      %Q concentrated on it. We get `0 > g d%0 : Letting `0 ! `, we get",
+      "` \u0003 g d%0 ."
+    ]
+  },
+  {
+    "physical": 292,
+    "first": [
+      "268                                                      7 Functionals over probabilities",
+      "In the first case, the essential infimum coincides with the infimum, and hence"
+    ],
+    "last": [
+      "d",
+      "˝ p"
+    ]
+  },
+  {
+    "physical": 293,
+    "first": [
+      "7.3 Displacement convexity                                                          269",
+      "where ˝ \u0004 Rd is compact and p > 1. Again, a minimizer %0 2 Lp .˝/ exists and is"
+    ],
+    "last": [
+      "L1 or L1 or any non-strictly convex space). By the way, in spaces where there is",
+      "not uniqueness of the geodesics, the definition we gave could be debated, since one"
+    ]
+  },
+  {
+    "physical": 294,
+    "first": [
+      "270                                                           7 Functionals over probabilities",
+      "could also choose to define as geodesically convex those functionals that satisfy the"
+    ],
+    "last": [
+      "t 7! ..1 \u0002 t/x C ty; .1 \u0002 t/x0 C ty0 / for .x; y/; .x0 ; y0 / 2 spt.\u0005 / are contained either",
+      "in \u0007C or in \u0007\u0002 . This is true thanks to the monotonicity properties of spt.\u0005 / that we"
+    ]
+  },
+  {
+    "physical": 295,
+    "first": [
+      "7.3 Displacement convexity                                                           271",
+      "showed in Section 2.2. Actually, we showed that, for every strictly convex cost, the"
+    ],
+    "last": [
+      ".1 C t i /:",
+      "iD1"
+    ]
+  },
+  {
+    "physical": 296,
+    "first": [
+      "272                                                                           7 Functionals over probabilities",
+      "Differentiating,"
+    ],
+    "last": [
+      "Actually, it is also known that D2 ' exists a.e.: indeed, convex functions are twice differentiable",
+      "a.e. (see, for instance, [160], the original result being stated in [6])."
+    ]
+  },
+  {
+    "physical": 297,
+    "first": [
+      "7.3 Displacement convexity                                                            273",
+      "the density of the image measure, we know that \u0002t is absolutely continuous and we"
+    ],
+    "last": [
+      "larger than \u00021 (see Box 7.2 below).                                            t",
+      "u"
+    ]
+  },
+  {
+    "physical": 298,
+    "first": [
+      "274                                                               7 Functionals over probabilities",
+      "Box 7.2. Memo: Diagonalizing products of symmetric matrices"
+    ],
+    "last": [
+      "q ! C1.                                                                         t",
+      "u"
+    ]
+  },
+  {
+    "physical": 299,
+    "first": [
+      "7.3 Displacement convexity                                                                  275",
+      "We finish this section observing that in 1D we can say something more."
+    ],
+    "last": [
+      "mt",
+      "Fig. 7.1 The distance W22 .\u0002t ; \u0004/"
+    ]
+  },
+  {
+    "physical": 300,
+    "first": [
+      "276                                                              7 Functionals over probabilities",
+      "The lack of geodesic convexity of this easy functional4 is a problem for many"
+    ],
+    "last": [
+      "By the way, this functional can even be proven to be somehow geodesically concave, as it is shown",
+      "in [15], Theorem 7.3.2."
+    ]
+  },
+  {
+    "physical": 301,
+    "first": [
+      "7.4 Discussion                                                                      277",
+      "of the problem is exactly the one we face in the time discretization of the gradient"
+    ],
+    "last": [
+      "' C \u0010 f .%/",
+      "O \u0003C     on f%O D 0g;"
+    ]
+  },
+  {
+    "physical": 302,
+    "first": [
+      "278                                                        7 Functionals over probabilities",
+      "where ' is a suitable Kantorovich potential in the transport from %O to \u0004. We can"
+    ],
+    "last": [
+      "where T D id \u0002 r' is the optimal transport from %O to g. From D2 '.x0 / \u0003 0, we get",
+      "det.I \u0002 D2 '.x0 // \b 1, and hence"
+    ]
+  },
+  {
+    "physical": 303,
+    "first": [
+      "7.4 Discussion                                                                  279",
+      "O L1 D %.x"
+    ],
+    "last": [
+      "f .%.x// dx \u0003 f                    D f jAj\u00021 :",
+      "jAj   A                          jAj"
+    ]
+  },
+  {
+    "physical": 304,
+    "first": [
+      "280                                                     7 Functionals over probabilities",
+      "Geodesic convexity of F for f .t/ D \u0002t1\u00021=d implies"
+    ],
+    "last": [
+      "the land, and a function        giving wages and at other related quantities. Here an",
+      "equilibrium may be found by considering ' and as Kantorovich potentials for"
+    ]
+  },
+  {
+    "physical": 305,
+    "first": [
+      "7.4 Discussion                                                                                                   281",
+      "an appropriate cost, but the model is quite long to describe (see also [275] for a"
+    ],
+    "last": [
+      "everywhere (if the players want to maximize the playoff, otherwise, if it is a cost to be",
+      "minimized, f% .x/ \u0005 C), i.e., f% must be optimal %-a.e."
+    ]
+  },
+  {
+    "physical": 306,
+    "first": [
+      "282                                                       7 Functionals over probabilities",
+      "It is easy to see that the equilibrium condition, namely, that"
+    ],
+    "last": [
+      "land. This means they solve a problem of the form",
+      "maxfU.L/ C m W pL C m \b 0g;"
+    ]
+  },
+  {
+    "physical": 307,
+    "first": [
+      "7.4 Discussion                                                                                 283",
+      "where p represents the price for land, L is the land consumption, m is the leftover of"
+    ],
+    "last": [
+      "concave function not only of land “volume” but also of land “linear size,” which seems reasonable",
+      "since it has to be compared to “linear” quantities such as distances in the interaction term."
+    ]
+  },
+  {
+    "physical": 308,
+    "first": [
+      "284                                                         7 Functionals over probabilities",
+      "agents: suppose that a population of agents \u0002 distributed over a space Z must choose,"
+    ],
+    "last": [
+      "'.z/ C c.x; z/ D ' c .y/. This means that the agents add to their cost a new term,",
+      "given by the Kantorovich potential ' c , exactly as above."
+    ]
+  },
+  {
+    "physical": 309,
+    "first": [
+      "Chapter 8",
+      "Gradient flows"
+    ],
+    "last": [
+      "Progress in Nonlinear Differential Equations and Their Applications 87,",
+      "DOI 10.1007/978-3-319-20828-2_8"
+    ]
+  },
+  {
+    "physical": 310,
+    "first": [
+      "286                                                                            8 Gradient flows",
+      "Proposition 8.1. Suppose that F is convex and let x1 and x2 be two solutions of"
+    ],
+    "last": [
+      "xkC1 2 argminx F.x/ C                   :",
+      "2\u0010"
+    ]
+  },
+  {
+    "physical": 311,
+    "first": [
+      "8.1 Gradient flows in Rd and in metric spaces                                                         287",
+      "We can forget now the convexity assumptions on F, which are not necessary for"
+    ],
+    "last": [
+      "@t % D \u0007%t by an explicit scheme is very dangerous: at every step, %\u0010kC1 would have two",
+      "degrees of regularity less than %\u0010k , since it is obtained through %\u0010kC1 D %\u0010k \u0002 \u0007%\u0010k ."
+    ]
+  },
+  {
+    "physical": 312,
+    "first": [
+      "288                                                                               8 Gradient flows",
+      "It is possible to prove that for \u0010 ! 0, the sequence we found, suitably"
+    ],
+    "last": [
+      "We avoid here the distinction between minimizing movements and generalized minimizing",
+      "movements, which is not crucial in our analysis."
+    ]
+  },
+  {
+    "physical": 313,
+    "first": [
+      "8.1 Gradient flows in Rd and in metric spaces                                                          289",
+      "If F.x0 / is finite and F is bounded from below, taking the sum over k, we have"
+    ],
+    "last": [
+      "case, since all the quantities which are involved have their metric counterpart.",
+      "Another inequality, called EVI, will be presented in the Discussion Section 8.4.1."
+    ]
+  },
+  {
+    "physical": 314,
+    "first": [
+      "290                                                                          8 Gradient flows",
+      "The first observation is the following: thanks to the Cauchy-Schwartz inequality,"
+    ],
+    "last": [
+      "The original ideas which led to this theory come from [198] and [246] through what is known as",
+      "“Otto’s formal calculus”, and have later been reconsidered in [15]."
+    ]
+  },
+  {
+    "physical": 315,
+    "first": [
+      "8.2 Gradient flows in W2 , derivation of the PDE                                          291",
+      "r \u0007 .%t vt / D 0, for a suitable vector field v. The goal is to identify the vector field vt ,"
+    ],
+    "last": [
+      "section), we want to present some examples of this kind of equations. We will",
+      "consider two functionals that we already analyzed in Chapter 7, and more precisely"
+    ]
+  },
+  {
+    "physical": 316,
+    "first": [
+      "292                                                                          8 Gradient flows",
+      "ˆ                                    ˆ"
+    ],
+    "last": [
+      "weak solution of such a PDE), with the technique that we will see in the next section.",
+      "This is obviously useless when the equation is already well known, as it is the case"
+    ]
+  },
+  {
+    "physical": 317,
+    "first": [
+      "8.3 Analysis of the Fokker-Planck case                                                293",
+      "for the heat equation or its Fokker-Planck variant. But the same strategy could be"
+    ],
+    "last": [
+      "on a domain with finite measure; otherwise the situation is trickier, and we refer to",
+      "Ex(45))."
+    ]
+  },
+  {
+    "physical": 318,
+    "first": [
+      "294                                                                                          8 Gradient flows",
+      "Semi-continuity is the key tool to establish the following result:"
+    ],
+    "last": [
+      "Vd.%Q \u0002 %/",
+      "˝               ˝                ˝"
+    ]
+  },
+  {
+    "physical": 319,
+    "first": [
+      "8.3 Analysis of the Fokker-Planck case                                              295",
+      "This shows that the whole right-hand side of (8.6) is estimated by C\" and we get"
+    ],
+    "last": [
+      "%;                                                                              t",
+      "u"
+    ]
+  },
+  {
+    "physical": 320,
+    "first": [
+      "296                                                                   8 Gradient flows",
+      "We can now compute the first variation and give optimality conditions on the"
+    ],
+    "last": [
+      "and this allows to conclude.                                                        u",
+      "t"
+    ]
+  },
+  {
+    "physical": 321,
+    "first": [
+      "8.3 Analysis of the Fokker-Planck case                                                       297",
+      "Interpolation between time steps and uniform estimates"
+    ],
+    "last": [
+      "vQ \u0010t D v\u0010t ı .k\u0010 \u0002 t/v\u0010.k/ C id    I",
+      "as before, we define a momentum variable: EQ \u0010 D %Q \u0010 vQ \u0010 ."
+    ]
+  },
+  {
+    "physical": 322,
+    "first": [
+      "298                                                                                                                     8 Gradient flows",
+      "After these definitions we consider some a priori bounds on the curves and the"
+    ],
+    "last": [
+      "0                                       k",
+      "\u0010"
+    ]
+  },
+  {
+    "physical": 323,
+    "first": [
+      "8.3 Analysis of the Fokker-Planck case                                                                      299",
+      "and this implies"
+    ],
+    "last": [
+      "E D E.                                                                                                    t",
+      "u"
+    ]
+  },
+  {
+    "physical": 324,
+    "first": [
+      "300                                                                                   8 Gradient flows",
+      "Relation between % and E"
+    ],
+    "last": [
+      "f \u0007 rV% WD             dt       f .t; x/ \u0007 rV.x/%\u0010t .x/ dx:",
+      "0         ˝"
+    ]
+  },
+  {
+    "physical": 325,
+    "first": [
+      "8.4 Discussion                                                                                 301",
+      "The integrand in t is uniformly bounded by jjf jjL1 jjrVjjL1 . Hence, we can"
+    ],
+    "last": [
+      "In the general theory of gradient flows [15] in metric spaces, another characteri-",
+      "zation, different from the EDE, is proposed in order to cope with uniqueness and"
+    ]
+  },
+  {
+    "physical": 326,
+    "first": [
+      "302                                                                          8 Gradient flows",
+      "stability results. It is based on the following observation: if F W Rd ! R is convex,"
+    ],
+    "last": [
+      "Note that a similar argument, based on doubling the variables, is also often performed for the",
+      "differentiation of W22 along curves in W2 , which we did differently in Section 5.3.5."
+    ]
+  },
+  {
+    "physical": 327,
+    "first": [
+      "8.4 Discussion                                                                      303",
+      "d"
+    ],
+    "last": [
+      "that exploiting the characterization of the gradient flows in W2 developed in [15]",
+      "could be sometimes easier."
+    ]
+  },
+  {
+    "physical": 328,
+    "first": [
+      "304                                                                        8 Gradient flows",
+      "8.4.2 Other gradient flow PDEs"
+    ],
+    "last": [
+      "m\u00021",
+      "%m\u00021 C V C '\u0010 \u0003 C       on f% D 0g:"
+    ]
+  },
+  {
+    "physical": 329,
+    "first": [
+      "8.4 Discussion                                                                       305",
+      "This allows to express %m\u00021 D m\u00021 m"
+    ],
+    "last": [
+      "to % by the condition \u0002\u0007u D %, with Dirichlet boundary conditions u D 0 on @˝.",
+      "This gives the system"
+    ]
+  },
+  {
+    "physical": 330,
+    "first": [
+      "306                                                                           8 Gradient flows",
+      "8"
+    ],
+    "last": [
+      "wrong sign. In particular, it would be possible that the infimum is \u00021 or that the",
+      "energy is not l.s.c. (the H 1 part being u.s.c. because of the negative sign)."
+    ]
+  },
+  {
+    "physical": 331,
+    "first": [
+      "8.4 Discussion                                                                       307",
+      "When we use nonlinear diffusion with m > 2, the existence of a solution is quite"
+    ],
+    "last": [
+      "this gives rise to a general aggregation behavior of the particle, and as t ! 1 one",
+      "expects %t * ıx0 (the point x0 depending on the initial datum %0 : in the quadratic"
+    ]
+  },
+  {
+    "physical": 332,
+    "first": [
+      "308                                                                      8 Gradient flows",
+      "example above, it is the barycenter of %0 ; see Ex(51)). If W is not smooth enough,"
+    ],
+    "last": [
+      "concentrate the masses. We will call v the actual velocity of each particle, and",
+      "the main assumption of the model is that v D Padm.q/ .u/, where q is the particle"
+    ]
+  },
+  {
+    "physical": 333,
+    "first": [
+      "8.4 Discussion                                                                          309",
+      "configuration, adm.q/ is the set of velocities that do not induce (for an infinitesimal"
+    ],
+    "last": [
+      "F.%/ D",
+      "C1        if % … K:"
+    ]
+  },
+  {
+    "physical": 334,
+    "first": [
+      "310                                                                    8 Gradient flows",
+      "We do not enter into the details of the study of this equation, but we just make"
+    ],
+    "last": [
+      "For numerical approaches, Bernot proposed to iterate a construction with a time",
+      "step \u0010 > 0, but a natural continuous counterpart exists: simply define, for every"
+    ]
+  },
+  {
+    "physical": 335,
+    "first": [
+      "8.4 Discussion                                                                       311",
+      "absolutely continuous measure % 2 P.Rd /, the vector field v.%/ defined above"
+    ],
+    "last": [
+      "of the no-flux condition, since there would be (intuitively) some mass % > 0 on the",
+      "boundary with velocity directed outward."
+    ]
+  },
+  {
+    "physical": 336,
+    "first": [
+      "312                                                                        8 Gradient flows",
+      "Anyway, we see that Dirichlet conditions do not find their translation into W2"
+    ],
+    "last": [
+      "constant on the boundary, but the constant 0 is forbidden for the moment. It would",
+      "be interesting to see how far one could go with this approach and which Dirichlet"
+    ]
+  },
+  {
+    "physical": 337,
+    "first": [
+      "8.4 Discussion                                                                      313",
+      "conditions and which equations could be studied in this way, but this does not seem"
+    ],
+    "last": [
+      "with static PDEs: the Monge-Ampère equation, in Section 1.7.6, and the Monge-",
+      "Kantorovich system, in Section 4.2.2)."
+    ]
+  },
+  {
+    "physical": 338,
+    "first": [
+      "314                                                                       8 Gradient flows",
+      "Incompressible Euler equation"
+    ],
+    "last": [
+      "probability measures Q on the space AC.˝/ of absolutely continuous paths (here",
+      "below simply denoted C ) ! W Œ0; T\b ! ˝ and looked at the variational problem."
+    ]
+  },
+  {
+    "physical": 339,
+    "first": [
+      "8.4 Discussion                                                                    315",
+      "Problem 8.11. Solve"
+    ],
+    "last": [
+      "image measure, which is a classical transport problem, in the polar factorization",
+      "formulation (see Section 1.7.2)."
+    ]
+  },
+  {
+    "physical": 340,
+    "first": [
+      "316                                                                   8 Gradient flows",
+      "Coupling HJ and continuity equations, mean field games"
+    ],
+    "last": [
+      "One can study the optimal control problem given by (8.23) and (8.24) by means",
+      "of its value function."
+    ]
+  },
+  {
+    "physical": 341,
+    "first": [
+      "8.4 Discussion                                                                                   317",
+      "Box 8.3. Memo: Optimal control and Hamilton-Jacobi"
+    ],
+    "last": [
+      "(obviously, up to a change of sign, we could also express it as a maximization).",
+      "Actually, one can solve"
+    ]
+  },
+  {
+    "physical": 342,
+    "first": [
+      "318                                                                        8 Gradient flows",
+      "ˆ Tˆ \u0006                                     \u0007      ˆ"
+    ],
+    "last": [
+      "corresponds to a 7! X.t; a/ being measure preserving for every t. For details on this",
+      "theory, we refer the reader to the book by M. Cullen [130]."
+    ]
+  },
+  {
+    "physical": 343,
+    "first": [
+      "8.4 Discussion                                                                         319",
+      "In Eulerian coordinate the above equation is written"
+    ],
+    "last": [
+      "perturbations in the velocity produce small displacements, and hence the profile",
+      "at .t0 ; x0 / is stable."
+    ]
+  },
+  {
+    "physical": 344,
+    "first": [
+      "320                                                                          8 Gradient flows",
+      "In both interpretations (the variational one above and the one related to linear"
+    ],
+    "last": [
+      "This is another surprising domain where optimal transport for a quadratic cost",
+      "played an important role. The problem considers the evolution of the density % of the"
+    ]
+  },
+  {
+    "physical": 345,
+    "first": [
+      "8.4 Discussion                                                                        321",
+      "matter in the universe, subject to the gravity field created by % itself. In the so-called"
+    ],
+    "last": [
+      "X .t; x0 / C X 0 .t; x0 / D \u0002r't .X.t; x0 //:",
+      "3"
+    ]
+  },
+  {
+    "physical": 346,
+    "first": [
+      "322                                                                   8 Gradient flows",
+      "Here the potential 't is required to satisfy 1 C t\u0007't D %t , where %t is the image"
+    ],
+    "last": [
+      "We leave the proof of the fact that the optimality conditions of the above",
+      "minimization lead to (8.27) as an exercise, Ex(54)."
+    ]
+  },
+  {
+    "physical": 347,
+    "first": [
+      "8.4 Discussion                                                                       323",
+      "We also stress that the existence of a minimizer is not straightforward. Indeed, the"
+    ],
+    "last": [
+      "exactly suitable for %0 D 1 and atomic %T ) which were not available at the time",
+      "of [89]."
+    ]
+  },
+  {
+    "physical": 348,
+    "first": [
+      "Exercises",
+      "The following is a short list of possible exercises related to the subject of the book."
+    ],
+    "last": [
+      "Progress in Nonlinear Differential Equations and Their Applications 87,",
+      "DOI 10.1007/978-3-319-20828-2"
+    ]
+  },
+  {
+    "physical": 349,
+    "first": [
+      "326                                                                                  Exercises",
+      "Exercise 6. Consider the multi-marginal problem"
+    ],
+    "last": [
+      "%0 .x; y/ D if x \u0003 2 or x 2\b1; 2Œ and y > 1;",
+      "9"
+    ]
+  },
+  {
+    "physical": 350,
+    "first": [
+      "Exercises                                                                        327",
+      "2"
+    ],
+    "last": [
+      "where \u0005 is an optimal transport plan between the same measures for the cost",
+      "c.x; y/ D jx \u0002 yj."
+    ]
+  },
+  {
+    "physical": 351,
+    "first": [
+      "328                                                                                  Exercises",
+      "p"
+    ],
+    "last": [
+      "The common hub could be called Paris, for instance. However, no restriction on the space X is",
+      "imposed, and in particular, there is no need to assume that it has hexagonal shape."
+    ]
+  },
+  {
+    "physical": 352,
+    "first": [
+      "Exercises                                                                          329",
+      "Exercise 27. Given Q 2 P.C / with .e0 /# Q D \u0002; .e1 /# Q D \u0004, prove that"
+    ],
+    "last": [
+      "map % 7! VŒ%\b is Lipschitz continuous in the following sense: jjVŒ%\b \u0002 VŒ\u0002\bjjL1 \b",
+      "CW2 .%; \u0002/ for every %; \u0002. Consider the equation @t % C r \u0007 .%VŒ%\b/ D 0 with initial"
+    ]
+  },
+  {
+    "physical": 353,
+    "first": [
+      "330                                                                               Exercises",
+      "Cauchy datum %0 \u0006 L d . Prove that any solution %t stays absolutely continuous for"
+    ],
+    "last": [
+      "T D ru on a smooth domain ˝. Suppose T# f D \u0004, where f is a smooth positive",
+      "density on ˝. For every vector field v W ˝ ! Rd with r \u0007 .f v/ D 0 and v \u0007 n D 0"
+    ]
+  },
+  {
+    "physical": 354,
+    "first": [
+      "Exercises                                                                                      331",
+      "on @˝, consider the flow of the autonomous vector field v, given by Yt .x/ D yx .t/"
+    ],
+    "last": [
+      "the variational problems to be solved at every time step (see Equation (8.3)) in the",
+      "corresponding minimizing movement scheme admit a solution."
+    ]
+  },
+  {
+    "physical": 355,
+    "first": [
+      "332                                                                            Exercises",
+      "Exercise 50. Let V W Rd ! R be C1;1 and let G W P.Rd / ! R be defined through"
+    ],
+    "last": [
+      "min F.%/ C W22 .%; %0 / W % 2 P2 .Rd /",
+      "admits a solution."
+    ]
+  },
+  {
+    "physical": 356,
+    "first": [
+      "Exercises                                                                                    333",
+      "Exercise 54. Prove that the optimality conditions of"
+    ],
+    "last": [
+      "c W Rd ! R, together with two atomless compactly supported measures \u0002; \u0004 2",
+      "P.Rd / such that inf(MP)> min(KP)."
+    ]
+  },
+  {
+    "physical": 357,
+    "first": [
+      "334                                                                              Exercises",
+      "Exercise 61. * Prove that there exists a continuous map T W Œ0; 1\b ! Œ0; 1\b2 such"
+    ],
+    "last": [
+      "of @t % \u0002 \u0007% \u0002 r \u0007 .%rf / D 0 with Neumann boundary conditions on ˝, and prove",
+      "W2 .%t ; %1 / ! 0 exponentially as t ! 1."
+    ]
+  },
+  {
+    "physical": 358,
+    "first": [
+      "Exercises                                                                             335",
+      "Hints"
+    ],
+    "last": [
+      "Hint to Ex. 17. Use the results about L1 optimal transport.",
+      "Hint to Ex. 18. The cost c\" uniformly converges to the linear cost."
+    ]
+  },
+  {
+    "physical": 359,
+    "first": [
+      "336                                                                          Exercises",
+      "Hint to Ex. 19. Consider the Taylor expansion of the cost in \" to guess the lower-"
+    ],
+    "last": [
+      "that rh.T.x/ \u0002 x/ is not a gradient for h.z/ D jzj4 .",
+      "Hint to Ex. 38. Adapt the proof of Lemma 5.33."
+    ]
+  },
+  {
+    "physical": 360,
+    "first": [
+      "Exercises                                                                             337",
+      "Hint to Ex. 39. Write optimality conditions when we move one point."
+    ],
+    "last": [
+      "possible.",
+      "Hint to Ex. 58. Use concave costs and measures with a common mass."
+    ]
+  },
+  {
+    "physical": 361,
+    "first": [
+      "338                                                                            Exercises",
+      "Hint to Ex. 59. Try to realize the cost 0."
+    ],
+    "last": [
+      "Hint to Ex. 69. Differentiate W22 between the solution of the evolution equation and",
+      "the static solution."
+    ]
+  },
+  {
+    "physical": 362,
+    "first": [
+      "References",
+      "1. M. Agueh, G. Carlier, Barycenters in the Wasserstein space. SIAM J. Math. Ann. 43(2),"
+    ],
+    "last": [
+      "Progress in Nonlinear Differential Equations and Their Applications 87,",
+      "DOI 10.1007/978-3-319-20828-2"
+    ]
+  },
+  {
+    "physical": 363,
+    "first": [
+      "340                                                                                  References",
+      "14. L. Ambrosio, B. Kirchheim, A. Pratelli, Existence of optimal transport maps for crystalline"
+    ],
+    "last": [
+      "37. J.-D. Benamou, Y. Brenier, K. Guittet, Numerical analysis of a multi-phasic mass transport",
+      "problem. Contemp. Math. 353, 1–18 (2004)"
+    ]
+  },
+  {
+    "physical": 364,
+    "first": [
+      "References                                                                                      341",
+      "38. J.-D. Benamou, G. Carlier, M. Cuturi, L. Nenna, G. Peyré, Iterative Bregman projections for"
+    ],
+    "last": [
+      "63. V.I. Bogachev, A.V. Kolesnikov, The Monge–Kantorovich problem: achievements, connec-",
+      "tions, and perspectives. Russ. Math. Surv. 67(5), 785–890 (2012)"
+    ]
+  },
+  {
+    "physical": 365,
+    "first": [
+      "342                                                                                     References",
+      "64. J.F. Bonnans, J.-C. Gilbert, C. Lemarechal, C. Sagastizábal, Numerical Optimization: Theo-"
+    ],
+    "last": [
+      "Soc. 346, 501–524 (2003)",
+      "90. H. Brezis, Analyse fonctionnelle, Théorie et applications (Masson, Paris, 1983)"
+    ]
+  },
+  {
+    "physical": 366,
+    "first": [
+      "References                                                                                     343",
+      "91. H. Brezis, Liquid crystals and energy estimates for S2 -valued maps, in Theory and Appli-"
+    ],
+    "last": [
+      "115. J.-A. Carrillo, D. Slepčev, Example of a displacement convex functional of first order Calc.",
+      "Var. Part. Differ. Equat. 36(4), 547–564 (2009)"
+    ]
+  },
+  {
+    "physical": 367,
+    "first": [
+      "344                                                                                     References",
+      "116. J.-A. Carrillo, R.J. McCann, C. Villani, Kinetic equilibration rates for granular media and"
+    ],
+    "last": [
+      "140. J. Delon, J. Salomon, A. Sobolevskii, Fast transport optimization for Monge costs on the",
+      "circle. SIAM J. Appl. Math. 70(7), 2239–2258 (2010)"
+    ]
+  },
+  {
+    "physical": 368,
+    "first": [
+      "References                                                                                      345",
+      "141. J. Delon, J. Salomon, A. Sobolevskii, Local matching indicators for transport problems with"
+    ],
+    "last": [
+      "166. A. Figalli, N. Juillet, Absolute continuity of Wasserstein geodesics in the Heisenberg group.",
+      "J. Funct. Anal. 255(1), 133–141 (2008)"
+    ]
+  },
+  {
+    "physical": 369,
+    "first": [
+      "346                                                                                     References",
+      "167. A. Figalli, F. Maggi, A. Pratelli, A mass transportation approach to quantitative isoperimetric"
+    ],
+    "last": [
+      "193. P. Henry-Labordère, N. Touzi, An explicit martingale version of Brenier’s theorem. (2015)",
+      "http://www.cmap.polytechnique.fr/~touzi/"
+    ]
+  },
+  {
+    "physical": 370,
+    "first": [
+      "References                                                                                        347",
+      "194. R. Hug, N. Papadakis, E. Maitre On the convergence of augmented Lagrangian method for"
+    ],
+    "last": [
+      "221. F. Maddalena, S. Solimini, J.-M. Morel, A variational model of irrigation patterns. Interfaces",
+      "Free Boundaries 5, 391–416 (2003)"
+    ]
+  },
+  {
+    "physical": 371,
+    "first": [
+      "348                                                                                    References",
+      "222. J. Malý, L. Zajíček, Approximate differentiation: Jarník points. Fund. Math. 140(1), 87–97"
+    ],
+    "last": [
+      "248. N. Papadakis, G. Peyré, É. Oudet, Optimal transport with proximal splitting. SIAM J. Imag.",
+      "Sci. 7(1), 212–238 (2014)"
+    ]
+  },
+  {
+    "physical": 372,
+    "first": [
+      "References                                                                                         349",
+      "249. B. Pass, Multi-marginal optimal transport: theory and applications. ESAIM: M2AN (2014)"
+    ],
+    "last": [
+      "2014, Lecture notes for a Summer School held in Cambridge University Press, Grenoble",
+      "(2009) pp. 3–21"
+    ]
+  },
+  {
+    "physical": 373,
+    "first": [
+      "350                                                                                        References",
+      "275. F. Santambrogio, Models and applications of optimal transport theory, in Optimal Trans-"
+    ],
+    "last": [
+      "(2010), pp. 521–525",
+      "300. Q. Xia, Boundary regularity of optimal transport paths. Adv. Calc. Var. 4(2), 153–174 (2011)"
+    ]
+  },
+  {
+    "physical": 374,
+    "first": [
+      "Index",
+      "Symbols                                          continuity equation, 122, 291, 300, 316"
+    ],
+    "last": [
+      "Progress in Nonlinear Differential Equations and Their Applications 87,",
+      "DOI 10.1007/978-3-319-20828-2"
+    ]
+  },
+  {
+    "physical": 375,
+    "first": [
+      "352                                                                                       Index",
+      "Euler schemes, 287                                L"
+    ],
+    "last": [
+      "Knothe map, 67, 83, 230, 247                         on manifolds, xvii, 18",
+      "Kullback-Leibler, 240                             quantization, 236, 277"
+    ]
+  },
+  {
+    "physical": 376,
+    "first": [
+      "Index                                                                                    353",
+      "R                                                T"
+    ],
+    "last": [
+      "subdifferentials, 26, 159, 260                   weak convergence, 3, 4, 183",
+      "super-hedging, 53                                weighted distances, 129, 155, 158"
+    ]
+  }
+]

@@ -1,0 +1,211 @@
+{
+  "source_id": "DS026",
+  "source_physical_pages": 376,
+  "output_pdf_pages": 94,
+  "source_sha256": "7820e876d4312d7355f0a1549b2af2186594eebef8d411d651c6235b8c119b68",
+  "labels": 104,
+  "reference_commands": 102,
+  "citation_commands": 108,
+  "citation_keys": 89,
+  "original_pdf_reference_commands": 153,
+  "numbered_statements": 54,
+  "boxes": 14,
+  "chapter_numbered_equations": 8,
+  "named_equations": [
+    "DP-var"
+  ],
+  "intro_equations": [
+    "1",
+    "2"
+  ],
+  "proof_environments": 41,
+  "unnumbered_figures": 1,
+  "bibliography_entries": 300,
+  "original_contents_entries": 109,
+  "link_types": {
+    "/URI": 31,
+    "/GoTo": 312,
+    "/GoToR": 157
+  },
+  "named_destinations": 519,
+  "source_selected_links": {
+    "/URI": 29,
+    "/Dest": 406
+  },
+  "source_chapter1_links": {
+    "/Dest": 209
+  },
+  "output_chapter1_links": {
+    "/GoTo": 201,
+    "/GoToR": 15
+  },
+  "bad_links": [],
+  "translated_scope": {
+    "front_physical": [
+      1,
+      28
+    ],
+    "chapter1_printed": [
+      1,
+      57
+    ],
+    "chapter1_physical": [
+      29,
+      85
+    ],
+    "bibliography_physical": [
+      362,
+      373
+    ]
+  },
+  "files": {
+    "sections-tex/01-01.tex": {
+      "characters": 15634,
+      "environments": {
+        "problem": 2,
+        "equation": 2,
+        "remark": 1,
+        "sourcebox": 6,
+        "definition*": 5,
+        "theorem*": 8,
+        "proof": 11,
+        "theorem": 3,
+        "lemma": 2,
+        "equation*": 2,
+        "aligned": 2
+      }
+    },
+    "sections-tex/01-02.tex": {
+      "characters": 6747,
+      "environments": {
+        "equation*": 2,
+        "aligned": 1,
+        "cases": 2,
+        "equation": 2,
+        "problem": 1,
+        "sourcebox": 2,
+        "theorem*": 1,
+        "definition": 2,
+        "proposition*": 1,
+        "proposition": 1,
+        "proof": 1,
+        "remark": 1
+      }
+    },
+    "sections-tex/01-03.tex": {
+      "characters": 12751,
+      "environments": {
+        "equation*": 5,
+        "aligned": 5,
+        "definition": 2,
+        "proposition": 2,
+        "proof": 5,
+        "sourcebox": 1,
+        "theorem*": 1,
+        "theorem": 3,
+        "remark": 6,
+        "equation": 1
+      }
+    },
+    "sections-tex/01-04.tex": {
+      "characters": 2058,
+      "environments": {
+        "center": 1
+      }
+    },
+    "sections-tex/01-05.tex": {
+      "characters": 6188,
+      "environments": {
+        "cases": 1,
+        "sourcebox": 1,
+        "lemma": 3,
+        "proof": 6,
+        "corollary": 1,
+        "remark": 1,
+        "equation*": 2,
+        "aligned": 2,
+        "theorem": 2
+      }
+    },
+    "sections-tex/01-06.tex": {
+      "characters": 28996,
+      "environments": {
+        "sourcebox": 3,
+        "theorem*": 2,
+        "definition*": 3,
+        "example*": 1,
+        "proposition*": 2,
+        "proposition": 1,
+        "proof": 17,
+        "equation*": 23,
+        "aligned": 25,
+        "definition": 2,
+        "theorem": 13,
+        "equation": 1,
+        "lemma": 2,
+        "remark": 1,
+        "cases": 1,
+        "enumerate": 1
+      }
+    },
+    "sections-tex/01-07.tex": {
+      "characters": 24049,
+      "environments": {
+        "equation*": 15,
+        "aligned": 13,
+        "theorem": 2,
+        "proof": 1,
+        "gathered": 2,
+        "equation": 2,
+        "itemize": 2,
+        "sourcebox": 1,
+        "proposition*": 1
+      }
+    },
+    "frontmatter/00-acknowledgments.tex": {
+      "characters": 1290,
+      "environments": {}
+    },
+    "frontmatter/00-introduction.tex": {
+      "characters": 6273,
+      "environments": {
+        "equation": 2,
+        "align*": 1
+      }
+    },
+    "frontmatter/00-notation.tex": {
+      "characters": 3817,
+      "environments": {
+        "itemize": 2,
+        "center": 1
+      }
+    },
+    "frontmatter/00-preface.tex": {
+      "characters": 5675,
+      "environments": {
+        "flushright": 1
+      }
+    },
+    "frontmatter/00-publication.tex": {
+      "characters": 2422,
+      "environments": {
+        "center": 1,
+        "small": 1,
+        "itemize": 1,
+        "flushright": 1
+      }
+    },
+    "frontmatter/00-source-contents.tex": {
+      "characters": 5195,
+      "environments": {
+        "longtable": 1
+      }
+    },
+    "frontmatter/00-title.tex": {
+      "characters": 615,
+      "environments": {
+        "titlepage": 1
+      }
+    }
+  }
+}

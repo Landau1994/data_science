@@ -1,0 +1,137 @@
+% 原书印刷67--72页，PDF物理94--99页，止于2.4标题之前.
+\subsection{Knothe运输}\label{sec:2.3}
+
+Knothe运输又称Knothe--Rosenblatt重排，是可与两个给定测度$\mu,\nu\in\mathscr P(\mathbb R^d)$相联系的一种特殊运输映射，它先验地与最优运输无关. Rosenblatt为统计目的\cite{b264}，Knothe为几何不等式的应用\cite{b203}，分别独立提出了这一映射（另见\autoref{sec:2.5.3}）. 这种映射最有吸引力之处在于计算简单. 我们将在两个测度均绝对连续的较简单情形下说明其原理：$\mu=f(x)\,dx$，$\nu=g(y)\,dy$.
+
+先通过
+\[
+\begin{aligned}
+\widehat f^{\,d}(x_d)&=\int f(t_1,t_2,\ldots,t_{d-1},x_d)\,dt_1dt_2\cdots dt_{d-1},\\
+\widehat g^{\,d}(y_d)&=\int g(s_1,s_2,\ldots,s_{d-1},y_d)\,ds_1ds_2\cdots ds_{d-1}
+\end{aligned}
+\]
+定义密度$\widehat f^{\,d}$与$\widehat g^{\,d}$；对$k<d$，再令
+\[
+\begin{aligned}
+\widehat f^{\,k}(x_k,x_{k+1},\ldots,x_d)
+&=\int f(t_1,\ldots,t_{k-1},x_k,\ldots,x_d)\,dt_1\cdots dt_{k-1},\\
+\widehat g^{\,k}(y_k,y_{k+1},\ldots,y_d)
+&=\int f(s_1,\ldots,s_{k-1},y_k,\ldots,y_d)\,ds_1\cdots ds_{k-1}.
+\end{aligned}
+\]
+容易验证，$\widehat f^{\,d}$与$\widehat g^{\,d}$分别是$(\pi_d)_\#\mu$与$(\pi_d)_\#\nu$的密度，其中$\pi_d:\mathbb R^d\to\mathbb R$为最后一个变量上的投影. 更一般地，$\widehat f^{\,k}$与$\widehat g^{\,k}$分别是$\mu^k=(\pi_{k,d})_\#\mu$与$\nu^k=(\pi_{k,d})_\#\nu$的密度，其中$\pi_{k,d}:\mathbb R^d\to\mathbb R^{d-k+1}$为投影到第$k$至第$d$个变量的映射：
+\[
+\pi_{k,d}(x_1,\ldots,x_{k-1},x_k,x_{k+1},\ldots,x_d)=(x_k,x_{k+1},\ldots,x_d).
+\]
+然后对$k=1,\ldots,d-1$定义
+\[
+\begin{aligned}
+f^k(x_k,x_{k+1},\ldots,x_d)&=\frac{\widehat f^{\,k}(x_k,x_{k+1},\ldots,x_d)}{\widehat f^{\,k+1}(x_{k+1},\ldots,x_d)},\\
+g^k(y_k,y_{k+1},\ldots,y_d)&=\frac{\widehat g^{\,k}(y_k,y_{k+1},\ldots,y_d)}{\widehat g^{\,k+1}(y_{k+1},\ldots,y_d)}.
+\end{aligned}
+\]
+（注意，这些函数都只会在分母不为零的点集上使用.）
+
+把$f^k$视为以$(x_{k+1},\ldots,x_d)$为参数的$x_k$的函数时，它实际可看作$\mu^k$按变量$(x_{k+1},\ldots,x_d)$分解所得测度的密度；同样，$g^k$是$\nu^k$分解所得测度的密度. 下面简要介绍测度分解的主要概念. 借助这一语言，即使测度不绝对连续，只要满足某些无原子假设，也能定义即将介绍的Knothe运输. 不过，为简单起见，大多数结果仍在测度绝对连续的情形下陈述.
+
+\begin{sourcebox}{重要概念：测度的分解}\label{box:2.2}
+\begin{definition*}
+考虑赋有Borel测度$\mu$的测度空间$X$，以及取值于拓扑空间$Y$的映射$f:X\to Y$. 若一族测度$(\mu_y)_{y\in Y}$中的每个$\mu_y$都是集中于$f^{-1}(\{y\})$的概率测度，且对每个测试函数$\varphi\in C(X)$，映射$y\mapsto\int_X\varphi\,d\mu_y$为Borel可测，并满足
+\[
+\int_X\varphi\,d\mu=\int_Y d\nu(y)\int_X\varphi\,d\mu_y,
+\qquad\nu=f_\#\mu,
+\]
+则称该族测度为$\mu$按$f$的一个\emph{分解}（disintegration）.
+\end{definition*}
+$\mu$的分解也经常（滥用记号地）写成$\mu=\mu_y\otimes\nu$.
+
+特别地，若$X=Y\times Z$且$f$为到因子$Y$的投影，通常将测度$\mu_y$视为$Z$上的测度，尽管它们“正式地”是定义在$Y\times Z$上、集中于$\{y\}\times Z$的测度. 于是得到
+\[
+\int_{Y\times Z}\varphi(y,z)\,d\mu(y,z)
+=\int_Y d\nu(y)\int_Z\varphi(y,z)\,d\mu_y(z).
+\]
+测度$\mu$的分解恰好对应于概率论中的条件分布. 读者可参阅\cite{b152}中关于条件概率的证明，再将其转换为分解的语言. 事实上，在概率论中，通常谈论已知$Y=y$时随机变量$X$的条件分布. 这意味着将概率空间$\Omega$上的概率$P$按映射$Y:\Omega\to E$（$E$为$Y$的像空间）分解为概率$P_y$，再取$X$在$P_y$下的分布. 分解的存在性与唯一性依赖于空间的一些假设，但当$X=\mathbb R^d$时，它们成立.
+\end{sourcebox}
+
+为定义Knothe重排，从$k=d$开始，将运输映射$\mathrm T^d:\mathbb R\to\mathbb R$定义为把$f^d$送到$g^d$的单调不减运输映射（将这两个函数视为概率密度）. 已知这一映射有良好定义，而且知道如何用累积分布函数计算它. 现在定义一族映射$\mathrm T^k:\mathbb R^{d-k+1}\to\mathbb R$，其变量为$(x_k,x_{k+1},\ldots,x_d)$. 第一个就是刚定义的$\mathrm T^d$. 为方便记号，还定义映射$\widehat{\mathrm T}^{\,k}:\mathbb R^{d-k+1}\to\mathbb R^{d-k+1}$：
+\[
+\widehat{\mathrm T}^{\,k}(x_k,x_{k+1},\ldots,x_d)
+=\bigl(\mathrm T^k(x_k,x_{k+1},\ldots,x_d),\mathrm T^{k+1}(x_{k+1},\ldots,x_d),\ldots,\mathrm T^d(x_d)\bigr).
+\]
+显然，$\mathrm T^d$与$\widehat{\mathrm T}^{\,d}$相同. 现在分别用$f^k_{(x_{k+1},\ldots,x_d)}$与$g^k_{(y_{k+1},\ldots,y_d)}$表示函数$x_k\mapsto f^k(x_k,x_{k+1},\ldots,x_d)$与$y_k\mapsto g^k(y_k,y_{k+1},\ldots,y_d)$，并将其解释为概率测度的密度. 假设已对$j>k$定义了$\mathrm T^j$，则可如下定义$\mathrm T^k$：取$\mathrm T^k_{(x_{k+1},\ldots,x_d)}$为将$f^k_{(x_{k+1},\ldots,x_d)}$送到$g^k_{\widehat{\mathrm T}^{\,k+1}(x_{k+1},\ldots,x_d)}$的单调不减运输映射.
+
+最后，以$\mathrm T=\widehat{\mathrm T}^{\,1}$定义Knothe--Rosenblatt重排$\mathrm T$.
+
+我们要验证，$\mathrm T$是从$\mu$到$\nu$的运输映射.
+
+\begin{proposition}\label{obj:2.18}
+上述Knothe--Rosenblatt重排映射$\mathrm T$满足$\mathrm T_\#\mu=\nu$.
+\end{proposition}
+\begin{proof}
+用归纳法证明$\widehat{\mathrm T}^{\,k}$满足
+\begin{equation}\label{eq:2.4}
+\widehat{\mathrm T}^{\,k}_\#\mu^k=\nu^k
+\end{equation}
+（回顾一下，$\mu^k=(\pi_{k,d})_\#\mu$与$\nu^k=(\pi_{k,d})_\#\nu$是$\mu$与$\nu$在最后$d-k+1$个变量上的边缘测度）. 由构造，$k=d$时等式\eqref{eq:2.4}显然成立；若对$k=1$得到它，就证明了$\mathrm T_\#\mu=\nu$.
+
+只需证明，若断言对给定的$k+1$成立，则对$k$也成立. 为验证等式\eqref{eq:2.4}，只需使用测试函数$\chi(y_k,\ldots,y_d)$，验证
+\[
+\begin{aligned}
+&\int\chi\bigl(\mathrm T^k(x_k,x_{k+1},\ldots,x_d),\mathrm T^{k+1}(x_{k+1},\ldots,x_d),\ldots,\mathrm T^d(x_d)\bigr)\,d\mu\\
+&\hspace{3em}=\int\chi(y_k,\ldots,y_d)\,d\nu.
+\end{aligned}
+\]
+此外，由稠密性（见下面的Stone--Weierstrass定理），只需对可分离函数，即形如$\chi(y_k,\ldots,y_d)=\varphi(y_k)\psi(y_{k+1},\ldots,y_d)$的函数验证上述等式. 为简化记号，对固定的$k$，用$\bar x$表示向量$\pi_{k+1,d}(x)$，并令$\bar y=\pi_{k+1,d}(y)$. 此时应验证
+\[
+\int\psi\circ\widehat{\mathrm T}^{\,k+1}
+ \left(\int\varphi\circ\mathrm T^k f^k\,dx_k\right)\widehat f^{\,k+1}\,d\bar x
+=\int\psi(\bar y)\left(\int\varphi(y_k)g^k\,dy_k\right)\widehat g^{\,k+1}\,d\bar y.
+\]
+为得到这一等式，只需使用$\mathrm T^k$的定义，从而对每个$x$有
+\[
+\int\varphi\circ\mathrm T^k f^k\,dx_k
+=\int\varphi(y_k)g^k_{\widehat{\mathrm T}^{\,k+1}(\bar x)}(y_k)\,dy_k.
+\]
+定义$G:\mathbb R^{d-k}\to\mathbb R$为$G(\bar y)=\int\varphi(y_k)g^k_{\bar y}(y_k)\,dy_k$，于是
+\[
+\begin{aligned}
+&\int\psi\circ\widehat{\mathrm T}^{\,k+1}
+ \left(\int\varphi\circ\mathrm T^k f^k\,dx_k\right)\widehat f^{\,k+1}\,d\bar x\\
+&\hspace{2em}=\int\psi\circ\widehat{\mathrm T}^{\,k+1}\,G\circ\widehat{\mathrm T}^{\,k+1}\,\widehat f^{\,k+1}\,d\bar x.
+\end{aligned}
+\]
+取$\widehat f^{\,k+1}$在$\widehat{\mathrm T}^{\,k+1}$下的像测度，最后一个表达式等于$\int\psi(\bar y)G(\bar y)\widehat g^{\,k+1}(\bar y)\,d\bar y$，也就是
+\[
+\int\psi(\bar y)\left(\int\varphi(y_k)g^k_{\bar y}(y_k)\,dy_k\right)\widehat g^{\,k+1}(\bar y)\,d\bar y,
+\]
+从而证明断言.
+\end{proof}
+
+\begin{sourcebox}{知识回顾：Stone--Weierstrass定理}\label{box:2.3}
+\begin{theorem*}
+设$X$为紧空间，且$E\subset C(X)$为$X$上连续函数空间的一个子集，满足：
+\begin{enumerate}[label=\roman*)]
+\item 常值函数属于$E$；
+\item $E$为代数，即在加法与乘法下封闭：$f,g\in E\Rightarrow f+g,fg\in E$；
+\item $E$分离$X$中的点，即对所有$x\ne y\in X$，存在$f\in E$使$f(x)\ne f(y)$.
+\end{enumerate}
+则$E$关于一致收敛在$C(X)$中稠密（例如见\cite{b268}）.
+\end{theorem*}
+通常在$X\subset\mathbb R^d$时援引这一定理，以说明多项式的稠密性. 三角多项式也因同一原因稠密（顺便说，这可用于证明Fourier级数的$L^2$收敛）. 在乘积空间$X=Y\times Z$中，形如$\sum_i\varphi_i(y)\psi_i(z)$的可分离函数的线性组合稠密，也正是这一定理的结果.
+\end{sourcebox}
+
+刚才证明了映射$\mathrm T$是$\mu$与$\nu$之间的运输映射. 此外，由构造可知，若Knothe运输$\mathrm T$是正则映射，则它的Jacobi矩阵为三角矩阵，且对角元非负. 可将其与二次成本的Brenier最优映射比较：后者的Jacobi矩阵是一个凸函数的Hesse矩阵，它对称（而非三角），也具有正特征值. 还要强调，在我们采用的绝对连续性假设下，定义$\mathrm T$时使用的所有单调最优运输均可逆，因为不仅源测度无原子，目标测度也无原子（它们都绝对连续）. 因此，每个映射$\widehat{\mathrm T}^{\,k}$也可逆.
+
+\begin{remark}\label{obj:2.19}
+有趣的是，由于定义显式，Knothe映射会自动从测度$\mu$与$\nu$继承某些正则性. 一般而言，$\mathrm T$与$\mu$、$\nu$具有相同的正则性，而不会更好. 事实上，每个$\mathrm T^k$都作为单调运输构造，因而比$\mu$与$\nu$多一个导数（见\autoref{obj:2.7}），但这仅针对变量$x_k$的方向. 对其他变量，借助累积分布函数表示单调运输的显式公式，可证明对$(x_{k+1},\ldots,x_d)$的依赖与密度具有相同的正则性.
+\end{remark}
+
+\begin{remark}\label{obj:2.20}
+还有一点值得注意：上面定义的Knothe映射是从$\mu$到$\nu$、对字典序单调的（唯一）运输映射. 这里的次序$x<y$定义为：“存在$k\in\{1,2,\ldots,d\}$，使得对$j>k$有$x_j=y_j$，并且$x_k<y_k$.”
+\end{remark}
+
+\begin{remark}\label{obj:2.21}
+当$\mu$与$\nu$不绝对连续时，如何定义Knothe运输？构造要使用测度分解的概念（\autoref{box:2.2}）.
+
+先将运输映射$\mathrm T^d:\mathbb R\to\mathbb R$定义为把$(\pi_d)_\#\mu$送到$(\pi_d)_\#\nu$的单调不减运输映射. 需要假设$(\pi_d)_\#\mu$无原子. 然后，对每个$k$，考虑$(\pi_{k,d})_\#\mu$并相对于$(\pi_{k+1,d})_\#\mu$分解它；对$(\pi_{k,d})_\#\nu$与$(\pi_{k+1,d})_\#\nu$也作同样处理. 得到实直线上的若干族概率测度，可分别记作$\mu^k_{x_{k+1},\ldots,x_n}$与$\nu^k_{y_{k+1},\ldots,y_n}$. 它们是变量$x_k$与$y_k$上的测度，取代密度$f^k(\cdot,x_{k+1},\ldots,x_d)$与$g^k(\cdot,y_{k+1},\ldots,y_d)$. 同样，需要假设每个测度$\mu^k_{x_{k+1},\ldots,x_n}$无原子. 映射$\widehat{\mathrm T}^{\,k}(x_k,x_{k+1},\ldots,x_d)$与之前一样，通过一维单调递增映射定义.
+\end{remark}

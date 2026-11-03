@@ -1,0 +1,191 @@
+% 原书印刷121--126／PDF物理146--151.
+\subsection{Euler观点与Lagrange观点}\label{sec:4.1}
+
+这里回顾描述静态或动态运输现象的主要语言和主要数学工具.
+
+\subsubsection{静态与动态模型}\label{sec:4.1.1}
+
+本小节非常非正式地介绍最优运输中动态模型的物理解释.
+
+在流体力学以及许多具有类似建模问题的领域，通常使用两种互补的方式描述运动，分别称为Lagrange描述与Euler描述.
+
+采用Lagrange形式描述运动时，我们给粒子取“名字”（例如使用特定标签，或者使用初始位置），然后对每个时刻$t$和每个标签，描述那个粒子发生了什么. “发生了什么”意味着给出其位置和／或速度. 因此，例如可以考察轨迹$y_x(t)$，它表示最初位于$x$的粒子在时刻$t$的位置. 另一种做法是不取名字，而考虑行为相同的粒子束，并说明它们的数量. 这相当于在可能行为的集合上给出一个测度.
+
+描述可以有不同的精细程度. 例如，若只考虑$t=0$和$t=1$两个不同时刻，粒子的行为就只由其初始位置和终止位置给出. 这类点对$(x,y)$上的一个测度恰好就是运输方案. 这也说明，为何可以把Kantorovich问题看成用Lagrange坐标表述的问题. Monge问题同样是Lagrange式的，粒子用其初始位置来标记.
+
+容易设想更精细的模型：把一次运动归结为初始位置与终止位置，实在太粗糙了！路径集合（曲线$\omega:[0,1]\to\Omega$，可对其正则性作出假设）上的测度已用于许多建模问题，特别是交通与分支运输问题（这两个主题见\autoref{sec:4.4}），以及Brenier对流体不可压缩Euler方程的变分表述（见\autoref{sec:1.7.4}、\autoref{sec:8.4.4}和\cite{b51,b83,b85}）.
+
+另一方面，在Euler形式中，我们对每个时刻$t$和每个点$x$，描述这一时刻在该点发生了什么. “发生了什么”通常指时刻$t$位于点$x$的粒子的速度、密度和流率（包括强度及方向）.
+
+Euler模型又可分为静态模型与动态模型. 在动态模型中，通常使用两个变量，即密度$\varrho(t,x)$和速度$\mathbf v_t(x)$. 可以写出按速度场$\mathbf v$运动的一族粒子的密度所满足的方程. 也就是说，规定初始密度$\varrho_0$，而最初位于$x$的粒子的位置由常微分方程
+\begin{equation}\label{eq:4.1}
+ \begin{cases}
+ y_x'(t)=\mathbf v_t(y_x(t)),\\
+ y_x(0)=x
+ \end{cases}
+\end{equation}
+的解给出. 通过$Y_t(x)=y_x(t)$定义映射$Y_t$，并考察测度$\varrho_t:=(Y_t)_\#\varrho_0$. 众所周知，$\varrho_t$与$\mathbf v_t$共同满足所谓的连续性方程
+\[
+ \partial_t\varrho_t+\nabla\cdot(\varrho_t\mathbf v_t)=0,
+\]
+\autoref{sec:4.1.2}将对此作简要讨论.
+
+静态框架稍难理解，因为当我们想描述运动时，“静态”究竟意味着什么，也许并不清楚. 应设想一种持续、循环的运动，其中质量不断在某些点被注入运动，又不断在其他地方被取走. 也可以将其视为某个动态模型的时间平均：假设观察城市交通，想知道每个点发生的情况，却不想得到依赖一天中具体时刻的答案. 例如，可以将某点全天的平均交通强度作为该点的交通强度. 此时通常只使用一个变量$\mathbf w$表示质量流率（等于密度乘速度，因此它更像动量而不是速度），其散度$\nabla\cdot\mathbf w$表示每个点注入运动的过剩质量. 更精确地说，若粒子按密度$\mu$进入运动，再以密度$\nu$退出，那么表示连接这两个测度的流的向量场$\mathbf w$必须满足
+\[
+ \nabla\cdot\mathbf w=\mu-\nu.
+\]
+
+\subsubsection{连续性方程}\label{sec:4.1.2}
+
+本小节讨论方程
+\[
+ \partial_t\varrho_t+\nabla\cdot(\varrho_t\mathbf v_t)=0
+\]
+的意义、各种表述与唯一性结果. 本章余下部分主要处理静态散度方程，但稍后会看到动态情形也有用途，特别是可以产生与给定向量场关联的运输方案. 因此，需要发展一些工具.
+
+先说一下这个方程的解的概念. 以下$\Omega\subset\mathbb R^d$是有界区域，或者就是$\mathbb R^d$本身.
+
+\begin{definition}\label{obj:4.1}
+设一族测度／向量场对$(\varrho_t,\mathbf v_t)$满足$\mathbf v_t\in L^1(\varrho_t;\mathbb R^d)$以及
+\[
+ \int_0^T\|\mathbf v_t\|_{L^1(\varrho_t)}\,\mathrm dt
+ =\int_0^T\int_\Omega|\mathbf v_t|\,\mathrm d\varrho_t\,\mathrm dt<+\infty.
+\]
+若对每个有界Lipschitz测试函数$\phi\in C_c^1((0,T)\times\overline\Omega)$均有
+\begin{equation}\label{eq:4.2}
+ \int_0^T\int_\Omega(\partial_t\phi)\,\mathrm d\varrho_t\,\mathrm dt
+ +\int_0^T\int_\Omega\nabla\phi\cdot\mathbf v_t\,\mathrm d\varrho_t\,\mathrm dt=0,
+\end{equation}
+则称这一族测度／向量场对在分布意义下解$(0,T)$上的连续性方程. 注意，我们要求支集远离$t=0,1$，但当$\Omega$有界时，不要求其远离$\partial\Omega$；此外，$\Omega$本身通常已假设为闭集，这里写$\overline\Omega$是为了强调边界也包含在内.
+\end{definition}
+
+这一表述包含$\mathbf v_t$在$\partial\Omega$上的无通量边界条件（当然，当$\Omega$就是$\mathbb R^d$时无需此条件），即$\varrho_t\mathbf v_t\cdot\mathbf n=0$. 若还要指定初始和终止测度，可以说$(\varrho_t,\mathbf v_t)$在分布意义下解同一方程，且初始、终止数据分别为$\varrho_0,\varrho_T$，如果对每个测试函数$\phi\in C_c^1([0,T]\times\overline\Omega)$（现在不要求支集远离$t=0,1$）均有
+\begin{equation}\label{eq:4.3}
+\begin{aligned}
+ &\int_0^T\int_\Omega(\partial_t\phi)\,\mathrm d\varrho_t\,\mathrm dt
+ +\int_0^T\int_\Omega\nabla\phi\cdot\mathbf v_t\,\mathrm d\varrho_t\,\mathrm dt\\
+ &\qquad=\int_\Omega\phi(T,x)\,\mathrm d\varrho_T(x)
+              -\int_\Omega\phi(0,x)\,\mathrm d\varrho_0(x).
+\end{aligned}
+\end{equation}
+
+还可以通过下述条件定义连续性方程的弱解：若对每个测试函数$\psi\in C_c^1(\overline\Omega)$，函数$t\mapsto\int\psi\,\mathrm d\varrho_t$关于$t$绝对连续，并对几乎每个$t$有
+\[
+ \frac{\mathrm d}{\mathrm dt}\int_\Omega\psi\,\mathrm d\varrho_t
+ =\int_\Omega\nabla\psi\cdot\mathbf v_t\,\mathrm d\varrho_t,
+\]
+则称$(\varrho_t,\mathbf v_t)$在弱意义下解连续性方程. 注意，此时$t\mapsto\varrho_t$自动关于弱收敛连续，因此可在时间的逐点意义下指定$\varrho_0$和$\varrho_1$的值.
+
+\begin{proposition}\label{obj:4.2}
+这两种解的概念等价：每个弱解都是分布解，而每个分布解都存在一个代表元（另一个测度族$\widetilde\varrho_t$，对几乎每个$t$满足$\widetilde\varrho_t=\varrho_t$），它弱连续且是弱解.
+\end{proposition}
+\begin{proof}
+为证明等价性，取一个分布解，并用形如$\phi(t,x)=a(t)\psi(x)$的函数测试，其中$\psi\in C_c^1(\overline\Omega)$、$a\in C_c^1((0,1))$. 得到
+\[
+ \int_0^T a'(t)\int_\Omega\psi(x)\,\mathrm d\varrho_t\,\mathrm dt
+ +\int_0^1a(t)\int_\Omega\nabla\psi\cdot\mathbf v_t\,\mathrm d\varrho_t\,\mathrm dt=0.
+\]
+$a$的任意性表明，$\int_\Omega\psi(x)\,\mathrm d\varrho_t$关于时间的分布导数是$\int_\Omega\nabla\psi\cdot\mathbf v_t\,\mathrm d\varrho_t$. 后一个函数关于时间属于$L^1$，因为
+\[
+ \int_0^T\left|\int_\Omega\nabla\psi\cdot\mathbf v_t\,\mathrm d\varrho_t\right|\,\mathrm dt
+ \leq\operatorname{Lip}\psi\int_0^T\|\mathbf v_t\|_{L^1(\varrho_t)}\,\mathrm dt<+\infty.
+\]
+这说明$(\varrho,\mathbf v)$是弱解.
+
+反过来，同样的计算表明，弱解对每个形如$\phi(t,x)=a(t)\psi(x)$的$\phi$都满足\eqref{eq:4.2}. 接下来，只需证明：对每个紧集$K\subset\mathbb R^d$，这些函数的有限线性组合在$C^1([0,T]\times K)$中稠密即可；这是真的，但并非平凡的习题，见\autoref{ex:23}.
+\end{proof}
+
+另一个经典事实是，光滑函数在经典意义下满足方程，当且仅当它们是弱解（或分布解）. 还可以验证下述结论.
+
+\begin{proposition}\label{obj:4.3}
+假设$\varrho$关于$(t,x)$为Lipschitz连续，$\mathbf v$关于$x$为Lipschitz连续，并且连续性方程$\partial_t\varrho+\nabla\cdot(\varrho\mathbf v)=0$在弱意义下成立. 则该方程也在几乎处处意义下成立.
+\end{proposition}
+\begin{proof}
+先注意，在这些假设下，$\partial_t\varrho$和$\nabla\cdot(\varrho\mathbf v)$都几乎处处有定义. 固定可数集$D\subset C_c^1(\mathring\Omega)$，使其在$C_c^0(\mathring\Omega)$的一致收敛意义下稠密（例如，使用有理系数多项式乘以适当的截断函数）. 固定$t_0$，使$(t,x)\mapsto\varrho(t,x)$对几乎每个$x$在$(t_0,x)$处可微，并使对所有$\phi\in D$，$t\mapsto\int_\Omega\phi\,\mathrm d\varrho_t$在$t=t_0$处可微，且导数为$\int_\Omega\nabla\phi\cdot\mathbf v_t\,\mathrm d\varrho_t$. 几乎所有$t_0$都满足这些条件. 于是还可以将求导移入积分号，写成
+\[
+ \left.\frac{\mathrm d}{\mathrm dt}\right|_{t=t_0}
+       \int_\Omega\phi\varrho_t\,\mathrm dx
+ =\int_\Omega\phi(\partial_t\varrho)_{t_0}\,\mathrm dx,
+\]
+这就证明$\int_\Omega(\nabla\phi\cdot\mathbf v_{t_0})\varrho_{t_0}\,\mathrm dx
+=\int\phi(\partial_t\varrho)_{t_0}\,\mathrm dx$. 然而，可以将$\int_\Omega\nabla\phi\cdot\mathbf v_{t_0}\varrho_{t_0}\,\mathrm dx$写为$-\int_\Omega\phi\,\nabla\cdot(\mathbf v_{t_0}\varrho_{t_0})\,\mathrm dx$，这里对Lipschitz函数作分部积分，因$\phi$有紧支集而没有边界项. 最终得到
+\[
+ \int_\Omega\phi\bigl((\partial_t\varrho)_{t_0}
+            +\nabla\cdot(\varrho_{t_0}\mathbf v_{t_0})\bigr)\,\mathrm dx=0
+ \quad\text{对所有 }\phi\in D,
+\]
+这足以证明$(\partial_t\varrho)_{t_0}+\nabla\cdot(\varrho_{t_0}\mathbf v_{t_0})=0$对几乎每个$x$成立.
+\end{proof}
+
+核对了这些解概念之间的关系之后，今后我们经常直接说“解”，不再区分“弱解”和“分布意义下的解”.
+
+现在尝试识别连续性方程的解，并将其与向量场$\mathbf v_t$的流联系起来. 先回顾流的一些性质.
+
+\begin{sourcebox}{知识回顾：时变向量场的流}\label{box:4.1}
+考虑\eqref{eq:4.1}中的常微分方程$y_x'(t)=\mathbf v_t(y_x(t))$，初始数据为$y_x(0)=x$.
+\begin{proposition*}
+若对每个$t$，$\mathbf v_t$关于$x$连续，则对每个初始数据都有局部存在性，即至少存在一个解，定义于$t=0$的某个邻域内. 若$\mathbf v$还满足$|\mathbf v_t(x)|\leq C_0+C_1|x|$，则解关于时间全局存在. 若$\mathbf v_t$关于$x$为Lipschitz连续，且常数关于$t$一致，则解唯一，并定义流$Y_t(x):=y_x(t)$. 此时，令$L:=\sup_t\operatorname{Lip}(\mathbf v_t)$，则映射$Y_t(\cdot)$关于$x$为Lipschitz连续，常数为$e^{L|t|}$. 此外，$Y_t:\mathbb R^d\to\mathbb R^d$可逆，其逆映射也是具有相同常数的Lipschitz映射.
+\end{proposition*}
+\begin{proof}[证明草图]
+不证明存在性，它通常可通过曲线空间中的不动点论证获得. 关于唯一性以及对初始数据$x$的依赖，考虑两条曲线$y^{(1)}$和$y^{(2)}$，它们是$y'(t)=\mathbf v_t(y(t))$的解，并定义$E(t)=|y^{(1)}(t)-y^{(2)}(t)|^2$. 有
+\begin{equation*}
+\begin{aligned}
+ E'(t)=2\bigl(y^{(1)}(t)-y^{(2)}(t)\bigr)\cdot
+ \bigl(\mathbf v_t(y^{(1)}(t))-\mathbf v_t(y^{(2)}(t))\bigr),
+\end{aligned}
+\end{equation*}
+从而$|E'(t)|\leq2LE(t)$. 由Gronwall引理，得到$E(0)e^{-2L|t|}\leq E(t)\leq E(0)e^{2L|t|}$，同时给出唯一性、单射性以及$Y_t$的双Lipschitz性质. 它还是$\mathbb R^d$到$\mathbb R^d$的同胚，因为对每个$x_0\in\mathbb R^d$，都可通过指定Cauchy数据$y(t)=x_0$求解常微分方程.
+\end{proof}
+\end{sourcebox}
+
+然后可以证明以下结论；为简单起见，在Lipschitz有界向量场的情形中陈述.
+
+\begin{theorem}\label{obj:4.4}
+假设$\Omega\subset\mathbb R^d$是有界区域，或者就是$\mathbb R^d$. 假设$\mathbf v_t:\Omega\to\mathbb R^d$关于$x$为Lipschitz连续，常数关于$t$一致，并且一致有界；考虑它的流$Y_t$. 假设对每个$x\in\Omega$、每个$t\in[0,T]$均有$Y_t(x)\in\Omega$（对$\Omega=\mathbb R^d$这是显然的，其他情形需要$\mathbf v_t$满足适当的Neumann条件）. 则对每个概率$\varrho_0\in\mathscr P(\Omega)$，测度$\varrho_t:=(Y_t)_\#\varrho_0$解以$\varrho_0$为初始数据的连续性方程$\partial_t\varrho_t+\nabla\cdot(\varrho_t\mathbf v_t)=0$. 此外，同一方程的每个满足对所有$t$有$\varrho_t\ll\mathscr L^d$的解，都必定由$\varrho_t=(Y_t)_\#\varrho_0$得到. 特别地，连续性方程有唯一解.
+\end{theorem}
+\begin{proof}
+先验证由这样的流通过\eqref{eq:4.1}得到$\varrho_t$时，方程成立. 我们证明它是弱解. 固定测试函数$\phi\in C^1(\mathbb R^d)$，使$\phi$和$\nabla\phi$均有界，计算得到
+\begin{equation*}
+\begin{aligned}
+ \frac{\mathrm d}{\mathrm dt}\int_\Omega\phi\,\mathrm d\varrho_t
+ &=\frac{\mathrm d}{\mathrm dt}\int\phi(y_x(t))\,\mathrm d\varrho_0(x)\\
+ &=\int_\Omega\nabla\phi(y_x(t))\cdot y_x'(t)\,\mathrm d\varrho_0(x)\\
+ &=\int_\Omega\nabla\phi(y_x(t))\cdot\mathbf v_t(y_x(t))\,\mathrm d\varrho_0(x)\\
+ &=\int_\Omega\nabla\phi(y)\cdot\mathbf v_t(y)\,\mathrm d\varrho_t(y).
+\end{aligned}
+\end{equation*}
+这就刻画了弱解.
+
+为证明陈述的第二部分，先注意到，只要对每个$t$有$\varrho_t\ll\mathscr L^d$，则\eqref{eq:4.2}，即
+\[
+ \int_0^T\int_\Omega(\partial_t\phi+\mathbf v_t\cdot\nabla\phi)
+                    \,\mathrm d\varrho_t\,\mathrm dt=0,
+\]
+对所有Lipschitz紧支集测试函数$\phi$也成立. 确实，固定一个Lipschitz测试函数$\phi$，用紧支集核卷积使其光滑化，就得到序列$\phi_\varepsilon\in C_c^\infty$，满足$\nabla_{t,x}\phi_\varepsilon\to\nabla_{t,x}\phi$几乎处处；并且由于$|\nabla_{t,x}\phi_\varepsilon|\leq\operatorname{Lip}(\phi)$，可以应用控制收敛定理（需要$\varrho_t$绝对连续，是因为这里只具有Lebesgue几乎处处收敛）.
+
+然后取测试函数$\psi\in C_c^1(\mathbb R^d)$，定义$\phi(t,x):=\psi((Y_t)^{-1}(x))$. 若能证明$t\mapsto\int\phi(t,x)\,\mathrm d\varrho_t(x)$为常数，就证明了$\varrho_t=(Y_t)_\#\varrho_0$. 因为流$Y_t$是双Lipschitz的，函数$\phi$为Lipschitz连续，但其关于时间不具有紧支集；关于空间则有紧支集，因为$\operatorname{spt}\phi$紧，并且令$M:=\sup_{t,x}|\mathbf v_t(x)|$后可知，当点$x$到$\operatorname{spt}\psi$的距离大于$tM$时，$\phi(t,x)$为零. 因此，将它乘以截断函数$\chi(t)$，其中$\chi\in C_c^1((0,T))$. 有
+\begin{equation*}
+\begin{aligned}
+ \partial_t(\chi\phi)+\mathbf v_t\cdot\nabla(\chi\phi)
+ &=\chi'(t)\phi(t,x)\\
+ &\quad+\chi(t)\bigl(\partial_t\phi(t,x)
+                     +\mathbf v_t(x)\cdot\nabla\phi(t,x)\bigr).
+\end{aligned}
+\end{equation*}
+根据$\phi$的定义，可以证明$\partial_t\phi(t,x)+\mathbf v_t(x)\cdot\nabla\phi(t,x)$几乎处处为零，这相当于说$\phi$是输运方程的解，见\autoref{box:6.3}. 因为有$\phi(t,T_t(x))=\psi(x)$，对$t$求导（对几乎每个$(t,x)$都可这样做），得到
+\[
+ \partial_t(t,Y_t(x))+\mathbf v_t(Y_t(x))\cdot\nabla\phi(t,Y_t(x))=0.
+\]
+由于$Y_t$满射，这就意味着$\partial_t\phi+\mathbf v_t\cdot\nabla\phi$处处为零.
+
+因此，根据分布解的定义，有
+\begin{equation*}
+\begin{aligned}
+ &\int_0^T\chi'(t)\,\mathrm dt\int_{\mathbb R^d}\phi(t,x)\,\mathrm d\varrho_t(x)\\
+ &\qquad=\int_0^T\mathrm dt\int_{\mathbb R^d}
+       \bigl(\partial_t(\chi\phi)+\mathbf v_t\cdot\nabla(\chi\phi)\bigr)
+                          \,\mathrm d\varrho_t(x)=0.
+\end{aligned}
+\end{equation*}
+测试函数$\chi\in C_c^1((0,T))$任意，故$t\mapsto\int_{\mathbb R^d}\phi(t,x)\,\mathrm d\varrho_t(x)$为常数.
+\end{proof}

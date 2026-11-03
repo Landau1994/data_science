@@ -1,0 +1,650 @@
+% 原书印刷25--41页，PDF物理53--69页；结束于1.7标题之前.
+\subsection[凸性、c-凹性、循环单调性、对偶与最优性]{凸性、$c$-凹性、循环单调性、对偶与最优性}\label{sec:1.6}
+
+\subsubsection[凸函数与c-凹函数]{凸函数与$c$-凹函数}\label{sec:1.6.1}
+
+本节把$c$-凹函数的性质与更为熟悉的凸函数作比较. 我们先回顾凸分析中的一些概念.
+
+\begin{sourcebox}{知识回顾：凸函数}\label{box:1.11}
+凸函数的定义始终相同：$f:\mathbb R^d\to\mathbb R\cup\{+\infty\}$是凸的，当且仅当对所有$x,y\in\mathbb R^d$及$t\in[0,1]$都有
+\[
+f((1-t)x+ty)\le(1-t)f(x)+tf(y).
+\]
+我们不特别讨论定义在子集$\Omega\subset\mathbb R^d$上的凸函数（为使定义有意义，$\Omega$应为凸集），因为总能在$\Omega$外令$f=+\infty$而将其延拓，同时保持凸性.
+
+一个简单的稳定性性质如下：若$f_\alpha$是一族凸函数，那么由$f(x):=\sup_\alpha f_\alpha(x)$定义的$f$也凸. 只需写出
+\[
+f_\alpha((1-t)x+ty)\le(1-t)f_\alpha(x)+tf_\alpha(y)
+\le(1-t)f(x)+tf(y)
+\]
+并对$\alpha$取上确界，就容易验证这一点. 也可以使用上图集（一个函数凸，当且仅当它的上图集凸），再注意到凸集之交仍然凸.
+
+定义在$\mathbb R^d$上的实值凸函数自动连续且局部Lipschitz（一般地，它们在定义域$\{f<+\infty\}$的内部连续且局部Lipschitz）. 但在$\{f<+\infty\}$与$\{f=+\infty\}$的交界处可能不连续. 因而我们通常至少要求下半连续性.
+
+\begin{theorem*}
+函数$f:\mathbb R^d\to\mathbb R\cup\{+\infty\}$凸且下半连续，当且仅当存在一族仿射函数$f_\alpha$使$f(x):=\sup_\alpha f_\alpha(x)$. 这族函数也可取为所有不大于$f$的仿射函数.
+\end{theorem*}
+
+一个方向很容易（若$f$是仿射函数的上确界，由于仿射蕴含凸，所以$f$凸）. 逆命题背后的几何直觉在于：凸且下半连续函数的上图集是$\mathbb R^d\times\mathbb R$中的闭凸集，可写成所有包含它的半空间之交. 严格证明需要使用几何形式的Hahn--Banach定理.
+\end{sourcebox}
+
+\begin{sourcebox}{知识回顾：Legendre变换与次微分}\label{box:1.12}
+\begin{definition*}[Legendre--Flenchel变换]
+对任意给定函数$f:\mathbb R^d\to\mathbb R\cup\{+\infty\}$，可定义其变换
+\[
+f^*(y):=\sup_x x\cdot y-f(x).
+\]
+\end{definition*}
+\begin{example*}
+$x\mapsto\frac1p|x|^p$的Legendre变换是$x\mapsto\frac1q|x|^q$，其中$\frac1p+\frac1q=1$.
+\end{example*}
+函数$f$凸且下半连续，当且仅当存在$g$使$f=g^*$（因为某个函数的Legendre变换所组成的函数类，恰与可表示为仿射函数上确界的函数类一致）. 为说明每个仿射函数的上确界都能表示为$g^*$，只需取$f(y)=\sup_\alpha x_\alpha\cdot y+b_\alpha$；然后，对每个向量$x$，令$g(x)=-\sup\{b_\alpha:x_\alpha=x\}$（若没有$\alpha$满足$x_\alpha=x$，就令$g(x)=+\infty$），再验证$f=g^*$.
+
+\begin{proposition*}
+函数$f:\mathbb R^d\to\mathbb R\cup\{+\infty\}$凸且下半连续，当且仅当$f^{**}=f$.
+\end{proposition*}
+这一事实的证明可视为Hahn--Banach定理的应用. 完整证明（包括无限维情形）例如见\cite{b23}.
+
+\begin{definition*}[次微分]
+对每个凸函数$f$，定义其在$x$处的\emph{次微分}为集合
+\[
+\partial f(x)=\{p\in\mathbb R^d:f(y)\ge f(x)+p\cdot(y-x)\quad\forall y\in\mathbb R^d\}.
+\]
+\end{definition*}
+可以证明，当$x$位于集合$\{f<+\infty\}$内部时，$\partial f(x)$总非空. 在$f$可微的每一点，$\partial f$退化为单点集$\{\nabla f\}$.
+
+对于凸函数$f$及$f^*$的次微分，有
+\[
+p\in\partial f(x)\iff x\in\partial f^*(p)\iff f(x)+f^*(p)=x\cdot p.
+\]
+这有助于证明以下等价关系：取两个共轭函数$f,f^*$（其中$f=f^{**}$），则$f$为$C^1$，当且仅当$f^*$严格凸. 原因是，$C^1$意味着每个集合$\partial f(x)$中至多有一个$p$，而严格凸意味着同一个向量不能属于多于一个点处的次微分. 特别地，若$h$严格凸，则多值映射$\partial h$可求逆，逆映射单值，从而得到映射$(\partial h)^{-1}$；在\autoref{obj:1.17}的陈述中应使用这一映射代替$(\nabla h)^{-1}$.
+
+最后，注意凸函数的次微分满足如下单调性：若$p_1\in\partial f(x_1)$且$p_2\in\partial f(x_2)$，则$(p_1-p_2)\cdot(x_1-x_2)\ge0$.
+\end{sourcebox}
+
+注意与$c$-凹函数（或$\bar c$-凹函数；在对称情形中这一区别没有意义）的类比：它们被定义为某个函数的$\bar c$-变换（或$c$-变换）. 事实上，除去符号的改变，$c$-凹性正是作为凸性的推广来定义的. 注意，我们允许凸函数取值$+\infty$，允许凹函数和$c$-凹函数取值$-\infty$. 但我们不希望凸函数恒等于$+\infty$，也不希望$c$-凹函数恒等于$-\infty$.
+
+与其证明$f^{**}=f$这一结论，我们可以证明关于$c$-凹函数的如下更一般的结论.\footnote{注意，这一结果容易证明，因为$c$-凹函数恰被定义为某个函数的$c$-变换；而凸函数通常不是通过仿射函数的上确界来定义，而是通过凸性不等式来定义. 所以凸函数的对应定理通常需要使用Hahn--Banach定理.}
+
+\begin{proposition}\label{obj:1.34}
+假设$c$为实值函数. 对任意$\varphi:X\to\mathbb R\cup\{-\infty\}$，都有$\varphi^{c\bar c}\ge\varphi$. 等式$\varphi^{c\bar c}=\varphi$成立，当且仅当$\varphi$为$c$-凹函数；一般地，$\varphi^{c\bar c}$是不小于$\varphi$的最小$c$-凹函数.
+\end{proposition}
+\begin{proof}
+先证明$\varphi^{c\bar c}\ge\varphi$. 写成
+\begin{equation*}
+\begin{aligned}
+\varphi^{c\bar c}(x)
+&=\inf_y c(x,y)-\varphi^c(y)\\
+&=\inf_y c(x,y)-\inf_{x'}c(x',y)-\varphi(x').
+\end{aligned}
+\end{equation*}
+考虑到$\inf_{x'}c(x',y)-\varphi(x')\le c(x,y)-\varphi(x)$，便有
+\[
+\varphi^{c\bar c}(x)\ge\inf_y c(x,y)-c(x,y)+\varphi(x)=\varphi(x).
+\]
+类似地，对任意$\zeta:Y\to\mathbb R\cup\{-\infty\}$，有$\zeta^{\bar c c}\ge\zeta$.
+
+再证明当$\varphi$为$c$-凹函数时，$\varphi^{c\bar c}=\varphi$. 此时可写成
+\[
+\varphi=\zeta^{\bar c}
+\implies\varphi^c=\zeta^{\bar c c}\ge\zeta
+\implies\varphi^{c\bar c}\le\zeta^{\bar c}=\varphi,
+\]
+最后一个不等式来自$c$-变换与$\bar c$-变换会反转函数间的不等式（因为定义中有负号）. 因而，此时$\varphi^{c\bar c}\le\varphi$，从而$\varphi^{c\bar c}=\varphi$.
+
+最后，证明对任意$\varphi$，函数$\varphi^{c\bar c}$是不小于$\varphi$的最小$c$-凹函数. 任取$c$-凹函数$\widetilde\varphi=\chi^{\bar c}$并假设$\widetilde\varphi\ge\varphi$. 则
+\begin{equation*}
+\begin{aligned}
+\chi^{\bar c}\ge\varphi
+&\implies\chi^{\bar c c}\le\varphi^c
+\implies\chi\le\varphi^c\\
+&\implies\widetilde\varphi=\chi^{\bar c}\ge\varphi^{c\bar c},
+\end{aligned}
+\end{equation*}
+即得所需不等式.
+\end{proof}
+
+本小节最后介绍关于凸函数的一个概念，稍后再将其转到$c$-凹函数的框架.
+
+把凸函数次微分的图定义为
+\[
+\operatorname{Graph}(\partial f):=\{(x,p):p\in\partial f(x)\}
+=\{(x,p):f(x)+f^*(p)=x\cdot p\}.
+\]
+我们已经知道这个图是单调的，即对$i=1,2$有$(x_i,p_i)\in\operatorname{Graph}(\partial f)$时，
+\[
+(p_2-p_1)\cdot(x_2-x_1)\ge0.
+\]
+但并非所有单调图都是某个凸函数次微分的图，甚至未必包含在这样的图中.\footnote{例如，取$\mathbb R^2$中的$90^\circ$旋转$R$，并考虑集合$A=\{(x,Rx),x\in\mathbb R^d\}$. 它满足单调性不等式，因为对任意$x_1,x_2$都有$(Rx_1-Rx_2)\cdot(x_1-x_2)=0$. 但映射$x\mapsto Rx$不是凸函数的梯度（它根本不是梯度），也不可能包含在某个凸函数次微分的图中.}
+
+所以，仅凭单调性不足以刻画凸函数的梯度和次微分（更确切地说，单调的梯度向量函数是凸函数的梯度，但单调性本身不能推出它是梯度）.
+
+更强的概念是循环单调性.
+
+\begin{definition}\label{obj:1.35}
+若集合$A\subset\mathbb R^d\times\mathbb R^d$满足：对每个$k\in\mathbb N$、每个置换$\sigma$及任意有限组点$(x_1,p_1),\ldots,(x_k,p_k)\in A$，都有
+\[
+\sum_{i=1}^k x_i\cdot p_i\ge\sum_{i=1}^k x_i\cdot p_{\sigma(i)},
+\]
+则称$A$为\emph{循环单调的}.
+\end{definition}
+
+“循环”一词指的是：由于每个$\sigma$都是互不相交循环的复合，只对循环置换验证该性质就足够了，即在定义中用$\sum_{i=1}^k x_i\cdot p_{i+1}$代替$\sum_{i=1}^k x_i\cdot p_{\sigma(i)}$（自然约定$p_{k+1}=p_1$）.
+
+注意，取$k=2$便得到通常的单调性定义，因为
+\[
+x_1\cdot p_1+x_2\cdot p_2\ge x_1\cdot p_2+x_2\cdot p_1
+\iff(p_1-p_2)\cdot(x_1-x_2)\ge0.
+\]
+Rockafellar的一个著名定理（\cite{b260}，定理24.8）表明，每个循环单调集合都包含在某个凸函数次微分的图中. 这里不证明它，因为我们将把它视为关于$c$-凹函数的一个定理的特例.
+
+\subsubsection[c-循环单调性与对偶]{$c$-循环单调性与对偶}\label{sec:1.6.2}
+
+先把循环单调性的定义转到$c$-凹情形.
+
+\begin{definition}\label{obj:1.36}
+给定函数$c:X\times Y\to\mathbb R\cup\{+\infty\}$，若集合$\Gamma\subset X\times Y$满足：对每个$k\in\mathbb N$、每个置换$\sigma$及任意有限组点$(x_1,y_1),\ldots,(x_k,y_k)\in\Gamma$，都有
+\[
+\sum_{i=1}^k c(x_i,y_i)\le\sum_{i=1}^k c(x_i,y_{\sigma(i)}),
+\]
+则称$\Gamma$为\emph{$c$-循环单调的}（简称$c$-CM）.
+\end{definition}
+
+与凸情形一样，“循环”一词指的是只需考虑循环置换. “单调”一词则沿用自$c(x,y)=-x\cdot y$的情形.
+
+值得回顾下面的定理，它推广了凸分析中Rockafellar的一个定理. 这一证明的经典参考文献是\cite{b269}，但有趣的是，它实际上可追溯到更早的论文，例如\cite{b261}（经济学中的行为可理性化框架，见该文定理1），或\cite{b91}（液晶的应用，作为距离成本下离散Kantorovich对偶性证明的一部分，见该文引理2）.
+
+\begin{theorem}\label{obj:1.37}
+若$\Gamma\ne\varnothing$是$X\times Y$中的$c$-CM集合，且$c:X\times Y\to\mathbb R$（注意，要求$c$不取值$+\infty$），则存在$c$-凹函数$\varphi:X\to\mathbb R\cup\{-\infty\}$（不恒等于$-\infty$）满足
+\[
+\Gamma\subset\{(x,y)\in X\times Y:\varphi(x)+\varphi^c(y)=c(x,y)\}.
+\]
+\end{theorem}
+\begin{proof}
+我们给出函数$\varphi$的显式公式，并证明其良定义且满足所要求的性质.
+
+固定一点$(x_0,y_0)\in\Gamma$，对$x\in X$令
+\begin{equation*}
+\begin{aligned}
+\varphi(x)=\inf\bigl\{&c(x,y_n)-c(x_n,y_n)+c(x_n,y_{n-1})-c(x_{n-1},y_{n-1})\\
+&+\cdots+c(x_1,y_0)-c(x_0,y_0):\\
+&n\in\mathbb N,\ (x_i,y_i)\in\Gamma\text{ 对所有 }i=1,\ldots,n\bigr\}.
+\end{aligned}
+\end{equation*}
+由于$c$为实值且$\Gamma$非空，$\varphi$不取值$+\infty$.
+
+若对$y\in Y$令
+\begin{equation*}
+\begin{aligned}
+-\psi(y)=\inf\bigl\{&-c(x_n,y)+c(x_n,y_{n-1})-c(x_{n-1},y_{n-1})\\
+&+\cdots+c(x_1,y_0)-c(x_0,y_0):\\
+&n\in\mathbb N,\ (x_i,y_i)\in\Gamma\text{ 对所有 }i=1,\ldots,n,\ y_n=y\bigr\}.
+\end{aligned}
+\end{equation*}
+由定义，$\psi(y)>-\infty$当且仅当$y\in(\pi_y)(\Gamma)$. 此外，由构造有$\varphi=\psi^{\bar c}$，这证明$\varphi$为$c$-凹函数.\footnote{注意，这里没有讨论$\varphi$的可测性：从其$c$-凹性可直接得到，因为它还是连续的，但这依赖于$c$一致连续的假设. 一般情形下，可测性和可积性更为棘手.} $\varphi$不恒等于$-\infty$可由$\varphi(x_0)\ge0$看出：事实上，取$x=x_0$，则对任意点链$(x_i,y_i)\in\Gamma$，都有
+\[
+\sum_{i=0}^n c(x_{i+1},y_i)\ge\sum_{i=0}^n c(x_i,y_i),
+\]
+这里约定$x_{n+1}=x_0$. 这表明$\varphi(x_0)$定义中的下确界非负.
+
+为证明$\Gamma$上$\varphi(x)+\varphi^c(y)=c(x,y)$，只需证明同一集合上有$\varphi(x)+\varphi^c(y)\ge c(x,y)$，因为$c$-变换的定义总给出反向不等式. 此外，由$\varphi^c=\psi^{\bar c c}$及$\psi^{\bar c c}\ge\psi$，只需验证$\varphi(x)+\psi(y)\ge c(x,y)$.
+
+设$(x,y)\in\Gamma$并固定$\varepsilon>0$. 由$\varphi=\psi^{\bar c}$，可找到$\bar y\in\pi_y(\Gamma)$使$c(x,\bar y)-\psi(\bar y)<\varphi(x)+\varepsilon$. 特别地，$\psi(\bar y)\ne\pm\infty$. 从$\psi$的定义得到$-\psi(y)\le-c(x,y)+c(x,\bar y)-\psi(\bar y)$（因为从$\bar y$出发的每条链都可通过添加点$(x,y)\in\Gamma$来补全）.
+
+合并这些信息，得到
+\[
+-\psi(y)\le-c(x,y)+c(x,\bar y)-\psi(\bar y)
+<-c(x,y)+\varphi(x)+\varepsilon.
+\]
+由于$\varepsilon$任意，这推出$c(x,y)\le\varphi(x)+\psi(y)$.
+\end{proof}
+
+现在可以证明以下结论.
+
+\begin{theorem}\label{obj:1.38}
+若$\gamma$是成本$c$下的最优传输计划，且$c$连续，则$\operatorname{spt}(\gamma)$是$c$-CM集合.
+\end{theorem}
+\begin{proof}
+反设存在$k,\sigma$及$(x_1,y_1),\ldots,(x_k,y_k)\in\operatorname{spt}(\gamma)$，使
+\[
+\sum_{i=1}^k c(x_i,y_i)>\sum_{i=1}^k c(x_i,y_{\sigma(i)}).
+\]
+取$\varepsilon<\frac1{2k}\bigl(\sum_{i=1}^k c(x_i,y_i)-\sum_{i=1}^k c(x_i,y_{\sigma(i)})\bigr)$. 由$c$连续，存在$r$，使对所有$i=1,\ldots,k$及所有$(x,y)\in B(x_i,r)\times B(y_i,r)$都有$c(x,y)>c(x_i,y_i)-\varepsilon$，且对所有$(x,y)\in B(x_i,r)\times B(y_{\sigma(i)},r)$都有$c(x,y)<c(x_i,y_{\sigma(i)})+\varepsilon$.
+
+令$V_i:=B(x_i,r)\times B(y_i,r)$. 因为$(x_i,y_i)\in\operatorname{spt}(\gamma)$，对每个$i$有$\gamma(V_i)>0$. 定义测度
+\[
+\gamma_i:=\frac{\gamma\mathbin{\vrule height 1.4ex depth -.3ex width .07ex\vrule height .07ex depth 0ex width .7ex}V_i}{\gamma(V_i)},
+\qquad\mu_i:=(\pi_x)_\#\gamma_i,\quad\nu_i:=(\pi_y)_\#\gamma_i.
+\]
+取$\varepsilon_0<\frac1k\min_i\gamma(V_i)$.
+
+对每个$i$任意构造测度$\widetilde\gamma_i\in\Pi(\mu_i,\nu_{\sigma(i)})$（例如取$\widetilde\gamma_i=\mu_i\otimes\nu_{\sigma(i)}$）. 定义
+\[
+\widetilde\gamma:=\gamma-\varepsilon_0\sum_{i=1}^k\gamma_i
++\varepsilon_0\sum_{i=1}^k\widetilde\gamma_i.
+\]
+我们要证明$\widetilde\gamma$在传输问题中比$\gamma$更优，即$\widetilde\gamma\in\Pi(\mu,\nu)$且$\int c\,d\widetilde\gamma<\int c\,d\gamma$，从而得到矛盾.
+
+首先验证$\widetilde\gamma$为正测度. 只需验证$\gamma-\varepsilon_0\sum_{i=1}^k\gamma_i$为正，为此条件$\varepsilon_0\gamma_i<\frac1k\gamma$就足够. 这一条件成立，因为$\varepsilon_0\gamma_i=(\varepsilon_0/\gamma(V_i))\gamma\mathbin{\vrule height 1.4ex depth -.3ex width .07ex\vrule height .07ex depth 0ex width .7ex}V_i$且$\varepsilon_0/\gamma(V_i)\le1/k$.
+
+再验证$\widetilde\gamma$的边缘条件. 有
+\begin{equation*}
+\begin{aligned}
+(\pi_x)_\#\widetilde\gamma
+&=\mu-\varepsilon_0\sum_{i=1}^k(\pi_x)_\#\gamma_i
++\varepsilon_0\sum_{i=1}^k(\pi_x)_\#\widetilde\gamma_i\\
+&=\mu-\varepsilon_0\sum_{i=1}^k\mu_i+\varepsilon_0\sum_{i=1}^k\mu_i=\mu,\\
+(\pi_y)_\#\widetilde\gamma
+&=\nu-\varepsilon_0\sum_{i=1}^k(\pi_y)_\#\gamma_i
++\varepsilon_0\sum_{i=1}^k(\pi_y)_\#\widetilde\gamma_i\\
+&=\nu-\varepsilon_0\sum_{i=1}^k\nu_i+\varepsilon_0\sum_{i=1}^k\nu_{\sigma(i)}=\nu.
+\end{aligned}
+\end{equation*}
+最后估计$\int c\,d\gamma-\int c\,d\widetilde\gamma$并证明它为正，便结束证明. 有
+\begin{equation*}
+\begin{aligned}
+\int c\,d\gamma-\int c\,d\widetilde\gamma
+&=\varepsilon_0\sum_{i=1}^k\int c\,d\gamma_i
+-\varepsilon_0\sum_{i=1}^k\int c\,d\widetilde\gamma_i\\
+&\ge\varepsilon_0\sum_{i=1}^k(c(x_i,y_i)-\varepsilon)
+-\varepsilon_0\sum_{i=1}^k(c(x_i,y_{\sigma(i)})+\varepsilon)\\
+&=\varepsilon_0\left(\sum_{i=1}^k c(x_i,y_i)
+-\sum_{i=1}^k c(x_i,y_{\sigma(i)})-2k\varepsilon\right)>0.
+\end{aligned}
+\end{equation*}
+这里使用了：$\gamma_i$集中于$B(x_i,r)\times B(y_i,r)$，$\widetilde\gamma_i$集中于$B(x_i,r)\times B(y_{\sigma(i)},r)$，并且它们质量为$1$（因为已除以$\gamma(V_i)$进行缩放）.
+\end{proof}
+
+由上一条定理以及\autoref{obj:1.37}，便得到我们从\autoref{sec:1.2}以来一直等待的对偶结论.\footnote{我们强调，这只是一条可能的路线：这里通过循环单调性证明对偶；也可以先证明对偶（见\autoref{sec:1.6.3}），再通过\autoref{obj:1.42}那样的论证证明循环单调性.}
+
+\begin{theorem}\label{obj:1.39}
+设$X,Y$是Polish空间，$c:X\times Y\to\mathbb R$一致连续且有界. 则问题(DP)存在解$(\varphi,\varphi^c)$，并且$\max(\mathrm{DP})=\min(\mathrm{KP})$.
+\end{theorem}
+\begin{proof}
+先考虑最小化问题(KP). 由于$c$连续，它存在解$\gamma$. 此外，由\autoref{obj:1.38}，$\gamma$的支集$\Gamma$是$c$-循环单调的. 由于$c$为实值，可应用\autoref{obj:1.37}，得到一个$c$-凹函数$\varphi$满足
+\[
+\Gamma\subset\{(x,y)\in\Omega\times\Omega:\varphi(x)+\varphi^c(y)=c(x,y)\}.
+\]
+由$c$-凹性（及$\bar c$-凹性），$\varphi,\varphi^c$连续. 此外，由$\varphi^c(y)=\inf_x c(x,y)-\varphi(x)$可得$\varphi^c$的上界（因为假设$c$有界），再转为$\varphi$的下界. 对称地，也能得到$\varphi$的上界和$\varphi^c$的下界，故两者都连续且有界.
+
+因此，$(\varphi,\varphi^c)$可作为(DP)中的可行对. 现在考虑
+\begin{equation*}
+\begin{aligned}
+\int_X\varphi\,d\mu+\int_Y\varphi^c\,d\nu
+&=\int_{X\times Y}(\varphi(x)+\varphi^c(y))\,d\gamma\\
+&=\int_{X\times Y}c(x,y)\,d\gamma.
+\end{aligned}
+\end{equation*}
+最后一个等式是因为$\gamma$集中于$\Gamma$，其上有$\varphi(x)+\varphi^c(y)=c(x,y)$. 前一个等式则来自$\gamma$的边缘测度分别为$\mu,\nu$. 利用$\gamma$的最优性，最终得到
+\[
+(\mathrm{DP})\ge\int\varphi\,d\mu+\int\varphi^c\,d\nu
+=\int c(x,y)\,d\gamma=(\mathrm{KP}),
+\]
+从而推出$(\mathrm{DP})=(\mathrm{KP})$，因为我们已知$(\mathrm{DP})\le(\mathrm{KP})$. 证明同时说明，$(\varphi,\varphi^c)$是(DP)的最优对.
+\end{proof}
+
+我们还希望处理上一条定理未涵盖的若干情形. 首先，为呼应\autoref{sec:1.3.1}，给出关于$\mathbb R^d$上二次情形的一个简短陈述. 与\autoref{obj:1.39}相比，区别在于成本$c(x,y)=\frac12|x-y|^2$既不有界，也不一致连续.
+
+\begin{theorem}\label{obj:1.40}
+设$\mu,\nu$是$\mathbb R^d$上的概率测度，$c(x,y)=\frac12|x-y|^2$. 假设$\int|x|^2\,dx,\int|y|^2\,dy<+\infty$. 考虑(DP)的如下变体：
+\begin{equation*}\tag{DP-var}\label{eq:DP-var}
+\begin{aligned}
+\sup\biggl\{&\int_{\mathbb R^d}\varphi\,d\mu+\int_{\mathbb R^d}\psi\,d\nu:\\
+&\varphi\in L^1(\mu),\ \psi\in L^1(\nu),\ \varphi\oplus\psi\le c\biggr\}.
+\end{aligned}
+\end{equation*}
+则\eqref{eq:DP-var}存在解$(\varphi,\psi)$，而函数$x\mapsto\frac12|x|^2-\varphi(x)$与$y\mapsto\frac12|y|^2-\psi(y)$都是凸函数，且互为Legendre变换的共轭. 此外，$\max(\mathrm{DP\text{-}var})=\min(\mathrm{KP})$.
+\end{theorem}
+\begin{proof}
+应用与\autoref{obj:1.39}相同的论证，可得一对函数$(\varphi,\psi)$，其中$\varphi$为$c$-凹函数、$\psi=\varphi^c$，并且最优传输计划$\gamma$支集中的每个$(x,y)$都满足$\varphi(x)+\varphi^c(y)=c(x,y)$. 由\autoref{obj:1.21}可得，$x\mapsto\frac12|x|^2-\varphi(x)$与$y\mapsto\frac12|y|^2-\psi(y)$凸且互相共轭. 特别地，$\frac12|x|^2-\varphi(x)$被一个线性函数从下方控制，故$\varphi$被一个二次多项式从上方控制. 由对$\mu$的假设，这证明$\varphi_+\in L^1(\mu)$. 对$\psi$也同样成立，即$\psi_+\in L^1(\nu)$. 现在可以对$\varphi\oplus\psi$关于$\gamma$积分，得到
+\begin{equation*}
+\begin{aligned}
+\int_{\mathbb R^d}\varphi\,d\mu+\int_{\mathbb R^d}\psi\,d\nu
+&=\int_{\mathbb R^d\times\mathbb R^d}\varphi\oplus\psi\,d\gamma\\
+&=\int_{\mathbb R^d\times\mathbb R^d}c\,d\gamma\ge0.
+\end{aligned}
+\end{equation*}
+这证明$\int_{\mathbb R^d}\varphi\,d\mu,\int_{\mathbb R^d}\psi\,d\nu>-\infty$，故$\varphi\in L^1(\mu)$且$\psi\in L^1(\nu)$.
+
+随后如前便可得结论.
+\end{proof}
+
+接下来，对$c$不连续、而只下半连续的情形也作一些说明. 回顾，这一假设足以保证最优传输计划存在.
+
+第一个结果涉及对偶公式的有效性，即
+\begin{equation}\label{eq:1.6}
+\begin{aligned}
+\min(\mathrm{KP})=\sup\biggl\{&\int_X\varphi\,d\mu+\int_Y\psi\,d\nu:\\
+&\varphi\in C(X),\ \psi\in C(Y),\ \varphi\oplus\psi\le c\biggr\}.
+\end{aligned}
+\end{equation}
+到目前为止，我们在$c$一致连续且有界时证明了这一等式，同时还证明对偶问题存在一个达到最大值的函数对. 还知道一个不等式总成立：左侧最小值总不小于右侧最大值. 更确切地说，我们能够处理一致连续的情形（因为希望保证形如$\varphi(x)=\inf_y c(x,y)-\psi(y)$的$c$-凹函数连续）.
+
+为处理有下界的下半连续成本$c$，我们使用如下事实：存在连续函数序列$c_k$（每个都是$k$-Lipschitz的）单调递增地收敛到$c$. 需要下面的引理.
+
+\begin{lemma}\label{obj:1.41}
+假设$c_k,c$下半连续且有下界，$c_k$单调递增地收敛到$c$. 则
+\begin{equation*}
+\begin{aligned}
+&\lim_{k\to\infty}\min\left\{\int c_k\,d\gamma:\gamma\in\Pi(\mu,\nu)\right\}\\
+&\qquad=\min\left\{\int c\,d\gamma:\gamma\in\Pi(\mu,\nu)\right\}.
+\end{aligned}
+\end{equation*}
+\end{lemma}
+\begin{proof}
+由单调递增收敛条件，有$c_k\le c$，所以左侧极限（由单调性而存在）显然不大于右侧的量. 现在，对每个成本$c_k$选取一个最优解，构成序列$\gamma_k\in\Pi(\mu,\nu)$. 由$\Pi(\mu,\nu)$的紧性，可以在取子列后假设$\gamma_k\rightharpoonup\bar\gamma$. 固定一个指标$j$. 对$k\ge j$有$c_k\ge c_j$，因此
+\begin{equation*}
+\begin{aligned}
+&\lim_k\min\left\{\int c_k\,d\gamma:\gamma\in\Pi(\mu,\nu)\right\}\\
+&\qquad=\lim_k\int c_k\,d\gamma_k
+\ge\liminf_k\int c_j\,d\gamma_k.
+\end{aligned}
+\end{equation*}
+由积分成本$c_j$的半连续性，
+\[
+\liminf_k\int c_j\,d\gamma_k\ge\int c_j\,d\bar\gamma.
+\]
+于是得到
+\[
+\lim_k\min\left\{\int c_k\,d\gamma,\ \gamma\in\Pi(\mu,\nu)\right\}
+\ge\int c_j\,d\bar\gamma.
+\]
+由于$j$任意，而由单调收敛有$\lim_j\int c_j\,d\bar\gamma=\int c\,d\bar\gamma$，我们还有
+\begin{equation*}
+\begin{aligned}
+&\lim_k\min\left\{\int c_k\,d\gamma,\ \gamma\in\Pi(\mu,\nu)\right\}\\
+&\qquad\ge\int c\,d\bar\gamma
+\ge\min\left\{\int c\,d\gamma,\ \gamma\in\Pi(\mu,\nu)\right\}.
+\end{aligned}
+\end{equation*}
+证明完毕. 注意，这还同时给出$\bar\gamma$对于极限成本$c$的最优性.
+\end{proof}
+
+现在可以确立半连续成本下对偶公式的有效性.
+
+\begin{theorem}\label{obj:1.42}
+若$X,Y$是Polish空间，$c:X\times Y\to\mathbb R\cup\{+\infty\}$下半连续且有下界，则对偶公式$\min(\mathrm{KP})=\sup(\mathrm{DP})$成立.
+\end{theorem}
+\begin{proof}
+考虑由$k$-Lipschitz函数组成、单调递增地逼近$c$的序列$c_k$. 同一对偶公式对$c_k$成立，因而有
+\begin{equation*}
+\begin{aligned}
+\min\left\{\int c_k\,d\gamma:\gamma\in\Pi(\mu,\nu)\right\}
+&=\max\left\{\int\varphi\,d\mu+\int\psi\,d\nu:\varphi\oplus\psi\le c_k\right\}\\
+&\le\sup\left\{\int\varphi\,d\mu+\int\psi\,d\nu:\varphi\oplus\psi\le c\right\},
+\end{aligned}
+\end{equation*}
+其中最大值和上确界都是在$C_b$函数$\varphi,\psi$中计算的. 不等式来自$c_k\le c$，因此满足$\varphi(x)+\psi(y)\le c_k(x,y)$的每一对$(\varphi,\psi)$也满足$\varphi(x)+\psi(y)\le c(x,y)$. 令$k\to+\infty$，由\autoref{obj:1.41}便得结论. 注意，对成本$c$不能保证存在达到最大值的函数对$(\varphi,\psi)$.
+\end{proof}
+
+对偶公式也允许证明下面的$c$-循环单调性定理.
+
+\begin{theorem}\label{obj:1.43}
+若$c$下半连续且$\gamma$为最优传输计划，则$\gamma$集中于某个$c$-CM集合$\Gamma$（一般而言该集合不闭）.
+\end{theorem}
+\begin{proof}
+由上一条定理，对偶公式成立. 这意味着在对偶问题中取一个极大化函数对序列$(\varphi_h,\psi_h)$，就有
+\begin{equation*}
+\begin{aligned}
+\int(\varphi_h(x)+\psi_h(y))\,d\gamma
+&=\int\varphi_h\,d\mu+\int\psi_h\,d\nu\\
+&\longrightarrow\int c\,d\gamma,
+\end{aligned}
+\end{equation*}
+因为$\int c\,d\gamma$是原问题的最小值，也就是对偶问题的最大值. 此外，有$c(x,y)-\varphi_h(x)+\psi_h(y)\ge0$；这意味着定义在$X\times Y$上的函数$f_h:=c(x,y)-\varphi_h(x)-\psi_h(y)$在$L^1(X\times Y;\gamma)$中收敛到$0$（因为它们非负，且积分趋于$0$）. 因此，取一个不重新编号的子列后，它们还$\gamma$-几乎处处逐点收敛到$0$. 设$\Gamma\subset X\times Y$是一个$\gamma(\Gamma)=1$且其上该收敛成立的集合.
+
+任取$k,\sigma$以及$(x_1,y_1),\ldots,(x_k,y_k)\in\Gamma$，有
+\begin{equation*}
+\begin{aligned}
+\sum_{i=1}^k c(x_i,y_i)
+&=\lim_h\sum_{i=1}^k\varphi_h(x_i)+\psi_h(y_i)\\
+&=\lim_h\sum_{i=1}^k\varphi_h(x_i)+\psi_h(y_{\sigma(i)})\\
+&\le\sum_{i=1}^k c(x_i,y_{\sigma(i)}),
+\end{aligned}
+\end{equation*}
+这证明该集合为$c$-CM.
+\end{proof}
+
+\begin{remark}\label{obj:1.44}
+我们对下半连续成本$c$证明的对偶公式与连续成本下的公式不同之处在于：对偶问题(DP)未必存在解. 事实上，若按\eqref{eq:DP-var}重新表述对偶问题，就能先应用\autoref{obj:1.43}，说明最优$\gamma$集中于某个$c$-CM集合$\Gamma$，再通过\autoref{obj:1.37}构造势$\varphi$，从而得到最优解. 这在$c$为实值的假设下成立，不依赖其连续性.\footnote{但要注意，这一构造需要使用最优$\gamma$；当$c$下半连续时其存在性有保证，在某些特殊情形也可能存在，例如可以应用\autoref{obj:1.8}时. 此外，对非一致连续的成本$c$，\autoref{obj:1.37}中的函数$\varphi$存在可测性问题.}
+\end{remark}
+
+\subsubsection{对偶性的一个直接证明}\label{sec:1.6.3}
+
+在\autoref{sec:1.6.2}中，我们偿还了\autoref{sec:1.2}欠下的对偶性之债：借助$c$-循环单调性论证，在相当一般的假设下证明了$\min(\mathrm{KP})=\sup(\mathrm{DP})$，没有对偶间隙.
+
+这里给出另一个证明，它不依赖$c$-循环单调性，而是基于一个简单的凸分析技巧.\footnote{虽然并非严格必要，我们仍愿为完整性而给出这一证明；它也不同于其他文献，例如\cite{b292}的论证，其中主要工具是\cite{b90}第1章的一个定理，应用于恰当选取的函数与空间. 这里的证明由C. Jimenez建议，本质上改编自\cite{b70}第4节.} 我们限于紧的情形，并只使用以下事实：若$H$凸且下半连续，则$H^{**}=H$（见\autoref{sec:1.6.1}中的\autoref{box:1.12}）.
+
+假设$X,Y$为紧度量空间，$c:X\times Y\to\mathbb R$连续. 对每个$p\in C(X\times Y)$，定义
+\begin{equation*}
+\begin{aligned}
+H(p):=-\max\biggl\{&\int_X\varphi\,d\mu+\int_Y\psi\,d\nu:\\
+&\varphi(x)+\psi(y)\le c(x,y)-p(x,y)\biggr\}.
+\end{aligned}
+\end{equation*}
+它等于成本$c-p$下(DP)的值的相反数. 此值可取到已由\autoref{obj:1.11}证明；该命题也给出了最优$\varphi,\psi$的连续模界（与$c-p$相同）以及振幅界（若令$\varphi(x_0)=0$，那么$\varphi,\psi$都被一个仅依赖$\sup|c-p|$的常数控制）.
+
+\begin{lemma}\label{obj:1.45}
+函数$H:C(X\times Y)\to\mathbb R$凸，且关于紧空间$X\times Y$上的一致收敛下半连续.
+\end{lemma}
+\begin{proof}
+先证明凸性. 取$p_0,p_1$及其最优势$(\varphi_0,\psi_0)$与$(\varphi_1,\psi_1)$. 对$t\in[0,1]$，定义$p_t=(1-t)p_0+tp_1$、$\varphi_t=(1-t)\varphi_0+t\varphi_1$及$\psi_t=(1-t)\psi_0+t\psi_1$. 函数对$(\varphi_t,\psi_t)$在定义$-H(p_t)$的最大化问题中可行. 因而
+\[
+H(p_t)\le-\left(\int_X\varphi_t\,d\mu+\int_Y\psi_t\,d\nu\right)
+=(1-t)H(p_0)+tH(p_1),
+\]
+这证明凸性.
+
+对半连续性，取$p_n\to p$. 抽取实现$H(p_n)$的下极限的子列$p_{n_k}$. 由一致收敛，序列$p_{n_k}$等度连续且有界（使用Ascoli--Arzel\`a定理的逆命题）. 因此，对应的最优势$(\varphi_{n_k},\psi_{n_k})$也等度连续且有界；再抽取子列后，可假设$\varphi_{n_k}\to\varphi$、$\psi_{n_k}\to\psi$一致成立. 显然，由$\varphi_{n_k}(x)+\psi_{n_k}(y)\le c(x,y)-p_{n_k}(x,y)$可得$\varphi(x)+\psi(y)\le c(x,y)-p(x,y)$. 故
+\begin{equation*}
+\begin{aligned}
+H(p)&\le-\left(\int_X\varphi\,d\mu+\int_Y\psi\,d\nu\right)\\
+&=\lim_k H(p_{n_k})=\liminf_n H(p_n),
+\end{aligned}
+\end{equation*}
+这证明下半连续性.
+\end{proof}
+
+现在计算$H^*:\mathscr M(X\times Y)\to\mathbb R\cup\{+\infty\}$. 对$\gamma\in\mathscr M(X\times Y)$，有
+\begin{equation*}
+\begin{aligned}
+H^*(\gamma):={}&\sup_p\int_{X\times Y}p\,d\gamma\\
+&+\sup\left\{\int_X\varphi\,d\mu+\int_Y\psi\,d\nu:
+\varphi(x)+\psi(y)\le c(x,y)-p(x,y)\right\}.
+\end{aligned}
+\end{equation*}
+它可写成对$p,\varphi,\psi$统一取一次上确界的形式. 注意，若$\gamma\notin\mathscr M_+(X\times Y)$，则存在$p\le0$使$\int p_0\,d\gamma>0$；可取$\varphi=0$、$\psi=0$、$p=c+np_0$，并令$n\to\infty$，便得$H^*(\gamma)=+\infty$. 相反，若$\gamma\in\mathscr M_+(X\times Y)$，则应选取尽可能大的$p$，即$p(x,y)=c(x,y)-\varphi(x)-\psi(y)$. 这给出
+\begin{equation*}
+\begin{aligned}
+H^*(\gamma)=\sup_{\varphi,\psi}\biggl(&\int_{X\times Y}c(x,y)\,d\gamma
++\int_X\varphi\,d\mu-\int_{X\times Y}\varphi(x)\,d\gamma\\
+&+\int_Y\psi\,d\nu-\int_{X\times Y}\psi(x)\,d\gamma\biggr).
+\end{aligned}
+\end{equation*}
+但这正是\autoref{sec:1.2}中为改写(KP)的约束而引入的表达式（见\eqref{eq:1.3}）. 事实上，
+\[
+H^*(\gamma)=\begin{cases}
+K(\gamma),&\gamma\in\Pi(\mu,\nu),\\
++\infty,&\text{其他情形}.
+\end{cases}
+\]
+于是得到对偶定理.
+
+\begin{theorem}\label{obj:1.46}
+若$X,Y$为紧空间且$c$连续，则$\min(\mathrm{KP})=\sup(\mathrm{DP})$（凸分析证明）.
+\end{theorem}
+\begin{proof}
+有$\max(\mathrm{DP})=-H(0)=-H^{**}(0)$（因为$H$凸且下半连续，见\autoref{box:1.12}）. 此外，
+\[
+H^{**}(0)=\sup_\gamma\langle0,\gamma\rangle-H^*(\gamma)
+=-\inf H^*=-\min(\mathrm{KP}).
+\]
+\end{proof}
+
+\subsubsection{最优性的充分条件与稳定性}\label{sec:1.6.4}
+
+\autoref{sec:1.6.1}和\autoref{sec:1.6.2}中关于$c$-变换的讨论，使我们能够证明最优传输中的最优性充分条件，至少当成本满足\autoref{obj:1.16}的扭转条件时如此. 与\autoref{sec:1.3}一样，先在紧性假设下给出一般陈述，再对二次情形给出不需要紧性的另一证明.
+
+\begin{theorem}\label{obj:1.47}
+设$\Omega\subset\mathbb R^d$紧，$c$为在$\Omega\times\Omega$上满足扭转条件的$C^1$成本函数. 给定$\mu\in\mathscr P(\Omega)$与$\varphi\in c\text{-}\operatorname{conc}(\Omega)$，假设$\varphi$在$\mu$-几乎处处可微，且$\mu(\partial\Omega)=0$. 假设映射$\mathrm{T}$满足$\nabla_xc(x,\mathrm{T}(x))=\nabla\varphi(x)$. 则$\mathrm{T}$对于测度$\mu$与$\nu:=\mathrm{T}_\#\mu$之间的传输成本$c$是最优的.
+\end{theorem}
+\begin{proof}
+考虑函数$\varphi$，它可写成$\varphi(x)=\inf_y c(x,y)-\psi(y)$，其中$\psi:\Omega\to\mathbb R$为某个函数. 可假设$\psi$为$\bar c$-凹函数，因而连续（事实上，由上一小节的讨论可取$\psi=\varphi^c$）. 固定$x_0\in\Omega$，使$\nabla\varphi(x_0)$存在且$x_0\notin\partial\Omega$. 由紧性与连续性，下确界$\inf_y c(x,y)-\psi(y)$在某点$y_0$取到. 这给出
+\[
+\varphi(x)\le h(x-y_0)-\psi(y_0)\quad\text{对每个 }x,
+\qquad\varphi(x_0)=h(x_0-y_0)-\psi(y_0).
+\]
+因此$x\mapsto h(x-y_0)-\varphi(x)$在$x=x_0$处取最小值（注意，我们通过关于$y$的最优性定义了$y_0$，但现在使用关于$x$的最优性）. 因而
+\[
+\nabla\varphi(x_0)=\nabla_xc(x_0,y_0).
+\]
+由假设，$y\mapsto\nabla_xc(x_0,y)$为单射，这推出$y_0=\mathrm{T}(x_0)$. 所以$\varphi(x_0)+\psi(\mathrm{T}(x_0))=c(x_0,\mathrm{T}(x_0))$，且同一等式对$\mu$-几乎处处的$x_0$成立. 对$\mu$积分得到
+\begin{equation*}
+\begin{aligned}
+\int\varphi\,d\mu+\int\psi\,d\nu
+&=\int\varphi\,d\mu+\int\psi\circ \mathrm{T}\,d\mu\\
+&=\int c(x,\mathrm{T}(x))\,d\mu(x).
+\end{aligned}
+\end{equation*}
+这证明$\mathrm{T}$最优，因为最后一个积分就是Monge问题中$\mathrm{T}$的成本，而由于$(\varphi,\psi)$在(DP)中可行，有$\int\varphi\,d\mu+\int\psi\,d\nu\le(\mathrm{DP})\le(\mathrm{KP})$.
+\end{proof}
+
+按照先前的约定，下面对$c(x,y)=\frac12|x-y|^2$给出另一证明.
+
+\begin{theorem}\label{obj:1.48}
+设$\mu\in\mathscr P(\mathbb R^d)$满足$\int|x|^2\,d\mu(x)<\infty$，且$u:\mathbb R^d\to\mathbb R\cup\{+\infty\}$凸并在$\mu$-几乎处处可微. 令$\mathrm{T}=\nabla u$，并假设$\int|\mathrm{T}(x)|^2\,d\mu(x)<+\infty$. 则对于测度$\mu$与$\nu:=\mathrm{T}_\#\mu$之间的传输成本$c(x,y):=\frac12|x-y|^2$，$\mathrm{T}$是最优的.
+\end{theorem}
+\begin{proof}
+首先注意，对凸函数$u$有以下性质：
+\[
+\begin{aligned}
+u(x)+u^*(y)&\ge x\cdot y&&\text{对所有 }x,y\in\mathbb R^d,\\
+u(x)+u^*(y)&=x\cdot y&&\text{若 }y=\nabla u(x).
+\end{aligned}
+\]
+现在，任取传输计划$\gamma\in\Pi(\mu,\nu)$，写出
+\begin{equation*}
+\begin{aligned}
+\int_{\mathbb R^d\times\mathbb R^d}(x\cdot y)\,d\gamma(x,y)
+&\le\int_{\mathbb R^d\times\mathbb R^d}(u(x)+u^*(y))\,d\gamma(x,y)\\
+&=\int_{\mathbb R^d}u(x)\,d\mu(x)
++\int_{\mathbb R^d}u^*(\mathrm{T}(x))\,d\mu(x)\\
+&=\int_{\mathbb R^d}(x\cdot \mathrm{T}(x))\,d\mu(x).
+\end{aligned}
+\end{equation*}
+这证明$\int(x\cdot y)\,d\gamma\le\int(x\cdot y)\,d\gamma_\mathrm{T}$. 从仅依赖于$\mu,\nu$的积分
+\[
+\int\frac12(|x|^2+|y|^2)\,d\gamma
+=\int\frac12(|x|^2+|y|^2)\,d\gamma_\mathrm{T}
+\]
+中减去这些量，便得
+\[
+\int_{\mathbb R^d\times\mathbb R^d}\frac12|x-y|^2\,d\gamma
+\ge\int_{\mathbb R^d\times\mathbb R^d}\frac12|x-y|^2\,d\gamma_\mathrm{T},
+\]
+即得结论.
+\end{proof}
+
+对刚给出的两个不同证明再作一点说明：我们需要证明点$\mathrm{T}(x)$在所有可能的点$y$中具有某些最优性. 第一种情形中，我们先证明存在最优点$y_0$，再从一阶最优性条件推出$y_0=\mathrm{T}(x_0)$. 第二种情形中，我们使用凸函数极小元的刻画：梯度为零的点总是极小元. 这正是“若$y=\nabla u(x)$则$u(x)+u^*(y)=x\cdot y$”这一性质背后的想法.
+
+现在转向几乎任意成本都可使用的更一般判据. 主要想法是：我们已证明最优计划必集中于$c$-CM集合，但逆命题也成立——集中于$c$-CM集合的计划是最优的，至少在最合理的情形下如此. 我们在最简单的情形，即$c$一致连续且有界时证明这一点. 实际上，从下一个证明可见，主要工具是\autoref{obj:1.37}，它只要求成本有限；但为避免可积性问题，需要连续性与紧性（此时所有函数都可测且有界）. 此外，我们会把这一充分条件用于另一个有趣的问题，即最优计划的稳定性；这还会由于其他原因而需要这些假设. 去掉这些假设后（特别是允许成本取无穷值时），逆命题是否仍成立是一个微妙的问题：成本取值$+\infty$时的反例见\cite{b10}，而若干有趣的肯定结果证明见\cite{b30,b60,b254}.
+
+\begin{theorem}\label{obj:1.49}
+给定$\gamma\in\mathscr P(X\times Y)$，假设$X,Y$为Polish空间，$c:X\times Y\to\mathbb R$一致连续且有界，并且$\operatorname{spt}(\gamma)$为$c$-CM集合. 则$\gamma$是其边缘测度$\mu=(\pi_x)_\#\gamma$与$\nu=(\pi_y)_\#\gamma$之间、成本为$c$的最优传输计划.
+\end{theorem}
+\begin{proof}
+\autoref{obj:1.37}保证存在$c$-凹函数$\varphi$，使$\operatorname{spt}(\gamma)$包含于集合$\{(x,y):\varphi(x)+\varphi^c(y)=c(x,y)\}$. 由$c$的连续性，$\varphi,\varphi^c$都连续，因此分别在$X,Y$上有界.
+
+由已知的对偶性质，
+\begin{equation*}
+\begin{aligned}
+(\mathrm{KP})&\le\int c(x,y)\,d\gamma
+=\int(\varphi(x)+\varphi^c(y))\,d\gamma\\
+&=\int\varphi\,d\mu+\int\varphi^c\,d\nu
+\le(\mathrm{DP})=(\mathrm{KP}),
+\end{aligned}
+\end{equation*}
+这表明$\gamma$最优（且$(\varphi,\varphi^c)$求解了对偶问题）.
+\end{proof}
+
+现在能够证明下面的稳定性结果；这里只陈述紧的情形.
+
+\begin{theorem}\label{obj:1.50}
+设$X,Y$为紧度量空间，$c:X\times Y\to\mathbb R$连续. 假设$\gamma_n\in\mathscr P(X\times Y)$是一列传输计划，对成本$c$，它们都是各自边缘测度$\mu_n:=(\pi_x)_\#\gamma_n$与$\nu_n:=(\pi_y)_\#\gamma_n$之间的最优计划，并且$\gamma_n\rightharpoonup\gamma$. 则$\mu_n\rightharpoonup\mu:=(\pi_x)_\#\gamma$、$\nu_n\rightharpoonup\nu:=(\pi_y)_\#\gamma$，而$\gamma$是$\mu$与$\nu$之间的最优传输.
+\end{theorem}
+\begin{proof}
+令$\Gamma_n:=\operatorname{spt}(\gamma_n)$. 取子列后，可假设$\Gamma_n\to\Gamma$关于Hausdorff拓扑成立（见下文）. 由\autoref{obj:1.38}，每个支集$\Gamma_n$都是$c$-CM集合；而$c$-CM集合的Hausdorff极限仍是$c$-CM的. 事实上，固定$(x_1,y_1),\ldots,(x_k,y_k)\in\Gamma$，则存在点$(x_1^n,y_1^n),\ldots,(x_k^n,y_k^n)\in\Gamma_n$，使每个$i=1,\ldots,k$都有$(x_i^n,y_i^n)\to(x_i,y_i)$. $\Gamma_n$的循环单调性给出
+\[
+\sum_{i=1}^k c(x_i^n,y_i^n)\le\sum_{i=1}^k c(x_i^n,y_{\sigma(i)}^n).
+\]
+令$n\to\infty$，推出
+\[
+\sum_{i=1}^k c(x_i,y_i)\le\sum_{i=1}^k c(x_i,y_{\sigma(i)}).
+\]
+这证明$\Gamma$为$c$-CM. 此外，由$\gamma_n\rightharpoonup\gamma$及$\Gamma_n\to\Gamma$可知$\operatorname{spt}(\gamma)\subset\Gamma$. 因而$\operatorname{spt}(\gamma)$为$c$-CM，进而$\gamma$最优.
+\end{proof}
+
+最后给出\autoref{obj:1.50}的一个简单而有用的推论. 为固定记号，对给定成本$c:X\times Y\to\mathbb R$及$\mu\in\mathscr P(X),\nu\in\mathscr P(Y)$，定义
+\[
+\mathscr T_c(\mu,\nu):=\min\left\{\int_{X\times Y}c\,d\gamma:\gamma\in\Pi(\mu,\nu)\right\}.
+\]
+
+\begin{theorem}\label{obj:1.51}
+设$X,Y$为紧度量空间，$c:X\times Y\to\mathbb R$连续. 假设$\mu_n\in\mathscr P(X)$及$\nu_n\in\mathscr P(Y)$是两个概率测度序列，满足$\mu_n\rightharpoonup\mu$与$\nu_n\rightharpoonup\nu$. 则$\mathscr T_c(\mu_n,\nu_n)\to\mathscr T_c(\mu,\nu)$.
+\end{theorem}
+\begin{proof}
+令$\gamma_n$是成本$c$下从$\mu_n$到$\nu_n$的最优传输计划. 取子列后，可假设$\gamma_n\rightharpoonup\gamma$. \autoref{obj:1.50}给出$\gamma$的最优性. 这意味着（沿着该子列，但由于它是任意的）
+\[
+\mathscr T_c(\mu_n,\nu_n)=\int_{X\times Y}c\,d\gamma_n
+\longrightarrow\int_{X\times Y}c\,d\gamma=\mathscr T_c(\mu,\nu),
+\]
+即得结论.
+\end{proof}
+
+\begin{sourcebox}{知识回顾：Hausdorff收敛}\label{box:1.13}
+\begin{definition*}
+在紧度量空间$X$中，两个紧子集之间的Hausdorff距离定义为
+\[
+d_H(A,B):=\max\{\max\{d(x,A):x\in B\},\ \max\{d(x,B):x\in A\}\}.
+\]
+\end{definition*}
+\textbf{性质.} 有以下等价定义：
+\begin{enumerate}
+\item $d_H(A,B)=\max\{|d(x,A)-d(x,B)|:x\in X\}$；
+\item $d_H(A,B)=\inf\{\varepsilon>0:A\subset B_\varepsilon,\ B\subset A_\varepsilon\}$，其中$A_\varepsilon,B_\varepsilon$分别为$A,B$的$\varepsilon$-邻域.
+\end{enumerate}
+\begin{theorem*}[Blaschke]
+$d_H$是一个距离：它非负、对称，只在两个集合相同时为零，并满足三角不等式. 在这个距离下，$X$的紧子集所成的集合本身成为一个紧度量空间.
+\end{theorem*}
+这一主题的详细讨论（含证明）见\cite{b12}. 这里只证明我们需要的一个简单事实.
+
+\begin{proposition*}
+若$d_H(A_n,A)\to0$，且$\mu_n$是一列正测度，满足$\operatorname{spt}(\mu_n)\subset A_n$及$\mu_n\rightharpoonup\mu$，则$\operatorname{spt}(\mu)\subset A$.
+\end{proposition*}
+\begin{proof}[证明草图]
+对每个$n$都有$\int d(x,A_n)\,d\mu_n=0$，因为$\mu_n$支撑于$A_n$. 由于$d(x,A_n)\to d(x,A)$一致成立且$\mu_n\rightharpoonup\mu$，借助一致收敛与测度弱收敛之间的对偶性，得到$\int d(x,A_n)\,d\mu_n\to\int d(x,A)\,d\mu$. 这推出$\int d(x,A)\,d\mu=0$，因而$\mu$集中于$A$.
+\end{proof}
+\end{sourcebox}
+
+再用一个关于Kantorovich势稳定性的结果作为结束.
+
+\begin{theorem}\label{obj:1.52}
+设$X,Y$为紧度量空间，$c:X\times Y\to\mathbb R$连续. 假设$\mu_n\in\mathscr P(X)$与$\nu_n\in\mathscr P(Y)$是两个概率测度序列，满足$\mu_n\rightharpoonup\mu$及$\nu_n\rightharpoonup\nu$. 对每个$n$，令$(\varphi_n,\psi_n)$为成本$c$下从$\mu_n$到$\nu_n$传输的一对$c$-凹Kantorovich势. 则取子列后，有$\varphi_n\to\varphi$、$\psi_n\to\psi$，收敛一致成立，且$(\varphi,\psi)$是$\mu,\nu$的一对Kantorovich势.
+\end{theorem}
+\begin{proof}
+我们知道$c$-凹函数与$c$具有相同的连续模，因此在作常数平移后，可应用Ascoli--Arzel\`a定理. 有$\varphi_n\to\widetilde\varphi$与$\psi_n\to\widetilde\psi$，收敛一致成立. 由$\varphi_n(x)+\psi_n(y)\le c(x,y)$，令$n\to\infty$可得$\widetilde\varphi(x)+\widetilde\psi(y)\le c(x,y)$. 此外，
+\begin{equation*}
+\begin{aligned}
+\mathscr T_c(\mu_n,\nu_n)
+&=\int\varphi_n\,d\mu_n+\int\psi_n\,d\nu_n\\
+&\longrightarrow\int\widetilde\varphi\,d\mu+\int\widetilde\psi\,d\nu.
+\end{aligned}
+\end{equation*}
+但还有$\mathscr T_c(\mu_n,\nu_n)\to\mathscr T_c(\mu,\nu)$（\autoref{obj:1.50}）. 因而函数对$(\widetilde\varphi,\widetilde\psi)$在对偶问题中可行，并达到最大值
+\[
+\int\widetilde\varphi\,d\mu+\int\widetilde\psi\,d\nu=\mathscr T_c(\mu,\nu).
+\]
+因此，它们是Kantorovich势.
+
+若极限处的Kantorovich势唯一，则显然整个序列都收敛，无需取子列.
+\end{proof}
