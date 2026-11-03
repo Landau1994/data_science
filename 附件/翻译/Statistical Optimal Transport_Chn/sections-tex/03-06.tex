@@ -1,0 +1,114 @@
+\subsection{得到快速率}\label{sec:3.6}
+为了利用现在只需在 $\Phi_\varepsilon$ 上控制经验过程这一事实，需要严格表述 $\Phi_\varepsilon$ 比 $\Phi$ 小得多的含义. 一个复杂因素在于，\autoref{prop:2.6}中的链式技术通过 $\varepsilon$-覆盖数度量 $\Phi$ 的“大小”，而这些覆盖数是根据 $L^\infty$ 覆盖定义的. 相比之下，将 $\Phi$ 限制为 $\Phi_\varepsilon$，依据的是对 $\phi$ 的梯度的 $L^2$ 范数施加额外限制. 因此，需要一种能够同时利用函数类在 $L^\infty$ 和 $L^2$ 意义下的大小的链式界.
+
+下面修改后的链式界弥补了这一不足.
+\begin{proposition}[{\cite[定理2.14.21]{ref309}}]\label{prop:3.10}
+设 $P$ 是集合 $\Omega\subseteq\mathbb R^d$ 上的概率测度，$X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}\sim P$. 若 $\mathcal F$ 是一组实值函数，且对所有 $f\in\mathcal F$ 有 $\|f\|_{L^2(P)}\le\sigma$、$\|f\|_{L^\infty(\Omega)}\le R$，则
+\begin{equation}\label{eq:3.6}
+\begin{aligned}
+\mathbb E\sup_{f\in\mathcal F}\frac1n\sum_{i=1}^n\{f(X_i)-\mathbb Ef(X_i)\}
+\lesssim{}&\frac1{\sqrt n}\int_0^\sigma\sqrt{\log N(\varepsilon,\mathcal F)}\,d\varepsilon\\
+&+\frac1n\int_0^R\log N(\varepsilon,\mathcal F)\,d\varepsilon.
+\end{aligned}
+\end{equation}
+\end{proposition}
+注意，在 \eqref{eq:3.6} 第一项中，积分上限为 $\sigma$ 而不是 $R$. 第二个积分对覆盖数的依赖较差，但其前置因子为 $1/n$，而非 $1/\sqrt n$. 因此可以期待，当 $n$ 足够大时，第一项占主导地位. 如果 $\mathcal F$ 的 $L^2$ 大小很小，即 $\sigma$ 很小，那么第一项可能显著小于直接应用\autoref{prop:2.6}得到的界.
+
+\autoref{prop:3.10}还附带一个尾界，说明 \eqref{eq:3.6} 右端也以高概率控制经验过程.
+\begin{proposition}\label{prop:3.11}
+以 $J_n(\mathcal F)$ 表示 \eqref{eq:3.6} 的右端. 在与\autoref{prop:3.10}相同的假设下，存在正常数 $C$，它是普适常数，使得对任意 $t\ge0$，
+$$\mathbb P\left(\sup_{f\in\mathcal F}\frac1n\sum_{i=1}^n\{f(X_i)-\mathbb Ef(X_i)\}
+\ge C\left(J_n(\mathcal F)+\sigma\sqrt{\frac tn}+R\frac tn\right)\right)\le e^{-t}.$$
+\end{proposition}
+
+\autoref{prop:3.10}要求控制函数类元素的 $L^2$ 范数，但 $\Phi_\varepsilon$ 是用 $\Phi$ 中元素的梯度的 $L^2$ 范数定义的. 因此，我们对 $\mu$ 采用最后一个假设，使我们可以在这两种概念之间转换.
+\begin{definition}\label{def:3.12}\index{Poincaré inequality@Poincaré不等式（Poincaré inequality）|hyperpage}
+如果对所有 $f\in L^2(P)$ 有
+$$\int\left(f-\int f\,dP\right)^2dP\le C\int\|\nabla f\|^2\,dP,$$
+则称测度 $P$ 满足 Poincar\'e 不等式（Poincar\'e inequality），其常数为 $C$.
+\end{definition}
+\begin{assumption}\label{assump:3.13}
+测度 $\mu$ 满足 Poincar\'e 不等式.
+\end{assumption}
+
+Poincar\'e 不等式是“$\mu$ 的支集连通”这一断言的定量形式. 事实上，若一个测度在有界 Lipschitz 区域上具有远离零且有界的密度，它就满足 Poincar\'e 不等式.
+
+在这一新假设下，可以得到 $\Phi_\varepsilon$ 和 $\Phi_\varepsilon^*$ 的 $L^2$ 界.
+\begin{proposition}\label{prop:3.14}
+若\autoref{assump:3.3}和\autoref{assump:3.13}成立，则对所有 $\phi\in\Phi_\varepsilon$，
+$$\|\phi-\varphi-\mu(\phi-\varphi)\|_{L^2(\mu)}\lesssim\varepsilon,$$
+$$\|\phi^*-\varphi^*-\nu(\phi^*-\varphi^*)\|_{L^2(\nu)}\lesssim\varepsilon.$$
+\end{proposition}
+\begin{proof}
+第一个界直接由 Poincar\'e 不等式得到：对 $\phi\in\Phi_\varepsilon$，
+$$\|\phi-\varphi-\mu(\phi-\varphi)\|_{L^2(\mu)}^2
+\le C\|\nabla(\phi-\varphi)\|_{L^2(\mu)}^2\lesssim\varepsilon^2.$$
+
+为证明第二个界，先利用 $\phi$ 和 $\varphi$ 的强凸性. 考虑泛函 $\mathcal T$，定义为
+$$\mathcal T(\psi):=\int\psi\,d\nu+\int\psi^*\,d\mu.$$
+即 $\mathcal T$ 是交换 $\mu$ 与 $\nu$ 的角色后得到的半对偶泛函. 由于对所有凸且下半连续的 $\phi$，都有 $(\phi^*)^*=\phi$，所以对所有这样的 $\phi$，有 $\mathcal S(\phi)=\mathcal T(\phi^*)$. 特别地，$\mathcal T$ 的极小化解为 $\varphi^*$，由\autoref{thm:3.1}可知
+$$\begin{aligned}
+\frac14\|\nabla\phi^*-\nabla\varphi^*\|_{L^2(\nu)}^2
+&\le\mathcal T(\phi^*)-\mathcal T(\varphi^*)\\
+&=\mathcal S(\phi)-\mathcal S(\varphi)
+\le\|\nabla\phi-\nabla\varphi\|_{L^2(\mu)}^2.
+\end{aligned}$$
+因此，对所有 $\phi\in\Phi_\varepsilon$，有 $\|\nabla\phi^*-\nabla\varphi^*\|_{L^2(\nu)}^2\lesssim\varepsilon^2$.
+
+为了得到所需的界，只需再证明 $\nu$ 也满足 Poincar\'e 不等式，这样便可以像证明第一个不等式那样得出结论. 为此，利用 $\nu=(\nabla\varphi)_\#\mu$. $\varphi$ 的光滑性意味着，对任意 $f:\mathbb R^d\to\mathbb R^d$，
+$$\begin{aligned}
+\|\nabla(f\circ\nabla\varphi)(x)\|
+&=\|\nabla^2\varphi(x)\nabla f(\nabla\varphi(x))\|\\
+&\le2\|\nabla f(\nabla\varphi(x))\|.
+\end{aligned}$$
+$\mu$ 的 Poincar\'e 不等式意味着，对任意 $f\in L^2(\nu)$，
+$$\begin{aligned}
+\int\left(f-\int f\,d\nu\right)^2d\nu
+&=\int\left(f\circ\nabla\varphi-\int f\circ\nabla\varphi\,d\mu\right)^2d\mu\\
+&\le C\int\|\nabla(f\circ\nabla\varphi)\|^2\,d\mu\\
+&\le4C\int\|\nabla f(\nabla\varphi(x))\|^2\,d\mu\\
+&=4C\int\|\nabla f\|^2\,d\nu.
+\end{aligned}$$
+所以 $\nu$ 也满足常数为 $4C$ 的 Poincar\'e 不等式. 从而可像第一种情形那样得出结论.
+\end{proof}
+
+终于可以证明所需的速率了. 注意，在\autoref{lem:3.5}成立的有限维情形下，这一定理说明可以以接近参数速率的速度估计映射.
+\begin{theorem}\label{thm:3.15}
+采用\autoref{assump:3.3}、\autoref{assump:3.8}和\autoref{assump:3.13}. 如果 \eqref{eq:3.5} 成立，则半对偶估计量 $\widehat\varphi$ 以至少 $1-e^{-t}$ 的概率满足
+\begin{equation}\label{eq:3.7}
+\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}^2
+\lesssim\left(\frac{\log n}n\right)^{\frac2{2+\gamma}}+\frac{t+1}n.
+\end{equation}
+特别地，
+$$\mathbb E\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}^2
+\lesssim\left(\frac{\log n}n\right)^{\frac2{2+\gamma}}.$$
+\end{theorem}
+\begin{proof}
+由\autoref{prop:3.9}，只需证明：对于 $\varepsilon_n\asymp(\log n/n)^{1/(2+\gamma)}+\sqrt{(t+1)/n}$，以至少 $1-e^{-t}$ 的概率有 $r(\varepsilon_n)\le\varepsilon_n^2/16$. 先控制 $\sup_{\phi\in\Phi_\varepsilon}|(\mu_n-\mu)(\phi-\varphi)|$. 因为当 $h$ 为常函数时 $(\mu_n-\mu)h=0$，所以
+$$\sup_{\phi\in\Phi_\varepsilon}|(\mu_n-\mu)(\phi-\varphi)|
+=\sup_{\phi\in\Phi_\varepsilon}|(\mu_n-\mu)(\phi-\varphi-\mu(\phi-\varphi))|.$$
+可以应用\autoref{prop:3.10}、\autoref{prop:3.11}和\autoref{prop:3.14}，并利用 $\phi-\varphi-\mu(\phi-\varphi)$ 有界这一事实，得到：存在常数 $C_2$，使得以至少 $1-e^{-t}$ 的概率，
+$$\begin{aligned}
+&\sup_{\phi\in\Phi_\varepsilon}|(\mu_n-\mu)(\phi-\varphi-\mu(\phi-\varphi))|\\
+&\quad\lesssim\frac1{\sqrt n}\int_0^{C_2\varepsilon}
+\delta^{-\gamma/2}\sqrt{\log(1+\delta^{-1})}\,d\delta\\
+&\qquad+\frac1n\int_0^{C_2}\delta^{-\gamma}\log(1+\delta^{-1})\,d\delta
++\varepsilon\sqrt{\frac tn}+\frac tn\\
+&\quad\lesssim\varepsilon^{1-\gamma/2}\sqrt{\frac{\log(1+\varepsilon^{-1})}n}
++\varepsilon\sqrt{\frac tn}+\frac{t+1}n.
+\end{aligned}$$
+因此，对充分大的常数 $C$，取
+\begin{equation}\label{eq:3.8}
+\varepsilon_n=C\left(\left(\frac{\log n}n\right)^{\frac1{2+\gamma}}
++\sqrt{\frac{t+1}n}\right),
+\end{equation}
+就能保证以至少 $1-e^{-t}/2$ 的概率，有
+$$\sup_{\phi\in\Phi_{\varepsilon_n}}|(\mu_n-\mu)(\phi-\varphi-\mu(\phi-\varphi))|
+\le\varepsilon_n^2/32.$$
+类似的论证给出，以同样的概率，
+$$\sup_{\phi\in\Phi_{\varepsilon_n}}|(\nu_n-\nu)(\phi^*-\varphi^*-\nu(\phi^*-\varphi^*))|
+\le\varepsilon_n^2/32.$$
+由并集界，对 \eqref{eq:3.8} 中的 $\varepsilon_n$ 有 $r(\varepsilon_n)\le\varepsilon_n^2/16$，即为所求.
+
+第二个界由对尾部积分得到.
+\end{proof}

@@ -1,0 +1,76 @@
+\subsection{最优性}\label{sec:2.6}
+我们已用两种方式为经验分布 $\mu_n$ 与数据生成分布 $\mu$ 之间的 Wasserstein 距离建立上界：分别使用问题的原始表述和对偶表述. 略去低维情形的特殊性，得到 $\mu_n$ 在 $W_1$ 距离下以 $n^{-1/d}$ 的阶估计 $\mu$. 虽然这立即给出一致性，但即使维数中等，这个速率也很慢，体现了困扰大多数非参数方法的维数灾难. 因而自然会问，能否改进这种速率.
+
+注意，有两种可能的改进方式. 最明显的是作比上述更紧的分析，证明 $\mathbb E[W_1(\mu_n,\mu)]$ 实际上远小于 $n^{-1/d}$. 另一种可能是，虽然经验测度 $\mu_n$ 的这一速率是紧的，但存在 $\mu$ 的另一个估计量 $\tilde\mu_n$，收敛得快得多. 实际上，这两个性质不同的问题的答案都是否定的，下界将说明这一点.
+
+第二个问题的否定答案蕴含第一个问题的否定答案：若没有估计量能以快于 $n^{-1/d}$ 的速率估计 $\mu$，则经验测度 $\mu_n$ 当然也不能. 但我们仍将第一个问题的否定答案明确写出，因为它在某种意义下更强. 具体地，下面证明即使 $\mu$ 是 $[0,1]^d$ 上的均匀测度，也有 $\mathbb E[W_1(\mu_n,\mu)]\gtrsim n^{-1/d}$. 不过此时显然存在比 $\mu_n$ 更好的估计量：直接取 $\tilde\mu_n=\mu$ 本身即可！第二个问题的答案依赖极小极大下界（minimax lower bound）理论，例如\cite[第2章]{ref302}；它表明，对于数据 $X_1,\ldots,X_n$ 的任意估计量，即任意可测函数 $\tilde\mu_n=\tilde\mu_n(X_1,\ldots,X_n)$，都存在支撑包含于 $[0,1]^d$ 的 $\mu$，使 $\mathbb E[W_1(\tilde\mu_n,\mu)]\gtrsim n^{-1/d}$. 与经验测度 $\mu_n$ 的下界不同，极小极大下界中不利的分布 $\mu$ 并不显式给出.
+
+\subsubsection{经验测度\texorpdfstring{$\mu_n$}{mu-n}的下界}\label{sec:2.6.1}
+本节目标是说明，任何支撑在 $n$ 个点上的分布，在 $W_1$ 距离下都必须与 $[0,1]^d$ 上的均匀测度相距较远.
+\begin{theorem}\label{thm:2.14}
+固定 $d\ge3$，以 $\mu$ 表示 $[0,1]^d$ 上的均匀测度. 则对于任意支撑在 $n$ 个点 $x_1,\ldots,x_n\in\mathbb R^d$ 上的测度 $\tilde\mu_n$，
+$$W_1(\tilde\mu_n,\mu)\ge\frac1{108d}n^{-1/d}.$$
+\end{theorem}
+\begin{proof}
+使用\autoref{thm:1.21}的对偶表述，因为证明 $W_1$ 下界只需给出一个 $1$-Lipschitz 函数. 如下定义这个函数：给定 $x\in[0,1]^d$，用 $\xi(x)\in\{x_1,\ldots,x_n\}$ 表示该集合中距 $x$ 最近的点，距离并列时任意选取. 接着考虑函数
+$$f_n(x)=\lVert x-\xi_n(x)\rVert,$$
+由反三角不等式，它是 $1$-Lipschitz 的. 此外，每个 $i=1,\ldots,n$ 都有 $f_n(x_i)=0$，所以 $\int f\,d\tilde\mu_n=0$. 因此
+$$W_1(\tilde\mu_n,\mu)\ge\int f_n\,d\mu=\int\lVert x-\xi_n(x)\rVert\,\mu(dx).$$
+为给这个量作下界，证明 $\mu$ 在远离所有 $x_i$ 的点上赋予了显著质量. 为此，考虑将 $[0,1]^d$ 划分成边长 $(2n)^{-1/d}$ 的立方体的划分 $\mathcal Q$. 由于 $|\mathcal Q|=2n$，存在 $n$ 个这样的立方体 $Q_1,\ldots,Q_n$，不包含任何 $x_i$. 令 $Q\in\mathcal Q$ 是其中一个、中心为 $q$ 的立方体，考虑同样以 $q$ 为中心的子立方体 $Q'\subset Q$，其边长缩小为原来的 $1-2/d$. 使用 Minkowski 和记号，可以写成
+$$Q'=\left(1-\frac2d\right)(Q-\{q\})+\{q\}.$$
+由构造，任何 $x\in Q'$ 都满足
+$$\lVert x-\xi_n(x)\rVert\ge\inf_{\substack{x\in Q'\\y\in Q^c}}\lVert x-y\rVert=\frac1d(2n)^{-1/d}.$$
+因此
+$$\begin{aligned}
+\int\lVert x-\xi_n(x)\rVert\,\mu(dx)
+&\ge\sum_{i=1}^n\int_{Q'_i}\lVert x-\xi_n(x)\rVert\,\mu(dx)\\
+&\ge\frac{(2n)^{-1/d}}d\sum_{i=1}^n\mu(Q'_i).
+\end{aligned}$$
+最后注意
+$$\mu(Q'_i)=\left(\frac{1-2/d}{(2n)^{1/d}}\right)^d\ge\frac1{54n},$$
+便得结论；这里用了 $d\mapsto(1-2/d)^d$ 递增且 $d\ge3$.
+\end{proof}
+\autoref{thm:2.14}说明，至少对 $d\ge3$，$W_1(\mu_n,\mu)$ 确实具有 $n^{-1/d}$ 的阶. 事实上，该下界关于 $X_1,\ldots,X_n$ 几乎必然成立，因为它只使用了 $\mu_n$ 的支撑至多有 $n$ 个点. 注意，\autoref{thm:2.14}关于 $d$ 的依赖相差一个关于 $d$ 的多项式因子. 可以证明，\autoref{prop:2.5}中的 $\sqrt d$ 因子无法改进；见\autoref{exer:2.1}.
+
+\subsubsection{极小极大下界}\label{sec:2.6.2}
+虽然一般难以想到比 $\mu_n$ 更好的 $\mu$ 的估计量（\autoref{sec:2.7}将说明，对 $\mu$ 施加额外假设时可能存在），但仍可能存在另一估计量 $\tilde\mu_n$，使 $\mathbb E[W_1(\tilde\mu_n,\mu)]$ 对所有测度 $\mu$ 一致地小于 $\mathbb E[W_1(\mu_n,\mu)]$. 如下极小极大下界排除了这种可能.
+\begin{theorem}\label{thm:2.15}
+固定 $d\ge3$、$n\ge8$，设 $X_1,\ldots,X_n$ 是来自 $\mathbb R^d$ 上分布 $\mu$ 的 $n$ 个独立同分布观测. 对任意估计量 $\tilde\mu_n$，即 $X_1,\ldots,X_n$ 的任意可测函数，都存在支撑包含于 $[0,1]^d$ 的测度 $\mu$，使
+$$\mathbb E_\mu[W_1(\tilde\mu_n,\mu)]\ge\frac1{16}(2n)^{-1/d}.$$
+\end{theorem}
+\begin{proof}
+证明依赖极小极大下界的经典技术. 特别地，使用\cite[定理2.12]{ref302}. 根据该定理，若能找到以 $\omega\in\{-1,1\}^m$ 为指标、支撑包含于 $[0,1]^d$ 的 $2^m$ 个概率测度，且
+\begin{enumerate}
+\item[(i)]\label{item:2.15.i} 对任意 $\omega,\omega'\in\{-1,1\}^m$，$W_1(\mu^{(\omega)},\mu^{(\omega')})\ge\frac{r_n}2\sum_{j=1}^m|\omega_j-\omega'_j|$；
+\item[(ii)]\label{item:2.15.ii} 对任意至多一个坐标不同的 $\omega,\omega'\in\{-1,1\}^m$，
+$$\mathrm{KL}(\mu^{(\omega)}\mathbin\Vert\mu^{(\omega')})\le\frac1{2n},$$
+\end{enumerate}
+则对任何基于 $n$ 个独立同分布观测的估计量 $\tilde\mu_n$，存在 $\omega\in\{-1,1\}^m$，使
+$$\mathbb E_{\mu^{(\omega)}}[W_1(\tilde\mu_n,\mu^{(\omega)})]\ge\frac{mr_n}4.$$
+
+在我们的构造中，取 $m=n$，并按如下方式将 $\mu^{(\omega)}$ 定义为离散集合上的测度. 与\autoref{thm:2.14}的证明一样，令 $\mathcal Q$ 为将 $[0,1]^d$ 划分成边长 $(2n)^{-1/d}$ 的 $2n$ 个立方体的划分，以 $q_1,\ldots,q_{2n}$ 表示它们的中心. 用 $\mu^{(0)}$ 表示 $\{q_1,\ldots,q_{2n}\}$ 上的均匀测度：
+$$\mu^{(0)}=\frac1{2n}\sum_{i=1}^{2n}\delta_{q_i}.$$
+对 $\omega\in\{-1,1\}^n$，令 $\mu^{(\omega)}$ 是 $\mu^{(0)}$ 的扰动，定义为
+$$\mu^{(\omega)}=\mu^{(0)}+\frac\alpha{2n}\sum_{i=1}^n\omega_i(\delta_{q_i}-\delta_{q_{n+i}}),$$
+其中 $\omega=(\omega_1,\ldots,\omega_n)$，$\alpha\in(0,1)$ 稍后确定. 注意，$\mu^{(\omega)}$ 是概率测度.
+
+因为 $j\ne k$ 时 $\lVert q_j-q_k\rVert\ge(2n)^{-1/d}$，所以对任意 $\omega,\omega'\in\{0\}^n\cup\{-1,1\}^n$，有
+$$\begin{aligned}
+W_1(\mu^{(\omega)},\mu^{(\omega')})
+&\ge\frac\alpha{2n}(2n)^{-1/d}\sum_{j=1}^n|\omega_j-\omega'_j|\\
+&=:\frac{r_n}2\sum_{j=1}^n|\omega_j-\omega'_j|.
+\end{aligned}$$
+还需证明适当选择 $\alpha$ 时\hyperref[item:2.15.ii]{条件 (ii)} 成立. 为此，设 $\omega$ 与 $\omega'$ 在第 $j$ 个坐标不同. 注意
+$$\begin{aligned}
+\mathrm{KL}(\mu^{(\omega)}\mathbin\Vert\mu^{(\omega')})
+&=\sum_{i=1}^{2n}\mu^{(\omega)}(q_i)\log\left(\frac{\mu^{(\omega)}(q_i)}{\mu^{(\omega')}(q_i)}\right)\\
+&=\frac1{2n}\left\{(1+\alpha\omega_j)\log\frac{1+\alpha\omega_j}{1-\alpha\omega_j}
++(1-\alpha\omega_j)\log\frac{1-\alpha\omega_j}{1+\alpha\omega_j}\right\}\\
+&=\frac\alpha n\log\frac{1+\alpha}{1-\alpha},
+\end{aligned}$$
+当 $\alpha=1/4$ 时，该量小于 $1/(2n)$. 如此选择 $\alpha$，得到
+\begin{equation}\label{eq:2.14}
+r_n=\frac1{4n}(2n)^{-1/d},
+\end{equation}
+从而推出所需的界.
+\end{proof}

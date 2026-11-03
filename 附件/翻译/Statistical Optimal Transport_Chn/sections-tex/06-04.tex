@@ -1,0 +1,112 @@
+\subsection{非参数最大似然}\label{sec:6.4}\index{non-parametric maximum likelihood (NPMLE)@非参数最大似然（NPMLE）（non-parametric maximum likelihood (NPMLE)）|hyperpage}
+
+刚才看到，采用\cite{ref170,ref324}最初提出的视角，可以把抽样看成概率测度空间上的优化. 本节研究一个本来就具有这一性质的经典统计问题.
+
+考虑 $\mathbb R^d$ 上密度为
+$$
+G_\rho=\int_{\mathbb R^d}\phi(\cdot-y)\,\rho(dy)=\phi\star\rho
+$$
+的高斯混合，其中 $\phi(z)=(2\pi)^{-d/2}\exp(-\|z\|^2/2)$ 是标准各向同性高斯分布 $\mathcal N(0,I)$ 的密度，$\rho$ 为关心的混合分布. 与\autoref{sec:5.6}的一般高斯混合相比，为简便起见，这里要求所有分量的协方差都是单位矩阵.
+
+设 $\rho^\star$ 是 $\mathbb R^d$ 上未知混合分布. 给定从 $G_{\rho^\star}$ 独立抽取的 $n$ 个观测 $X_1,\ldots,X_n$，目标是估计 $\rho^\star$. 这是高斯反卷积问题，已知其收敛速率很慢\cite{ref271}. 当假设 $\rho^\star$ 光滑时，达到最优收敛速率的经典方法采用核平滑\cite{ref129}. 本节遵循\cite{ref327}，探索另一种称为非参数最大似然估计的方法.
+
+该问题的负对数似然为
+$$
+\ell_n(\rho):=-\frac1n\sum_{i=1}^n\log G_\rho(X_i)
+=-\frac1n\sum_{i=1}^n\log\phi\star\rho(X_i).
+$$
+非参数最大似然估计量（non-parametric maximum likelihood estimator，NPMLE）定义为 $\ell_n$ 的任一极小化解：
+\begin{equation}\label{eq:6.20}
+\widehat\rho=\operatorname*{arg\,min}_{\rho\in\mathcal P(\mathbb R^d)}\ell_n(\rho).
+\end{equation}
+
+讨论计算之前，先指出\cite{ref270}强调的与熵正则最优传输的一个出人意料的联系. 用 $\mu_n$ 表示经验测度 $n^{-1}\sum_{i=1}^n\delta_{X_i}$，NPMLE 实际满足
+\begin{equation}\label{eq:6.21}
+\widehat\rho=\operatorname*{arg\,min}_{\rho\in\mathcal P(\mathbb R^d)}S_{2\sigma^2}(\mu_n,\rho),
+\end{equation}
+其中 $S_{2\sigma^2}(\cdot,\cdot)$ 是正则参数为 $\varepsilon=2\sigma^2$ 的熵正则最优传输代价. 换言之，NPMLE 恰好最小化到数据 $\mu_n$ 的熵正则 OT 代价.
+
+这一联系来自对偶性. Gibbs 变分原理（见\autoref{prop:4.2}）针对概率测度而非一般正测度的版本说明，对适当的 $h:\mathbb R^d\to\mathbb R$，
+$$
+\log\int\exp(h)\,dQ
+=\sup_{P\in\mathcal P(\mathbb R^d)}\left\{\int h\,dP-\operatorname{KL}(P\|Q)\right\}.
+$$
+例如可见\cite[命题 1.4.2]{ref125}. 用它得到 $\log G_\rho(X_i)$ 的变分表述：
+$$
+\begin{aligned}
+-\log G_\rho(X_i)
+&=(2\pi)^{d/2}-\log\int\exp\left(-\frac{\|X_i-y\|^2}{2\sigma^2}\right)\rho(dy)\\
+&=(2\pi)^{d/2}+\inf_{P_i\in\mathcal P(\mathbb R^d)}
+\left\{\int\frac1{2\sigma^2}\|X_i-y\|^2\,P_i(dy)+\operatorname{KL}(P_i\|\rho)\right\}.
+\end{aligned}
+$$
+因此\eqref{eq:6.20}等价于
+$$
+\begin{aligned}
+\widehat\rho=\operatorname*{arg\,min}_{\rho\in\mathcal P(\mathbb R^d)}
+\inf_{P_1,\ldots,P_n\in\mathcal P(\mathbb R^d)}\frac1n\sum_{i=1}^n
+\left[\int\|X_i-y\|^2\,P_i(dy)+2\sigma^2\operatorname{KL}(P_i\|\rho)\right].
+\end{aligned}
+$$
+关于 $P_1,\ldots,P_n$ 的最小化，可以等价改写为关于形如 $\gamma=n^{-1}\sum_{i=1}^n\delta_{X_i}\otimes P_i$ 的测度的最小化；这些恰好是第一边缘为 $\mu_n$ 的联合测度. 可以证明第二边缘可取为 $\rho$，从而得到\eqref{eq:6.21}.
+
+这一无穷维凸优化问题\eqref{eq:6.20}主要在 $d=1$ 时被研究；此时可以证明解唯一，并支撑在少量原子上\cite{ref211,ref260}. 利用这些性质，人们通过将测度集合限制为小支撑测度，提出了多种计算格式. 对高维情形的了解则少得多.
+
+NPMLE 定义\eqref{eq:6.20}正是在概率测度上优化，本节余下部分描述用 Wasserstein 梯度流求解的算法.
+
+先计算 Wasserstein 梯度，为此需要 $\ell_n$ 的一阶变分. 固定 $\varepsilon>0$，令 $\xi$ 为使 $\rho+\varepsilon\xi$ 成为概率测度的扰动，注意
+$$
+\begin{aligned}
+\ell_n(\rho+\varepsilon\xi)
+&=-\frac1n\sum_{i=1}^n\log(\phi\star\rho+\varepsilon\phi\star\xi)(X_i)\\
+&=-\frac1n\sum_{i=1}^n\log(\phi\star\rho)(X_i)
+-\frac\varepsilon n\sum_{i=1}^n\frac{\phi\star\xi(X_i)}{\phi\star\rho(X_i)}+O(\varepsilon^2).
+\end{aligned}
+$$
+因而
+$$
+\begin{aligned}
+\lim_{\varepsilon\searrow0}\frac{\ell_n(\rho+\varepsilon\xi)-\ell_n(\rho)}\varepsilon
+&=-\frac1n\sum_{i=1}^n\frac{\phi\star\xi(X_i)}{\phi\star\rho(X_i)}\\
+&=-\frac1n\sum_{i=1}^n\frac{\int\phi(\cdot-X_i)\,d\xi}{\phi\star\rho(X_i)},
+\end{aligned}
+$$
+很容易认出一阶变分为
+$$
+\delta\ell_n(\rho)=-\frac1n\sum_{i=1}^n\frac{\phi(\cdot-X_i)}{\phi\star\rho(X_i)}.
+$$
+$\ell_n$ 的 Wasserstein 梯度流对应于 ODE
+\begin{equation}\label{eq:6.22}
+\begin{aligned}
+\dot\theta_t
+&=-\nabla\mkern-10mu\nabla\ell_n(\rho_t)(\theta_t)
+=\frac1n\sum_{i=1}^n\frac{\nabla\phi(\theta_t-X_i)}{\phi\star\rho_t(X_i)}\\
+&=-\frac1n\sum_{i=1}^n\frac{(\theta_t-X_i)\phi(\theta_t-X_i)}{\phi\star\rho_t(X_i)},
+\end{aligned}
+\end{equation}
+其中 $\rho_t=\operatorname{law}(\theta_t)$. 根据连续性方程\eqref{eq:5.2}，梯度流也是由 PDE
+$$
+\partial_t\rho_t=\frac1n\sum_{i=1}^n\operatorname{div}
+\left(\rho_t\frac{(\cdot-X_i)\phi(\cdot-X_i)}{\phi\star\rho_t(X_i)}\right)
+$$
+描述的曲线.
+
+因为\eqref{eq:6.22}中的速度场依赖 $\rho_t$，采用粒子实现：给定边缘分布为 $\rho_t$ 的 $N$ 个粒子 $\theta_t^1,\ldots,\theta_t^N$，用经验分布 $N^{-1}\sum_{j=1}^N\delta_{\theta_t^j}$ 替代 $\rho_t$，得到耦合 ODE 系统，对 $j\in[N]$，
+$$
+\dot\theta_t^j=-\frac1n\sum_{i=1}^n
+\frac{(\theta_t^j-X_i)\phi(\theta_t^j-X_i)}{N^{-1}\sum_{k=1}^N\phi(\theta_t^k-X_i)}.
+$$
+遗憾的是，这一 Wasserstein 梯度流难以分析，且其时间离散化在实践中表现不好. 因此\cite{ref327}提议研究 $\ell_n$ 的 Wasserstein--Fisher--Rao 梯度流. 此时，用
+$$
+\sum_{j=1}^Nw_t^j\delta_{\theta_t^j}
+$$
+逼近 $\rho_t$，对任意 $j\in[N]$ 采用动力学
+$$
+\begin{aligned}
+\dot\theta_t^j&=-\frac1n\sum_{i=1}^n
+\frac{(\theta_t^j-X_i)\phi(\theta_t^j-X_i)}{\sum_{k=1}^Nw_t^k\phi(\theta_t^k-X_i)},\\
+\dot w_t^j&=\left[\frac1n\sum_{i=1}^n
+\frac{\phi(\theta_t^j-X_i)}{\sum_{k=1}^Nw_t^k\phi(\theta_t^k-X_i)}-1\right]w_t^j.
+\end{aligned}
+$$
+某些条件下可以建立该系统的收敛保证，但完全由 Fisher--Rao 部分驱动；证明主要在于寻找条件，使 Wasserstein 部分不妨碍收敛.

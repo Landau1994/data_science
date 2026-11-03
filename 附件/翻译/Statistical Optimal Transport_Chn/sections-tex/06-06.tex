@@ -1,0 +1,84 @@
+\subsection{Transformer}\label{sec:6.6}\index{transformers@Transformer（transformers）|hyperpage}
+
+自 2017 年论文“Attention is all you need”\cite{ref313}引入以来，Transformer 深刻改变了实际深层神经网络，尤其在自然语言处理（natural language processing，NLP）中，也广泛用于计算机视觉和机器人学. 这一新架构的核心是所谓注意力\index{attention@注意力（attention）|hyperpage}机制（attention mechanism），该层与\eqref{eq:6.23}那样的感知机\index{perceptron@感知机（perceptron）|hyperpage}层，也称前馈层，显著不同.
+
+前几节的神经网络是函数 $f:\mathbb R^d\to\mathbb R$，而注意力层为序列到序列的映射
+$$
+\begin{aligned}
+g:(\mathbb R^d)^N&\longrightarrow(\mathbb R^d)^N,\\
+(x^1,\ldots,x^N)&\longmapsto
+\bigl(g^1(x^1,\ldots,x^N),\ldots,g^N(x^1,\ldots,x^N)\bigr).
+\end{aligned}
+$$
+具体地，输入——NLP 中的句子或计算机视觉中的图像——被拆分为词元（token）$x^1,\ldots,x^N\in\mathbb R^d$，并通过注意力层 $g=(g^1,\ldots,g^N)$，其中对每个 $i\in[N]$，
+$$
+g^i(x^1,\ldots,x^N)=x^i+V\frac{\sum_{j=1}^Nx^je^{\langle Qx^i,Kx^j\rangle}}
+{\sum_{j=1}^Ne^{\langle Qx^i,Kx^j\rangle}},
+$$
+这里 $K,Q,V$ 是三个 $d\times d$ 矩阵，分别称为键（key）、查询（query）和值（value）.
+
+实际 Transformer 会结合感知机层、注意力层和下文简述的归一化层；这里侧重于复合多个使用相同矩阵 $(K,Q,V)$ 的注意力层. 这一复合产生词元迭代更新：
+$$
+x_{t+1}^i=x_t^i+V\frac{\sum_{j=1}^Nx_t^je^{\langle Qx_t^i,Kx_t^j\rangle}}
+{\sum_{j=1}^Ne^{\langle Qx_t^i,Kx_t^j\rangle}},\qquad i\in[N].
+$$
+采用神经 ODE\cite{ref68}的同一视角，可以把以上迭代看成相互作用粒子动力系统的时间离散化：
+\begin{equation}\label{eq:6.27}
+\dot x_t^i=V\frac{\sum_{j=1}^Nx_t^je^{\langle Qx_t^i,Kx_t^j\rangle}}
+{\sum_{j=1}^Ne^{\langle Qx_t^i,Kx_t^j\rangle}},\qquad i\in[N].
+\end{equation}
+它描述 $N$ 个常微分方程组成的系统，每个词元或粒子对应一个方程，Geshkovski 等\cite{ref143,ref144}将其称为自注意力动力学（self-attention dynamics）. 这些词元的相互作用并非毫无规律：每个词元根据自己的位置与全部词元的经验分布演化. 的确，设时刻 $t$ 的经验分布为
+$$
+\mu_t=\frac1N\sum_{i=1}^N\delta_{x_t^i}.
+$$
+将\eqref{eq:6.27}改写为
+$$
+\dot x_t^i=V\frac{\int ye^{\langle Qx_t^i,Ky\rangle}\,\mu_t(dy)}
+{\int e^{\langle Qx_t^i,Ky\rangle}\,\mu_t(dy)},\qquad i\in[N].
+$$
+现在清楚地看到，所有词元具有相同的平均场动力学，所以可以去掉指标 $i$：
+\begin{equation}\label{eq:6.28}
+\dot x_t=V\frac{\int ye^{\langle Qx_t,Ky\rangle}\,\mu_t(dy)}
+{\int e^{\langle Qx_t,Ky\rangle}\,\mu_t(dy)},
+\end{equation}
+其中 $\mu_t=\operatorname{law}(x_t)$. 根据连续性方程，$\mu_t$ 按下列 PDE 演化：
+$$
+\partial_t\mu_t+\operatorname{div}\left(\mu_tV
+\frac{\int ye^{\langle Q\cdot,Ky\rangle}\,\mu_t(dy)}
+{\int e^{\langle Q\cdot,Ky\rangle}\,\mu_t(dy)}\right)=0.
+$$
+这一 Transformer 视角最初由\cite{ref280}提出，并引出问题：能否将该曲线视为 Wasserstein 梯度流？为研究这一点，假设 $K=Q=V=I$，则\eqref{eq:6.28}成为
+$$
+\dot x_t=\frac{\int ye^{\langle x_t,y\rangle}\,\mu_t(dy)}
+{\int e^{\langle x_t,y\rangle}\,\mu_t(dy)}
+=\nabla\left[\log\int e^{\langle\cdot,y\rangle}\,\mu_t(dy)\right](x_t).
+$$
+速度场的形式提示了以下问题：是否存在泛函 $\mathcal F$，其一阶变分为
+$$
+\delta\mathcal F(\mu)=\log\int e^{\langle\cdot,y\rangle}\,\mu_t(dy).
+$$
+遗憾的是，\cite{ref280}也证明，由于缺乏对称性，答案是否定的. 为克服这一限制，可以改为考虑\cite{ref144}引入的未归一化自注意力动力学：
+$$
+\dot x_t=\int ye^{\langle x_t,y\rangle}\,\mu_t(dy)
+=\nabla\left[\int e^{\langle\cdot,y\rangle}\,\mu_t(dy)\right](x_t).
+$$
+容易得到，它们描述相互作用能
+$$
+\mathcal F(\mu):=-\iint e^{\langle x,y\rangle}\,\mu(dx)\mu(dy)
+$$
+的 Wasserstein 梯度流.
+
+不过，很容易看出，这一泛函在概率测度空间上没有全局最小值：对任意 Dirac 测度 $\mu=\delta_x$，有 $\mathcal F(\delta_x)=-e^{\|x\|^2}\to-\infty$，当 $x\to\infty$ 时. 特别地，这提示遵循这些动力学的词元只会发散到无穷远.
+
+然而，实践中使用层归一化（layer normalization，简称 layernorm）将词元限制于 $\mathbb R^d$ 的单位球面 $S^{d-1}$. 加入 layernorm 后，未归一化自注意力动力学成为
+$$
+\dot x_t=\mathsf P_{x_t}\int ye^{\langle x_t,y\rangle}\,\mu_t(dy)
+=\nabla_{x_t}\int e^{\langle x_t,y\rangle}\,\mu_t(dy),
+$$
+其中对任意 $x\in S^{d-1}$、$y\in\mathbb R^d$，记 $\mathsf P_xy:=y-\langle x,y\rangle x$，为 $y$ 在球面 $x$ 处切空间上的投影；$\nabla_x:=\mathsf P_x\nabla$ 表示 $x$ 处球面即黎曼梯度. 使用\autoref{sec:5.6}提到的黎曼流形版本 Otto 微积分，可知这些动力学对应于现在定义在球面上的相互作用能 $\mathcal F$ 的 Wasserstein 梯度流. 事实上，$x,y\in S^{d-1}$ 时有 $\|x-y\|^2=2(1-\langle x,y\rangle)$，因此可写成
+\begin{equation}\label{eq:6.29}
+\mathcal F(\mu):=-e\iint_{S^{d-1}\times S^{d-1}}
+e^{-\|x-y\|^2/2}\,\mu(dx)\mu(dy).
+\end{equation}
+
+很容易看出，这一泛函的极大化解恰好是任意 $x\in S^{d-1}$ 处的 Dirac 测度 $\delta_x$. 因而，未归一化自注意力是一个在 Dirac 测度处最小化的泛函的 Wasserstein 梯度流，这些测度对应于所有词元聚成一簇的状态. 遗憾的是，该泛函不测地凸，且有许多 Wasserstein 梯度为零的驻点. 利用这一框架，\cite{ref95,ref144}证明这些点实际上是鞍点，从而当动力学从一般位置初始化时，保证渐近收敛为单一簇.

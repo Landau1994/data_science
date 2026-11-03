@@ -1,0 +1,54 @@
+\subsection{不动点论证}\label{sec:3.5}
+如上所述，\autoref{thm:3.7}中的链式论证未能给出正确的收敛速率，因为它在整个集合 $\Phi$ 上一致控制 $\mathcal S_n$ 偏离 $\mathcal S$ 的程度. 不过，\autoref{thm:3.7}表明，当 $n$ 较大时 $\widehat\varphi$ 接近 $\varphi$，这提示我们没有必要在整个 $\Phi$ 上一致控制偏离程度，而只需在 $\varphi$ 附近的子集上进行控制.
+
+下面由 van de Geer 提出的论证，将这一过程在映射估计背景下严格化. 核心思想不是将\autoref{lem:3.4}的推理用于 $\widehat\varphi$，而是用于 $\widehat\varphi$ 与 $\varphi$ 本身的一个凸组合. 为简单起见，应用这一论证时，对 $\Phi$ 再增加一个假设.
+\begin{assumption}\label{assump:3.8}
+集合 $\Phi$ 是凸的，即若 $\phi,\psi\in\Phi$，则对所有 $\lambda\in[0,1]$，有 $(1-\lambda)\phi+\lambda\psi\in\Phi$.
+\end{assumption}
+定义
+$$\varphi_\varepsilon=(1-\lambda)\varphi+\lambda\widehat\varphi,
+\qquad\lambda=\frac{\varepsilon}{\varepsilon+\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}}.$$
+那么，
+$$\begin{aligned}
+\|\nabla\varphi_\varepsilon-\nabla\varphi\|_{L^2(\mu)}
+&=\lambda\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}\\
+&=\varepsilon\left(\frac{\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}}
+{\varepsilon+\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}}\right)\le\varepsilon.
+\end{aligned}$$
+此外，
+$$\begin{aligned}
+\|\nabla\varphi_\varepsilon-\nabla\varphi\|_{L^2(\mu)}\le\frac\varepsilon2
+&\iff\frac{\varepsilon\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}}
+{\varepsilon+\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}}\le\frac\varepsilon2\\
+&\iff\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}\le\varepsilon,
+\end{aligned}$$
+所以，用 $\|\nabla\varphi_\varepsilon-\nabla\varphi\|_{L^2(\mu)}$ 代替 $\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}$，只损失一个因子 2. 最后，\autoref{assump:3.8}保证 $\varphi_\varepsilon\in\Phi$，因为它是 $\Phi$ 中元素的凸组合.
+
+还要注意，对 $\lambda\in[0,1]$，逐点有 $((1-\lambda)\phi_0+\lambda\phi_1)^*\le(1-\lambda)\phi_0^*+\lambda\phi_1^*$，由此可知 $\mathcal S_n$ 是凸泛函. 若令 $\overline{\mathcal S}=\mathcal S-\mathcal S(\varphi)$ 和 $\overline{\mathcal S_n}=\mathcal S_n-\mathcal S_n(\varphi)$，那么由凸性及 $\widehat\varphi$ 的定义，
+$$\overline{\mathcal S_n}(\varphi_\varepsilon)
+\le(1-\lambda)\underbrace{\overline{\mathcal S_n}(\varphi)}_{=0}
++\lambda\underbrace{\overline{\mathcal S_n}(\widehat\varphi)}_{\le0}\le0.$$
+因此，由\autoref{thm:3.1}，若 $\varphi_\varepsilon$ 是 $\frac12$-强凸且 2-光滑的，则
+$$\begin{aligned}
+\frac14\|\nabla\varphi_\varepsilon-\nabla\varphi\|_{L^2(\mu)}^2
+&\le\overline{\mathcal S}(\varphi_\varepsilon)
+\le(\overline{\mathcal S}-\overline{\mathcal S_n})(\varphi_\varepsilon)\\
+&=(\mathcal S-\mathcal S_n)(\varphi_\varepsilon)-(\mathcal S-\mathcal S_n)(\varphi)\\
+&\le\sup_{\phi\in\Phi_\varepsilon}(\mathcal S-\mathcal S_n)(\phi)
+-(\mathcal S-\mathcal S_n)(\varphi)\\
+&\le\sup_{\phi\in\Phi_\varepsilon}
+\{|(\mu_n-\mu)(\phi-\varphi)|+|(\nu_n-\nu)(\phi^*-\varphi^*)|\},
+\end{aligned}$$
+其中 $\Phi_\varepsilon=\{\phi\in\Phi:\|\nabla\phi-\nabla\varphi\|_{L^2(\mu)}\le\varepsilon\}$.
+
+如果上述不等式右端小于 $\varepsilon^2/16$，那么 $\|\nabla\varphi_\varepsilon-\nabla\varphi\|_{L^2(\mu)}\le\varepsilon/2$，进而有 $\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}\le\varepsilon$. 因此，如果能找到一个 $\varepsilon$，使经验过程在 $\mathcal F_\varepsilon$ 上的上确界具有 $\varepsilon^2$ 的量级，就可以控制 $\widehat\varphi$ 的风险. 下面的命题将这些讨论严格化.
+\begin{proposition}\label{prop:3.9}
+采用\autoref{assump:3.3}和\autoref{assump:3.8}. 对 $\varepsilon>0$，令
+$$r(\varepsilon)=\sup_{\phi\in\Phi_\varepsilon}
+\{|(\mu_n-\mu)(\phi-\varphi)|+|(\nu_n-\nu)(\phi^*-\varphi^*)|\}.$$
+那么，在事件 $\{r(\varepsilon)\le\varepsilon^2/16\}$ 上，半对偶估计量 $\widehat\varphi$ 满足 $\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}\le\varepsilon$.
+
+特别地，如果 $\varepsilon_n$ 是确定性量，且以高概率有 $r(\varepsilon_n)\le\varepsilon_n^2/16$，那么以高概率，$\widehat\varphi$ 的风险由 $\varepsilon_n$ 控制.
+\end{proposition}
+
+比较\autoref{lem:3.4}和\autoref{prop:3.9}可见，我们已将在 $\Phi$ 上一致控制经验过程偏差的任务，替换为在更小集合 $\Phi_\varepsilon$ 上控制偏差的任务.

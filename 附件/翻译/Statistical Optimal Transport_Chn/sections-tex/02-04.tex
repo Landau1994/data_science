@@ -1,0 +1,129 @@
+\subsection{\texorpdfstring{$d=2$}{d=2} 时的更精细分析}\label{sec:2.4}\index{Atjai–Komlós–Tusnády theorem@Atjai–Komlós–Tusnády定理（Atjai–Komlós–Tusnády theorem）|hyperpage}
+\autoref{sec:2.2}的二进划分论证与\autoref{sec:2.3}的链式论证都有一个缺点：它们不能得到二维 Wasserstein 大数律的正确速率. 这与 $d=2$ 是 $\mathbb EW_1(\mu_n,\mu)$ 行为的“临界”情形有关. 可以证明，$d=1$ 时 $\mu_n$ 与 $\mu$ 之间的最优传输成本主要由“整体”特征决定，而 $d\ge3$ 时则主要由“局部”不规则性决定. 在二维中，各尺度的不规则性同时作出贡献，因而要对最优成本作界，需要更细致的处理.
+
+$d=2$ 的正确速率最初由 Ajtai 等人\cite{ref5}通过一个颇为精细的论证发现. 本节介绍 Bobkov 与 Ledoux\cite{ref42}提出的一种巧妙方法，用更简单的手段得到正确速率. 这个证明基于 Fourier 分析；第一步是说明可以只关注周期函数，因为 Fourier 分析的工具可以自然地用于它们.
+
+这导出如下周期版本的 Wasserstein 距离：对 $\mathbb R^d$ 上的概率测度 $\mu,\nu$，定义
+\begin{equation}\label{eq:2.7}
+\widetilde W_1(\mu,\nu)=\sup_{f\in\widetilde{\mathrm{Lip}}}\int f\,(d\mu-d\nu),
+\end{equation}
+其中 $\widetilde{\mathrm{Lip}}$ 表示 $\mathbb R^d$ 上 $1$-Lipschitz、$2\pi$-周期的 $C^\infty$ 函数集合. 对立方体上的测度，这个定义实际上与标准 Wasserstein 距离一致.
+\begin{lemma}\label{lem:2.8}
+若 $\mu,\nu$ 的支撑包含于 $[0,1]^d$，则 $\widetilde W_1(\mu,\nu)=W_1(\mu,\nu)$.
+\end{lemma}
+\begin{proof}
+这个引理的要点在于，在两测度支撑满足上述限制时，可以假设 $W_1$ 对偶表示中的 Lipschitz 函数既是周期的，也是光滑的.
+
+先处理周期限制. 在 $\mathbb R^d$ 上定义度量
+$$\mathsf d_{\mathbb T^d}(x,y)=\min_{z\in\mathbb Z^d}\lVert x-y-2\pi z\rVert.$$
+记号 $\mathsf d_{\mathbb T^d}$ 强调：将 $[0,2\pi]^d$ 的相对面等同而得到平坦环面时，产生的就是这个度量. 给定任意 $f\in\mathrm{Lip}_1([0,1]^d)$，定义函数 $\tilde f:\mathbb R^d\to\mathbb R$ 为
+\begin{equation}\label{eq:2.8}
+\tilde f(y)=\sup_{x\in[0,1]^d}\{f(x)-\mathsf d_{\mathbb T^d}(x,y)\}.
+\end{equation}
+对每个 $x\in[0,1]^d$，函数 $y\mapsto f(x)-\mathsf d_{\mathbb T^d}(x,y)$ 是 $2\pi$-周期的，且关于 $\mathbb R^d$ 上欧氏度量是 Lipschitz 的，因为 $\mathsf d_{\mathbb T^d}(x,y)$ 具有这两种性质. 逐点取上确界保留周期性和 Lipschitz 性，因此 $\tilde f$ 也继承了这些性质. 还要注意关键事实：在 $[0,1]^d$ 上有 $\tilde f=f$. 事实上，对 $y\in[0,1]^d$，在 \eqref{eq:2.8} 中选 $x=y$，显然得到 $\tilde f(y)\ge f(y)$. 另一方面，任意 $x,y\in[0,1]^d$ 都满足 $\mathsf d_{\mathbb T^d}(x,y)=\lVert x-y\rVert$，所以还有
+$$f(x)-\mathsf d_{\mathbb T^d}(x,y)=f(x)-\lVert x-y\rVert\le f(y)\quad\forall x\in[0,1]^d,$$
+其中不等式来自 $f$ 的 Lipschitz 性. 两边取上确界便得 $\tilde f(y)\le f(y)$.
+
+由于两测度的支撑包含于 $[0,1]^d$，因此任意 $f\in\mathrm{Lip}_1([0,1]^d)$ 都满足
+$$\int f\,(d\mu-d\nu)=\int\tilde f\,(d\mu-d\nu),$$
+其中右侧函数是 Lipschitz 且 $2\pi$-周期的. 这说明，始终可以假设 $W_1$ 对偶表示中的函数是周期的.
+
+限制到光滑函数则是常规步骤：任意 Lipschitz 函数都可由光滑函数一致逼近，因此始终可以假设所考察的函数属于 $C^\infty$.
+\end{proof}
+给定概率测度 $\mu$，用 $\phi_\mu$ 表示其 Fourier 变换（Fourier transform），亦称特征函数（characteristic function）：
+\begin{equation}\label{eq:2.9}
+\phi_\mu(m)=\int e^{\mathbf i\langle m,z\rangle}\,\mu(dz),\qquad m\in\mathbb Z^d.
+\end{equation}
+Bobkov--Ledoux 论证的基础是如下命题.
+\begin{proposition}\label{prop:2.9}
+\begin{equation}\label{eq:2.10}
+\widetilde W_1(\mu,\nu)^2\le\sum_{m\ne0}\lVert m\rVert^{-2}|\phi_\mu(m)-\phi_\nu(m)|^2,
+\end{equation}
+其中对所有非零 $m\in\mathbb Z^d$ 求和，且 $\lVert m\rVert^2=m_1^2+\cdots+m_d^2$.
+\end{proposition}
+在证明之前，先比较\autoref{prop:2.9}与\autoref{thm:2.2}. 两者都通过比较两测度在不同尺度上的差异，为 $W_1(\mu,\nu)$ 作界：\autoref{thm:2.2}计算它们在越来越小的立方体上的差异，而\autoref{prop:2.9}计算它们在越来越高频率上的差异. 两种情形中，和式中的每项都以比较的尺度为权重：\autoref{thm:2.2}中为 $2^{-j}$，\autoref{prop:2.9}中为 $\lVert m\rVert^{-2}$. 关键区别在于，\autoref{thm:2.2}具有 $\ell^1$ 的特征，而\autoref{prop:2.9}具有 $\ell^2$ 的特征. 正是这一区别带来了 $d=2$ 时速率中 $\sqrt{\log n}$ 因子的节省.
+\begin{proof}[\autoref{prop:2.9}的证明]
+给定一个 $2\pi$-周期 $C^\infty$ 函数 $f$，可将其展开为 Fourier 级数：
+$$f(x)=\sum_{m\in\mathbb Z^d}\hat f_m e^{\mathbf i\langle m,x\rangle},$$
+其中当 $\lVert m\rVert\to\infty$ 时，系数 $\hat f_m$ 比任意多项式更快地趋于零. 因而可以逐项求导，并应用 Parseval 恒等式，得到
+$$\frac1{(2\pi)^d}\int_{[0,2\pi]^d}(\partial_i f(x))^2\,dx
+=\sum_{m\in\mathbb Z^d}m_i^2|\hat f(m)|^2.$$
+对坐标求和得到
+$$\frac1{(2\pi)^d}\int_{[0,2\pi]^d}\lVert\nabla f(x)\rVert^2\,dx
+=\sum_{m\in\mathbb Z^d}\lVert m\rVert^2|\hat f(m)|^2.$$
+若假设 $f$ 为 $1$-Lipschitz，则所有 $x\in[0,2\pi]^d$ 都有 $\lVert\nabla f(x)\rVert\le1$，所以
+\begin{equation}\label{eq:2.11}
+\sum_{m\in\mathbb Z^d}\lVert m\rVert^2|\hat f(m)|^2
+=\frac1{(2\pi)^d}\int_{[0,2\pi]^d}\lVert\nabla f(x)\rVert^2\,dx\le1.
+\end{equation}
+因此 Fubini 定理表明，对任意 $1$-Lipschitz、$2\pi$-周期的 $C^\infty$ 函数 $f$，
+$$\begin{aligned}
+\int f\,(d\mu-d\nu)
+&=\int\sum_{m\in\mathbb Z^d}\hat f_m e^{\mathbf i\langle m,x\rangle}(\mu(dx)-\nu(dx))\\
+&=\sum_{m\in\mathbb Z^d}\hat f_m(\phi_\mu(m)-\phi_\nu(m))\\
+&=\sum_{m\in\mathbb Z^d\setminus\{0\}}\hat f_m(\phi_\mu(m)-\phi_\nu(m)),
+\end{aligned}$$
+最后一个等号是因为 $\phi_\mu(0)=\phi_\nu(0)=1$. 再用 Cauchy--Schwarz 不等式和 \eqref{eq:2.11}，即得结论.
+\end{proof}
+遗憾的是，\autoref{prop:2.9}常常给不出有效信息：若 $\mu$ 不绝对连续，则 $\phi_\mu$ 不可积，\eqref{eq:2.10} 中的和可能发散. 尝试将该命题应用于奇异的经验测度 $\mu_n$ 时，这个问题立即显现. 解决办法是与高斯分布卷积，为问题引入额外正则性. 对任意 $\varepsilon>0$，以 $\nu\star\gamma_\varepsilon$ 表示 $\nu$ 与 $\mathcal N(0,\varepsilon I)$ 的卷积；等价地，它是 $X+\sqrt\varepsilon Z$ 的分布，其中 $X\sim\nu$、$Z\sim\mathcal N(0,I)$ 独立. 首先回顾这种平滑对 Fourier 变换的影响.
+\begin{lemma}\label{lem:2.10}
+对所有 $\varepsilon>0$，
+$$\phi_{\nu\star\gamma_\varepsilon}(m)=\phi_\nu(m)e^{-\varepsilon\lVert m\rVert^2/2}\quad\forall m\in\mathbb Z^d.$$
+\end{lemma}
+\begin{proof}
+直接由如下表示得到：
+$$\phi_{\nu\star\gamma_\varepsilon}(m)
+=\int e^{\mathbf i\langle m,y\rangle}(\nu\star\gamma_\varepsilon)(dy)
+=\mathbb Ee^{\mathbf i\langle m,X+\sqrt\varepsilon Z\rangle},$$
+其中 $X\sim\nu$、$Z\sim\mathcal N(0,I)$ 独立.
+\end{proof}
+平滑操作的用处在于，它立即保证所得测度的 Fourier 变换具有良好性质. 此外，平滑只使 $\widetilde W_1$ 改变少量.
+\begin{lemma}\label{lem:2.11}
+对所有 $\varepsilon>0$，
+$$\widetilde W_1(\mu,\nu)\le\widetilde W_1(\mu,\nu\star\gamma_\varepsilon)+\sqrt{d\varepsilon}.$$
+\end{lemma}
+\begin{proof}
+首先，$\widetilde W_1$ 满足三角不等式；这直接来自定义 \eqref{eq:2.7}：
+$$\begin{aligned}
+&\widetilde W_1(\mu,\nu')+\widetilde W_1(\nu',\nu)\\
+&=\sup_{f\in\widetilde{\mathrm{Lip}}}\int f\,(d\mu-d\nu')
++\sup_{f\in\widetilde{\mathrm{Lip}}}\int f\,(d\nu'-d\nu)\\
+&\ge\sup_{f\in\widetilde{\mathrm{Lip}}}\left\{\int f\,(d\mu-d\nu')+\int f\,(d\nu'-d\nu)\right\}
+=\widetilde W_1(\mu,\nu).
+\end{aligned}$$
+其次，$\widetilde W_1\le W_1$，因为 \eqref{eq:2.7} 的上确界仅在 $\mathrm{Lip}$ 的一个真子集上取. 结合这些事实得到
+$$\begin{aligned}
+\widetilde W_1(\mu,\nu)&\le\widetilde W_1(\mu,\nu\star\gamma_\varepsilon)+\widetilde W_1(\nu,\nu\star\gamma_\varepsilon)\\
+&\le\widetilde W_1(\mu,\nu\star\gamma_\varepsilon)+W_1(\nu,\nu\star\gamma_\varepsilon).
+\end{aligned}$$
+现在使用如下事实：独立的 $X\sim\nu$、$Z\sim\mathcal N(0,I)$ 给出的 $(X,X+\sqrt\varepsilon Z)$ 是 $\nu$ 与 $\nu\star\gamma_\varepsilon$ 的一个耦合，所以
+$$W_1(\nu,\nu\star\gamma_\varepsilon)\le\mathbb E\lVert X-(X+\sqrt\varepsilon Z)\rVert
+=\sqrt\varepsilon\,\mathbb E\lVert Z\rVert\le\sqrt{d\varepsilon}.$$
+证明完成.
+\end{proof}
+结合前两个引理，得到\autoref{prop:2.9}的如下推论.
+\begin{corollary}\label{cor:2.12}
+对任意 $\varepsilon>0$，
+$$\widetilde W_1(\mu,\nu)\le\sqrt{\sum_{m\ne0}\lVert m\rVert^{-2}e^{-\varepsilon\lVert m\rVert^2}|\phi_\mu(m)-\phi_\nu(m)|^2}+2\sqrt{d\varepsilon}.$$
+\end{corollary}
+现在可以证明所需的界.
+\begin{theorem}\label{thm:2.13}
+对任意支撑包含于 $[0,1]^2$ 的概率测度 $\mu$，
+$$\mathbb EW_1(\mu_n,\mu)\lesssim\sqrt{\log n/n}.$$
+\end{theorem}
+\begin{proof}
+由于 $\mu$ 与 $\mu_n$ 的支撑包含于 $[0,1]^2$，等价地，只需为 $\mathbb E\widetilde W_1(\mu_n,\mu)$ 证明上界. 应用\autoref{cor:2.12}与 Jensen 不等式，对任意 $\varepsilon>0$ 得
+$$\mathbb E\widetilde W_1(\mu_n,\mu)\le
+\sqrt{\sum_{m\ne0}\lVert m\rVert^{-2}e^{-\varepsilon\lVert m\rVert^2}\mathbb E|\phi_{\mu_n}(m)-\phi_\mu(m)|^2}+2\sqrt{2\varepsilon}.$$
+可写成 $\phi_{\mu_n}(m)-\phi_\mu(m)=\frac1n\sum_{i=1}^n\{e^{\mathbf i\langle m,X_i\rangle}-\mathbb Ee^{\mathbf i\langle m,X_i\rangle}\}$，而 $|e^{\mathbf i\langle m,X_i\rangle}|=1$ 几乎必然成立，故
+\begin{equation}\label{eq:2.12}
+\mathbb E|\phi_{\mu_n}(m)-\phi_\mu(m)|^2\le n^{-1}\quad\forall m\in\mathbb Z^d.
+\end{equation}
+继续推导，对任意 $\varepsilon>0$ 有
+\begin{equation}\label{eq:2.13}
+\mathbb E\widetilde W_1(\mu_n,\mu)\le n^{-1/2}\sqrt{\sum_{m\ne0}\lVert m\rVert^{-2}e^{-\varepsilon\lVert m\rVert^2}}+2\sqrt{2\varepsilon}.
+\end{equation}
+将和式与积分 $\int_{\lVert x\rVert\ge1}\lVert x\rVert^{-2}e^{-\varepsilon\lVert x\rVert^2}\,dx$ 比较，可得和式的阶为 $\log(1/\varepsilon)$. 因此
+$$\mathbb E\widetilde W_1(\mu_n,\mu)\lesssim\sqrt{\log(1/\varepsilon)/n}+\sqrt\varepsilon.$$
+取 $\varepsilon=n^{-1}$，即得结论.
+\end{proof}

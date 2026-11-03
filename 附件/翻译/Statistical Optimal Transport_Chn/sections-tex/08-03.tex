@@ -1,0 +1,86 @@
+\subsection{Wasserstein 重心的参数速率}\label{sec:8.3}
+作为这些讲义的结尾，以 Wasserstein 重心为例展开研究. 注意，我们的结果可以直接应用于这一情形. 一个自然问题是：可延拓测地线的条件在最优传输中对应什么？事实证明，可以用 Brenier 映射的正则性条件刻画它.
+\begin{theorem}\label{thm:8.10}
+设 $\mu,\nu\in\mathcal W_2$ 为两个概率测度，$\mu$ 有密度；令 $\varphi:\mathbb R^d\to\mathbb R$ 为凸函数，定义为 $\varphi(x)=(\|x\|^2-f(x))/2$，其中 $f$ 是\autoref{def:1.15}给出的 Kantorovich 势. 特别地，$\nabla\varphi$ 在 $\mu$ 几乎处处有定义，并且是 Brenier 映射. 回顾连接 $\mu$ 与 $\nu$ 的唯一常速测地线 $\omega$ 为 $\omega(t)=((1-t)\mathrm{id}+t\nabla\varphi)_\#\mu$. 那么，对任意 $\lambda>0$，$\omega$ 是 $(0,\lambda)$-可延拓的，当且仅当 $\varphi$ 是 $\lambda/(1+\lambda)$-强凸的.
+\end{theorem}
+\begin{proof}
+先假设 $\omega$ 是 $(0,1+\lambda)$-可延拓的，并以
+$$\omega^+:[0,1+\lambda]\to\mathcal W_2$$
+表示其延拓. 令 $Y_\lambda\sim\omega^+(1+\lambda)$，注意存在一个在 $\mu$ 几乎处处定义的凸函数 $\varphi_\lambda$，使得 $Y_\lambda=\nabla\varphi_\lambda(X)$，其中 $X\sim\mu$. 此外，由于 $\omega^+$ 是测地线，且 $\nabla\varphi(X)\sim\omega^+(1)$，还有
+$$\nabla\varphi(X)=\frac\lambda{1+\lambda}X+\frac1{1+\lambda}Y_\lambda,$$
+所以 $Y_\lambda=\nabla\varphi_\lambda(X)=(1+\lambda)\nabla\varphi(X)-\lambda X$. 特别地，这意味着可以选择
+$$\varphi(x)=\frac1{1+\lambda}\varphi_\lambda(x)+\frac\lambda{2(1+\lambda)}\|x\|^2.$$
+由于 $\varphi_\lambda$ 为凸函数，$\varphi_\lambda/(1+\lambda)$ 也凸，上式因而说明 $\varphi$ 为 $\lambda/(1+\lambda)$-强凸.
+
+反过来，假设 $\varphi$ 是 $\lambda/(1+\lambda)$-强凸的，定义 $Y_\lambda=(1+\lambda)\nabla\varphi(X)-\lambda X$，其中 $X\sim\mu$. 我们将证明 $Y_\lambda$ 与 $X$ 构成最优耦合. 为此，注意 $Y_\lambda=\nabla\varphi_\lambda(X)$，其中
+$$\varphi_\lambda(x)=(1+\lambda)\varphi(X)-\frac\lambda2\|x\|^2.$$
+由于 $\varphi$ 是 $\lambda/(1+\lambda)$-强凸的，$\varphi_\lambda$ 为凸函数，所以 $\nabla\varphi_\lambda$ 是 Brenier 映射. 于是，$Y_\lambda$ 与 $X$ 构成最优耦合，因此定义为
+$$\omega^+(t)=\left(\mathrm{id}+\frac t{1+\lambda}(\nabla\varphi_\lambda-\mathrm{id})\right)_\#\mu$$
+的 $\omega^+:[0,1+\lambda]\to\mathcal W_2$ 是一条连接 $\mu$ 与 $Y_\lambda$ 的分布的测地线，满足对 $t\in[0,1]$ 有 $\omega^+(t)=\omega(t)$. 因此 $\omega$ 是 $(0,1+\lambda)$-可延拓的.
+\end{proof}
+
+回顾，如果 $\mu,\nu$ 都有密度，且从 $\mu$ 到 $\nu$ 的 Brenier 映射为 $\nabla\varphi$，那么从 $\nu$ 到 $\mu$ 的 Brenier 映射为 $\nabla\varphi^*$. 因此，如果 $\varphi$ 为 $\beta$-光滑，即对任意 $x,y\in\mathbb R^d$，有
+$$\varphi(x)-\varphi(y)\le\langle\nabla\varphi(y),x-y\rangle+\frac\beta2\|x-y\|^2,$$
+那么 $\varphi^*$ 为 $1/\beta$-强凸（见\autoref{lem:A.9}），这又意味着连接 $\nu$ 与 $\mu$ 的测地线是 $(0,1/(\beta+1))$-可延拓的.
+
+这些事实给出下面的定理，不过我们提供另一种更直接的证明.
+\begin{theorem}\label{thm:8.11}
+设 $P$ 是 $\mathcal W_2$ 上的概率测度，其重心 $b^\star$ 有密度. 进一步假设，对任意 $\mu\in\operatorname{supp}(P)$，从 $b^\star$ 到 $\mu$ 的 Brenier 映射是 $\alpha$-强凸且 $\beta$-光滑的，其中 $\beta-\alpha\in[0,1)$. 那么 $b^\star$ 唯一，且经验 Wasserstein 重心 $b_n$ 满足
+$$\mathbb E[W_2^2(b_n,b^\star)]\le\frac{4\sigma^2}{(1-(\beta-\alpha))^2n}.$$
+\end{theorem}
+\begin{proof}
+对任意 $\mu\in\operatorname{supp}(P)$，令 $\varphi$ 使得 $\nabla\varphi$ 是从 $b^\star$ 到 $\mu$ 的 Brenier 映射. 对任意 $b,\mu\in\mathcal W_2$，令 $X,X'\sim\mu$、$Y,Y'\sim b$、$Z,Z'\sim b^\star$. 根据粘合引理，可以假设 $(X,Z)$ 与 $(Y,Z)$ 为最优耦合，同时假设 $(X',Y')$ 与 $(X',Z')$ 为最优耦合.
+
+注意，整理贴合函数定义中的各项后，目标是证明
+\begin{equation}\label{eq:8.10}
+\mathbb E\|X-Y\|^2\le\mathbb E\|X'-Y'\|^2+(\beta-\alpha)\mathbb E\|Y-Z\|^2.
+\end{equation}
+根据假设，对 $b^\star$ 几乎处处的 $z\in\mathbb R^d$ 和任意 $y\in\mathbb R^d$，有
+\begin{equation}\label{eq:8.11}
+\frac\alpha2\|y-z\|^2
+\le\varphi(y)-\varphi(z)-\langle\nabla\varphi(z),y-z\rangle
+\le\frac\beta2\|y-z\|^2.
+\end{equation}
+于是，
+\begin{equation}\label{eq:8.12}
+\begin{aligned}
+\mathbb E\|X-Y\|^2
+={}&\mathbb E\|X-Z\|^2+\mathbb E\|Y-Z\|^2
++2\mathbb E\langle X-Z,Z-Y\rangle\\
+={}&\mathbb E\|X-Z\|^2+\mathbb E\|Y-Z\|^2
+-2\mathbb E\langle Z,Z-Y\rangle\\
+&+2\mathbb E\langle\nabla\varphi(Z),Z-Y\rangle.
+\end{aligned}
+\end{equation}
+接着，一方面由 \eqref{eq:8.11}，
+$$\begin{aligned}
+2\mathbb E\langle\nabla\varphi(Z),Z-Y\rangle
+&\le2\mathbb E\varphi(Z)-2\mathbb E\varphi(Y)+\beta\mathbb E\|Y-Z\|^2\\
+&=2\mathbb E\varphi(Z')-2\mathbb E\varphi(Y')+\beta\mathbb E\|Y-Z\|^2\\
+&\le2\mathbb E\langle\nabla\varphi(Z'),Z'-Y'\rangle
+-\alpha\mathbb E\|Y'-Z'\|^2+\beta\mathbb E\|Y-Z\|^2\\
+&=2\mathbb E\langle X',Z'-Y'\rangle
+-\alpha\mathbb E\|Y'-Z'\|^2+\beta\mathbb E\|Y-Z\|^2.
+\end{aligned}$$
+由于 $\mathbb E\|Y'-Z'\|^2\ge\mathbb E\|Y-Z\|^2$，得到
+$$2\mathbb E\langle\nabla\varphi(Z),Z-Y\rangle
+\le2\mathbb E\langle X',Z'-Y'\rangle+(\beta-\alpha)\mathbb E\|Y-Z\|^2.$$
+另一方面，
+$$\begin{aligned}
+\mathbb E\|Y-Z\|^2-2\mathbb E\langle Z,Z-Y\rangle
+&=\mathbb E\|Y\|^2-\mathbb E\|Z\|^2\\
+&=\mathbb E\|Y'\|^2-\mathbb E\|Z'\|^2.
+\end{aligned}$$
+以上两式与 \eqref{eq:8.12} 一起给出
+$$\begin{aligned}
+\mathbb E\|X-Y\|^2
+&\le\mathbb E\|X'-Z'\|^2+\mathbb E\|Y'\|^2-\mathbb E\|Z'\|^2\\
+&\quad+2\mathbb E\langle X',Z'-Y'\rangle+(\beta-\alpha)\mathbb E\|Y-Z\|^2\\
+&=\mathbb E\|X'-Y'\|^2+(\beta-\alpha)\mathbb E\|Y-Z\|^2,
+\end{aligned}$$
+从而证明了 \eqref{eq:8.10}.
+
+我们已经证明 $h_{b^\star}^b(\mu)\ge1-(\beta-\alpha)$，结合主定理，即完成证明.
+\end{proof}
+
+重心是弯曲空间中平均值的对应物，因此是许多统计工具的构件，包括回归\cite{ref72}、方差分析\cite{ref118}、变点检测\cite{ref119}、判别分析\cite{ref134}和主成分分析\cite{ref35,ref66}. 尽管已有初步工作，但关于这些统计对象的统计性质，仍有许多问题有待理解.

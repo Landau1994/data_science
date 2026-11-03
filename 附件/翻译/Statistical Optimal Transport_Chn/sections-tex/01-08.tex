@@ -1,0 +1,122 @@
+\subsection{习题}\label{sec:1.8}
+
+\begin{exercise}\label{exer:1}\label{exer:1.1}
+设$A\subseteq\mathbb R\times\mathbb R$是单调的：
+$$
+\forall\,(x,y),(x',y')\in A,\qquad x<x'\implies y<y'.
+$$
+为简单起见，假设$A$包含在某个函数的图像中. 证明$A$是循环单调的.
+\end{exercise}
+
+\begin{exercise}\label{exer:2}\label{exer:1.2}
+设随机变量$X\in\mathbb R$具有一个支撑为整条实线的密度. 设$f,g$为两个单调递增函数，且$f(X)$与$g(X)$同分布. 则$f=g$几乎处处成立.
+\end{exercise}
+
+\begin{exercise}\label{exer:3}\label{exer:1.3}
+设$m_1,m_2\in\mathbb R^d$，$\Sigma_1,\Sigma_2$为正定的$d\times d$矩阵. 令$\mu_1=\mathcal N(m_1,\Sigma_1)$、$\mu_2=\mathcal N(m_2,\Sigma_2)$.
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\item 验证公式\eqref{eq:1.20}.
+\item 通过一个次优耦合，证明下面的简单上界：
+$$
+W_2^2(\mu_1,\mu_2)\leq\|m_1-m_2\|^2+
+\|\Sigma_1^{1/2}-\Sigma_2^{1/2}\|_{\mathrm{HS}}^2,
+$$
+其中$\|M_1-M_2\|_{\mathrm{HS}}^2:=\operatorname{tr}((M_1-M_2)^{\mathsf T}(M_1-M_2))$. 证明当$\Sigma_1$与$\Sigma_2$可交换时等号成立.
+\item 证明：若$\nu_1,\nu_2$分别为均值$m_1,m_2$、协方差矩阵$\Sigma_1,\Sigma_2$的概率测度，则
+$$
+W_2(\nu_1,\nu_2)\geq W_2(\mu_1,\mu_2).
+$$
+\emph{提示：}从$\mu_1$到$\mu_2$的最优传输问题，其最优对偶势是什么？
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exer:4}\label{exer:1.4}\leavevmode
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\item 设$X,Y$是$\mathbb R^d$中的随机向量. 证明
+$$
+\begin{aligned}
+W_2^2\bigl(\operatorname{law}(X),\operatorname{law}(Y)\bigr)
+&=\|\mathbb EX-\mathbb EY\|^2\\
+&\quad+W_2^2\bigl(\operatorname{law}(X-\mathbb EX),
+\operatorname{law}(Y-\mathbb EY)\bigr).
+\end{aligned}
+$$
+由于这个等式，在使用$W_2$距离时，通常只需考虑中心化随机变量.
+\item 设$X,Y_1,\ldots,Y_k$为$\mathbb R^d$中的随机向量，且$\lambda_1,\ldots,\lambda_k\geq0$. 假设对每个$i=1,\ldots,k$，$X$与$Y_i$都构成最优耦合. 证明$X$与$\sum_{i=1}^k\lambda_iY_i$构成最优耦合.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exer:5}\label{exer:1.5}
+设$\nu$具有相对于Lebesgue测度的密度. 证明$W_2^2(\cdot,\nu)$严格凸；也就是说，若$\mu_0,\mu_1\in\mathcal P_2(\mathbb R^d)$互不相同且$t\in(0,1)$，则
+\begin{equation}\label{eq:1.24}
+W_2^2\bigl((1-t)\mu_0+t\mu_1,\nu\bigr)
+<(1-t)W_2^2(\mu_0,\nu)+tW_2^2(\mu_1,\nu).
+\end{equation}
+\emph{提示：}先证明将\eqref{eq:1.24}中的$<$换成$\leq$后不等式成立. 然后，假设\eqref{eq:1.24}不成立，证明$(1-t)\mu_0+t\mu_1$与$\nu$之间存在一个并非由传输映射诱导的最优传输计划，从而与Brenier定理矛盾.
+\end{exercise}
+
+\begin{exercise}\label{exer:6}\label{exer:1.6}
+考虑测度$\mu=\frac12\mathcal N(-m,1)+\frac12\mathcal N(+m,1)$与
+$\nu=\frac14\mathcal N(-m,1)+\frac34\mathcal N(+m,1)$，其中$m>0$. 证明$W_2(\mu,\nu)\asymp m$.
+
+\emph{提示：}本题的要点在于：计算从$\mu$到$\nu$的最优传输映射很麻烦，但得到良好的上下界并不难. 对于下界，证明并利用如下事实：对任意1-Lipschitz函数$f:\mathbb R\to\mathbb R$，都有
+$\mathbb E_\mu f-\mathbb E_\nu f\leq W_1(\mu,\nu)\leq W_2(\mu,\nu)$. 对于上界，给出$\mu$与$\nu$的一个耦合.
+\end{exercise}
+
+\begin{exercise}\label{exer:7}\label{exer:1.7}
+回顾两个概率测度$\mu,\nu$之间的卡方散度（chi-squared divergence）定义为
+$$
+\chi^2(\mu\mathbin\|\nu)=\int\left(\frac{d\mu}{d\nu}-1\right)^2d\nu.
+$$
+证明：当$\nu$的方差为1时，
+$$
+W_1(\mu,\nu)\leq\sqrt{\chi^2(\mu\mathbin\|\nu)}.
+$$
+\end{exercise}
+
+\begin{exercise}\label{exer:8}\label{exer:1.8}
+设$c:\mathbb R\to\mathbb R$严格凸，并考虑$\mathbb R$上成本函数为$(x,y)\mapsto c(x-y)$的最优传输. 例如，当$c(z)=|z|^p$且$p>1$时，便得到$W_p^p$. 本题要证明\autoref{prop:1.18}给出的耦合$\bar\gamma$对于所有这类成本都普遍最优. 背景见\autoref{sec:1.7}.
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\item 证明对任意$a,b\in\mathbb R$，
+$\bar\gamma(({-\infty},a]\times({-\infty},b])=F_\mu(a)\wedge F_\nu(b)$.
+\item 证明$\bar\gamma$是$\mu$与$\nu$之间满足下式的唯一耦合：
+\begin{equation}\label{eq:1.25}
+\forall\,(x,y),(x',y')\in\operatorname{supp}\bar\gamma,
+\qquad x<x'\implies y\leq y'.
+\end{equation}
+\emph{提示：}考虑集合$A=({-\infty},a]\times(b,\infty)$和$B=(a,\infty)\times({-\infty},b]$. 证明任何满足\eqref{eq:1.25}的耦合都必须赋予这两个集合之一零测度. 利用这一点证明，任何满足\eqref{eq:1.25}的耦合$\gamma$都必须与$\bar\gamma$相同.
+\item 设$(x,y),(x',y')\in\operatorname{supp}\gamma$，其中$\gamma$是$\mu,\nu$之间关于上述成本$c$的最优传输计划. 由$\operatorname{supp}\gamma$的$c$-循环单调性，
+$$
+c(x-y)+c(x'-y')\leq c(x-y')+c(x'-y).
+$$
+证明：若$x<x'$，则$y\leq y'$；因此$\gamma=\bar\gamma$.
+
+\emph{提示：}使用反证法. 若结论不成立，则$u:=x-y'$和$v:=x'-y$都位于$w:=x-y$与$w':=x'-y'$之间. 将$u,v$表示为$w,w'$的凸组合，并应用$c$的严格凸性.
+\item 推出最优成本等于$\mathbb E c(F_\mu^\dagger(U)-F_\nu^\dagger(U))$，其中$U\sim\operatorname{Unif}([0,1])$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exer:9}\label{exer:1.9}
+给定同一空间$S$上的两个概率测度$\mu,\nu$，定义它们之间的全变差距离（total variation distance）为
+$$
+d_{\mathrm{TV}}(\mu,\nu)=\sup_{A\subseteq S}|\mu(A)-\nu(A)|,
+$$
+其中上确界遍历所有可测子集. 证明全变差距离也等于以下各式. （提示：考虑\autoref{thm:1.6}中的耦合.）
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\item 若$f,g$分别为$\mu,\nu$相对于它们的某个共同控制测度$\lambda$（例如$\lambda=\mu+\nu$）的密度，则\footnote{译注：本行按原书印刷36页照录，末项存在疑误；具体说明见随附核验记录.}
+$$
+d_{\mathrm{TV}}(\mu,\nu)=\frac12\int|f-g|\,d\lambda
+=1-\int f\wedge g\,d\lambda=\mu(f\geq g).
+$$
+\item $d_{\mathrm{TV}}(\mu,\nu)=\inf\mathbb P(X\neq Y)$，其中下确界遍历$\mu,\nu$的所有耦合$(X,Y)$.
+\item $d_{\mathrm{TV}}(\mu,\nu)=\sup\{\int h\,d(\mu-\nu)\mid h:S\to[0,1]\}$. 将此式与\autoref{thm:1.21}的$W_1$对偶性作比较.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exer:10}\label{exer:1.10}
+设$\mu,\nu\in\mathcal P_2(\mathbb R^d)$具有相对于Lebesgue测度的密度. 证明：若$\nabla\varphi$是从$\mu$到$\nu$的最优传输映射，则$\nabla\varphi^*$是从$\nu$到$\mu$的最优传输映射. （参见\autoref{sec:A}.）将此事实用于两个高斯分布之间的最优传输映射，并找出一个非平凡的矩阵恒等式.
+\end{exercise}

@@ -1,0 +1,297 @@
+上一章在空间 $(\mathcal P_2(\mathbb R^d),W_2)$ 上建立了黎曼结构，以定义 Wasserstein 与 WFR 梯度流. 本章将这些梯度流用作概率测度空间上的优化算法，处理统计学和机器学习中的各种任务. 每项任务对应于在该空间上选择一个特定泛函 $\mathcal F$. 特别地，类似于经典优化中的凸性（例如见\cite{ref56}），测地凸性对于推导收敛速率至关重要.
+
+\subsection{变分推断}\label{sec:6.1}\index{variational inference (VI)@变分推断（VI）（variational inference (VI)）|hyperpage}
+
+梯度流理论的第一个应用来自蓬勃发展的变分推断（variational inference，VI）领域\cite{ref40,ref171,ref319}，该领域提供了丰富的测度空间优化问题. 在 VI 中，假定可以通过密度表达式访问 $\mathbb R^d$ 上的概率测度 $\pi$，目标是进行推断. 典型例子是贝叶斯推断问题的后验分布 $\pi$；此时 VI 也称为变分贝叶斯（variational Bayes），它逐渐成为传统 Markov 链 Monte Carlo（MCMC）方法在计算上的有吸引力的对应方法，后者将在\autoref{sec:6.2}研究.
+
+VI 的思想是，通过求解优化问题，用较简单的概率测度类 $\mathcal Q$ 中的元素逼近 $\pi$：
+\begin{equation}\tag{VI}\label{eq:VI}
+q_\star=\operatorname*{arg\,min}_{q\in\mathcal Q}\operatorname{KL}(q\|\pi).
+\end{equation}
+虽然已有大量将 KL 散度换成其他目标的变体，\footnote{包括交换 KL 散度两个参数的次序，这更接近统计学中的最大似然概念.}这里介绍的版本在实践中特别流行. 原因是，通常不能直接访问 $\pi$，而只能访问未归一化密度 $\widetilde\pi$，但未知的归一化常数 $Z=\int\widetilde\pi$ 不影响\eqref{eq:VI}中的优化目标.
+
+这一建模选择还对 Wasserstein 空间上 VI 问题的凸性带来有利后果，从而引出基于流的算法.
+
+\subsubsection{VI 问题的凸性}\label{sec:6.1.1}
+
+要将梯度流方法用于\eqref{eq:VI}，就必然需要研究 KL 散度在 Wasserstein 空间上的测地凸性.
+
+以下始终假设 $\pi$ 具有形如 $\pi\propto\exp(-V)$ 的密度，其中 $V:\mathbb R^d\to\mathbb R$ 称为势函数. 首先注意，KL 散度分解为两个泛函之和：
+\begin{equation}\label{eq:6.1}
+\begin{aligned}
+\mathcal F(\mu):=\operatorname{KL}(\mu\|\pi)
+&=\int\mu\log\frac\mu\pi\\
+&=\underbrace{\int V\,d\mu}_{=:\mathcal V(\mu)}
++\underbrace{\int\mu\log\mu}_{=:\mathcal H(\mu)}+\mathrm{const.},
+\end{aligned}
+\end{equation}
+其中 $\mathcal V$ 为势能，$\mathcal H$ 为熵，“const.” 表示不依赖于 $\mu$ 的加法常数，因此与研究梯度流性质无关.
+
+在\autoref{ex:5.11}和\autoref{ex:5.12}中，已经计算了 Wasserstein 梯度 $\nabla\mkern-10mu\nabla\mathcal V(\mu)=\nabla V$ 和 $\nabla\mkern-10mu\nabla\mathcal H(\mu)=\nabla\log\mu$. 相加得到 $\nabla\mkern-10mu\nabla\mathcal F(\mu)=\nabla\log\mu+\nabla V=\nabla\log(\mu/\pi)$. 由\autoref{def:5.14}，$\mathcal F$ 的 Wasserstein 梯度流解
+\begin{equation}\label{eq:6.2}
+\partial_t\mu_t=\operatorname{div}\left(\mu_t\nabla\log\frac{\mu_t}\pi\right).
+\end{equation}
+
+利用\eqref{eq:6.1}，可以分别研究 $\mathcal V$ 与 $\mathcal H$ 的凸性. 势能的情形很直接.
+
+\begin{theorem}\label{thm:6.1}
+假设 $V:\mathbb R^d\to\mathbb R$ 在 $\mathbb R^d$ 上 $\alpha$-凸. 那么，相应势能泛函 $\mathcal V(\mu):=\int V\,d\mu$ 在 $\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 上 $\alpha$-测地凸.
+\end{theorem}
+\begin{proof}
+使用\autoref{sec:5.2}的二阶条件. 具体地，对 $t\in[0,1]$ 令 $X_t\sim\mu_t$，其中 $(\mu_t)_{t\in[0,1]}$ 是 Wasserstein 测地线，故 $X_t=(1-t)X_0+tT(X_0)$，这里 $T$ 为从 $\mu_0$ 到 $\mu_1$ 的最优传输映射. 计算得到
+$$
+\begin{aligned}
+&\nabla\mkern-10mu\nabla^2\mathcal V(\mu_0)[T-\mathrm{id},T-\mathrm{id}]\\
+&\quad=\left.\partial_t^2\mathcal V(\mu_t)\right|_{t=0}
+=\left.\partial_t^2\mathbb EV(X_t)\right|_{t=0}\\
+&\quad=\mathbb E\langle T(X_0)-X_0,\nabla^2V(X_0)(T(X_0)-X_0)\rangle\\
+&\quad\geq\alpha\mathbb E[\|T(X_0)-X_0\|^2]
+=\alpha\|T-\mathrm{id}\|_{\mu_0}^2,
+\end{aligned}
+$$
+其中使用了假设 $\nabla^2V\succeq\alpha I$.
+\end{proof}
+
+接下来证明熵 $\mathcal H$ 测地凸. 为此调用变量代换公式.
+
+\begin{lemma}[变量代换]\label{lem:6.2}\index{change of variables@变量代换（change of variables）|hyperpage}
+设 $\mu$ 为 $\mathbb R^d$ 上的密度，$T:\mathbb R^d\to\mathbb R^d$ 为微分同胚，并令 $\nu:=T_\#\mu$. 则 $\nu$ 的密度满足
+$$
+\nu(T(x))=\frac{\mu(x)}{|\det\nabla T(x)|}.
+$$
+\end{lemma}
+
+回顾记忆这一规则的方式：在变量代换 $y=T(x)$ 下，有 $dy=|\det\nabla T(x)|\,dx$，因为 Jacobian 行列式 $|\det\nabla T(x)|$ 衡量映射 $T$ 的体积畸变. 根据定义，推前满足对所有检验函数 $\varphi$ 有 $\int\varphi\circ T\,d\mu=\int\varphi\,d\nu$. 将其写成
+$$
+\begin{aligned}
+\int\varphi(T(x))\mu(x)\,dx
+&=\int\varphi(y)\nu(y)\,dy\\
+&=\int\varphi(T(x))\nu(T(x))|\det\nabla T(x)|\,dx,
+\end{aligned}
+$$
+便得到\autoref{lem:6.2}. 应用中不总知道最优传输映射为微分同胚，不过\autoref{lem:6.2}的某个变体仍成立，技术细节见\cite[定理 4.8]{ref315}.
+
+变量代换公式给出 $\mathcal H$ 测地凸性的最简证明.
+
+\begin{theorem}\label{thm:6.3}
+熵泛函 $\mathcal H(\mu):=\int\mu\log\mu$ 在 $\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 上测地凸.
+\end{theorem}
+\begin{proof}
+仍令 $(\mu_t)_{t\in[0,1]}$ 为 Wasserstein 测地线，并令 $T_t:=(1-t)\mathrm{id}+tT$，于是 $\mu_t=(T_t)_\#\mu_0$. 由\autoref{lem:6.2}，尽管尚不知道 $T_t$ 为微分同胚，我们仍直接使用该引理，得到
+$$
+\begin{aligned}
+\mathcal H(\mu_t)
+&=\int(\log\mu_t)\,d\mu_t
+=\int\log(\mu_t\circ T_t)\,d\mu_0\\
+&=\int\log\frac{\mu_0}{\det\nabla T_t}\,d\mu_0
+=\mathcal H(\mu_0)-\int\log\det\nabla T_t\,d\mu_0.
+\end{aligned}
+$$
+证明 $-\log\det$ 在正定锥上凸是一个标准习题，而 $t\mapsto\nabla T_t$ 为仿射映射，所以复合 $t\mapsto-\log\det\nabla T_t$ 凸. 进而 $t\mapsto\mathcal H(\mu_t)$ 凸，得到所需结论.
+\end{proof}
+
+\begin{corollary}\label{cor:6.4}
+设 $\pi\propto\exp(-V)$ 为密度，其中 $V:\mathbb R^d\to\mathbb R$ 为 $\alpha$-凸函数. 那么，泛函 $\mathcal F:=\operatorname{KL}(\cdot\|\pi)$ 在 $\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 上 $\alpha$-测地凸.
+\end{corollary}
+
+当 $V$ 强凸时，分布 $\pi\propto\exp(-V)$ 称为强对数凹分布（strongly log-concave distribution）. 因而，我们证明了关于（强）对数凹测度的 KL 散度是（强）测地凸的.
+
+对于\eqref{eq:VI}，目标是在子集 $\mathcal Q\subseteq\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 上最小化 KL 散度. 若 $\mathcal Q$ 测地凸（见\autoref{sec:5.2}），立即得到以下推论.
+
+\begin{corollary}\label{cor:6.5}
+设 $\pi\propto\exp(-V)$ 为 $\mathbb R^d$ 上的密度，其中 $V$ 为 $\alpha$-凸函数. 设 $\mathcal Q\subseteq\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 测地凸. 那么，$\operatorname{KL}(\cdot\|\pi)$ 在 $\mathcal Q$ 上 $\alpha$-测地凸.
+
+特别地，\eqref{eq:VI}的解 $q_\star$ 唯一.
+\end{corollary}
+
+回顾\autoref{lem:A.11}与\autoref{sec:5.4}，$\alpha$-凸性蕴含 PŁ 不等式，进而蕴含梯度流快速收敛：
+
+\begin{corollary}\label{cor:6.6}
+设 $\pi\propto\exp(-V)$ 为 $\mathbb R^d$ 上的密度，$V$ 为 $\alpha$-凸函数. 设 $\mathcal Q\subseteq\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 测地凸. 那么，限制在 $\mathcal Q$ 中的 $\operatorname{KL}(\cdot\|\pi)$ 的 Wasserstein 梯度流 $(q_t)_{t\geq0}$ 满足
+$$
+\operatorname{KL}(q_t\|\pi)-\operatorname{KL}(q_\star\|\pi)
+\leq e^{-2\alpha t}\{\operatorname{KL}(q_0\|\pi)-\operatorname{KL}(q_\star\|\pi)\}.
+$$
+\end{corollary}
+
+以下将说明如何在几种重要情形中实现受约束的 Wasserstein 梯度流.
+
+\subsubsection{高斯 VI}\label{sec:6.1.2}\index{variational inference (VI)@变分推断（VI）（variational inference (VI)）!Gaussian@高斯（Gaussian）|hyperpage}
+
+本小节研究高斯 VI，其中变分族 $\mathcal Q$ 由 $\mathbb R^d$ 上所有非退化高斯测度组成. 这一族简单却动机充分：若能够用高斯分布 $\mathcal N(m,\Sigma)$ 逼近 $\pi\propto\exp(-V)$，其参数 $(m,\Sigma)$ 就是 $\pi$ 均值与协方差矩阵的合理猜测，而这些已足以构造可信区域. Laplace 近似取 $m=\theta^\star$、$\Sigma=[\nabla^2V(\theta^\star)]^{-1}$，其中 $\theta^\star=\operatorname{arg\,min}V$ 为 $\pi$ 的众数. 当 $\pi$ 为贝叶斯后验时，Bernstein--von Mises 定理可以在大样本极限下为这一近似提供依据.
+
+为了超越 Laplace 近似，可以寻求最优高斯逼近，表述为 VI 问题
+\begin{equation}\tag{GVI}\label{eq:GVI}
+q_\star=\operatorname*{arg\,min}_{q\in\mathsf{BW}(\mathbb R^d)}\operatorname{KL}(q\|\pi),
+\end{equation}
+其中 $\mathsf{BW}(\mathbb R^d)$ 是\autoref{sec:5.5}引入的 Bures--Wasserstein 空间. 若交换 KL 散度的两个参数，考虑 $q\mapsto\operatorname{KL}(\pi\|q)$，则最优解匹配 $\pi$ 的均值与协方差，这就违背了 VI 的目的，因为我们想计算的恰好就是这些参数.
+
+遵循\cite{ref192}，求解\eqref{eq:GVI}的方法是沿限制在 Bures--Wasserstein 空间中的 Wasserstein 梯度流演化，见\autoref{sec:5.5}. 由\autoref{cor:5.20}，$\mathsf{BW}(\mathbb R^d)$ 测地凸，因而\autoref{cor:6.6}的保证适用. 剩下只需用\autoref{thm:5.21}推导 BW 梯度流的形式，从而得到可以实现的算法.
+
+对 KL 散度 $\mathcal F=\operatorname{KL}(\cdot\|\pi)$，有 $\nabla\delta\mathcal F(q)=\nabla V+\nabla\log q$，以及 $\nabla^2\delta\mathcal F(q)=\nabla^2V+\nabla^2\log q$. 因此
+$$
+\begin{aligned}
+\nabla_{\mathsf{BW}}\mathcal F(q)(x)
+&=\left(\int(\nabla^2V+\nabla^2\log q)\,dq\right)(x-m_q)\\
+&\qquad+\int\nabla V\,dq+\underbrace{\int\nabla\log q\,dq}_{=0}\\
+&=\left(\int\nabla^2V\,dq-\Sigma_q^{-1}\right)(x-m_q)+\int\nabla V\,dq.
+\end{aligned}
+$$
+将 BW 梯度置零，得到一阶驻点条件；由凸性，它们既必要又充分.
+
+\begin{proposition}\label{prop:6.7}
+假设 $\pi\propto\exp(-V)$，其中 $V$ 对某个 $\alpha>0$ 为 $\alpha$-凸函数. 那么，\eqref{eq:GVI}的唯一极小化解 $q_\star$ 由下列条件刻画：
+$$
+\int\nabla V\,dq_\star=0,
+\qquad\int\nabla^2V\,dq_\star=\Sigma_{q_\star}^{-1}.
+$$
+\end{proposition}
+
+现在利用\autoref{thm:5.22}写出 BW 梯度流. 由于协方差矩阵 $\Sigma_t$ 与熵的一阶变分的 Hessian 相消，形式略有简化.
+
+\begin{theorem}\label{thm:6.8}
+泛函 $\operatorname{KL}(\cdot\|\pi)$（其中 $\pi\propto\exp(-V)$）的 BW 梯度流为曲线 $(q_t=\mathcal N(m_t,\Sigma_t))_{t\geq0}$，其中
+\begin{equation}\label{eq:6.3}
+\begin{aligned}
+\dot m_t&=-\mathbb E\nabla V(X_t),\\
+\dot\Sigma_t&=-\mathbb E\nabla^2V(X_t)\,\Sigma_t
+-\Sigma_t\mathbb E\nabla^2V(X_t)+2I,
+\end{aligned}
+\end{equation}
+且 $X_t\sim q_t$.
+\end{theorem}
+
+为实现梯度流，可以将 ODE 方程组\eqref{eq:6.3}在时间上离散化. 每次迭代 $t$ 都追踪均值 $m_t$ 和协方差 $\Sigma_t$，因此可以从 $q_t=\mathcal N(m_t,\Sigma_t)$ 抽样，以 Monte Carlo 平均近似 $\mathbb E\nabla V(X_t)$ 与 $\mathbb E\nabla^2V(X_t)$，或使用数值求积规则. 此外，\cite{ref110}指出，KL 散度的分解\eqref{eq:6.1}自然提示了\eqref{eq:GVI}的近端梯度方法.
+
+梯度流视角有两个吸引人的特点. 首先，它具有有原则的保证：通过在 Bures--Wasserstein 空间中模仿优化证明，\cite{ref110,ref192}将\autoref{cor:6.6}转化为\eqref{eq:6.3}的随机梯度实现的非渐近收敛速率. 其次，通过采用\autoref{sec:5.8.3}中的任一种高斯粒子方法，它直接推广到更丰富的高斯混合类上的变分推断；细节见\cite{ref192}.
+
+\subsubsection{平均场 VI}\label{sec:6.1.3}\index{variational inference (VI)@变分推断（VI）（variational inference (VI)）!mean-field@平均场（mean-field）|hyperpage}
+
+另一重要变分族是 $\mathbb R^d$ 上的乘积测度类 $\mathcal Q=\mathcal P_{2,\mathrm{ac}}(\mathbb R)^{\otimes d}$，此时\eqref{eq:VI}称为平均场 VI（mean-field VI）：
+\begin{equation}\tag{MFVI}\label{eq:MFVI}
+q_\star=\operatorname*{arg\,min}_{q\in\mathcal P_{2,\mathrm{ac}}(\mathbb R)^{\otimes d}}\operatorname{KL}(q\|\pi).
+\end{equation}
+这种 VI 源于统计物理中对自旋系统的乘积测度逼近；统计上的动机是计算可分离检验函数 $\phi(x)=\sum_{i=1}^d\phi_i(x_i)$ 关于后验的积分.
+
+因为乘积测度族测地凸（\autoref{sec:5}的\autoref{exer:5.2}），\autoref{cor:6.6}再次说明受约束的 Wasserstein 梯度流快速收敛. 还可以证明，对于泛函 $\mathcal F$，Wasserstein 梯度 $\nabla\mkern-10mu\nabla\mathcal F(\mu)$ 中与乘积测度空间相切的分量具有形式
+\begin{equation}\label{eq:6.4}
+x\mapsto\sum_{i=1}^d\left(\int\nabla\mkern-10mu\nabla\mathcal F(\mu)(x)\,
+\mu(dx_1,\ldots,dx_{i-1},dx_{i+1},\ldots,dx_d)\right)e_i,
+\end{equation}
+其中 $e_i$ 为第 $i$ 个标准基向量；见\autoref{exer:6.2}.
+
+\autoref{sec:5.8.1}的粒子方法不适用，因为 KL 散度的 Wasserstein 梯度在离散测度上没有定义. 一种绕过方法是使用随机动力学，见\autoref{sec:6.3}. 本小节则介绍\cite{ref169}的方法，它与上一小节类似，基于有限维参数化. 关键在于，平均场 VI 中的测度 $q_\star$ 由于乘积结构而并非内在高维，所以能够高效参数化.
+
+思想是用从标准高斯测度 $\rho$ 出发的 Brenier 映射 $T_{\rho\to q}$，参数化元素 $q\in\mathcal P_{2,\mathrm{ac}}(\mathbb R)^{\otimes d}$. 因为 $\rho$ 和 $q$ 都是乘积测度，传输映射可分离，即 $T_{\rho\to q}(x)=(T_1(x_1),\ldots,T_d(x_d))$，其中 $T_i:\mathbb R\to\mathbb R$ 为一元映射，且由\autoref{thm:1.14}它们递增. 不过，这类映射仍然无穷维，实现时需要进一步限制.
+
+为此，取称为字典（dictionary）的有限最优传输映射族 $\mathcal M$，并以其中元素的所有锥组合组成的集合 $\operatorname{cone}(\mathcal M)$ 作为最终映射族：
+$$
+\operatorname{cone}(\mathcal M)=\left\{\sum_{T\in\mathcal M}\lambda_TT\ \middle|\ \lambda\in\mathbb R_+^{\mathcal M}\right\}.
+$$
+记 $T^\lambda:=\sum_{T\in\mathcal M}\lambda_TT$、$\rho^\lambda:=(T^\lambda)_\#\rho$. 这一集合现在有限维，实际上由正正交象限 $\mathbb R_+^{\mathcal M}$ 参数化，因而可以在其上优化泛函 $\lambda\mapsto\operatorname{KL}(\rho^\lambda\|\pi)$. 注意，原变分族 $\mathcal P_{2,\mathrm{ac}}(\mathbb R)^{\otimes d}$ 已被较小的集合 $\operatorname{cone}(\mathcal M)_\#\rho$ 替换，但希望适当选择 $\mathcal M$ 后，后者有足够表达能力，近似覆盖整个原族. \cite{ref169}确实证明了这一点，例如 $\mathcal M$ 由只作用于单个坐标的递增分段线性函数组成，且其总大小由问题参数的多项式控制时.
+
+有以下引理，证明留作\autoref{exer:6.4}.
+
+\begin{lemma}\label{lem:6.9}
+假设 $\mathcal M$ 由可分离映射 $T$ 组成，即 $T(x)=(T_1(x_1),\ldots,T_d(x_d))$，其中 $T_1,\ldots,T_d:\mathbb R\to\mathbb R$ 为递增一元映射. 那么 $\operatorname{cone}(\mathcal M)_\#\rho$ 测地凸.
+
+此外，映射 $(\mathbb R_+^{\mathcal M},\|\cdot\|_Q)\to(\operatorname{cone}(\mathcal M)_\#\rho,W_2)$、$\lambda\mapsto\rho^\lambda$ 为等距映射，其中 $\|x\|_Q^2:=\langle x,Qx\rangle$，$Q$ 为 $|\mathcal M|\times|\mathcal M|$ 矩阵，其元素为
+\begin{equation}\label{eq:6.5}
+Q_{T,T'}:=\langle T,T'\rangle_\rho,\qquad T,T'\in\mathcal M.
+\end{equation}
+\end{lemma}
+
+\autoref{lem:6.9}的第一个结论表明，当 $\pi$ 强对数凹时，在 $\operatorname{cone}(\mathcal M)_\#\rho$ 上最小化 $\operatorname{KL}(\cdot\|\pi)$ 是 Wasserstein 几何中的强凸问题，特别地，\autoref{cor:6.6}适用. 第二个结论表明，此时实现 Wasserstein 梯度流，相当于实现经 $Q^{-1}$ 预条件的欧氏梯度流. 的确，由等距性，前者等价于 $\lambda\mapsto\operatorname{KL}(\rho^\lambda\|\pi)$ 在 $(\mathbb R_+^{\mathcal M},\|\cdot\|_Q)$ 上的梯度流；而 $\|\cdot\|_Q$ 范数中的梯度算子，就是左乘 $Q^{-1}$ 的欧氏梯度算子. 特别地，可以显式写出所得算法.
+
+\begin{theorem}\label{thm:6.10}
+限制到 $\operatorname{cone}(\mathcal M)_\#\rho$ 的 $\operatorname{KL}(\cdot\|\pi)$ 的 Wasserstein 梯度流为 $(\rho^{\lambda(t)})_{t\geq0}$，其中
+$$
+\dot\lambda_T=-\sum_{T'\in\mathcal M}(Q^{-1})_{T,T'}
+\int\left[\langle\nabla V\circ T^\lambda,T'\rangle
+-\langle(\nabla T^\lambda)^{-1},\nabla T'\rangle\right]d\rho,
+$$
+矩阵 $Q$ 由\eqref{eq:6.5}给出.
+\end{theorem}
+\begin{proof}
+\autoref{lem:6.9}表明，Wasserstein 梯度流由 $\dot\lambda_t=-Q^{-1}\nabla_\lambda\operatorname{KL}(\rho^{\lambda_t}\|\pi)$ 给出. 计算得到
+$$
+\partial_{\lambda_T}\mathcal V(\rho^\lambda)
+=\partial_{\lambda_T}\int V\circ T^\lambda\,d\rho
+=\int\langle\nabla V\circ T^\lambda,T\rangle\,d\rho,
+$$
+以及
+$$
+\begin{aligned}
+\partial_{\lambda_T}\mathcal H(\rho^\lambda)
+&=\partial_{\lambda_T}\int\rho^\lambda\log\rho^\lambda\\
+&=-\partial_{\lambda_T}\int\log\det\nabla T^\lambda\,d\rho\\
+&=-\int\langle(\nabla T^\lambda)^{-1},\nabla T\rangle\,d\rho,
+\end{aligned}
+$$
+这里分别使用了\autoref{lem:6.2}和计算 $\log\det$ 梯度的经典矩阵微积分结果.
+\end{proof}
+
+与上一小节一样，可以用 Monte Carlo 平均估计这些期望.
+
+\subsubsection{Stein 变分梯度下降}\label{sec:6.1.4}\index{Stein variational gradient descent (SVGD)@Stein变分梯度下降（SVGD）（Stein variational gradient descent (SVGD)）|hyperpage}
+
+现在考虑能否在经验测度族 $\mathcal Q$，即形如 $N^{-1}\sum_{i=1}^N\delta_{x^i}$ 的测度上最小化 KL 散度. 与前两小节不同，这一类具有任意强的表达能力：由大数定律，$N\to\infty$ 时总能找到弱收敛于 $\pi$ 的经验测度序列，见\autoref{sec:2}.
+
+回顾\autoref{sec:5.8}，只要 $\nabla\mkern-10mu\nabla\mathcal F(\mu_t)$ 有意义，泛函 $\mathcal F$ 在整个 Wasserstein 空间上的梯度流就可表示为
+\begin{equation}\label{eq:6.6}
+\dot X_t=-\nabla\mkern-10mu\nabla\mathcal F(\mu_t)(X_t),\qquad X_t\sim\mu_t.
+\end{equation}
+也应注意，与前两小节不同，不需要额外操作来确保所有 $t\geq0$ 时 $\mu_t$ 都为经验测度：梯度流\eqref{eq:6.6}自动保持经验测度空间.
+
+若取 $\mathcal F=\operatorname{KL}(\cdot\|\pi)$，则\eqref{eq:6.2}给出
+\begin{equation}\tag{WGF}\label{eq:WGF}
+\dot X_t=-\nabla\log\frac{\mu_t}\pi(X_t),\qquad X_t\sim\mu_t.
+\end{equation}
+遗憾的是，当 $\mu_t$ 为经验测度时，表达式 $\nabla\log(\mu_t/\pi)$ 没有意义.
+
+接下来容易想到，用核密度估计量（kernel density estimator，KDE）平滑 $\mu_t$，替换\eqref{eq:WGF}中的它. 更具体地，初始化 $N$ 个粒子 $X_0^1,\ldots,X_0^N$，并令 $k:\mathbb R^d\to\mathbb R_+$ 为满足 $\int k=1$ 的对称核. 时刻 $t$ 用 KDE $\widehat\mu_t=N^{-1}\sum_{i=1}^Nk(\cdot-X_t^i)$ 替换 $\mu_t$，得到相互作用粒子系统
+$$
+\dot X_t^i=-\nabla V(X_t^i)
+-\left[\nabla\log\frac1N\sum_{j=1}^Nk(\cdot-X_t^j)\right](X_t^i),
+\qquad i\in[N].
+$$
+在平均场极限 $N\to\infty$ 下，预期 $N^{-1}\sum_{j=1}^Nk(\cdot-X_t^j)\to\int k(\cdot-y)\,\mu_t(dy)=k\star\mu_t$，其中 $\mu_t=\operatorname{law}(X_t)$，得到动力学
+$$
+\dot X_t=-\nabla V(X_t)-\nabla\log(k\star\mu_t)(X_t),
+$$
+或等价地
+$$
+\partial_t\mu_t=\operatorname{div}\bigl(\mu_t(\nabla V+\nabla\log(k\star\mu_t))\bigr).
+$$
+但这些动力学未必收敛到目标 $\pi\propto\exp(-V)$. 引入一个随 $N\to\infty$ 而趋零的核带宽参数，可以修复此问题；不过还有一种来自 RKHS 文献的替代方法（回顾\autoref{sec:2.8.2}），下面介绍. \cite{ref213}提出的 Stein 变分梯度下降（Stein variational gradient descent，SVGD）使用固定核 $k$，却仍以 $\pi$ 为平稳解.
+
+定义积分算子
+$$
+\mathcal K_\mu:f\mapsto\int f(y)k(\cdot-y)\,\mu(dy),
+$$
+并沿动力学
+\begin{equation}\tag{SVGD}\label{eq:SVGD}
+\partial_t\mu_t=\operatorname{div}\left(\mu_t\mathcal K_{\mu_t}\nabla\log\frac{\mu_t}\pi\right)
+\end{equation}
+演化，其中积分算子逐坐标作用于向量场. 显然这些动力学使 $\pi$ 保持平稳. 计算上述积分算子的作用：首先，
+\begin{equation}\label{eq:6.7}
+\mathcal K_\mu\nabla\log\frac1\pi
+=\mathcal K_\mu\nabla V=\int\nabla V(y)k(\cdot-y)\,\mu(dy).
+\end{equation}
+另一项用分部积分：
+\begin{equation}\label{eq:6.8}
+\begin{aligned}
+\mathcal K_\mu\nabla\log\mu
+&=\int\frac{\nabla\mu(y)}{\mu(y)}k(\cdot-y)\,\mu(dy)\\
+&=\int\nabla\mu(y)k(\cdot-y)\,dy
+=\int\nabla k(\cdot-y)\,\mu(dy).
+\end{aligned}
+\end{equation}
+\eqref{eq:6.7}和\eqref{eq:6.8}都是关于 $\mu$ 的期望，可以用 $N$ 个粒子的经验平均替代，得到算法
+$$
+\dot X_t^i=-\frac1N\sum_{j=1}^N
+\left[k(X_t^i-X_t^j)\nabla V(X_t^j)+\nabla k(X_t^i-X_t^j)\right].
+$$
+虽然 SVGD 一直是活跃研究主题，许多关于其收敛性的理论问题仍未解决.
+
+回顾 SVGD 的动机：用经验测度逼近 $\pi$，因为 $N$ 原子经验测度类随 $N\to\infty$ 具有任意强表达能力. 但若最终目标是忠实逼近 $\pi$，也可以直接要求输出来自 $\pi$ 自身的样本. 下一节讨论 MCMC 抽样，它可以视为 Wasserstein 梯度流的随机实现.

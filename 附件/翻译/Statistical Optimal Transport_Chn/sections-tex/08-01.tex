@@ -1,0 +1,68 @@
+数据平均是统计学家最基本的工具之一；但如果在非欧几里得空间中实现平均，用以刻画不同于传统统计文献中常见的向量值协变量的数据类型，通常就必须格外谨慎. 例如，假设数据集由图像组成，我们希望定义适当的“平均图像”，以捕捉整个数据集具有代表性的方面. 这一典型问题会出现在汇总重复 MRI 扫描信息等场景中.
+
+可以通过每个像素在 R、G、B 通道中的值来表示一幅有 $p$ 个像素的图像，从而将其视为取值于 $\{0,1,\ldots,255\}^{3p}$ 的向量. 一种朴素的平均方法，是直接计算图像这些向量表示的通常平均值. 不过，读者只要对几幅图像尝试一下，就应当很容易确信，这样的平均概念并不令人满意.
+
+仔细考察这一朴素方法，可以看出问题的实质：当我们对图像的向量表示作平均时，实际上默默地赋予空间 $\mathbb R^{3p}$ 以欧几里得几何；但没有理由期待这一几何与图像到 $\mathbb R^{3p}$ 的嵌入相容. 事实上，将图像表示为 $\mathbb R^{3p}$ 中的向量是一种工程选择，而非图像的内在属性. 或许更有原则的方法，是将图像视为某个抽象空间 $S$ 中的元素，为其赋予度量 $\mathsf d$，以刻画所研究数据在重要属性上的接近程度. 于是，任务可表述为：给定度量空间 $(S,\mathsf d)$ 中的点 $x_1,\ldots,x_n$，它们的平均应当如何适当定义？
+
+幸运的是，这一问题有一个一般而有用的答案，其动机如下. 不难看出，对于 Hilbert 空间 $\mathbf H$ 中的 $x_1,\ldots,x_n$，平均 $\frac1n\sum_{i=1}^n x_i$ 可以刻画为泛函
+$$x\longmapsto\frac1n\sum_{i=1}^n\|x_i-x\|^2$$
+的唯一极小化解. 这一表述只涉及平方距离，因此可以推广到度量空间.
+\begin{definition}[重心]\label{def:8.1}\index{barycenter@重心（barycenter）|hyperpage}
+给定度量空间 $(S,\mathsf d)$ 上任意概率测度 $P$，如果 $b$ 是泛函
+$$b\longmapsto\int\mathsf d^2(b,x)\,P(dx)$$
+的极小化解，则称 $b$ 是 $P$ 的一个重心（barycenter）.
+\end{definition}
+特别地，如果取 $P$ 为经验测度 $\frac1n\sum_{i=1}^n\delta_{x_i}$，那么 $P$ 的重心就是点 $x_1,\ldots,x_n$ 的一种平均. 注意，在如此一般的层次上，重心可能不存在；即使存在，也可能不唯一.
+
+$(S,\mathsf d)$ 为 Wasserstein 空间的情形本身就很有意义，也是本章理论发展的动机. 例如，Wasserstein 重心为本章开头的图像平均问题，以及曲线配准（curve registration）等许多其他问题，提供了具有几何意义的解；见\cite{ref48,ref98,ref155,ref198,ref252,ref257,ref266,ref289,ref290}及其中的参考文献. 不过，由于我们发展的框架自然适合\autoref{sec:7}所介绍的度量几何，因此先在这一背景下工作，再讨论特殊情形.
+
+这里发展统计理论，以说明实际应用几何平均方法的合理性. 具体地，假设有来自 $(S,\mathsf d)$ 上分布 $P$ 的独立同分布数据 $X_1,\ldots,X_n$，以 $b^\star$ 表示 $P$ 的重心. 这个总体重心是所关心的未知量. 为使统计问题良定，我们始终采用能够保证 $b^\star$ 存在且唯一的假设.
+
+这一问题有一个自然的代入估计量：经验测度的重心 $b_n$，也称经验重心（empirical barycenter），定义为泛函
+$$b\longmapsto\frac1n\sum_{i=1}^n\mathsf d^2(b,X_i)$$
+的极小化解. 目标是根据空间 $(S,\mathsf d)$ 自然的几何特征，量化误差 $\mathsf d(b_n,b^\star)$.
+
+\subsection{Hilbert 空间情形}\label{sec:8.1}
+当 $(S,\mathsf d)$ 为 Hilbert 空间时，经验重心以所谓参数速率收敛. 这一点很容易看出. 为此，令 $\mathbf H$ 为 Hilbert 空间，并回顾此时
+$$b_n=\frac1n\sum_{i=1}^n X_i,\qquad b^\star=\mathbb EX=\int x\,P(dx),$$
+其中使用 Pettis 积分定义 $b^\star$. 有
+$$\begin{aligned}
+\mathbb E\|b_n-b^\star\|^2&=\frac1{n^2}\sum_{i,j=1}^n
+\mathbb E\langle X_i-\mathbb EX,X_j-\mathbb EX\rangle\\
+&=\frac1n\operatorname{var}(X),\qquad
+\operatorname{var}(X)=\mathbb E\|X-\mathbb EX\|^2,
+\end{aligned}$$
+其中使用了 $X_i$ 的独立性与内积的双线性. 遗憾的是，这一证明虽然简洁，还得到了等式（！），但启发性并不很强，因为它关键地使用了重心的闭式表达和内积结构，而这些都无法推广到 Hilbert 空间之外.
+
+值得注意的是，在非正曲率空间（NPC space）中，重心估计仍具有相同的参数速率，见\autoref{exer:8.2}. 不过，如\autoref{thm:7.15}所示，最主要的研究对象 Wasserstein 空间是一个非负曲率空间（NNC space）. 因此，目标是在更困难的 $\operatorname{curv}\ge0$ 情形下发展统计理论.
+
+回到 Hilbert 情形以获取启发. 我们提出第二种证明，它仍给出定性相同的结果，但差一个因子 4. 根据 $b_n$ 的定义，
+$$P_n\|b_n-\bullet\|^2\le P_n\|b^\star-\bullet\|^2.$$
+这里及后文采用简写的算子记号：对任意可积函数 $f$，$Pf(\bullet)=\int f(x)P(dx)$；特别地，
+$$P_nf(\bullet)=\frac1n\sum_{i=1}^n f(X_i),\qquad
+P_n=\frac1n\sum_{i=1}^n\delta_{X_i}$$
+表示 $X_i$ 的经验分布. 再注意到
+$$\|b_n-\bullet\|^2=\|b_n-b^\star\|^2+\|b^\star-\bullet\|^2
++2\langle b_n-b^\star,b^\star-\bullet\rangle.$$
+因此，应用算子 $P_n$，得到
+$$\|b_n-b^\star\|^2+P_n\|b^\star-\bullet\|^2
++2P_n\langle b_n-b^\star,b^\star-\bullet\rangle\le P_n\|b^\star-\bullet\|^2,$$
+所以
+$$\|b_n-b^\star\|^2\le2P_n\langle b_n-b^\star,\bullet-b^\star\rangle.$$
+上述不等式其实只是在说 $\|b_n-b^\star\|^2\le2\|b_n-b^\star\|^2$，并没有太大用处；但为了展示论证思路，仍继续沿这条路走下去.
+
+首先，由内积的线性，
+$$P\langle b_n-b^\star,\bullet-b^\star\rangle=0.$$
+因此
+$$\begin{aligned}
+\|b_n-b^\star\|^2&\le2(P_n-P)\langle b_n-b^\star,\bullet-b^\star\rangle\\
+&=2\langle b_n-b^\star,(P_n-P)(\bullet-b^\star)\rangle.
+\end{aligned}$$
+两边除以 $\|b_n-b^\star\|$，并应用 Cauchy--Schwarz 不等式，得到
+\begin{equation}\label{eq:8.1}
+\mathbb E\|b_n-b^\star\|^2\le4\mathbb E\|(P_n-P)(\bullet-b^\star)\|^2
+=\frac4n\operatorname{var}(X).
+\end{equation}
+这一证明带来了什么？首先，只得到了不等式，并损失一个因子 4. 主要收获是，从未使用 $b_n$ 的闭式表达. 只使用了
+$$\mathbb E\|(P_n-P)(\bullet-b^\star)\|^2\le\operatorname{var}(X)/n,$$
+而这一事实适用得更广. 不利的一面是，仍大量使用了内积的线性，以及更一般的 Hilbert 结构. 事实证明，要得到我们的结果，这些结构相当必要. 因此，我们将通过 $\mathcal W_2$ 的切空间引入 Hilbert 结构，并追踪由此产生的损失.

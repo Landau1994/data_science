@@ -1,0 +1,113 @@
+\subsection{平均场粒子系统}\label{sec:5.8}
+
+本章最后从粒子系统（particle system）的视角描述 Wasserstein 和 WFR 梯度流. 当这些梯度流从有限测度出发时，粒子系统自然出现. 的确，一个关键观察是：两种梯度流都可以用常微分方程实现，所以若 $\mu_0$ 为有限测度，则沿这些梯度流，$\mu_t$ 在所有时刻 $t$ 都仍是有限测度.
+
+\subsubsection{粒子 Wasserstein 梯度流}\label{sec:5.8.1}
+
+为说明这一点，设 $\mathcal F$ 为 $\mathcal P(\mathbb R^d)$ 上的函数，并回顾\autoref{def:5.14}：$\mathcal F$ 的 Wasserstein 梯度流是与 ODE
+\begin{equation}\label{eq:5.24}
+\dot X_t=-\nabla\mkern-10mu\nabla\mathcal F(\mu_t)(X_t)
+\end{equation}
+关联的连续性方程，其中 $\mu_t$ 表示 $X_t$ 的分布. 特别地，只需在 $\mu_t$ 的支撑上描述这些动力学.
+
+现在假设 Wasserstein 梯度流的初值为
+$$
+\mu_0:=\frac1N\sum_{j=1}^N\delta_{X_0^j},
+$$
+其中给定点集 $X_0^1,\ldots,X_0^N\in\mathbb R^d$. 那么
+$$
+\mu_t:=\frac1N\sum_{j=1}^N\delta_{X_t^j},
+$$
+其中对 $i\in[N]$，
+\begin{equation}\label{eq:5.25}
+\dot X_t^i=-\nabla\mkern-10mu\nabla\mathcal F(\mu_t)(X_t^i).
+\end{equation}
+这些动力学描述一个相互作用粒子系统，粒子 $(X_t^1,\ldots,X_t^N)$ 服从形如
+\begin{equation}\label{eq:5.26}
+\dot X_t^i=V_t^i(X_t^1,\ldots,X_t^N),\qquad i\in[N]
+\end{equation}
+的动力学. 对于 Wasserstein 梯度流，进一步有：
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\item\label{item:5.8.a} 每个粒子 $X_t^i$ 只通过其分布 $\mu_t$ 的作用与其他粒子相互作用；
+\item\label{item:5.8.b} 这些相互作用对所有粒子具有相同形式.
+\end{enumerate}
+略微复用记号，这意味着\eqref{eq:5.26}中的一般动力学简化为
+$$
+\begin{aligned}
+\dot X_t^i
+&=V_t^i(X_t^1,\ldots,X_t^N)
+\overset{\text{\hyperref[item:5.8.a]{(a)}}}=V_t^i(X_t^i,\mu_t)\\
+&\overset{\text{\hyperref[item:5.8.b]{(b)}}}=V_t(X_t^i,\mu_t),\qquad i\in[N].
+\end{aligned}
+$$
+\eqref{eq:5.24}恰好体现了这两个性质：第一个显然；第二个表现为没有上标 $i$，即每个粒子受到同一向量场作用. 称这样的系统具有平均场相互作用（mean-field interactions）. Wasserstein 与 WFR 梯度流都具有这一形式.
+
+平均场相互作用系统很方便，因为描述每个粒子的动力学与描述它们的分布动力学严格等价. 后者为连续性方程\eqref{eq:5.2}给出的 PDE.
+
+因为 Wasserstein 梯度流只移动粒子，$\mu_0$ 中的权重不会随时间改变：若初值为
+\begin{equation}\label{eq:5.27}
+\mu_0:=\sum_{j=1}^Nw_0^j\delta_{X_0^j},
+\end{equation}
+其中 $w_0^j\geq0$、$j\in[N]$ 且 $\sum_{j=1}^Nw_0^j=1$，则
+$$
+\mu_t:=\sum_{j=1}^Nw_0^j\delta_{X_t^j},
+$$
+其中 $X_t^1,\ldots,X_t^N$ 按\eqref{eq:5.25}演化. 若也希望使权重演化，就改用 WFR 梯度流.
+
+\subsubsection{粒子 WFR 梯度流}\label{sec:5.8.2}
+
+回顾 Wasserstein 空间的切向量场是形如 $\nabla\psi$ 的位移映射. Wasserstein--Fisher--Rao 几何以反应—传输方程\eqref{eq:5.22}替换支配性的连续性方程\eqref{eq:5.2}，从而重新解释切空间. 特别地，它允许通过重新加权粒子，而不必将它们连续地移过空间，更高效地遍历概率测度空间，例如从初始分布到达目标分布. 当初值为\eqref{eq:5.27}形式的有限测度时，这一作用表现为时变权重：
+$$
+\mu_t:=\sum_{j=1}^Nw_t^j\delta_{X_t^j},
+$$
+其中 $w_t^j\geq0$、$j\in[N]$ 且 $\sum_{j=1}^Nw_t^j=1$.
+
+粒子更新遵循 Wasserstein 几何，而权重更新遵循 Fisher--Rao 几何：对 $i\in[N]$，
+\begin{equation}\label{eq:5.28}
+\begin{aligned}
+\dot X_t^i&=-\nabla\delta\mathcal F(\mu_t)(X_t^i),\\
+\dot w_t^i&=-\left(\delta\mathcal F(\mu_t)(X_t^i)
+-\int\delta\mathcal F(\mu_t)\,d\mu_t\right)w_t^i.
+\end{aligned}
+\end{equation}
+
+\subsubsection{高斯粒子}\label{sec:5.8.3}
+
+遵循\autoref{sec:5.6}，也可以取混合测度为
+$$
+\nu_t=\frac1K\sum_{k=1}^K\delta_{(m^k,\Sigma^k)}
+$$
+的有限高斯混合，使其按泛函 $\nu\mapsto\mathcal G(\nu)=\mathcal F(G_\nu)$ 的 Wasserstein 梯度流演化. 由\autoref{thm:5.23}，对每个 $k\in[K]$，流具有形式
+\begin{equation}\label{eq:5.29}
+\begin{aligned}
+\dot m_t^k&=-\mathbb E\nabla\delta\mathcal F(G_{\nu_t})(X_t^k),\\
+\dot\Sigma_t^k&=-\mathbb E\nabla^2\delta\mathcal F(G_{\nu_t})(X_t^k)\,\Sigma_t^k
+-\Sigma_t^k\mathbb E\nabla^2\delta\mathcal F(G_{\nu_t})(X_t^k),
+\end{aligned}
+\end{equation}
+其中 $X_t^k\sim\mathcal N(m_t^k,\Sigma_t^k)$. 这是一个“粒子”$(m_t^k,\Sigma_t^k)$ 相互作用系统，但每个粒子对应于高斯分量 $\mathcal N(m_t^k,\Sigma_t^k)$，而它们的整体对应于高斯混合 $\nu_t$. 因此称 $\mathcal N(m_t^k,\Sigma_t^k)$ 为高斯粒子（Gaussian particle）.
+
+强调一下，这些动力学并不实现 $\mathcal F$ 的 Wasserstein 梯度流. 不过，它们完全可以用于在 $K$ 分量高斯混合空间上最小化 $\mathcal F$.
+
+回顾\autoref{sec:5.6}，我们给 $\mathsf{BW}(\mathbb R^d)$ 上的概率测度空间，即混合测度空间，赋予了 Wasserstein 几何. 也同样可以给它赋予 WFR 几何. 相应粒子动力学使有限高斯混合
+$$
+\nu_t=\sum_{k=1}^Kw_t^k\delta_{(m_t^k,\Sigma_t^k)}
+$$
+以变化的权重演化，满足
+$$
+\begin{aligned}
+\dot m_t^k&=-\mathbb E\nabla\delta\mathcal F(G_{\nu_t})(X_t^k),\\
+\dot\Sigma_t^k&=-\mathbb E\nabla^2\delta\mathcal F(G_{\nu_t})(X_t^k)\,\Sigma_t^k
+-\Sigma_t^k\mathbb E\nabla^2\delta\mathcal F(G_{\nu_t})(X_t^k),\\
+\dot w_t^k&=-\left(\mathbb E\delta\mathcal F(G_{\nu_t})(X_t^k)
+-\frac1K\sum_{k'=1}^K\mathbb E\delta\mathcal F(G_{\nu_t})(X_t^{k'})\right)w_t^k,
+\end{aligned}
+$$
+其中 $X_t^k\sim\mathcal N(m_t^k,\Sigma_t^k)$.
+
+\subsubsection{梯度流的实现策略}\label{sec:5.8.4}
+
+Wasserstein 与 WFR 梯度流都需要在 $\mu_t$ 的支撑上计算 Wasserstein 梯度 $\nabla\mkern-10mu\nabla\mathcal F(\mu_t)=\nabla\delta\mathcal F(\mu_t)$. 当 $\mu_t$ 为离散测度时，这个量未必良定义. 例如，熵泛函 $\mathcal F$ 本身在离散测度上就没有定义，更不用说它的 Wasserstein 梯度. 不过，采用高斯粒子时，它可能良定义.
+
+实践中，这里的粒子实现通常需要结合其他技巧，例如\autoref{sec:6.1.4}中的“核化”. 下一章介绍这些实现策略.

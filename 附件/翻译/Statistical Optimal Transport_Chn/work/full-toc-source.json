@@ -1,0 +1,607 @@
+[
+  [
+    1,
+    "Preface",
+    6
+  ],
+  [
+    2,
+    "How to Read This Book",
+    8
+  ],
+  [
+    2,
+    "Acknowledgments",
+    8
+  ],
+  [
+    1,
+    "Contents",
+    11
+  ],
+  [
+    1,
+    "1 Optimal Transport",
+    15
+  ],
+  [
+    2,
+    "1.1 The Optimal Transport Problem",
+    15
+  ],
+  [
+    3,
+    "1.1.1 The Monge and Kantorovich Problems",
+    15
+  ],
+  [
+    3,
+    "1.1.2 Couplings",
+    17
+  ],
+  [
+    3,
+    "1.1.3 Discrete Optimal Transport",
+    19
+  ],
+  [
+    2,
+    "1.2 Wasserstein Distances",
+    20
+  ],
+  [
+    2,
+    "1.3 Optimal Transport in One Dimension",
+    26
+  ],
+  [
+    2,
+    "1.4 Brenier's Theorem",
+    28
+  ],
+  [
+    3,
+    "1.4.1 Gradients of Convex Functions",
+    29
+  ],
+  [
+    3,
+    "1.4.2 Cyclical Monotonicity",
+    30
+  ],
+  [
+    3,
+    "1.4.3 Proof of Brenier's Theorem",
+    34
+  ],
+  [
+    2,
+    "1.5 Kantorovich Duality",
+    34
+  ],
+  [
+    3,
+    "1.5.1 The Dual Kantorovich Problem",
+    35
+  ],
+  [
+    3,
+    "1.5.2 The Semidual",
+    37
+  ],
+  [
+    3,
+    "1.5.3 The Fundamental Theorem of Optimal Transport",
+    39
+  ],
+  [
+    3,
+    "1.5.4 An Improved Brenier Theorem",
+    41
+  ],
+  [
+    2,
+    "1.6 Duality for p = 1",
+    44
+  ],
+  [
+    2,
+    "1.7 Discussion",
+    46
+  ],
+  [
+    2,
+    "1.8 Exercises",
+    47
+  ],
+  [
+    1,
+    "2 Estimation of Wasserstein Distances",
+    51
+  ],
+  [
+    2,
+    "2.1 The Wasserstein Law of Large Numbers",
+    51
+  ],
+  [
+    2,
+    "2.2 The Dyadic Partitioning Argument",
+    52
+  ],
+  [
+    2,
+    "2.3 Dual Chaining Bounds",
+    58
+  ],
+  [
+    2,
+    "2.4 A Finer Analysis for Dimension Two",
+    61
+  ],
+  [
+    2,
+    "2.5 Applications",
+    66
+  ],
+  [
+    3,
+    "2.5.1 Estimation of Wasserstein Distances",
+    66
+  ],
+  [
+    3,
+    "2.5.2 Hypothesis Testing",
+    67
+  ],
+  [
+    2,
+    "2.6 Optimality",
+    69
+  ],
+  [
+    3,
+    "2.6.1 Lower Bounds for the Empirical Measure ",
+    70
+  ],
+  [
+    3,
+    "2.6.2 Minimax Lower Bounds",
+    71
+  ],
+  [
+    2,
+    "2.7 Faster Rates for Smooth Measures",
+    73
+  ],
+  [
+    2,
+    "2.8 Regularization of Wasserstein Distances",
+    77
+  ],
+  [
+    3,
+    "2.8.1 Integral Probability Metrics",
+    77
+  ],
+  [
+    3,
+    "2.8.2 Maximum Mean Discrepancy",
+    78
+  ],
+  [
+    3,
+    "2.8.3 Smoothed Wasserstein Distances",
+    82
+  ],
+  [
+    3,
+    "2.8.4 Sliced Wasserstein Distances",
+    83
+  ],
+  [
+    2,
+    "2.9 Discussion",
+    85
+  ],
+  [
+    2,
+    "2.10 Exercises",
+    87
+  ],
+  [
+    1,
+    "3 Estimation of Transport Maps",
+    91
+  ],
+  [
+    2,
+    "3.1 Problem Formulation",
+    91
+  ],
+  [
+    2,
+    "3.2 The Semidual Problem and Its Stability",
+    93
+  ],
+  [
+    2,
+    "3.3 A Special Case: Affine Transport Maps",
+    95
+  ],
+  [
+    2,
+    "3.4 Obtaining the Slow Rate",
+    96
+  ],
+  [
+    2,
+    "3.5 The Fixed Point Argument",
+    100
+  ],
+  [
+    2,
+    "3.6 Obtaining the Fast Rate",
+    101
+  ],
+  [
+    2,
+    "3.7 Discussion",
+    105
+  ],
+  [
+    2,
+    "3.8 Exercises",
+    106
+  ],
+  [
+    1,
+    "4 Entropic Optimal Transport",
+    109
+  ],
+  [
+    2,
+    "4.1 Derivation of Entropic Optimal Transport",
+    110
+  ],
+  [
+    2,
+    "4.2 Duality",
+    114
+  ],
+  [
+    2,
+    "4.3 Statistical Rates for Dual Solutions",
+    117
+  ],
+  [
+    2,
+    "4.4 Statistical Rates for Primal Solutions",
+    123
+  ],
+  [
+    2,
+    "4.5 Discussion",
+    129
+  ],
+  [
+    2,
+    "4.6 Exercises",
+    130
+  ],
+  [
+    1,
+    "5 Wasserstein Gradient Flows: Theory",
+    134
+  ],
+  [
+    2,
+    "5.1 Metric Derivative and the Continuity Equation",
+    134
+  ],
+  [
+    2,
+    "5.2 Elements of Riemannian Geometry",
+    139
+  ],
+  [
+    2,
+    "5.3 The Riemannian Structure of Wasserstein Space",
+    141
+  ],
+  [
+    2,
+    "5.4 Otto Calculus",
+    143
+  ],
+  [
+    2,
+    "5.5 Bures–Wasserstein",
+    146
+  ],
+  [
+    2,
+    "5.6 Gaussian Mixtures",
+    149
+  ],
+  [
+    2,
+    "5.7 Wasserstein–Fisher–Rao",
+    151
+  ],
+  [
+    2,
+    "5.8 Mean-Field Particle Systems",
+    155
+  ],
+  [
+    3,
+    "5.8.1 Particle Wasserstein Gradient Flow",
+    155
+  ],
+  [
+    3,
+    "5.8.2 Particle WFR Gradient Flow",
+    157
+  ],
+  [
+    3,
+    "5.8.3 Gaussian Particles",
+    157
+  ],
+  [
+    3,
+    "5.8.4 Implementation Strategies for Gradient Flows",
+    158
+  ],
+  [
+    2,
+    "5.9 Discussion",
+    159
+  ],
+  [
+    2,
+    "5.10 Exercises",
+    160
+  ],
+  [
+    1,
+    "6 Wasserstein Gradient Flows: Applications",
+    163
+  ],
+  [
+    2,
+    "6.1 Variational Inference",
+    163
+  ],
+  [
+    3,
+    "6.1.1 Convexity of the VI Problem",
+    164
+  ],
+  [
+    3,
+    "6.1.2 Gaussian VI",
+    166
+  ],
+  [
+    3,
+    "6.1.3 Mean-Field VI",
+    168
+  ],
+  [
+    3,
+    "6.1.4 Stein Variational Gradient Descent",
+    171
+  ],
+  [
+    2,
+    "6.2 Sampling",
+    173
+  ],
+  [
+    3,
+    "6.2.1 The Langevin Diffusion as a Wasserstein Gradient Flow",
+    174
+  ],
+  [
+    3,
+    "6.2.2 Sampling as Optimization",
+    177
+  ],
+  [
+    3,
+    "6.2.3 Some Recent Developments",
+    179
+  ],
+  [
+    2,
+    "6.3 Interacting Particle Systems",
+    182
+  ],
+  [
+    3,
+    "6.3.1 McKean–Vlasov Equations",
+    182
+  ],
+  [
+    3,
+    "6.3.2 Birth-Death Sampling",
+    184
+  ],
+  [
+    2,
+    "6.4 Non-parametric Maximum Likelihood",
+    186
+  ],
+  [
+    2,
+    "6.5 Mean-Field Neural Networks",
+    189
+  ],
+  [
+    2,
+    "6.6 Transformers",
+    192
+  ],
+  [
+    2,
+    "6.7 Discussion",
+    195
+  ],
+  [
+    2,
+    "6.8 Exercises",
+    197
+  ],
+  [
+    1,
+    "7 Metric Geometry of the Wasserstein Space",
+    199
+  ],
+  [
+    2,
+    "7.1 Geodesics",
+    199
+  ],
+  [
+    3,
+    "7.1.1 Length and Geodesic Spaces",
+    200
+  ],
+  [
+    3,
+    "7.1.2 Midpoints",
+    202
+  ],
+  [
+    3,
+    "7.1.3 Geodesics in Wasserstein Space",
+    203
+  ],
+  [
+    2,
+    "7.2 Curvature",
+    205
+  ],
+  [
+    3,
+    "7.2.1 Alexandrov Curvature",
+    205
+  ],
+  [
+    3,
+    "7.2.2 Curvature of the Wasserstein Space",
+    209
+  ],
+  [
+    2,
+    "7.3 Tangent Cones",
+    211
+  ],
+  [
+    3,
+    "7.3.1 Angles",
+    212
+  ],
+  [
+    3,
+    "7.3.2 Directions",
+    214
+  ],
+  [
+    3,
+    "7.3.3 Tangent Cone",
+    214
+  ],
+  [
+    3,
+    "7.3.4 Tangent Cone of the Wasserstein Space",
+    217
+  ],
+  [
+    2,
+    "7.4 Discussion",
+    221
+  ],
+  [
+    2,
+    "7.5 Exercises",
+    221
+  ],
+  [
+    1,
+    "8 Wasserstein Barycenters",
+    223
+  ],
+  [
+    2,
+    "8.1 The Hilbert Case",
+    225
+  ],
+  [
+    2,
+    "8.2 Barycenters on Positively Curved Spaces",
+    226
+  ],
+  [
+    3,
+    "8.2.1 Master Theorem",
+    227
+  ],
+  [
+    3,
+    "8.2.2 Extendable Geodesics",
+    230
+  ],
+  [
+    2,
+    "8.3 Parametric Rates for Wasserstein Barycenters",
+    234
+  ],
+  [
+    2,
+    "8.4 Discussion",
+    237
+  ],
+  [
+    2,
+    "8.5 Exercises",
+    238
+  ],
+  [
+    1,
+    "A Convex Analysis",
+    240
+  ],
+  [
+    2,
+    "A.1 Convex Functions, Subdifferentials, and Duality",
+    240
+  ],
+  [
+    2,
+    "A.2 Strong Convexity and Smoothness",
+    243
+  ],
+  [
+    2,
+    "A.3 Convex Conjugate of a Quadratic Function",
+    245
+  ],
+  [
+    1,
+    "B Probability",
+    247
+  ],
+  [
+    1,
+    "References",
+    250
+  ],
+  [
+    1,
+    "Index",
+    266
+  ]
+]

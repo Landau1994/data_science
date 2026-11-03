@@ -1,0 +1,62 @@
+\subsection{平均场神经网络}\label{sec:6.5}\index{neural network@神经网络（neural network）|hyperpage}\index{mean-field neural networks@平均场神经网络（mean-field neural networks）|hyperpage}
+
+两层\footnote{换言之，网络有一个隐藏层.}神经网络是参数化函数
+\begin{equation}\label{eq:6.23}
+f(x;\theta)=\frac1m\sum_{j=1}^ma_j\sigma(\langle w_j,x\rangle+b_j),
+\end{equation}
+其中 $\theta:=\{(a_j,w_j,b_j),j\in[m]\}$ 表示网络参数或权重，$\sigma(\cdot)$ 为非线性函数，例如常用的 ReLU 激活 $\sigma(\cdot)=(\cdot)_+=\max(0,\cdot)$.
+
+第一层为映射 $\ell_1:\mathbb R^d\to\mathbb R^m$，定义为
+\begin{equation}\label{eq:6.24}
+\ell_1(x)=\bigl(\sigma(\langle w_1,x\rangle+b_1),\ldots,
+\sigma(\langle w_m,x\rangle+b_m)\bigr)^{\mathsf T}
+=:\sigma(Wx+b).
+\end{equation}
+它为向量 $x$ 产生更适合后续任务的内部表示（internal representation），例如用于分类或回归. 随后将该表示传递给第二个也是最后一个层 $\ell_2:\mathbb R^m\to\mathbb R$，用线性投影将 $z:=\ell_1(x)$ 压缩为标量预测：
+$$
+\ell_2(z)=\frac1m\sum_{j=1}^ma_jz_j=\frac1m\langle a,z\rangle.
+$$
+这一输出层适合回归任务，使用适合分类的输出层也很常见. 例如二元分类希望神经网络输出位于 $[0,1]$，因此将输出 $y=\ell_2\circ\ell_1(x)$ 进一步通过
+$$
+\operatorname{logistic}(y)=\frac{e^y}{1+e^y}
+$$
+处理. 读者会认出，这是广义线性模型使用的 logistic 函数\index{logistic function@逻辑斯蒂函数（logistic function）|hyperpage}. 本节其余部分侧重于形如 $\ell_2\circ\ell_1$ 的两层网络，将 $\operatorname{logistic}\circ\ell_2\circ\ell_1$ 的研究留作习题.
+
+参数化\eqref{eq:6.23}称为平均场参数化（mean-field parametrization），适合取极限 $m\to\infty$.
+
+考虑简单回归任务：有 $n$ 个数据点 $\{(X_i,Y_i),i\in[n]\}$，其中 $X_i\in\mathbb R^d$、$Y_i\in\mathbb R$. 为训练神经网络，可以最小化平方误差
+\begin{equation}\label{eq:6.25}
+L(\theta):=\sum_{i=1}^n(Y_i-f(X_i;\theta))^2.
+\end{equation}
+目标\eqref{eq:6.25}的训练动力学很复杂，因为参数化 $\theta\mapsto f(\cdot;\theta)$ 非线性，所以损失 $L$ 非凸. 研究方法之一是将优化问题提升到概率测度空间，希望提升后的问题有所简化. 同时必须保持与原动力学的联系，这自然引出 Wasserstein 梯度流.
+
+提升如下进行. 令 $\Omega=\mathbb R\times\mathbb R^d\times\mathbb R$ 为 $(a,w,b)$ 三元组空间，并令 $\mu$ 为其上的测度. 设
+$$
+f(x;\mu)=\int\rho(x;\omega)\,\mu(d\omega),\qquad
+\rho(x;\omega):=a\sigma(\langle w,x\rangle+b),
+$$
+其中 $\omega=(a,w,b)$. 可以验证，若以经验测度 $\mu_\theta:=m^{-1}\sum_{i=1}^m\delta_{(a_i,w_i,b_i)}$ 编码参数 $\theta=\{(a_i,w_i,b_i)\}_{i=1}^m$，则 $f(\cdot;\mu_\theta)=f(\cdot;\theta)$，所以这一定义确实推广了\eqref{eq:6.23}. 但现在可以将问题表述为在 $\Omega$ 上的概率测度空间 $\mathcal P_2(\Omega)$ 中优化目标
+\begin{equation}\label{eq:6.26}
+L(\mu):=\sum_{i=1}^n(Y_i-f(X_i;\mu))^2.
+\end{equation}
+如前所述，要求在 $\mathcal P_2(\Omega)$ 上最小化 $\mu\mapsto L(\mu)$ 的动力学，与在 $\Omega^m$ 上最小化 $\theta\mapsto L(\theta)$ 的原动力学兼容. Wasserstein 几何的作用正在于此：其构造恰好确保基空间 $\Omega$ 上的动力学自然提升到 $\mathcal P_2(\Omega)$. 更精确地说：
+
+\begin{proposition}\label{prop:6.16}
+\eqref{eq:6.26}的 Wasserstein 梯度流 $(\mu_t)_{t\geq0}$，若初始测度形如 $\mu_0=\mu_\theta$，则对所有 $t\geq0$ 有 $\mu_t=\mu_{\theta_t}$，其中 $(\theta_t)_{t\geq0}$ 为从 $\theta$ 出发、经时间缩放的\eqref{eq:6.25}的欧氏梯度流.
+\end{proposition}
+
+还可以将目标\eqref{eq:6.26}改写为
+$$
+\begin{aligned}
+L(\mu)
+&=\sum_{i=1}^n\Biggl(Y_i^2-2Y_i\int\rho(X_i;\omega)\,\mu(d\omega)\\
+&\hspace{5em}+\iint\rho(X_i;\omega)\rho(X_i;\omega')\,\mu(d\omega)\mu(d\omega')\Biggr)\\
+&=\mathrm{const.}-2\int\sum_{i=1}^nY_i\rho(X_i;\omega)\,\mu(d\omega)\\
+&\qquad+\iint\sum_{i=1}^n\rho(X_i;\omega)\rho(X_i;\omega')\,\mu(d\omega)\mu(d\omega').
+\end{aligned}
+$$
+可以认出第二项为\autoref{ex:5.11}意义下的势能，第三项为\autoref{ex:5.13}意义下的相互作用能，不过是推广形式，相互作用不再形如 $(x,y)\mapsto K(x-y)$. 正如预期，损失 $L$ 一般不测地凸.
+
+因为 Wasserstein 视角本质上只是重述原神经网络问题，怀疑者可能会问它有何好处. 回答是：现在可以考虑比经验测度（形如 $\mu_\theta$ 的测度）更一般的初始化. 特别地，Chizat 与 Bach\cite{ref83}的著名结果利用这一方法，在一定假设下建立了平均场状态的全局收敛. 其结果要求初始测度绝对连续；这种测度只能在 $m\to\infty$ 极限中由经验测度逼近，因此在某种意义上对应于“无穷宽”神经网络. 可以控制有限 $m$ 所引入的误差，从而在多种情形中获得关于有限宽度网络的理解\cite{ref1,ref2,ref227}.
+
+也有人提议在损失\eqref{eq:6.26}中加入熵正则项，并通过\autoref{sec:6.3.1}的平均场 Langevin 动力学训练网络\cite{ref67,ref296,ref303}.

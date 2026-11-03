@@ -1,0 +1,149 @@
+前两章从黎曼几何的角度研究了空间 $\mathcal W_2=(\mathcal P_2(\mathbb R^d),W_2)$. 这种方法带来丰富的几何直观，甚至能够严格处理，见\cite{ref18}；但必须记住，$\mathcal W_2$ 并非真正的黎曼流形，因此存在许多技术问题.
+
+尽管名称如此，度量几何（metric geometry）所需的结构比单纯的度量空间稍多一些. 事实上，本章余下部分讨论具有连续性质的长度空间和测地空间. 特别地，可以沿光滑曲线对函数求导. 这种初步的微分结构往往足以理解曲率问题；下一章将利用这些问题来建立 Wasserstein 重心的收敛速率.
+
+本章依照经典著作\cite{ref59}，汇集一般度量空间 $(S,\mathsf d)$ 的度量几何基础材料；更深入的介绍另见\cite{ref7}. 主要概念，如曲率（curvature）、切锥（tangent cone）、对数映射（logarithmic map）等，都将在 $2$-Wasserstein 空间上具体实现.
+
+\subsection{测地线}\label{sec:7.1}
+\autoref{sec:5}已经用过测地线的直观概念. 本章将通过长度最小化，给这些对象下正式定义.
+
+\subsubsection{长度空间与测地空间}\label{sec:7.1.1}\index{geodesic space@测地空间（geodesic space）|hyperpage}
+设 $(S,\mathsf d)$ 是度量空间. $S$ 中的路径\index{path@路径（path）|hyperpage}（path）是连续映射 $\omega:I\to S$，其中 $I\subset\mathbb R$ 为区间. 路径 $\omega:I\to S$ 的长度 $L(\omega)\in\mathbb R\cup\{\infty\}$ 定义为
+\begin{equation}\label{eq:7.1}\index{length@长度（length）|hyperpage}
+L(\omega):=\sup\sum_{i=1}^{n-1}\mathsf d(\omega(t_i),\omega(t_{i+1})),
+\end{equation}
+其中上确界对所有 $n\ge1$ 及 $I$ 中所有 $n$ 元组 $t_1<\cdots<t_n$ 取. 若路径长度有限，称其可求长\index{rectifiable path@可求长路径（rectifiable path）|hyperpage}（rectifiable）.
+
+对任意路径 $\omega$ 和区间 $J\subset\mathbb R$，用 $\omega_J$ 表示 $\omega$ 在 $I\cap J$ 上的限制. 有如下引理.
+\begin{lemma}\label{lem:7.1}
+对任意可求长路径 $\omega:I\to S$，函数 $t\mapsto\ell(t)=L(\omega_{(-\infty,t]})$ 在 $I$ 上连续.
+\end{lemma}
+\begin{proof}
+证明左连续性，即对任意 $\varepsilon>0$，存在 $\delta>0$，使 $t-\delta<t'\le t$ 时，有
+$$\ell(t)-\varepsilon\le\ell(t')\le\ell(t).$$
+由 $\omega$ 的连续性，存在 $\delta_1>0$，使 $t'\in(t-\delta_1,t]$ 蕴含
+\begin{equation}\label{eq:7.2}\mathsf d(\omega(t'),\omega(t))\le\frac\varepsilon2.\end{equation}
+再选取 $n$ 与 $t_1<\cdots<t_n=t$，使
+\begin{equation}\label{eq:7.3}
+\ell(t)-\frac\varepsilon2\le\sum_{i=1}^{n-1}\mathsf d(\omega(t_i),\omega(t_{i+1}))\le\ell(t),
+\end{equation}
+定义 $\delta_2=\min_{i=1,\ldots,n-1}|t_{i+1}-t_i|>0$，令 $\delta=\min(\delta_1,\delta_2)>0$. 注意，对任意满足 $t\ge t'>t-\delta$ 的 $t'$，有 $t_{n-1}<t'\le t$，因此
+$$\begin{aligned}
+\ell(t')&\ge\sum_{i=1}^{n-2}\mathsf d(\omega(t_i),\omega(t_{i+1}))+\mathsf d(\omega(t_{n-1}),\omega(t'))\\
+&\ge\sum_{i=1}^{n-1}\mathsf d(\omega(t_i),\omega(t_{i+1}))-\mathsf d(\omega(t'),\omega(t))\\
+&\ge\ell(t)-\varepsilon,
+\end{aligned}$$
+其中第二行使用三角不等式，第三行使用 \eqref{eq:7.2}–\eqref{eq:7.3}. 左连续性得证，右连续性用同样论证得到.
+\end{proof}
+若存在连续、单调不减、满射的函数 $\varphi:I_1\to I_2$，使 $\omega_1=\omega_2\circ\varphi$，则称两条路径 $\omega_1:I_1\to S$ 与 $\omega_2:I_2\to S$ 等价. 此时，$\omega_2$ 是 $\omega_1$ 的重新参数化（reparametrization），反之亦然；容易验证 $L(\omega_1)=L(\omega_2)$.
+
+最后，若对所有 $a\le s\le t\le b$ 有
+\begin{equation}\label{eq:7.4}
+L(\omega_{[s,t]})=\frac{t-s}{b-a}L(\omega),
+\end{equation}
+则称路径 $\omega:[a,b]\to S$ 具有常速（constant speed）.
+\begin{proposition}\label{prop:7.2}
+任意可求长路径 $\omega:[a,b]\to S$ 都有常速的重新参数化 $\bar\omega:[0,1]\to S$.
+\end{proposition}
+\begin{proof}
+先重新参数化 $\omega$，使其在任何地方都不局部为常值，即不存在区间 $[c,d]\subset[a,b]$，使 $\omega_{[c,d]}$ 为常值. 若存在这种区间，定义 $\pi:\mathbb R\to\mathbb R$ 为
+$$\pi(t)=\begin{cases}t,&t\le c,\\c,&c<t\le d,\\t-(d-c),&t>d.\end{cases}$$
+注意，$\pi([a,b])=[a,b-(d-c)]$ 是区间，$\pi$ 在该区间上连续且单调不减. 于是将 $\omega$ 重新参数化为 $\omega':[a,b-(d-c)]\to S$，使 $\omega=\omega'\circ\pi$；由于 $\omega$ 在 $[c,d]$ 上为常值，这样做是可能的.
+
+重复此操作，可以假设 $\omega$ 处处不局部为常值；特别地，映射 $t\mapsto\varphi(t):=L(\omega_{[a,t]})/L(\omega)$ 在 $[a,b]$ 上严格递增，并由\autoref{lem:7.1}知其连续，因而可逆. 特别地，$\varphi^{-1}$ 也连续、严格递增，且定义于 $[0,1]$. 定义 $\bar\omega:[0,1]\to S$ 为 $\bar\omega=\omega\circ\varphi^{-1}$，便得到 $\omega$ 的常速重新参数化.
+\end{proof}
+给定 $x,y\in S$，若路径 $\omega:[a,b]\to S$ 满足 $\omega(a)=x$、$\omega(b)=y$，称它连接 $x$ 与 $y$. 由长度函数 $L$ 的构造，对任意连接两点的路径 $\omega$，有 $\mathsf d(x,y)\le L(\omega)$. 若对所有 $x,y\in S$ 都有
+\begin{equation}\label{eq:7.5}\mathsf d(x,y)=\inf_\omega L(\omega),\end{equation}
+其中下确界对所有连接 $x$ 与 $y$ 的路径取，则称 $S$ 为长度空间（length space）. 若对所有 $x,y\in S$，\eqref{eq:7.5} 右侧的下确界均达到，则称这个长度空间为测地空间（geodesic space）.
+\begin{definition}\label{def:7.3}\index{geodesic@测地线（geodesic）|hyperpage}
+设 $(S,\mathsf d)$ 为长度空间. $x$ 与 $y$ 之间的测地线（geodesic）是达到 \eqref{eq:7.5} 中下确界的任意路径 $\omega:[0,1]\to S$.
+\end{definition}
+换言之，测地线是两点之间的最短路径. 测地线 $\omega$ 的最小化性质说明，对所有 $0\le s\le t\le1$，
+$$\mathsf d(\omega(s),\omega(t))=L(\omega_{[s,t]}).$$
+结合 \eqref{eq:7.4}，得到如下有用的常速测地线刻画.
+\begin{proposition}\label{prop:7.4}
+路径 $\omega:[0,1]\to S$ 是常速测地线，当且仅当对所有 $0\le s\le t\le1$ 有
+$$\mathsf d(\omega(s),\omega(t))=(t-s)\mathsf d(\omega(0),\omega(1)).$$
+\end{proposition}
+
+\subsubsection{中点}\label{sec:7.1.2}\index{midpoint@中点（midpoint）|hyperpage}
+现在利用中点刻画测地空间. 对度量空间中的任意两点 $x,y$，若 $z\in S$ 满足
+$$\mathsf d(x,z)=\mathsf d(y,z)=\frac12\mathsf d(x,y),$$
+则称 $z$ 是 $(x,y)$ 的一个中点（midpoint）.
+\begin{proposition}\label{prop:7.5}
+设 $(S,\mathsf d)$ 是完备度量空间. 则下列条件等价：
+\begin{enumerate}
+\item[(i)]\label{item:7.5.i} $(S,\mathsf d)$ 是测地空间.
+\item[(ii)]\label{item:7.5.ii} 任意两点 $x,y\in M$ 都有中点.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+先看容易的方向：\hyperref[item:7.5.i]{(i)} $\implies$ \hyperref[item:7.5.ii]{(ii)}. 设 $\omega$ 是连接 $x$ 与 $y$ 的测地线，则显然 $\omega(1/2)$ 是中点.
+
+为证明\hyperref[item:7.5.ii]{(ii)} $\implies$ \hyperref[item:7.5.i]{(i)}，构造路径 $\omega:[0,1]\to S$，满足 $\omega(0)=x$、$\omega(1)=y$ 及 $L(\omega)=\mathsf d(x,y)$. 为此，先在 $[0,1]$ 的二进有理数集合
+$$\mathcal D=\{k/2^m:m\ge1,\ k\ge0\}\cap[0,1]$$
+上定义 $\omega$.
+
+递归进行构造. 取 $(x,y)=(\omega(0),\omega(1))$ 的中点 $z$，定义 $\omega(1/2)=z$. 给定 $H_m:=\{\omega(k/2^m),\ k\in[2^m]\}$，定义 $H_{m+1}=\{\omega(k/2^{m+1}),\ k\in[2^{m+1}]\}$：若 $k$ 为偶数，令 $\omega(k/2^{m+1})=\omega((k/2)/2^m)\in H_m$；若 $k$ 为奇数，令 $\omega(k/2^{m+1})$ 是 $\bigl(\omega((k-1)/(2\cdot2^m)),\omega((k+1)/(2\cdot2^m))\bigr)$ 的中点. 对 $m\ge0$ 的 $H_m$ 取并，便在 $\mathcal D$ 上定义了 $\omega$.
+
+由构造，对 $t,t'\in\mathcal D$，有
+\begin{equation}\label{eq:7.6}\mathsf d(\omega(t),\omega(t'))=|t-t'|\mathsf d(x,y),\end{equation}
+因此 $\omega$ 在 $\mathcal D$ 上为 $\mathsf d(x,y)$-Lipschitz. 现在说明，$\omega$ 可以延拓为 $[0,1]$ 上连接 $x$ 与 $y$ 的连续函数. 固定 $t\in[0,1]$，取收敛于 $t$ 的二进整数序列 $(t_n)_{n\ge0}\subseteq\mathcal D$. 注意，由 \eqref{eq:7.6}，$\omega(t_n)$ 在 $(S,\mathsf d)$ 中构成 Cauchy 序列，因为
+$$\mathsf d(\omega(t_n),\omega(t_m))\le|t_n-t_m|\mathsf d(x,y)\to0,\qquad n,m\to\infty.$$
+所以，$S$ 的完备性保证 $\omega(t_n)$ 收敛，将其极限定义为 $\omega(t)$. 为看出如此定义的 $\omega$ 连续，注意对任意 $t,u\in[0,1]$，存在序列 $(t_n)_{n\ge0},(u_n)_{n\ge0}\subseteq\mathcal D$，满足 $t_n\to t$、$u_n\to u$，且
+$$\begin{aligned}
+\mathsf d(\omega(t),\omega(u))
+&=\lim_{n\to\infty}\mathsf d(\omega(t_n),\omega(u_n))\\
+&\le\lim_{n\to\infty}|t_n-u_n|\mathsf d(x,y)=|t-u|\mathsf d(x,y),
+\end{aligned}$$
+其中等号使用了 \eqref{eq:7.6}. 因而构造出了连接 $x$ 与 $y$ 的路径. 最后只需注意，\eqref{eq:7.1} 和 \eqref{eq:7.6} 蕴含 $L(\omega)=\mathsf d(x,y)$，即得所需结论.
+\end{proof}
+
+\subsubsection{Wasserstein 空间中的测地线}\label{sec:7.1.3}
+现在可以把 Wasserstein 空间 $\mathcal W_2$ 放进度量几何的框架. 可将以下定理与\autoref{thm:5.7}比较.
+\begin{theorem}\label{thm:7.6}
+Wasserstein 空间 $\mathcal W_2$ 是测地空间. 此外，令 $\pi_t(x,y):=(1-t)x+ty$，$t\in[0,1]$；对任意 $\mu,\nu\in\mathcal W_2$，设 $\gamma\in\Gamma_{\mu,\nu}$ 是最优传输方案，即
+$$\int\lVert x-y\rVert^2\,\gamma(dx,dy)=W_2^2(\mu,\nu).$$
+则由 $\omega(t)=(\pi_t)_\#\gamma$ 给出的路径 $\omega$ 是 $\mathcal W_2$ 中连接 $\omega(0)=\mu$ 与 $\omega(1)=\nu$ 的常速测地线.
+\end{theorem}
+\begin{proof}
+对任意 $0\le s\le t\le1$，定义耦合 $\gamma_{s,t}:=(\pi_s,\pi_t)_\#\gamma\in\Gamma_{\omega(s),\omega(t)}$. 则
+$$\begin{aligned}
+W_2^2(\omega(s),\omega(t))
+&\le\int\lVert x-y\rVert^2\,\gamma_{s,t}(dx,dy)\\
+&=\int\lVert\pi_s(x,y)-\pi_t(x,y)\rVert^2\,\gamma(dx,dy)\\
+&=\int\lVert(1-s)x+sy-((1-t)x+ty)\rVert^2\,\gamma(dx,dy)\\
+&=(t-s)^2\int\lVert x-y\rVert^2\,\gamma(dx,dy)\\
+&=(t-s)^2W_2^2(\omega(0),\omega(1)).
+\end{aligned}$$
+这证明了
+$$W_2(\omega(s),\omega(t))\le|t-s|W_2(\omega(0),\omega(1)).$$
+为说明实际上取等号，结合三角不等式得到
+$$\begin{aligned}
+W_2(\omega(0),\omega(1))
+&\le W_2(\omega(0),\omega(s))+W_2(\omega(s),\omega(t))+W_2(\omega(t),\omega(1))\\
+&\le(s+|t-s|+|1-t|)W_2(\omega(0),\omega(1))\\
+&=W_2(\omega(0),\omega(1)).
+\end{aligned}$$
+因此上述不等式均为等式，特别地，
+$$\begin{aligned}
+&W_2(\omega(0),\omega(s))+W_2(\omega(s),\omega(t))+W_2(\omega(t),\omega(1))\\
+&=sW_2(\omega(0),\omega(1))+|t-s|W_2(\omega(0),\omega(1))+|1-t|W_2(\omega(0),\omega(1)).
+\end{aligned}$$
+由于左侧每项都不大于右侧对应项，故
+$$W_2(\omega(s),\omega(t))=|t-s|W_2(\omega(0),\omega(1)),$$
+由\autoref{prop:7.4}得结论. 对任意一对 $\mu,\nu\in\mathcal W_2$，连接两者的测地线都如此显式构造，立即说明 $\mathcal W_2$ 确实是测地空间.
+\end{proof}
+对于连接两个测度 $\mu,\nu\in\mathcal W_2$ 的任意常速测地线 $\omega$ 与任意 $t\in[0,1]$，测度 $\omega(t)$ 常依文献\cite{ref225}称为位移插值（displacement interpolation）. 关键是，若两者有密度 $f_\mu,f_\nu$，该插值不同于密度为 $(1-t)f_\mu+tf_\nu$ 的通常混合插值. 这体现了 $\mathcal W_2$ 的几何.
+
+注意，以上\autoref{thm:7.6}的证明蕴含如下有趣推论.
+\begin{corollary}\label{cor:7.7}
+设 $\omega$ 是 $\mathcal W_2$ 中任意常速测地线，$\gamma$ 是 $\omega(0)$ 与 $\omega(1)$ 之间的最优耦合. 则对任意 $0\le s\le t\le1$，耦合 $\gamma_{s,t}:=(\pi_s,\pi_t)_\#\gamma\in\Gamma_{\omega(s),\omega(t)}$，其中 $\pi_t(x,y):=(1-t)x+ty$，$t\in[0,1]$，在如下意义下最优：
+$$\int\lVert x-y\rVert^2\,\gamma_{s,t}(dx,dy)=W_2^2(\omega(s),\omega(t)).$$
+\end{corollary}
+最后，若测地线从有密度的分布出发，则由 Brenier \autoref{thm:1.16}得到如下有用推论，它为\autoref{def:5.8}提供依据.
+\begin{corollary}\label{cor:7.8}
+设 $\mu,\nu\in\mathcal W_2$ 是两个概率测度，$\mu$ 有密度，令 $T:\mathbb R^d\to\mathbb R^d$ 是满足 $T_\#\mu=\nu$ 的唯一 Brenier 映射. 则满足 $\omega(0)=\mu$、$\omega(1)=\nu$ 的常速测地线 $\omega:[0,1]\to\mathcal W_2$ 唯一，且由下式给出：
+$$\omega(t)=\bigl((1-t)\mathrm{id}+tT\bigr)_\#\mu,\qquad\forall t\in[0,1],$$
+其中 $\mathrm{id}:\mathbb R^d\to\mathbb R^d$ 为恒等映射. 换言之，若 $X\sim\mu$，则 $(1-t)X+tT(X)\sim\omega(t)$.
+\end{corollary}

@@ -1,0 +1,31 @@
+\subsection{讨论}\label{sec:6.7}
+
+\noindent\textbf{\autoref{sec:6.1}.} VI 的另一种自然几何方法是自然梯度下降（natural gradient descent），其动机为 Fisher--Rao 几何的参数化不变性\cite{ref15,ref16}. 不过，由于 VI 问题往往非凸，分析这一方法一直很困难. 关于 VI 算法保证的早期工作，见\cite{ref25}.
+
+高斯 VI 的讨论遵循\cite{ref192}. 与\eqref{eq:6.3}密切相关的高斯 VI 算法已在\cite{ref8,ref116,ref137}等工作中提出并研究；这里强调通过 Otto 微积分推导. 后续有大量高斯 VI 工作，涉及计算方面，例如\cite{ref47,ref110,ref117,ref176}，统计方面\cite{ref175}，以及多臂老虎机\cite{ref89}和控制应用\cite{ref193,ref194}.
+
+若干作者注意到了 Wasserstein 几何对平均场 VI 的潜在应用\cite{ref148,ref190,ref328}. \cite{ref148,ref190}也写出了\autoref{sec:6.3.1}所述梯度流的相互作用 SDE 实现. 更广泛的平均场 VI 文献非常庞大，通常侧重于坐标上升变分推断（coordinate ascent variational inference，CAVI）；这里不作综述，但使用 Otto 微积分的分析见\cite{ref23,ref195}.
+
+SVGD 由\cite{ref213}引入，几何解释见\cite{ref79,ref124,ref212}. 收敛理论仍不充分，例如见\cite{ref101,ref186,ref215,ref265,ref279,ref285}.
+
+\autoref{cor:6.4}可以推广到黎曼流形上的测度，此时 KL 散度的强凸参数包含 Ricci 曲率信息. Lott 与 Villani\cite{ref214}以及 Sturm\cite{ref294,ref295}的奠基性工作利用这一点，为带测度的测地空间（见\autoref{sec:7}）定义综合意义的 Ricci 曲率下界，限制到黎曼背景时恢复经典的 Ricci 曲率下界. 后来这些思想也被推广到离散情形，例如\cite{ref246,ref247,ref248}.
+
+最后，虽然 KL 散度在变分推断中占主导地位，也可以考虑其他测度距离；例如\cite{ref21}采用最大均值差异（Maximum Mean Discrepancy）.
+
+\noindent\textbf{\autoref{sec:6.2}.} 如正文所述，Langevin 扩散的 Wasserstein 梯度流解释可追溯至\cite{ref170}. Otto 微积分最初在\cite{ref250}中用于得到 Langevin 扩散的定量结果，如后面的\autoref{exer:6.6}；在这一背景下，\autoref{sec:5}的\autoref{exer:5.4}可以再改进一个因子 2\cite{ref43,ref251}. 类似思想但不需要那么多微分结构的证明，见\cite{ref92}. 随机微积分的教材式处理见\cite{ref291}或\cite{ref196}. KL 散度泛函的 Wasserstein PŁ 不等式称为对数 Sobolev 不等式（log-Sobolev inequality），在高维概率和 Markov 过程研究中起关键作用. 关键是，尽管这里只把强对数凹性作为对数 Sobolev 不等式成立的充分条件，它并非必要条件. 细节见\cite{ref30}，推广见\cite{ref39,ref243,ref244}.
+
+抽样的优化视角可追溯至\cite{ref100}等早期工作；这里的讨论主要遵循\cite{ref324}. 现代对数凹抽样复杂度理论的介绍与更多参考文献，见\cite{ref76,ref77}. 近期工作也将这一视角用于参数估计\cite{ref6,ref64}.
+
+近端抽样器已用于结构化对数凹抽样\cite{ref203}、非欧氏\cite{ref154}与重尾\cite{ref163}抽样，以及凸体抽样\cite{ref184}.
+
+如\cite{ref80}指出的，由 Brascamp--Lieb 不等式\cite{ref54}，Newton--Langevin 扩散以通用的指数速率收敛到任意严格对数凹目标. 在某种意义下，它是 Langevin 的最优预条件\cite{ref96}.
+
+欠阻尼 Langevin 扩散的收敛需要比 Wasserstein 梯度流更强的工具，基于次强制性（hypocoercivity）理论，标准参考为\cite{ref316}.
+
+\noindent\textbf{\autoref{sec:6.3}.} 生灭抽样的分析最初见\cite{ref216}，并在\cite{ref217}中得到改进.
+
+\noindent\textbf{\autoref{sec:6.4}.} NPMLE 的 WFR 梯度流可以适配到更一般的混合模型. 通常只在梯度流收敛到某极限点的条件下，建立它渐近收敛到 NPMLE. 事实上，\cite{ref327}证明，从绝对连续测度出发的梯度流只有 NPMLE 这一个驻点.
+
+\noindent\textbf{\autoref{sec:6.5}.} 从平均场视角研究两层神经网络训练动力学，由 2018 年约一个月内发布的四篇独立论文提出：4 月 18 日的\cite{ref227}，5 月 2 日的\cite{ref288,ref275}，以及 5 月 24 日的\cite{ref83}. \eqref{eq:6.23}中的归一化 $1/m$ 对这一问题的平均场解释至关重要. 另一些工作提出使用 $1/\sqrt m$ 归一化，产生所谓神经切线核（neural tangent k\index{neural tangent kernel (NTK)@神经切线核（NTK）（neural tangent kernel (NTK)）|hyperpage}ernel，NTK）状态，也称惰性训练状态. 这一状态会使读者联想到中心极限定理的归一化；可以证明参数不会远离随机初始化，因此可以用初始化附近的线性近似研究网络\cite{ref167}. NTK 及其与平均场状态关系的更多细节见\cite{ref229}.
+
+\noindent\textbf{\autoref{sec:6.6}.} \eqref{eq:6.29}定义的泛函 $\mathcal F$ 曾出现在最优配置文献中；该方向关心它的极大化解. 已知球面均匀分布使 $\mathcal F$ 最大\cite{ref300}. 在 $\mu$ 支撑的基数约束下寻找极大化解，与球堆积问题直接相关，见\cite{ref91}.

@@ -1,0 +1,205 @@
+\subsection{Wasserstein 距离的正则化}\label{sec:2.8}
+统计最优传输所面临的维数灾难，自其早期发展阶段就已为人认识. 为克服这一局限，研究者提出了多种解决方案；回过头看，它们可以视为原始最优传输问题的某种正则化. 本节余下部分回顾三个例子，并展示它们如何避开维数灾难.
+
+\subsubsection{积分概率度量}\label{sec:2.8.1}
+回顾\autoref{sec:2.3}的对偶链式论证，速率 $n^{-1/d}$ 直接来自 $1$-Lipschitz 函数类的熵数. \autoref{lem:2.7}证明了
+$$\log N(\varepsilon,\overline{\mathrm{Lip}}_1([0,1]^d))\lesssim(4\sqrt d/\varepsilon)^d.$$
+这种关于 $1/\varepsilon$ 的多项式增长是非参数函数类的特征；与此相对，参数函数类具有对数增长，参见\cite{ref149}. 由此产生一个问题：是否可以将 $1$-Lipschitz 函数类换成一个更小、理想情况下是参数化的函数类？
+
+例如，取 $\mathbb R^d$ 上的线性函数类
+$$\mathcal F_{\mathrm{lin}}:=\{f(x)=\langle\theta,x\rangle:\theta,x\in\mathbb R^d,\ \lVert\theta\rVert=1\},$$
+并考虑量
+$$\begin{aligned}
+\delta(\mu,\nu)&=\sup_{f\in\mathcal F_{\mathrm{lin}}}\left\{\int f\,d\mu-\int f\,d\nu\right\}\\
+&=\sup_{\theta\in\mathbb R^d,\ \lVert\theta\rVert=1}\left\{\int\langle\theta,x\rangle\,\mu(dx)-\int\langle\theta,y\rangle\,\nu(dy)\right\}\\
+&=\lVert\mathbb E_\mu[X]-\mathbb E_\nu[Y]\rVert.
+\end{aligned}$$
+特别地，$\delta(\mu,\nu)=0$ 当且仅当 $\mu$ 与 $\nu$ 具有相同均值. 这当然不足以说明两个测度相同，所以与 Wasserstein 距离不同，上述量并未在概率测度间定义距离. 要做到这一点，需找到一个检验函数类 $\mathcal F$，它既足够大，能够产生距离，又不像 $1$-Lipschitz 函数类那么庞大，从而避开维数灾难.
+\begin{definition}\label{def:2.19}\index{integral probability metric (IPM)@积分概率度量（IPM）（integral probability metric (IPM)）|hyperpage}
+两个概率测度之间的度量 $\mathsf d(\cdot,\cdot)$ 称为积分概率度量（integral probability metric，IPM），如果它满足度量的性质，并且可以写成
+\begin{equation}\label{eq:2.18}
+\mathsf d(\mu,\nu)=\sup_{f\in\mathcal F}\left|\int f\,d\mu-\int f\,d\nu\right|.
+\end{equation}
+\end{definition}
+注意，$1$-Wasserstein 距离 $W_1$ 与上述量 $\delta$ 都具有 \eqref{eq:2.18} 的形式，分别取 $\mathcal F=\mathrm{Lip}_1$ 与 $\mathcal F=\mathcal F_{\mathrm{lin}}$. 事实上，$\mathcal F$ 对称，即 $\mathcal F=-\mathcal F$ 时，\eqref{eq:2.18} 中的绝对值是隐含的. 但是，$W_1$ 是 IPM，$\delta$ 却不是，因为它不满足度量性质中的确定性.
+
+另一个选择是有界 Lipschitz 函数的集合，它确实产生 IPM，但对于眼下的问题，这个类的大小与 $\mathrm{Lip}_1$ 相同. 要改善样本复杂度，需要光滑得多的函数.
+
+\subsubsection{最大均值差异}\label{sec:2.8.2}
+再生核 Hilbert 空间（reproducing kernel Hilbert space，RKHS）构成一类灵活且实用的函数类. 为非常简要地定义这类函数，先介绍一些基本定义和关键性质. 关于与本节尤其相关的核方法，更多细节参见\cite{ref232}.
+
+考虑由 $\mathbb R^d$ 上有界正定核 $k$ 对应的再生核 Hilbert 空间 $\mathcal H$，其中的函数为 $\mathbb R^d\to\mathbb R$. 分别用 $\langle\cdot,\cdot\rangle_{\mathcal H}$ 和 $\lVert\cdot\rVert_{\mathcal H}$ 表示其内积与范数. $\mathcal H$ 的再生性质保证，对任意 $f\in\mathcal H$，
+$$\langle k(x,\cdot),f\rangle_{\mathcal H}=f(x).$$
+特别地，取 $f=k(y,\cdot)$，得到
+$$\langle k(x,\cdot),k(y,\cdot)\rangle_{\mathcal H}=k(x,y).$$
+现在可以定义最大均值差异.
+\begin{definition}\label{def:2.20}\index{maximum mean discrepancy (MMD)@最大均值差异（MMD）（maximum mean discrepancy (MMD)）|hyperpage}
+设 $\mathcal H$ 是一个 RKHS. $\mathbb R^d$ 上两个概率测度 $\mu,\nu$ 之间的最大均值差异（maximum mean discrepancy，MMD）定义为
+$$\mathsf{MMD}(\mu,\nu)=\sup_{\substack{f\in\mathcal H\\\lVert f\rVert_{\mathcal H}\le1}}\left|\int f\,d\mu-\int f\,d\nu\right|.$$
+\end{definition}
+不对 RKHS 作进一步假设，MMD 未必在概率测度间定义距离. 事实上，注意到配备欧氏内积的 $\mathbb R^d$ 上线性函数集合，本身就是线性核 $k(x,y)=\langle x,y\rangle$ 对应的 RKHS. 此外，若 $f(x)=\langle\theta,x\rangle$，则
+$$\lVert f\rVert_{\mathcal H}^2
+=\lVert\langle\theta,\cdot\rangle\rVert_{\mathcal H}^2
+=\lVert k(\theta,\cdot)\rVert_{\mathcal H}^2
+=k(\theta,\theta)=\lVert\theta\rVert^2.$$
+所以 $\mathcal H$ 的单位球正是 $\mathcal F_{\mathrm{lin}}$，而我们已说明，这个类不够丰富，无法定义一个 IPM.
+
+实际上，我们尚未讨论 MMD 是否有限. 为此使用如下有用命题.
+\begin{proposition}\label{prop:2.21}
+设 $\mathcal H$ 是一个 RKHS. $\mathbb R^d$ 上两个概率测度 $\mu,\nu$ 之间的最大均值差异可以等价地定义为
+$$\mathsf{MMD}(\mu,\nu)=\left\lVert\int k(x,\cdot)\,\mu(dx)-\int k(x,\cdot)\,\nu(dx)\right\rVert_{\mathcal H}.$$
+\end{proposition}
+\begin{proof}
+对任意 $f\in\mathcal H$，
+$$\begin{aligned}
+\int f(x)(\mu-\nu)(dx)
+&=\int\langle k(x,\cdot),f\rangle_{\mathcal H}(\mu-\nu)(dx)\\
+&=\left\langle\int k(x,\cdot)(\mu-\nu)(dx),f\right\rangle_{\mathcal H}.
+\end{aligned}$$
+由 Cauchy--Schwarz 不等式即得结论.
+\end{proof}
+作为\autoref{prop:2.21}的推论，有
+\begin{equation}\label{eq:2.19}
+\begin{aligned}
+\mathsf{MMD}^2(\mu,\nu)
+&=\iint k(x,y)\,\mu(dx)\mu(dy)+\iint k(x,y)\,\nu(dx)\nu(dy)\\
+&\quad-2\iint k(x,y)\,\mu(dx)\nu(dy),
+\end{aligned}
+\end{equation}
+以及
+$$\begin{aligned}
+\mathsf{MMD}(\mu,\nu)
+&\le\int\lVert k(x,\cdot)\rVert_{\mathcal H}\,\mu(dx)+\int\lVert k(x,\cdot)\rVert_{\mathcal H}\,\nu(dx)\\
+&\le2\sup_{x\in\mathbb R^d}\sqrt{k(x,x)}<\infty,
+\end{aligned}$$
+其中使用了 $k$ 有界这一事实.
+
+把 $\mu$ 嵌入 RKHS $\mathcal H$ 的映射 $\mu\mapsto\int k(x,\cdot)\,\mu(dx)$ 称为核均值嵌入（kernel mean embedding）. 由\autoref{prop:2.21}，MMD 是 IPM，即确实是度量，当且仅当核均值嵌入是单射. 保证此性质的核称为特征核（characteristic kernel）；高斯核 $k(x,y)=e^{-\lVert x-y\rVert^2/(2\sigma^2)}$ 就是一个例子. 为看出这一点，注意除归一化常数外，核均值嵌入是 $\mu$ 与高斯测度的卷积：对任意 $y\in\mathbb R^d$，
+$$\begin{aligned}
+\int k(x,y)\,\mu(dx)
+&=\int e^{-\lVert x-y\rVert^2/(2\sigma^2)}\,\mu(dx)\\
+&=(\sigma\sqrt{2\pi})^d(\mu\star\mathcal N(0,\sigma^2I))(y).
+\end{aligned}$$
+与高斯分布卷积的单射性容易用特征函数看出. 事实上，$\mu\star\mathcal N(0,\sigma^2I)$ 的特征函数为
+$$\phi_{\mu\star\mathcal N(0,\sigma^2I)}(\cdot)
+=\phi_\mu(\cdot)\phi_{\mathcal N(0,\sigma^2I)}(\cdot)
+=\phi_\mu(\cdot)e^{-\sigma^2\lVert\cdot\rVert^2/2}.$$
+所以，由于高斯分布的特征函数 $e^{-\sigma^2\lVert\cdot\rVert^2/2}$ 处处为正，有
+$$\mu\star\mathcal N(0,\sigma^2I)=\nu\star\mathcal N(0,\sigma^2I)$$
+当且仅当 $\mu=\nu$.
+
+显然，上述论证可以推广到形如 $k(x,y)=K(x-y)$ 的平移不变核，其中 $K:\mathbb R^d\to\mathbb R$ 是有界正定函数，且其 Fourier 变换处处为正.\footnote{注意，Bochner 定理说明正定核具有非负的 Fourier 变换，因此这里的要求更强.} 例如，它包括 Laplace 核 $k(x,y)=e^{-\lVert x-y\rVert}$ 及其他例子；见\cite[表3.1]{ref232}.
+
+\eqref{eq:2.19} 给出的 MMD 表示提供了从数据估计 MMD 的简单途径. 例如，设 $X_1,\ldots,X_m$ 独立同分布于 $\mu$，$Y_1,\ldots,Y_n$ 也独立同分布于 $\mu$. 以 $\mu_m,\nu_n$ 表示对应经验分布，则
+$$\begin{aligned}
+\mathsf{MMD}^2(\mu_m,\nu_n)
+&=\frac1{m^2}\sum_{i,i'=1}^m k(X_i,X_{i'})+\frac1{n^2}\sum_{j,j'=1}^n k(Y_j,Y_{j'})\\
+&\quad-\frac2{mn}\sum_{i=1}^m\sum_{j=1}^n k(X_i,Y_j).
+\end{aligned}$$
+自然要问，它能否良好估计 $\mathsf{MMD}^2(\mu,\nu)$. 利用三角不等式，只需控制 $\mathsf{MMD}(\mu_m,\mu)$. 虽然 MMD 是 IPM，\autoref{prop:2.21}的闭式表示使我们能够绕开经验过程理论，直接控制该量.
+\begin{theorem}\label{thm:2.22}
+设 $k$ 为特征核，且对任意 $x\in\mathbb R^d$ 有 $k(x,x)\le1$. 令 $X_1,\ldots,X_n$ 是来自 $\mathbb R^d$ 上分布 $\mu$ 的 $n$ 个独立同分布观测，并定义经验测度
+$$\mu_n=\frac1n\sum_{i=1}^n\delta_{X_i}.$$
+则
+$$\mathbb E_\mu[\mathsf{MMD}(\mu_n,\mu)]\le\frac1{\sqrt n}.$$
+\end{theorem}
+\begin{proof}
+由\autoref{prop:2.21}，
+$$\begin{aligned}
+\mathbb E[\mathsf{MMD}^2(\mu_n,\mu)]
+&=\mathbb E\left\lVert\frac1n\sum_{i=1}^n\{k(X_i,\cdot)-\mathbb Ek(X_i,\cdot)\}\right\rVert_{\mathcal H}^2\\
+&=\frac1n\mathbb E\lVert k(X_1,\cdot)-\mathbb Ek(X_1,\cdot)\rVert_{\mathcal H}^2\\
+&=\frac1n\bigl(\mathbb E\lVert k(X_1,\cdot)\rVert_{\mathcal H}^2-\lVert\mathbb Ek(X_1,\cdot)\rVert_{\mathcal H}^2\bigr)\\
+&\le\frac1n\mathbb E\lVert k(X_1,\cdot)\rVert_{\mathcal H}^2.
+\end{aligned}$$
+再注意
+$$\mathbb E\lVert k(X_1,\cdot)\rVert_{\mathcal H}^2=\mathbb E[k(X_1,X_1)]\le1.$$
+由 Jensen 不等式即得结论.
+\end{proof}
+可见，与 Wasserstein 距离不同，MMD 不受维数灾难影响. 这当然是可取的特点，但也可以更谨慎地解读. 虽然 MMD 确实定义了度量，它对概率测度间的偏离不那么敏感，往往会使这些差异显得较小. 这解释了为什么按 $1$-Wasserstein 距离衡量与 $\mu$ 相距颇远的 $\mu_n$，在 MMD 看来却与 $\mu$ 很接近.
+
+\subsubsection{平滑 Wasserstein 距离}\label{sec:2.8.3}\index{Wasserstein distance@Wasserstein距离（Wasserstein distance）!smoothed@平滑（smoothed）|hyperpage}
+由\autoref{prop:2.21}可见，$k$ 为高斯核时，$\mathsf{MMD}(\mu,\nu)$ 是涉及密度 $\mu\star\mathcal N(0,\sigma^2I_d)$ 与 $\nu\star\mathcal N(0,\sigma^2I_d)$ 的 Hilbert 空间范数. 完全可以使用其他距离来衡量这些概率测度间的距离，特别是 Wasserstein 距离.
+\begin{definition}\label{def:2.23}
+固定 $p\ge1$. 两个概率测度 $\mu,\nu\in\mathcal P_p(\mathbb R^d)$ 之间的平滑 $p$-Wasserstein 距离（smoothed $p$-Wasserstein distance）定义为
+$$W_p^{(\sigma)}(\mu,\nu):=W_p(\mu\star\mathcal N(0,\sigma^2I),\nu\star\mathcal N(0,\sigma^2I)).$$
+\end{definition}
+计算测度平滑版本之间的 Wasserstein 距离的想法，已经在\autoref{cor:2.12}的证明中用作分析工具；这里则将其本身视为一种距离概念.
+
+由定义容易得出，平滑 Wasserstein 距离确实是距离. 相比将分布嵌入 Hilbert 空间的 MMD，平滑 Wasserstein 距离在分布上诱导的几何与原 Wasserstein 距离接近得多. 但与 MMD 一样，它也有更快的统计收敛速率. 为简单起见，这里聚焦 $p=1$；$p=2$ 时的参数速率也已建立.
+\begin{theorem}\label{thm:2.24}
+固定 $\sigma>0$. 令 $X_1,\ldots,X_n$ 是来自 $[-1,1]^d$ 上分布 $\mu$ 的 $n$ 个独立同分布观测，并定义经验测度
+$$\mu_n=\frac1n\sum_{i=1}^n\delta_{X_i}.$$
+则
+$$\mathbb E_\mu[W_1^{(\sigma)}(\mu_n,\mu)]\lesssim\frac1{\sqrt n},$$
+其中隐含常数依赖 $\sigma^2$ 和 $d$.
+\end{theorem}
+证明之前，注意这个界的常数因子随维数呈指数增长. 对 $d$ 的这种不良依赖实际上不可避免，它反映了估计 Wasserstein 距离的根本统计难度.
+\begin{proof}
+以 $f$ 表示 $\mu\star\mathcal N(0,\sigma^2I)$ 的密度，以 $f_n$ 表示 $\mu_n\star\mathcal N(0,\sigma^2I)$ 的密度. 记 $\varphi(z):=(2\pi\sigma^2)^{-d/2}\exp(-\frac1{2\sigma^2}\lVert z\rVert^2)$，即 $\mathcal N(0,\sigma^2I)$ 的密度. \autoref{thm:1.6}给出
+$$\begin{aligned}
+\mathbb EW_1^{(\sigma)}(\mu_n,\mu)
+&\le\mathbb E\int\lVert z\rVert|f_n(z)-f(z)|\,dz\\
+&=\int\lVert z\rVert\,\mathbb E\left|\frac1n\sum_{i=1}^n\varphi(z-X_i)-\mathbb E\varphi(z-X_i)\right|\,dz\\
+&\le\frac1{\sqrt n}\int\lVert z\rVert\bigl(\mathbb E(\varphi(z-X_1)-\mathbb E\varphi(z-X_1))^2\bigr)^{1/2}\,dz\\
+&\le\frac1{\sqrt n}\int\lVert z\rVert\bigl(\mathbb E\varphi(z-X_1)^2\bigr)^{1/2}\,dz.
+\end{aligned}$$
+只需证明这个积分有界. 若 $\lVert z\rVert\le2\sqrt d$，可用粗略界 $\bigl(\mathbb E\varphi(z-X_1)^2\bigr)^{1/2}\le(2\pi\sigma^2)^{-d/2}$. 若 $\lVert z\rVert>2\sqrt d$，则几乎必然有 $\lVert z-X_1\rVert\ge\lVert z\rVert-\lVert X_1\rVert\ge\lVert z/2\rVert$，从而 $\bigl(\mathbb E\varphi(z-X_1)^2\bigr)^{1/2}\le\varphi(z/2)$. 得到
+$$\begin{aligned}
+\mathbb EW_1^{(\sigma)}(\mu_n,\mu)
+&\le\frac{(2\pi\sigma^2)^{-d/2}}{\sqrt n}\int_{\lVert z\rVert\le2\sqrt d}\lVert z\rVert\,dz
++\frac1{\sqrt n}\int\lVert z\rVert\varphi(z/2)\,dz\\
+&\lesssim n^{-1/2},
+\end{aligned}$$
+即所要证明的结论.
+\end{proof}
+
+\subsubsection{切片 Wasserstein 距离}\label{sec:2.8.4}\index{Wasserstein distance@Wasserstein距离（Wasserstein distance）!sliced@切片（sliced）|hyperpage}
+最后，以另一种避开维数灾难的方法结束本章；这次考虑的是一维投影之间的 Wasserstein 距离.
+
+形式上，用 $S^{d-1}$ 表示 $\mathbb R^d$ 中的单位球面，对 $\theta\in S^{d-1}$，令 $\Pi^\theta:\mathbb R^d\to\mathbb R$ 为投影 $\Pi^\theta(x):=\langle\theta,x\rangle$. 定义 $\mu,\nu\in\mathcal P_p(\mathbb R^d)$ 之间的切片 Wasserstein 距离（sliced Wasserstein distance）为
+\begin{equation}\label{eq:2.20}
+\mathsf{SW}_p(\mu,\nu):=\left(\int W_p^p(\Pi^\theta_\#\mu,\Pi^\theta_\#\nu)\,\sigma(d\theta)\right)^{1/p},
+\end{equation}
+其中 $\sigma$ 为 $S^{d-1}$ 上的均匀测度.
+
+考察一维投影的想法源于成像与层析的应用，这些应用中引入了各种积分变换. 特别地，测度 $\mu$ 的 Radon 变换（Radon transform）定义为其一维投影族 $(\Pi^\theta_\#\mu)_{\theta\in S^{d-1}}$. 一个称为 Cramér--Wold 定理的经典事实表明，$\mu$ 的 Radon 变换完全刻画 $\mu$，这为用它定义概率测度上的度量提供了依据. 先验证它确实满足度量空间的公理.
+\begin{theorem}\label{thm:2.25}
+对每个 $p\ge1$，$\mathsf{SW}_p$ 在 $\mathcal P_p(\mathbb R^d)$ 上定义一个度量.
+\end{theorem}
+\begin{proof}
+对称性和非负性来自 Wasserstein 距离的相应性质. 对 $\Theta\sim\sigma$，通过下式验证三角不等式：
+$$\begin{aligned}
+\mathsf{SW}_p(\mu,\nu)
+&=\bigl(\mathbb EW_p^p(\Pi^\Theta_\#\mu,\Pi^\Theta_\#\nu)\bigr)^{1/p}\\
+&\le\bigl(\mathbb EW_p^p(\Pi^\Theta_\#\mu,\Pi^\Theta_\#\rho)\bigr)^{1/p}
++\bigl(\mathbb EW_p^p(\Pi^\Theta_\#\rho,\Pi^\Theta_\#\nu)\bigr)^{1/p}\\
+&=\mathsf{SW}_p(\mu,\rho)+\mathsf{SW}_p(\rho,\nu).
+\end{aligned}$$
+最后，必须检验 $\mathsf{SW}_p(\mu,\nu)=0$ 蕴含 $\mu=\nu$. 显然，$\mathsf{SW}_p(\mu,\nu)=0$ 意味着对几乎所有 $\theta\in S^{d-1}$ 有 $W_p(\Pi^\theta_\#\mu,\Pi^\theta_\#\nu)=0$，因而 $\Pi^\theta_\#\mu=\Pi^\theta_\#\nu$. 为完成证明，希望把“几乎所有”加强为“所有”，以应用 Cramér--Wold 方法.
+
+为此，证明映射 $\theta\mapsto\Pi^\theta_\#\mu$ 的一个 Lipschitz 连续性质. 对 $\theta'\in S^{d-1}$ 与 $X\sim\mu$，
+$$W_p(\Pi^\theta_\#\mu,\Pi^{\theta'}_\#\mu)
+\le\bigl(\mathbb E[|\langle\theta-\theta',X\rangle|^p]\bigr)^{1/p}
+\le(\mathbb E\lVert X\rVert^p)^{1/p}\lVert\theta-\theta'\rVert.$$
+结合 $W_p$ 的三角不等式，可得
+$$\begin{aligned}
+&|W_p(\Pi^\theta_\#\mu,\Pi^\theta_\#\nu)-W_p(\Pi^{\theta'}_\#\mu,\Pi^{\theta'}_\#\nu)|\\
+&\le W_p(\Pi^\theta_\#\mu,\Pi^{\theta'}_\#\mu)+W_p(\Pi^\theta_\#\nu,\Pi^{\theta'}_\#\nu)
+\lesssim\lVert\theta-\theta'\rVert.
+\end{aligned}$$
+因此 $\theta\mapsto W_p(\Pi^\theta_\#\mu,\Pi^\theta_\#\nu)$ 连续，$\mathsf{SW}_p(\mu,\nu)=0$ 蕴含这个量对每个 $\theta\in S^{d-1}$ 都为零.\footnote{另一种论证如下：对几乎所有 $\theta$ 有 $\Pi^\theta_\#\mu=\Pi^\theta_\#\nu$，意味着 $\mu,\nu$ 的特征函数几乎处处相等. 而特征函数一致连续.}
+\end{proof}
+现在可以证明，切片 Wasserstein 距离可按参数速率估计.
+\begin{proposition}\label{prop:2.26}
+设 $\mu,\nu\in\mathcal P(B_1)$，其中 $B_1$ 是 $\mathbb R^d$ 的单位球，令 $\mu_n,\nu_n$ 表示由独立同分布样本 $X_1,\ldots,X_n\sim\mu$ 和 $Y_1,\ldots,Y_n\sim\nu$ 形成的相应经验测度. 则
+$$\mathbb E\mathsf{SW}_1(\mu_n,\mu)\lesssim n^{-1/2}.$$
+并且
+$$\mathbb E|\mathsf{SW}_1(\mu_n,\nu_n)-\mathsf{SW}_1(\mu,\nu)|\lesssim n^{-1/2}.$$
+\end{proposition}
+\begin{proof}
+第二个不等式由第一个不等式及三角不等式得到. 为证明第一个，注意 $\langle\theta,X_1\rangle$、$\ldots$、$\langle\theta,X_n\rangle$ 是来自 $\Pi^\theta_\#\mu$ 的独立同分布样本，$\Pi^\theta_\#\mu_n$ 是对应经验测度. 因此，由\autoref{prop:2.5}的一维速率，
+$$\mathbb EW_1(\Pi^\theta_\#\mu_n,\Pi^\theta_\#\mu)\lesssim n^{-1/2}.$$
+再对 $\theta$ 取平均即可.
+\end{proof}
+虽然我们以统计上的优点引出切片 Wasserstein 距离，它也恰好具有显著的计算优势. 事实上，计算 $\mathsf{SW}_p$ 归结为一维最优传输；对于离散测度，后者可通过排序求解，见\autoref{exer:2.5}.

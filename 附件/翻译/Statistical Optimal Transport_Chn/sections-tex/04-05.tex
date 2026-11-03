@@ -1,0 +1,23 @@
+\subsection{讨论}\label{sec:4.5}
+\noindent\textbf{\autoref{sec:4.1}.} 熵正则最优传输最初由文献\cite{ref97}为计算目的推广开来. 计算最优传输的介绍见\cite{ref257}，它很好地补充了这里对统计最优传输的讨论. 两个高斯分布之间的熵正则最优传输（\autoref{exer:4.4}）已在\cite{ref168,ref219}中算出.
+
+除统计应用之外，熵正则最优传输也被用于建立无正则化最优传输的数学结果\cite{ref78,ref131,ref141}.
+
+\noindent\textbf{\autoref{sec:4.2}.} 许多文献讨论了 Sinkhorn 算法的收敛性，见\cite{ref12,ref24,ref32,ref86,ref102,ref128,ref146,ref156,ref172,ref204}.
+
+\noindent\textbf{\autoref{sec:4.3}.} 本节的证明基于\cite{ref272}. 注意，这里得到的界无维数依赖，但随 $1/\varepsilon$ 指数增长. 熵正则最优传输的样本复杂度最早由\cite{ref140}建立，所得界的增长形式为 $e^{O(1/\varepsilon)}\varepsilon^{-O(d)}$. 后来，\cite{ref228}发现，稍作修改就可以去掉其中的指数因子. 这些界在低维时可能更好，但在高维时控制效果较差.
+
+近期工作还着重研究增长形式改为 $\varepsilon^{-O(d^\star)}$ 的界，其中参数 $d^\star$ 表示测度的内在维数，事实上是 $\mu$ 与 $\nu$ 两者内在维数的最小值. 与这里方法接近的路径见\autoref{exer:4.8}和\cite{ref292}，经验过程论证见\cite{ref157}.
+
+本节的技术不仅可以证明样本复杂度界，也可以得到分布极限\cite{ref106,ref153,ref228}. 这类界最初是在离散情形下得到的\cite{ref36,ref177}.
+
+熵正则最优传输有一个值得注意的特点：由于目标函数中存在熵项，一般有 $S(\mu,\mu)>0$. 鉴于此，Genevay 等人\cite{ref139}提出了“去偏”量
+$$D(\mu,\nu):=S(\mu,\nu)-\frac12(S(\mu,\mu)+S(\nu,\nu)),$$
+称为 $\mu$ 与 $\nu$ 之间的 Sinkhorn 散度\index{Sinkhorn divergence@Sinkhorn散度（Sinkhorn divergence）|hyperpage}（Sinkhorn divergence）. 可以证明，Sinkhorn 散度对每个变量都凸、非负，且等于零当且仅当 $\mu=\nu$\cite{ref132}. 与熵正则最优传输一样，Sinkhorn 散度可以以参数速率估计\cite{ref106,ref140}. 有人提倡将 Sinkhorn 散度用作估计 Wasserstein 距离的工具\cite{ref85}，不过用于映射估计时存在需要注意的限制\cite{ref263}.
+
+\noindent\textbf{\autoref{sec:4.4}.} \autoref{thm:4.11}给出了估计熵正则映射 $b^\star$ 的速率；如果结合一个量化 $b^\star$ 与真实最优传输映射 $T$ 之间距离的逼近结果，就可以将 $\widehat b$ 用作计算高效的 $T$ 的估计量，参见\cite{ref262}. 虽然它一般不具有极小极大最优性，但在半离散\index{semi-discrete optimal transport@半离散最优传输（semi-discrete optimal transport）|hyperpage}情形下具有这一性质\cite{ref264}.
+
+正如“熵正则回归函数”这一别称所表明的，熵正则映射还求解了关于熵正则耦合 $\gamma^\star$ 的一个回归问题；事实上，
+$$b^\star=\operatorname*{arg\,min}_{f:\mathbb R^d\to\mathbb R^d}
+\mathbb E_{\gamma^\star}\|Y-f(X)\|^2.$$
+如果将极小化限制在较小的候选回归函数类中，而非所有从 $\mathbb R^d$ 到 $\mathbb R^d$ 的映射上，对这一回归问题的分析仍是开放问题.

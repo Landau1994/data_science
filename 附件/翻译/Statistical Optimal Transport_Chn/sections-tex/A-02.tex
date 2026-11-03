@@ -1,0 +1,124 @@
+\subsection{强凸性与光滑性}\label{sec:A.2}
+
+\begin{definition}\label{def:A.7}
+若函数$f:\mathbb R^d\to\mathbb R\cup\{\infty\}$对任意$x,y\in\mathbb R^d$及$t\in[0,1]$满足
+$$
+f((1-t)x+ty)\leq(1-t)f(x)+tf(y)-\frac{\alpha t(1-t)}2\|y-x\|^2,
+$$
+则称$f$为$\alpha$-凸的（$\alpha$-convex），其中$\alpha\in\mathbb R$.
+\end{definition}
+$\alpha=0$的情形对应于\autoref{def:A.1}的凸性. 当$\alpha>0$时，称$f$为强凸的（strongly convex），上式加强了通常的凸性不等式；当$\alpha<0$时，称$f$为半凸的（semi-convex）.
+
+当$f$连续可微时，$\alpha$-凸性等价于下面第一条陈述. 当$f$二阶连续可微时，$\alpha$-凸性与下面两条陈述都等价.
+\begin{enumerate}
+\item 对任意$x,y\in\mathbb R^d$，$f(y)\geq f(x)+\langle\nabla f(x),y-x\rangle+\frac\alpha2\|x-y\|^2$.
+\item 对任意$x\in\mathbb R^d$，$\nabla^2f(x)\succeq\alpha I$.
+\end{enumerate}
+我们也给出与之对偶的性质，即二阶导数上界.
+
+\begin{definition}\label{def:A.8}
+若连续可微函数$f:\mathbb R^d\to\mathbb R$对任意$x,y\in\mathbb R^d$满足
+$$
+f(y)\leq f(x)+\langle\nabla f(x),y-x\rangle+\frac\beta2\|y-x\|^2,
+$$
+则称$f$为$\beta$-光滑的（$\beta$-smooth），其中$\beta\geq0$.
+\end{definition}
+
+当$f$二阶连续可微时，这等价于对任意$x\in\mathbb R^d$有$\nabla^2f(x)\preceq\beta I$. 若$f$还为凸函数，则$\nabla^2f(x)\succeq0$，因此$\nabla^2f(x)$的算子范数至多为$\beta$. 这又等价于映射$\nabla f:\mathbb R^d\to\mathbb R^d$是$\beta$-Lipschitz的（因此，凸且光滑的函数常被称为梯度Lipschitz函数）.
+
+强凸性与光滑性互为对偶性质. 为简单起见，下面假设$f$连续可微；这些假设其实可以适当放宽.
+
+\begin{lemma}\label{lem:A.9}
+设$f:\mathbb R^d\to\mathbb R$连续可微、凸，并且当$\|x\|\to\infty$时有$\|\nabla f(x)\|\to\infty$. 设$\alpha>0$. 则$f$为$\alpha$-强凸函数，当且仅当其凸共轭$f^*$为$1/\alpha$-光滑函数.
+\end{lemma}
+
+\begin{proof}
+由凸分析中的经典结果（参见\cite[定理25.5、定理26.6和引理26.7]{ref274}），在我们的假设下，$\nabla f:\mathbb R^d\to\mathbb R^d$是微分同胚，其逆为$\nabla f^*$.
+
+（$\implies$）将强凸性的一阶条件与交换$x,y$所得的不等式相加，得到
+$$
+\langle\nabla f(x)-\nabla f(y),x-y\rangle\geq\alpha\|x-y\|^2.
+$$
+令$x=\nabla f^*(x')$、$y=\nabla f^*(y')$，并回顾$\nabla f\circ\nabla f^*=\mathrm{id}$. 上式说明，对任意$x',y'\in\mathbb R^d$，
+$$
+\langle x'-y',\nabla f^*(x')-\nabla f^*(y')\rangle
+\geq\alpha\|\nabla f^*(x')-\nabla f^*(y')\|^2.
+$$
+对左侧应用Cauchy--Schwarz不等式并整理，可知$\nabla f^*$是$1/\alpha$-Lipschitz的. 如上所述，这等价于$f^*$为$1/\alpha$-光滑函数.
+
+（$\impliedby$）由$f^*$的光滑性，
+$$
+\begin{aligned}
+f(y)&=\sup_{y'\in\mathbb R^d}\{\langle y,y'\rangle-f^*(y')\}\\
+&\geq\sup_{y'\in\mathbb R^d}\bigl\{\langle y,y'\rangle-f^*(x')
+-\langle\nabla f^*(x'),y'-x'\rangle-\tfrac1{2\alpha}\|y'-x'\|^2\bigr\}\\
+&=-f^*(x')+\langle y,x'\rangle+\frac\alpha2\|y-\nabla f^*(x')\|^2.
+\end{aligned}
+$$
+取$x'=\nabla f(x')$，使得$\nabla f^*(x')=x$，并回顾$f(x)+f^*(x')=\langle x,x'\rangle$. 于是
+$$
+f(y)-f(x)-\langle\nabla f(x),y-x\rangle\geq\frac\alpha2\|y-x\|^2,
+$$
+证明完成.
+\end{proof}
+
+注意，若$f,f^*$二阶连续可微，则$f$为$\alpha$-强凸函数当且仅当$\nabla^2 f\succeq\alpha I$；而$f^*$为$1/\alpha$-光滑函数当且仅当
+$$
+\nabla^2f^*=(\nabla^2f)^{-1}\circ\nabla f^*\preceq\alpha^{-1}I,
+$$
+这给出了一个更直观的证明.
+
+强凸性还蕴含下面的性质；它可以视为“凸性保证局部最优点为全局最优点”这一原理的一个强定量形式.
+
+\begin{definition}[Polyak--Łojasiewicz不等式]\label{def:A.10}\index{Polyak–Łojasiewicz (PŁ) inequality@Polyak–Łojasiewicz（PŁ）不等式（Polyak–Łojasiewicz (PŁ) inequality）|hyperpage}
+若连续可微函数$f:\mathbb R^d\to\mathbb R$对任意$x\in\mathbb R^d$满足
+$$
+\|\nabla f(x)\|^2\geq2\alpha\bigl(f(x)-\inf f\bigr),
+$$
+则称$f$满足常数为$\alpha>0$的Polyak--Łojasiewicz（PŁ）不等式（Polyak--Łojasiewicz inequality）.
+\end{definition}
+
+\begin{lemma}\label{lem:A.11}
+若$f:\mathbb R^d\to\mathbb R$连续可微且为$\alpha$-凸函数，其中$\alpha>0$，则它满足常数为$\alpha$的PŁ不等式.
+\end{lemma}
+\begin{proof}
+以$x_\star$表示$f$的极小化点. 则
+$$
+\inf f=f(x_\star)\geq f(x)+\langle\nabla f(x),x_\star-x\rangle
++\frac\alpha2\|x_\star-x\|^2.
+$$
+由Cauchy--Schwarz不等式和Young不等式，
+$$
+\begin{aligned}
+\langle\nabla f(x),x_\star-x\rangle
+&\geq-\|\nabla f(x)\|\,\|x_\star-x\|\\
+&\geq-\frac1{2\alpha}\|\nabla f(x)\|^2-\frac\alpha2\|x_\star-x\|^2.
+\end{aligned}
+$$
+代入并整理即得证明.
+\end{proof}
+
+还要指出，强凸性蕴含函数在极小化点附近的二次增长.
+\begin{lemma}\label{lem:A.12}
+若$f:\mathbb R^d\to\mathbb R\cup\{\infty\}$为$\alpha$-凸函数，$x_\star$为$f$的极小化点，则对任意$x\in\mathbb R^d$，
+\begin{equation}\label{eq:A.2}
+f(x)-f(x_\star)\geq\frac\alpha2\|x-x_\star\|^2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+强凸性不等式给出
+$$
+f((1-t)x_\star+tx)\leq(1-t)f(x_\star)+tf(x)
+-\frac{\alpha t(1-t)}2\|x-x_\star\|^2,
+$$
+或者写成
+$$
+\begin{aligned}
+0&\leq f((1-t)x_\star+tx)-f(x_\star)\\
+&\leq t\left[f(x)-f(x_\star)-\frac{\alpha(1-t)}2\|x-x_\star\|^2\right].
+\end{aligned}
+$$
+整理，两边除以$t$，再令$t\searrow0$，即证结论.
+\end{proof}
+
+事实上，在\autoref{sec:5}的\autoref{exer:5.5}中，我们将进一步说明，PŁ不等式本身就蕴含增长不等式\eqref{eq:A.2}. 关于这些不等式之间关系的简明论述，参见\cite[附录A]{ref174}.

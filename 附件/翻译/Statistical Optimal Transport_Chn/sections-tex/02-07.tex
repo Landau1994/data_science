@@ -1,0 +1,88 @@
+\subsection{光滑测度的更快速率}\label{sec:2.7}
+上一节表明，一般而言，没有估计量能避开缓慢的 $n^{-1/d}$ 速率.
+
+缓解这种维数灾难有多种方式. 本章余下部分介绍两种主要思路. 本节对测度 $\mu$ 施加光滑性假设. 这类假设在非参数统计中是经典的，也已知能部分缓解维数灾难. 下一节则说明，如何修改或正则化 Wasserstein 距离，得到性质相近的其他距离，从而完全绕开维数灾难.\footnote{由于我们关心衰减速率指数的改进，为清楚起见，本章余下部分忽略界中依赖维数的常数.}
+
+根据\autoref{thm:2.15}的下界，对 $\mu$ 施加光滑性条件能够改善速率是自然的. 该证明中的测度是 Dirac 质量的混合，因而极其“不规则”，甚至没有关于 Lebesgue 测度的密度. 假设 $\mu$ 光滑，便排除了这些病态例子.
+
+为数学上的方便，考虑定义在环面 $\mathbb T^d:=\mathbb R^d/(2\pi\mathbb Z)^d$ 上的光滑密度. 具体而言，可以把它视为与集合 $[0,2\pi)^d$ 同构，配备度量 $\mathsf d_{\mathbb T^d}(x,y):=\min_{z\in\mathbb Z^d}\lVert x-y-2\pi z\rVert$. 在这个空间中，Wasserstein 距离与\autoref{sec:2.4}定义的 $\widetilde W_1$ 一致.
+
+之所以聚焦环面，是为了再次使用 Fourier 分析工具. 一个相似但技术上稍复杂的论证可以把本节结果推广到标准欧氏空间. 注意，上一节证明的 $n^{-1/d}$ 极小极大下界在环面上仍成立，所以改用这个设定并未改变问题的根本统计难度.
+
+考虑 $\mathbb T^d$ 上有密度的概率测度 $\mu$，仍用 $\mu$ 表示其密度. 我们假设该密度是光滑的，具体指它属于某个 Sobolev\index{Sobolev space@Sobolev空间（Sobolev space）|hyperpage} 空间.
+\begin{definition}\label{def:2.16}
+给定正整数 $s$，Sobolev 空间（Sobolev space）$\mathcal H^s$ 由所有函数 $f:\mathbb T^d\to\mathbb R$ 组成，使得对于每个满足 $|\alpha|\le s$ 的多重指标 $\alpha$，导数 $d^\alpha f$ 属于 $L^2$. 对 $f\in\mathcal H^s$，其 Sobolev 范数定义为
+$$\lVert f\rVert_{\mathcal H^s}^2=\max_{|\alpha|\le s}\int_{\mathbb T^d}\lVert d^\alpha f\rVert^2\,dx.$$
+\end{definition}
+Sobolev 空间的重要性在于它与 Fourier 级数的紧密联系. 若 $\mu\in\mathcal H^s$，则其 Fourier 变换 \eqref{eq:2.9} 满足
+$$\sum_{m\in\mathbb Z^d}(1+\lVert m\rVert^{2s})|\phi_\mu(m)|^2<\infty.$$
+此外，这个用 Fourier 系数给出的表达式实际上给出范数等价关系. 事实上，由 Fourier 表示
+$$\mu(x)\propto\sum_{m\in\mathbb Z^d}\phi_\mu(m)e^{-\mathbf i\langle m,x\rangle},$$
+可得对任意多重指标 $\alpha$，
+$$d^\alpha\mu(x)\propto\sum_{m\in\mathbb Z^d}m^{2\alpha}\phi_\mu(m)e^{-\mathbf i\langle m,x\rangle},$$
+其中 $m^\alpha=m_1^{\alpha_1}\cdots m_d^{\alpha_d}$. 由 Parseval 恒等式，
+\begin{align}
+\int_{\mathbb T^d}\lVert d^\alpha\mu\rVert^2\,dx
+&\asymp\sum_{m\in\mathbb Z^d}m^{2\alpha}|\phi_\mu(m)|^2,\label{eq:2.15}\\
+&\lesssim\sum_{m\in\mathbb Z^d}(1+\lVert m\rVert^{2s})|\phi_\mu(m)|^2.\label{eq:2.16}
+\end{align}
+另一方面，由二项式定理，
+$$\lVert m\rVert^{2s}=\sum_{|\alpha|=s}m^{2\alpha}.$$
+根据 \eqref{eq:2.15}，有
+\begin{equation}\label{eq:2.17}
+\begin{aligned}
+\sum_{m\in\mathbb Z^d}\lVert m\rVert^{2s}|\phi_\mu(m)|^2
+&=\sum_{m\in\mathbb Z^d}\sum_{|\alpha|=s}m^{2\alpha}|\phi_\mu(m)|^2\\
+&\lesssim\sum_{|\alpha|=s}\int_{\mathbb T^d}\lVert d^\alpha\mu\rVert^2\,dx.
+\end{aligned}
+\end{equation}
+由 \eqref{eq:2.16} 与 \eqref{eq:2.17}（也对 $s=0$ 应用后者），便证明了
+$$\lVert\mu\rVert_{\mathcal H^s}^2\asymp\sum_{m\in\mathbb Z^d}(1+\lVert m\rVert^{2s})|\phi_\mu(m)|^2.$$
+
+我们构造估计量 $\tilde\mu_n$：估计 $\mu$ 在所有满足 $\lVert m\rVert\le M$ 的 $m\in\mathbb Z^d$ 处的 Fourier 系数. 具体地，定义
+$$\widehat\phi_\mu(m)=\phi_{\mu_n}(m)=\frac1n\sum_{j=1}^n e^{\mathbf i\langle m,X_j\rangle},$$
+然后对任意 $M\ge1$，令
+$$\tilde\mu_n(x)=\frac1{(2\pi)^d}\sum_{\lVert m\rVert\le M}\widehat\phi_\mu(m)e^{-\mathbf i\langle m,x\rangle}.$$
+注意，虽然 $\tilde\mu_n$ 总是 $\mathbb T^d$ 上积分为 $1$ 的实值函数，但它可能并非处处非负；这里暂且忽略这一问题. 即使密度 $\tilde\mu_n$ 取负值，以对偶表示 \eqref{eq:2.7} 定义 $\widetilde W_1$，仍使 $\widetilde W_1(\mu,\tilde\mu_n)$ 具有合理含义.
+
+有如下结果.
+\begin{proposition}\label{prop:2.17}
+假设 $\mu\in\mathcal H^s(\mathbb T^d)$，且 $\lVert\mu\rVert_{\mathcal H^s}\lesssim1$. 对任意 $M\ge1$ 和 $d\ge3$，上述估计量 $\tilde\mu_n$ 满足
+$$\mathbb E\widetilde W_1(\mu,\tilde\mu_n)\lesssim n^{-1/2}M^{d/2-1}+M^{-(s+1)}.$$
+\end{proposition}
+\begin{proof}
+首先注意
+$$\begin{aligned}
+\widetilde W_1(\mu,\tilde\mu_n)^2
+&\lesssim\sum_{m\ne0,\ \lVert m\rVert\le M}\lVert m\rVert^{-2}|\phi_\mu(m)-\widehat\phi_\mu(m)|^2\\
+&\quad+\sum_{\lVert m\rVert>M}\lVert m\rVert^{-2}|\phi_\mu(m)|^2.
+\end{aligned}$$
+这直接来自\autoref{prop:2.9}，因为有符号测度 $\tilde\mu_n$ 在 $\lVert m\rVert\le M$ 时的 Fourier 系数为 $\widehat\phi_\mu(m)$，其余为零. 如\autoref{sec:2.4}，利用 $|e^{\mathbf i\langle m,X_j\rangle}|\le1$，可得 $\mathbb E|\phi_\mu(m)-\widehat\phi_\mu(m)|^2\le n^{-1}$. 因而
+$$\mathbb E\widetilde W_1(\mu,\tilde\mu_n)
+\le n^{-1/2}\sqrt{\sum_{m\ne0,\ \lVert m\rVert\le M}\lVert m\rVert^{-2}}
++\sqrt{\sum_{\lVert m\rVert>M}\lVert m\rVert^{-2}|\phi_\mu(m)|^2}.$$
+继续之前，先把这个界与 \eqref{eq:2.13} 比较. 有两点区别：首先，\eqref{eq:2.13} 中的光滑截断项 $e^{-\varepsilon\lVert m\rVert^2}$ 被限制 $\lVert m\rVert\le M$ 取代. 这一改变并不本质，因为当 $\lVert m\rVert^2\gg\varepsilon^{-1}$ 时，$e^{-\varepsilon\lVert m\rVert^2}\ll1$，所以光滑截断项模拟了 $\lVert m\rVert\lesssim\varepsilon^{-1/2}$ 的限制. 第二点区别是，\eqref{eq:2.13} 的 $2\sqrt{2\varepsilon}$ 被一个依赖 $\mu$ 高频 Fourier 系数的项取代. 这一改变至关重要，因为下面将说明，当 $\mu$ 光滑时，它使第二项自动减小.
+
+由于 $\sum_{m\in\mathbb Z^d}\lVert m\rVert^{2s}|\phi_\mu(m)|^2\lesssim1$，可写成
+$$\begin{aligned}
+\sum_{\lVert m\rVert>M}\lVert m\rVert^{-2}|\phi_\mu(m)|^2
+&\le M^{-2(s+1)}\sum_{\lVert m\rVert>M}\lVert m\rVert^{2s}|\phi_\mu(m)|^2\\
+&\lesssim M^{-2(s+1)}.
+\end{aligned}$$
+对于第一项，可以把和式与积分 $\bigl(\int_{1\le\lVert x\rVert\le M}\lVert x\rVert^{-2}\,dx\bigr)^{1/2}$ 比较；当 $d\ge3$ 时，它的阶为 $M^{d/2-1}$.
+\end{proof}
+适当调节 $M$，便得到如下定理.
+\begin{theorem}\label{thm:2.18}
+若 $\mu\in\mathcal H^s(\mathbb T^d)$，且 $\lVert\mu\rVert_{\mathcal H^s}\lesssim1$，则存在估计量 $\tilde\mu_n$，使
+$$\mathbb E\widetilde W_1(\mu,\tilde\mu_n)\lesssim n^{-\frac{s+1}{d+2s}}.$$
+\end{theorem}
+\begin{proof}
+在\autoref{prop:2.17}中取 $M\asymp n^{1/(d+2s)}$.
+\end{proof}
+\autoref{thm:2.18}说明，$s>0$ 时，估计量 $\tilde\mu_n$ 严格优于经验测度 $\mu_n$. 不过，$\tilde\mu_n$ 是有符号测度，可能被认为不够理想. 这是非参数统计中的常见现象：例如，为很光滑的密度设计核密度估计量时，必须使用会取负值的高阶核. 若希望得到正的估计量，则可以证明如下定义的估计量
+$$\bar\mu_n:=\mathop{\mathrm{arg\,min}}_{\nu\in\mathcal P(\mathbb T^d)}\widetilde W_1(\nu,\tilde\mu_n)$$
+也达到\autoref{thm:2.18}中的界. 事实上，由于 $\mu\in\mathcal P(\mathbb T^d)$，
+$$\widetilde W_1(\mu,\bar\mu_n)
+\le\widetilde W_1(\mu,\tilde\mu_n)+\widetilde W_1(\bar\mu_n,\tilde\mu_n)
+\le2\widetilde W_1(\mu,\tilde\mu_n),$$
+所以 $\bar\mu_n$ 至多比 $\tilde\mu_n$ 差一个 $2$ 的因子.

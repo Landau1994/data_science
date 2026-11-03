@@ -1,0 +1,49 @@
+\subsection{高斯混合}\label{sec:5.6}
+
+在\autoref{sec:5.5}的思想之上，现在考虑丰富得多的高斯混合空间上的梯度流. 事实上，如下文所解释的，换一种恰当视角，$\mathbb R^d$ 上任意测度都可以视为高斯混合.
+
+在此之前，先指出：类似于\autoref{sec:5.5}的做法，直接将 Wasserstein 梯度流限制在高斯混合空间上，是行不通的. 问题在于，无法显式计算两个高斯混合之间的最优传输映射，即便在无穷小层面也不行，所以无法认出切空间；除非每个高斯混合只有一个分量，或只有一维. 不过，根据\cite{ref69,ref107}，可以考虑一种自然的几何结构：Bures--Wasserstein 之上的 Wasserstein 几何.
+
+通常将高斯混合介绍为形如 $\sum_{k=1}^Kw_k\mathcal N(m_k,\Sigma_k)$ 的分布，其中混合权重 $w_k\geq0$、$\sum_{k=1}^Kw_k=1$；但可以更广泛地将高斯混合定义为形如 $\int\mathcal N(m,\Sigma)\,\nu(dm,d\Sigma)$ 的测度. 上述有限高斯混合对应于离散混合测度（mixing measure）$\nu=\sum_{k=1}^Kw_k\delta_{(m_k,\Sigma_k)}$. 这个更广泛的新定义本身几乎没有用，因为任意测度 $\mu$ 都可以如此表示：$\mu=\int\delta_x\,\mu(dx)$，其中 $\delta_x=\mathcal N(x,0)$ 为退化高斯分布. 而且，用混合测度 $\nu$ 表示高斯混合是“过参数化”的，即 $\nu$ 极不唯一：考虑等式 $\mathcal N(0,I)=\int\mathcal N(x,\tau I)\,\nu(dx)$，其中 $\nu=\mathcal N(0,(1-\tau)I)$，它对任意 $\tau\in[0,1]$ 都成立. 尽管如此，这一视角有用之处在于，它给出自然解释：高斯混合的混合测度就是 Bures--Wasserstein 空间上的概率测度. 下面看这如何引出几何结构的定义.
+
+Bures--Wasserstein 空间是黎曼流形. 如前所述，赋予某种黎曼度量的流形 $\mathbb R^d\times\mathbb S_{++}^d$ 与空间 $\mathsf{BW}(\mathbb R^d)$ 等距. 以下考虑由 Otto 微积分产生的度量，但这里也可以采用任意其他度量，包括欧氏度量.
+
+也可在任意度量空间上考虑有限二阶矩的概率测度空间，并赋予它 $2$-Wasserstein 距离. 的确，回顾\autoref{sec:1.1}，最优传输问题可以用更一般的代价定义，所以可以取度量空间上的距离平方作为代价.
+
+当该度量空间为黎曼流形时，适当修改后，\autoref{sec:5.1}至\autoref{sec:5.4}的结果仍然成立. 这里不作详细论证，但建议读者从新的视角重读这些节. 例如 ODE \eqref{eq:5.1}仍有意义，只要记住流形 $\mathcal M$ 上的向量场 $v$，是给每一点 $x\in\mathcal M$ 指定切向量 $v(x)\in T_x\mathcal M$ 的映射 $x\mapsto v(x)$. 连续性方程的弱形式\eqref{eq:5.3}也仍有意义，其中 $\nabla$ 现在指黎曼梯度；若将 $\mu_t$ 解释为关于体积测度的密度，甚至\eqref{eq:5.2}也有意义，等等. 事实上，这一几何背景是最优传输理论中一些最深刻进展的源头，见\cite{ref317}.
+
+对我们而言，关键在于\autoref{prop:5.10}给出的 Wasserstein 梯度公式仍然成立，同样将 $\nabla$ 解释为黎曼梯度.
+
+综合上述讨论，可以推导出位于空间 $(\mathcal P_2(\mathsf{BW}(\mathbb R^d)),W_2)$ 中的 Wasserstein 梯度流.
+
+\begin{theorem}\label{thm:5.23}
+给定 $\nu\in\mathcal P_2(\mathsf{BW}(\mathbb R^d))$，用 $G_\nu$ 表示相应的高斯混合
+$$G_\nu=\int\mathcal N(m,\Sigma)\,\nu(dm,d\Sigma).$$
+设 $\mathcal F$ 为 $\mathcal P_2(\mathbb R^d)$ 上的泛函，$\mathcal G$ 为 $\mathcal P_2(\mathsf{BW}(\mathbb R^d))$ 上由 $\nu\mapsto\mathcal F(G_\nu)$ 给出的对应泛函. 那么，$\mathcal G$ 的 Wasserstein 梯度流为如下曲线 $(\nu_t)_{t\geq0}$：$\nu_t=\operatorname{law}(m_t,\Sigma_t)$，其中
+$$
+\begin{aligned}
+\dot m_t&=-\mathbb E\nabla\delta\mathcal F(G_{\nu_t})(X_t),\\
+\dot\Sigma_t&=-\mathbb E\nabla^2\delta\mathcal F(G_{\nu_t})(X_t)\,\Sigma_t
+-\Sigma_t\mathbb E\nabla^2\delta\mathcal F(G_{\nu_t})(X_t),
+\end{aligned}
+$$
+且 $X_t\sim\mathcal N(m_t,\Sigma_t)$.
+\end{theorem}
+\begin{proof}
+$\mathcal G$ 的一阶变分如下计算. 若 $(\nu_t)_{t\in\mathbb R}$ 是 $\mathcal P_2(\mathsf{BW}(\mathbb R^d))$ 中的曲线，则
+$$\partial_tG_{\nu_t}=\int\mathcal N(m,\Sigma)\,\partial_t\nu_t(dm,d\Sigma).$$
+因此
+$$
+\begin{aligned}
+\partial_t\mathcal G(\nu_t)
+&=\partial_t\mathcal F(G_{\nu_t})
+=\int\delta\mathcal F(G_{\nu_t})\,\partial_tG_{\nu_t}\\
+&=\iint\delta\mathcal F(G_{\nu_t})\,d\mathcal N(m,\Sigma)\,\partial_t\nu_t(dm,d\Sigma).
+\end{aligned}
+$$
+所以一阶变分为
+$$
+\delta\mathcal G(\nu):(m,\Sigma)\mapsto\int\delta\mathcal F(G_\nu)\,d\mathcal N(m,\Sigma).
+$$
+根据 $\mathsf{BW}(\mathbb R^d)$ 与 $\mathbb R^d\times\mathbb S_{++}^d$ 的对应，$\delta\mathcal G(\nu)$ 在 $(m,\Sigma)$ 处的黎曼梯度，与泛函 $\mu\mapsto\int\delta\mathcal F(G_\nu)\,d\mu$ 在 $\mu=\mathcal N(m,\Sigma)$ 处的 Bures--Wasserstein 梯度相同，而后者已在\autoref{thm:5.21}中计算. 因此结论由\autoref{thm:5.22}得到.
+\end{proof}

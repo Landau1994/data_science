@@ -1,0 +1,21 @@
+\subsection{讨论}\label{sec:3.7}
+\noindent\textbf{\autoref{sec:3.1}.} 基于最近邻的经验“代入”（plug-in）方法在文献\cite{ref104,ref147,ref221}中发展起来，作为半对偶方法的一个简单替代方案. 最近邻估计量虽然不适应 $\mu$ 和 $\nu$ 的光滑性，但通过密度估计量之间的最优传输映射，可以重新得到极小极大速率\cite{ref221}，甚至得到中心极限定理\cite{ref223}. 不过，与代入方法相比，这里发展的半对偶方法总体上更灵活，可以与核平方和（kernel SoS）等其他工具结合\cite{ref305}.
+
+\noindent\textbf{\autoref{sec:3.2}.} 映射估计的半对偶方法由论文\cite{ref166}引入；该文还证明了半对偶稳定性估计与极小极大下界. 该文表明，如果假设 $\mu$ 与 $\nu$ 之间的映射是 $s$-光滑的，即具有 $s$ 阶有界导数，那么适当的半对偶估计量达到极小极大最优速率
+\begin{equation}\label{eq:3.9}
+\mathbb E\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}^2
+\lesssim n^{-\frac{2\alpha}{2\alpha-2+d}}(\log n)^2+\frac1n.
+\end{equation}
+此后，文献\cite{ref112}极其一般地研究了这一方法，该文中的论证与本章的论证密切相关. 不过，这里介绍的工具尚不足以证明 \eqref{eq:3.9}，因为 $s$-光滑函数类不满足 \eqref{eq:3.5}. 关于如何沿本章论证的思路得到 \eqref{eq:3.9}，更多信息见\cite[第4.4节]{ref112}.
+
+\autoref{exer:3.3}和\autoref{exer:3.5}中另外两种半对偶稳定性估计取自\cite{ref221}.
+
+\noindent\textbf{\autoref{sec:3.3}.} 文献\cite{ref112}将高斯分布之间的传输映射估计作为半对偶方法给出参数速率的一个例子；其他感兴趣的函数类可参见该文.
+
+\noindent\textbf{\autoref{sec:3.4}.} 经验风险最小化或 M-估计（M-estimation）的标准参考文献包括\cite{ref308,ref318}. “慢速率”是缺乏强凸性时 M-估计问题的典型特征；\autoref{sec:3.6}采用的 Poincar\'e 不等式假设，可以视为半对偶泛函 $\mathcal S$ 的适当强凸性条件.
+
+\noindent\textbf{\autoref{sec:3.5}.} 所用的一次性局部化（one-shot localization）来自 van de Geer\cite{ref306,ref307}，为通常的局部化论证（例如\cite[第14章]{ref318}）提供了替代方法.
+
+\noindent\textbf{\autoref{sec:3.6}.} \autoref{prop:3.10}中改进的链式界由 Talagrand 发展的“一般链式法”（generic chaining）\cite{ref298}得到. 这一技术是高斯过程研究的核心，见\cite{ref299}. \autoref{prop:3.11}的尾界来自关于一般链式界的一个更广泛结果\cite[定理2.2.19]{ref309}.
+
+Poincar\'e 不等式是高维概率中的标准工具，见\cite{ref30,ref51,ref310}. 能否不作这一假设而达到本章给出的速率，目前仍是一个开放问题.

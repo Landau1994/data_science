@@ -1,0 +1,37 @@
+\subsection{黎曼几何基础}\label{sec:5.2}
+
+继续之前，先简要、非正式地介绍所需的黎曼几何概念.
+
+流形（manifold）$\mathcal M$ 是局部同胚于欧氏空间 $\mathbb R^d$ 的集合. 在每一点 $p\in\mathcal M$，可以关联一个切空间（tangent space）$T_p\mathcal M$：它是 $d$ 维向量空间，表示经过 $p$ 的曲线所有可能的速度向量. 黎曼度量（Riemannian metric）是在每个切空间上选择一个内积 $\mathfrak g_p$；赋予这一度量后，流形就称为黎曼流形. 为强调其 Hilbert 结构，通常直接用 $\langle\cdot,\cdot\rangle_p$ 表示度量 $\mathfrak g_p$. 为恰当建立微分学理论，一般还要对这些对象施加光滑性假设，但这里侧重于基本语言，不深入细节. 对 Wasserstein 空间，已经为 $\mu_t$ 处的“切向量”（速度场）$v_t$ 找到一个自然范数，即 $L^2$ 范数 $\sqrt{\mathfrak g_{\mu_t}(v_t,v_t)}=\|v_t\|_{\mu_t}$，这提示我们还可以找到黎曼理论的更多 Wasserstein 类比.
+
+下一个重要概念是测地线（geodesic）. 对 $\mathcal M$ 中曲线 $(p_t)_{t\in[0,1]}$，用 $\dot p_t\in T_{p_t}\mathcal M$ 表示时刻 $t$ 的切向量. 给定 $p_0,p_1\in\mathcal M$，二者之间的测地线或最短路径\footnote{在黎曼几何中，通常把测地线定义为仅局部极小化长度的曲线；本书始终用“测地线”指最短路径.}通过求解以下任一变分问题得到：
+$$
+\min_{(p_t)_{t\in[0,1]}}\int\|\dot p_t\|_{p_t}\,dt
+\qquad\text{或}\qquad
+\min_{(p_t)_{t\in[0,1]}}\int\|\dot p_t\|_{p_t}^2\,dt,
+$$
+其中优化范围为连接 $p_0$ 与 $p_1$ 的曲线. 第一个问题的目标泛函是曲线弧长；第二个问题的目标泛函称为能量. 第二种在技术上更方便. 的确，弧长在重新参数化下不变，即对任意连续严格递增函数 $f:[0,1]\to[0,1]$，将 $(p_t)_{t\in[0,1]}$ 换成 $(p_{f(t)})_{t\in[0,1]}$ 不改变弧长，所以第一个问题的解只能在相差重新参数化的意义下唯一. 第二个问题则选出最优曲线的特定参数化，即常速曲线，亦即 $t\mapsto\|\dot p_t\|_{p_t}$ 为常数. 此后只考虑常速测地线，因而省略“常速”这一修饰词.
+
+两变分问题的值分别为 $\mathsf d(p_0,p_1)$ 与 $\mathsf d^2(p_0,p_1)$，其中 $\mathsf d$ 是黎曼度量 $\langle\cdot,\cdot\rangle$ 在 $\mathcal M$ 上诱导的度量空间意义下的度量.
+
+指数映射（exponential map）\footnote{这一名称源于经典流形例子：正交矩阵的集合. 它在单位矩阵处的切空间是反对称矩阵的集合，且指数映射 $\exp_I(A)=\exp(A)$ 就是矩阵指数.}$\exp_p:T_p\mathcal M\to\mathcal M$ 将切向量 $v$ 映为 $p_1$，其中 $(p_t)_{t\in[0,1]}$ 是满足 $p_0=p$、$\dot p_0=v$ 的常速测地线. 其逆映射称为对数映射（logarithmic map）$\log_p:\mathcal M\to T_p\mathcal M$，将 $q$ 映为 $\exp_p^{-1}(q)$. 实际上，指数映射一般未必定义在整个 $T_p\mathcal M$ 上，因为测地线延伸过远后，可能不再是端点间的最短路径；例如，考虑继续延伸球面上从北极到南极的测地线.
+
+有了测地线，就可以定义凸性、梯度和梯度流，它们是曲空间优化的基本构件. 若对所有 $p_0,p_1\in C$ 与 $t\in[0,1]$，都有 $(1-t)p_0+tp_1\in C$，则称 $C\subseteq\mathbb R^d$ 为凸集. 此定义中，$t\mapsto(1-t)p_0+tp_1$ 是连接 $p_0$ 与 $p_1$ 的欧氏测地线. 推广到黎曼流形：若对所有 $p_0,p_1\in C$，连接二者的所有测地线都位于 $C$ 中，则称 $C\subseteq\mathcal M$ 为测地凸\index{Geodesic convexity@测地凸性（Geodesic convexity）|hyperpage}（geodesically convex）集.
+
+还可以定义函数的凸性. 给定 $\alpha\in\mathbb R$，若函数 $f:\mathcal M\to\mathbb R$ 对所有 $t\in[0,1]$ 及所有测地线 $(p_t)_{t\in[0,1]}$ 满足
+\begin{equation}\label{eq:5.6}
+f(p_t)\leq(1-t)f(p_0)+tf(p_1)-\frac{\alpha t(1-t)}2\mathsf d^2(p_0,p_1),
+\end{equation}
+则称它为 $\alpha$-测地凸函数. 等价地，有一阶条件
+$$
+f(q)\geq f(p)+\langle\nabla f(p),\log_p(q)\rangle_p+\frac\alpha2\mathsf d^2(p,q),
+\qquad\forall p,q\in\mathcal M,
+$$
+其中黎曼梯度（Riemannian gradient）$\nabla f$ 定义为：对所有曲线 $(p_t)_{t\geq0}$，$\nabla f(p_t)\in T_{p_t}\mathcal M$ 满足 $\partial_tf(p_t)=\langle\nabla f(p_t),\dot p_t\rangle_{p_t}$. 等价地，还有二阶条件
+$$
+\nabla^2f(p)[v,v]\geq\alpha\|v\|_p^2,
+\qquad\forall p\in\mathcal M,\ \forall v\in T_p\mathcal M,
+$$
+其中黎曼 Hessian $\nabla^2f$ 可由 $\nabla^2f(p)[v,v]:=\left.\partial_t^2f(p_t)\right|_{t=0}$ 定义，这里 $(p_t)_{t\in[0,1]}$ 为满足 $p_0=p$、$\dot p_0=v$ 的测地线.
+
+下一节回到 $\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$. 虽然它不是真正的黎曼流形，却具备足够的结构，允许应用黎曼几何的计算法则；事实上，厚重的专著\cite{ref18}就致力于为此建立严格基础. 这产生了一套以 Felix Otto 命名的 Otto 微积分工具，用于研究概率测度空间上的梯度流.

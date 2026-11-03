@@ -1,0 +1,146 @@
+\subsection{习题}\label{sec:5.10}
+
+以下习题中，可以使用 Wasserstein 距离平方的 Wasserstein 梯度公式：
+\begin{equation}\label{eq:5.30}
+[\nabla\mkern-10mu\nabla W_2^2(\cdot,\nu)](\mu)=2(\mathrm{id}-T_{\mu\to\nu}).
+\end{equation}
+这里不给出\eqref{eq:5.30}的完整证明，不过其上界很容易建立（\autoref{exer:5.3}）.
+
+\begin{exercise}\label{exer:5.1}
+设 $X_0\sim\mu_0$，其中 $\mu_0$ 为 $\mathbb R^2$ 上的标准高斯分布. 对 $t\geq0$，令 $X_t=R_tX_0$，其中 $R_t$ 表示旋转 $\theta(t)$ 弧度. 计算满足 $\dot X_t=v_t(X_t)$ 的向量场 $v_t$，并证明对所有 $t\geq0$ 都有 $\operatorname{div}(\mu_0v_t)=0$，从而对所有 $t\geq0$ 有 $X_t\sim\mu_0$.
+\end{exercise}
+
+\begin{exercise}\label{exer:5.2}
+证明 $\mathbb R^d$ 上的乘积测度集合是 $\mathcal P_2(\mathbb R^d)$ 的测地凸子集.
+\end{exercise}
+
+\begin{exercise}\label{exer:5.3}
+假设 $(X_t)_{t\in\mathbb R}$ 服从 ODE $\dot X_t=v_t(X_t)$，从而 $\mu_t=\operatorname{law}(X_t)$ 按连续性方程 $\partial_t\mu_t+\operatorname{div}(\mu_tv_t)=0$ 演化，且 $\mu_0=\mu$. 证明
+$$
+\limsup_{h\searrow0}\frac{W_2^2(\mu_h,\nu)-W_2^2(\mu_0,\nu)}h
+\leq2\langle\mathrm{id}-T_{\mu\to\nu},v_0\rangle_\mu.
+$$
+提示：令 $X_0\sim\mu$ 与 $Y\sim\nu$ 最优耦合.
+\end{exercise}
+
+\begin{exercise}\label{exer:5.4}
+设 $\mathcal F:\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)\to\mathbb R\cup\{\infty\}$ 为在 $\pi$ 处取最小值的测地凸泛函. 用 $(\mu_t)_{t\geq0}$ 表示 $\mathcal F$ 的 Wasserstein 梯度流. 对 $t\mapsto2t\mathcal F(\mu_t)+W_2^2(\mu_t,\pi)$ 求导，证明
+$$
+\mathcal F(\mu_t)-\inf\mathcal F\leq\frac{W_2^2(\mu_0,\pi)}{2t}.
+$$
+\end{exercise}
+
+\begin{exercise}\label{exer:5.5}
+设 $\mathcal F:\mathcal P_{2,\mathrm{ac}}\to\mathbb R\cup\{\infty\}$ 为泛函. 我们已经看到，$\mathcal F$ 的 $\alpha$-强凸性蕴含 Polyak--Łojasiewicz（PŁ）不等式
+\begin{equation}\label{eq:5.31}
+\|\nabla\mkern-10mu\nabla\mathcal F(\mu)\|_\mu^2
+\geq2\alpha(\mathcal F(\mu)-\inf\mathcal F),
+\qquad\forall\mu\in\mathcal P_{2,\mathrm{ac}}(\mathbb R^d).
+\end{equation}
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\item 证明\eqref{eq:5.31}蕴含二次增长不等式
+\begin{equation}\label{eq:5.32}
+\mathcal F(\mu)-\inf\mathcal F\geq\frac\alpha2W_2^2(\mu,\pi),
+\qquad\forall\mu\in\mathcal P_{2,\mathrm{ac}}(\mathbb R^d),
+\end{equation}
+其中 $\pi$ 为 $\mathcal F$ 的极小化解. 这一结果称为 Otto--Villani 定理，得名于\cite{ref250}.
+
+提示：沿 $\mathcal F$ 的 Wasserstein 梯度流，对
+$$
+t\mapsto\sqrt{\frac\alpha2}\,W_2(\mu_t,\mu_0)
++\sqrt{\mathcal F(\mu_t)-\inf\mathcal F}
+$$
+求导. 可以假设梯度流收敛于 $\pi$；当 $\mathcal F$ 的极小化解唯一时，这是\eqref{eq:5.32}的一个推论.
+\item 一般地，\eqref{eq:5.32}并不蕴含\eqref{eq:5.31}. 不过，证明当 $\mathcal F$ 测地凸时，\eqref{eq:5.32}蕴含\eqref{eq:5.31}，但其中 $\alpha$ 要换成 $\alpha/4$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exer:5.6}
+假设不采用 PŁ 不等式\eqref{eq:5.31}，而是有不等式
+$$
+\|\nabla\mkern-10mu\nabla\mathcal F(\mu)\|_\mu^2
+\geq c(\mathcal F(\mu)-\inf\mathcal F)^{p/2},
+\qquad\forall\mu\in\mathcal P_{2,\mathrm{ac}}(\mathbb R^d),
+$$
+其中幂指数满足 $0<p<2$. 证明 Wasserstein 梯度流以多项式速率耗散 $\mathcal F$：$\mathcal F(\mu_t)-\inf\mathcal F=O(1/t^{2/p-1})$. 当 $p>2$ 时会怎样？
+\end{exercise}
+
+\begin{exercise}\label{exer:5.7}
+考虑二阶矩矩阵的算子范数给出的泛函 $\mathcal F:\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)\to\mathbb R$：
+$$
+\mathcal F(\mu):=\left\|\int xx^{\mathsf T}\,\mu(dx)\right\|_{\mathrm{op}}.
+$$
+证明 $\mathcal F$ 测地凸.
+\end{exercise}
+
+\begin{exercise}\label{exer:5.8}\leavevmode
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\item 计算卡方散度 $\chi^2(\cdot\|\pi)$ 在 $\mu$ 处的 Wasserstein 梯度. 回顾 $\chi^2(\mu\|\pi):=\int(d\mu/d\pi)\,d\mu-1$. 也写出卡方散度的 Wasserstein 梯度流方程.
+\item 证明当 $\pi$ 对数凹时，$\chi^2(\cdot\|\pi)$ 测地凸.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exer:5.9}
+若对所有三元组 $\mu_0,\mu_1,\nu\in\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$，定义以 $\nu$ 为基准、连接 $\mu_0$ 与 $\mu_1$ 的广义测地线（generalized geodesic）为
+$$
+\mu_t^\nu:=[(1-t)T_{\nu\to\mu_0}+tT_{\nu\to\mu_1}]_\#\nu,
+$$
+并有
+$$
+\mathcal F(\mu_t^\nu)
+\leq(1-t)\mathcal F(\mu_0)+t\mathcal F(\mu_1)
+-\frac{\alpha t(1-t)}2\|T_{\nu\to\mu_0}-T_{\nu\to\mu_1}\|_\nu^2,
+$$
+则称泛函 $\mathcal F:\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)\to\mathbb R\cup\{\infty\}$ 沿广义测地线 $\alpha$-凸.
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\item 解释为何：若 $\mathcal F$ 沿广义测地线 $\alpha$-凸，则它 $\alpha$-强凸. 还解释为何沿广义测地线 $\alpha$-凸，等价于映射 $\mathcal F\circ\exp_\nu$ 在切空间 $T_\nu\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 上 $\alpha$-强凸.
+\item 证明若 $\pi\propto\exp(-V)$，其中 $V$ 为 $\alpha$-强凸函数，则 $\operatorname{KL}(\cdot\|\pi)$ 沿广义测地线 $\alpha$-凸；这加强了\autoref{cor:6.4}的凸性结果.
+\item 证明对于任意 $\mu_0,\mu_1,\nu\in\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$，至少存在一条连接 $\mu_0$ 与 $\mu_1$ 的广义测地线，使 $\frac12W_2^2(\cdot,\nu)$ 沿它为 1-强凸.
+\end{enumerate}
+\begin{remark*}
+广义测地线在研究 Wasserstein 空间的几何中起着重要作用. 本题第三问的结果被用于证明极小化移动格式（minimizing movements scheme）的存在性，而后者又用于严格构造 Wasserstein 梯度流；进一步阅读见\cite{ref18}.
+\end{remark*}
+\end{exercise}
+
+\begin{exercise}\label{exer:5.10}
+计算连接两个高斯分布的 Wasserstein 测地线.
+\end{exercise}
+
+\begin{exercise}\label{exer:5.11}
+利用\eqref{eq:5.30}证明：若 $(\mu_t)_{t\geq0}$ 为 $\frac12W_2^2(\cdot,\nu)$ 的 Wasserstein 梯度流，则 $t\mapsto\mu_{\log(1/(1-t))}$ 是连接 $\mu_0$ 与 $\nu$ 的常速 Wasserstein 测地线.
+\end{exercise}
+
+\begin{exercise}\label{exer:5.12}
+设 $\mathcal F$ 为 $\mathcal P_2(\mathbb R^d)$ 上的泛函，考虑泛函 $(m,U)\mapsto F(m,U):=\mathcal F(\mathcal N(m,UU^{\mathsf T}))$. 证明：$F$ 在 $\mathbb R^d\times\mathbb R^{d\times d}$ 上的欧氏梯度流，给出的动力学与 $\Sigma=UU^{\mathsf T}$ 时 Bures--Wasserstein 梯度流\eqref{eq:5.16}相同，至多相差时间的缩放. 类似地，证明
+$$
+(m^1,\ldots,m^K,U^1,\ldots,U^K)
+\mapsto\mathcal F\left(\frac1K\sum_{k=1}^K\mathcal N(m^k,U^k(U^k)^{\mathsf T})\right)
+$$
+的欧氏梯度流，至多相差时间缩放，就恢复了高斯混合流\eqref{eq:5.29}.
+\begin{remark*}
+参数化 $\Sigma=UU^{\mathsf T}$ 常称为 Burer\index{Burer–Monteiro@Burer–Monteiro|hyperpage}--Monteiro 参数化，尤其当它用于约束 $\Sigma$ 为低秩矩阵时\cite{ref60,ref61}.
+\end{remark*}
+\end{exercise}
+
+\begin{exercise}\label{exer:5.13}
+设 $p$ 为单纯形内部的元素，即有限字母表 $\{1,\ldots,d\}$ 上严格为正的概率分布. 考虑将 $p$ 映到球面元素的等距映射 $f:p\mapsto\sqrt p$，其中 $\sqrt p\in S^{d-1}$. 证明：在此等距映射下，单纯形上的切向量 $\dot p$ 被映为 $v=\dot p/(2\sqrt p)$；从而 $\dot p$ 与单纯形相切（即 $\sum_{i\in[d]}\dot p_i=0$），当且仅当 $v$ 与球面相切（即 $\sqrt p\perp v$）.
+\end{exercise}
+
+\begin{exercise}\label{exer:5.14}
+验证泛函的（非平衡）Fisher--Rao 梯度表达式\eqref{eq:5.18}.
+\end{exercise}
+
+\begin{exercise}\label{exer:5.15}
+计算\autoref{ex:5.11}、\autoref{ex:5.12}和\autoref{ex:5.13}中各泛函的 FR 与 WFR 梯度.
+\end{exercise}
+
+\begin{exercise}\label{exer:5.16}
+证明 FR 梯度流\eqref{eq:5.19}和 WFR 梯度流\eqref{eq:5.23}保持以下性质：所有 $t\geq0$，$\mu_t$ 都是概率测度.
+\end{exercise}
+
+\begin{exercise}\label{exer:5.17}
+证明\eqref{eq:5.28}确实遵循 WFR 梯度流\eqref{eq:5.23}.
+\end{exercise}

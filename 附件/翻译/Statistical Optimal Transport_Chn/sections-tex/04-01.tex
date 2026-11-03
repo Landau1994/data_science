@@ -1,0 +1,130 @@
+\index{entropic optimal transport@熵正则最优传输（entropic optimal transport）|hyperpage}熵正则化（entropic regularization）是现代最优传输中最活跃的研究方向之一. 作为正则化技术，它在形式上属于\autoref{sec:2.8}的范围. 事实上，本章将说明，与我们讨论过的许多其他正则化方法一样，它可以给出参数速率. 但熵正则最优传输的意义远不止于此.
+
+自 Cuturi 的开创性工作\cite{ref97}以来，它主要被用作一种计算工具，通过 Sinkhorn 算法快速计算最优传输距离. 不过，我们仍然着重统计问题；关于熵正则化的计算优势，更多细节可参见 Gabriel Peyr\'e 与 Marco Cuturi 的优秀专著稿\cite{ref257}.
+
+熵正则最优传输的基本原理是修改最优传输的定义，加入一个基于耦合的熵的惩罚项，即考虑优化问题
+\begin{equation}\label{eq:4.1}
+\inf_{\gamma\in\Gamma_{\mu,\nu}}\left\{\int\|x-y\|^2\,\gamma(dx,dy)-\varepsilon\operatorname{Ent}(\gamma)\right\},
+\end{equation}
+其中对绝对连续概率测度 $\gamma$，$\operatorname{Ent}(\gamma)$ 表示微分熵（differential entropy）$\int\gamma(x)\log\frac1{\gamma(x)}\,dx$. 实际上，Cuturi 最初考虑的是这一问题的离散版本，其中 $\mu,\nu$ 具有有限支集，因此耦合 $\gamma$ 可以与一个矩阵等同. 他考虑的问题是
+\begin{equation}\label{eq:4.2}
+\inf_{\gamma\in\Gamma_{\mu,\nu}}\left\{\sum_{i,j}\|x_i-y_j\|^2\gamma_{i,j}-\varepsilon H(\gamma)\right\},
+\end{equation}
+其中 $H(\gamma)$ 表示 Shannon 熵 $\sum_{i,j}\gamma_{i,j}\log\frac1{\gamma_{i,j}}$.
+
+\eqref{eq:4.1} 和 \eqref{eq:4.2} 中惩罚项的作用，都是鼓励耦合比无正则化的最优传输问题的解\emph{更加分散}. 非正式地说，测度的质量分布越均匀，其熵越大. 事实上，\autoref{exer:4.1}说明，均匀分布——连续情形下定义在 $\mathbb R^d$ 的一个子集上，离散情形下定义在一个有限集上——具有可能达到的最大熵. 熵惩罚使 \eqref{eq:4.1} 和 \eqref{eq:4.2} 的解向这一极端偏移.
+
+为了统一处理 \eqref{eq:4.1} 和 \eqref{eq:4.2}，引入概率测度之间的 KL 散度：
+$$\operatorname{KL}(P\|Q)=\begin{cases}
+\displaystyle\int\frac{dP}{dQ}\log\frac{dP}{dQ}\,dQ,&\text{若 }P\ll Q,\\
++\infty,&\text{其他情形.}
+\end{cases}$$
+\autoref{exer:4.2}说明，\eqref{eq:4.1} 和 \eqref{eq:4.2} 都与
+\begin{equation}\label{eq:4.3}
+\inf_{\gamma\in\Gamma_{\mu,\nu}}\left\{\int\|x-y\|^2\,\gamma(dx,dy)
++\varepsilon\operatorname{KL}(\gamma\|\mu\otimes\nu)\right\}
+\end{equation}
+等价，即给出相同的最优 $\gamma$；我们将 \eqref{eq:4.3} 作为熵正则最优传输的主要定义.
+
+下一节将从凸对偶的角度，对这一正则化方法给出非严格的动机说明. 所得到的对偶问题在\autoref{sec:4.2}中分析.
+
+\subsection{熵正则最优传输的推导}\label{sec:4.1}
+本节尝试从基本的优化和对偶原理出发，说明熵正则最优传输定义的动机. 为简单起见，暂时假设在紧集 $\Omega\subseteq\mathbb R^d$ 上工作. 给定 $\mu,\nu\in\mathcal P(\Omega)$，回顾\autoref{thm:1.14}，$W_2^2(\mu,\nu)$ 可以写成
+$$W_2^2(\mu,\nu)=\sup_{\substack{f,g\in C_b(\Omega)\\f(x)+g(y)\le\|x-y\|^2}}
+\left\{\int f\,d\mu+\int g\,d\nu\right\}.$$
+形式上，可以引入一个强制满足约束的惩罚项，将它改写为无约束的最大化问题. 事实上，如果定义
+$$\iota(f,g)=\begin{cases}0,&f(x)+g(y)\le\|x-y\|^2\quad\mu\otimes\nu\text{ 几乎处处},\\
++\infty,&\text{其他情形},\end{cases}$$
+那么得到
+$$W_2^2(\mu,\nu)=\sup_{f,g\in C_b(\Omega)}
+\left\{\int f\,d\mu+\int g\,d\nu-\iota(f,g)\right\}.$$
+这是凹最大化问题，所以原则上容易处理；但从计算与统计角度看，$\iota$ 不连续，更不用说光滑，这会造成困难. 为解决这一问题，可以用 $\iota$ 的一个光滑版本替换它，从而考虑问题的松弛版本.\footnote{这里采用的光滑化使人联想到机器学习中的“softmax”函数.} 定义
+$$\iota^\varepsilon(f,g)=\varepsilon\iint
+\left(e^{(f(x)+g(y)-\|x-y\|^2)/\varepsilon}-1\right)\mu(dx)\nu(dy).$$
+函数 $\iota^\varepsilon$ 在 $\Omega$ 上有界连续函数组成的空间 $C_b(\Omega)$ 上凸且连续. 而且容易看出，当 $\varepsilon\searrow0$ 时，会恢复原来的硬约束.
+\begin{lemma}\label{lem:4.1}
+对任意可测的 $f,g$，
+$$\lim_{\varepsilon\searrow0}\iota^\varepsilon(f,g)=\iota(f,g).$$
+\end{lemma}
+\begin{proof}
+先假设 $\iota(f,g)=0$，即 $f(x)+g(y)\le\|x-y\|^2$ 在 $\mu\otimes\nu$ 几乎处处成立. 那么积分
+$$\iint\left(e^{(f(x)+g(y)-\|x-y\|^2)/\varepsilon}-1\right)\mu(dx)\nu(dy)$$
+在 $\varepsilon\searrow0$ 时有界，因此 $\iota^\varepsilon(f,g)\to0$.
+
+另一方面，如果 $\iota(f,g)=+\infty$，则存在 $\delta>0$ 和一个具有正 $\mu\otimes\nu$ 测度的集合 $U$，使得对所有 $(x,y)\in U$，有 $e^{(f(x)+g(y)-\|x-y\|^2)/\varepsilon}\ge e^{\delta/\varepsilon}$. 得到
+$$\begin{aligned}
+&\varepsilon\iint\left(e^{(f(x)+g(y)-\|x-y\|^2)/\varepsilon}-1\right)\mu(dx)\nu(dy)\\
+&\qquad\ge\varepsilon e^{\delta/\varepsilon}(\mu\otimes\nu)(U)-\varepsilon\longrightarrow\infty.
+\end{aligned}$$
+证明完毕.
+\end{proof}
+
+由此，我们考虑 $W_2^2$ 距离的如下“$\varepsilon$-光滑化”对偶版本：
+\begin{equation}\tag{$\varepsilon$-D-$W_2^2$}\label{eq:eps-D-W22}
+\sup_{f,g\in C_b(\Omega)}\left\{\int f\,d\mu+\int g\,d\nu-\iota^\varepsilon(f,g)\right\}.
+\end{equation}
+推导出对偶问题的松弛后，可以追问它在原问题中对应什么. 结果是，我们在对偶中提出的松弛，对应于原问题中的一个熵惩罚.
+
+为建立这一联系，在 $\Omega$ 上所有正 Borel 测度（不必是概率测度）的空间 $\mathcal M_+(\Omega)$ 上定义一个版本的 Kullback--Leibler 散度：
+$$\operatorname{KL}(P\|Q)=\begin{cases}
+\displaystyle\int\left(\frac{dP}{dQ}\log\frac{dP}{dQ}-\frac{dP}{dQ}+1\right)dQ,&P\ll Q,\\
++\infty,&\text{其他情形.}\end{cases}$$
+注意，被积函数非负，因此积分始终有定义，且 KL 始终非负. 当 $P,Q$ 是概率测度时，$-dP/dQ+1$ 两项抵消，便得到通常的定义.
+
+这一定义的重要性在于，泛函 $\operatorname{KL}(\cdot\|Q)$ 的凸共轭（见\autoref{sec:A.1}）恰好是 $\iota^\varepsilon$ 中出现的指数项. 这一事实是通常所说的 Gibbs\index{Gibbs variational principle@Gibbs变分原理（Gibbs variational principle）|hyperpage} 变分原理（Gibbs variational principle）的一个变体.
+\begin{proposition}\label{prop:4.2}
+对任意有界可测函数 $h$，
+$$\sup_{P\in\mathcal M_+(\Omega)}\left\{\int h\,dP-\operatorname{KL}(P\|Q)\right\}
+=\int(\exp h-1)\,dQ.$$
+此外，上确界在满足 $dP_h/dQ=\exp h$ 的 $P_h$ 处取得.
+\end{proposition}
+\begin{proof}
+我们证明，对任意 Borel 测度 $P$，差值
+$$\Delta:=\int(\exp h-1)\,dQ-\int h\,dP+\operatorname{KL}(P\|Q)$$
+非负，且当 $P=P_h$ 时等于 0. 不失一般性，可以假设 $\operatorname{KL}(P\|Q)<+\infty$，否则结论无须证明. 展开 $\operatorname{KL}(P\|Q)$ 的定义，得到
+\begin{equation}\label{eq:4.4}
+\begin{aligned}
+\Delta&=\int\left(e^h-1-h\frac{dP}{dQ}+\frac{dP}{dQ}\log\frac{dP}{dQ}-\frac{dP}{dQ}+1\right)dQ\\
+&=\int\left(\frac{dP}{dQ}\log\left(e^{-h}\frac{dP}{dQ}\right)-\frac{dP}{dQ}+e^h\right)dQ.
+\end{aligned}
+\end{equation}
+通过测度变换，有
+$$\frac{dP}{dQ}=\frac{dP_h}{dQ}\frac{dP}{dP_h}=e^h\frac{dP}{dP_h}.$$
+因此 \eqref{eq:4.4} 可以写成
+$$\Delta=\int e^h\left(\frac{dP}{dP_h}\log\frac{dP}{dP_h}-\frac{dP}{dP_h}+1\right)dQ
+=\operatorname{KL}(P\|P_h).$$
+由于 $\operatorname{KL}(P\|P_h)\ge0$ 且 $\operatorname{KL}(P_h\|P_h)=0$，结论得证.
+\end{proof}
+
+因此，可以将 \eqref{eq:eps-D-W22} 改写为
+$$\begin{aligned}
+&\sup_{f,g\in C_b(\Omega)}\left\{\int f\,d\mu+\int g\,d\nu\right\}\\
+&\quad-\varepsilon\sup_{\gamma\in\mathcal M_+(\Omega)}
+\left\{\int\frac{f(x)+g(y)-\|x-y\|^2}{\varepsilon}\,\gamma(dx,dy)
+-\operatorname{KL}(\gamma\|\mu\otimes\nu)\right\},
+\end{aligned}$$
+重新整理得到
+$$\begin{aligned}
+\sup_{f,g\in C_b(\Omega)}\inf_{\gamma\in\mathcal M_+(\Omega)}\biggl\{
+&\int\|x-y\|^2\,\gamma(dx,dy)+\varepsilon\operatorname{KL}(\gamma\|\mu\otimes\nu)\\
+&+\int f\,d\mu+\int g\,d\nu-\int f\oplus g\,d\gamma\biggr\},
+\end{aligned}$$
+其中定义 $(f\oplus g)(x,y)=f(x)+g(y)$.
+
+与\autoref{sec:1.5.1}一样，可以交换下确界与上确界，得到 \eqref{eq:eps-D-W22} 的值的上界：
+\begin{equation}\label{eq:4.5}
+\begin{aligned}
+\inf_{\gamma\in\mathcal M(\Omega)}\biggl\{
+&\int\|x-y\|^2\,\gamma(dx,dy)+\varepsilon\operatorname{KL}(\gamma\|\mu\otimes\nu)\\
+&+\sup_{f,g\in C_b(\Omega)}\left\{\int f\,d\mu+\int g\,d\nu-\int f\oplus g\,d\gamma\right\}\biggr\}.
+\end{aligned}
+\end{equation}
+我们已经知道
+$$\sup_{f,g\in C_b(\Omega)}\left\{\int f\,d\mu+\int g\,d\nu-\int f\oplus g\,d\gamma\right\}
+=\begin{cases}0,&\gamma\in\Gamma_{\mu,\nu},\\\infty,&\text{其他情形.}\end{cases}$$
+因此，\eqref{eq:4.5} 等价于
+\begin{equation}\tag{$\varepsilon$-$W_2^2$}\label{eq:eps-W22}
+\inf_{\gamma\in\Gamma_{\mu,\nu}}\left\{\int\|x-y\|^2\,\gamma(dx,dy)
++\varepsilon\operatorname{KL}(\gamma\|\mu\otimes\nu)\right\}.
+\end{equation}
+这就是熵正则最优传输的原问题版本，通常将其作为熵正则化的定义. 通常，人们事后利用 Sinkhorn 算法的存在性来说明选择这一正则化的合理性（见\autoref{sec:4.2}）；但我们已经看到，它也自然产生于对偶 Kantorovich 问题的一个简单松弛. 本节的论证建立了一种弱对偶，说明 \eqref{eq:eps-W22} 的值以下述值为下界：\eqref{eq:eps-D-W22} 的值. 下一节将在原问题与对偶问题的最优值及最优解之间建立紧密联系. 这一联系已被广泛用于熵正则最优传输的统计分析.

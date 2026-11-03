@@ -1,0 +1,998 @@
+[
+  {
+    "type": "Proposition",
+    "number": "1.1",
+    "physical": 17,
+    "text": "Proposition 1.1 Let μ, ν\\mu, \\nu be two probability measures on Rd \\mathbb{R}^d. The set ┌ μ,ν \\varG"
+  },
+  {
+    "type": "Definition",
+    "number": "1.2",
+    "physical": 21,
+    "text": "Definition 1.2 The p-Wasserstein distance between two probability measures"
+  },
+  {
+    "type": "Proposition",
+    "number": "1.3",
+    "physical": 22,
+    "text": "Proposition 1.3 The p-Wasserstein distance defines a metric over Pp(Rd)\\mathcal{P}_p(\\mathbb{R}^d), "
+  },
+  {
+    "type": "Example",
+    "number": "1.4",
+    "physical": 22,
+    "text": "Example 1.4 (Wasserstein Distances in Simple Cases)"
+  },
+  {
+    "type": "Proposition",
+    "number": "1.5",
+    "physical": 23,
+    "text": "Proposition 1.5 Let X ∼μX\\sim \\muand Y ∼νY\\sim \\nube two sub-exponential random variables."
+  },
+  {
+    "type": "Theorem",
+    "number": "1.6",
+    "physical": 24,
+    "text": "Theorem 1.6 Let μ, ν ∈Pp(Rd)\\mu, \\nu \\in \\mathcal{P}_p(\\mathbb{R}^d) be two distributions with densi"
+  },
+  {
+    "type": "Theorem",
+    "number": "1.7",
+    "physical": 27,
+    "text": "Theorem 1.7 Let μ, ν ∈P1(R)\\mu, \\nu \\in \\mathcal{P}_1(\\mathbb{R})be two probability distributions wi"
+  },
+  {
+    "type": "Theorem",
+    "number": "1.8",
+    "physical": 29,
+    "text": "Theorem 1.8 (Brenier)"
+  },
+  {
+    "type": "Definition",
+    "number": "1.9",
+    "physical": 31,
+    "text": "Definition 1.9 A set A ⊂Rd × Rd A \\subset \\mathbb{R}^d\\times \\mathbb{R}^dis said to be cyclically mo"
+  },
+  {
+    "type": "Theorem",
+    "number": "1.10",
+    "physical": 31,
+    "text": "Theorem 1.10 (Rockafellar)"
+  },
+  {
+    "type": "Proposition",
+    "number": "1.11",
+    "physical": 32,
+    "text": "Proposition 1.11 Let  ̄γ ∈┌ μ,ν \\bar \\gamma \\in \\varGamma _{\\mu, \\nu}be an optimal coupling between "
+  },
+  {
+    "type": "Lemma",
+    "number": "1.12",
+    "physical": 36,
+    "text": "Lemma 1.12 Let μ, ν ∈P2(Rd)\\mu, \\nu \\in \\mathcal{P}_2(\\mathbb{R}^d), then"
+  },
+  {
+    "type": "Proposition",
+    "number": "1.13",
+    "physical": 38,
+    "text": "Proposition 1.13 Let μ, ν ∈P2(Rd)\\mu,\\nu\\in \\mathcal{P}_2(\\mathbb{R}^d) be probability measures. The"
+  },
+  {
+    "type": "Theorem",
+    "number": "1.14",
+    "physical": 39,
+    "text": "Theorem 1.14 (Fundamental Theorem of Optimal Transport)"
+  },
+  {
+    "type": "Definition",
+    "number": "1.15",
+    "physical": 41,
+    "text": "Definition 1.15 (Kantorovich Potentials)"
+  },
+  {
+    "type": "Theorem",
+    "number": "1.16",
+    "physical": 41,
+    "text": "Theorem 1.16 (Improved Brenier)"
+  },
+  {
+    "type": "Example",
+    "number": "1.17",
+    "physical": 42,
+    "text": "Example 1.17 (One-Dimensional Optimal Transport) Recall that the cumula-"
+  },
+  {
+    "type": "Proposition",
+    "number": "1.18",
+    "physical": 43,
+    "text": "Proposition 1.18 Let μ, ν ∈P2(R)\\mu, \\nu \\in \\mathcal{P}_2(\\mathbb{R}) be two univariate distributio"
+  },
+  {
+    "type": "Example",
+    "number": "1.19",
+    "physical": 43,
+    "text": "Example 1.19 (Gaussian Optimal Transport) We can also use the improved"
+  },
+  {
+    "type": "Theorem",
+    "number": "1.20",
+    "physical": 44,
+    "text": "Theorem 1.20 Fix p ≥1p \\ge 1and let μ, ν ∈Pp(Rd)\\mu, \\nu \\in \\mathcal{P}_p(\\mathbb{R}^d)be two proba"
+  },
+  {
+    "type": "Theorem",
+    "number": "1.21",
+    "physical": 45,
+    "text": "Theorem 1.21 Let μ, ν ∈P1(Rd)\\mu, \\nu \\in \\mathcal{P}_1(\\mathbb{R}^d) be two probability measures. T"
+  },
+  {
+    "type": "Lemma",
+    "number": "1.22",
+    "physical": 45,
+    "text": "Lemma 1.22 For c(x, y) = ‖x −y ‖c(x,y) = \\|x-y\\|, a function g : Rd →Rg: \\mathbb{R}^d\\to\\mathbb{R}is"
+  },
+  {
+    "type": "Proposition",
+    "number": "2.1",
+    "physical": 52,
+    "text": "Proposition 2.1 If the support of μ\\mu lies in [0, 1]d [0, 1]^d, then"
+  },
+  {
+    "type": "Theorem",
+    "number": "2.2",
+    "physical": 53,
+    "text": "Theorem 2.2 (Dyadic Partitioning Bound)"
+  },
+  {
+    "type": "Lemma",
+    "number": "2.3",
+    "physical": 55,
+    "text": "Lemma 2.3 The measures μ0, . . . , μJ \\mu_0, \\dots, \\mu_J and ν0, . . . , νJ \\nu_0, \\dots, \\nu_J are"
+  },
+  {
+    "type": "Lemma",
+    "number": "2.4",
+    "physical": 56,
+    "text": "Lemma 2.4 If R ∈Qj R \\in \\mathcal{Q}_j for some 0 ≤j < J 0 \\leq j < J, then"
+  },
+  {
+    "type": "Proposition",
+    "number": "2.5",
+    "physical": 57,
+    "text": "Proposition 2.5 If the support of μ\\mu lies in [0, 1]d [0, 1]^d, then"
+  },
+  {
+    "type": "Proposition",
+    "number": "2.6",
+    "physical": 59,
+    "text": "Proposition 2.6 ([310, Theorem 5.31]) If F\\mathcal{F}is a set of real-valued functions on Ω\\varOmega"
+  },
+  {
+    "type": "Lemma",
+    "number": "2.7",
+    "physical": 59,
+    "text": "Lemma 2.7 Denote by Lip1([0, 1]d)\\overline{\\mathrm{Lip}}_1([0,1]^d) the set of 1-Lipschitz functions"
+  },
+  {
+    "type": "Lemma",
+    "number": "2.8",
+    "physical": 62,
+    "text": "Lemma 2.8 If the supports of μ\\mu and ν\\nu lie in [0, 1]d [0, 1]^d, then ~"
+  },
+  {
+    "type": "Proposition",
+    "number": "2.9",
+    "physical": 63,
+    "text": "Proposition 2.9"
+  },
+  {
+    "type": "Lemma",
+    "number": "2.10",
+    "physical": 64,
+    "text": "Lemma 2.10 For all ε > 0\\varepsilon > 0,"
+  },
+  {
+    "type": "Lemma",
+    "number": "2.11",
+    "physical": 65,
+    "text": "Lemma 2.11 For all ε > 0\\varepsilon > 0,"
+  },
+  {
+    "type": "Corollary",
+    "number": "2.12",
+    "physical": 65,
+    "text": "Corollary 2.12 For any ε > 0\\varepsilon > 0,"
+  },
+  {
+    "type": "Theorem",
+    "number": "2.13",
+    "physical": 65,
+    "text": "Theorem 2.13 For any probability measure μ\\mu with support in [0, 1]2[0, 1]^2,"
+  },
+  {
+    "type": "Theorem",
+    "number": "2.14",
+    "physical": 70,
+    "text": "Theorem 2.14 Fix d ≥3d \\ge 3and let μ\\mudenote the uniform measure on [0, 1]d [0,1]^d. Then"
+  },
+  {
+    "type": "Theorem",
+    "number": "2.15",
+    "physical": 71,
+    "text": "Theorem 2.15 Fix d ≥3, n ≥8d\\ge 3, n\\ge 8 and let X1, . . . , XnX_1, \\ldots, X_n be n i.i.d. observa"
+  },
+  {
+    "type": "Definition",
+    "number": "2.16",
+    "physical": 74,
+    "text": "Definition 2.16 Given a positive integer s, the Sobolev space Hs \\mathcal H^sconsists of all"
+  },
+  {
+    "type": "Proposition",
+    "number": "2.17",
+    "physical": 75,
+    "text": "Proposition 2.17 Assume μ ∈Hs(Td)\\mu \\in \\mathcal H^s(\\mathbb T^d)with ‖μ‖Hs ≲ 1\\|\\mu\\|_{\\mathcal H^"
+  },
+  {
+    "type": "Theorem",
+    "number": "2.18",
+    "physical": 76,
+    "text": "Theorem 2.18 If μ ∈Hs(Td)\\mu \\in \\mathcal H^s(\\mathbb T^d)with ‖μ‖Hs ≲ 1\\|\\mu\\|_{\\mathcal H^s} \\less"
+  },
+  {
+    "type": "Definition",
+    "number": "2.19",
+    "physical": 78,
+    "text": "Definition 2.19 A metric d(·, ·)\\mathsf d(\\cdot, \\cdot) between two probability measures is called a"
+  },
+  {
+    "type": "Definition",
+    "number": "2.20",
+    "physical": 79,
+    "text": "Definition 2.20 Let H\\mathcal{H}be an RKHS. The Maximum Mean Discrepancy (MMD)"
+  },
+  {
+    "type": "Proposition",
+    "number": "2.21",
+    "physical": 79,
+    "text": "Proposition 2.21 Let H\\mathcal{H}be an RKHS. The Maximum Mean Discrepancy (MMD)"
+  },
+  {
+    "type": "Theorem",
+    "number": "2.22",
+    "physical": 81,
+    "text": "Theorem 2.22 Let k be a characteristic kernel such that k(x, x) ≤1k(x,x)\\le 1for any x ∈"
+  },
+  {
+    "type": "Definition",
+    "number": "2.23",
+    "physical": 82,
+    "text": "Definition 2.23 Fix p ≥1p \\ge 1. The smoothed p-Wasserstein distance between two"
+  },
+  {
+    "type": "Theorem",
+    "number": "2.24",
+    "physical": 82,
+    "text": "Theorem 2.24 Fix σ"
+  },
+  {
+    "type": "Theorem",
+    "number": "2.25",
+    "physical": 84,
+    "text": "Theorem 2.25 For every p ≥1p\\ge 1, SWp\\mathsf{SW}_p defines a metric over Pp(Rd)\\mathcal{P}_p(\\mathb"
+  },
+  {
+    "type": "Proposition",
+    "number": "2.26",
+    "physical": 84,
+    "text": "Proposition 2.26 Suppose that μ, ν ∈P(B1)\\mu, \\nu \\in \\mathcal{P}(B_1), where B1B_1is the unit ball "
+  },
+  {
+    "type": "Theorem",
+    "number": "3.1",
+    "physical": 93,
+    "text": "Theorem 3.1 Assume that φ\\phi is strongly convex and smooth,"
+  },
+  {
+    "type": "Proposition",
+    "number": "3.2",
+    "physical": 96,
+    "text": "Proposition 3.2 Let F\\mathcal{F}be the set of all convex quadratic functions on Rd \\mathbb{R}^d. Let"
+  },
+  {
+    "type": "Assumption",
+    "number": "3.3",
+    "physical": 97,
+    "text": "Assumption 3.3 There exists φ ∈Ф\\varphi \\in \\varPhi such that ν = (∇φ)#μ\\nu = (\\nabla \\varphi)_{\\#} "
+  },
+  {
+    "type": "Lemma",
+    "number": "3.4",
+    "physical": 97,
+    "text": "Lemma 3.4 Adopt Assumption 3.3, and assume that ν = ∇φ#μ\\nu = \\nabla \\varphi_\\# \\mufor some φ ∈Ф\\var"
+  },
+  {
+    "type": "Lemma",
+    "number": "3.5",
+    "physical": 98,
+    "text": "Lemma 3.5 Assume that Ф = {φθ}θ∈Θ\\varPhi = \\{\\phi_{\\theta}\\}_{\\theta \\in \\varTheta }, where Θ ⊆RM \\v"
+  },
+  {
+    "type": "Lemma",
+    "number": "3.6",
+    "physical": 99,
+    "text": "Lemma 3.6 For any ε > 0\\varepsilon > 0,"
+  },
+  {
+    "type": "Theorem",
+    "number": "3.7",
+    "physical": 99,
+    "text": "Theorem 3.7 Adopt Assumption 3.3 and assume (3.5) holds. The semidual estima-"
+  },
+  {
+    "type": "Assumption",
+    "number": "3.8",
+    "physical": 100,
+    "text": "Assumption 3.8 The set Ф\\varPhi is convex, that is, if φ, ψ ∈Ф\\phi, \\psi \\in \\varPhi , then (1−λ)φ +"
+  },
+  {
+    "type": "Proposition",
+    "number": "3.9",
+    "physical": 101,
+    "text": "Proposition 3.9 Adopt Assumptions 3.3 and 3.8. For ε > 0\\varepsilon > 0, let"
+  },
+  {
+    "type": "Proposition",
+    "number": "3.10",
+    "physical": 102,
+    "text": "Proposition 3.10 ([309, Theorem 2.14.21]) Let P be a probability measure on a"
+  },
+  {
+    "type": "Proposition",
+    "number": "3.11",
+    "physical": 102,
+    "text": "Proposition 3.11 Let Jn(F)J_n(\\mathcal{F}) denote the right side of (3.6). Under the same assump-"
+  },
+  {
+    "type": "Definition",
+    "number": "3.12",
+    "physical": 102,
+    "text": "Definition 3.12 A measure P satisfies a Poincaré inequality (with constant C) if"
+  },
+  {
+    "type": "Assumption",
+    "number": "3.13",
+    "physical": 102,
+    "text": "Assumption 3.13 The measure μ\\mu satisfies a Poincaré inequality."
+  },
+  {
+    "type": "Proposition",
+    "number": "3.14",
+    "physical": 103,
+    "text": "Proposition 3.14 If Assumptions 3.3 and 3.13 hold, then"
+  },
+  {
+    "type": "Theorem",
+    "number": "3.15",
+    "physical": 104,
+    "text": "Theorem 3.15 Adopt Assumptions 3.3, 3.8, and 3.13. If (3.5) holds, then the"
+  },
+  {
+    "type": "Lemma",
+    "number": "4.1",
+    "physical": 111,
+    "text": "Lemma 4.1 For any measurable f, gf, g,"
+  },
+  {
+    "type": "Proposition",
+    "number": "4.2",
+    "physical": 112,
+    "text": "Proposition 4.2 For any bounded measurable function h,"
+  },
+  {
+    "type": "Proposition",
+    "number": "4.3",
+    "physical": 114,
+    "text": "Proposition 4.3 Let f ⋆f^\\star, g⋆g^\\starsolve (ε-D-W2"
+  },
+  {
+    "type": "Assumption",
+    "number": "4.4",
+    "physical": 118,
+    "text": "Assumption 4.4 The supports of μ\\muand ν\\nulie in Ω ⊆B1/2(0)\\varOmega \\subseteq B_{1/2}(0)."
+  },
+  {
+    "type": "Proposition",
+    "number": "4.5",
+    "physical": 119,
+    "text": "Proposition 4.5 Under Assumption 4.4, it holds that"
+  },
+  {
+    "type": "Definition",
+    "number": "4.6",
+    "physical": 120,
+    "text": "Definition 4.6 Let X, Y X,Ybe two independent random variables with distributions P"
+  },
+  {
+    "type": "Lemma",
+    "number": "4.7",
+    "physical": 121,
+    "text": "Lemma 4.7 For any k ∈L2(μn ⊗νn)k \\in L^2(\\mu_n \\otimes \\nu_n)and any h ∈C⊕"
+  },
+  {
+    "type": "Lemma",
+    "number": "4.8",
+    "physical": 122,
+    "text": "Lemma 4.8 Let Assumption 4.4 hold. Then"
+  },
+  {
+    "type": "Theorem",
+    "number": "4.9",
+    "physical": 123,
+    "text": "Theorem 4.9 If μ\\muand ν\\nusatisfy Assumption 4.4, then the mean squared error and"
+  },
+  {
+    "type": "Theorem",
+    "number": "4.10",
+    "physical": 125,
+    "text": "Theorem 4.10 Adopt Assumption 4.4. The empirical entropic map satisfies"
+  },
+  {
+    "type": "Theorem",
+    "number": "4.11",
+    "physical": 127,
+    "text": "Theorem 4.11 Adopt Assumption 4.4. The empirical entropic map satisfies"
+  },
+  {
+    "type": "Proposition",
+    "number": "5.1",
+    "physical": 135,
+    "text": "Proposition 5.1 (Continuity Equation) Suppose that X0 ∼μ0X_0 \\sim \\mu_0, and that (Xt)t≥0{(X_t)}_{t\\"
+  },
+  {
+    "type": "Definition",
+    "number": "5.2",
+    "physical": 137,
+    "text": "Definition 5.2 (Metric Derivative) Let (S, d)(S,\\mathsf{d})be a metric space and let (xt)t≥0{(x_t)}_"
+  },
+  {
+    "type": "Theorem",
+    "number": "5.3",
+    "physical": 138,
+    "text": "Theorem 5.3 Let (μt)t≥0{(\\mu_t)}_{t\\ge 0}be a regular3 curve of probability measures. Then, for"
+  },
+  {
+    "type": "Definition",
+    "number": "5.4",
+    "physical": 139,
+    "text": "Definition 5.4 P2,ac(Rd )\\mathcal{P}_{2,\\mathrm{ac}}(\\mathbb{R}^d)is the class of probability measur"
+  },
+  {
+    "type": "Definition",
+    "number": "5.5",
+    "physical": 141,
+    "text": "Definition 5.5 Let μ ∈P2,ac(Rd)\\mu \\in \\mathcal{P}_{2,\\mathrm{ac}}(\\mathbb{R}^d). We define the tang"
+  },
+  {
+    "type": "Remark",
+    "number": "5.6",
+    "physical": 141,
+    "text": "Remark 5.6 We pause to describe a common alternative convention: instead of"
+  },
+  {
+    "type": "Theorem",
+    "number": "5.7",
+    "physical": 142,
+    "text": "Theorem 5.7 (Benamou–Brenier) Let μ0, μ1 ∈P2,ac(Rd)\\mu_0,\\mu_1 \\in \\mathcal{P}_{2,\\mathrm{ac}}(\\math"
+  },
+  {
+    "type": "Definition",
+    "number": "5.8",
+    "physical": 142,
+    "text": "Definition 5.8 Let μ0, μ1 ∈P2,ac(Rd)\\mu_0,\\mu_1 \\in \\mathcal{P}_{2,\\mathrm{ac}}(\\mathbb{R}^d)and let"
+  },
+  {
+    "type": "Definition",
+    "number": "5.9",
+    "physical": 143,
+    "text": "Definition 5.9 (First Variation) Let F : P2,ac(Rd) →R\\mathcal{F} : \\mathcal{P}_{2,\\mathrm{ac}}(\\math"
+  },
+  {
+    "type": "Proposition",
+    "number": "5.10",
+    "physical": 143,
+    "text": "Proposition 5.10 Let F : P2,ac(Rd) →R\\mathcal{F} : \\mathcal{P}_{2,\\mathrm{ac}}(\\mathbb{R}^d) \\to\\mat"
+  },
+  {
+    "type": "Example",
+    "number": "5.11",
+    "physical": 144,
+    "text": "Example 5.11 (Potential energy)"
+  },
+  {
+    "type": "Example",
+    "number": "5.12",
+    "physical": 144,
+    "text": "Example 5.12 (Internal Energy) Let F(μ) :="
+  },
+  {
+    "type": "Example",
+    "number": "5.13",
+    "physical": 144,
+    "text": "Example 5.13 (Interaction Energy) Take a symmetric kernel K : Rd →RK : \\mathbb{R}^d\\to\\mathbb{R},"
+  },
+  {
+    "type": "Definition",
+    "number": "5.14",
+    "physical": 144,
+    "text": "Definition 5.14 (Wasserstein Gradient Flow) Let F : P2,ac(Rd) →R\\mathcal{F} : \\mathcal{P}_{2,\\mathrm"
+  },
+  {
+    "type": "Definition",
+    "number": "5.15",
+    "physical": 145,
+    "text": "Definition 5.15 (Polyak–Łojasiewicz (PŁ) Inequality) We say that F"
+  },
+  {
+    "type": "Lemma",
+    "number": "5.16",
+    "physical": 145,
+    "text": "Lemma 5.16 (Grönwall’s Inequality) Let c ∈Rc\\in\\mathbb{R}. Let φ : [0, T ] →R\\phi : [0,T] \\to \\mathb"
+  },
+  {
+    "type": "Corollary",
+    "number": "5.17",
+    "physical": 146,
+    "text": "Corollary 5.17 Let F : P2,ac(Rd) →R\\mathcal{F} : \\mathcal{P}_{2,\\mathrm{ac}}(\\mathbb{R}^d)\\to\\mathbb"
+  },
+  {
+    "type": "Definition",
+    "number": "5.18",
+    "physical": 146,
+    "text": "Definition 5.18 The Bures–Wasserstein space BW(Rd)\\mathsf{BW}(\\mathbb{R}^d) is the space of non-"
+  },
+  {
+    "type": "Proposition",
+    "number": "5.19",
+    "physical": 146,
+    "text": "Proposition 5.19 BW(Rd ) ⊆ P2,ac(Rd )\\mathsf{BW}(\\mathbb{R}^d)\\subseteq \\mathcal{P}_{2,\\mathrm{ac}}("
+  },
+  {
+    "type": "Corollary",
+    "number": "5.20",
+    "physical": 146,
+    "text": "Corollary 5.20 Let F : P2,ac(Rd) →R\\mathcal{F} : \\mathcal{P}_{2,\\mathrm{ac}}(\\mathbb{R}^d)\\to\\mathbb"
+  },
+  {
+    "type": "Theorem",
+    "number": "5.21",
+    "physical": 147,
+    "text": "Theorem 5.21 Let F : P2,ac(Rd) →R\\mathcal{F} : \\mathcal{P}_{2,\\mathrm{ac}}(\\mathbb{R}^d)\\to\\mathbb{R"
+  },
+  {
+    "type": "Theorem",
+    "number": "5.22",
+    "physical": 149,
+    "text": "Theorem 5.22 The BW gradient flow of the functional F\\mathcal{F} is the curve"
+  },
+  {
+    "type": "Theorem",
+    "number": "5.23",
+    "physical": 150,
+    "text": "Theorem 5.23 Given ν ∈P2(BW(Rd))\\nu \\in \\mathcal{P}_2(\\mathsf{BW}(\\mathbb{R}^d)), let Gν G_\\nudenote"
+  },
+  {
+    "type": "Theorem",
+    "number": "5.24",
+    "physical": 154,
+    "text": "Theorem 5.24 Let F\\mathcal{F}be a functional over M+(Rd)\\mathcal{M}_+(\\mathbb{R}^d)or P(Rd)\\mathcal{"
+  },
+  {
+    "type": "Theorem",
+    "number": "6.1",
+    "physical": 164,
+    "text": "Theorem 6.1 Suppose that V : Rd →RV : \\mathbb{R}^d\\to\\mathbb{R} is α\\alpha-convex on Rd \\mathbb{R}^d"
+  },
+  {
+    "type": "Lemma",
+    "number": "6.2",
+    "physical": 165,
+    "text": "Lemma 6.2 (Change of Variables)"
+  },
+  {
+    "type": "Theorem",
+    "number": "6.3",
+    "physical": 165,
+    "text": "Theorem 6.3 The entropy functional H\\mathcal{H}, given by H(μ) :="
+  },
+  {
+    "type": "Corollary",
+    "number": "6.4",
+    "physical": 166,
+    "text": "Corollary 6.4 Let π ∝exp(−V )\\pi \\propto\\exp(-V)be a density, where V : Rd →RV : \\mathbb{R}^d\\to\\mat"
+  },
+  {
+    "type": "Corollary",
+    "number": "6.5",
+    "physical": 166,
+    "text": "Corollary 6.5 Let π ∝exp(−V )\\pi \\propto \\exp(-V)be a density on Rd \\mathbb{R}^d, where V is α\\alpha"
+  },
+  {
+    "type": "Corollary",
+    "number": "6.6",
+    "physical": 166,
+    "text": "Corollary 6.6 Let π ∝exp(−V )\\pi \\propto \\exp(-V)be a density on Rd \\mathbb{R}^d, where V is α\\alpha"
+  },
+  {
+    "type": "Proposition",
+    "number": "6.7",
+    "physical": 167,
+    "text": "Proposition 6.7 Suppose that π ∝exp(−V )\\pi\\propto\\exp(-V), where V is α\\alpha-convex for some α > 0"
+  },
+  {
+    "type": "Theorem",
+    "number": "6.8",
+    "physical": 168,
+    "text": "Theorem 6.8 The BW gradient flow of the functional KL(· ‖ π)\\mathsf{KL}(\\cdot\\mathbin{\\|} \\pi), wher"
+  },
+  {
+    "type": "Lemma",
+    "number": "6.9",
+    "physical": 169,
+    "text": "Lemma 6.9 Assume that M\\mathcal{M}consists of maps T which are separable, in the sense"
+  },
+  {
+    "type": "Theorem",
+    "number": "6.10",
+    "physical": 170,
+    "text": "Theorem 6.10 The Wasserstein gradient flow of KL(·‖π)\\mathsf{KL}(\\cdot \\mathbin{\\|} \\pi) restricted "
+  },
+  {
+    "type": "Theorem",
+    "number": "6.11",
+    "physical": 176,
+    "text": "Theorem 6.11 (Fokker–Planck Equation)"
+  },
+  {
+    "type": "Corollary",
+    "number": "6.12",
+    "physical": 176,
+    "text": "Corollary 6.12 The marginal law of the Langevin diffusion with potential V is"
+  },
+  {
+    "type": "Corollary",
+    "number": "6.13",
+    "physical": 176,
+    "text": "Corollary 6.13 If (μt)t≥0{(\\mu_t)}_{t\\ge 0} is the marginal law of a (rescaled) Brownian motion"
+  },
+  {
+    "type": "Corollary",
+    "number": "6.14",
+    "physical": 176,
+    "text": "Corollary 6.14 Let π \\pi be an α\\alpha-strongly log-concave measure, and let (μt)t≥0{(\\mu_t)}_{t\\ge "
+  },
+  {
+    "type": "Theorem",
+    "number": "6.15",
+    "physical": 183,
+    "text": "Theorem 6.15 The Wasserstein gradient flow (μt)t≥0{(\\mu_t)}_{t\\ge 0}of (6.16) can be described"
+  },
+  {
+    "type": "Proposition",
+    "number": "6.16",
+    "physical": 191,
+    "text": "Proposition 6.16 The Wasserstein gradient flow (μt)t≥0{(\\mu_t)}_{t\\ge 0} of (6.26), when initialized"
+  },
+  {
+    "type": "Lemma",
+    "number": "7.1",
+    "physical": 200,
+    "text": "Lemma 7.1 For any rectifiable path ω : I →S\\omega:I \\to S, the function t \\'→l(t) ="
+  },
+  {
+    "type": "Proposition",
+    "number": "7.2",
+    "physical": 201,
+    "text": "Proposition 7.2 Any rectifiable path ω : [a, b] →S\\omega:[a,b] \\to S has a constant-speed"
+  },
+  {
+    "type": "Definition",
+    "number": "7.3",
+    "physical": 202,
+    "text": "Definition 7.3 Let (S, d)(S,d)be a length space. A geodesic between x and y is any path"
+  },
+  {
+    "type": "Proposition",
+    "number": "7.4",
+    "physical": 202,
+    "text": "Proposition 7.4 A path ω : [0, 1] →S\\omega:[0,1]\\to S is a constant-speed geodesic if and only if"
+  },
+  {
+    "type": "Proposition",
+    "number": "7.5",
+    "physical": 202,
+    "text": "Proposition 7.5 Let (S, d)(S,\\mathsf d) be a complete metric space. Then the following are"
+  },
+  {
+    "type": "Theorem",
+    "number": "7.6",
+    "physical": 203,
+    "text": "Theorem 7.6 The Wasserstein space W2\\mathcal{W}_2 is a geodesic space. Moreover, let"
+  },
+  {
+    "type": "Corollary",
+    "number": "7.7",
+    "physical": 205,
+    "text": "Corollary 7.7 Let ω\\omega be any constant-speed geodesic in W2\\mathcal{W}_2 and let γ \\gamma be an o"
+  },
+  {
+    "type": "Corollary",
+    "number": "7.8",
+    "physical": 205,
+    "text": "Corollary 7.8 Let μ, ν ∈W2\\mu, \\nu \\in \\mathcal{W}_2be two probability measures such that μ\\muhas a "
+  },
+  {
+    "type": "Definition",
+    "number": "7.9",
+    "physical": 206,
+    "text": "Definition 7.9 Let κ ∈R\\kappa\\in \\mathbb{R} and (S, d)(S,\\mathsf d) be a geodesic space."
+  },
+  {
+    "type": "Lemma",
+    "number": "7.10",
+    "physical": 206,
+    "text": "Lemma 7.10 Let H\\mathbf{H} be a Hilbert space equipped with inner product 〈·, ·〉\\langle\\cdot, \\cdot\\"
+  },
+  {
+    "type": "Proposition",
+    "number": "7.11",
+    "physical": 208,
+    "text": "Proposition 7.11 Let (S, d)(S,\\mathsf d)be a geodesic space. Then curv(S) ≥0\\mathop{\\mathrm{curv}}(S"
+  },
+  {
+    "type": "Remark",
+    "number": "7.12",
+    "physical": 208,
+    "text": "Remark 7.12 Comparing with the definition of α\\alpha-convexity in Appendix A, we"
+  },
+  {
+    "type": "Proposition",
+    "number": "7.13",
+    "physical": 209,
+    "text": "Proposition 7.13 Let (S, d)(S,\\mathsf d)be a geodesic space. Then curv(S) ≥0\\mathop{\\mathrm{curv}}(S"
+  },
+  {
+    "type": "Proposition",
+    "number": "7.14",
+    "physical": 210,
+    "text": "Proposition 7.14 The space W2(R)\\mathcal{W}_{2}(\\mathbb{R}) is flat in the sense that"
+  },
+  {
+    "type": "Theorem",
+    "number": "7.15",
+    "physical": 210,
+    "text": "Theorem 7.15 The 2-Wasserstein space W2\\mathcal{W}_2 is non-negatively curved,"
+  },
+  {
+    "type": "Definition",
+    "number": "7.16",
+    "physical": 212,
+    "text": "Definition 7.16 Let (S, d)(S,\\mathsf d)be a metric space and for any triangle {p, x, y}\\{p,x,y\\}in S"
+  },
+  {
+    "type": "Proposition",
+    "number": "7.17",
+    "physical": 212,
+    "text": "Proposition 7.17 (Angle Monotonicity) Let (S, d)(S,\\mathsf d) be a geodesic space. Then,"
+  },
+  {
+    "type": "Definition",
+    "number": "7.18",
+    "physical": 214,
+    "text": "Definition 7.18 The space of directions emanating from p is the completion"
+  },
+  {
+    "type": "Definition",
+    "number": "7.19",
+    "physical": 214,
+    "text": "Definition 7.19 (Tangent Cone)"
+  },
+  {
+    "type": "Definition",
+    "number": "7.20",
+    "physical": 215,
+    "text": "Definition 7.20 (Logarithmic Map) Let (S, d)(S,\\mathsf d) be a positively curved geodesic"
+  },
+  {
+    "type": "Proposition",
+    "number": "7.21",
+    "physical": 216,
+    "text": "Proposition 7.21 Let (S, d)(S,\\mathsf d)be a geodesic space and p ∈Sp\\in Sbe fixed. If curv(S) ≥"
+  },
+  {
+    "type": "Lemma",
+    "number": "7.22",
+    "physical": 218,
+    "text": "Lemma 7.22 Let μ ∈P2,ac(Rd)\\mu \\in \\mathcal{P}_{2,\\mathrm{ac}}(\\mathbb{R}^d) and denote by Tμ→ν T_{\\"
+  },
+  {
+    "type": "Theorem",
+    "number": "7.23",
+    "physical": 220,
+    "text": "Theorem 7.23 Let μ ∈P2,ac(Rd)\\mu \\in \\mathcal{P}_{2,\\mathrm{ac}}(\\mathbb{R}^d). Then the tangent con"
+  },
+  {
+    "type": "Definition",
+    "number": "8.1",
+    "physical": 224,
+    "text": "Definition 8.1 (Barycenter) Given any probability measure P over a metric space"
+  },
+  {
+    "type": "Definition",
+    "number": "8.2",
+    "physical": 227,
+    "text": "Definition 8.2 (Hugging) Let (S, d)(S,\\mathsf d)be a geodesic space such that curv(S) ≥0\\mathop{\\mat"
+  },
+  {
+    "type": "Theorem",
+    "number": "8.3",
+    "physical": 227,
+    "text": "Theorem 8.3 (Variance Equality)"
+  },
+  {
+    "type": "Corollary",
+    "number": "8.4",
+    "physical": 228,
+    "text": "Corollary 8.4 Under the same assumptions as Theorem 8.3, we have for any b ∈Sb \\in S,"
+  },
+  {
+    "type": "Theorem",
+    "number": "8.5",
+    "physical": 229,
+    "text": "Theorem 8.5 (Master Theorem) Let P be a probability measure on a NNC"
+  },
+  {
+    "type": "Definition",
+    "number": "8.6",
+    "physical": 230,
+    "text": "Definition 8.6 (Extendable Geodesic) Consider a constant-speed geodesic ω :"
+  },
+  {
+    "type": "Theorem",
+    "number": "8.7",
+    "physical": 230,
+    "text": "Theorem 8.7 Suppose that curv(S) ≥0\\mathop{\\mathrm{curv}}(S) \\ge 0. Let Q ∈P2(S)Q\\in \\mathcal{P}_2(S"
+  },
+  {
+    "type": "Theorem",
+    "number": "8.8",
+    "physical": 232,
+    "text": "Theorem 8.8 Suppose that curv(S) ≥0\\mathop{\\mathrm{curv}}(S)\\ge 0and let x, b, b⋆∈Sx, b, b^\\star \\in"
+  },
+  {
+    "type": "Corollary",
+    "number": "8.9",
+    "physical": 234,
+    "text": "Corollary 8.9 Let P be a probability measure on an NNC geodesic space (S, d)(S,\\mathsf d)"
+  },
+  {
+    "type": "Theorem",
+    "number": "8.10",
+    "physical": 234,
+    "text": "Theorem 8.10 Let μ, ν ∈W2\\mu, \\nu \\in \\mathcal{W}_2 be two probability measures such that μ\\mu has"
+  },
+  {
+    "type": "Theorem",
+    "number": "8.11",
+    "physical": 235,
+    "text": "Theorem 8.11 Let P be a probability measure on W2\\mathcal{W}_2with a barycenter b⋆b^\\star that"
+  },
+  {
+    "type": "Definition",
+    "number": "A.1",
+    "physical": 240,
+    "text": "Definition A.1 A function f : Rd →R ∪{∞}f : \\mathbb{R}^d\\to \\mathbb{R}\\cup\\{\\infty\\}is convex if for"
+  },
+  {
+    "type": "Definition",
+    "number": "A.2",
+    "physical": 241,
+    "text": "Definition A.2 (Subdifferential) Let f : Rd →R ∪{∞}f : \\mathbb{R}^d\\to\\mathbb{R}\\cup\\{\\infty\\}be con"
+  },
+  {
+    "type": "Lemma",
+    "number": "A.3",
+    "physical": 241,
+    "text": "Lemma A.3 If f : Rd →R ∪{∞}f : \\mathbb{R}^d\\to\\mathbb{R}\\cup\\{\\infty\\}is convex and x lies in the in"
+  },
+  {
+    "type": "Definition",
+    "number": "A.4",
+    "physical": 241,
+    "text": "Definition A.4 (Convex Conjugate) For any function f : Rd →R ∪{∞}f:\\mathbb{R}^d \\to \\mathbb{R}\\cup\\{"
+  },
+  {
+    "type": "Example",
+    "number": "A.5",
+    "physical": 241,
+    "text": "Example A.5 Let A > 0A \\succ 0be a positive definite matrix. Then, the convex conjugate"
+  },
+  {
+    "type": "Theorem",
+    "number": "A.6",
+    "physical": 242,
+    "text": "Theorem A.6 (Fenchel–Young Inequality) For a convex function f : Rd →"
+  },
+  {
+    "type": "Definition",
+    "number": "A.7",
+    "physical": 243,
+    "text": "Definition A.7 A function f : Rd →R ∪{∞}f : \\mathbb{R}^d\\to\\mathbb{R}\\cup\\{\\infty\\}is called α\\alpha"
+  },
+  {
+    "type": "Definition",
+    "number": "A.8",
+    "physical": 243,
+    "text": "Definition A.8 A continuously differentiable function f : Rd →Rf : \\mathbb{R}^d\\to\\mathbb{R}is calle"
+  },
+  {
+    "type": "Lemma",
+    "number": "A.9",
+    "physical": 243,
+    "text": "Lemma A.9 Let f"
+  },
+  {
+    "type": "Definition",
+    "number": "A.10",
+    "physical": 244,
+    "text": "Definition A.10 (Polyak–Łojasiewicz Inequality) We say that a continuously"
+  },
+  {
+    "type": "Lemma",
+    "number": "A.11",
+    "physical": 244,
+    "text": "Lemma A.11 If f : Rd →Rf : \\mathbb{R}^d\\to\\mathbb{R}is continuously differentiable and α\\alpha-conve"
+  },
+  {
+    "type": "Lemma",
+    "number": "A.12",
+    "physical": 245,
+    "text": "Lemma A.12 If f : Rd →R ∪{∞}f : \\mathbb{R}^d\\to\\mathbb{R}\\cup\\{\\infty\\}is α\\alpha-convex, and if x⋆x"
+  },
+  {
+    "type": "Lemma",
+    "number": "A.13",
+    "physical": 245,
+    "text": "Lemma A.13 If f (x) = 1"
+  },
+  {
+    "type": "Definition",
+    "number": "B.1",
+    "physical": 247,
+    "text": "Definition B.1 A sequence of probability measures (μn)n(\\mu_n)_non Rd \\mathbb{R}^dis said to converg"
+  },
+  {
+    "type": "Definition",
+    "number": "B.2",
+    "physical": 247,
+    "text": "Definition B.2 A set A\\mathcal{A} of probability measures on Rd \\mathbb{R}^d is tight if for all ε >"
+  },
+  {
+    "type": "Theorem",
+    "number": "B.3",
+    "physical": 247,
+    "text": "Theorem B.3 (Prokhorov’s Theorem) Any weakly convergent sequence of prob-"
+  },
+  {
+    "type": "Theorem",
+    "number": "B.4",
+    "physical": 248,
+    "text": "Theorem B.4 (Portmanteau Theorem) Let (μn)n{(\\mu_n)}_{n}be a sequence in P(Rd)\\mathcal{P}(\\mathbb{R}"
+  },
+  {
+    "type": "Lemma",
+    "number": "B.5",
+    "physical": 248,
+    "text": "Lemma B.5 (Gluing Lemma) Let γ \\gamma nd γ '\\gamma'be two measures on Rd × Rd \\mathbb{R}^d\\times \\ma"
+  }
+]

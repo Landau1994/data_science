@@ -1,0 +1,25 @@
+在最优传输的统计应用中，能够为概率测度之间的 Wasserstein 距离得到良好的上下界至关重要. 本章介绍给 Wasserstein 距离作界的工具. 为此，我们大量使用最优传输的原始表述与对偶表述. 作为主要应用，我们考察 Wasserstein 大数律（Wasserstein law of large numbers）的定量形式：若 $\mu_n$ 是由概率测度 $\mu$ 的 $n$ 个独立同分布样本构成的经验测度，则当 $n\to\infty$ 时，$\mathbb E W_p(\mu_n,\mu)\to0$.
+
+\subsection{Wasserstein 大数律}\label{sec:2.1}
+设 $X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}\sim\mu$，其中 $\mu$ 是 $\mathbb R^d$ 某个紧子集上的概率测度；为方便起见，假设该紧集就是单位立方体 $[0,1]^d$. 经验测度（empirical measure）定义为如下随机测度：
+$$\mu_n=\frac1n\sum_{i=1}^n\delta_{X_i}.$$
+大数律表明，几乎必然有 $\mu_n\rightsquigarrow\mu$，且 $\int\lVert\cdot\rVert^p\,d\mu_n\to\int\lVert\cdot\rVert^p\,d\mu$；因此，\autoref{sec:1}的讨论说明 $W_p(\mu_n,\mu)\to0$. 此外，由于 $W_p(\mu_n,\mu)$ 几乎必然有界，还可得到均值收敛：
+$$\mathbb E W_p(\mu_n,\mu)\to0.$$
+这种收敛有多快？对于 $\mathbb R^d$ 中有界随机向量 $X_1,\ldots,X_n$ 的经典大数律，当然有
+$$\mathbb E\left\lVert\frac1n\sum_{i=1}^n X_i-\mathbb EX\right\rVert^2\lesssim\frac1n.$$
+注意，这个 $n^{-1}$ 衰减率与维数无关，甚至在无穷维 Hilbert 空间中也成立.
+
+相比之下，Wasserstein 大数律的表现很不一样. 本章将证明如下命题.
+\begin{proposition}\label{prop:2.1}
+若 $\mu$ 的支撑包含于 $[0,1]^d$，则
+\begin{equation}\label{eq:2.1}
+\mathbb E W_1(\mu_n,\mu)\lesssim\sqrt d\cdot
+\begin{cases}
+n^{-1/2},&d=1,\\
+(\log n/n)^{1/2},&d=2,\\
+n^{-1/d},&d\ge3,
+\end{cases}
+\end{equation}
+而且一般不能改进这个速率.
+\end{proposition}
+与标准大数律不同，$\mu_n$ 在 Wasserstein 距离下向 $\mu$ 的收敛随着维数增大而呈指数恶化；这一现象常称为维数灾难（curse of dimensionality）.

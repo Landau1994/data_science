@@ -1,0 +1,107 @@
+\subsection{得到慢速率}\label{sec:3.4}
+本节和下一节着重估计由适当函数类 $\Phi$ 中的势所产生的映射，要求该类的覆盖数（含义同\autoref{sec:2.3}）得到适当控制. 这些覆盖数的大小直接影响通过极小化经验半对偶、如 \eqref{eq:3.1} 所得到的估计量的质量.
+
+\Needspace{10\baselineskip}
+为开始分析，先对测度 $\mu,\nu$ 和函数族 $\Phi$ 作若干技术假设.
+\begin{assumption}\label{assump:3.3}
+存在 $\varphi\in\Phi$，使得 $\nu=(\nabla\varphi)_\#\mu$，其中 $\mu,\nu$ 和 $\Phi$ 满足：
+\begin{itemize}
+\item $\mu$ 和 $\nu$ 的支集包含在 $\Omega=B_1(0)$ 中.
+\item 集合 $\Phi$ 在 $\Omega$ 上关于 $L^\infty$ 有界，即 $\sup_{\phi\in\Phi}\|\phi\|_{L^\infty(\Omega)}\lesssim1$.
+\item 势满足 $\phi(0)=0$，且当 $x\notin\Omega$ 时 $\phi(x)=+\infty$.
+\item 势处处下半连续，且在 $\Omega$ 上光滑并强凸：当 $\|x\|<1$ 时，$\frac12 I\preceq\nabla^2\phi(x)\preceq2I$.
+\end{itemize}
+\end{assumption}
+在适当强的矩假设下，前两个假设可以减弱，但这里不沿这一方向展开. 第三个假设不失一般性：从 $\phi$ 中减去常数不影响半对偶目标函数或梯度 $\nabla\phi$，所以总可以假设 $\phi(0)=0$；而由于 $\mu$ 和 $\nu$ 的支集包含在 $B_1(0)$ 内，可以将 $\phi$ 在这一集合之外定义为无穷大，而不影响半对偶问题. $\phi$ 在 $\Omega$ 外恒等于 $+\infty$，会简化若干涉及共轭函数的论证，因为它意味着，对所有 $y\in\mathbb R^d$ 和 $\phi\in\Phi$，
+$$\phi^*(y)=\sup_{x\in\mathbb R^d}\{\langle x,y\rangle-\phi(x)\}
+=\sup_{x\in\Omega}\{\langle x,y\rangle-\phi(x)\}.$$
+第四个假设最为重要，因为它通过\autoref{thm:3.1}保证半对偶问题的稳定性.
+
+有了这些假设，就可以开展分析的第一步.
+\begin{lemma}\label{lem:3.4}
+采用\autoref{assump:3.3}，并假设对某个 $\varphi\in\Phi$ 有 $\nu=\nabla\varphi_\#\mu$. 令 $\widehat\varphi$ 为
+$$\widehat\varphi=\operatorname*{arg\,min}_{\phi\in\Phi}\mathcal S_n(\phi).$$
+那么
+\begin{equation}\label{eq:3.4}
+\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}^2
+\lesssim\sup_{\phi\in\Phi}\{|(\mu_n-\mu)(\phi)|+|(\nu_n-\nu)(\phi^*)|\}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+这是经验风险最小化中一种标准论证的应用. \autoref{thm:3.1}给出
+$$\begin{aligned}
+\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}^2
+&\lesssim\mathcal S(\widehat\varphi)-\mathcal S(\varphi)\\
+&=\mathcal S(\widehat\varphi)-\mathcal S_n(\widehat\varphi)
++\mathcal S_n(\widehat\varphi)-\mathcal S_n(\varphi)\\
+&\quad+\mathcal S_n(\varphi)-\mathcal S(\varphi)\\
+&\le2\sup_{\phi\in\Phi}|\mathcal S_n(\phi)-\mathcal S(\phi)|,
+\end{aligned}$$
+最后一步不等式利用了根据 $\widehat\varphi$ 的定义有 $\mathcal S_n(\widehat\varphi)-\mathcal S_n(\varphi)\le0$. 展开 $\mathcal S$ 与 $\mathcal S_n$ 的定义即得结论.
+\end{proof}
+
+为控制 \eqref{eq:3.4} 的右端，使用\autoref{prop:2.6}的链式技术. 为简单起见，着重考虑函数类足够小、使得对所有充分小的 $\varepsilon$ 都有
+\begin{equation}\label{eq:3.5}
+\log N(\varepsilon,\Phi)\lesssim\varepsilon^{-\gamma}\log(1+\varepsilon^{-1}),\qquad\gamma\in[0,1)
+\end{equation}
+的情形.
+
+参数类是这种函数类的典型例子，即集合 $\Phi$ 有限维：$\Phi=\{\phi_\theta\}_{\theta\in\Theta}$ 由参数 $\theta\in\Theta\subseteq\mathbb R^M$ 索引. 事实上，这时有下述界.
+\begin{lemma}\label{lem:3.5}
+假设 $\Phi=\{\phi_\theta\}_{\theta\in\Theta}$，其中 $\Theta\subseteq\mathbb R^M$ 有界，且势满足 $\|\phi_\theta-\phi_{\theta'}\|_{L^\infty(\Omega)}\lesssim\|\theta-\theta'\|$. 则存在正常数 $C$，使得当 $\varepsilon\ge C$ 时，$\Phi$ 的覆盖数满足 $\log N(\varepsilon,\Phi)=0$；在其他情形，
+$$\log N(\varepsilon,\Phi)\lesssim\log(1+\varepsilon^{-1}).$$
+\end{lemma}
+\begin{proof}
+根据假设，对某个 $R>0$ 有 $\Theta\subseteq B_R(0)$，所以对任意 $\phi,\psi\in\Phi$ 有 $\|\phi-\psi\|_{L^\infty(\Omega)}\lesssim R$. 因此，如果 $\varepsilon$ 大于一个足够大的常数，则 $\Phi$ 的任意元素都构成 $\Phi$ 的单元素 $\varepsilon$-覆盖.
+
+对任意 $\delta>0$，\autoref{exer:3.2}表明存在 $\theta_1,\ldots,\theta_N$，其中 $N\le(1+2R\delta^{-1})^M$，使得 $\bigcup_{i=1}^N B_\delta(\theta_i)\supseteq\Theta$. 于是 $\phi_{\theta_1},\ldots,\phi_{\theta_N}$ 是 $\Phi$ 的一个 $O(\delta)$-覆盖. 事实上，对任意 $\theta\in\Theta$，可以选取 $i\in[N]$，使得 $\|\phi_\theta-\phi_{\theta_i}\|_{L^\infty(\Omega)}\lesssim\|\theta-\theta_i\|\le\delta$. 对充分小的正常数 $c$ 取 $\delta=c\varepsilon$，即得所述结论.
+\end{proof}
+
+举一些参数类的例子：$\{\phi_\theta\}_{\theta\in\Theta}$ 可以是\autoref{sec:3.3}中的凸二次函数集合，也可以由固定字典（dictionary）$\{\phi_1,\ldots,\phi_M\}$ 的线性组合构成：
+$$\phi_\theta=\sum_{i=1}^M\theta_i\phi_i.$$
+注意，非参数统计中通常会精心选择字典，以平衡逼近误差与估计误差；不过，为了集中讨论核心统计内容，这里不深入研究这些问题.
+
+更一般地，条件 \eqref{eq:3.5} 允许无限维、但仍然“不太大”的函数类. 相比之下，它排除了复杂度随环境维数增长的类，例如\autoref{lem:2.7}研究的 Lipschitz 函数类.
+
+在这一假设下，估计 $T=\nabla\varphi$ 的最优速率是什么？如果 $\Phi$ 是参数类，我们预期极小极大速率为 $n^{-1}$；特别地，我们预期映射估计问题可以避开维数灾难. 事实上，只要满足形如 \eqref{eq:3.5} 的界，就能够达到避开维数灾难的速率.
+
+\autoref{lem:3.4}同时涉及势 $\phi$ 及其共轭 $\phi^*$. 遗憾的是，即使集合 $\Phi$ 具有简单形式，集合 $\Phi^*=\{\phi^*: \phi\in\Phi\}$ 也可能难以简洁描述. 不过，我们有下面这个关键观察：$\Phi$ 的覆盖数控制 $\Phi^*$ 的覆盖数.
+\begin{lemma}\label{lem:3.6}
+对任意 $\varepsilon>0$，
+$$N(\varepsilon,\Phi^*)\le N(\varepsilon,\Phi).$$
+\end{lemma}
+\begin{proof}
+这是共轭运算在 $L^\infty$ 中具有压缩性这一事实的结果. 事实上，给定任意函数对 $\phi,\psi\in\Phi$，
+$$\begin{aligned}
+|\phi^*(y)-\psi^*(y)|
+&=\left|\sup_{x\in\Omega}\{\langle x,y\rangle-\phi(x)\}
+-\sup_{x'\in\Omega}\{\langle x',y\rangle-\psi(x')\}\right|\\
+&\le\sup_{x\in\Omega}|\phi(x)-\psi(x)|=\|\phi-\psi\|_{L^\infty(\Omega)}.
+\end{aligned}$$
+特别地，如果 $\phi_1,\ldots,\phi_N$ 是 $\Phi$ 的一个 $\varepsilon$-网，那么 $\phi_1^*,\ldots,\phi_N^*$ 是 $\Phi^*$ 的一个 $\varepsilon$-网.
+\end{proof}
+
+现在可以证明映射估计的第一个收敛速率.
+\begin{theorem}\label{thm:3.7}
+采用\autoref{assump:3.3}，并假设 \eqref{eq:3.5} 成立. 半对偶估计量 $\widehat\varphi$ 满足
+$$\mathbb E\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}^2\lesssim n^{-1/2}.$$
+\end{theorem}
+\begin{proof}
+\autoref{lem:3.4}给出
+$$\begin{aligned}
+\mathbb E\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}^2
+\lesssim{}&\mathbb E\sup_{\phi\in\Phi}|(\mu_n-\mu)(\phi)|\\
+&+\mathbb E\sup_{\phi\in\Phi}|(\nu_n-\nu)(\phi^*)|.
+\end{aligned}$$
+由\autoref{assump:3.3}，存在正常数 $R$，使得对所有 $\phi\in\Phi$，$\|\phi\|_{L^\infty(\Omega)}\le R$ 且 $\|\phi^*\|\le R$. 在\autoref{prop:2.6}中取 $\tau=0$，得到
+$$\mathbb E\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}^2
+\lesssim\frac1{\sqrt n}\int_0^R
+\left(\sqrt{\log N(\varepsilon,\Phi)}+\sqrt{\log N(\varepsilon,\Phi^*)}\right)d\varepsilon.$$
+应用 \eqref{eq:3.5} 和\autoref{lem:3.6}，可得
+$$\mathbb E\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}^2
+\lesssim\frac1{\sqrt n}\int_0^R\varepsilon^{-\gamma/2}
+\sqrt{\log(1+\varepsilon^{-1})}\,d\varepsilon\lesssim n^{-1/2},$$
+即为所求.
+\end{proof}
+
+正如预期，对类 $\Phi$ 的参数化假设带来了避开维数灾难的收敛速率. 不过，“慢速率”$n^{-1/2}$ 尚未达到希望证明的结果. 为得到“快速率”$n^{-1}$，需要进行局部化；要利用这一步局部化，还必须对 $\mu$ 施加额外假设.

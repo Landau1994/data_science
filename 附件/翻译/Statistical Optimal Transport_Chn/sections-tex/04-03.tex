@@ -1,0 +1,192 @@
+\subsection{对偶解的统计速率}\label{sec:4.3}
+本节和下一节研究熵正则最优传输问题的经验版本的统计行为. 与\autoref{sec:2}的结果不同，收敛速率作为 $n$ 的函数不再受到维数灾难的影响. 不过，为这一改进付出的代价，是对 $1/\varepsilon$ 的强烈依赖.
+
+证明统计界的策略是分析对偶问题 \eqref{eq:eps-D-W22}，然后利用\autoref{prop:4.3}给出的原问题解与对偶解之间的联系，将这些界转移到原问题的解上.
+
+用 $S(\mu,\nu)$ 表示原问题 \eqref{eq:eps-W22} 的值. 给定来自 $\mu,\nu$ 的独立同分布样本，主要关心两个量的估计：
+\begin{itemize}
+\item 成本 $S(\mu,\nu)$；
+\item 熵正则映射（entropic map）或熵正则回归函数（entropic regression function）
+$$b^\star(x)=\mathbb E_{(X,Y)\sim\gamma^\star}[Y\mid X=x].$$
+\end{itemize}
+估计第一个量，是\autoref{sec:2}所研究问题的熵正则对应问题；估计第二个量，则是\autoref{sec:3}中映射估计任务的熵正则对应问题. 事实上，$b^\star$ 是 $\gamma^\star$ 在 $L^2$ 意义下到映射空间的投影；不过必须强调，$b^\star$ 并不是 $\mu$ 与 $\nu$ 之间的有效传输映射，因为 $(b^\star)_\#\mu\ne\nu$.
+
+与\autoref{sec:2}一样，分析这些量的代入估计量：成本用 $S(\mu_n,\nu_n)$ 估计，映射用 $\widehat b(x)=\mathbb E_{(X,Y)\sim\widehat\gamma}[Y\mid X=x]$ 估计，其中 $\widehat\gamma$ 是 $\mu_n$ 与 $\nu_n$ 之间的经验熵正则最优传输问题的最优解.\footnote{尽管熵正则映射 $b^\star$ 和 $b_n$ 的公式分别将它们定义为 $L^1(\mu)$ 和 $L^1(\mu_n)$ 中的元素，但\autoref{sec:4.2}描述的规范延拓可以用于定义 $b^\star$ 和 $b_n$ 的连续版本.}
+
+如上所强调，分析这些量的主要工具是\autoref{prop:4.3}建立的对偶关系. 用 $C_b^\oplus$ 表示 $C_b(\Omega\times\Omega)$ 中由形如 $f\oplus g$、$f,g\in C_b(\Omega)$ 的函数组成的子空间. 对偶问题 \eqref{eq:eps-D-W22} 只通过和 $h=f\oplus g\in C_b^\oplus$ 依赖于 $f,g$. 特别地，如果 $(f,g)$ 是对偶解，那么对任意 $\lambda\in\mathbb R$，$(f+\lambda,g-\lambda)$ 也是对偶解. 受这一事实启发，定义对偶泛函 $\Phi:C_b^\oplus\to\mathbb R$ 为
+\begin{equation}\label{eq:4.13}
+h\longmapsto\int\left(h-\varepsilon(e^{(h-c)/\varepsilon}-1)\right)d(\mu\otimes\nu),
+\end{equation}
+其中 $c(x,y)=\|x-y\|^2$ 是平方欧几里得成本. 对偶问题于是可以简写为 $\sup_{h\in C_b^\oplus}\Phi(h)$.
+
+假设要比较 $S(\mu,\nu)$ 与 $S(\mu_n,\nu_n)$；与\autoref{sec:2}一样，$\mu_n,\nu_n$ 表示分别由 $\mu,\nu$ 的独立同分布样本构成的经验测度. 可以定义对偶泛函的经验版本
+$$\widehat\Phi(h)=\int\left(h-\varepsilon(e^{(h-c)/\varepsilon}-1)\right)d(\mu_n\otimes\nu_n).$$
+那么
+$$\begin{aligned}
+S(\mu_n,\nu_n)-S(\mu,\nu)
+&=\sup_{h\in C_b^\oplus}\widehat\Phi(h)-\sup_{h\in C_b^\oplus}\Phi(h)\\
+&=\widehat\Phi(\widehat h)-\Phi(h^\star),
+\end{aligned}$$
+其中 $\widehat h,h^\star$ 分别为 $\widehat\Phi,\Phi$ 的极大化解.
+
+\autoref{exer:4.7}概述了一种基于经验过程理论、直接控制 $\widehat\Phi(\widehat h)-\Phi(h^\star)$ 的方法，类似于\autoref{sec:2.3}中为无正则化最优传输问题发展的方法. 不过，这里走另一条路径，利用对偶泛函的强凹性.
+
+先给出论证的非严格草图. 泛函 $\widehat\Phi$ 的强凹性应当意味着存在 $\delta>0$，使得
+$$\widehat\Phi(\widehat h)\le\widehat\Phi(h^\star)
++\langle\nabla\widehat\Phi(h^\star),\widehat h-h^\star\rangle_{L^2(\mu_n\otimes\nu_n)}
+-\frac\delta2\|\widehat h-h^\star\|_{L^2(\mu_n\otimes\nu_n)}^2.$$
+虽然可以为 $\nabla\widehat\Phi$ 定义适当的梯度概念，但对这里的目的而言，只需将上述内积理解为方向导数，即 G\^ateaux 导数. 与经验过程理论的方法不同，这一不等式意味着，可以通过控制 $\widehat\Phi$ 和 $\nabla\widehat\Phi$ 在固定函数 $h^\star$ 处，而非随机函数 $\widehat h$ 处的行为来得到界. 特别地，不必“对 $\widehat h$ 取上确界”，因而可以避开经验过程理论.
+
+作如下假设.
+\begin{assumption}\label{assump:4.4}
+$\mu$ 与 $\nu$ 的支集包含在 $\Omega\subseteq B_{1/2}(0)$ 中.
+\end{assumption}
+特别地，在\autoref{assump:4.4}下，$\operatorname{diam}(\Omega)\le1$. 这一假设蕴含对 $\widehat h,h^\star$ 的简单先验界.
+\begin{proposition}\label{prop:4.5}
+在\autoref{assump:4.4}下，有
+$$\|\widehat h\|_{L^\infty},\ \|h^\star\|_{L^\infty}\le2.$$
+\end{proposition}
+\begin{proof}
+先证明 $h^\star$ 的结论. 回顾 $h^\star=f^\star\oplus g^\star$，其中 $f^\star,g^\star\in C_b(\Omega)$；借助规范延拓，可以假设边缘约束 \eqref{eq:4.7} 和 \eqref{eq:4.10} 对所有 $x,y\in\Omega$ 成立. 由于对所有 $x,y\in\Omega$ 有 $c(x,y)\le1$，得到
+$$\begin{aligned}
+1&=\int e^{(f^\star\oplus g^\star-c)/\varepsilon}\,\mu(dx)
+\ge e^{(g^\star(y)-1)/\varepsilon}\int e^{f^\star(x)/\varepsilon}\,\mu(dx),&&\forall y\in\Omega,\\
+1&=\int e^{(f^\star\oplus g^\star-c)/\varepsilon}\,\nu(dy)
+\ge e^{(f^\star(x)-1)/\varepsilon}\int e^{g^\star(y)/\varepsilon}\,\nu(dy),&&\forall x\in\Omega.
+\end{aligned}$$
+将两个不等式相乘，得到
+$$e^{(h^\star-2)/\varepsilon}\int e^{h^\star/\varepsilon}\,d(\mu\otimes\nu)\le1.$$
+再注意，由 Jensen 不等式，
+$$\int e^{h^\star/\varepsilon}\,d(\mu\otimes\nu)\ge e^{S(\mu,\nu)/\varepsilon}\ge1,$$
+其中使用了\autoref{prop:4.3}. 由以上两式，对所有 $x,y\in\Omega$，有 $h^\star\le2$.
+
+接着，由于 $c\ge0$ 在 $\Omega\times\Omega$ 上成立，同样的论证给出
+$$1\le e^{h^\star/\varepsilon}\int e^{h^\star/\varepsilon}\,d(\mu\otimes\nu)
+\le e^{(h^\star+2)/\varepsilon},$$
+其中使用了刚刚证明的界 $h^\star\le2$. 因此，对所有 $x,y\in\Omega$，有 $h^\star\ge-2$.
+
+由于对 $h^\star$ 唯一使用的事实是，它极大化了对应于支集包含在 $\Omega$ 内的测度的对偶泛函 $\Phi$，因此在\autoref{prop:4.3}中将 $(\mu,\nu)$ 替换为 $(\mu_n,\nu_n)$，结论对 $\widehat h$ 也成立. 规范延拓在这里再次起着关键作用.
+\end{proof}
+
+需要经验对偶泛函的一些基本可微性和凹性性质. 若令 $\mu_n=\frac1n\sum_{i=1}^n\delta_{X_i}$、$\nu_n=\frac1n\sum_{j=1}^n\delta_{Y_j}$，其中 $X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}\sim\mu$、$Y_1,\ldots,Y_n\overset{\mathrm{i.i.d.}}\sim\nu$，则可以显式写出
+\begin{equation}\label{eq:4.14}
+\widehat\Phi(h)=\frac1{n^2}\sum_{i,j=1}^n
+\left(h(X_i,Y_j)-\varepsilon\left(e^{(h(X_i,Y_j)-\|X_i-Y_j\|^2)/\varepsilon}-1\right)\right).
+\end{equation}
+无须诉诸泛函分析来研究泛函 $\widehat\Phi$ 的可微性，只需研究定义在 $[0,1]$ 上的函数 $\varphi$：
+\begin{equation}\label{eq:4.15}
+\varphi(t)=\widehat\Phi(h_t),\qquad h_t:=(1-t)\widehat h+th^\star.
+\end{equation}
+特别地，它二次可微，导数为
+\begin{equation}\label{eq:4.16}
+\varphi'(t)=\frac1{n^2}\sum_{i,j=1}^n
+\left((h^\star(X_i,Y_j)-\widehat h(X_i,Y_j))
+\left(1-e^{(h_t(X_i,Y_j)-\|X_i-Y_j\|^2)/\varepsilon}\right)\right),
+\end{equation}
+以及
+\begin{equation}\label{eq:4.17}
+\begin{aligned}
+\varphi''(t)&=-\frac1{\varepsilon n^2}\sum_{i,j=1}^n
+\left((h^\star(X_i,Y_j)-\widehat h(X_i,Y_j))^2
+e^{(h_t(X_i,Y_j)-\|X_i-Y_j\|^2)/\varepsilon}\right)\\
+&\le-\frac{e^{-3/\varepsilon}}\varepsilon\|\widehat h-h^\star\|_{L^2(\mu_n\otimes\nu_n)}^2,
+\end{aligned}
+\end{equation}
+上述不等式使用了\autoref{prop:4.5}与\autoref{assump:4.4}. 由此立即得到 $\varphi$ 在 $[0,1]$ 上强凹.
+
+表达式 \eqref{eq:4.16} 表明，$\varphi$ 的导数是与空间 $C_b^\oplus$ 中某个函数的 $L^2(\mu_n\otimes\nu_n)$ 内积. 利用 Hoeffding\index{Hoeffding’s decomposition@Hoeffding分解（Hoeffding’s decomposition）|hyperpage} 分解（Hoeffding decomposition，也称 Efron--Stein 分解或 ANOVA 分解）\cite{ref164}，可以很好地理解这个内积.
+\begin{definition}\label{def:4.6}
+设 $X,Y$ 为两个相互独立的随机变量，分布分别为 $P,Q$. 给定 $k\in L^2(P\otimes Q)$，$k(X,Y)$ 在 $L^2(P\otimes Q)$ 中的 Hoeffding 分解为
+$$k(X,Y)=\bar k_1(X)+\bar k_2(Y)+\bar k+r(X,Y),$$
+其中
+$$\begin{gathered}
+\bar k=\mathbb E[k(X,Y)]\in\mathbb R,\\
+\bar k_1(x)=\mathbb E[k(X,Y)\mid X=x]-\bar k,\\
+\bar k_2(y)=\mathbb E[k(X,Y)\mid Y=y]-\bar k,
+\end{gathered}$$
+以及
+$$r(X,Y)=k(X,Y)-\bar k_1(X)-\bar k_2(Y)-\bar k.$$
+\end{definition}
+容易验证（留作练习！），Hoeffding 分解在 $L^2(P\otimes Q)$ 中正交. 事实上，同样的计算揭示了该分解与这里问题的联系：对任意 $h=f\oplus g\in C_b^\oplus$，
+$$\begin{aligned}
+\langle h,k\rangle_{L^2(P\otimes Q)}
+&=\langle f,\bar k_1\rangle_{L^2(P)}+\langle g,\bar k_2\rangle_{L^2(Q)}
++\langle h,\bar k\rangle_{L^2(P\otimes Q)}\\
+&=\langle h,\bar k_1+\bar k_2+\bar k\rangle_{L^2(P\otimes Q)}.
+\end{aligned}$$
+利用 Cauchy--Schwarz 不等式与 Hoeffding 分解的正交性，得到
+\begin{equation}\label{eq:4.18}
+\begin{aligned}
+\langle h,k\rangle_{L^2(P\otimes Q)}^2
+&\le\|h\|_{L^2(P\otimes Q)}^2\|\bar k_1+\bar k_2+\bar k\|_{L^2(P\otimes Q)}^2\\
+&=\|h\|_{L^2(P\otimes Q)}^2
+\left(\|\bar k_1\|_{L^2(P\otimes Q)}^2+\|\bar k_2\|_{L^2(P\otimes Q)}^2+\bar k^2\right).
+\end{aligned}
+\end{equation}
+再次利用正交性，有
+$$\mathbb E[(\mathbb E[k(X,Y)\mid X])^2]
+=\|\bar k_1+\bar k\|_{L^2(P\otimes Q)}^2
+=\|\bar k_1\|_{L^2(P\otimes Q)}^2+\bar k^2,$$
+类似地，
+$$\mathbb E[(\mathbb E[k(X,Y)\mid Y])^2]
+=\|\bar k_2\|_{L^2(P\otimes Q)}^2+\bar k^2.$$
+这两个恒等式与 \eqref{eq:4.18} 一起给出
+$$\frac{\langle h,k\rangle_{L^2(P\otimes Q)}^2}{\|h\|_{L^2(P\otimes Q)}^2}
+\le\mathbb E[(\mathbb E[k(X,Y)\mid X])^2]
++\mathbb E[(\mathbb E[k(X,Y)\mid Y])^2]-\bar k^2.$$
+在这一结果中取 $P=\mu_n$、$Q=\nu_n$，得到下面的引理.
+\begin{lemma}\label{lem:4.7}
+对任意 $k\in L^2(\mu_n\otimes\nu_n)$ 和 $h\in C_b^\oplus$，有
+$$\langle h,k\rangle_{L^2(\mu_n\otimes\nu_n)}^2
+\le\|h\|_{L^2(\mu_n\otimes\nu_n)}^2
+\left(\|\nu_n(k)\|_{L^2(\mu_n)}^2+\|\mu_n(k)\|_{L^2(\nu_n)}^2\right),$$
+其中
+$$\mu_n(k)(y)=\frac1n\sum_{i=1}^n k(X_i,y),\qquad
+\nu_n(k)(x)=\frac1n\sum_{j=1}^n k(x,Y_j).$$
+\end{lemma}
+现在可以得到一个重要引理，说明 $\widehat h$ 是 $h^\star$ 的良好估计量. 成本和熵正则映射的收敛速率将由此引理推出.
+\begin{lemma}\label{lem:4.8}
+设\autoref{assump:4.4}成立. 则
+$$\mathbb E\|\widehat h-h^\star\|_{L^2(\mu_n\otimes\nu_n)}^2\le\frac{2\varepsilon^2e^{10/\varepsilon}}n.$$
+\end{lemma}
+\begin{proof}
+由于 $\varphi$ 强凹，依次使用 \eqref{eq:4.17}、最优性条件 $\varphi'(0)=0$ 和 \eqref{eq:4.16}，得到
+\begin{equation}\label{eq:4.19}
+\begin{aligned}
+\frac{e^{-3/\varepsilon}}\varepsilon\|\widehat h-h^\star\|_{L^2(\mu_n\otimes\nu_n)}^2
+&\le\varphi'(0)-\varphi'(1)=-\varphi'(1)\\
+&=\frac1{n^2}\sum_{i,j=1}^n
+\left((h^\star(X_i,Y_j)-\widehat h(X_i,Y_j))
+\left(e^{(h^\star(X_i,Y_j)-\|X_i-Y_j\|^2)/\varepsilon}-1\right)\right)\\
+&=\langle h^\star-\widehat h,p^\star-1\rangle_{L^2(\mu_n\otimes\nu_n)},
+\end{aligned}
+\end{equation}
+其中
+$$p^\star(x,y)=e^{(h^\star(x,y)-\|x-y\|^2)/\varepsilon}.$$
+由于 $h^\star-\widehat h\in C_b^\oplus$，\autoref{lem:4.7}给出
+$$\langle h^\star-\widehat h,p^\star-1\rangle_{L^2(\mu_n\otimes\nu_n)}
+\le\|h^\star-\widehat h\|_{L^2(\mu_n\otimes\nu_n)}\delta_n,$$
+其中
+$$\delta_n=\left(\|\nu_n(p^\star-1)\|_{L^2(\mu_n)}^2
++\|\mu_n(p^\star-1)\|_{L^2(\nu_n)}^2\right)^{1/2}.$$
+与 \eqref{eq:4.19} 结合得到
+\begin{equation}\label{eq:4.20}
+\|\widehat h-h^\star\|_{L^2(\mu_n\otimes\nu_n)}^2
+\le\varepsilon^2e^{6/\varepsilon}\delta_n^2.
+\end{equation}
+回顾 \eqref{eq:4.7}，有
+$$\mathbb E[p^\star(X_i,Y_j)\mid Y_j]=1,$$
+从而
+$$\begin{aligned}
+\mathbb E\|\mu_n(p^\star-1)\|_{L^2(\nu_n)}^2
+&=\frac1n\mathbb E\sum_{j=1}^n
+\left(\frac1n\sum_{i=1}^n p^\star(X_i,Y_j)-\mathbb E[p^\star(X_i,Y_j)\mid Y_j]\right)^2\\
+&=\frac1n\mathbb E\operatorname{var}(p^\star(X_1,Y_1)\mid Y_1)\\
+&\le\frac{\mathbb E[p^\star(X_1,Y_1)^2]}n\le\frac{e^{4/\varepsilon}}n.
+\end{aligned}$$
+对 $\mathbb E\|\nu_n(p^\star-1)\|_{L^2(\mu_n)}^2$ 也有类似的界，因而
+\begin{equation}\label{eq:4.21}
+\mathbb E\delta_n^2\le\frac{2e^{4/\varepsilon}}n,
+\end{equation}
+结论得证.
+\end{proof}

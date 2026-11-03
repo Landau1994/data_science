@@ -1,0 +1,93 @@
+\subsection{习题}\label{sec:4.6}
+\begin{exercise}\label{exer:4.1}\leavevmode
+\begin{enumerate}\renewcommand{\labelenumi}{(\alph{enumi})}
+\item 设 $\Omega$ 是 $\mathbb R^d$ 中具有正 Lebesgue 测度的紧子集. 证明，$\Omega$ 上的均匀测度在 $\Omega$ 上所有概率测度中具有最大的微分熵.
+\item 设 $m$ 为正整数. 证明，$[m]$ 上的均匀测度在 $[m]$ 上所有概率测度中具有最大的 Shannon 熵.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exer:4.2}\leavevmode
+\begin{enumerate}\renewcommand{\labelenumi}{(\alph{enumi})}
+\item 证明：如果 $\mu,\nu,\gamma$ 都绝对连续，且 $\gamma\in\Gamma_{\mu,\nu}$，那么
+$$\operatorname{KL}(\gamma\|\mu\otimes\nu)
+=\operatorname{Ent}(\mu)+\operatorname{Ent}(\nu)-\operatorname{Ent}(\gamma).$$
+推出：如果 $\mu,\nu$ 绝对连续，则优化问题 \eqref{eq:4.1} 与 \eqref{eq:4.3} 等价.
+\item 用类似计算说明：若 $\mu,\nu$ 为离散测度，则 \eqref{eq:4.2} 与 \eqref{eq:4.3} 等价.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exer:4.3}
+令 $\gamma_\varepsilon$ 表示 $\mu$ 与 $\nu$ 之间的熵正则最优传输计划，相应的势为 $f_\varepsilon,g_\varepsilon$. 定义 $\varphi_\varepsilon:=\frac12(\|\cdot\|^2-f_\varepsilon)$. 计算 $\varphi_\varepsilon$ 的导数，并推出
+\begin{equation}\label{eq:4.26}
+\nabla\varphi_\varepsilon(x)=\mathbb E_{\gamma_\varepsilon}[Y\mid X=x],
+\end{equation}
+\begin{equation}\label{eq:4.27}
+\nabla^2\varphi_\varepsilon(x)=\varepsilon^{-1}\operatorname{cov}_{\gamma_\varepsilon}(Y\mid X=x).
+\end{equation}
+特别地，由于预期当 $\varepsilon\to0$ 时，$\varphi_\varepsilon$ 收敛到无正则化的 Brenier 势 $\varphi$，这一点在\cite{ref242}中得到严格证明，而且由 \eqref{eq:4.27}，$\varphi_\varepsilon$ 是凸函数，因此这为 Brenier \autoref{thm:1.16}提供了另一种解释.
+\end{exercise}
+
+\begin{exercise}\label{exer:4.4}
+计算两个高斯分布之间的熵正则最优传输解，即势、传输计划和成本. \emph{提示：}正如可能预期的那样，熵正则势为二次函数.
+\end{exercise}
+
+\begin{exercise}\label{exer:4.5}
+本题给出 Sinkhorn 迭代 \eqref{eq:4.11}、\eqref{eq:4.12} 的另一种解释. 考虑联合分布
+$$\begin{aligned}
+\gamma_{t-\frac12}(dx,dy)&\propto
+\exp\bigl((f_{t-1}(x)+g_t(y)-\|x-y\|^2)/\varepsilon\bigr)\,\mu(dx)\nu(dy),\\
+\gamma_t(dx,dy)&\propto
+\exp\bigl((f_t(x)+g_t(y)-\|x-y\|^2)/\varepsilon\bigr)\,\mu(dx)\nu(dy).
+\end{aligned}$$
+这里取 $\gamma_0(dx,dy)\propto\exp(-\|x-y\|^2/\varepsilon)\mu(dx)\nu(dy)$. 证明，Sinkhorn 更新对应于迭代地“修正边缘分布”：即 $\gamma_{t-1/2}$ 由 $\gamma_{t-1}$ 保持 $X\mid Y$ 的条件分布不变、但将 $Y$ 边缘设置为 $\nu$ 得到；$\gamma_t$ 则由 $\gamma_{t-1/2}$ 保持 $Y\mid X$ 的条件分布不变、但将 $X$ 边缘设置为 $\mu$ 得到.
+\end{exercise}
+
+\begin{exercise}\label{exer:4.6}
+在 $\mu,\nu$ 分别支撑于 $\{x_1,\ldots,x_m\}$ 与 $\{y_1,\ldots,y_n\}$ 的离散情形下，Sinkhorn 算法说明：对于元素为 $M_{i,j}=\exp(-\|x_i-y_j\|^2/\varepsilon)$ 的矩阵 $M$，存在正的行、列缩放 $\kappa\in\mathbb R_+^m$、$\lambda\in\mathbb R_+^n$，使缩放矩阵 $\operatorname{diag}(\kappa)M\operatorname{diag}(\lambda)$ 的边缘分别为 $\mu,\nu$；细节见\cite{ref257}.
+
+作为特例，假设 $\mu,\nu$ 均匀分布，且 $m=n$. 那么，缩放矩阵 $\widetilde M:=\operatorname{diag}(\kappa)M\operatorname{diag}(\lambda)$ 的边缘为 $\mu,\nu$，当且仅当 $n\widetilde M$ 为双随机矩阵，即属于 Birkhoff 多面体 \eqref{eq:1.2}. 在这一情形下，通过考虑 KL 极小化问题
+$$\underset{\gamma\in\operatorname{Birk}}{\operatorname{minimize}}
+\sum_{i,j=1}^n\left(\gamma_{i,j}\log\frac{\gamma_{i,j}}{M_{i,j}}-\gamma_{i,j}+M_{i,j}\right),$$
+证明对任意元素均为正的矩阵 $M$，都存在上述缩放. 具体地，先证明这一问题存在解，再利用 Lagrange 乘子证明 $\gamma$ 具有 $\operatorname{diag}(\kappa)M\operatorname{diag}(\lambda)$ 的形式，其中缩放 $\kappa,\lambda$ 为正.
+\end{exercise}
+
+\begin{exercise}\label{exer:4.7}
+\autoref{sec:4.3}中的强凸性论证旨在避开经验过程理论. 不过，本题说明如何利用经验过程理论，通过与\autoref{sec:2.3}类似的技术证明样本复杂度界. 与\autoref{sec:4.3}的方法不同，这些界对 $1/\varepsilon$ 的依赖为多项式，但指数随 $d$ 增长. 为简单起见，着重考虑单样本问题，证明对量 $S(\mu_n,\nu)-S(\mu,\nu)$ 的界.
+\begin{enumerate}\renewcommand{\labelenumi}{(\alph{enumi})}
+\item 对任意一对支撑于 $\Omega=B_{1/2}(0)$ 的测度，设 $f,g$ 是 \eqref{eq:eps-D-W22} 的解. 令 $s$ 为正整数. 仿照\autoref{exer:4.3}论证，说明存在正常数 $C_s$，使得对所有满足 $|\alpha|=s$ 的多重指标 $\alpha=(\alpha_1,\ldots,\alpha_d)$，有
+$$\sup_{x\in\Omega}|\partial_\alpha f(x)|\le C_s\varepsilon^{1-s}.$$
+说明可以不失一般性地假设 $f(0)=0$，从而对某个正常数 $C_0$ 得到 $\sup_{x\in\Omega}|f(x)|\le C_0$.
+\item 对 $L>0$，定义
+$$\mathcal F_s(L):=\left\{f:\Omega\to\mathbb R^d:
+\sum_{k=0}^s\sum_{\alpha:|\alpha|=k}\|\partial_\alpha f\|_{L^\infty(\Omega)}\le L\right\}.$$
+固定正整数 $s$. 说明存在常数 $C=C(s)$，使得当 $L=C(1+\varepsilon^{1-s})$ 时，有
+$$|S(\mu_n,\nu)-S(\mu,\nu)|
+\le\sup_{f\in\mathcal F_s(L)}\left|\int f\,d\mu_n-\int f\,d\mu\right|.$$
+\emph{提示：}令 $f^\star,g^\star$ 是对应于 $\mu,\nu$ 的 \eqref{eq:eps-D-W22} 的解，而 $\widehat f,\widehat g$ 是对应于 $\mu_n,\nu$ 的解. 说明 $h^\star=f^\star\oplus g^\star$ 与 $\widehat h=\widehat f\oplus\widehat g$ 满足
+$$S(\mu_n,\nu)-S(\mu,\nu)=\widehat\Phi(\widehat h)-\Phi(h^\star)
+\le\int\widehat f\,d\mu_n-\int\widehat f\,d\mu,$$
+类似地，
+$$S(\mu,\nu)-S(\mu_n,\nu)\le\int f^\star\,d\mu-\int f^\star\,d\mu_n.$$
+然后应用(a)问.
+\item 可以证明 $\log N(\delta,\mathcal F_s(L))\lesssim(L/\delta)^{d/s}$，而且这一界对分数阶 $s$ 也成立，此时将 $\mathcal F_s$ 理解为适当的 H\"older 空间. 取 $s=d/2+1$，利用\autoref{prop:2.6}推出
+$$\mathbb E|S(\mu_n,\nu)-S(\mu,\nu)|\lesssim(1+\varepsilon^{-d/2})n^{-1/2}.$$
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exer:4.8}
+\autoref{sec:4.3}中的统计结果依赖于对密度 $p^\star$ 的逐点界. 这里给出控制 $\|p^\star\|_{L^2(\mu\otimes\nu)}$ 的另一种方法，作为进入\cite{ref292}的切入点.
+\begin{enumerate}\renewcommand{\labelenumi}{(\alph{enumi})}
+\item 说明对偶势 $f^\star,g^\star$ 为 $O(1)$-Lipschitz，且 $\log p^\star$ 为 $O(\varepsilon^{-1})$-Lipschitz. 这里仍在一个有界区域上工作.
+\item 证明，对所有 $\delta>0$，有
+$$\int\nu(B(z,\delta))^{-1}\,\nu(dz)\le N(\delta/4,\operatorname{supp}\nu),$$
+其中 $N(\delta/4,\operatorname{supp}\nu)$ 为 $\operatorname{supp}\nu$ 在尺度 $\delta/4$ 的覆盖数. 令 $z_1,\ldots,z_K\in\operatorname{supp}\nu$ 为 $\operatorname{supp}\nu$ 的一个 $\delta/2$-覆盖，满足 $K\le N(\delta/4,\operatorname{supp}\nu)$. 将积分控制为 $B(z_k,\delta/2)$ 上积分的和，其中 $k=1,\ldots,K$.
+\item 利用
+$$1=p^\star(x,y)\int\frac{p^\star(x,y')}{p^\star(x,y)}\,\nu(dy')
+\ge p^\star(x,y)\int_{B(y,r)}\frac{p^\star(x,y')}{p^\star(x,y)}\,\nu(dy')$$
+以及(a)问的对数 Lipschitz 性质，证明 $p^\star(x,y)\lesssim\nu(B(y,r))^{-1}$，其中 $r\asymp\varepsilon$.
+\item 将这一结果与(b)问的估计结合，证明
+$$\|p^\star\|_{L^2(\mu\otimes\nu)}\lesssim\sqrt{N(r',\operatorname{supp}\nu)},\qquad r'\asymp\varepsilon.$$
+解释为何这意味着，若 $\operatorname{supp}\mu$ 为 $d_\mu$ 维、$\operatorname{supp}\nu$ 为 $d_\nu$ 维，则
+$$\|p^\star\|_{L^2(\mu\otimes\nu)}\lesssim\varepsilon^{-(d_\mu\wedge d_\nu)/2}.$$
+\end{enumerate}
+\end{exercise}

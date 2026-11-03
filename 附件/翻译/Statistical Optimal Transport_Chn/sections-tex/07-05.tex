@@ -1,0 +1,20 @@
+\subsection{习题}\label{sec:7.5}
+\begin{exercise}\label{exer:7.1}
+证明，配备 MMD（\autoref{def:2.20}）的概率测度空间定义了平坦的几何.
+\end{exercise}
+
+\begin{exercise}\label{exer:7.2}
+设 $\mu,\nu,\rho\in\mathcal P_2(\mathbb R^d)$. 证明存在曲线 $\omega:[0,1]\to\mathcal P_2(\mathbb R^d)$，满足 $\omega(0)=\mu$、$\omega(1)=\nu$，且\autoref{thm:7.15}中的反向不等式成立，即
+$$W_2^2(\rho,\omega(t))\le(1-t)W_2^2(\rho,\mu)+tW_2^2(\rho,\nu)-t(1-t)W_2^2(\mu,\nu).$$
+提示：对 $X_\mu\sim\mu$、$X_\nu\sim\nu$、$X_\rho\sim\rho$，将 $(X_\mu,X_\rho)$ 与 $(X_\nu,X_\rho)$ 最优耦合. 将 $\omega(t)$ 定义为 $X_\mu$ 与 $X_\nu$ 的适当插值的分布. 与\autoref{sec:5}的\autoref{exer:5.9}比较.
+\end{exercise}
+
+\begin{exercise}\label{exer:7.3}
+推广\autoref{thm:7.6}的证明，说明对任意 $p\ge1$，有限 $p$ 阶矩概率测度构成的空间 $\mathcal P_p(\mathbb R^d)$，配备 $p$-Wasserstein 度量 $W_p$ 后，是测地空间. 测地线是什么？
+\end{exercise}
+
+\begin{exercise}\label{exer:7.4}
+推广\autoref{def:7.19}，依照如下提纲证明：若 $(S,\mathsf d)$ 是直径至多为 $\pi$ 的度量空间，$\operatorname{cone}(S)$ 是将 $X\times[0,\infty)$ 中所有形如 $(x,0)$ 的点等同后得到的集合，则
+$$\mathsf d((x,s),(y,t)):=\sqrt{s^2+t^2-2st\cos\mathsf d(x,y)}$$
+在 $\operatorname{cone}(S)$ 上定义一个度量. 为此，取锥中的三个点 $(x_1,r_1)$、$(x_2,r_2)$、$(x_3,r_3)$，在 $\mathbb R^2$ 中构造三个点 $y_1,y_2,y_3$，使它们到原点的距离分别为 $r_1,r_2,r_3$，且 $y_1,y_2$ 之间的角和 $y_2,y_3$ 之间的角分别等于 $\mathsf d(x_1,x_2)$ 与 $\mathsf d(x_2,x_3)$. 证明 $\lVert y_1-y_2\rVert=\mathsf d((x_1,r_1),(x_2,r_2))$ 与 $\lVert y_2-y_3\rVert=\mathsf d((x_2,r_2),(x_3,r_3))$. 注意：$\lVert y_1-y_3\rVert$ 未必等于 $\mathsf d((x_1,r_1),(x_3,r_3))$. 现在按 $\mathsf d(x_1,x_2)+\mathsf d(x_2,x_3)\le\pi$ 是否成立分两种情形，建立锥度量的三角不等式.
+\end{exercise}

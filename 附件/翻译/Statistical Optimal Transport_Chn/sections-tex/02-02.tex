@@ -1,0 +1,134 @@
+\subsection{二进划分论证}\label{sec:2.2}
+Wasserstein 距离由对耦合取极小值定义，这启发了一种证明界的自然策略：构造一个成本小的耦合，就能给出 $W_1$ 的上界. 本节将构造这种耦合；或许令人意外的是，它在许多情形中能给出良好的界. 主要想法是在多个尺度上递归构造候选耦合，尝试将 $\mu$ 与 $\nu$ 耦合起来.
+
+在陈述这个界之前，先描述基本策略. 为简单起见，考虑为支撑均包含于 $[0,1]^d$ 的 $\mu,\nu$ 的 $W_1(\mu,\nu)$ 证明上界. 首先有一个平凡观察：
+\begin{equation}\label{eq:2.2}W_1(\mu,\nu)\le\sqrt d.\end{equation}
+事实上，$[0,1]^d$ 的直径为 $\sqrt d$，因此任何 $\mu$ 与 $\nu$ 的耦合都不可能把质量移动超过这个距离.
+
+现在设想把这个界略加改进. 令 $\mathcal Q$ 是边长 $1/2$、顶点位于形如 $2^{-1}(k_1,\ldots,k_d)$ 的点上的立方体族，其中 $k_1,\ldots,k_d\in\{0,1,2\}$. 这些立方体把 $[0,1]^d$ 划分为 $2^d$ 块.\footnote{这些立方体在边界相交，不过只需去除重叠部分，便可容易地修改这些集合，得到真正的划分.} 为说明想法，假设所有 $Q\in\mathcal Q$，$j=1,\ldots,2^d$，均满足 $\mu(Q)=\nu(Q)$，即两测度给每个小立方体赋予相同质量. 那么，只在每个小立方体内部移动质量，就能将 $\mu$ 和 $\nu$ 耦合. 每个小立方体直径为 $\sqrt d/2$，因此任何这样的耦合都使 \eqref{eq:2.2} 的界改善一倍.
+
+即使 $\mu$ 与 $\nu$ 给每个小立方体赋予的质量不同，仍可用上述思想分两步构造两者的耦合. 首先，在每个立方体内部尽可能多地匹配两者的质量. 这构成 $\mu$ 的部分质量与 $\nu$ 的部分质量之间的一个部分耦合. 由于仅在每个小立方体内搬运质量，这个部分耦合的总成本至多为 $\sqrt d/2$. 接着，要把部分耦合扩展为完整耦合：将满足 $\mu(Q)>\nu(Q)$ 的某个立方体 $Q$ 上 $\mu$ 的剩余质量，搬运至满足 $\nu(Q')>\mu(Q')$ 的某个立方体 $Q'$ 上 $\nu$ 的剩余质量. 这一步匹配的剩余质量为 $\sum_{Q\in\mathcal Q}(\mu(Q)-\nu(Q))_+=\frac12\sum_{Q\in\mathcal Q}|\mu(Q)-\nu(Q)|$，总成本至多为 $\frac{\sqrt d}2\sum_{Q\in\mathcal Q}|\mu(Q)-\nu(Q)|$.
+
+结合这些界，得到更精细的估计
+\begin{equation}\label{eq:2.3}
+W_1(\mu,\nu)\le\frac{\sqrt d}2\sum_{Q\in\mathcal Q}|\mu(Q)-\nu(Q)|+\frac{\sqrt d}2.
+\end{equation}
+当 $\mu$ 与 $\nu$ 给每个立方体赋予的质量接近时，这个界改进了 \eqref{eq:2.2}.
+
+下面的界通过递归应用上述论证 $J$ 次来证明. 在第 $j$ 步，我们对边长为 $2^{-j}$ 的 $2^{dj}$ 个立方体上两测度的差异作界. 为陈述这个界，定义 $\mathcal Q_j$（$j\ge0$）为 $2^{dj}$ 个边长 $2^{-j}$ 的立方体构成的集合，它们组成 $[0,1]^d$ 的一个划分.\footnote{与上文一样，假设已在边界处修改 $\mathcal Q_j$ 中的集合，使 $\mathcal Q_j$ 成为划分，并且对所有 $j\ge0$，$\mathcal Q_{j+1}$ 都是 $\mathcal Q_j$ 的细分.}
+\begin{theorem}[二进划分界]\label{thm:2.2}\index{dyadic partitioning@二进划分（dyadic partitioning）|hyperpage}
+设 $\mu,\nu\in\mathcal P([0,1]^d)$. 对任意 $J\ge0$，
+$$W_1(\mu,\nu)\le\sqrt d\sum_{j=0}^{J-1}\left(2^{-j}\sum_{Q\in\mathcal Q_{j+1}}|\mu(Q)-\nu(Q)|\right)+\sqrt d\,2^{-J}.$$
+\end{theorem}
+\begin{proof}
+定义一列正测度 $\mu_0,\ldots,\mu_J$ 及 $\nu_0,\ldots,\nu_J$，满足 $\sum_{j=0}^J\mu_j=\mu$、$\sum_{j=0}^J\nu_j=\nu$，并且
+$$\mu_j(Q)=\nu_j(Q)\quad\forall Q\in\mathcal Q_j,\ j=0,\ldots,J.$$
+为简便，记 $\Omega:=[0,1]^d$. 首先断言
+\begin{equation}\label{eq:2.4}
+W_1(\mu,\nu)\le\sqrt d\sum_{j=0}^J2^{-j}\mu_j(\Omega).
+\end{equation}
+这个界正是上述策略的具体实现：因为 $\mu_j$ 与 $\nu_j$ 给 $\mathcal Q_j$ 的每个元素赋予相同质量，存在只在各元素内部移动质量的耦合 $\gamma_j$. 例如，可以采用分块独立耦合
+$$\gamma_j=\sum_{Q\in\mathcal Q_j:\mu_j(Q)>0}\frac{(\mu_j)|_Q\otimes(\nu_j)|_Q}{\mu_j(Q)}.$$
+由 $\gamma_j\in\Gamma_{\mu_j,\nu_j}$ 可知 $\gamma=\sum_{j=0}^J\gamma_j\in\Gamma_{\mu,\nu}$，并且
+$$\begin{aligned}
+W_1(\mu,\nu)&\le\int\lVert x-y\rVert\,\gamma(dx,dy)\\
+&=\sum_{j=0}^J\int\lVert x-y\rVert\,\gamma_j(dx,dy)\\
+&\le\sqrt d\sum_{j=0}^J2^{-j}\mu_j(\Omega),
+\end{aligned}$$
+其中最后一个不等式是因为，若 $(x,y)\in\operatorname{supp}(\gamma_j)$，则两者处在同一个 $Q\in\mathcal Q_j$ 内，从而 $\lVert x-y\rVert\le\operatorname{diam}(Q)=\sqrt d\,2^{-j}$.
+
+现在构造给出最终界的测度 $\mu_j,\nu_j$. 对每个 $Q\in\mathcal Q_J$，定义 $\mu_J$ 在其上的限制为
+$$ (\mu_J)|_Q=\frac{\mu(Q)\wedge\nu(Q)}{\mu(Q)}\mu|_Q,$$
+其中约定 $\mu(Q)=0$ 时 $\mu_J$ 在 $Q$ 上为零. 类似地，令
+$$ (\nu_J)|_Q=\frac{\mu(Q)\wedge\nu(Q)}{\nu(Q)}\nu|_Q.$$
+对 $1\le j<J$，令
+$$\mu'_j=\mu-\sum_{j<k\le J}\mu_k,\qquad
+\nu'_j=\nu-\sum_{j<k\le J}\nu_k,$$
+然后对每个 $Q\in\mathcal Q_j$，定义
+$$\begin{aligned}
+(\mu_j)|_Q&=\frac{\mu'_j(Q)\wedge\nu'_j(Q)}{\mu'_j(Q)}(\mu'_j)|_Q,\\
+(\nu_j)|_Q&=\frac{\mu'_j(Q)\wedge\nu'_j(Q)}{\nu'_j(Q)}(\nu'_j)|_Q.
+\end{aligned}$$
+最后令
+$$\mu_0=\mu-\sum_{j=1}^J\mu_j\qquad\text{且}\qquad\nu_0=\nu-\sum_{j=1}^J\nu_j,$$
+于是
+$$\sum_{j=0}^J\mu_j=\mu\qquad\text{且}\qquad\sum_{j=0}^J\nu_j=\nu.$$
+容易看出，所有 $Q\in\mathcal Q_j$ 与 $j\in\{0,\ldots,J\}$ 都满足 $\mu_j(Q)=\nu_j(Q)$. 为应用 \eqref{eq:2.4}，还需检验 $\mu_j,\nu_j\ge0$.
+\end{proof}
+
+\begin{lemma}\label{lem:2.3}
+测度 $\mu_0,\ldots,\mu_J$ 与 $\nu_0,\ldots,\nu_J$ 都是正的.
+\end{lemma}
+\begin{proof}
+由对称性，只需对序列 $\mu_0,\ldots,\mu_J$ 验证这一点. 首先对 $j$ 反向归纳，证明对所有 $j=0,\ldots,J-1$ 有
+\begin{equation}\tag{$A_j$}\label{eq:2.Aj}
+\mu_{j+1}\ge0\qquad\text{且}\qquad0\le\sum_{j<k\le J}\mu_k\le\mu.
+\end{equation}
+当 $j=J-1$ 时，这些界直接由 $\mu_J$ 的构造得到. 接着假设 \eqref{eq:2.Aj} 对某个 $j$ 成立，则
+$$\mu'_j=\mu-\sum_{j<k\le J}\mu_k\ge0,$$
+因而 $\mu_j\ge0$，因为 $\mu_j$ 是在 $\mathcal Q_j$ 每个元素上用一个非负量对 $\mu'_j$ 重新加权得到的. 注意，这个非负量还不超过 $1$，故 $\mu_j\le\mu'_j$. 结合这两点得 $0\le\mu_j\le\mu'_j$，从而
+$$0\le\sum_{j-1<k\le J}\mu_k
+=\sum_{j<k\le J}\mu_k+\mu_j
+\le\sum_{j<k\le J}\mu_k+\mu'_j=\mu.$$
+这就证明了\hyperref[eq:2.Aj]{条件 $(A_{j-1})$} 成立. 归纳可得 $\mu_1,\ldots,\mu_J$ 均为正. 最后，由于还证明了 $\sum_{0<k\le J}\mu_k\le\mu$，所以也有 $\mu_0\ge0$.
+\end{proof}
+
+根据 \eqref{eq:2.4}，还需为 $j=0,\ldots,J$ 的 $\mu_j(\Omega)$ 作界. 首先断言
+\begin{equation}\label{eq:2.5}
+|\mu'_j(Q)-\nu'_j(Q)|=|\mu(Q)-\nu(Q)|\quad\forall Q\in\mathcal Q_j,\ j=1,\ldots,J.
+\end{equation}
+这是因为
+$$\mu'_j(Q)-\nu'_j(Q)=\mu(Q)-\nu(Q)-\sum_{j<k\le J}(\mu_k(Q)-\nu_k(Q)),$$
+而 $\mu_k,\nu_k$ 给 $\mathcal Q_k$ 的每个元素相同质量，$Q$ 又可写成 $\mathcal Q_k$ 中元素的不交并，所以该和为零. 现在断言，可以用两测度在 $\mathcal Q_{j+1}$ 中立方体上的差异，控制 $\mu_j,\nu_j$ 给 $\mathcal Q_j$ 中元素赋予的质量.
+\begin{lemma}\label{lem:2.4}
+若对某个 $0\le j<J$ 有 $R\in\mathcal Q_j$，则
+$$\mu_j(R)=\nu_j(R)\le\sum_{Q\subseteq R,\ Q\in\mathcal Q_{j+1}}|\mu(Q)-\nu(Q)|.$$
+\end{lemma}
+\begin{proof}
+已证明 $\mu_j(R)=\nu_j(R)$，只需为 $\mu_j(R)$ 证明该式. 为统一记号，令 $\mu'_0=\mu_0$. 对任意 $0\le j<J$ 与 $R\in\mathcal Q_j$，
+$$\begin{aligned}
+\mu_j(R)&\le\mu'_j(R)\\
+&=\sum_{Q\subseteq R,\ Q\in\mathcal Q_{j+1}}\mu'_j(Q)\\
+&=\sum_{Q\subseteq R,\ Q\in\mathcal Q_{j+1}}(\mu'_{j+1}(Q)-\mu_{j+1}(Q))\\
+&=\sum_{Q\subseteq R,\ Q\in\mathcal Q_{j+1}}(\mu'_{j+1}(Q)-\nu'_{j+1}(Q))_+\\
+&\le\sum_{Q\subseteq R,\ Q\in\mathcal Q_{j+1}}|\mu'_{j+1}(Q)-\nu'_{j+1}(Q)|\\
+&=\sum_{Q\subseteq R,\ Q\in\mathcal Q_{j+1}}|\mu(Q)-\nu(Q)|,
+\end{aligned}$$
+其中第二个等号来自比较 $\mu'_j$ 与 $\mu'_{j+1}$ 的定义，最后一个等号来自 \eqref{eq:2.5}.
+\end{proof}
+
+\begin{proof}[\autoref{thm:2.2}的证明（续）]
+综合起来，\eqref{eq:2.4} 给出
+$$\begin{aligned}
+W_1(\mu,\nu)&\le\sqrt d\sum_{j=0}^J2^{-j}\mu_j(\Omega)\\
+&=\sqrt d\sum_{j=0}^{J-1}2^{-j}\mu_j(\Omega)+\sqrt d\,2^{-J}\mu_J(\Omega)\\
+&=\sqrt d\sum_{j=0}^{J-1}\left(2^{-j}\sum_{R\in\mathcal Q_j}\mu_j(R)\right)+\sqrt d\,2^{-J}\mu_J(\Omega)\\
+&\le\sqrt d\sum_{j=0}^{J-1}\left(2^{-j}\sum_{Q\in\mathcal Q_{j+1}}|\mu(Q)-\nu(Q)|\right)+\sqrt d\,2^{-J}.
+\end{aligned}$$
+至此完成\autoref{thm:2.2}的证明.
+\end{proof}
+将\autoref{thm:2.2}用于 $\mu,\mu_n$，得到如下界.
+\begin{proposition}\label{prop:2.5}
+若 $\mu$ 的支撑包含于 $[0,1]^d$，则
+$$\mathbb E W_1(\mu_n,\mu)\lesssim\sqrt d\cdot\begin{cases}
+n^{-1/2},&d=1,\\
+(\log n)n^{-1/2},&d=2,\\
+n^{-1/d},&d\ge3.
+\end{cases}$$
+\end{proposition}
+\begin{proof}
+\autoref{thm:2.2}表明，对任意 $J\ge0$，
+$$\begin{aligned}
+\mathbb E W_1(\mu_n,\mu)
+&\le\sqrt d\sum_{j=0}^{J-1}2^{-j}\sum_{Q\in\mathcal Q_{j+1}}\mathbb E|\mu_n(Q)-\mu(Q)|+\sqrt d\,2^{-J}\\
+&\le\sqrt d\sum_{j=0}^{J-1}2^{-j}2^{d(j+1)/2}\left(\sum_{Q\in\mathcal Q_{j+1}}\mathbb E(\mu_n(Q)-\mu(Q))^2\right)^{1/2}+\sqrt d\,2^{-J}\\
+&\le\sqrt d\sum_{j=0}^{J-1}2^{-j}2^{d(j+1)/2}n^{-1/2}+\sqrt d\,2^{-J}\\
+&\lesssim\sqrt d\cdot\begin{cases}
+2^{(J+1)(d/2-1)}n^{-1/2}+2^{-J},&d\ge3,\\
+Jn^{-1/2}+2^{-J},&d=2,\\
+n^{-1/2}+2^{-J},&d=1.
+\end{cases}
+\end{aligned}$$
+为平衡各项，当 $d\le2$ 时取 $2^J\le n^{1/2}<2^{J+1}$；当 $d\ge3$ 时取 $2^{J+1}\le n^{1/d}<2^{J+2}$.
+\end{proof}
+注意，当 $d=2$ 时，\autoref{prop:2.5}的界弱于\autoref{prop:2.1}. 遗憾的是，二进划分论证不能给出二维时的尖锐界. \autoref{sec:2.4}将回到这个问题.

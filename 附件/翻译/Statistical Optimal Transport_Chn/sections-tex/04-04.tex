@@ -1,0 +1,186 @@
+\subsection{原问题解的统计速率}\label{sec:4.4}
+\autoref{lem:4.8}说明，对偶问题 \eqref{eq:eps-D-W22} 的解以参数速率收敛. 本节利用这一结果，也为原问题给出界.
+
+转向第一个感兴趣的量，即成本 $S(\mu,\nu)$. 下面的结果说明，估计量 $S(\mu_n,\nu_n)$ 的均方误差与偏差都是 $n^{-1}$ 阶的，尽管常数随 $1/\varepsilon$ 指数增长. 引人注意的是，虽然问题是非参数的，但所得到的方差和偏差的 $n^{-1}$ 速率却是参数估计问题的典型特征. 这与\autoref{sec:2}中的慢速非参数速率形成对照.
+\begin{theorem}\label{thm:4.9}
+如果 $\mu,\nu$ 满足\autoref{assump:4.4}，则 $S(\mu_n,\nu_n)$ 的均方误差与偏差满足
+\begin{equation}\label{eq:4.22}
+\begin{aligned}
+\mathbb E(S(\mu_n,\nu_n)-S(\mu,\nu))^2&\lesssim\frac1n,\\
+|\mathbb ES(\mu_n,\nu_n)-S(\mu,\nu)|&\lesssim\frac1n,
+\end{aligned}
+\end{equation}
+其中隐含常数对 $1/\varepsilon$ 的依赖为指数形式.
+\end{theorem}
+\begin{proof}
+先研究偏差，以建立 \eqref{eq:4.22}. Jensen 不等式给出
+$$\mathbb ES(\mu_n,\nu_n)=\mathbb E\sup_{h\in C_b^\oplus}\widehat\Phi(h)
+\ge\sup_{h\in C_b^\oplus}\Phi(h)=S(\mu,\nu).$$
+因此
+$$\begin{aligned}
+0\le b_n&:=\mathbb ES(\mu_n,\nu_n)-S(\mu,\nu)\\
+&=\mathbb E[\widehat\Phi(\widehat h)-\widehat\Phi(h^\star)]\\
+&=\mathbb E[\varphi(0)-\varphi(1)]\le-\mathbb E\varphi'(1),
+\end{aligned}$$
+其中回顾一下，凹函数 $\varphi$ 定义于 \eqref{eq:4.15}. 由 \eqref{eq:4.16}，$-\varphi'(1)$ 为
+$$\begin{aligned}
+&\frac1{n^2}\sum_{i,j=1}^n
+\left((h^\star(X_i,Y_j)-\widehat h(X_i,Y_j))
+\left(e^{(h^\star(X_i,Y_j)-\|X_i-Y_j\|^2)/\varepsilon}-1\right)\right)\\
+&\quad\le\|\widehat h-h^\star\|_{L^2(\mu_n\otimes\nu_n)}\delta_n,
+\end{aligned}$$
+其中 $\delta_n$ 如\autoref{lem:4.8}的证明中所定义，并应用了\autoref{lem:4.7}. 由 Cauchy--Schwarz 不等式，
+$$\begin{aligned}
+0\le b_n&\le\sqrt{\mathbb E\|\widehat h-h^\star\|_{L^2(\mu_n\otimes\nu_n)}^2\,\mathbb E\delta_n^2}\\
+&\le\frac{\sqrt2\varepsilon e^{5/\varepsilon}}{\sqrt n}
+\frac{\sqrt2e^{2/\varepsilon}}{\sqrt n}=\frac{2\varepsilon e^{7/\varepsilon}}n,
+\end{aligned}$$
+其中使用了\autoref{lem:4.8}及 \eqref{eq:4.21}.
+
+为证明均方误差的界，先利用偏差—方差分解写成
+$$\begin{aligned}
+\mathbb E(S(\mu_n,\nu_n)-S(\mu,\nu))^2
+&=\operatorname{var}(S(\mu_n,\nu_n))
++|\mathbb ES(\mu_n,\nu_n)-S(\mu,\nu)|^2\\
+&=\operatorname{var}(S(\mu_n,\nu_n))+O(n^{-2}).
+\end{aligned}$$
+所以只需证明 $S(\mu_n,\nu_n)$ 的方差为 $O(n^{-1})$. 为此采用 Efron--Stein 不等式；更准确地说，\cite[推论3.2]{ref51}已足够. 它断言，如果 $f=f(Z_1,\ldots,Z_m)$ 是独立随机变量的函数，满足有界差分不等式
+\begin{equation}\label{eq:4.23}
+|f(z_1,\ldots,z_m)-f(z_1,\ldots,z_{i-1},z_i',z_{i+1},\ldots,z_m)|\le2c
+\end{equation}
+对所有 $z_1,\ldots,z_m,z_i'$ 和所有 $i\in[m]$ 成立，那么 $\operatorname{var}(f)\le c^2m$.
+
+将 $S(\mu_n,\nu_n)$ 视为 $m=2n$ 个独立随机变量 $X_1,\ldots,X_n,Y_1,\ldots,Y_n$ 的函数. 固定 $(X_2,\ldots,X_n)=(x_2,\ldots,x_n)$ 和 $(Y_1,\ldots,Y_n)=(y_1,\ldots,y_n)$，将对偶泛函 $\widehat\Phi=\widehat\Phi_{x_1}$ 只视为 $X_1=x_1$ 的值的函数. 那么，对任意 $x_1\in\Omega$，在\autoref{assump:4.4}下，\autoref{prop:4.5}意味着对偶泛函 $\widehat\Phi_{x_1}$ 在 $C_b^\oplus$ 上的最大值可以在某个满足 $\|h\|_\infty\le2$ 的 $h$ 处取得. 因此
+$$\begin{aligned}
+\left|\sup_{h\in C_b^\oplus}\widehat\Phi_{x_1}(h)
+-\sup_{h'\in C_b^\oplus}\widehat\Phi_{x_1'}(h')\right|
+&\le\sup_{\substack{h\in C_b^\oplus\\\|h\|_\infty\le2}}
+|\widehat\Phi_{x_1}(h)-\widehat\Phi_{x_1'}(h)|\\
+&\le\frac{2\varepsilon e^{2/\varepsilon}+4}n=:2c,
+\end{aligned}$$
+其中利用了 \eqref{eq:4.14} 的每一项都有界. 对 $X_2,\ldots,X_n,Y_1,\ldots,Y_n$ 重复这一论证，得到 $S(\mu_n,\nu_n)$ 满足 \eqref{eq:4.23}，其中
+$$c=\frac{\varepsilon e^{2/\varepsilon}+2}n\le\frac{2\varepsilon e^{2/\varepsilon}}n,$$
+因为对所有 $\varepsilon>0$，有 $\varepsilon e^{2/\varepsilon}>2$.
+
+应用 Efron--Stein 不等式得到
+$$\operatorname{var}(S(\mu_n,\nu_n))\le2c^2n\le\frac{8\varepsilon^2e^{4/\varepsilon}}n,$$
+即为所求.
+\end{proof}
+
+最后，为熵正则映射 $b^\star$ 给出类似的样本复杂度结果.
+
+回顾 \eqref{eq:4.6}，$\gamma^\star$ 关于 $\mu\otimes\nu$ 的密度为
+$$p^\star=e^{(h^\star-c)/\varepsilon}.$$
+类似地，以 $\widehat p=e^{(\widehat h-c)/\varepsilon}$ 表示 $\widehat\gamma$ 关于 $\mu_n\otimes\nu_n$ 的密度. 注意，借助规范延拓，这两个函数都可以定义在整个空间上.
+
+后文利用这些密度一致有界这一事实. 事实上，由\autoref{prop:4.5}和\autoref{assump:4.4}，
+\begin{equation}\label{eq:4.24}
+\|\widehat p\|_{L^\infty},\ \|p^\star\|_{L^\infty}\le e^{2/\varepsilon}.
+\end{equation}
+根据这些定义，有恒等式
+$$b^\star(x)=\int y\,p^\star(x,y)\,\nu(dy),\qquad
+\widehat b(x)=\int y\,\widehat p(x,y)\,\nu_n(dy).$$
+有下述界.
+\begin{theorem}\label{thm:4.10}
+采用\autoref{assump:4.4}. 经验熵正则映射满足
+$$\mathbb E\|b^\star-\widehat b\|_{L^2(\mu_n)}^2\lesssim\frac1n,$$
+其中隐含常数对 $1/\varepsilon$ 的依赖为指数形式.
+\end{theorem}
+\begin{proof}
+固定 $x\in\Omega$. Young 不等式与 Jensen 不等式给出
+$$\begin{aligned}
+\|b^\star(x)-\widehat b(x)\|^2
+\le{}&2\left\|\int yp^\star(x,y)\,(\nu-\nu_n)(dy)\right\|^2
++2\left\|\int y(p^\star-\widehat p)(x,y)\,\nu_n(dy)\right\|^2\\
+\le{}&2\left\|\int yp^\star(x,y)\,(\nu-\nu_n)(dy)\right\|^2
++2\int\|y\|^2|(p^\star-\widehat p)(x,y)|^2\,\nu_n(dy)\\
+\le{}&2\left\|\int yp^\star(x,y)\,(\nu-\nu_n)(dy)\right\|^2
++2\|p^\star(x,\cdot)-\widehat p(x,\cdot)\|_{L^2(\nu_n)}^2,
+\end{aligned}$$
+最后一步不等式利用了\autoref{assump:4.4}下 $\nu_n$ 支集上有 $\|y\|\le1$. 因而
+$$\begin{aligned}
+\|b^\star-\widehat b\|_{L^2(\mu_n)}^2
+\le{}&\frac2n\sum_{i=1}^n\left\|\int yp^\star(X_i,y)\,(\nu-\nu_n)(dy)\right\|^2\\
+&+2\|p^\star-\widehat p\|_{L^2(\mu_n\otimes\nu_n)}^2.
+\end{aligned}$$
+为控制第一项，注意到
+$$\begin{aligned}
+&\mathbb E\left[\left\|\int yp^\star(X_i,y)\,(\nu-\nu_n)(dy)\right\|^2\,\middle|\,X_i\right]\\
+&\quad=\frac1n\mathbb E\left[\|Y_1p^\star(X_i,Y_1)
+-\mathbb E[Y_1p^\star(X_i,Y_1)]\|^2\,\middle|\,X_i\right]\le\frac{e^{4/\varepsilon}}n,
+\end{aligned}$$
+其中使用了\autoref{assump:4.4}和 \eqref{eq:4.24}.
+
+为控制第二项，利用指数函数 $e^x$ 在任意 $(-\infty,M]$ 上为 $e^M$-Lipschitz 这一事实. 因而，结合\autoref{assump:4.4}和\autoref{prop:4.5}，还有
+$$|p^\star(x,y)-\widehat p(x,y)|\le e^{2/\varepsilon}|h^\star(x,y)-\widehat h(x,y)|,
+\qquad\forall x,y\in\Omega.$$
+所以，由\autoref{lem:4.8}，
+$$\mathbb E\|p^\star-\widehat p\|_{L^2(\mu_n\otimes\nu_n)}^2
+\le e^{4/\varepsilon}\mathbb E\|h^\star-\widehat h\|_{L^2(\mu_n\otimes\nu_n)}^2
+\le\frac{\varepsilon^2e^{14/\varepsilon}}n.$$
+我们已证明
+$$\mathbb E\|b^\star-\widehat b\|_{L^2(\mu_n)}^2
+\le\frac{2e^{4/\varepsilon}}n+\frac{2\varepsilon^2e^{14/\varepsilon}}n\lesssim\frac1n.$$
+\end{proof}
+
+前一定理给出了经验熵正则映射在期望 $L^2(\mu_n)$ 范数下的界. 付出更大的常数因子，也可以得到 $L^2(\mu)$ 中的界.
+\begin{theorem}\label{thm:4.11}
+采用\autoref{assump:4.4}. 经验熵正则映射满足
+$$\mathbb E\|b^\star-\widehat b\|_{L^2(\mu)}^2\lesssim\frac1n,$$
+其中隐含常数对 $1/\varepsilon$ 的依赖为指数形式.
+\end{theorem}
+\begin{proof}
+与\autoref{thm:4.10}的证明一样，有逐点界
+$$\|b^\star(x)-\widehat b(x)\|^2
+\lesssim\left\|\int yp^\star(x,y)\,(\nu-\nu_n)(dy)\right\|^2
++\|h^\star(x,\cdot)-\widehat h(x,\cdot)\|_{L^2(\nu_n)}^2.$$
+关于 $\mu$ 积分并取期望，得到
+$$\mathbb E\|b^\star-\widehat b\|_{L^2(\mu)}^2
+\lesssim\frac1n+\mathbb E\|h^\star-\widehat h\|_{L^2(\mu\otimes\nu_n)}^2.$$
+因此，只需建立
+\begin{equation}\label{eq:4.25}
+\mathbb E\|h^\star-\widehat h\|_{L^2(\mu\otimes\nu_n)}^2\lesssim\frac1n.
+\end{equation}
+为此，利用对数和指数函数局部 Lipschitz 连续这一事实，其 Lipschitz 常数依赖于自变量的大小. 特别地，回顾基本不等式
+$$e^{\min\{a,b\}}|a-b|\le|e^a-e^b|\le e^{\max\{a,b\}}|a-b|,$$
+它们还意味着，当 $a,b>0$ 时有 $|\log a-\log b|\le|a-b|/\min\{a,b\}$.
+
+回顾
+$$\widehat h(x,y)=\widehat f(x)+\widehat g(y)
+=-\varepsilon\log\int e^{(\widehat g(y)-\|x-y\|^2)/\varepsilon}\,\nu_n(dy)+\widehat g(y),$$
+以及
+$$\begin{aligned}
+h^\star(x,y)&=f^\star(x)+g^\star(y)
+=-\varepsilon\log\int e^{(g^\star(y)-\|x-y\|^2)/\varepsilon}\,\nu(dy)+g^\star(y)\\
+&=-\varepsilon\log\int e^{(g^\star(y)-\|x-y\|^2)/\varepsilon}\,\nu_n(dy)
++g^\star(y)+\Delta(x),
+\end{aligned}$$
+其中
+$$\begin{aligned}
+\Delta(x)={}&\varepsilon\log\int e^{(g^\star(y)-\|x-y\|^2)/\varepsilon}\,\nu_n(dy)\\
+&-\varepsilon\log\int e^{(g^\star(y)-\|x-y\|^2)/\varepsilon}\,\nu(dy).
+\end{aligned}$$
+此外，由于对偶解只确定到一个加性常数，不失一般性，可以假设 $\int\widehat g\,d\nu_n=\int g^\star\,d\nu_n$. 利用上面的 Lipschitz 性质，结合\autoref{assump:4.4}和\autoref{prop:4.5}，得到
+$$\begin{aligned}
+|\widehat h(x,y)-h^\star(x,y)|\lesssim{}&\int|\widehat g-g^\star|\,d\nu_n
++|\widehat g(y)-g^\star(y)|\\
+&+\left|\int e^{(g^\star(y)-\|x-y\|^2)/\varepsilon}\,(\nu_n-\nu)(dy)\right|.
+\end{aligned}$$
+使用 Jensen 不等式，以及独立有界随机变量平均值的一个直接方差界，最终得到
+$$\mathbb E\|\widehat h-h^\star\|_{L^2(\mu\otimes\nu_n)}^2
+\lesssim\mathbb E\|\widehat g-g^\star\|_{L^2(\nu_n)}^2+\frac1n.$$
+最后注意，
+$$\begin{aligned}
+\|\widehat h-h^\star\|_{L^2(\mu_n\otimes\nu_n)}^2
+&=\int[(\widehat f-f^\star)\oplus(\widehat g-g^\star)]^2\,d(\mu_n\otimes\nu_n)\\
+&=\|\widehat f-f^\star\|_{L^2(\mu_n)}^2+\|\widehat g-g^\star\|_{L^2(\nu_n)}^2\\
+&\quad+2\int(\widehat f-f^\star)\,d\mu_n\int(\widehat g-g^\star)\,d\nu_n\\
+&\ge\|\widehat g-g^\star\|_{L^2(\nu_n)}^2,
+\end{aligned}$$
+最后一步不等式利用了 $\int\widehat g\,d\nu_n=\int g^\star\,d\nu_n$. 因而我们证明了
+$$\mathbb E\|\widehat h-h^\star\|_{L^2(\mu\otimes\nu_n)}^2
+\lesssim\mathbb E\|\widehat h-h^\star\|_{L^2(\mu_n\otimes\nu_n)}^2+\frac1n.$$
+结合\autoref{lem:4.8}，即完成 \eqref{eq:4.25} 的证明，因而也证明了定理.
+\end{proof}
+
+本节的结论相当引人注意：可以以参数速率估计非参数量. 检查这些结果的证明可知，强凸性是得到这一结果的关键. 回头来看，强凸泛函的经验风险极小化解享有这种无维数速率，并不令人意外. 事实上，对这样的目标函数作随机梯度下降也确实如此（例如见\cite[定理4]{ref174}）. 这一现象并非全新：对某些特定损失，例如\autoref{sec:8}中采用的损失，人们已经知道这一点，文献\cite{ref323}便曾观察到这一现象.

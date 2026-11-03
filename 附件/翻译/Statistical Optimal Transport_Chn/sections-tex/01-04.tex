@@ -1,0 +1,209 @@
+\subsection{Brenier 定理}\label{sec:1.4}
+
+对任意 $p\ge1$，$p$-Wasserstein 距离都是一个自然的研究对象.不过，$p=1,2$ 两种情形具有突出的特殊结构，后文的大部分讨论将围绕它们展开.我们先研究 $p=2$ 的情形；这一情形尤为显著的一点，是它与凸分析的密切联系.
+
+回顾一下，
+\begin{equation}\tag{$W_2^2$}\label{eq:W22}
+W_2^2(\mu,\nu)=\min_{\gamma\in\Gamma_{\mu,\nu}}
+\int\|x-y\|^2\,\gamma(\mathrm dx,\mathrm dy).
+\end{equation}
+
+\begin{theorem}[Brenier]\label{thm:1.8}\index{Brenier’s theorem@Brenier定理（Brenier’s theorem）|hyperpage}
+设 $\mu,\nu\in\mathcal P_2(\mathbb R^d)$ 是两个概率测度，$\mu$ 存在密度，并设 $X\sim\mu$.如果 $\bar\gamma$ 是 \eqref{eq:W22} 的一个最优耦合，即
+$$
+\int\|x-y\|^2\,\bar\gamma(\mathrm dx,\mathrm dy)
+=\min_{\gamma\in\Gamma_{\mu,\nu}}\int\|x-y\|^2\,\gamma(\mathrm dx,\mathrm dy)
+=W_2^2(\mu,\nu),
+$$
+那么存在凸函数 $\varphi:\mathbb R^d\to\mathbb R$，使得 $(X,\nabla\varphi(X))\sim\bar\gamma\in\Gamma_{\mu,\nu}$.
+\end{theorem}
+
+Brenier 定理的关键假设是 $\mu$ 存在密度，即 $\mu$ 关于 Lebesgue 测度绝对连续.特别地，由于凸函数在 Lebesgue 几乎处处可微，这一假设保证了 $\nabla\varphi(X)$ 是有意义的.
+
+在开始证明之前，我们先考虑 Brenier 定理在统计学上的一个推论.Brenier 定理断言，只要 $\mu$ 存在密度，那么对任意 $\nu\in\mathcal P_2(\mathbb R^d)$，都存在凸函数 $\phi$，使得 $\nabla\phi_\#\mu=\nu$.由于凸函数的梯度是单调函数在高维的自然对应物，因此该定理大幅推广了\autoref{sec:1.3} 提到的经典一维事实：若 $U\sim\operatorname{Unif}([0,1])$，则 $F_\nu^\dagger(U)\sim\nu$.
+
+在一维情形中，函数 $F_\nu^\dagger$ 称为 $\nu$ 的\emph{分位数函数}（quantile function），在统计学中具有基础性意义.因此，可以利用 Brenier 定理定义多元分位数的概念~\cite{ref75,ref160}.事实证明，这一观点成果丰硕，并催生了广泛的统计应用~\cite{ref159}.（更多细节见\autoref{sec:1.7}.）
+
+回到 Brenier 定理本身，目前还看不出最优传输为何会与凸函数的梯度相关.因此，我们先研究这类梯度，以建立直观认识.
+
+\subsubsection{凸函数的梯度}\label{sec:1.4.1}
+
+首先注意，对连续函数 $f:\mathbb R\to\mathbb R$，存在某个可微凸函数 $\varphi$ 使得 $f=\varphi'$，当且仅当 $f$ 单调不减.事实上，$\varphi$ 的凸性意味着，对任意 $x,y\in\mathbb R$，
+\begin{equation}\label{eq:1.8}
+\varphi(x)-\varphi(y)\le(x-y)\varphi'(x),
+\end{equation}
+\begin{equation}\label{eq:1.9}
+\varphi(y)-\varphi(x)\le(y-x)\varphi'(y).
+\end{equation}
+将上述两个不等式相加，得到
+$$
+(x-y)(\varphi'(x)-\varphi'(y))\ge0,
+$$
+所以 $\varphi'$ 单调不减.
+
+对于 $\mathbb R^d$ 上的函数，这一结论是否有对应的推广？当然，我们立即得到，对任意 $x,y\in\mathbb R^d$，
+$$
+\langle x-y,\widetilde\nabla\varphi(x)-\widetilde\nabla\varphi(y)\rangle\ge0,
+$$
+其中 $\widetilde\nabla\varphi(x)\in\partial\varphi(x)$ 表示 $\varphi$ 在 $x$ 处的一个\emph{次梯度}（subgradient；凸分析的预备知识见\autoref{sec:A}）.遗憾的是，虽然在一维情形中，两点不等式 \eqref{eq:1.8} 和 \eqref{eq:1.9} 能够推出任意点配置所对应的不等式，但在高维中不再如此，因此我们需要刻画更多信息.
+
+实际上，凸性还蕴含许多这样的不等式：任取整数 $k\ge2$ 以及一组点 $x_1,\allowbreak\ldots,\allowbreak x_k\in\mathbb R^d$，有
+$$
+\begin{aligned}
+\varphi(x_i)-\varphi(x_{i+1})
+&\le\langle x_i-x_{i+1},\widetilde\nabla\varphi(x_i)\rangle,
+&&i=1,\ldots,k-1,\\
+\varphi(x_k)-\varphi(x_1)
+&\le\langle x_k-x_1,\widetilde\nabla\varphi(x_k)\rangle.
+\end{aligned}
+$$
+将这些不等式相加，得到
+\begin{equation}\label{eq:1.10}
+\sum_{i=1}^k\langle x_i-x_{i+1},\widetilde\nabla\varphi(x_i)\rangle\ge0,
+\end{equation}
+其中约定 $x_{k+1}=x_1$.\footnote{采用这一约定后，点 $x_1\to x_2\to\cdots\to x_k\to x_1$ 形成一个“循环”.}
+
+\subsubsection{循环单调性}\label{sec:1.4.2}
+
+由于 $\varphi$ 在 $x$ 处的次微分中可能含有多个点，在将 $\widetilde\nabla\varphi(\cdot)$ 视为从 $\mathbb R^d$ 到 $\mathbb R^d$ 的映射之前，我们先描述其图像 $\{(x,\widetilde\nabla\varphi(x)):x\in\mathbb R^d\}$.首先定义这类图像的一个重要性质.
+
+\begin{definition}\label{def:1.9}\index{cyclical monotonicity@循环单调性（cyclical monotonicity）|hyperpage}
+若集合 $A\subset\mathbb R^d\times\mathbb R^d$ 满足：对任意整数 $k\ge2$ 和任意点 $(x_i,y_i)\in A$，$i=1,\ldots,k$，有
+\begin{equation}\label{eq:1.11}
+\sum_{i=1}^k\langle x_i-x_{i+1},y_i\rangle\ge0,
+\end{equation}
+其中约定 $x_{k+1}=x_1$，则称 $A$ 是\emph{循环单调的}（cyclically monotone）.
+\end{definition}
+
+由 \eqref{eq:1.10} 可知，只要 $\varphi$ 是凸的，集合 $\partial\varphi\subset\mathbb R^d\times\mathbb R^d$ 就是循环单调的.事实上，$\mathbb R^d\times\mathbb R^d$ 的所有循环单调子集都具有这一形式.
+
+\begin{theorem}[Rockafellar]\label{thm:1.10}\index{Rockafellar’s theorem@Rockafellar定理（Rockafellar’s theorem）|hyperpage}
+集合 $A\subset\mathbb R^d\times\mathbb R^d$ 是循环单调的，当且仅当存在闭凸函数 $\varphi:\mathbb R^d\to\mathbb R\cup\{\infty\}$，使得
+$$
+A\subseteq\partial\varphi.
+$$
+\end{theorem}
+
+这一凸分析经典定理的证明见\autoref{sec:A}.
+
+注意，条件 \eqref{eq:1.11} 等价于要求：对任意点 $(x_i,y_i)\in A$，$i=1,\ldots,k$，有
+\begin{equation}\label{eq:1.12}
+\sum_{i=1}^k\|x_i-y_i\|^2\le\sum_{i=1}^k\|x_{i+1}-y_i\|^2.
+\end{equation}
+这一表述使我们能够看出它与最优传输的联系.事实上，为了说明这一点，我们考虑下面的例子.设
+$$
+\mu=\frac1n\sum_{j=1}^n\delta_{a_j},\qquad
+\nu=\frac1n\sum_{j=1}^n\delta_{b_j}.
+$$
+
+在这一离散情形中，$\mu$ 与 $\nu$ 之间的全体耦合构成的集合可以与 Birkhoff 多面体等同起来（见\autoref{sec:1.1.3}），其极点是经缩放的置换矩阵.由于离散最优传输问题是一个线性规划，因而可在极点中取到解.因此，我们只需考虑由置换给出的耦合.具体而言，$\{1,\ldots,n\}$ 的一个置换 $\sigma$ 对应于耦合
+$$
+\gamma=\frac1n\sum_{j=1}^n\delta_{(a_j,b_{\sigma(j)})}.
+$$
+如果这样的耦合在所有置换中具有最小成本，即
+\begin{equation}\label{eq:1.13}
+\sum_{j=1}^n\|a_j-b_{\sigma(j)}\|^2
+\le\sum_{j=1}^n\|a_j-b_{\tau(j)}\|^2,\qquad\forall\tau,
+\end{equation}
+那么它就是最优耦合.
+
+这一条件恰好等价于 $\gamma$ 的支集具有循环单调性.事实上，对 $\nu$ 的原子重新编号后，不妨假设 $\sigma$ 为恒等置换.于是，$\gamma$ 的支集由点对 $(a_j,b_j)$，$j\in\{1,\ldots,n\}$，组成.给定任意由 $k$ 个不同点组成的子集 $(x_i,y_i)=(a_{j_i},b_{j_i})\in\operatorname{supp}(\gamma)$，$i=1,\ldots,k$，令 $\tau$ 为 $\{j_1,\ldots,j_k\}$ 上的循环置换，并保持其他指标不变：
+$$
+\tau(j)=\begin{cases}
+j_{i-1},&\text{若 }j=j_i,\ i\in\{2,\ldots,k\},\\
+j_k,&\text{若 }j=j_1,\\
+j,&\text{其他情形.}
+\end{cases}
+$$
+那么 \eqref{eq:1.13} 就蕴含 \eqref{eq:1.12}.事实上，由于任意置换 $\tau$ 都可以分解为循环，类似的推理也表明，\eqref{eq:1.12} 是 \eqref{eq:1.13} 成立的充分条件.
+
+前面的讨论说明，在离散情形中，最优耦合的支集是循环单调的.在一般情形中也有类似的现象；不过，当 $\gamma$ 不给其支集中的点赋予正质量时，上述论证就不成立了.尽管如此，下面的结果表明，通过对小邻域（例如球）而非单个点进行推理，类似的策略仍可奏效.我们需要小心处理，以保证能够在这些邻域上修改 $\gamma$，同时保持约束 $\gamma\in\Gamma_{\mu,\nu}$.
+
+\begin{proposition}\label{prop:1.11}
+设 $\bar\gamma\in\Gamma_{\mu,\nu}$ 是 $\mu$ 与 $\nu$ 之间的最优耦合，即
+$$
+\int\|x-y\|^2\,\bar\gamma(\mathrm dx,\mathrm dy)
+=\min_{\gamma\in\Gamma_{\mu,\nu}}\int\|x-y\|^2\,\gamma(\mathrm dx,\mathrm dy)
+=W_2^2(\mu,\nu).
+$$
+那么 $\operatorname{supp}(\bar\gamma)$ 是循环单调的.
+\end{proposition}
+
+\begin{proof}
+假设 $S:=\operatorname{supp}(\bar\gamma)$ 不是循环单调的.那么存在 $k\ge2$ 和 $(x_i,y_i)\in S$，$i=1,\ldots,k$，使得
+$$
+\sum_{i=1}^k\|x_i-y_i\|^2>\sum_{i=1}^k\|x_{i+1}-y_i\|^2.
+$$
+由欧几里得范数的连续性，对 $i=1,\ldots,k$，分别存在 $x_i,y_i$ 的邻域 $U_i,V_i$，使得 $\bar\gamma(U_i\times V_i)>0$，并且对所有 $\tilde x_i,\tilde x_i'\in U_i$、$\tilde y_i,\tilde y_i'\in V_i$，$i=1,\ldots,k$，均有
+\begin{equation}\label{eq:1.14}
+\sum_{i=1}^k\|\tilde x_i-\tilde y_i\|^2
+>\sum_{i=1}^k\|\tilde x_{i+1}'-\tilde y_i'\|^2.
+\end{equation}
+
+现在令 $\gamma_i$，$i=1,\ldots,k$，为 $\mathbb R^d\times\mathbb R^d$ 上的一族（条件）概率分布，定义为：对任意 Borel 集 $A\subset\mathbb R^d\times\mathbb R^d$，有 $\gamma_i(A)=\bar\gamma(A\mid U_i\times V_i)$.接着，以 $\gamma_i^{(1)}$ 和 $\gamma_i^{(2)}$ 分别表示 $\gamma_i$ 的第一和第二边缘分布，并定义混合：
+$$
+\gamma=\bar\gamma+\frac ck\sum_{i=1}^k
+\bigl(\gamma_{i+1}^{(1)}\otimes\gamma_i^{(2)}-\gamma_i\bigr),
+$$
+其中 $c>0$ 稍后选定，并约定 $\gamma_{k+1}=\gamma_1$.
+
+注意，对任意 Borel 集 $A\subset\mathbb R^d\times\mathbb R^d$，
+$$
+\begin{aligned}
+\gamma(A)&\ge\bar\gamma(A)-\frac ck\sum_{i=1}^k\gamma_i(A)\\
+&=\bar\gamma(A)-\frac ck\sum_{i=1}^k\bar\gamma(A\mid U_i\times V_i)\\
+&=\bar\gamma(A)-\frac ck\sum_{i=1}^k
+\frac{\bar\gamma(A\cap(U_i\times V_i))}{\bar\gamma(U_i\times V_i)}\\
+&\ge\bar\gamma(A)-\frac{c\bar\gamma(A)}k\sum_{i=1}^k
+\frac1{\bar\gamma(U_i\times V_i)}.
+\end{aligned}
+$$
+所以，只要 $c<\min_{i\in[k]}\bar\gamma(U_i\times V_i)$，就有 $\gamma(A)\ge0$.此外，$\gamma(\mathbb R^d\times\mathbb R^d)=1$，因此 $\gamma$ 的确是 $\mathbb R^d\times\mathbb R^d$ 上的概率分布.
+
+为了验证 $\gamma\in\Gamma_{\mu,\nu}$，注意到对任意 Borel 集 $B\subset\mathbb R^d$，
+$$
+\begin{aligned}
+\gamma(B\times\mathbb R^d)
+&=\mu(B)+\frac ck\sum_{i=1}^k
+  \bigl(\gamma_{i+1}^{(1)}(B)-\gamma_i(B\times\mathbb R^d)\bigr)\\
+&=\mu(B)+\frac ck\sum_{i=1}^k
+  \bigl(\gamma_{i+1}^{(1)}(B)-\gamma_i^{(1)}(B)\bigr)\\
+&=\mu(B)+\frac ck\bigl(\gamma_{k+1}^{(1)}(B)-\gamma_1^{(1)}(B)\bigr)
+=\mu(B).
+\end{aligned}
+$$
+同理，
+$$
+\begin{aligned}
+\gamma(\mathbb R^d\times B)
+&=\nu(B)+\frac ck\sum_{i=1}^k
+  \bigl(\gamma_i^{(2)}(B)-\gamma_i(\mathbb R^d\times B)\bigr)\\
+&=\nu(B)+\frac ck\sum_{i=1}^k
+  \bigl(\gamma_i^{(2)}(B)-\gamma_i^{(2)}(B)\bigr)=\nu(B).
+\end{aligned}
+$$
+接着注意到，由 \eqref{eq:1.14}，
+$$
+\begin{aligned}
+&\int\|x-y\|^2\,\gamma(\mathrm dx,\mathrm dy)
+-\int\|x-y\|^2\,\bar\gamma(\mathrm dx,\mathrm dy)\\
+&\quad=\frac ck\sum_{i=1}^k\left(
+\begin{aligned}
+&\int_{U_{i+1}\times V_i}\|x-y\|^2\,
+\gamma_{i+1}^{(1)}(\mathrm dx)\,\gamma_i^{(2)}(\mathrm dy)\\
+&\qquad-\int_{U_i\times V_i}\|x-y\|^2\,\gamma_i(\mathrm dx,\mathrm dy)
+\end{aligned}\right)\\
+&\quad<0.
+\end{aligned}
+$$
+这与 $\bar\gamma$ 的最优性矛盾.
+\end{proof}
+
+\subsubsection{Brenier 定理的证明}\label{sec:1.4.3}
+
+现在我们可以证明 Brenier 定理了.
+
+\begin{proof}[\autoref{thm:1.8}的证明]
+
+设 $\bar\gamma$ 是一个最优耦合.由\autoref{prop:1.11}，$\operatorname{supp}(\bar\gamma)$ 是循环单调的.由 Rockafellar 的\autoref{thm:1.10}，可知存在凸函数 $\varphi:\mathbb R^d\to\mathbb R\cup\{\infty\}$，使得 $\bar\gamma(Y\in\partial\varphi(X))=1$.但是，由于 $\varphi$ 是凸函数，它在定义域的内部局部 Lipschitz 连续，而定义域的边界由凸性可知是零测集.因此，由 Rademacher 定理，$\varphi$ 在其定义域上关于 Lebesgue 测度几乎处处可微.由于 $\mu$ 存在密度，这意味着 $\varphi$ 在 $\mu$ 几乎处处可微.因此，$\bar\gamma(Y=\nabla\varphi(X))=1$，或者换言之，若 $X\sim\mu$，则 $(X,\nabla\varphi(X))\sim\bar\gamma$.
+\end{proof}

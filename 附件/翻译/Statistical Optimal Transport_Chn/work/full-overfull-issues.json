@@ -1,0 +1,135 @@
+[
+  {
+    "file": "frontmatter/00-copyright.tex",
+    "pt": 4.82002,
+    "start": 23,
+    "end": 24,
+    "text": "\n本书研究获美国国家科学基金会（CCF-1838071、DMS-1712596、DMS-2015291、CCF1740751、DMS-2022448、CCF-2106377、CAREER奖DMS-2339829、DMS-2210583）及Alfred P. Sloan基金会（Sloan基金会研究奖）支持.\n\n\\noindent\\copyright\\ 编者（如适用）及作者，独家许可予Springer Nature Switzerland AG，2025."
+  },
+  {
+    "file": "sections-tex/02-04.tex",
+    "pt": 0.5626,
+    "start": 2,
+    "end": 3,
+    "text": "\\subsection{$d=2$ 时的更精细分析}\\label{sec:2.4}\\index{Atjai–Komlós–Tusnády theorem@Atjai–Komlós–Tusnády定理（Atjai–Komlós–Tusnády theorem）|hyperpage}\n\\autoref{sec:2.2}的二进划分论证与\\autoref{sec:2.3}的链式论证都有一个缺点：它们不能得到二维 Wasserstein 大数律的正确速率. 这与 $d=2$ 是 $\\mathbb EW_1(\\mu_n,\\mu)$ 行为的“临界”情形有关. 可以证明，$d=1$ 时 $\\mu_n$ 与 $\\mu$ 之间的最优传输成本主要由“整体”特征决定，而 $d\\ge3$ 时则主要由“局部”不规则性决定. 在二维中，各尺度的不规则性同时作出贡献，因而要对最优成本作界，需要更细致的处理.\n\n$d=2$ 的正确速率最初由 Ajtai 等人\\cite{ref5}通过一个颇为精细的论证发现. 本节介绍 Bobkov 与 Ledoux\\cite{ref42}提出的一种巧妙方法，用更简单的手段得到正确速率. 这个证明基于 Fourier 分析；第一步是说明可以只关注周期函数，因为 Fourier 分析的工具可以自然地用于它们."
+  },
+  {
+    "file": "sections-tex/02-08.tex",
+    "pt": 2.92973,
+    "start": 98,
+    "end": 100,
+    "text": "&\\quad-\\frac2{mn}\\sum_{i=1}^m\\sum_{j=1}^n k(X_i,Y_j).\n\\end{aligned}$$\n自然会问，这是否为 $\\mathsf{MMD}^2(\\mu,\\nu)$ 的良好估计量. 利用三角不等式，只需控制 $\\mathsf{MMD}(\\mu_m,\\mu)$. 虽然 MMD 是 IPM，\\autoref{prop:2.21}的闭式表示使我们能够绕开经验过程理论，直接控制该量.\n\\begin{theorem}\\label{thm:2.22}\n设 $k$ 为特征核，且对任意 $x\\in\\mathbb R^d$ 有 $k(x,x)\\le1$. 令 $X_1,\\ldots,X_n$ 是来自 $\\mathbb R^d$ 上分布 $\\mu$ 的 $n$ 个独立同分布观测，并定义经验测度"
+  },
+  {
+    "file": "sections-tex/02-08.tex",
+    "pt": 40.19356,
+    "start": 201,
+    "end": 202,
+    "text": "\\begin{proof}\n第二个不等式由第一个不等式及三角不等式得到. 为证明第一个，注意 $\\langle\\theta,X_1\\rangle,\\ldots,\\langle\\theta,X_n\\rangle$ 是来自 $\\Pi^\\theta_\\#\\mu$ 的独立同分布样本，$\\Pi^\\theta_\\#\\mu_n$ 是对应经验测度. 因此，由\\autoref{prop:2.5}的一维速率，$\\mathbb EW_1(\\Pi^\\theta_\\#\\mu_n,\\Pi^\\theta_\\#\\mu)\\lesssim n^{-1/2}$. 再对 $\\theta$ 取平均即可.\n\\end{proof}\n虽然我们以统计上的优点引出切片 Wasserstein 距离，它也恰好具有显著的计算优势. 事实上，计算 $\\mathsf{SW}_p$ 归结为一维最优传输；对于离散测度，后者可通过排序求解，见\\autoref{exer:2.5}."
+  },
+  {
+    "file": "sections-tex/02-10.tex",
+    "pt": 13.77867,
+    "start": 5,
+    "end": 6,
+    "text": "\\begin{enumerate}\n\\item[(a)]\\label{item:2.1a} 证明存在正的普适常数 $c$，使对任意 $n\\ge1$，$\\mathbb R^d$ 中半径为 $c\\sqrt d\\,n^{-1/d}$ 的球，其 Lebesgue 测度至多为 $(2n)^{-1}$. 提示：回顾 $\\mathbb R^d$ 的单位球具有 Lebesgue 测度 $\\pi^{d/2}/\\Gamma(d/2+1)$.\n\\item[(b)] 令 $\\mu$ 是 $[0,1]^d$ 上的均匀测度，令 $\\tilde\\mu_n$ 是任意支撑在 $n$ 个点 $x_1,\\ldots,x_n$ 上的测度. 用 $B(x_i,\\epsilon)$ 表示以 $x_i$ 为中心、半径 $\\epsilon$ 的球. 证明当 $\\epsilon=c\\sqrt d\\,n^{-1/d}$ 时，$\\mu(\\bigcup_{i=1}^nB(x_i,\\epsilon))\\le1/2$，其中 $c$ 为\\hyperref[item:2.1a]{第 (a) 问}的常数.\n\\item[(c)] 推出，若 $\\gamma\\in\\Gamma(\\mu,\\tilde\\mu_n)$，则 $\\int\\lVert x-y\\rVert\\,d\\gamma(x,y)\\ge\\frac12\\cdot c\\sqrt d\\,n^{-1/d}$."
+  },
+  {
+    "file": "sections-tex/02-10.tex",
+    "pt": 26.51073,
+    "start": 50,
+    "end": 51,
+    "text": "\\item[(b)] 证明这对测度满足 $\\mathrm{KL}(\\mu^{(1)},\\mu^{(0)})\\le\\frac{16\\varepsilon^2}{1-4\\varepsilon^2}$.\n\\item[(c)] 推出存在正的普适常数 $c$，使对任意估计量 $\\tilde\\mu_n$，存在 $j\\in\\{0,1\\}$，满足 $\\mathbb E_{\\mu^{(j)}}[W_1(\\tilde\\mu_n,\\mu^{(j)})]\\ge cn^{-1/2}$.\n\\end{enumerate}\n\\end{exercise}"
+  },
+  {
+    "file": "sections-tex/03-01.tex",
+    "pt": 2.06029,
+    "start": 34,
+    "end": 35,
+    "text": "\n一种初步的估计方法可能是计算经验测度 $\\mu_n$ 与 $\\nu_n$ 之间的最优耦合，即求解 $\\min_{\\gamma\\in\\Gamma_{\\mu_n,\\nu_n}}\\int\\|x-y\\|^2\\,\\gamma(dx,dy)$，但我们很快就会发现这一朴素方案存在一个无法回避的缺口. 即使最优传输计划 $\\gamma_n$ 由某个传输映射 $T_n$ 诱导，从而 $\\gamma_n(dx,dy)=\\mu_n(dx)\\delta_{T_n(x)}(dy)$，映射 $T_n$ 也仅在样本 $\\{X_1,\\ldots,X_n\\}$ 上有良好定义，尚不清楚如何有原则地将其延拓为整个 $\\mathbb R^d$ 上的映射（\\autoref{fig:3.2}）. 为解决这一问题，文献中提出了多种方法，旨在构造 $T_n$ 到样本外各点的插值 $\\widehat T_n$. 例如，可以令 $\\widehat T_n(x)=T_n(X_i)$，其中 $X_i$ 是距离 $x$ 最近的样本点. 这就是 1-最近邻估计量（1-nearest neighbor estimator）；可以证明，在没有额外光滑性假设时，它具有极小极大最优性\\cite{ref221}；一维情形见\\autoref{exer:3.1}. 不过，这种方法无法利用 $\\mu$ 和 $\\nu$ 的额外正则性，我们在此不再继续讨论.\n\n相反，下一节将根据最优传输的半对偶表述设计一个估计量. 这一估计策略的优点在于，能够灵活纳入对总体传输映射 $T$ 的额外假设，例如光滑性. 采用足够强的假设，就可以得到避开维数灾难的映射估计量."
+  },
+  {
+    "file": "sections-tex/03-04.tex",
+    "pt": 1.80995,
+    "start": 56,
+    "end": 57,
+    "text": "\n对任意 $\\delta>0$，\\autoref{exer:3.2}表明存在 $\\theta_1,\\ldots,\\theta_N$，其中 $N\\le(1+2R\\delta^{-1})^M$，使得 $\\bigcup_{i=1}^N B_\\delta(\\theta_i)\\supseteq\\Theta$. 于是 $\\phi_{\\theta_1},\\ldots,\\phi_{\\theta_N}$ 是 $\\Phi$ 的一个 $O(\\delta)$-覆盖. 事实上，对任意 $\\theta\\in\\Theta$，可以选取 $i\\in[N]$，使得 $\\|\\phi_\\theta-\\phi_{\\theta_i}\\|_{L^\\infty(\\Omega)}\\lesssim\\|\\theta-\\theta_i\\|\\le\\delta$. 对充分小的正常数 $c$ 取 $\\delta=c\\varepsilon$，即得所述结论.\n\\end{proof}\n"
+  },
+  {
+    "file": "sections-tex/04-05.tex",
+    "pt": 4.30228,
+    "start": 14,
+    "end": 15,
+    "text": "\n熵正则最优传输有一个值得注意的特点：由于目标函数中存在熵项，一般有 $S(\\mu,\\mu)>0$. 鉴于此，Genevay 等人\\cite{ref139}提出了“去偏”量\n$$D(\\mu,\\nu):=S(\\mu,\\nu)-\\frac12(S(\\mu,\\mu)+S(\\nu,\\nu)),$$\n称为 $\\mu$ 与 $\\nu$ 之间的 Sinkhorn 散度\\index{Sinkhorn divergence@Sinkhorn散度（Sinkhorn divergence）|hyperpage}（Sinkhorn divergence）. 可以证明，Sinkhorn 散度对每个变量都凸、非负，且等于零当且仅当 $\\mu=\\nu$\\cite{ref132}. 与熵正则最优传输一样，Sinkhorn 散度可以以参数速率估计\\cite{ref106,ref140}. 有人提倡将 Sinkhorn 散度用作估计 Wasserstein 距离的工具\\cite{ref85}，不过用于映射估计时存在需要注意的限制\\cite{ref263}."
+  },
+  {
+    "file": "sections-tex/05-06.tex",
+    "pt": 7.39589,
+    "start": 11,
+    "end": 12,
+    "text": "\n可以在任意度量空间上考虑具有有限二阶矩的概率测度空间，并赋予它 2-Wasserstein 距离. 的确，回顾\\autoref{sec:1.1}，最优传输问题可以用更一般的代价定义，所以可以取度量空间上的距离平方作为代价.\n\n当该度量空间为黎曼流形时，适当修改后，\\autoref{sec:5.1}至\\autoref{sec:5.4}的结果仍然成立. 这里不作详细论证，但建议读者从新的视角重读这些节. 例如 ODE \\eqref{eq:5.1}仍有意义，只要记住流形 $\\mathcal M$ 上的向量场 $v$，是给每一点 $x\\in\\mathcal M$ 指定切向量 $v(x)\\in T_x\\mathcal M$ 的映射 $x\\mapsto v(x)$. 连续性方程的弱形式\\eqref{eq:5.3}也仍有意义，其中 $\\nabla$ 现在指黎曼梯度；若将 $\\mu_t$ 解释为关于体积测度的密度，甚至\\eqref{eq:5.2}也有意义，等等. 事实上，这一几何背景是最优传输理论中一些最深刻进展的源头，见\\cite{ref317}."
+  },
+  {
+    "file": "sections-tex/05-06.tex",
+    "pt": 6.77258,
+    "start": 20,
+    "end": 21,
+    "text": "\\begin{theorem}\\label{thm:5.23}\n给定 $\\nu\\in\\mathcal P_2(\\mathsf{BW}(\\mathbb R^d))$，用 $G_\\nu$ 表示相应的高斯混合 $G_\\nu=\\int\\mathcal N(m,\\Sigma)\\,\\nu(dm,d\\Sigma)$. 设 $\\mathcal F$ 为 $\\mathcal P_2(\\mathbb R^d)$ 上的泛函，$\\mathcal G$ 为 $\\mathcal P_2(\\mathsf{BW}(\\mathbb R^d))$ 上由 $\\nu\\mapsto\\mathcal F(G_\\nu)$ 给出的对应泛函. 那么，$\\mathcal G$ 的 Wasserstein 梯度流为如下曲线 $(\\nu_t)_{t\\geq0}$：$\\nu_t=\\operatorname{law}(m_t,\\Sigma_t)$，其中\n$$\n\\begin{aligned}"
+  },
+  {
+    "file": "sections-tex/05-06.tex",
+    "pt": 72.77989,
+    "start": 31,
+    "end": 32,
+    "text": "\\begin{proof}\n$\\mathcal G$ 的一阶变分如下计算. 若 $(\\nu_t)_{t\\in\\mathbb R}$ 是 $\\mathcal P_2(\\mathsf{BW}(\\mathbb R^d))$ 中的曲线，则 $\\partial_tG_{\\nu_t}=\\int\\mathcal N(m,\\Sigma)\\,\\partial_t\\nu_t(dm,d\\Sigma)$. 因此\n$$\n\\begin{aligned}"
+  },
+  {
+    "file": "sections-tex/06-01.tex",
+    "pt": 1.07314,
+    "start": 196,
+    "end": 197,
+    "text": "\\begin{lemma}\\label{lem:6.9}\n假设 $\\mathcal M$ 由可分离映射 $T$ 组成，即 $T(x)=(T_1(x_1),\\ldots,T_d(x_d))$，其中 $T_1,\\ldots,T_d:\\mathbb R\\to\\mathbb R$ 为递增一元映射. 那么 $\\operatorname{cone}(\\mathcal M)_\\#\\rho$ 测地凸.\n\n此外，映射 $(\\mathbb R_+^{\\mathcal M},\\|\\cdot\\|_Q)\\to(\\operatorname{cone}(\\mathcal M)_\\#\\rho,W_2)$、$\\lambda\\mapsto\\rho^\\lambda$ 为等距映射，其中 $\\|x\\|_Q^2:=\\langle x,Qx\\rangle$，$Q$ 为 $|\\mathcal M|\\times|\\mathcal M|$ 矩阵，其元素为"
+  },
+  {
+    "file": "sections-tex/06-02.tex",
+    "pt": 9.6318,
+    "start": 131,
+    "end": 133,
+    "text": "\n最终，在对应于概率测度空间中同一曲线的意义下，有等价关系\n$\\text{\\eqref{eq:FP}}\\iff\\text{\\eqref{eq:LD}}\\iff\\text{\\eqref{eq:WGF}}$；显然在粒子层面它们不同，但这三种视角为算法设计与理论研究提供了新途径.\n\n\\subsubsection{将抽样视为优化}\\label{sec:6.2.2}"
+  },
+  {
+    "file": "sections-tex/06-02.tex",
+    "pt": 1.21733,
+    "start": 184,
+    "end": 186,
+    "text": "\\left\\{h\\mathcal H(\\nu)+\\frac12W_2^2(\\mu,\\nu)\\right\\}.\n\\end{equation}\n事实上，\\cite{ref170}最初正是借助 Wasserstein 空间的近端算子，严格建立了\\autoref{sec:6.2.1}中 Langevin 扩散的 Wasserstein 梯度流解释. 所得 Wasserstein 空间近端梯度算法确实可证明快速收敛到 $\\pi$\\cite{ref278}. 不过，近端映射\\eqref{eq:6.14}一般难以计算，所以这一算法仍只是美好设想.\n\n实际上，不仅 $\\operatorname{prox}_{h\\mathcal H}$ 难以计算，对 $\\mathcal H$ 作梯度下降也不实际，因为需要知道整个概率密度；这正是\\autoref{sec:6.1.4}讨论 SVGD 的动机. 对最小化 $\\mathcal H$，我们似乎唯一能合理实现的操作就是梯度流，这得益于它与 Brown 运动之间的巧妙联系. 这既是好事也是坏事：好处是能实现的梯度流不受 $\\mathcal H$ 非光滑性的阻碍，从而解释抽样为何可行；坏处是梯度流与 $\\mathcal V$ 的离散化“不匹配”，因而\\eqref{eq:6.11}产生渐近偏差."
+  },
+  {
+    "file": "sections-tex/08-02.tex",
+    "pt": 5.49167,
+    "start": 4,
+    "end": 6,
+    "text": "$$b^\\star\\in\\operatorname*{arg\\,min}_{b\\in S}\\int\\mathsf d^2(b,x)\\,P(dx),\n\\qquad b_n\\in\\operatorname*{arg\\,min}_{b\\in S}\\sum_{i=1}^n\\mathsf d^2(b,X_i).$$\n在继续之前，先讨论整体思路. Hilbert 情形的论证依赖于不等式 $P_n\\mathsf d^2(b_n,\\bullet)\\le P_n\\mathsf d^2(b^\\star,\\bullet)$；它由 $b_n$ 的定义成立，也表明经验重心是统计估计文献中经验风险\\index{empirical risk minimization (ERM)@经验风险最小化（ERM）（empirical risk minimization (ERM)）|hyperpage}最小化框架的一个实例. 利用经验风险最小化技术，可能希望通过空间 $(S,\\mathsf d)$ 的“复杂度”度量来控制估计误差；文献中已有沿这一路径的工作（见\\cite{ref4}）. 不过，对于所关心的 Wasserstein 空间应用，其复杂度过大，会导致非参数估计速率；特别地，与\\autoref{sec:2}中的情形类似，这些速率受到维数灾难的影响.\n\n然而，刚刚已经看到，Hilbert 空间中的估计速率可以避开维数灾难，即使 Hilbert 空间可以是无限维的. 因此，直觉使我们相信：即使在弯曲空间 $(S,\\mathsf d)$ 上工作，只要能将研究限制在 $S$ 足够“平坦”的部分，或许也可以恢复 Hilbert 型速率. 后文将寻找自然的几何条件；本质上，它们编码了曲率界，使快速的参数估计速率成为可能."
+  },
+  {
+    "file": "sections-tex/B-01.tex",
+    "pt": 9.80975,
+    "start": 42,
+    "end": 43,
+    "text": "\\begin{proof}\n\\hyperref[item:B.4.1]{(1)}$\\implies$\\hyperref[item:B.4.2]{(2)}显然成立. 将$f$换成$-f$，容易看出\\hyperref[item:B.4.3]{(3)}与\\hyperref[item:B.4.4]{(4)}等价；取补集也可知\\hyperref[item:B.4.5]{(5)}与\\hyperref[item:B.4.6]{(6)}等价.\n\n\\hyperref[item:B.4.2]{(2)}$\\implies$\\hyperref[item:B.4.3]{(3)}：已知可用一列Lipschitz连续函数$f_k:\\mathbb R^d\\to[0,\\infty)$从下方逼近$f$. 对任意$k,n\\in\\mathbb N$，都有$\\int f_k\\,d\\mu_n\\leq\\int f\\,d\\mu_n$. 令$n\\to\\infty$，得到$\\int f_k\\,d\\mu\\leq\\liminf_{n\\to\\infty}\\int f\\,d\\mu_n$. 再令$k\\to\\infty$，应用单调收敛定理即可."
+  },
+  {
+    "file": "backmatter/publisher-policy.tex",
+    "pt": 39.75534,
+    "start": 30,
+    "end": 31,
+    "text": "\n\\item 精心准备书稿，既能缩短制作周期，也能确保纸质版和在线版具有令人满意的外观. 接收后，作者将被要求准备最终LaTeX源文件（在线模板见\\url{https://www.springer.com/gb/authors-editors/book-authors-editors/manuscriptpreparation/5636}）以及相应的PDF文件或压缩PS文件. LaTeX源文件是制作全书在线全文版本所必需的，现有LNM在线卷册见\\url{http://link.springer.com/bookseries/304}. 《数学讲义丛书》一卷的技术制作约需12周. 如有必要，可通过\\href{mailto:lnm@springer.com}{lnm@springer.com}索取进一步说明.\n\n\\item 作者共可获得30册免费样书，并免费访问SpringerLink上的本书，但不收取版税. 若直接从Springer订购供个人使用的Springer图书，可享受33.3\\%折扣."
+  },
+  {
+    "file": "backmatter/publisher-policy.tex",
+    "pt": 26.45457,
+    "start": 30,
+    "end": 31,
+    "text": "\n\\item 精心准备书稿，既能缩短制作周期，也能确保纸质版和在线版具有令人满意的外观. 接收后，作者将被要求准备最终LaTeX源文件（在线模板见\\url{https://www.springer.com/gb/authors-editors/book-authors-editors/manuscriptpreparation/5636}）以及相应的PDF文件或压缩PS文件. LaTeX源文件是制作全书在线全文版本所必需的，现有LNM在线卷册见\\url{http://link.springer.com/bookseries/304}. 《数学讲义丛书》一卷的技术制作约需12周. 如有必要，可通过\\href{mailto:lnm@springer.com}{lnm@springer.com}索取进一步说明.\n\n\\item 作者共可获得30册免费样书，并免费访问SpringerLink上的本书，但不收取版税. 若直接从Springer订购供个人使用的Springer图书，可享受33.3\\%折扣."
+  }
+]

@@ -1,0 +1,807 @@
+{
+  "inserted": [
+    {
+      "original": "Alexandrov curvature",
+      "translated": "Alexandrov曲率",
+      "source_printed": "193",
+      "file": "07-02",
+      "selector": "label:sec:7.2.1",
+      "anchor_context": "tion{曲率}\\label{sec:7.2}\n\\subsubsection{Alexandrov 曲率}\\label{sec:7.2.1}\n给定实数 $\\kappa\\in\\mathbb R$，一个特别重要的测地空间，是具有常截面曲率 $\\kappa$ 的完备、单连通二维黎曼流形"
+    },
+    {
+      "original": "Alexandrov space",
+      "translated": "Alexandrov空间",
+      "source_printed": "196",
+      "file": "07-02",
+      "selector": "Alexandrov空间",
+      "anchor_context": "在更一般的测地空间中.\n\\end{remark}\n具有任意曲率界的测地空间 $(S,\\mathsf d)$ 称为 Alexandrov 空间（Alexandrov space）. 若对某个 $\\kappa\\in\\mathbb R$ 有 $\\operatorname{curv}(S"
+    },
+    {
+      "original": "Atjai–Komlós–Tusnády theorem",
+      "translated": "Atjai–Komlós–Tusnády定理",
+      "source_printed": "47",
+      "file": "02-04",
+      "selector": "label:sec:2.4",
+      "anchor_context": "\\subsection{\\texorpdfstring{$d=2$}{d=2} 时的更精细分析}\\label{sec:2.4}\n\\autoref{sec:2.2}的二进划分论证与\\autoref{sec:2.3}的链式论证都有一个缺点：它们不能得到二维 Wasser"
+    },
+    {
+      "original": "attention",
+      "translated": "注意力",
+      "source_printed": "180",
+      "file": "06-06",
+      "selector": "注意力",
+      "anchor_context": "语言处理（natural language processing，NLP）中，也广泛用于计算机视觉和机器人学. 这一新架构的核心是所谓注意力机制（attention mechanism），该层与\\eqref{eq:6.23}那样的感知机层，也称前馈层，显著不同.\n\n前几节的神经网"
+    },
+    {
+      "original": "barycenter",
+      "translated": "重心",
+      "source_printed": "212",
+      "file": "08-01",
+      "selector": "label:def:8.1",
+      "anchor_context": "唯一极小化解. 这一表述只涉及平方距离，因此可以推广到度量空间.\n\\begin{definition}[重心]\\label{def:8.1}\n给定度量空间 $(S,\\mathsf d)$ 上任意概率测度 $P$，如果 $b$ 是泛函\n$$b\\longmapsto\\int\\math"
+    },
+    {
+      "original": "Benamou–Brenier formula",
+      "translated": "Benamou–Brenier公式",
+      "source_printed": "129",
+      "file": "05-03",
+      "selector": "label:thm:5.7",
+      "anchor_context": "确实就是 Wasserstein 距离.\n\n\\begin{theorem}[Benamou--Brenier]\\label{thm:5.7}\n设 $\\mu_0,\\mu_1\\in\\mathcal P_{2,\\mathrm{ac}}(\\mathbb R^d)$. 则\n\\begin{e"
+    },
+    {
+      "original": "Birkhoff polytope",
+      "translated": "Birkhoff多面体",
+      "source_printed": "6",
+      "file": "01-01",
+      "selector": "Birkhoff",
+      "anchor_context": "有权重 $p_i$、$q_j$ 均为 $1/n$ 时，有效耦合矩阵 $P$ 的集合就是双随机矩阵集合的一个倍数，后者也称为 Birkhoff 多面体（Birkhoff polytope）：\n\\begin{equation}\\label{eq:1.2}\n\\operatorname{"
+    },
+    {
+      "original": "birth-death sampling",
+      "translated": "生灭抽样",
+      "source_printed": "172",
+      "file": "06-03",
+      "selector": "label:sec:6.3.2",
+      "anchor_context": "_t^1$ 的分布就会接近平均场极小化解 $q_\\star$.\n\n\\subsubsection{生灭抽样}\\label{sec:6.3.2}\n\n回到\\autoref{sec:6.2}的抽样问题. 若不采用 KL 散度的 Wasserstein 梯度流，而采用\\autoref{se"
+    },
+    {
+      "original": "Brenier’s theorem",
+      "translated": "Brenier定理",
+      "source_printed": "15",
+      "file": "01-04",
+      "selector": "label:thm:1.8",
+      "anchor_context": "x,\\mathrm dy).\n\\end{equation}\n\n\\begin{theorem}[Brenier]\\label{thm:1.8}\n设 $\\mu,\\nu\\in\\mathcal P_2(\\mathbb R^d)$ 是两个概率测度，$\\mu$ 存在密度，并设 $X\\sim\\"
+    },
+    {
+      "original": "Brenier’s theorem!improved",
+      "translated": "Brenier定理!改进形式",
+      "source_printed": "27",
+      "file": "01-05",
+      "selector": "label:thm:1.16",
+      "anchor_context": "个常用的 Brenier 定理的改进版本.\n\n\\begin{theorem}[改进的 Brenier 定理]\\label{thm:1.16}\n设 $\\mu,\\nu\\in\\mathcal{P}_2(\\mathbb{R}^d)$ 为两个概率测度，$\\mu$ 有密度，并设 $X\\sim"
+    },
+    {
+      "original": "Burer–Monteiro",
+      "translated": "Burer–Monteiro",
+      "source_printed": "149",
+      "file": "05-10",
+      "selector": "Burer",
+      "anchor_context": "\\eqref{eq:5.29}.\n\\begin{remark*}\n参数化 $\\Sigma=UU^{\\mathsf T}$ 常称为 Burer--Monteiro 参数化，尤其当它用于约束 $\\Sigma$ 为低秩矩阵时\\cite{ref60,ref61}.\n\\end{remark"
+    },
+    {
+      "original": "Bures–Wasserstein",
+      "translated": "Bures–Wasserstein",
+      "source_printed": "133",
+      "file": "05-05",
+      "selector": "label:sec:5.5",
+      "anchor_context": "\\subsection{Bures--Wasserstein 几何}\\label{sec:5.5}\n\n将上一节的概念应用于 Wasserstein 空间中由高斯测度组成的子流形，很有启发性.\n\n\\begin{definition}\\lab"
+    },
+    {
+      "original": "Bures–Wasserstein!gradient",
+      "translated": "Bures–Wasserstein!梯度",
+      "source_printed": "134",
+      "file": "05-05",
+      "selector": "label:thm:5.21",
+      "anchor_context": "交投影到 $T_\\mu\\mathsf{BW}(\\mathbb R^d)$.\n\n\\begin{theorem}\\label{thm:5.21}\n设泛函 $\\mathcal F:\\mathcal P_{2,\\mathrm{ac}}(\\mathbb R^d)\\to\\mathbb R$ "
+    },
+    {
+      "original": "chaining",
+      "translated": "链式法",
+      "source_printed": "44",
+      "file": "02-03",
+      "selector": "链式法",
+      "anchor_context": "rical process），而对这种过程上确界的期望作界，是统计学许多领域中非常常见的任务.\n\n为控制这个经验过程，我们使用一种称为链式法（chaining）的标准技术. 给定 $\\Omega\\subseteq\\mathbb R^d$ 上的实值函数类 $\\mathcal F$，"
+    },
+    {
+      "original": "change of variables",
+      "translated": "变量代换",
+      "source_printed": "153",
+      "file": "06-01",
+      "selector": "label:lem:6.2",
+      "anchor_context": "来证明熵 $\\mathcal H$ 测地凸. 为此调用变量代换公式.\n\n\\begin{lemma}[变量代换]\\label{lem:6.2}\n设 $\\mu$ 为 $\\mathbb R^d$ 上的密度，$T:\\mathbb R^d\\to\\mathbb R^d$ 为微分同胚，并令 $"
+    },
+    {
+      "original": "continuity equation",
+      "translated": "连续性方程",
+      "source_printed": "122",
+      "file": "05-01",
+      "selector": "label:eq:5.2",
+      "anchor_context": "X_t$ 的分布. 那么 $(\\mu_t)_{t\\geq0}$ 在弱意义下满足\n\\begin{equation}\\label{eq:5.2}\n\\partial_t\\mu_t+\\operatorname{div}(\\mu_tv_t)=0,\n\\end{equation}\n即对于任意紧"
+    },
+    {
+      "original": "convex duality",
+      "translated": "凸对偶",
+      "source_printed": "230",
+      "file": "A-01",
+      "selector": "label:def:A.4",
+      "anchor_context": "$.\n\\end{lemma}\n\n接下来讨论至关重要的对偶概念.\n\\begin{definition}[凸共轭]\\label{def:A.4}\n对任意函数$f:\\mathbb R^d\\to\\mathbb R\\cup\\{\\infty\\}$，其凸共轭（convex conjugate）"
+    },
+    {
+      "original": "cyclical monotonicity",
+      "translated": "循环单调性",
+      "source_printed": "17",
+      "file": "01-04",
+      "selector": "label:def:1.9",
+      "anchor_context": "x\\in\\mathbb R^d\\}$.首先定义这类图像的一个重要性质.\n\n\\begin{definition}\\label{def:1.9}\n若集合 $A\\subset\\mathbb R^d\\times\\mathbb R^d$ 满足：对任意整数 $k\\ge2$ 和任意点 $(x_"
+    },
+    {
+      "original": "dyadic partitioning",
+      "translated": "二进划分",
+      "source_printed": "39",
+      "file": "02-02",
+      "selector": "label:thm:2.2",
+      "anchor_context": "Q_{j+1}$ 都是 $\\mathcal Q_j$ 的细分.}\n\\begin{theorem}[二进划分界]\\label{thm:2.2}\n设 $\\mu,\\nu\\in\\mathcal P([0,1]^d)$. 对任意 $J\\ge0$，\n$$W_1(\\mu,\\nu)\\le\\sqr"
+    },
+    {
+      "original": "earth mover’s distance",
+      "translated": "推土机距离",
+      "source_printed": "52",
+      "file": "02-05",
+      "selector": "推土机",
+      "anchor_context": "asserstein 距离本身的估计. 事实上，这种距离在许多统计任务中居于核心地位. 例如，$1$-Wasserstein 距离以“推土机距离”（earth mover's distance）之名在机器学习中的早期应用之一，是在信息检索中衡量图像之间的距离\\cite{ref27"
+    },
+    {
+      "original": "empirical process",
+      "translated": "经验过程",
+      "source_printed": "44",
+      "file": "02-03",
+      "selector": "经验过程",
+      "anchor_context": "n}\n随机过程 $f\\mapsto\\frac1n\\sum_{i=1}^n\\{f(X_i)-\\mathbb Ef(X_i)\\}$ 称为经验过程（empirical process），而对这种过程上确界的期望作界，是统计学许多领域中非常常见的任务.\n\n为控制这个经验过程，我们使用一种"
+    },
+    {
+      "original": "empirical risk minimization (ERM)",
+      "translated": "经验风险最小化（ERM）",
+      "source_printed": "215",
+      "file": "08-02",
+      "selector": "经验风险",
+      "anchor_context": "le P_n\\mathsf d^2(b^\\star,\\bullet)$；它由 $b_n$ 的定义成立，也表明经验重心是统计估计文献中经验风险最小化框架的一个实例. 利用经验风险最小化技术，可能希望通过空间 $(S,\\mathsf d)$ 的“复杂度”度量来控制估计误差；文献中已有"
+    },
+    {
+      "original": "entropic optimal transport",
+      "translated": "熵正则最优传输",
+      "source_printed": "95",
+      "file": "04-01",
+      "selector": "file-start",
+      "anchor_context": "熵正则化（entropic regularization）是现代最优传输中最活跃的研究方向之一. 作为正则化技术，它在形式上属于\\autor"
+    },
+    {
+      "original": "Fenchel–Young inequality",
+      "translated": "Fenchel–Young不等式",
+      "source_printed": "231",
+      "file": "A-01",
+      "selector": "label:thm:A.6",
+      "anchor_context": "专门名称，而且后文需要用到其等号情形.\n\n\\begin{theorem}[Fenchel--Young不等式]\\label{thm:A.6}\n对凸函数$f:\\mathbb R^d\\to\\mathbb R\\cup\\{\\infty\\}$及任意$x,y\\in\\mathbb R^d$，\n"
+    },
+    {
+      "original": "first variation",
+      "translated": "一阶变分",
+      "source_printed": "130",
+      "file": "05-04",
+      "selector": "label:def:5.9",
+      "anchor_context": "速率.\n\nWasserstein 梯度可以用一阶变分表示.\n\n\\begin{definition}[一阶变分]\\label{def:5.9}\n设 $\\mathcal F:\\mathcal P_{2,\\mathrm{ac}}(\\mathbb R^d)\\to\\mathbb R$ 为泛"
+    },
+    {
+      "original": "Fisher–Rao",
+      "translated": "Fisher–Rao",
+      "source_printed": "139",
+      "file": "05-07",
+      "selector": "label:eq:5.17",
+      "anchor_context": "a:\\mathbb R^d\\to\\mathbb R$ 构成的空间，并赋予度量\n\\begin{equation}\\label{eq:5.17}\n\\widetilde{\\mathfrak g}_\\mu(\\alpha,\\alpha)\n:=\\mathfrak g_\\mu(\\alpha\\m"
+    },
+    {
+      "original": "Fokker–Planck equation",
+      "translated": "Fokker–Planck方程",
+      "source_printed": "164",
+      "file": "06-02",
+      "selector": "label:thm:6.11",
+      "anchor_context": "igr).\n$$\n由此建立以下定理.\n\n\\begin{theorem}[Fokker--Planck 方程]\\label{thm:6.11}\n势为 $V$ 的 Langevin 扩散的边缘分布 $\\mu_t:=\\operatorname{law}(X_t)$ 由 Fokker--"
+    },
+    {
+      "original": "fundamental theorem of optimal transport",
+      "translated": "最优传输基本定理",
+      "source_printed": "25",
+      "file": "01-05",
+      "selector": "label:thm:1.14",
+      "anchor_context": "之间的强对偶这一基本结果，它是建立上述等价关系的关键.\n\n\\begin{theorem}[最优传输基本定理]\\label{thm:1.14}\n设 $\\mu,\\nu\\in\\mathcal{P}_2(\\mathbb{R}^d)$ 为两个概率测度，且 $\\mu$ 有密度；设 $X\\si"
+    },
+    {
+      "original": "geodesic",
+      "translated": "测地线",
+      "source_printed": "190",
+      "file": "07-01",
+      "selector": "label:def:7.3",
+      "anchor_context": "确界均达到，则称这个长度空间为测地空间（geodesic space）.\n\\begin{definition}\\label{def:7.3}\n设 $(S,\\mathsf d)$ 为长度空间. $x$ 与 $y$ 之间的测地线（geodesic）是达到 \\eqref{eq:7.5}"
+    },
+    {
+      "original": "geodesic!extendable",
+      "translated": "测地线!可延拓",
+      "source_printed": "218",
+      "file": "08-02",
+      "selector": "label:def:8.6",
+      "anchor_context": "tar$ 出发以及到达该点的测地线，都能按给定因子延拓.\n\\begin{definition}[可延拓测地线]\\label{def:8.6}\n考虑常速测地线 $\\omega:[0,1]\\to S$. 对 $(\\lambda_{\\mathrm{in}},\\lambda_{\\math"
+    },
+    {
+      "original": "geodesic!generalized",
+      "translated": "测地线!广义形式",
+      "source_printed": "209",
+      "file": "07-04",
+      "selector": "广义",
+      "anchor_context": "负曲率 Alexandrov 空间上的 Wasserstein 空间也是非负弯曲的.\n\n\\autoref{exer:7.2}中的曲线称为广义测地线（generalized geodesic），它在 Wasserstein 梯度流理论中起重要作用，有时也用于最优传输的其他应用.\n\n"
+    },
+    {
+      "original": "Geodesic convexity",
+      "translated": "测地凸性",
+      "source_printed": "127",
+      "file": "05-02",
+      "selector": "测地凸",
+      "anchor_context": "若对所有 $p_0,p_1\\in C$，连接二者的所有测地线都位于 $C$ 中，则称 $C\\subseteq\\mathcal M$ 为测地凸（geodesically convex）集.\n\n还可以定义函数的凸性. 给定 $\\alpha\\in\\mathbb R$，若函数 $f:\\m"
+    },
+    {
+      "original": "geodesic space",
+      "translated": "测地空间",
+      "source_printed": "188",
+      "file": "07-01",
+      "selector": "label:sec:7.1.1",
+      "anchor_context": "概念. 本章将通过长度最小化，给这些对象下正式定义.\n\n\\subsubsection{长度空间与测地空间}\\label{sec:7.1.1}\n设 $(S,\\mathsf d)$ 是度量空间. $S$ 中的路径（path）是连续映射 $\\omega:I\\to S$，其中 $I\\su"
+    },
+    {
+      "original": "Gibbs variational principle",
+      "translated": "Gibbs变分原理",
+      "source_printed": "98",
+      "file": "04-01",
+      "selector": "Gibbs",
+      "anchor_context": "轭（见\\autoref{sec:A.1}）恰好是 $\\iota^\\varepsilon$ 中出现的指数项. 这一事实是通常所说的 Gibbs 变分原理（Gibbs variational principle）的一个变体.\n\\begin{proposition}\\label{pro"
+    },
+    {
+      "original": "gluing lemma",
+      "translated": "粘合引理",
+      "source_printed": "238",
+      "file": "B-01",
+      "selector": "label:lem:B.5",
+      "anchor_context": "f{prop:1.3}中Wasserstein距离三角不等式的证明.\n\n\\begin{lemma}[粘合引理]\\label{lem:B.5}\n设$\\gamma,\\gamma'$为$\\mathbb R^d\\times\\mathbb R^d$上的两个测度，且对任意Borel集$A\\s"
+    },
+    {
+      "original": "goodness-of-fit testing",
+      "translated": "拟合优度检验",
+      "source_printed": "53",
+      "file": "02-05",
+      "selector": "拟合优度",
+      "anchor_context": ".\n\n\\subsubsection{假设检验}\\label{sec:2.5.2}\n这些上界可以直接用于两个经典的非参数假设检验问题：拟合优度检验（goodness-of-fit testing）与双样本检验（two-sample testing，亦称同质性检验）.\n\n先考虑拟合优"
+    },
+    {
+      "original": "Grönwall’s inequality",
+      "translated": "Grönwall不等式",
+      "source_printed": "132",
+      "file": "05-04",
+      "selector": "Grönwall",
+      "anchor_context": "\\phi(0)\\exp(-2\\alpha t)$. 一般地，对于微分不等式，可以用相应微分方程的解控制 $\\phi$；这由 Grönwall 不等式严格表述.\n\n\\begin{lemma}[Grönwall 不等式]\\label{lem:5.16}\n设 $c\\in\\mathbb "
+    },
+    {
+      "original": "Hoeffding’s decomposition",
+      "translated": "Hoeffding分解",
+      "source_printed": "106",
+      "file": "04-03",
+      "selector": "Hoeffding",
+      "anchor_context": " 的导数是与空间 $C_b^\\oplus$ 中某个函数的 $L^2(\\mu_n\\otimes\\nu_n)$ 内积. 利用 Hoeffding 分解（Hoeffding decomposition，也称 Efron--Stein 分解或 ANOVA 分解）\\cite{ref164}"
+    },
+    {
+      "original": "hugging",
+      "translated": "贴合函数",
+      "source_printed": "215",
+      "file": "08-02",
+      "selector": "label:def:8.2",
+      "anchor_context": "$b^\\star$ 处的切空间在该点附近与原空间“贴合”的程度.\n\\begin{definition}[贴合]\\label{def:8.2}\n设 $(S,\\mathsf d)$ 为满足 $\\operatorname{curv}(S)\\ge0$ 的测地空间. 对任意 $b^\\sta"
+    },
+    {
+      "original": "integral probability metric (IPM)",
+      "translated": "积分概率度量（IPM）",
+      "source_printed": "64",
+      "file": "02-08",
+      "selector": "label:def:2.19",
+      "anchor_context": "又不像 $1$-Lipschitz 函数类那么庞大，从而避开维数灾难.\n\\begin{definition}\\label{def:2.19}\n两个概率测度之间的度量 $\\mathsf d(\\cdot,\\cdot)$ 称为积分概率度量（integral probability me"
+    },
+    {
+      "original": "interaction energy",
+      "translated": "相互作用能",
+      "source_printed": "131",
+      "file": "05-04",
+      "selector": "label:ex:5.13",
+      "anchor_context": ")=\\nabla\\log\\mu$.\n\\end{example}\n\n\\begin{example}[相互作用能]\\label{ex:5.13}\n取对称核 $K:\\mathbb R^d\\to\\mathbb R$，即 $K(-z)=K(z)$. 令 $\\mathcal F(\\mu):="
+    },
+    {
+      "original": "internal energy",
+      "translated": "内能",
+      "source_printed": "131",
+      "file": "05-04",
+      "selector": "label:ex:5.12",
+      "anchor_context": "al F(\\mu)=\\nabla V$.\n\\end{example}\n\n\\begin{example}[内能]\\label{ex:5.12}\n设 $\\mathcal F(\\mu):=\\int U(\\mu(x))\\,dx$，其中 $U:\\mathbb R_+\\to\\mathbb R"
+    },
+    {
+      "original": "Kantorovich potentials",
+      "translated": "Kantorovich势",
+      "source_printed": "27",
+      "file": "01-05",
+      "selector": "label:def:1.15",
+      "anchor_context": "$ 和 $g$ 在后文中起着核心作用.\n\n\\begin{definition}[Kantorovich 势]\\label{def:1.15}\n在 Kantorovich 对偶问题 \\eqref{eq:D-W22} 中实现最优值的函数\n$$\n\\bar f(x)=\\|x\\|^2-2\\"
+    },
+    {
+      "original": "Kantorovich problem",
+      "translated": "Kantorovich问题",
+      "source_printed": "3",
+      "file": "01-01",
+      "selector": "label:eq:KOT",
+      "anchor_context": "问题的一般 Kantorovich 表述就是下面的优化问题：\n\\begin{equation}\\tag{KOT}\\label{eq:KOT}\n\\inf_{\\gamma\\in\\Gamma_{\\mu,\\nu}}\\int c(x,y)\\,\\gamma(dx,dy).\n\\end{equa"
+    },
+    {
+      "original": "Langevin diffusion",
+      "translated": "Langevin扩散",
+      "source_printed": "161",
+      "file": "06-02",
+      "selector": "Langevin扩散",
+      "anchor_context": "section{抽样}\\label{sec:6.2}\n\nWasserstein 梯度流理论最引人注目的应用之一，是为 Langevin 扩散提供几何解释；这一思想见于 Jordan、Kinderlehrer 与 Otto 的奠基性工作\\cite{ref170}. 如前，设 $V:"
+    },
+    {
+      "original": "Langevin diffusion!mean-field",
+      "translated": "Langevin扩散!平均场",
+      "source_printed": "171",
+      "file": "06-03",
+      "selector": "平均场或相互作用 Langevin 动力学",
+      "anchor_context": "athcal F_0(\\mu_t)(X_t)\\,dt+\\sigma\\,dB_t.\n$$\n该系统称为平均场或相互作用 Langevin 动力学\\cite{ref67,ref296}. 相应的有限粒子系统\n$$\ndX_t^i=-\\nabla\\mkern-10mu\\nabla\\math"
+    },
+    {
+      "original": "Langevin diffusion!mirror Langevin",
+      "translated": "Langevin扩散!镜像Langevin",
+      "source_printed": "168",
+      "file": "06-02",
+      "selector": "所谓镜像 Langevin 扩散",
+      "anchor_context": "a V(x_k),\\qquad k=0,1,2,\\ldots.\n$$\n\\eqref{eq:LD}的镜像类比是所谓镜像 Langevin 扩散\\cite{ref80,ref330}：\n$$\nY_t:=\\nabla\\phi(X_t),\\qquad\ndY_t=-\\nabla V(X_t"
+    },
+    {
+      "original": "Langevin diffusion!Newton–Langevin",
+      "translated": "Langevin扩散!Newton–Langevin",
+      "source_printed": "169",
+      "file": "06-02",
+      "selector": "得到作为 Newton 法抽样类比的 Newton--Langevin 扩散",
+      "anchor_context": "梯度流.}一个重要特例是 $V$ 严格凸并取 $\\phi=V$，得到作为 Newton 法抽样类比的 Newton--Langevin 扩散：\n$$\nY_t:=\\nabla V(X_t),\\qquad\ndY_t=-Y_t\\,dt+\\sqrt{2\\nabla^2V(X_t)}\\,d"
+    },
+    {
+      "original": "Langevin diffusion!underdamped Langevin",
+      "translated": "Langevin扩散!欠阻尼Langevin",
+      "source_printed": "169",
+      "file": "06-02",
+      "selector": "欠阻尼",
+      "anchor_context": "一个例子是 Nesterov 加速梯度下降\\cite{ref235}的适配，这是凸光滑最小化的最优一阶方法. 相应 SDE 方程组称为欠阻尼或动力学 Langevin 扩散（underdamped or kinetic Langevin diffusion），至少可追溯至\\cit"
+    },
+    {
+      "original": "length",
+      "translated": "长度",
+      "source_printed": "188",
+      "file": "07-01",
+      "selector": "label:eq:7.1",
+      "anchor_context": "(\\omega)\\in\\mathbb R\\cup\\{\\infty\\}$ 定义为\n\\begin{equation}\\label{eq:7.1}\nL(\\omega):=\\sup\\sum_{i=1}^{n-1}\\mathsf d(\\omega(t_i),\\omega(t_{i+1}))"
+    },
+    {
+      "original": "logarithmic map",
+      "translated": "对数映射",
+      "source_printed": "203",
+      "file": "07-03",
+      "selector": "label:def:7.20",
+      "anchor_context": "\\uparrow_p^x\\in\\Uparrow_p^x$.\n\\begin{definition}[对数映射]\\label{def:7.20}\n设 $(S,\\mathsf d)$ 为正曲率测地空间. 对每个 $x\\in S$ 选定 $\\uparrow_p^x\\in\\Uparrow_"
+    },
+    {
+      "original": "logistic function",
+      "translated": "逻辑斯蒂函数",
+      "source_printed": "178",
+      "file": "06-05",
+      "selector": "广义线性模型使用的 logistic 函数",
+      "anchor_context": "me{logistic}(y)=\\frac{e^y}{1+e^y}\n$$\n处理. 读者会认出，这是广义线性模型使用的 logistic 函数. 本节其余部分侧重于形如 $\\ell_2\\circ\\ell_1$ 的两层网络，将 $\\operatorname{logistic}\\cir"
+    },
+    {
+      "original": "maximum mean discrepancy (MMD)",
+      "translated": "最大均值差异（MMD）",
+      "source_printed": "65",
+      "file": "02-08",
+      "selector": "label:def:2.20",
+      "anchor_context": "\\mathcal H}=k(x,y).$$\n现在可以定义最大均值差异.\n\\begin{definition}\\label{def:2.20}\n设 $\\mathcal H$ 是一个 RKHS. $\\mathbb R^d$ 上两个概率测度 $\\mu,\\nu$ 之间的最大均值差异（ma"
+    },
+    {
+      "original": "McKean–Vlasov",
+      "translated": "McKean–Vlasov",
+      "source_printed": "171",
+      "file": "06-03",
+      "selector": "label:sec:6.3.1",
+      "anchor_context": "c}}(\\mathbb R^d)$.\n\n\\subsubsection{McKean--Vlasov 方程}\\label{sec:6.3.1}\n\n本小节考虑来自 Wasserstein 梯度流的其他相互作用系统例子. 回顾\\autoref{sec:5.4}的三个基本泛函例子：势能、"
+    },
+    {
+      "original": "mean-field neural networks",
+      "translated": "平均场神经网络",
+      "source_printed": "177",
+      "file": "06-05",
+      "selector": "label:sec:6.5",
+      "anchor_context": "\\subsection{平均场神经网络}\\label{sec:6.5}\n\n两层\\footnote{换言之，网络有一个隐藏层.}神经网络是参数化函数\n\\begin{equation}\\label{eq:6.23}"
+    },
+    {
+      "original": "metric derivative",
+      "translated": "度量导数",
+      "source_printed": "124",
+      "file": "05-01",
+      "selector": "label:def:5.2",
+      "anchor_context": "间中曲线的切向量或“导数”以意义，却可以赋予其速度以意义.\n\n\\begin{definition}[度量导数]\\label{def:5.2}\n设 $(S,\\mathsf d)$ 为度量空间，$(x_t)_{t\\geq0}$ 为 $S$ 中曲线. 若下列极限存在，则曲线在时刻 $t"
+    },
+    {
+      "original": "midpoint",
+      "translated": "中点",
+      "source_printed": "190",
+      "file": "07-01",
+      "selector": "label:sec:7.1.2",
+      "anchor_context": "),\\omega(1)).$$\n\\end{proposition}\n\n\\subsubsection{中点}\\label{sec:7.1.2}\n现在利用中点刻画测地空间. 对度量空间中的任意两点 $x,y$，若 $z\\in S$ 满足\n$$\\mathsf d(x,z)=\\maths"
+    },
+    {
+      "original": "Monge problem",
+      "translated": "Monge问题",
+      "source_printed": "2",
+      "file": "01-01",
+      "selector": "Monge表述",
+      "anchor_context": "x)-x\\rVert\\,\\mu(dx).\n$$\n因此，最优传输问题（optimal transport problem）的 Monge 表述，是在 $T$ 将 $\\mu$ 推前至 $\\nu$ 的约束下，使上述目标最小化：\n$$\n\\inf_{T:T_\\#\\mu=\\nu}\\int\\l"
+    },
+    {
+      "original": "neural network",
+      "translated": "神经网络",
+      "source_printed": "177",
+      "file": "06-05",
+      "selector": "label:sec:6.5",
+      "anchor_context": "\\subsection{平均场神经网络}\\label{sec:6.5}\\index{mean-field neural networks@平均场神经网络（mean-field neural networks）|"
+    },
+    {
+      "original": "neural tangent kernel (NTK)",
+      "translated": "神经切线核（NTK）",
+      "source_printed": "184",
+      "file": "06-07",
+      "selector": "NTK",
+      "anchor_context": " 对这一问题的平均场解释至关重要. 另一些工作提出使用 $1/\\sqrt m$ 归一化，产生所谓神经切线核（neural tangent kernel，NTK）状态，也称惰性训练状态. 这一状态会使读者联想到中心极限定理的归一化；可以证明参数不会远离随机初始化，因此可以用初始化附"
+    },
+    {
+      "original": "NNC",
+      "translated": "非负曲率（NNC）",
+      "source_printed": "196",
+      "file": "07-02",
+      "selector": "NNC",
+      "anchor_context": "）；当 $\\operatorname{curv}(S)\\ge0$ 时，称为非负曲率空间（non-negative curvature，NNC）.\n\n在平坦情形，有如下引理.\n\\begin{lemma}\\label{lem:7.10}\n设 $\\mathbf H$ 是配备内积 $\\l"
+    },
+    {
+      "original": "non-parametric maximum likelihood (NPMLE)",
+      "translated": "非参数最大似然（NPMLE）",
+      "source_printed": "174",
+      "file": "06-04",
+      "selector": "label:sec:6.4",
+      "anchor_context": "\\subsection{非参数最大似然}\\label{sec:6.4}\n\n刚才看到，采用\\cite{ref170,ref324}最初提出的视角，可以把抽样看成概率测度空间上的优化. 本节研究一个本来就具有这一性"
+    },
+    {
+      "original": "NPC",
+      "translated": "非正曲率（NPC）",
+      "source_printed": "196",
+      "file": "07-02",
+      "selector": "NPC",
+      "anchor_context": "\\operatorname{curv}(S)\\le0$ 时，称 $S$ 为非正曲率空间（non-positive curvature，NPC）；当 $\\operatorname{curv}(S)\\ge0$ 时，称为非负曲率空间（non-negative curvature，NNC"
+    },
+    {
+      "original": "path",
+      "translated": "路径",
+      "source_printed": "188",
+      "file": "07-01",
+      "selector": "路径",
+      "anchor_context": "pace@测地空间（geodesic space）|hyperpage}\n设 $(S,\\mathsf d)$ 是度量空间. $S$ 中的路径（path）是连续映射 $\\omega:I\\to S$，其中 $I\\subset\\mathbb R$ 为区间. 路径 $\\omega:I\\t"
+    },
+    {
+      "original": "perceptron",
+      "translated": "感知机",
+      "source_printed": "180",
+      "file": "06-06",
+      "selector": "感知机",
+      "anchor_context": "（attention）|hyperpage}机制（attention mechanism），该层与\\eqref{eq:6.23}那样的感知机层，也称前馈层，显著不同.\n\n前几节的神经网络是函数 $f:\\mathbb R^d\\to\\mathbb R$，而注意力层为序列到序列的映射\n"
+    },
+    {
+      "original": "plug-in estimator",
+      "translated": "代入估计量",
+      "source_printed": "52",
+      "file": "02-05",
+      "selector": "代入",
+      "anchor_context": "$Y_1,\\ldots,Y_n\\sim\\nu$，构造 $W_1(\\mu,\\nu)$ 的估计量 $\\widehat W$. 一个自然候选是代入估计量（plug-in estimator）$\\widehat W:=W_1(\\mu_m,\\nu_n)$，其中 $\\mu_m,\\nu_n$ "
+    },
+    {
+      "original": "Poincaré inequality",
+      "translated": "Poincaré不等式",
+      "source_printed": "88",
+      "file": "03-06",
+      "selector": "label:def:3.12",
+      "anchor_context": "我们对 $\\mu$ 采用最后一个假设，使我们可以在这两种概念之间转换.\n\\begin{definition}\\label{def:3.12}\n如果对所有 $f\\in L^2(P)$ 有\n$$\\int\\left(f-\\int f\\,dP\\right)^2dP\\le C\\int\\|\\"
+    },
+    {
+      "original": "Polyak–Łojasiewicz (PŁ) inequality",
+      "translated": "Polyak–Łojasiewicz（PŁ）不等式",
+      "source_printed": "132,233",
+      "file": "05-04",
+      "selector": "Polyak",
+      "anchor_context": "的任何极限点都必为 $\\mathcal F$ 的驻点.\n\n不过，若能给耗散速率一个定量下界，就能说得更多. 最简单的此类条件是 Polyak--Łojasiewicz（PŁ）不等式.\n\n\\begin{definition}[Polyak--Łojasiewicz（PŁ）不等式]\\"
+    },
+    {
+      "original": "portmanteau theorem",
+      "translated": "Portmanteau定理",
+      "source_printed": "238",
+      "file": "B-01",
+      "selector": "label:thm:B.4",
+      "anchor_context": "\n下面的定理给出测度弱收敛的若干有用等价表述.\n\n\\begin{theorem}[Portmanteau定理]\\label{thm:B.4}\n设$(\\mu_n)_n$为$\\mathcal P(\\mathbb R^d)$中的序列，$\\mu\\in\\mathcal P(\\mathbb "
+    },
+    {
+      "original": "potential energy",
+      "translated": "势能",
+      "source_printed": "131",
+      "file": "05-04",
+      "selector": "label:ex:5.11",
+      "anchor_context": "hrm{ac}}(\\mathbb R^d)$ 上三个典型泛函作说明.\n\n\\begin{example}[势能]\\label{ex:5.11}\n设 $\\mathcal F(\\mu):=\\int V\\,d\\mu$，其中 $V:\\mathbb R^d\\to\\mathbb R$ 为某个势"
+    },
+    {
+      "original": "Prokhorov’s theorem",
+      "translated": "Prokhorov定理",
+      "source_printed": "237",
+      "file": "B-01",
+      "selector": "label:thm:B.3",
+      "anchor_context": "（tight）.\n\\end{definition}\n\n\\begin{theorem}[Prokhorov定理]\\label{thm:B.3}\n任何弱收敛的概率测度序列都是紧的. 反之，任何紧的概率测度序列都有弱收敛子序列.\n\n等价地，$\\mathbb R^d$上的概率测度集合$\\"
+    },
+    {
+      "original": "proximal sampler",
+      "translated": "近端抽样器",
+      "source_printed": "168",
+      "file": "06-02",
+      "selector": "引入的近端抽样器",
+      "anchor_context": "ac1{2h}\\|y-x\\|^2\\right)\n$$\n的分布 $\\boldsymbol\\pi$. \\cite{ref203}引入的近端抽样器（proximal sampler）对新目标应用 Gibbs 抽样，明确地重复以下两步：\n\\begin{enumerate}\n\\item\\l"
+    },
+    {
+      "original": "rectifiable path",
+      "translated": "可求长路径",
+      "source_printed": "188",
+      "file": "07-01",
+      "selector": "可求长",
+      "anchor_context": "n}\n其中上确界对所有 $n\\ge1$ 及 $I$ 中所有 $n$ 元组 $t_1<\\cdots<t_n$ 取. 若路径长度有限，称其可求长（rectifiable）.\n\n对任意路径 $\\omega$ 和区间 $J\\subset\\mathbb R$，用 $\\omega_J$ 表示"
+    },
+    {
+      "original": "Rockafellar’s theorem",
+      "translated": "Rockafellar定理",
+      "source_printed": "17",
+      "file": "01-04",
+      "selector": "label:thm:1.10",
+      "anchor_context": "b R^d$ 的所有循环单调子集都具有这一形式.\n\n\\begin{theorem}[Rockafellar]\\label{thm:1.10}\n集合 $A\\subset\\mathbb R^d\\times\\mathbb R^d$ 是循环单调的，当且仅当存在闭凸函数 $\\varphi:"
+    },
+    {
+      "original": "semi-discrete optimal transport",
+      "translated": "半离散最优传输",
+      "source_printed": "72,115",
+      "file": "02-09",
+      "selector": "半离散",
+      "anchor_context": " $\\mu$ 与 $\\nu$ 的内在维数中较小的一个，见\\cite{ref165}. 特别地，若 $\\nu$ 支撑在有限个点上，即所谓半离散最优传输问题（semi-discrete optimal transport problem），则 $W_p(\\mu_n,\\nu)$ 以不受"
+    },
+    {
+      "original": "semidual",
+      "translated": "半对偶",
+      "source_printed": "23",
+      "file": "01-05",
+      "selector": "label:sec:1.5.2",
+      "anchor_context": "3}中证明，强对偶确实成立，并且它对我们关心的问题具有重要推论.\n\n\\subsubsection{半对偶}\\label{sec:1.5.2}\n\n在讨论强对偶之前，先稍作准备，定义半对偶问题（semidual problem）. 它是将对偶问题 \\eqref{eq:D-W22} 部"
+    },
+    {
+      "original": "semidual!stability",
+      "translated": "半对偶!稳定性",
+      "source_printed": "79",
+      "file": "03-02",
+      "selector": "label:sec:3.2",
+      "anchor_context": "\\subsection{半对偶问题及其稳定性}\\label{sec:3.2}\n回顾半对偶问题：如果 $\\nabla\\varphi$ 是最优传输映射，那么 $\\varphi$ 极小化\n$$\\mathcal S(\\phi"
+    },
+    {
+      "original": "Sinkhorn divergence",
+      "translated": "Sinkhorn散度",
+      "source_printed": "115",
+      "file": "04-05",
+      "selector": "Sinkhorn散度",
+      "anchor_context": "nu)-\\frac12(S(\\mu,\\mu)+S(\\nu,\\nu)),$$\n称为 $\\mu$ 与 $\\nu$ 之间的 Sinkhorn 散度（Sinkhorn divergence）. 可以证明，Sinkhorn 散度对每个变量都凸、非负，且等于零当且仅当 $\\mu=\\nu$\\c"
+    },
+    {
+      "original": "Sinkhorn’s algorithm",
+      "translated": "Sinkhorn算法",
+      "source_printed": "102",
+      "file": "04-02",
+      "selector": "Sinkhorn",
+      "anchor_context": "$y$ 和 $x\\in\\mathbb R^d$ 成立.\n\n最后，\\autoref{prop:4.3}是著名的熵正则最优传输 Sinkhorn 算法的基础. 该算法初始化为 $f_0\\equiv0$，并对 $t\\ge1$ 进行更新\n\\begin{equation}\\label{eq"
+    },
+    {
+      "original": "Sobolev space",
+      "translated": "Sobolev空间",
+      "source_printed": "60",
+      "file": "02-07",
+      "selector": "Sobolev",
+      "anchor_context": "thbb T^d$ 上有密度的概率测度 $\\mu$，仍用 $\\mu$ 表示其密度. 我们假设该密度是光滑的，具体指它属于某个 Sobolev 空间.\n\\begin{definition}\\label{def:2.16}\n给定正整数 $s$，Sobolev 空间（Sobolev s"
+    },
+    {
+      "original": "Stein variational gradient descent (SVGD)",
+      "translated": "Stein变分梯度下降（SVGD）",
+      "source_printed": "159",
+      "file": "06-01",
+      "selector": "label:sec:6.1.4",
+      "anchor_context": "用 Monte Carlo 平均估计这些期望.\n\n\\subsubsection{Stein 变分梯度下降}\\label{sec:6.1.4}\n\n现在考虑能否在经验测度族 $\\mathcal Q$，即形如 $N^{-1}\\sum_{i=1}^N\\delta_{x^i}$ 的测度上最"
+    },
+    {
+      "original": "subdifferential",
+      "translated": "次微分",
+      "source_printed": "230",
+      "file": "A-01",
+      "selector": "label:def:A.2",
+      "anchor_context": "qref{eq:A.1}所概括的“位于切线之上”性质为基础.\n\n\\begin{definition}[次微分]\\label{def:A.2}\n设$f:\\mathbb R^d\\to\\mathbb R\\cup\\{\\infty\\}$为凸函数，$x\\in\\mathbb R^d$. 若$g"
+    },
+    {
+      "original": "tangent cone",
+      "translated": "切锥",
+      "source_printed": "199,202",
+      "file": "07-03",
+      "selector": "label:sec:7.3",
+      "anchor_context": "\\subsection{切锥}\\label{sec:7.3}\n测地空间先验上没有可微结构，但可以为其构造替代物. 起点是角（angle）的概念：与曲率界的定义类似，可仿照 Hilbert 空间，在任意"
+    },
+    {
+      "original": "transformers",
+      "translated": "Transformer",
+      "source_printed": "180",
+      "file": "06-06",
+      "selector": "label:sec:6.6",
+      "anchor_context": "\\subsection{Transformer}\\label{sec:6.6}\n\n自 2017 年论文“Attention is all you need”\\cite{ref313}引入以来，Transformer 深"
+    },
+    {
+      "original": "unbalanced optimal transport",
+      "translated": "非平衡最优传输",
+      "source_printed": "138",
+      "file": "05-07",
+      "selector": "非平衡",
+      "anchor_context": "一变体称为 Wasserstein--Fisher--Rao（WFR）或 Hellinger--Kantorovich 距离，最初作为非平衡最优传输（unbalanced optimal transport）的模型提出并研究，即总质量未必相同的正测度之间的最优传输. 一个显著例子"
+    },
+    {
+      "original": "variance equality",
+      "translated": "方差等式",
+      "source_printed": "215",
+      "file": "08-02",
+      "selector": "label:thm:8.3",
+      "anchor_context": "算时，它的平均仍保持非负. 这一结果来自下面这个简单而重要的观察.\n\\begin{theorem}[方差等式]\\label{thm:8.3}\n设 $(S,\\mathsf d)$ 为满足 $\\operatorname{curv}(S)\\ge0$ 的测地空间. 令 $Q\\in\\mat"
+    },
+    {
+      "original": "variational inference (VI)",
+      "translated": "变分推断（VI）",
+      "source_printed": "151",
+      "file": "06-01",
+      "selector": "label:sec:6.1",
+      "anchor_context": "性（例如见\\cite{ref56}），测地凸性对于推导收敛速率至关重要.\n\n\\subsection{变分推断}\\label{sec:6.1}\n\n梯度流理论的第一个应用来自蓬勃发展的变分推断（variational inference，VI）领域\\cite{ref40,ref171"
+    },
+    {
+      "original": "variational inference (VI)!Gaussian",
+      "translated": "变分推断（VI）!高斯",
+      "source_printed": "154",
+      "file": "06-01",
+      "selector": "label:sec:6.1.2",
+      "anchor_context": "几种重要情形中实现受约束的 Wasserstein 梯度流.\n\n\\subsubsection{高斯 VI}\\label{sec:6.1.2}\n\n本小节研究高斯 VI，其中变分族 $\\mathcal Q$ 由 $\\mathbb R^d$ 上所有非退化高斯测度组成. 这一族简单却动机"
+    },
+    {
+      "original": "variational inference (VI)!mean-field",
+      "translated": "变分推断（VI）!平均场",
+      "source_printed": "156",
+      "file": "06-01",
+      "selector": "label:sec:6.1.3",
+      "anchor_context": "高斯混合类上的变分推断；细节见\\cite{ref192}.\n\n\\subsubsection{平均场 VI}\\label{sec:6.1.3}\n\n另一重要变分族是 $\\mathbb R^d$ 上的乘积测度类 $\\mathcal Q=\\mathcal P_{2,\\mathrm{ac}"
+    },
+    {
+      "original": "Wasserstein distance",
+      "translated": "Wasserstein距离",
+      "source_printed": "7",
+      "file": "01-02",
+      "selector": "label:def:1.2",
+      "anchor_context": "ein 距离，不过我们仍沿用当下的“Wasserstein 化”潮流.\n\n\\begin{definition}\\label{def:1.2}\n两个概率测度 $\\mu,\\nu\\in\\mathcal P_p(\\mathbb R^d)$ 之间的 $p$-Wasserstein 距离定义"
+    },
+    {
+      "original": "Wasserstein distance!sliced",
+      "translated": "Wasserstein距离!切片",
+      "source_printed": "69",
+      "file": "02-08",
+      "selector": "label:sec:2.8.4",
+      "anchor_context": "证明的结论.\n\\end{proof}\n\n\\subsubsection{切片 Wasserstein 距离}\\label{sec:2.8.4}\n最后，以另一种避开维数灾难的方法结束本章；这次考虑的是一维投影之间的 Wasserstein 距离.\n\n形式上，用 $S^{d-1}$ 表"
+    },
+    {
+      "original": "Wasserstein distance!smoothed",
+      "translated": "Wasserstein距离!平滑",
+      "source_printed": "68",
+      "file": "02-08",
+      "selector": "label:sec:2.8.3",
+      "anchor_context": "MD 看来却与 $\\mu$ 很接近.\n\n\\subsubsection{平滑 Wasserstein 距离}\\label{sec:2.8.3}\n由\\autoref{prop:2.21}可见，$k$ 为高斯核时，$\\mathsf{MMD}(\\mu,\\nu)$ 是涉及密度 $\\mu\\s"
+    },
+    {
+      "original": "Wasserstein–Fisher–Rao (WFR)",
+      "translated": "Wasserstein–Fisher–Rao（WFR）",
+      "source_printed": "140,172",
+      "file": "05-07",
+      "selector": "label:eq:5.20",
+      "anchor_context": "系数 $1/4$；部分文献确实采用这一约定. 为简洁起见，本书省略该系数.}\n\\begin{equation}\\label{eq:5.20}\n\\|(\\alpha,v)\\|_\\mu^2=\\int(\\alpha^2+\\|v\\|^2)\\,d\\mu.\n\\end{equation}\n不过，"
+    },
+    {
+      "original": "Wasserstein gradient",
+      "translated": "Wasserstein梯度",
+      "source_printed": "130",
+      "file": "05-04",
+      "selector": "label:prop:5.10",
+      "anchor_context": "}$ 的元素. 下一个命题表明，这一定义可以直接用一阶变分写出.\n\n\\begin{proposition}\\label{prop:5.10}\n设 $\\mathcal F:\\mathcal P_{2,\\mathrm{ac}}(\\mathbb R^d)\\to\\mathbb R$ 为具"
+    },
+    {
+      "original": "Wasserstein gradient flow",
+      "translated": "Wasserstein梯度流",
+      "source_printed": "131",
+      "file": "05-04",
+      "selector": "label:def:5.14",
+      "anchor_context": "}支配该曲线的演化，得到以下定义.\n\n\\begin{definition}[Wasserstein 梯度流]\\label{def:5.14}\n设 $\\mathcal F:\\mathcal P_{2,\\mathrm{ac}}(\\mathbb R^d)\\to\\mathbb R$ 为泛"
+    },
+    {
+      "original": "weak convergence",
+      "translated": "弱收敛",
+      "source_printed": "237",
+      "file": "B-01",
+      "selector": "label:def:B.1",
+      "anchor_context": "讨论可参见教材\\cite{ref38}.\n\n先从概率测度的收敛概念开始.\n\\begin{definition}\\label{def:B.1}\n若$\\mathbb R^d$上的一列概率测度$(\\mu_n)_n$对所有有界连续函数$f:\\mathbb R^d\\to\\mathbb R$"
+    },
+    {
+      "original": "Polyak–Łojasiewicz (PŁ) inequality",
+      "translated": "Polyak–Łojasiewicz（PŁ）不等式",
+      "source_printed": "132,233",
+      "file": "A-02",
+      "selector": "label:def:A.10"
+    },
+    {
+      "original": "semi-discrete optimal transport",
+      "translated": "半离散最优传输",
+      "source_printed": "72,115",
+      "file": "04-05",
+      "selector": "半离散"
+    },
+    {
+      "original": "tangent cone",
+      "translated": "切锥",
+      "source_printed": "199,202",
+      "file": "07-03",
+      "selector": "label:def:7.19"
+    },
+    {
+      "original": "Wasserstein–Fisher–Rao (WFR)",
+      "translated": "Wasserstein–Fisher–Rao（WFR）",
+      "source_printed": "140,172",
+      "file": "06-03",
+      "selector": "label:sec:6.3.2"
+    }
+  ],
+  "missing": [],
+  "crossrefs": [
+    "\\index{CAT(0)@CAT(0)|see{非正曲率（NPC）}}",
+    "\\index{Hadamard@Hadamard|see{非正曲率（NPC）}}",
+    "\\index{Hellinger–Kantorovich@Hellinger–Kantorovich|see{Wasserstein–Fisher–Rao（WFR）（Wasserstein–Fisher–Rao (WFR)）}}",
+    "\\index{Kantorovich–Rubinstein distance@Kantorovich–Rubinstein距离（Kantorovich–Rubinstein distance）|see{Wasserstein距离（Wasserstein distance）}}"
+  ]
+}

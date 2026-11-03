@@ -1,0 +1,69 @@
+\subsection{习题}\label{sec:6.8}
+
+\begin{exercise}\label{exer:6.1}
+设 $K:\mathbb R^d\to\mathbb R$ 为对称函数，考虑\autoref{ex:5.13}定义的相应相互作用能：$\mathcal F(\mu):=\frac12\iint K(x-y)\,\mu(dx)\mu(dy)$.
+\begin{itemize}
+\item 证明：若 $K$ 凸，则 $\mathcal F$ 在 $\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 上测地凸. 提示：令 $X_t=(1-t)X_0+tT(X_0)$，使 $(\mu_t)_{t\in[0,1]}:=(\operatorname{law}(X_t))_{t\in[0,1]}$ 为 Wasserstein 测地线，再应用\eqref{eq:5.6}.
+\item 证明：对任意 $\alpha>0$，$\mathcal F$ 都不可能 $\alpha$-测地凸. 提示：对非零向量 $v\in\mathbb R^d$，考虑测地线 $(\mathcal N(tv,I))_{t\in[0,1]}$.
+\end{itemize}
+\end{exercise}
+
+\begin{exercise}\label{exer:6.2}
+证明乘积测度空间在 $\mu$ 处的切空间由可分离向量场给出：
+$$
+\begin{aligned}
+T_\mu\mathcal P_{2,\mathrm{ac}}(\mathbb R)^{\otimes d}
+=\overline{\{x\mapsto(\psi_1'(x_1),\ldots,\psi_d'(x_d))
+\mid\psi_1,\ldots,\psi_d:\mathbb R\to\mathbb R\}}^{L^2(\mu)},
+\end{aligned}
+$$
+其中 $\psi_1,\ldots,\psi_d$ 光滑且紧支撑. 随后证明 Wasserstein 梯度在这一子空间上的投影具有\eqref{eq:6.4}的形式.
+\end{exercise}
+
+\begin{exercise}\label{exer:6.3}
+计算限制于乘积测度空间的 KL 散度的梯度. 根据一阶最优性条件，为\eqref{eq:MFVI}的解 $q_\star$ 的密度写出不动点方程.
+\end{exercise}
+
+\begin{exercise}\label{exer:6.4}
+证明\autoref{lem:6.9}. 提示：利用传输映射的可分离性，约化为一维最优传输，然后应用\autoref{sec:1.3}与\autoref{prop:1.18}的结果.
+\end{exercise}
+
+\begin{exercise}\label{exer:6.5}
+当 $(\mu_t)_{t\geq0}$ 按\eqref{eq:SVGD}演化时，计算 $t\mapsto\operatorname{KL}(\mu_t\|\pi)$ 的导数.
+\end{exercise}
+
+\begin{exercise}\label{exer:6.6}
+解释\autoref{sec:5}的\autoref{exer:5.4}和\autoref{exer:5.5}对于 Langevin 扩散的含义.
+\end{exercise}
+
+\begin{exercise}\label{exer:6.7}
+考虑初始分布为 $\mathcal N(m,\Sigma)$、目标为 $\pi=\mathcal N(0,I)$ 的 Euler--Maruyama 格式\eqref{eq:6.11}. 对每个 $k\geq0$ 计算 $X_k$ 的分布. 用它计算格式\eqref{eq:6.11}的平稳分布 $\widehat\pi$，并计算 KL 散度 $\operatorname{KL}(\widehat\pi\|\pi)$. 若希望 $\operatorname{KL}(\widehat\pi\|\pi)\leq\varepsilon^2$，步长 $h$ 应取多小？
+\end{exercise}
+
+\begin{exercise}\label{exer:6.8}
+设 $\mu=\mathcal N(m,\Sigma)$ 为高斯测度，$\Sigma\succ0$. 求 $\operatorname{prox}_{h\mathcal H}(\mu)$，其中 $\operatorname{prox}_{h\mathcal H}$ 为\eqref{eq:6.14}定义的熵近端映射. 这一计算是\cite{ref110}中高斯 VI 算法的基础.
+\end{exercise}
+
+\begin{exercise}\label{exer:6.9}
+取 $\mathcal F:=\frac12W_2^2(\cdot,\nu)$，计算 JKO 格式的迭代 $\mu_{n+1}=\operatorname{prox}_{h\mathcal F}(\mu_n)$，其中
+$$
+\operatorname{prox}_{h\mathcal F}(\mu):=\operatorname*{arg\,min}_{\mu'\in\mathcal P_2(\mathbb R^d)}
+\left\{h\mathcal F(\mu')+\frac12W_2^2(\mu,\mu')\right\}.
+$$
+令 $h\searrow0$ 且 $nh\to t$，证明可以恢复\autoref{sec:5}的\autoref{exer:5.11}中的梯度流.
+\end{exercise}
+
+\begin{exercise}\label{exer:6.10}
+考虑初始分布为 $\mathcal N(m,\Sigma)$、目标分布为 $\pi=\mathcal N(0,I)$ 的近端抽样器. 对每个 $k\geq0$ 计算第 $k$ 次迭代 $X_k$ 的分布，并估计到 $\pi$ 的收敛速率.
+\end{exercise}
+
+\begin{exercise}\label{exer:6.11}
+设 $V(x)=\frac12\langle x,Ax\rangle$，$W(x)=\frac\lambda2\|x\|^2$，其中 $A\succ0$、$\lambda\geq0$. 分别计算 McKean--Vlasov SDE \eqref{eq:6.17}与有限粒子系统\eqref{eq:6.18}的平稳分布 $\pi$ 和 $\widehat\pi_N$.
+\end{exercise}
+
+\begin{exercise}\label{exer:6.12}
+证明\autoref{prop:6.16}. 再推广到两层神经网络与 logistic 函数复合的情形：训练数据对每个 $i\in[n]$ 满足 $Y_i\in\{0,1\}$，并使用交叉熵损失
+$$
+L(\mu)=-\sum_{i=1}^n\{(1-Y_i)\log(1-f(X_i;\mu))+Y_i\log f(X_i;\mu)\}.
+$$
+\end{exercise}

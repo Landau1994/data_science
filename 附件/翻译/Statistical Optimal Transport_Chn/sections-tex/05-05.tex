@@ -1,0 +1,148 @@
+\subsection{Bures--Wasserstein 几何}\label{sec:5.5}\index{Bures–Wasserstein@Bures–Wasserstein|hyperpage}
+
+将上一节的概念应用于 Wasserstein 空间中由高斯测度组成的子流形，很有启发性.
+
+\begin{definition}\label{def:5.18}
+Bures--Wasserstein 空间（Bures--Wasserstein space）$\mathsf{BW}(\mathbb R^d)$ 是赋予 Wasserstein 度量的 $\mathbb R^d$ 上非退化高斯分布的空间.
+\end{definition}
+
+具体地，因为高斯分布由均值与协方差矩阵参数化，可以将 $\mathsf{BW}(\mathbb R^d)$ 视为 $\mathbb R^d\times\mathbb S_{++}^d$，其中 $\mathbb S_{++}^d$ 是对称正定 $d\times d$ 矩阵的锥. 回顾\autoref{ex:1.19}，对任意 $\mu_0,\mu_1\in\mathsf{BW}(\mathbb R^d)$，从 $\mu_0$ 到 $\mu_1$ 的最优传输映射 $T$ 为仿射映射，而连接二者的 Wasserstein 测地线为
+$$
+\mu_t=[\underbrace{(1-t)\mathrm{id}+tT}_{\text{仿射映射}}]_\#\mu_0,
+\qquad t\in[0,1].
+$$
+因为非退化高斯分布经非奇异仿射映射的推前仍为非退化高斯分布，所以这条测地线完全位于 $\mathsf{BW}(\mathbb R^d)$ 内. 换言之：
+
+\begin{proposition}\label{prop:5.19}
+$\mathsf{BW}(\mathbb R^d)\subseteq\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 为测地凸集.
+\end{proposition}
+
+回顾黎曼流形 $\mathcal M$ 上的泛函 $\mathcal F$：若对 $\mathcal M$ 上所有测地线 $(p_t)_{t\in[0,1]}$，映射 $[0,1]\to\mathcal M$、$t\mapsto\mathcal F(p_t)$ 都为 $\alpha$-凸的，则称 $\mathcal F$ 为 $\alpha$-测地凸的. $\mathsf{BW}(\mathbb R^d)$ 的测地凸性意味着，其内蕴测地线与 Wasserstein 测地线重合，立即得到以下推论.
+
+\begin{corollary}\label{cor:5.20}
+设 $\mathcal F:\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)\to\mathbb R$ 为 $\alpha$-测地凸泛函. 那么，将它视为 $\mathsf{BW}(\mathbb R^d)$ 上的泛函时，仍为 $\alpha$-测地凸的.
+\end{corollary}
+
+\autoref{sec:6.1.2}将用到这一事实.
+
+$\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 的黎曼结构下降到 $\mathsf{BW}(\mathbb R^d)$，使 Bures--Wasserstein 空间具有真正的有限维黎曼流形结构. 在 $\mu\in\mathsf{BW}(\mathbb R^d)$ 处的切空间为
+$$
+\begin{aligned}
+T_\mu\mathsf{BW}(\mathbb R^d)
+&=\{\lambda(T_{\mu\to\nu}-\mathrm{id})\mid\lambda>0,\ \nu\in\mathsf{BW}(\mathbb R^d)\}\\
+&=\{x\mapsto Sx+a\mid a\in\mathbb R^d,\ S\in\mathbb S^d\},
+\end{aligned}
+$$
+其中 $\mathbb S^d$ 为对称 $d\times d$ 矩阵空间. 实际上，将切空间重新参数化为
+$$
+T_\mu\mathsf{BW}(\mathbb R^d)
+=\{x\mapsto S(x-m)+a\mid a\in\mathbb R^d,\ S\in\mathbb S^d\}
+$$
+更方便，其中 $m=\mathbb E_{X\sim\mu}[X]$.
+
+根据定义，$\mathsf{BW}(\mathbb R^d)$ 上诱导的黎曼结构，是将 $T_\mu\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 上的内积限制到子空间 $T_\mu\mathsf{BW}(\mathbb R^d)$，即 $L^2(\mu)$ 内积. 据此，可以从头计算泛函 $\mathcal F$ 的 BW 梯度. 不过，我们已经算出 $\mathcal F$ 在 $\mu$ 处的 Wasserstein 梯度为向量场 $\nabla\mkern-10mu\nabla\mathcal F(\mu)=\nabla\delta\mathcal F(\mu)$（\autoref{prop:5.10}），因此更快捷的方法是将它正交投影到 $T_\mu\mathsf{BW}(\mathbb R^d)$.
+
+\begin{theorem}\label{thm:5.21}\index{Bures–Wasserstein@Bures–Wasserstein!gradient@梯度（gradient）|hyperpage}
+设泛函 $\mathcal F:\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)\to\mathbb R$ 在 $\mu$ 处具有一阶变分 $\delta\mathcal F(\mu)$. 那么，$\mathcal F$ 在 $\mu\in\mathsf{BW}(\mathbb R^d)$ 处的 Bures--Wasserstein 梯度为仿射映射
+$$
+x\mapsto\left(\int\nabla^2\delta\mathcal F(\mu)\,d\mu\right)(x-m)
++\int\nabla\delta\mathcal F(\mu)\,d\mu,
+$$
+其中 $m=\int x\,\mu(dx)$ 为 $\mu$ 的均值.
+\end{theorem}
+\begin{proof}
+回顾 $\nabla\mkern-10mu\nabla\mathcal F(\mu)=\nabla\delta\mathcal F(\mu)$（\autoref{prop:5.10}）. 在 $\mu$ 处的 BW 梯度为 $\nabla\delta\mathcal F(\mu)$ 在 $T_\mu\mathsf{BW}(\mathbb R^d)$ 上的正交投影；根据定义，它是满足下式的元素 $\nabla_{\mathsf{BW}}\mathcal F(\mu)\in T_\mu\mathsf{BW}(\mathbb R^d)$：
+\begin{equation}\label{eq:5.11}
+\langle\nabla_{\mathsf{BW}}\mathcal F(\mu),v\rangle_\mu
+=\langle\nabla\delta\mathcal F(\mu),v\rangle_\mu,
+\qquad\forall v\in T_\mu\mathsf{BW}(\mathbb R^d).
+\end{equation}
+可以更显式地写出这一条件. 因为 $\nabla_{\mathsf{BW}}\mathcal F(\mu)$ 与 $v$ 都在该切空间中，它们具有形式
+$$
+\begin{aligned}
+\nabla_{\mathsf{BW}}\mathcal F(\mu)&=S(\cdot-m)+a,\\
+v&=\widetilde S(\cdot-m)+\widetilde a.
+\end{aligned}
+$$
+一方面，
+\begin{equation}\label{eq:5.12}
+\begin{aligned}
+\langle\nabla_{\mathsf{BW}}\mathcal F(\mu),v\rangle_\mu
+&=\mathbb E_{X\sim\mu}\langle S(X-m)+a,\widetilde S(X-m)+\widetilde a\rangle\\
+&=\langle S,\Sigma\widetilde S\rangle+\langle a,\widetilde a\rangle,
+\end{aligned}
+\end{equation}
+其中 $\Sigma$ 为 $\mu$ 的协方差矩阵. 另一方面，
+\begin{align}
+\langle\nabla\delta\mathcal F(\mu),v\rangle_\mu
+&=\mathbb E_{X\sim\mu}\langle[\nabla\delta\mathcal F(\mu)](X),\widetilde S(X-m)+\widetilde a\rangle\nonumber\\
+&=\langle\mathbb E_{X\sim\mu}[\nabla\delta\mathcal F(\mu)(X)(X-m)^{\mathsf T}],\widetilde S\rangle\label{eq:5.13}\\
+&\qquad+\langle\mathbb E_{X\sim\mu}\nabla\delta\mathcal F(\mu)(X),\widetilde a\rangle.\label{eq:5.14}
+\end{align}
+另外，分部积分给出
+$$
+\begin{aligned}
+&\mathbb E_{X\sim\mu}[\nabla\delta\mathcal F(\mu)(X)(X-m)^{\mathsf T}]\\
+&\quad=\int\nabla\delta\mathcal F(\mu)\bigl(\Sigma\Sigma^{-1}(\cdot-m)\bigr)^{\mathsf T}\,d\mu\\
+&\quad=-\int\nabla\delta\mathcal F(\mu)(\nabla\log\mu)^{\mathsf T}\,d\mu\,\Sigma\\
+&\quad=-\int\nabla\delta\mathcal F(\mu)(\nabla\mu)^{\mathsf T}\,\Sigma\\
+&\quad=\int\nabla^2\delta\mathcal F(\mu)\,d\mu\,\Sigma.
+\end{aligned}
+$$
+所以
+\begin{equation}\label{eq:5.15}
+\begin{aligned}
+&\langle\mathbb E_{X\sim\mu}[\nabla\delta\mathcal F(\mu)(X)(X-m)^{\mathsf T}],\widetilde S\rangle\\
+&\quad=\left\langle\int\nabla^2\delta\mathcal F(\mu)\,d\mu\,\Sigma,\widetilde S\right\rangle\\
+&\quad=\left\langle\Sigma\int\nabla^2\delta\mathcal F(\mu)\,d\mu,\widetilde S\right\rangle\\
+&\quad=\left\langle\int\nabla^2\delta\mathcal F(\mu)\,d\mu,\Sigma\widetilde S\right\rangle.
+\end{aligned}
+\end{equation}
+因为\eqref{eq:5.11}应对所有 $\widetilde a\in\mathbb R^d$ 和 $\widetilde S\in\mathbb S^d$ 成立，比较\eqref{eq:5.12}、\eqref{eq:5.13}、\eqref{eq:5.14}及\eqref{eq:5.15}，得到
+$$
+S=\int\nabla^2\delta\mathcal F(\mu)\,d\mu,
+\qquad a=\int\nabla\delta\mathcal F(\mu)\,d\mu.
+$$
+推导完成.
+\end{proof}
+
+认出 BW 梯度后，可以用连续性方程的 Lagrange 解释，通过以下动力学实现梯度流：
+$$
+\begin{aligned}
+\dot X_t&=-\nabla_{\mathsf{BW}}\mathcal F(\mu_t)(X_t)\\
+&=-\left(\int\nabla^2\delta\mathcal F(\mu_t)\,d\mu_t\right)(X_t-m_t)
+-\int\nabla\delta\mathcal F(\mu_t)\,d\mu_t,
+\end{aligned}
+$$
+其中 $X_t\sim\mu_t$，分别用 $m_t$ 与 $\Sigma_t$ 表示 $\mu_t$ 的均值与协方差. 不过，$\mu_t$ 在每个 $t\geq0$ 都是高斯分布，因此直接通过 $m_t$、$\Sigma_t$ 精确追踪 $\mu_t$ 更方便. 它们遵循动力学
+$$
+\dot m_t=\mathbb E\dot X_t=-\int\nabla\delta\mathcal F(\mu_t)\,d\mu_t,
+$$
+以及
+$$
+\begin{aligned}
+\dot\Sigma_t
+&=\partial_t\mathbb E[(X_t-m_t)(X_t-m_t)^{\mathsf T}]\\
+&=\mathbb E[\dot X_t(X_t-m_t)^{\mathsf T}]
++\mathbb E[(X_t-m_t)\dot X_t^{\mathsf T}]\\
+&=-\mathbb E\Biggl[\Biggl(\left(\int\nabla^2\delta\mathcal F(\mu_t)\,d\mu_t\right)(X_t-m_t)\\
+&\hspace{5em}+\int\nabla\delta\mathcal F(\mu_t)\,d\mu_t\Biggr)(X_t-m_t)^{\mathsf T}\Biggr]+\cdots\\
+&=-\left(\int\nabla^2\delta\mathcal F(\mu_t)\,d\mu_t\right)
+\mathbb E[(X_t-m_t)(X_t-m_t)^{\mathsf T}]+\cdots\\
+&=-\left(\int\nabla^2\delta\mathcal F(\mu_t)\,d\mu_t\right)\Sigma_t
+-\Sigma_t\left(\int\nabla^2\delta\mathcal F(\mu_t)\,d\mu_t\right),
+\end{aligned}
+$$
+其中 $A+\cdots$ 是 $A+A^{\mathsf T}$ 的简写. 终于得到显式的方程组.
+
+\begin{theorem}\label{thm:5.22}
+泛函 $\mathcal F$ 的 BW 梯度流为曲线 $(\mu_t=\mathcal N(m_t,\Sigma_t))_{t\geq0}$，其中
+\begin{equation}\label{eq:5.16}
+\begin{aligned}
+\dot m_t&=-\mathbb E\nabla\delta\mathcal F(\mu_t)(X_t),\\
+\dot\Sigma_t&=-\mathbb E\nabla^2\delta\mathcal F(\mu_t)(X_t)\,\Sigma_t
+-\Sigma_t\mathbb E\nabla^2\delta\mathcal F(\mu_t)(X_t),
+\end{aligned}
+\end{equation}
+且 $X_t\sim\mu_t$.
+\end{theorem}

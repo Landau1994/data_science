@@ -1,0 +1,55 @@
+\subsection{习题}\label{sec:3.8}
+\begin{exercise}\label{exer:3.1}
+设 $\mu,\nu\in\mathcal P([0,1])$，$X_1,\ldots,X_n\sim\mu$、$Y_1,\ldots,Y_n\sim\nu$ 是相互独立的两组独立同分布样本. 假设 $\mu,\nu$ 分别具有可微的累积分布函数 $F_\mu,F_\nu$，且
+$$0<c\le F_\mu',F_\nu'\le C<\infty\qquad\text{在 }[0,1]\text{ 上}.$$
+这等价于 $\mu,\nu$ 在 $[0,1]$ 上有远离零且有界的密度.
+
+我们来证明下面的估计量 $\widehat T_n$ 满足参数收敛速率. 以 $X_{(1)}<\cdots<X_{(n)}$、$Y_{(1)}<\cdots<Y_{(n)}$ 表示排序后的样本；给定 $x\in[0,1]$，令 $X_{(i)}$ 为来自 $\mu$ 且满足 $X_{(i)}\le x$ 的最大样本. 令 $\widehat T_n(x):=Y_{(i)}$；如果不存在这样的 $X_{(i)}$，则输出 $\widehat T_n(x):=0$. 这一估计量可以视为对经验最优耦合的分段常数插值，也可以视为一个 1-最近邻估计量. 为简单起见，固定 $x\in[0,1]$，并证明
+$$\mathbb E[|\widehat T_n(x)-T(x)|^2]\lesssim1/n,$$
+其中 $T$ 是从 $\mu$ 到 $\nu$ 的真实最优传输映射 $F_\nu^{-1}\circ F_\mu$；将本题结果推广到积分风险 $\mathbb E\int|\widehat T_n-T|^2\,d\mu$ 也是一个直接的练习.
+\begin{enumerate}\renewcommand{\labelenumi}{(\alph{enumi})}
+\item 令 $N_x:=\sum_{i=1}^n\mathbbm{1}\{X_i\le x\}$、$N_y':=\sum_{i=1}^n\mathbbm{1}\{Y_i\le y\}$. 说明：若 $N_y'<N_x$，则 $\widehat T_n(x)\ge y$；若 $N_y'>N_x$，则 $\widehat T_n(x)\le y$.
+\item 利用 Dvoretzky--Kiefer--Wolfowitz 不等式，说明对任意 $\delta\in(0,1)$，以下结论以至少 $1-\delta$ 的概率同时成立：
+$$|N_x-nF_\mu(x)|\lesssim\sqrt{n\log(1/\delta)}$$
+以及
+$$|N_y'-nF_\nu(y)|\lesssim\sqrt{n\log(1/\delta)}\qquad\text{对所有 }y\in[0,1].$$
+\item 利用前两问得出结论.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exer:3.2}
+本题证明，$\mathbb R^d$ 中的球 $B_R(0)$ 可以由 $(1+2R\delta^{-1})^d$ 个半径为 $\delta$ 的球覆盖.
+\begin{enumerate}\renewcommand{\labelenumi}{(\alph{enumi})}
+\item 利用缩放说明，只需考虑 $R=1$ 的情形.
+\item 令 $\mathcal X=\{x_1,\ldots,x_N\}$ 为 $B_1(0)$ 中的任意一组元素，满足对所有 $i\ne j$，有 $\|x_i-x_j\|>\delta$. 这样的集合称为 $B_1(0)$ 的一个 $\delta$-填充（$\delta$-packing）. 证明：若 $\mathcal X$ 是 $B_1(0)$ 的一个 $\delta$-填充，则集合族 $\{B_{\delta/2}(x)\}_{x\in\mathcal X}$ 是 $B_{1+\delta/2}(0)$ 中两两不交的子集. 推出 $|\mathcal X|\le(1+2\delta^{-1})^d$.
+\item 假设 $\mathcal X$ 是 $B_R(0)$ 的一个极大 $\delta$-填充，即不存在严格包含 $\mathcal X$ 且仍为 $\delta$-填充的集合. 利用逆否命题说明，$B_R(0)\subseteq\bigcup_{x\in\mathcal X}B_\delta(x)$.
+\item 利用前两问得出结论.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exer:3.3}
+设 $\mu,\nu$ 为 $\mathbb R^d$ 上的概率测度，$\nabla\varphi$ 表示从 $\mu$ 到 $\nu$ 的最优传输映射. 假设 $\nabla\varphi$ 为 $L$-Lipschitz. 本题建立下述估计：对任意其他凸函数 $\phi$，若 $\widehat\nu:=(\nabla\phi)_\#\mu$，则
+$$\begin{aligned}
+\|\nabla\phi-\nabla\varphi\|_{L^2(\mu)}^2
+\le L\biggl(&W_2^2(\mu,\widehat\nu)-W_2^2(\mu,\nu)\\
+&-\int(\|\cdot\|^2-2\varphi^*)\,d(\widehat\nu-\nu)\biggr).
+\end{aligned}$$
+\emph{提示：}首先，利用 $\varphi^*$ 的强凸性说明
+$$\begin{aligned}
+\frac1{2L}\|\nabla\phi-\nabla\varphi\|_{L^2(\mu)}^2
+\le{}&\int\varphi^*\,d(\widehat\nu-\nu)\\
+&-\int\langle x,\nabla\phi(x)-\nabla\varphi(x)\rangle\,\mu(dx).
+\end{aligned}$$
+然后展开 $W_2^2(\mu,\widehat\nu)-W_2^2(\mu,\nu)$，并代入上述不等式.
+\end{exercise}
+
+\begin{exercise}\label{exer:3.4}
+利用上一题的稳定性估计，推导单样本情形下映射估计的速率. 设 $\mu,\nu$ 为概率测度，其密度支撑在半径为 1 的球 $B_1(0)$ 上，并假设从 $\mu$ 到 $\nu$ 的最优传输映射 $\nabla\varphi$ 为 Lipschitz. 假设可以获得 $\mu$，以及来自 $\nu$ 的 $n$ 个独立同分布样本. 以 $\nabla\widehat\varphi$ 表示从 $\mu$ 到经验测度 $\nu_n$ 的最优传输映射. 利用 \eqref{eq:2.22}，证明
+$$\mathbb E\|\nabla\widehat\varphi-\nabla\varphi\|_{L^2(\mu)}^2
+\lesssim\begin{cases}n^{-1/2},&d<4,\\n^{-1/2}\log n,&d=4,\\n^{-2/d},&d>4.\end{cases}$$
+\end{exercise}
+
+\begin{exercise}\label{exer:3.5}
+从\autoref{exer:3.3}出发，额外假设 $\varphi$ 是 $\ell$-强凸的. 令 $\gamma$ 表示 $\nu$ 与 $\widehat\nu$ 之间的最优耦合，且 $(Y,\widehat Y)\sim\gamma$. 那么 $(\nabla\varphi^*(Y),\widehat Y)$ 是 $\mu$ 与 $\widehat\nu$ 的一个次优耦合，因此 $W_2^2(\mu,\widehat\nu)\le\mathbb E\|\nabla\varphi^*(Y)-\widehat Y\|^2$. 展开它并利用 $\varphi^*$ 的光滑性，推导更强的稳定性估计
+$$\|\nabla\phi-\nabla\varphi\|_{L^2(\mu)}\le\sqrt{L/\ell}\,W_2(\nu,\widehat\nu).$$
+\end{exercise}

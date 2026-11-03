@@ -1,0 +1,27 @@
+\subsection{讨论}\label{sec:1.7}
+
+\noindent\textbf{\autoref{sec:1.1}.} 历史文献综述可参见\cite{ref315}.
+
+\noindent\textbf{\autoref{sec:1.2}.} Villani\cite{ref317}指出，通行的“Wasserstein距离”这一名称“很值得质疑”：尽管Dobrushin\cite{ref114}将这些距离归于Leonid Vasershtein，但Vasershtein并非它们的创始人. 不过，这个名称已经沿用下来.
+
+\autoref{prop:1.5}取自论文\cite{ref271}，该文还给出了一个逆命题. 所谓的传输不等式（transport inequality）蕴含了“信息散度”（例如全变差、Kullback--Leibler散度和卡方散度）与最优传输距离之间的进一步比较；这又与测度集中这一更广泛的文献领域相联系，参见例如\cite{ref46}以及\cite[第22章]{ref317}.
+
+\noindent\textbf{\autoref{sec:1.3}.} 如\autoref{exer:8}所示，\autoref{thm:1.7}和\autoref{prop:1.18}中的单调耦合，对于任何由$x-y$的严格凸函数给出的成本函数也都是最优的，参见\cite[第2.2节]{ref281}.
+
+\noindent\textbf{\autoref{sec:1.4}.} Chernozhukov等人\cite{ref75}首次利用Brenier定理，为$\nu\in\mathcal P_2(\mathbb R^d)$定义多元分位数（multivariate quantile）；Hallin\cite{ref158}又将此定义推广到可能没有二阶矩的$\nu$. 除了数学上的优美之外，多元分位数的这一定义对于非参数检验也有重要意义\cite{ref103,ref147}.
+
+Rockafellar定理来自\cite{ref273}. \autoref{prop:1.11}的证明来自\cite{ref138}.
+
+\noindent\textbf{\autoref{sec:1.5}.} 我们通过明确给出对偶间隙为零的对偶势，推导出了强对偶性；这些势来自最优耦合具有循环单调支撑这一刻画. 也可以直接诉诸抽象的极小极大原理来证明强对偶性，参见\cite[第1.1节]{ref315}.
+
+\autoref{sec:1.5}中的许多论证都可以推广到一般连续成本$c:\mathcal X\times\mathcal Y\to\mathbb R$：函数$f:\mathcal X\to\mathbb R$的$c$-共轭（$c$-conjugate）为
+$$
+f^c(y):=\inf_{x\in\mathcal X}\{c(x,y)-f(x)\},
+$$
+同样，函数$g:\mathcal Y\to\mathbb R$的$c$-共轭为
+$$
+g^c(x):=\inf_{y\in\mathcal Y}\{c(x,y)-g(y)\}.
+$$
+如果存在函数$g$使得$f=g^c$，就称$f$为$c$-凹的（$c$-concave）. 等式\eqref{eq:1.17}仍然成立，其值等于最优传输值，即强对偶性成立. 任何最优传输计划都支撑在一个$c$-循环单调集上；这一定义与\eqref{eq:1.12}相同，只需将二次成本换成$c$. 进而，$c$-循环单调集可用$c$-次微分来刻画：$c$-凹函数$f=g^c$的$c$-次微分是满足$f(x)+g(y)=c(x,y)$的点对$(x,y)$所成的集合. 然而，Brenier定理并不容易如此推广，因为还需要额外条件来保证$c$-次微分的单值性. 例如，若$c(x,y)=h(x-y)$，其中$h$是严格凸函数，那么唯一的最优传输映射存在，但它未必是凸函数的梯度，参见\cite[定理1.17]{ref281}.
+
+\noindent\textbf{\autoref{sec:1.6}.} $W_1$的对偶公式是一个经典结果，与有界Lipschitz度量（bounded Lipschitz metric）\cite{ref123}密切相关；后者可以推广为符号测度上的范数. 如\autoref{sec:2.8.1}所讨论的那样，这个公式把$W_1$表示为积分概率度量（integral probability metric）.

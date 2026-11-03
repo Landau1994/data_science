@@ -1,0 +1,83 @@
+\subsection{对偶}\label{sec:4.2}
+本节将说明，原问题 \eqref{eq:eps-W22} 与对偶问题 \eqref{eq:eps-D-W22} 的值实际上相等，而且可以从一个问题的最优解中提取另一个问题的最优解.
+\begin{proposition}\label{prop:4.3}
+设 $f^\star,g^\star$ 求解 \eqref{eq:eps-D-W22}. 那么
+\begin{equation}\label{eq:4.6}
+\gamma^\star(dx,dy)=\exp\left(\frac{f^\star(x)+g^\star(y)-\|x-y\|^2}{\varepsilon}\right)\mu(dx)\nu(dy)
+\end{equation}
+是 \eqref{eq:eps-W22} 的唯一解，且
+$$\begin{aligned}
+&\int\|x-y\|^2\,\gamma^\star(dx,dy)+\varepsilon\operatorname{KL}(\gamma^\star\|\mu\otimes\nu)\\
+&\quad=\int f^\star\,d\mu+\int g^\star\,d\nu-\iota^\varepsilon(f^\star,g^\star)
+=\int f^\star\,d\mu+\int g^\star\,d\nu.
+\end{aligned}$$
+\end{proposition}
+\begin{proof}
+只需证明 $\gamma^\star$ 是 \eqref{eq:eps-W22} 的解，因为唯一性直接由 $\operatorname{KL}(\gamma\|\mu\otimes\nu)$ 的严格凸性得到.
+
+需要证明 $\gamma^\star\in\Gamma_{\mu,\nu}$. 显然 $\gamma^\star$ 为正，因此只需证明它具有正确的边缘分布. 为此，要验证对任意 Borel 集 $A$，有
+$$\nu(A)=\int_A\int\exp\left(\frac{f^\star(x)+g^\star(y)-\|x-y\|^2}{\varepsilon}\right)\mu(dx)\nu(dy).$$
+等价地，需要证明
+\begin{equation}\label{eq:4.7}
+\int\exp\left(\frac{f^\star(x)+g^\star(y)-\|x-y\|^2}{\varepsilon}\right)\mu(dx)=1
+\qquad\nu\text{ 几乎处处}.
+\end{equation}
+定义函数
+\begin{equation}\label{eq:4.8}
+\bar g(y)=-\varepsilon\log\int\exp\left(\frac{f^\star(x)-\|x-y\|^2}{\varepsilon}\right)\mu(dx).
+\end{equation}
+我们证明 $\bar g=g^\star$ 在 $\nu$ 几乎处处成立. 由于根据定义有
+\begin{equation}\label{eq:4.9}
+\int\exp\left(\frac{f^\star(x)+\bar g(y)-\|x-y\|^2}{\varepsilon}\right)\mu(dx)=1,
+\qquad\forall y\in\mathbb R^d,
+\end{equation}
+这样也就建立了 \eqref{eq:4.7}.
+
+令 $\bar\gamma(dx,dy)=\exp((f^\star(x)+\bar g(y)-\|x-y\|^2)/\varepsilon)\mu(dx)\nu(dy)$. 那么
+$$\begin{aligned}
+0\le\operatorname{KL}(\bar\gamma\|\gamma^\star)
+&=\int\left(\frac{d\bar\gamma}{d\gamma^\star}\log\frac{d\bar\gamma}{d\gamma^\star}
+-\frac{d\bar\gamma}{d\gamma^\star}+1\right)d\bar\gamma\\
+&=\int\frac{\bar g(y)-g^\star(y)}{\varepsilon}\,\bar\gamma(dx,dy)
+-\int d\bar\gamma+\int d\gamma^\star\\
+&=\frac1\varepsilon\left(\int(\bar g-g^\star)\,d\nu
+-\iota^\varepsilon(f^\star,\bar g)+\iota^\varepsilon(f^\star,g^\star)\right),
+\end{aligned}$$
+最后一步利用了由 \eqref{eq:4.9} 可知 $\bar\gamma$ 的第二边缘为 $\nu$. 由此得到
+$$\begin{aligned}
+\varepsilon\operatorname{KL}(\bar\gamma\|\gamma^\star)
+={}&\int\bar g\,d\nu+\int f^\star\,d\mu-\iota^\varepsilon(f^\star,\bar g)\\
+&-\left(\int g^\star\,d\nu+\int f^\star\,d\mu-\iota^\varepsilon(f^\star,g^\star)\right)\le0,
+\end{aligned}$$
+因为 $(f^\star,g^\star)$ 是 \eqref{eq:eps-D-W22} 的最优解.
+
+因此 $\operatorname{KL}(\bar\gamma\|\gamma^\star)=0$，所以 $\bar\gamma=\gamma^\star$，且 $\bar g=g^\star$ 在 $\nu$ 几乎处处成立. 这证明 $\gamma^\star$ 的第二边缘为 $\nu$；类似的论证说明其第一边缘为 $\mu$. 从而 $\gamma^\star$ 是 \eqref{eq:eps-W22} 的可行解.
+
+最后，计算 $\gamma^\star$ 在原问题中达到的值：
+$$\begin{aligned}
+&\int\|x-y\|^2\,\gamma^\star(dx,dy)+\varepsilon\operatorname{KL}(\gamma^\star\|\mu\otimes\nu)\\
+&\quad=\int\|x-y\|^2\,\gamma^\star(dx,dy)
++\int(f^\star(x)+g^\star(y)-\|x-y\|^2)\,\gamma^\star(dx,dy)\\
+&\quad=\int(f^\star(x)+g^\star(y))\,\gamma^\star(dx,dy)\\
+&\quad=\int f^\star\,d\mu+\int g^\star\,d\nu-\iota^\varepsilon(f^\star,g^\star),
+\end{aligned}$$
+最后一步利用 $\gamma^\star\in\Gamma_{\mu,\nu}$，以及由于 $\gamma^\star$ 为概率测度，有 $\iota^\varepsilon(f^\star,g^\star)=0$. 因此，原目标函数在 $\gamma^\star$ 处的值与对偶目标函数在 $(f^\star,g^\star)$ 处的值相同；弱对偶（见\autoref{sec:4.1}）表明，$\gamma^\star$ 和 $(f^\star,g^\star)$ 是一对最优的原问题／对偶问题解.
+\end{proof}
+
+\autoref{prop:4.3}值得作几点说明. 首先，该命题假设 \eqref{eq:eps-D-W22} 的最优解存在. 这里不证明这些解的存在性，但可以证明，如果 $\mu,\nu$ 具有紧支集，则存在 $f^\star,g^\star\in C_b(\Omega)$. 更一般地，如果 $\mu,\nu$ 具有有限二阶矩，则分别在 $L^1(\mu)$ 和 $L^1(\nu)$ 中存在最优解，且\autoref{prop:4.3}仍然成立.
+
+\autoref{prop:4.3}的证明实际上说明，如果 $f,g$ 使得 $\gamma(dx,dy)=\exp((f(x)+g(y)-\|x-y\|^2)/\varepsilon)\mu(dx)\nu(dy)$ 是 $\mu$ 与 $\nu$ 的有效耦合，那么 $\gamma$ 是 \eqref{eq:eps-W22} 的最优解，且 $f,g$ 是 \eqref{eq:eps-D-W22} 的最优解. 这一事实可以视为互补松弛条件的熵正则版本：对于 \eqref{eq:W22} 和 \eqref{eq:D-W22} 的最优解，有 $\bar f(x)+\bar g(y)=\|x-y\|^2$ 在 $\bar\gamma$ 几乎处处成立（见\autoref{thm:1.14}）. 因此，$f^\star,g^\star$ 是 \eqref{eq:eps-D-W22} 的最优解，当且仅当它们满足边缘约束 \eqref{eq:4.7} 以及另一个边缘的相应约束：
+\begin{equation}\label{eq:4.10}
+\int\exp\left(\frac{f^\star(x)+g^\star(y)-\|x-y\|^2}{\varepsilon}\right)\nu(dy)=1
+\qquad\mu\text{ 几乎处处}.
+\end{equation}
+边缘约束 \eqref{eq:4.7} 和 \eqref{eq:4.10} 有时称为 Schr\"odinger 系统（Schr\"odinger system），是熵正则最优传输理论的核心. 尽管这些等式先验上仅分别在 $\nu$ 和 $\mu$ 几乎处处成立，\eqref{eq:4.8} 的构造表明，可以为 $f^\star,g^\star$ 构造规范延拓，使边缘约束在整个 $\mathbb R^d$ 上成立. 此外，控制收敛定理表明，若 $\mu,\nu$ 具有紧支集，则这些延拓是 $\mathbb R^d$ 上的连续、甚至 $C^\infty$ 函数. 因此，在后文中总可以假设 $f^\star,g^\star$ 在整个 $\mathbb R^d$ 上有定义，而且 \eqref{eq:4.7} 和 \eqref{eq:4.10} 分别对所有 $y$ 和 $x\in\mathbb R^d$ 成立.
+
+最后，\autoref{prop:4.3}是著名的熵正则最优传输 Sinkhorn\index{Sinkhorn’s algorithm@Sinkhorn算法（Sinkhorn’s algorithm）|hyperpage} 算法的基础. 该算法初始化为 $f_0\equiv0$，并对 $t\ge1$ 进行更新
+\begin{equation}\label{eq:4.11}
+g_t(y)=-\varepsilon\log\int\exp\left(\frac{f_{t-1}(x)-\|x-y\|^2}{\varepsilon}\right)\mu(dx),
+\end{equation}
+\begin{equation}\label{eq:4.12}
+f_t(y)=-\varepsilon\log\int\exp\left(\frac{g_t(y)-\|x-y\|^2}{\varepsilon}\right)\nu(dy).
+\end{equation}
+\autoref{prop:4.3}表明，该算法的不动点给出 \eqref{eq:eps-D-W22} 的最优解，从而也给出 \eqref{eq:eps-W22} 的最优解.

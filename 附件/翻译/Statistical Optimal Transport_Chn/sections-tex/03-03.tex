@@ -1,0 +1,30 @@
+\subsection{一个特例：仿射传输映射}\label{sec:3.3}
+作为合理性检验，我们先说明半对偶估计技术适用于一个十分简单的问题. 考虑单样本情形（one-sample setting）：$\mu=\mathcal N(0,I)$ 已知，我们从 $\nu=(\nabla\varphi)_\#\mu$ 获得样本，其中某个 $\varphi\in\mathcal F$，而 $\mathcal F$ 由所有凸二次函数 $x\mapsto\frac12 x^{\mathsf T}Ax+b^{\mathsf T}x$、$A\succeq0$ 构成. 若 $\varphi$ 具有这一形式，那么传输映射 $\nabla\varphi$ 就是仿射映射 $Ax+b$，且 $\nu=\mathcal N(b,A^2)$.
+
+在这一情形下，自然可以先计算 $\nu$ 的经验均值 $\widehat m$ 与经验协方差 $\widehat\Sigma$，再令
+\begin{equation}\label{eq:3.3}
+\widehat T(x)=\widehat\Sigma^{1/2}x+\widehat m.
+\end{equation}
+文献\cite{ref135}在更一般的情形下研究了这一估计量，利用的是推导协方差矩阵估计速率的技术.
+
+下面的结果说明，\eqref{eq:3.3} 定义的 $\widehat T$ 恰好就是通过极小化经验半对偶泛函所计算出的估计量.
+
+\begin{proposition}\label{prop:3.2}
+令 $\mathcal F$ 为 $\mathbb R^d$ 上所有凸二次函数的集合. 设 $\mu=\mathcal N(0,I)$，以 $\nu_n$ 表示由概率测度 $\nu$ 的独立同分布样本构成的经验测度. 如果
+$$\widehat\varphi=\operatorname*{arg\,min}_{\phi\in\mathcal F}
+\left\{\int\phi\,d\mu+\int\phi^*\,d\nu_n\right\},$$
+那么
+$$\nabla\widehat\varphi(x)=\widehat\Sigma^{1/2}x+\widehat m,$$
+其中 $\widehat m$ 和 $\widehat\Sigma$ 分别为 $\nu_n$ 的均值与协方差.
+\end{proposition}
+\begin{proof}
+根据定义，$\widehat\varphi=\frac12x^{\mathsf T}\widehat A x+\widehat b^{\mathsf T}x$，其中 $(\widehat A,\widehat b)$ 求解
+$$
+\min_{A\succeq0,\,b\in\mathbb R^d}
+\left[\int\left(\frac12x^{\mathsf T}Ax+b^{\mathsf T}x\right)\mu(dx)
++\int\left(\frac12y^{\mathsf T}Ay+b^{\mathsf T}y\right)^*\nu_n(dy)\right].
+$$
+由\autoref{lem:A.13}，二次函数的凸共轭仍为二次函数，所以第二个积分只依赖于 $\nu_n$ 的至多二阶矩. 因此，可以将关于 $\nu_n$ 的积分替换为关于任何具有相同前两阶矩的测度的积分，特别可以取 $\mathcal N(\widehat m,\widehat\Sigma)$. 于是，由于这一函数类包含高斯分布之间的全部 Kantorovich 势（见\autoref{ex:1.19}），可知极小化解就是对应于从 $\mathcal N(0,I)$ 到 $\mathcal N(\widehat m,\widehat\Sigma)$ 的最优传输的那个函数.
+\end{proof}
+
+在\autoref{prop:3.2}的情形下，可以直接分析 $\widehat T$ 的性能，因为它根据样本均值与样本协方差显式定义. 但对更一般的函数族 $\mathcal F$，通常无法显式求解半对偶问题，需要使用更抽象的论证来分析 $\widehat\varphi$.

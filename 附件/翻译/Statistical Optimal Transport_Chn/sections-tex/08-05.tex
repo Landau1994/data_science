@@ -1,0 +1,45 @@
+\subsection{习题}\label{sec:8.5}
+\begin{exercise}\label{exer:8.1}
+设 $P$ 是 $\mathcal P_2(\mathbb R)$ 上的分布. 利用 $\operatorname{supp}P$ 中各测度的累积分布函数，给出 $P$ 的 $W_2$ 重心的闭式表达.
+\end{exercise}
+
+\begin{exercise}\label{exer:8.2}
+假设 $P$ 是非正曲率空间 $(S,\mathsf d)$ 上的概率测度，重心为 $b^\star$. 事实证明，非正曲率空间中重心的统计估计容易得多，本题对此加以说明.
+\begin{enumerate}\renewcommand{\labelenumi}{(\alph{enumi})}
+\item 证明，对任意 $b\in S$，
+\begin{equation}\label{eq:8.13}
+P[\mathsf d^2(b,\bullet)-\mathsf d^2(b^\star,\bullet)]\ge\mathsf d^2(b,b^\star).
+\end{equation}
+\item 假设 $(X_i)_{i=1}^n$ 是来自 $P$ 的独立同分布序列，递推构造估计量 $b_n$：令 $b_1=X_1$；对 $n\ge2$，令 $b_n:=\omega_{b_{n-1},X_n}(1/n)$，其中 $\omega_{x,y}:[0,1]\to S$ 是连接 $x$ 与 $y$ 的常速测地线. 用归纳法证明，对所有 $n\ge1$，
+$$\mathbb E\mathsf d^2(b_n,b^\star)\le\frac{\sigma^2}n,
+\qquad\sigma^2=P\mathsf d^2(b^\star,\bullet).$$
+\emph{提示：}将\autoref{prop:7.11}的非正曲率不等式与 \eqref{eq:8.13} 结合使用.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exer:8.3}
+设 $\mu_1,\ldots,\mu_n\in\mathcal P_2(\mathbb R^d)$，以 $\Gamma(\mu_1,\ldots,\mu_n)$ 表示它们的耦合集合. 考虑多边缘最优传输问题（multi-marginal optimal transport）
+$$\min_{\gamma\in\Gamma(\mu_1,\ldots,\mu_n)}
+\int\sum_{i=1}^n\left\|x_i-\frac1n\sum_{j=1}^n x_j\right\|^2\,\gamma(dx_1,\ldots,dx_n).$$
+令 $\gamma^\star$ 表示一个最优解. 证明：如果 $(X_1,\ldots,X_n)\sim\gamma^\star$，那么 $\frac1n\sum_{i=1}^n X_i$ 的分布是 $\mu_1,\ldots,\mu_n$ 的 Wasserstein 重心.
+\end{exercise}
+
+\begin{exercise}\label{exer:8.4}
+由\autoref{thm:8.7}和\autoref{thm:8.10}可知，在 Wasserstein 空间情形下，只要从重心 $b^\star$ 到 $P$ 支集元素的传输映射来自 $\alpha$-强凸势，而且延拓分布的重心仍为 $b^\star$，就有 $Ph_{b^\star}^b(\bullet)\ge\alpha$. 事实上，由于 Wasserstein 空间的结构，第二个条件并非必要.
+
+为证明这一点，利用 Wasserstein 重心的下述对偶刻画：对每个 $\mu\in\operatorname{supp}(P)$，$\varphi_\mu$ 满足 $(\nabla\varphi_\mu)_\#b^\star=\mu$，且 $\int(\|\cdot\|^2/2-\varphi_\mu)\,P(d\mu)=0$. 假设每个 $\varphi_\mu$ 都是 $\alpha(\mu)$-强凸的. 由此说明
+$$\varphi_\mu^*(x)+\varphi_\mu(y)\ge\langle x,y\rangle
++\frac{\alpha(\mu)}2\|y-\nabla\varphi_\mu^*(x)\|^2.$$
+对这一不等式积分，证明将 \eqref{eq:8.9} 中的 $\lambda/(1+\lambda)$ 替换为 $\int\alpha(\mu)\,P(d\mu)$ 后，结论仍成立.
+\end{exercise}
+
+\begin{exercise}\label{exer:8.5}
+设 $P$ 是 $\mathcal W_2$ 上的概率测度，以 $\mathcal F:\mathcal P_2(\mathbb R^d)\to\mathbb R$ 表示重心泛函 $\mathcal F(b):=\frac12PW_2^2(b,\bullet)$. 利用 \eqref{eq:5.30}，$\mathcal F$ 的 Wasserstein 梯度为 $\nabla\mkern-10mu\nabla\mathcal F(b)=\mathrm{id}-PT_{b\to\bullet}$，步长为 $h>0$ 的一次 Wasserstein 梯度下降更新为 $b^+:=(\mathrm{id}-h\nabla\mkern-10mu\nabla\mathcal F(b))_\#b$. 证明下降引理
+$$\mathcal F(b^+)-\mathcal F(b)\le-h\left(1-\frac h2\right)
+\|\nabla\mkern-10mu\nabla\mathcal F(b)\|_b^2,$$
+它量化了对 $\mathcal F$ 进行一步梯度下降所取得的进展. 推出 $h=1$ 是合理的步长选择，并写出此时梯度下降更新的形式.
+\end{exercise}
+
+\begin{exercise}\label{exer:8.6}
+将上一题步长为 $h=1$ 的梯度下降更新，专门用于 $P$ 支撑在中心化、非退化高斯分布上的情形. 特别地，证明从一个中心化高斯分布初始化后，所有迭代分布仍为中心化高斯分布，并写出协方差矩阵的更新方程.
+\end{exercise}

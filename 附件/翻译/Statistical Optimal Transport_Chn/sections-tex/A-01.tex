@@ -1,0 +1,93 @@
+本附录简要回顾凸分析（convex analysis）. 关于这一主题的全面论述，参见教材\cite{ref274}.
+
+\subsection{凸函数、次微分与对偶}\label{sec:A.1}
+
+\begin{definition}\label{def:A.1}
+若函数$f:\mathbb R^d\to\mathbb R\cup\{\infty\}$对任意$x,y\in\mathbb R^d$及$t\in[0,1]$都满足
+$$
+f((1-t)x+ty)\leq(1-t)f(x)+tf(y),
+$$
+则称$f$为凸函数（convex function）.
+\end{definition}
+同样，若集合$C\subseteq\mathbb R^d$对任意$x,y\in\mathbb R^d$及$t\in[0,1]$都满足
+$$
+(1-t)x+ty\in C,
+$$
+则称$C$为凸集.
+
+$f$的定义域（domain）$\operatorname{dom}(f)$是$f$取有限值的点所成的集合$\{f<\infty\}$. 若$f$为凸函数，则$\operatorname{dom}(f)$为凸集.
+
+如果$f$不取$-\infty$值（注意上面的凸性定义已经假定了这一点），并且不恒等于$+\infty$，就称$f$为正常的（proper）. 我们默认所讨论的凸函数都是正常的，不再另行说明. 如果对$\mathbb R^d$中任意序列$x_k\to x$都有$\liminf_{k\to\infty}f(x_k)\geq f(x)$，就称$f$为闭的（closed）或下半连续的（lower semicontinuous）；等价地，对任意$t\in\mathbb R$，次水平集$\{f\leq t\}$都是闭集.
+
+假设$f$取值于$\mathbb R$. 则凸性蕴含$f$自动连续，事实上还局部Lipschitz连续，从而由Rademacher定理可知，它几乎处处可微. 若$f$连续可微，则$f$的凸性等价于它始终位于自己的切线之上：
+\begin{equation}\label{eq:A.1}
+f(y)\geq f(x)+\langle\nabla f(x),y-x\rangle,\qquad \forall\,x,y\in\mathbb R^d.
+\end{equation}
+若$f$二阶连续可微，则凸性等价于其Hessian矩阵满足
+$$
+\nabla^2 f(x)\succeq0,\qquad\forall\,x\in\mathbb R^d.
+$$
+
+一般而言，凸函数未必可微. 不可微的一个原因仅仅在于$f$取无穷值，即$\operatorname{dom}(f)\neq\mathbb R^d$. 不过，如上所述，$f$在其定义域内部总是几乎处处可微. 此外，借助次梯度概念，还能找到可微性的一个有用替代物；这一概念以\eqref{eq:A.1}所概括的“位于切线之上”性质为基础.
+
+\begin{definition}[次微分]\label{def:A.2}\index{subdifferential@次微分（subdifferential）|hyperpage}
+设$f:\mathbb R^d\to\mathbb R\cup\{\infty\}$为凸函数，$x\in\mathbb R^d$. 若$g$满足
+$$
+f(y)\geq f(x)+\langle g,y-x\rangle,\qquad\forall\,y\in\mathbb R^d,
+$$
+就称$g$为$f$在$x$处的次梯度（subgradient）. $f$在$x$处的全部次梯度所成的集合称为$f$在$x$处的次微分（subdifferential），记为$\partial f(x)$. 此外，$\partial f:=\{(x,g):x\in\mathbb R^d,\ g\in\partial f(x)\}$称为$f$的次微分.
+\end{definition}
+
+下面这个重要的引理成立：
+\begin{lemma}\label{lem:A.3}
+若$f:\mathbb R^d\to\mathbb R\cup\{\infty\}$为凸函数，且$x$位于$\operatorname{dom}(f)$内部，则$\partial f(x)$非空. 此外，若$f$在$x$处可微，则该点的次微分是单值的，且满足$\partial f(x)=\{\nabla f(x)\}$.
+\end{lemma}
+
+接下来讨论至关重要的对偶概念.
+\begin{definition}[凸共轭]\label{def:A.4}\index{convex duality@凸对偶（convex duality）|hyperpage}
+对任意函数$f:\mathbb R^d\to\mathbb R\cup\{\infty\}$，其凸共轭（convex conjugate）\footnote{凸共轭也称为Fenchel--Legendre变换、Fenchel对偶，或这些术语的变体.}$f^*$定义为
+$$
+f^*(y):=\sup_{x\in\mathbb R^d}\{\langle x,y\rangle-f(x)\},\qquad y\in\mathbb R^d.
+$$
+\end{definition}
+
+\begin{example}\label{ex:A.5}
+设$A>0$为正定矩阵. 则函数$x\mapsto\frac12\langle x,Ax\rangle$的凸共轭为$y\mapsto\frac12\langle y,A^{-1}y\rangle$. 证明见\autoref{lem:A.13}. 请读者自行写出凸函数的其他例子，并计算其共轭.
+\end{example}
+
+作为一族仿射函数的上确界，$f$的凸共轭总是闭凸函数，即使$f$本身不是如此. 反之，若$f$闭且凸，则$f=f^{**}$.
+
+不等式$f(x)+f^*(y)\geq\langle x,y\rangle$直接来自凸共轭的定义. 不过，它重要到值得有一个专门名称，而且后文需要用到其等号情形.
+
+\begin{theorem}[Fenchel--Young不等式]\label{thm:A.6}\index{Fenchel–Young inequality@Fenchel–Young不等式（Fenchel–Young inequality）|hyperpage}
+对凸函数$f:\mathbb R^d\to\mathbb R\cup\{\infty\}$及任意$x,y\in\mathbb R^d$，
+$$
+f(x)+f^*(y)\geq\langle x,y\rangle.
+$$
+等号成立当且仅当$y\in\partial f(x)$.
+\end{theorem}
+
+注意，由对称性，等号成立也当且仅当$x\in\partial f^*(y)$. 特别地，当$f$和$f^*$可微时，次微分为单值，此时等号条件可写为$y=\nabla f(x)$和$x=\nabla f^*(y)$. 这说明梯度映射彼此互逆：$\nabla f^*=(\nabla f)^{-1}$.
+
+本节最后证明Rockafellar定理（\autoref{thm:1.10}），该定理将闭凸函数的次微分刻画为$\mathbb R^d\times\mathbb R^d$中的极大单调子集. 在\autoref{sec:1.4.1}中，我们证明了若$\varphi:\mathbb R^d\to\mathbb R$凸，则其次微分$\partial\varphi$是循环单调的. 下面证明逆命题.
+
+\begin{proof}[\autoref{thm:1.10}的证明]
+设$A$循环单调，固定$(x_0,y_0)\in A$. 对任意$x\in\mathbb R^d$，定义函数
+$$
+\begin{aligned}
+\varphi(x)=\sup_{k\geq0}\sup_{\substack{(x_i,y_i)\in A\\i=1,\ldots,k}}
+\bigl\{&\langle x_1-x_0,y_0\rangle+\langle x_2-x_1,y_1\rangle\\
+&+\cdots+\langle x-x_k,y_k\rangle\bigr\}.
+\end{aligned}
+$$
+显然，$\varphi$作为一族仿射函数的上确界，是闭凸函数. 此外，由循环单调性\footnote{事实上，这是我们唯一用到循环单调性的地方！}可知$\varphi(x_0)\leq0$，而$\varphi(x_0)\geq0$（取$k=1$和$(x_1,y_1)=(x_0,y_0)$），故$\varphi(x_0)=0$，因此$\varphi$为正常凸函数. 最后，注意到对任意$(x,y)=(x_{k+1},y_{k+1})\in A$及$z\in\mathbb R^d$，
+$$
+\begin{aligned}
+\varphi(z)&\geq\sup_{k\geq0}\sup_{\substack{(x_i,y_i)\in A\\i=1,\ldots,k}}
+\bigl\{\langle x_1-x_0,y_0\rangle+\langle x_2-x_1,y_1\rangle+\cdots\\
+&\hspace{42mm}+\langle x-x_k,y_k\rangle+\langle z-x,y\rangle\bigr\}\\
+&=\varphi(x)+\langle z-x,y\rangle.
+\end{aligned}
+$$
+因此，$y\in\partial\varphi(x)$.
+\end{proof}

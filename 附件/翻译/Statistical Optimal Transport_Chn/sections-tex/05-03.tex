@@ -1,0 +1,68 @@
+\subsection{Wasserstein 空间的黎曼结构}\label{sec:5.3}
+
+现在可以在 $\mathcal P_2(\mathbb R^d)$ 上定义形式的黎曼结构. 回顾 Brenier 定理（\autoref{thm:1.16}），二次代价的最优传输映射是凸函数的梯度. 由\eqref{eq:5.5}可知，最优速度场位于函数梯度空间的 $L^2$ 闭包中；由于减去了恒等映射，这些函数不一定凸.
+
+\begin{definition}\label{def:5.5}
+设 $\mu\in\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$. 定义 $\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 在 $\mu$ 处的切空间为
+$$
+T_\mu\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)
+:=\overline{\{\nabla\psi\mid\psi:\mathbb R^d\to\mathbb R\text{ 紧支撑且光滑}\}}^{L^2(\mu)},
+$$
+其中 $\overline{\{\cdot\}}^{L^2(\mu)}$ 表示 $L^2(\mu)$ 闭包. 赋予这一切空间 $L^2(\mu)$ 内积
+$$
+\langle\nabla\psi_1,\nabla\psi_2\rangle_\mu
+:=\int\langle\nabla\psi_1,\nabla\psi_2\rangle\,d\mu.
+$$
+\end{definition}
+
+可以证明，要求 $v_t$ 为某个函数的梯度 $v_t=\nabla\psi_t$，实际上给出了\autoref{thm:5.3}中最优向量场的第四种刻画，从而为\autoref{def:5.5}提供依据；这里不证明这一点.
+
+\begin{remark}\label{rem:5.6}
+稍作停顿，介绍另一种常见约定：不将驱动速度场 $\nabla\psi$ 作为 $\mu_t$ 处的切向量，而采用普通时间导数 $\partial_t\mu_t$，由连续性方程它等于 $\partial_t\mu_t=-\operatorname{div}(\mu_t\nabla\psi)=:\chi$. 此时切空间成为总质量为零的符号测度空间，而度量为 $\langle\chi,\chi'\rangle_\mu=\int\langle\nabla\psi,\nabla\psi'\rangle\,d\mu$，其中 $\psi,\psi'$ 解方程 $\chi=-\operatorname{div}(\mu\nabla\psi)$、$\chi'=-\operatorname{div}(\mu\nabla\psi')$. 这只是记号变化：$\nabla\psi\mapsto\chi$ 是我们所用约定与另一约定之间的等距映射.
+\end{remark}
+
+虽然以上逻辑发展强烈暗示了这一黎曼结构与最优传输理论的联系，我们还没有陈述任何相关结果. 下面的定理计算上述度量的常速测地线. 用\autoref{sec:5.2}的语言说，它断言：我们在 $\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 上定义的黎曼结构所诱导的距离，确实就是 Wasserstein 距离.
+
+\begin{theorem}[Benamou--Brenier]\label{thm:5.7}\index{Benamou–Brenier formula@Benamou–Brenier公式（Benamou–Brenier formula）|hyperpage}
+设 $\mu_0,\mu_1\in\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$. 则
+\begin{equation}\label{eq:5.7}
+W_2^2(\mu_0,\mu_1)=\inf\left\{\int_0^1\|v_t\|_{\mu_t}^2\,dt\ \middle|\
+(\mu_t,v_t)_{t\in[0,1]}\text{ 解\eqref{eq:5.2}}\right\}.
+\end{equation}
+最优曲线 $(\mu_t)_{t\in[0,1]}$ 唯一，描述为 $X_t\sim\mu_t$，其中 $X_t=(1-t)X_0+tX_1$，$(X_0,X_1)\sim\bar\gamma\in\Gamma_{\mu_0,\mu_1}$，而 $\bar\gamma$ 为最优耦合.
+\end{theorem}
+\begin{proof}
+设 $(\mu_t,v_t)_{t\in[0,1]}$ 解\eqref{eq:5.2}，且 $\dot X_t=v_t(X_t)$、$X_0\sim\mu_0$. 于是
+$$
+\begin{aligned}
+W_2^2(\mu_0,\mu_1)
+&\leq\mathbb E[\|X_0-X_1\|^2]
+=\mathbb E\left[\left\|\int_0^1\dot X_t\,dt\right\|^2\right]\\
+&\leq\int_0^1\mathbb E[\|\dot X_t\|^2]\,dt
+=\int_0^1\|v_t\|_{\mu_t}^2\,dt.
+\end{aligned}
+$$
+为研究等号情形，注意计算中用了两个不等式. 第一个取等当且仅当 $(X_0,X_1)$ 最优耦合. 第二个取等当且仅当 $t\mapsto\dot X_t$ 为常数，这迫使所有 $t\in[0,1]$ 都有 $\dot X_t=X_1-X_0$.
+
+因此，只需证明存在向量场族 $(v_t)_{t\geq0}$，使所有 $t\in[0,1)$ 都有 $X_1-X_0=v_t((1-t)X_0+tX_1)$. 因为 $(X_0,X_1)$ 最优耦合，存在凸函数 $\varphi$ 满足 $\nabla\varphi(X_0)=X_1$. 于是 $(1-t)X_0+tX_1=\nabla\varphi_t(X_0)$，其中 $\varphi_t(x):=(1-t)\|x\|^2/2+t\varphi(x)$. 特别地，$\varphi_t$ 对所有 $t\in[0,1)$ 强凸，故 $\nabla\varphi_t$ 可逆. 因而可以定义 $v_t:=(\nabla\varphi-\mathrm{id})\circ(\nabla\varphi_t)^{-1}$，满足
+$$
+\begin{aligned}
+v_t((1-t)X_0+tX_1)
+&=v_t(\nabla\varphi_t(X_0))\\
+&=\nabla\varphi(X_0)-X_0=X_1-X_0,
+\end{aligned}
+$$
+得到所需结论.
+\end{proof}
+
+也可以写成 $\mu_t=[(1-t)\mathrm{id}+tT]_\#\mu_0$，其中 $T$ 是从 $\mu_0$ 到 $\mu_1$ 的最优传输映射. 因此给出以下定义.
+
+\begin{definition}\label{def:5.8}
+设 $\mu_0,\mu_1\in\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$，$T$ 为从 $\mu_0$ 到 $\mu_1$ 的最优传输映射. 连接二者的常速测地线为曲线 $(\mu_t)_{t\in[0,1]}$，其中
+\begin{equation}\label{eq:5.8}
+\mu_t=[(1-t)\mathrm{id}+tT]_\#\mu_0.
+\end{equation}
+这条曲线称为位移插值（displacement interpolation）、McCann 插值，或简称连接 $\mu_0$ 与 $\mu_1$ 的 Wasserstein 测地线.
+\end{definition}
+
+由\eqref{eq:5.8}可以认出 $\log_\mu(\nu)=T_{\mu\to\nu}-\mathrm{id}$，因而 $\exp_\mu(\nabla\psi)=(\mathrm{id}+\nabla\psi)_\#\mu$. 注意，若 $\nabla^2\psi$ 有小于 $-1$ 的特征值，则指数映射没有良好定义，因为这时 $\mathrm{id}+\nabla\psi$ 不是凸函数的梯度，从而不是最优传输映射. 这呼应了此前关于指数映射未必定义在黎曼流形整个切空间上的讨论.\footnote{不过，黎曼流形的指数映射的定义域总包含原点的一个邻域，而 Wasserstein 空间并非如此. 这也是 Wasserstein 空间并非真正的黎曼流形、甚至不是无穷维黎曼流形的原因之一.}

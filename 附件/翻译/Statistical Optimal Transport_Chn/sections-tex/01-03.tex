@@ -1,0 +1,88 @@
+\subsection{一维最优传输}\label{sec:1.3}
+
+为了对最优传输获得一些直观认识，我们考察一个较简单的情形：$\mu$ 和 $\nu$ 是实数轴上的概率测度.在这种情形下，可以定义它们各自的累积分布函数.
+
+回顾一下，随机变量 $Z$ 的\emph{累积分布函数}（cumulative distribution function，CDF）是函数 $F:\mathbb R\to[0,1]$，其定义为
+$$
+F(t):=\mathbb P(Z\le t),\qquad t\in\mathbb R.
+$$
+由于 $F$ 单调不减，可以定义其\emph{伪逆}（pseudo-inverse）$F^\dagger$：
+$$
+F^\dagger(u)=\inf\{t\in\mathbb R:F(t)\ge u\},\qquad u\in[0,1],
+$$
+其中约定 $\inf\varnothing=\infty$.虽然 $F^\dagger$ 并非真正的逆函数，但它确实满足下述性质：
+\begin{equation}\label{eq:1.5}
+F^\dagger(u)\le t\quad\Longleftrightarrow\quad u\le F(t).
+\end{equation}
+
+这一性质常用于模拟随机变量.设 $U\sim\operatorname{Unif}([0,1])$ 是均匀随机变量，则 $Z\sim F^\dagger(U)$ 的累积分布函数为 $F$.事实上，对任意 $t\in\mathbb R$，
+\begin{equation}\label{eq:1.6}
+\mathbb P(Z\le t)=\mathbb P(F^\dagger(U)\le t)
+=\mathbb P(U\le F(t))=F(t).
+\end{equation}
+
+下面的定理利用累积分布函数刻画一维最优传输.
+
+\begin{theorem}\label{thm:1.7}
+设 $\mu,\nu\in\mathcal P_1(\mathbb R)$ 是两个概率分布，其累积分布函数分别为 $F_\mu$ 和 $F_\nu$.设 $U\sim\operatorname{Unif}([0,1])$ 是均匀随机变量，以 $\bar\gamma$ 表示 $(F_\mu^\dagger(U),F_\nu^\dagger(U))$ 的分布.那么 $\bar\gamma\in\Gamma_{\mu,\nu}$ 是 $\mu$ 与 $\nu$ 的一个有效耦合，并且它是最优的：
+$$
+W_1(\mu,\nu)=\int|x-y|\,\bar\gamma(\mathrm dx,\mathrm dy)
+=\min_{\gamma\in\Gamma_{\mu,\nu}}\int|x-y|\,\gamma(\mathrm dx,\mathrm dy).
+$$
+此外，
+$$
+W_1(\mu,\nu)=\int_{-\infty}^{\infty}|F_\mu(t)-F_\nu(t)|\,\mathrm dt.
+$$
+\end{theorem}
+
+\begin{proof}
+由 \eqref{eq:1.6} 可知 $\bar\gamma\in\Gamma_{\mu,\nu}$，只需再验证其最优性.为此，注意到对任意 $\gamma\in\Gamma_{\mu,\nu}$，若 $(X,Y)\sim\gamma$，则由 Fubini 定理可得
+$$
+\begin{aligned}
+&\int|x-y|\,\gamma(\mathrm dx,\mathrm dy)\\
+&\quad=\iint_{-\infty}^{\infty}
+  (\mathbbm{1}_{x\le t<y}+\mathbbm{1}_{y\le t<x})\,\mathrm dt\,\gamma(\mathrm dx,\mathrm dy)\\
+&\quad=\int_{-\infty}^{\infty}
+  \bigl(\gamma(X\le t<Y)+\gamma(Y\le t<X)\bigr)\,\mathrm dt\\
+&\quad=\int_{-\infty}^{\infty}
+  \bigl(\gamma(X\le t)+\gamma(Y\le t)-2\gamma(X\le t,Y\le t)\bigr)\,\mathrm dt\\
+&\quad\ge\int_{-\infty}^{\infty}
+  \bigl(F_\mu(t)+F_\nu(t)-2(F_\mu(t)\wedge F_\nu(t))\bigr)\,\mathrm dt\\
+&\quad=\int_{-\infty}^{\infty}|F_\mu(t)-F_\nu(t)|\,\mathrm dt.
+\end{aligned}
+$$
+为了说明当 $\gamma=\bar\gamma$ 时，上述不等式成为等式，注意到
+$$
+\begin{aligned}
+\bar\gamma(X\le t,Y\le t)
+&=\mathbb P(F_\mu^\dagger(U)\le t,F_\nu^\dagger(U)\le t)\\
+&=\mathbb P(U\le F_\mu(t),U\le F_\nu(t))\\
+&=\mathbb P(U\le F_\mu(t)\wedge F_\nu(t))\\
+&=F_\mu(t)\wedge F_\nu(t).
+\end{aligned}
+$$
+我们已经证明
+$$
+\int|x-y|\,\gamma(\mathrm dx,\mathrm dy)
+\ge\int_{-\infty}^{\infty}|F_\mu(t)-F_\nu(t)|\,\mathrm dt
+=\int|x-y|\,\bar\gamma(\mathrm dx,\mathrm dy),
+$$
+因而 $\bar\gamma$ 是最优耦合.
+\end{proof}
+
+如果 $Z$ 存在密度，那么它的累积分布函数 $F$ 实际上是 $F^\dagger$ 的左逆，即 $F\circ F^\dagger=\mathrm{Id}$.如果 $\mu$ 存在密度，这一事实意味着最优耦合 $\bar\gamma$ 具有下述特殊形式：若 $X\sim\mu$，则
+\begin{equation}\label{eq:1.7}
+(X,F_\nu^\dagger\circ F_\mu(X))\sim\bar\gamma.
+\end{equation}
+换言之，Monge 问题与 Kantorovich 问题的解相同，因为我们找到了一个传输映射 $\bar T=F_\nu^{-1}\circ F_\mu$，使得 $\bar T_\#\mu=\nu$，并且
+$$
+\begin{aligned}
+\int|x-\bar T(x)|\,\mu(\mathrm dx)
+&=\min_{\gamma\in\Gamma_{\mu,\nu}}\int|x-y|\,\gamma(\mathrm dx,\mathrm dy)\\
+&=\min_{T:T_\#\mu=\nu}\int|x-T(x)|\,\mu(\mathrm dx).
+\end{aligned}
+$$
+
+虽然本节着重讨论 $W_1$ 距离，但 \eqref{eq:1.7} 给出的耦合 $\bar\gamma$ 实际上具有普遍最优性：对于任意严格凸成本的 Kantorovich 问题，它都是最优的；这里的严格凸成本指形如 $c(x,y)=h(x-y)$ 的成本，其中 $h:\mathbb R\to\mathbb R$ 严格凸.这包括所有 $p>1$ 的 $W_p$ 距离.参见\autoref{exer:8}.
+
+注意，$\bar T$ 是两个递增函数的复合，因此也是\emph{单调递增}函数.一维的连续单调递增函数是凸函数的导数，这提示我们，可以通过考虑凸函数的梯度，将这一性质推广到高维.高维中这种单调传输映射的存在性，正是 Brenier 的重要结果~\cite{ref55} 的内容.下面我们就来研究这一结果.

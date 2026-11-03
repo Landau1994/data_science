@@ -1,0 +1,186 @@
+\subsection{曲率}\label{sec:7.2}
+\subsubsection{Alexandrov 曲率}\label{sec:7.2.1}\index{Alexandrov curvature@Alexandrov曲率（Alexandrov curvature）|hyperpage}
+给定实数 $\kappa\in\mathbb R$，一个特别重要的测地空间，是具有常截面曲率 $\kappa$ 的完备、单连通二维黎曼流形. 对给定 $\kappa\in\mathbb R$，这个度量空间 $(M_\kappa,\mathsf d_\kappa)$ 在等距意义下唯一，称为模型空间（model space）. 对每个 $\kappa$，我们选取等距变换群生成的等价类中的如下代表：
+\begin{itemize}
+\item 若 $\kappa<0$，$(M_\kappa,\mathsf d_\kappa)$ 是常曲率为 $\kappa<0$ 的双曲平面.
+\item 若 $\kappa=0$，$(M_0,\mathsf d_0)$ 是配备欧氏度量的欧氏平面 $\mathbb R^2$.
+\item 若 $\kappa>0$，$(M_\kappa,\mathsf d_\kappa)$ 是配备角度度量、半径为 $1/\sqrt\kappa$ 的二维欧氏球面.
+\end{itemize}
+这些模型空间在度量几何中具有核心地位. 如下文所述，一般度量空间的曲率界，是以这些模型空间为基准，通过比较论证表述的.
+
+实现这种比较的基本工具是比较三角形（comparison triangle）. 给定度量空间 $(S,\mathsf d)$，把由三个互异点组成的任意集合 $\{p,x,y\}\subset S$ 称为三角形. 对 $\kappa\in\mathbb R$，$\{p,x,y\}$ 在 $M_\kappa$ 中的比较三角形，是该三点集到 $M_\kappa$ 的等距嵌入，即集合 $\{\bar p,\bar x,\bar y\}\subset M_\kappa$，满足
+$$\mathsf d_\kappa(\bar p,\bar x)=\mathsf d(p,x),\quad
+\mathsf d_\kappa(\bar p,\bar y)=\mathsf d(p,y),\quad
+\mathsf d_\kappa(\bar x,\bar y)=\mathsf d(x,y).$$
+当 $\kappa\le0$ 时，这种比较三角形总存在，且在等距意义下唯一. 当 $\kappa>0$ 时，只要三角形能放在半径为 $\kappa^{-1/2}$ 的球面上，它就存在且在等距意义下唯一. 该条件可用周长表达为
+\begin{equation}\label{eq:7.7}
+\operatorname{peri}\{p,x,y\}:=\mathsf d(p,x)+\mathsf d(p,y)+\mathsf d(x,y)<\frac{2\pi}{\sqrt\kappa}.
+\end{equation}
+对 $\kappa>0$，称满足 \eqref{eq:7.7} 的三角形 $\{p,x,y\}$ 为容许的（admissible）；当 $\kappa\le0$ 时，所有三角形都容许.
+
+\Needspace{10\baselineskip}
+现在可以为一般测地空间定义曲率界.
+\begin{definition}\label{def:7.9}
+设 $\kappa\in\mathbb R$，$(S,\mathsf d)$ 为测地空间.
+\begin{itemize}
+\item 若任意容许三角形 $\{p,x,y\}\subset S$ 及任意比较三角形 $\{\bar p,\bar x,\bar y\}\subset M_\kappa$ 均满足如下条件，则称 $\operatorname{curv}(S)\ge\kappa$：对于分别连接 $x$ 与 $y$、$\bar x$ 与 $\bar y$ 的任意常速测地线 $\omega:[0,1]\to S$ 与 $\bar\omega:[0,1]\to M_\kappa$，有
+\begin{equation}\label{eq:7.8}
+\mathsf d(p,\omega(t))\ge\mathsf d_\kappa(\bar p,\bar\omega(t)),\qquad\forall t\in[0,1].
+\end{equation}
+\item 若任意容许三角形 $\{p,x,y\}\subset S$ 及任意比较三角形 $\{\bar p,\bar x,\bar y\}\subset M_\kappa$ 均满足如下条件，则称 $\operatorname{curv}(S)\le\kappa$：对于分别连接 $x$ 与 $y$、$\bar x$ 与 $\bar y$ 的任意常速测地线 $\omega:[0,1]\to S$ 与 $\bar\omega:[0,1]\to M_\kappa$，有
+\begin{equation}\label{eq:7.9}
+\mathsf d(p,\omega(t))\le\mathsf d_\kappa(\bar p,\bar\omega(t)),\qquad\forall t\in[0,1].
+\end{equation}
+\end{itemize}
+\end{definition}
+上述定义有自然的几何解释：若 $\operatorname{curv}(S)\ge\kappa$，则三角形 $\{p,x,y\}$ 比模型空间 $M_\kappa$ 中相应比较三角形 $\{\bar p,\bar x,\bar y\}$ 看起来更“厚”；若 $\operatorname{curv}(S)\le\kappa$，则更“薄”.
+
+$\kappa=0$ 的情形尤其重要，因为此时参考模型空间是平坦的，我们将所研究的几何与熟悉的欧氏几何比较. 当 $\operatorname{curv}(S)\le0$ 时，称 $S$ 为非正曲率空间（non-positive curvature，NPC\index{NPC@非正曲率（NPC）|hyperpage}）；当 $\operatorname{curv}(S)\ge0$ 时，称为非负曲率空间（non-negative curvature，NNC\index{NNC@非负曲率（NNC）|hyperpage}）.
+
+在平坦情形，有如下引理.
+\begin{lemma}\label{lem:7.10}
+设 $\mathbf H$ 是配备内积 $\langle\cdot,\cdot\rangle$ 与范数 $\lVert\cdot\rVert$ 的 Hilbert 空间. 则任意 $p,x,y\in\mathbf H$ 中，连接 $x$ 与 $y$ 的常速测地线唯一，且为 $\omega(t)=(1-t)x+ty$；对任意 $p\in\mathbf H$，有
+$$\lVert p-\omega(t)\rVert^2=(1-t)\lVert p-x\rVert^2+t\lVert p-y\rVert^2-t(1-t)\lVert x-y\rVert^2,\quad\forall t\in[0,1].$$
+特别地，这对模型空间 $M_0=\mathbb R^2$ 成立.
+\end{lemma}
+\begin{proof}
+容易验证，$\omega$ 确为连接 $x$ 与 $y$ 的常速测地线. 固定 $t\in[0,1]$. 为验证等式，一方面注意
+$$\begin{aligned}
+\lVert p-\omega(t)\rVert^2
+&=\lVert p-(1-t)x-ty\rVert^2\\
+&=\lVert(1-t)(p-x)+t(p-y)\rVert^2\\
+&=(1-t)^2\lVert p-x\rVert^2+t^2\lVert p-y\rVert^2+2t(1-t)\langle p-x,p-y\rangle.
+\end{aligned}$$
+另一方面，
+$$\lVert x-y\rVert^2=\lVert x-p+p-y\rVert^2
+=\lVert p-x\rVert^2+\lVert p-y\rVert^2-2\langle p-x,p-y\rangle.$$
+结合上述两式得
+$$\begin{aligned}
+\lVert p-\omega(t)\rVert^2
+&=(1-t)^2\lVert p-x\rVert^2+t^2\lVert p-y\rVert^2\\
+&\quad+t(1-t)[\lVert p-x\rVert^2+\lVert p-y\rVert^2-\lVert x-y\rVert^2]\\
+&=(1-t)\lVert p-x\rVert^2+t\lVert p-y\rVert^2-t(1-t)\lVert x-y\rVert^2.
+\end{aligned}$$
+还需证明 $\omega$ 唯一. 设 $\omega'$ 为任意连接 $x$ 与 $y$ 的常速测地线，固定 $t\in[0,1]$. 在上述恒等式中取 $p=\omega'(t)$，得到
+$$\lVert\omega'(t)-\omega(t)\rVert^2
+=(1-t)\lVert\omega'(t)-x\rVert^2+t\lVert\omega'(t)-y\rVert^2-t(1-t)\lVert x-y\rVert^2.$$
+因为 $\omega'$ 是连接两点的常速测地线，由\autoref{prop:7.4}有 $\lVert\omega'(t)-x\rVert=t\lVert x-y\rVert$ 与 $\lVert\omega'(t)-y\rVert=(1-t)\lVert x-y\rVert$. 因而
+$$\lVert\omega'(t)-\omega(t)\rVert^2
+=((1-t)t^2+t(1-t)^2-t(1-t))\lVert x-y\rVert^2=0,$$
+所以 $\omega'=\omega$.
+\end{proof}
+\autoref{lem:7.10}仅涉及距离平方，因此可直接在测地空间中陈述. 这种推广给出了 NNC 或 NPC 空间的有用刻画. 注意，该刻画不能扩展到参考空间不平坦，即以非零量作为曲率界的情形.
+\begin{proposition}\label{prop:7.11}
+设 $(S,\mathsf d)$ 是测地空间. 则 $\operatorname{curv}(S)\ge0$ 当且仅当对三角形 $\{p,x,y\}\in S$ 及任意连接 $x$ 与 $y$ 的常速测地线 $\omega$，有
+\begin{equation}\label{eq:7.10}
+\mathsf d^2(p,\omega(t))\ge(1-t)\mathsf d^2(p,x)+t\mathsf d^2(p,y)-t(1-t)\mathsf d^2(x,y),\quad\forall t\in[0,1].
+\end{equation}
+将不等号反向后，同一陈述成立当且仅当 $\operatorname{curv}(S)\le0$.
+\end{proposition}
+\begin{proof}
+考虑三角形 $\{p,x,y\}$ 及其比较三角形 $\{\bar p,\bar x,\bar y\}\in\mathbb R^2$.
+
+假设\autoref{def:7.9}意义下 $\operatorname{curv}(S)\ge0$. 对任意连接 $x$ 与 $y$ 的常速测地线 $\omega$，令 $\bar\omega$ 是连接 $\bar x$ 与 $\bar y$ 的唯一常速测地线，分别由\autoref{def:7.9}与\autoref{lem:7.10}，
+$$\begin{aligned}
+\mathsf d^2(p,\omega(t))&\ge\lVert\bar p-\bar\omega(t)\rVert^2\\
+&=(1-t)\lVert\bar p-\bar x\rVert^2+t\lVert\bar p-\bar y\rVert^2-t(1-t)\lVert\bar x-\bar y\rVert^2\\
+&=(1-t)\mathsf d^2(p,x)+t\mathsf d^2(p,y)-t(1-t)\mathsf d^2(x,y).
+\end{aligned}$$
+反之，由 \eqref{eq:7.10} 有
+$$\begin{aligned}
+\mathsf d^2(p,\omega(t))
+&\ge(1-t)\mathsf d^2(p,x)+t\mathsf d^2(p,y)-t(1-t)\mathsf d^2(x,y)\\
+&=(1-t)\lVert\bar p-\bar x\rVert^2+t\lVert\bar p-\bar y\rVert^2-t(1-t)\lVert\bar x-\bar y\rVert^2\\
+&=\lVert\bar p-\bar\omega(t)\rVert^2,
+\end{aligned}$$
+最后一步用\autoref{lem:7.10}，因此\autoref{def:7.9}成立.
+\end{proof}
+\begin{remark}\label{rem:7.12}
+与\autoref{sec:A}中 $\alpha$-凸性的定义比较，可见 $\frac12\lVert p-\cdot\rVert^2$ 在任意 Hilbert 空间中都是 $1$-强凸的. 类似地，$(S,\mathsf d)$ 为 NPC 空间，当且仅当 $\frac12\mathsf d^2(p,\cdot)$ 沿 $(S,\mathsf d)$ 的测地线是 $1$-强凸的. \autoref{sec:5.2}中也用过测地凸性的概念，但这里工作在更一般的测地空间中.
+\end{remark}
+具有任意曲率界的测地空间 $(S,\mathsf d)$ 称为 Alexandrov 空间\index{Alexandrov space@Alexandrov空间（Alexandrov space）|hyperpage}（Alexandrov space）. 若对某个 $\kappa\in\mathbb R$ 有 $\operatorname{curv}(S)\le\kappa$，则有时称 $(S,\mathsf d)$ 为 $\mathrm{CAT}(\kappa)$ 空间，其名称来自 E. Cartan、A. D. Alexandrov 与 V. A. Toponogov. 如前所述，$\mathrm{CAT}(0)$ 空间也称 NPC 空间，有时称 Hadamard 空间. 若 $\operatorname{curv}(S)\ge0$，称该空间非负弯曲，即 NNC. 应当注意，上述定义是整体性的：它们要求比较不等式对所有在相关模型空间中具有比较三角形的三角形成立. 有些曲率定义只要求这些比较不等式局部成立. 已知在依赖 $\kappa$ 值的适当条件下，比较不等式的局部有效性可推出整体有效性，这称为整体化定理（globalization theorem）.
+
+最后给出非负曲率的第三个等价定义，以结束本小节.
+\begin{proposition}\label{prop:7.13}
+设 $(S,\mathsf d)$ 为测地空间. 则 $\operatorname{curv}(S)\ge0$ 当且仅当对任意三角形 $\{p,x,y\}\subset S$、比较三角形 $\{\bar p,\bar x,\bar y\}\subset M_0$，以及分别连接 $p$ 与 $x$、$p$ 与 $y$、$\bar p$ 与 $\bar x$、$\bar p$ 与 $\bar y$ 的任意常速测地线 $\omega,\omega',\bar\omega,\bar\omega'$，有
+\begin{equation}\label{eq:7.11}
+\mathsf d^2(\omega(s),\omega'(t))\ge\lVert\bar\omega(s)-\bar\omega'(t)\rVert^2,\qquad\forall s,t\in[0,1].
+\end{equation}
+将不等号反向后，同一陈述成立当且仅当 $\operatorname{curv}(S)\le0$.
+\end{proposition}
+\begin{proof}
+先假设 $\operatorname{curv}(S)\ge0$，分别由\autoref{prop:7.11}和\autoref{def:7.9}，
+$$\begin{aligned}
+\mathsf d^2(\omega(s),\omega'(t))
+&\ge(1-s)\mathsf d^2(p,\omega'(t))+s\mathsf d^2(x,\omega'(t))-s(1-s)\mathsf d^2(p,x)\\
+&\ge(1-s)\lVert\bar p-\bar\omega'(t)\rVert^2+s\lVert\bar x-\bar\omega'(t)\rVert^2-s(1-s)\lVert\bar p-\bar x\rVert^2.
+\end{aligned}$$
+由\autoref{lem:7.10}，上式右侧恰为 $\lVert\bar\omega(s)-\bar\omega'(t)\rVert^2$，从而证明了 \eqref{eq:7.11}.
+
+反之，令 $\omega_x,\omega'_x$ 分别是连接 $x$ 与 $y$、$x$ 与 $p$ 的常速测地线，令 $\bar\omega_{\bar x},\bar\omega'_{\bar x}$ 分别连接 $\bar x$ 与 $\bar y$、$\bar x$ 与 $\bar p$. 在 \eqref{eq:7.11} 中取 $s=1$，对任意 $t\in[0,1]$ 得
+$$\begin{aligned}
+\mathsf d^2(p,\omega_x(t))&=\mathsf d^2(\omega'_x(1),\omega_x(t))\\
+&\ge\lVert\bar p-\bar\omega_{\bar x}(t)\rVert^2\\
+&=(1-t)\lVert\bar p-\bar x\rVert^2+t\lVert\bar p-\bar y\rVert^2-t(1-t)\lVert\bar x-\bar y\rVert^2\\
+&=(1-t)\mathsf d^2(p,x)+t\mathsf d^2(p,y)-t(1-t)\mathsf d^2(x,y),
+\end{aligned}$$
+这正是\autoref{prop:7.11}给出的 $\operatorname{curv}(S)\ge0$ 的刻画. $\operatorname{curv}(S)\le0$ 的证明采用同样论证.
+\end{proof}
+
+\subsubsection{Wasserstein 空间的曲率}\label{sec:7.2.2}
+注意，$d=1$ 时，配备 Wasserstein 距离的空间 $\mathcal P_2(\mathbb R)$ 实际上是平坦的.
+\begin{proposition}\label{prop:7.14}
+空间 $\mathcal W_2(\mathbb R)$ 在如下意义下平坦：
+$$\operatorname{curv}(\mathcal W_2(\mathbb R))\le0\qquad\text{且}\qquad\operatorname{curv}(\mathcal W_2(\mathbb R))\ge0,$$
+并且它能够等距嵌入 Hilbert 空间.
+\end{proposition}
+\begin{proof}
+回顾\autoref{prop:1.18}，对任意 $\mu,\nu\in\mathcal W_{2,\mathrm{ac}}$，
+$$W_2^2(\mu,\nu)=\int_0^1|F_\mu^\dagger(u)-F_\nu^\dagger(u)|^2\,du
+=\lVert F_\mu^\dagger-F_\nu^\dagger\rVert^2,$$
+其中 $\lVert\cdot\rVert:=\lVert\cdot\rVert_{L^2([0,1])}$. 特别地，映射 $\mu\mapsto F_\mu^\dagger$ 是从 $\mathcal W_{2,\mathrm{ac}}$ 到 $L^2([0,1])$ 的等距映射.
+
+现在令 $\omega$ 为连接 $\mu$ 与 $\nu$ 的常速测地线. 回顾\autoref{prop:1.18}与\autoref{thm:7.6}，$\omega$ 由如下事实唯一刻画：若 $V=(1-t)F_\mu^\dagger(U)+tF_\nu^\dagger(U)$，其中 $U\sim\operatorname{Unif}([0,1])$，则 $W\sim\omega(t)$. 这说明，对任意 $v\in\mathbb R$，
+$$\mathbb P(V\le v)=\mathbb P((1-t)F_\mu^\dagger(U)+tF_\nu^\dagger(U)\le v)
+=((1-t)F_\mu^\dagger+tF_\nu^\dagger)^\dagger(v).$$
+因此，
+$$F_{\omega(t)}^\dagger=(1-t)F_\mu^\dagger+tF_\nu^\dagger.$$
+再取 $\rho\in\mathcal W_2$ 与 $t\in[0,1]$. 由于 $L^2(\mathbb R)$ 为 Hilbert 空间，由\autoref{lem:7.10}有
+$$\begin{aligned}
+W_2^2(\rho,\omega(t))
+&=\lVert F_\rho^\dagger-F_{\omega(t)}^\dagger\rVert^2
+=\lVert F_\rho^\dagger-(1-t)F_\mu^\dagger-tF_\nu^\dagger\rVert^2\\
+&=(1-t)\lVert F_\rho^\dagger-F_\mu^\dagger\rVert^2+t\lVert F_\rho^\dagger-F_\nu^\dagger\rVert^2-t(1-t)\lVert F_\mu^\dagger-F_\nu^\dagger\rVert^2\\
+&=(1-t)W_2^2(\rho,\mu)+tW_2^2(\rho,\nu)-t(1-t)W_2^2(\mu,\nu).
+\end{aligned}$$
+这证明了 $\operatorname{curv}(\mathcal W_{2,\mathrm{ac}}(\mathbb R))=0$. 进而可证明，它也蕴含 $\operatorname{curv}(\mathcal W_2(\mathbb R))=0$.
+\end{proof}
+更一般地，对任意 $d\ge1$，$\mathcal W_2(\mathbb R^d)$ 具有正曲率，如下定理所示.
+\begin{theorem}\label{thm:7.15}
+$2$-Wasserstein 空间 $\mathcal W_2$ 是非负弯曲的，即
+$$\operatorname{curv}(\mathcal W_2)\ge0,$$
+亦即对任意 $\mu,\nu,\rho\in\mathcal W_2$ 及任意连接 $\mu$ 与 $\nu$ 的常速测地线 $\omega$，有
+$$W_2^2(\rho,\omega(t))\ge(1-t)W_2^2(\rho,\mu)+tW_2^2(\rho,\nu)-t(1-t)W_2^2(\mu,\nu).$$
+\end{theorem}
+\begin{proof}
+令 $\gamma\in\Gamma_{\mu,\nu}$ 为最优耦合. 回顾\autoref{thm:7.6}，对任意 $t\in[0,1]$，$\omega(t)=(\pi_t)_\#\gamma$，其中 $\pi_t(x,y)=(1-t)x+ty$. 特别地，若 $(X,Y)\sim\gamma$，则 $V_t:=(1-t)X+tY\sim\omega(t)$. 再令 $\gamma_t\in\Gamma_{\omega(t),\rho}$ 为 $\omega(t)$ 与 $\rho$ 的最优耦合. 它特别诱导了给定 $V_t$ 时 $Z\sim\rho$ 的条件分布. 至此描述了 $(X,Y,Z)$ 的联合分布 $\Upsilon$，其边缘分布分别为 $\mu,\nu,\rho$；读者应该已认出这是粘合引理，即\autoref{lem:B.5}的一个变体.
+
+用这些记号，有
+$$\begin{aligned}
+W_2^2(\rho,\omega(t))&=\int\lVert z-v\rVert^2\,\gamma_t(dx,dv)\\
+&=\int\lVert z-(1-t)x-ty\rVert^2\,\Upsilon(dx,dy,dz).
+\end{aligned}$$
+再注意，在 $\mathbf H=\mathbb R^d$ 中应用\autoref{lem:7.10}，有
+$$\lVert z-(1-t)x-ty\rVert^2
+=(1-t)\lVert z-x\rVert^2+t\lVert z-y\rVert^2-t(1-t)\lVert x-y\rVert^2,$$
+所以
+$$\begin{aligned}
+W_2^2(\rho,\omega(t))
+&=\int\bigl[(1-t)\lVert z-x\rVert^2+t\lVert z-y\rVert^2
+-t(1-t)\lVert x-y\rVert^2\bigr]\,\Upsilon(dx,dy,dz)\\
+&\ge(1-t)W_2^2(\rho,\mu)+tW_2^2(\rho,\nu)
+-t(1-t)\int\lVert x-y\rVert^2\,\Upsilon(dx,dy,dz)\\
+&=(1-t)W_2^2(\rho,\mu)+tW_2^2(\rho,\nu)-t(1-t)W_2^2(\mu,\nu),
+\end{aligned}$$
+其中不等式使用了前两个耦合的次优性，最后一个等号使用了 $\Upsilon$ 诱导的 $\mu$ 与 $\nu$ 之间耦合的最优性.
+\end{proof}

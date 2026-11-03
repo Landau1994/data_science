@@ -1,0 +1,89 @@
+\subsection{半对偶问题及其稳定性}\label{sec:3.2}\index{semidual@半对偶（semidual）!stability@稳定性（stability）|hyperpage}
+回顾半对偶问题：如果 $\nabla\varphi$ 是最优传输映射，那么 $\varphi$ 极小化
+$$\mathcal S(\phi):=\int\phi\,d\mu+\int\phi^*\,d\nu,$$
+其中 $\phi^*(y)=\sup_{x\in\mathbb R^d}\{\langle x,y\rangle-\phi(x)\}$ 是 $\phi$ 的凸共轭. 关键在于，半对偶问题可以直接将总体测度 $\mu,\nu$ 替换为对应的经验测度 $\mu_n,\nu_n$，从而自然得到 $\varphi$ 的估计量：令
+\begin{equation}\label{eq:3.1}
+\widehat\varphi=\operatorname*{arg\,min}_{\phi\in\mathcal F}\mathcal S_n(\phi)
+:=\operatorname*{arg\,min}_{\phi\in\mathcal F}\left\{\int\phi\,d\mu_n+\int\phi^*\,d\nu_n\right\},
+\end{equation}
+其中 $\mathcal F$ 是一个稍后选取的适当函数类. 再令 $\widehat T=\nabla\widehat\varphi$，便得到最优传输映射的估计量. 通过 \eqref{eq:3.1}，我们将传输映射估计问题置于研究充分的经验风险最小化（empirical risk minimization，ERM）框架之中；这一框架是现代统计理论的基石，现代综述可参见\cite{ref318}. 与许多通过经验风险最小化定义的估计量类似，目前尚不清楚能否高效计算 $\widehat T$；不过，这里着重研究传输映射估计的统计方面，而非计算方面.
+
+从统计学的角度看，Brenier 定理的唯一性结论保证最优传输映射 $T$ 可识别，因此统计问题是良定的. 换言之，如果 $\mathcal S(\phi)=\mathcal S(\varphi)$，则 $\nabla\phi=\nabla\varphi$ 在 $\mu$ 几乎处处成立. 不过，为了得到估计速率，需要将这一定性断言加强为稳定性结论，即下面的定理.
+
+\begin{theorem}\label{thm:3.1}
+假设 $\phi$ 强凸且光滑，
+$$\frac12 I\preceq\nabla^2\phi\preceq2I.$$
+那么，
+\begin{equation}\label{eq:3.2}
+\frac14\|\nabla\phi-\nabla\varphi\|_{L^2(\mu)}^2
+\le\mathcal S(\phi)-\mathcal S(\varphi)
+\le\|\nabla\phi-\nabla\varphi\|_{L^2(\mu)}^2.
+\end{equation}
+\end{theorem}
+
+在证明\autoref{thm:3.1}之前，先说明这一稳定性结果如何融入整体统计分析. 该证明是经验风险最小化估计量分析的一种典型范例. 根据定义，$\widehat\varphi$ 极小化 $\mathcal S_n$. 利用经验过程理论的工具，可以控制随机泛函 $\mathcal S_n$ 偏离其均值 $\mathcal S$ 的波动，从而得出 $\mathcal S(\widehat\varphi)-\mathcal S(\varphi)$ 很小. 再由 \eqref{eq:3.2} 的第一个不等式，便可知估计误差 $\|\widehat T-T\|_{L^2(\mu)}^2$ 很小.
+
+实际上，为了得到更快的估计速率，我们还会引入另一项要素来改进这一论证：不动点或局部化技术（fixed-point or localization technique）. 简言之，估计速率依赖于在一个包含估计量 $\widehat\varphi$ 的函数集合上，对 $\mathcal S_n$ 偏离 $\mathcal S$ 的程度作一致控制. 一旦通过稳定性不等式 \eqref{eq:3.2} 知道 $\widehat\varphi$ 接近 $\varphi$，就可以重复这一论证，但将范围限制在更小的函数类内，从而进一步改进估计速率. 在这一通过局部化估计量 $\widehat\varphi$ 不断细化界的迭代过程中，寻找其不动点，就会得到最终估计速率.
+
+现在转向\autoref{thm:3.1}的证明. 我们将反复使用 Fenchel--Young 不等式（\autoref{thm:A.6}），以及 $f$ 的 $\alpha$-凸性等价于 $f^*$ 的 $\alpha^{-1}$-光滑性这一事实（\autoref{lem:A.9}）.
+
+\begin{proof}[\autoref{thm:3.1}的证明]
+由于 $(\nabla\varphi)_\#\mu=\nu$，
+$$
+\begin{aligned}
+\mathcal S(\phi)&=\int\phi(x)\,\mu(dx)+\int\phi^*(y)\,\nu(dy)\\
+&=\int\bigl(\phi(x)+\phi^*(\nabla\varphi(x))\bigr)\,\mu(dx).
+\end{aligned}
+$$
+由 $\phi^*$ 的强凸性，
+$$
+\begin{aligned}
+\phi^*(\nabla\varphi(x))\ge{}&\phi^*(\nabla\phi(x))
++\langle\underbrace{\nabla\phi^*(\nabla\phi(x))}_{=x},\nabla\varphi(x)-\nabla\phi(x)\rangle\\
+&+\frac14\|\nabla\varphi(x)-\nabla\phi(x)\|^2,
+\end{aligned}
+$$
+因而
+$$
+\begin{aligned}
+\phi(x)+\phi^*(\nabla\varphi(x))\ge{}&
+\underbrace{\phi(x)+\phi^*(\nabla\phi(x))}_{=\langle x,\nabla\phi(x)\rangle}
++\langle x,\nabla\varphi(x)-\nabla\phi(x)\rangle\\
+&+\frac14\|\nabla\varphi(x)-\nabla\phi(x)\|^2\\
+={}&\langle x,\nabla\varphi(x)\rangle+\frac14\|\nabla\varphi(x)-\nabla\phi(x)\|^2.
+\end{aligned}
+$$
+另一方面，
+$$
+\mathcal S(\varphi)=\int\bigl(\varphi(x)+\varphi^*(\nabla\varphi(x))\bigr)\,\mu(dx)
+=\int\langle x,\nabla\varphi(x)\rangle\,\mu(dx).
+$$
+因此得到
+$$\mathcal S(\phi)\ge\mathcal S(\varphi)+\frac14\|\nabla\varphi-\nabla\phi\|_{L^2(\mu)}^2.$$
+类似地，由光滑性，
+$$
+\begin{aligned}
+\phi^*(\nabla\varphi(x))\le{}&\phi^*(\nabla\phi(x))
++\langle\underbrace{\nabla\phi^*(\nabla\phi(x))}_{=x},\nabla\varphi(x)-\nabla\phi(x)\rangle\\
+&+\|\nabla\varphi(x)-\nabla\phi(x)\|^2,
+\end{aligned}
+$$
+因而
+$$
+\begin{aligned}
+\phi(x)+\phi^*(\nabla\varphi(x))\le{}&\phi(x)+\phi^*(\nabla\phi(x))
++\langle x,\nabla\varphi(x)\rangle-\langle x,\nabla\phi(x)\rangle\\
+&+\|\nabla\varphi(x)-\nabla\phi(x)\|^2\\
+={}&\langle x,\nabla\phi(x)\rangle+\varphi(x)+\varphi^*(\nabla\varphi(x))
+-\langle x,\nabla\phi(x)\rangle\\
+&+\|\nabla\varphi(x)-\nabla\phi(x)\|^2,
+\end{aligned}
+$$
+积分即得结论.
+\end{proof}
+
+注意，我们实际上证明了更强的结论：若写成
+$$\mathcal S(\phi)=\int\underbrace{\bigl(\phi(x)+\phi^*(\nabla\varphi(x))\bigr)}_{s_\phi(x)}\,\mu(dx),$$
+那么有逐点界
+$$\frac14\|\nabla\varphi(x)-\nabla\phi(x)\|^2
+\le s_\phi(x)-s_\varphi(x)\le\|\nabla\varphi(x)-\nabla\phi(x)\|^2.$$

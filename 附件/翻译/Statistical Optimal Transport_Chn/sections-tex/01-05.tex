@@ -1,0 +1,372 @@
+\subsection{Kantorovich 对偶}\label{sec:1.5}
+
+Brenier 定理表明，若 $\mu$ 有密度，则问题 \eqref{eq:W22} 的最优耦合是由某个凸函数 $\varphi$ 的梯度给出的确定性耦合. 这一结果引出了如下问题：能否通过求解一个优化问题来直接找到 $\varphi$，或者能否验证某个凸函数 $\varphi$ 对应于一个最优耦合？利用凸对偶（convex duality）的工具可以回答这些问题.
+
+在完全离散的情形（见\autoref{sec:1.1.3}），\eqref{eq:W22} 是一个线性规划（linear program，LP），即目标函数和约束均为线性的；线性规划具有实用的对偶理论. 这一直觉也适用于一般情形，而且可以通过逼近论证使二者的联系严格化，见\cite[第 11 章]{ref123}. 事实上，Kantorovich 正是通过最优传输引入了线性规划对偶；自其诞生以来，这一理论一直在推动算法的发展.
+
+\subsubsection{Kantorovich 对偶问题}\label{sec:1.5.1}
+
+\eqref{eq:W22} 的对偶问题是一个最大化问题. 为了求出它的表达式，将约束 $\gamma\in\Gamma_{\mu,\nu}$ 编码为
+$$
+\begin{aligned}
+&\sup_{f,g\in C_b}\left\{
+\int f(x)\,\mu(dx)+\int g(y)\,\nu(dy)
+-\int\bigl(f(x)+g(y)\bigr)\,\gamma(dx,dy)\right\}\\
+&\qquad=\begin{cases}
+0,&\text{若 }\gamma\in\Gamma_{\mu,\nu},\\
+\infty,&\text{其他情形},
+\end{cases}
+\end{aligned}
+$$
+其中上确界取遍 $\mathbb{R}^d$ 上所有连续有界函数组成的集合 $C_b$. 因而，\eqref{eq:W22} 等价于
+$$
+\begin{aligned}
+\inf_{\gamma\in\mathcal{M}_+}\Biggl\{
+&\int\|x-y\|^2\,\gamma(dx,dy)\\
+&+\sup_{f,g\in C_b}\left\{
+\int f(x)\,\mu(dx)+\int g(y)\,\nu(dy)
+-\int\bigl(f(x)+g(y)\bigr)\,\gamma(dx,dy)\right\}\Biggr\},
+\end{aligned}
+$$
+其中下确界取遍 $\mathbb{R}^d\times\mathbb{R}^d$ 上所有正测度组成的集合 $\mathcal{M}_+$，不再施加其他限制. 注意，当 $\gamma\notin\Gamma_{\mu,\nu}$ 时，这个新目标函数为无穷大，因此两个问题严格等价.
+
+接下来交换 $\inf$ 与 $\sup$，得到 \eqref{eq:W22} 的最优值的如下下界：
+\begin{equation}\label{eq:1.15}
+\begin{aligned}
+\sup_{f,g\in C_b}\Biggl\{
+&\int f(x)\,\mu(dx)+\int g(y)\,\nu(dy)\\
+&+\inf_{\gamma\in\mathcal{M}_+}\left\{
+\int\bigl(\|x-y\|^2-f(x)-g(y)\bigr)\,\gamma(dx,dy)
+\right\}\Biggr\}.
+\end{aligned}
+\end{equation}
+
+现在注意到，由于 $\gamma$ 是正测度，
+$$
+\begin{aligned}
+&\inf_{\gamma\in\mathcal{M}_+}\left\{
+\int\bigl(\|x-y\|^2-f(x)-g(y)\bigr)\,\gamma(dx,dy)\right\}\\
+&\qquad=\begin{cases}
+0,&\text{若 }f(x)+g(y)\leq\|x-y\|^2,\quad\forall x,y\in\mathbb{R}^d,\\
+-\infty,&\text{其他情形}.
+\end{cases}
+\end{aligned}
+$$
+的确，若存在一对 $(x,y)$ 违反上述约束，则可以取测度序列 $\gamma_n=n\delta_{(x,y)}$，使该积分趋于 $-\infty$.
+
+因此，我们已经证明 \eqref{eq:W22} 的一个下界为
+$$
+\sup_{\substack{f,g\in C_b\\f(x)+g(y)\leq\|x-y\|^2}}
+\left\{\int f\,d\mu+\int g(y)\,d\nu\right\}.
+$$
+
+虽然上面选择 $f,g\in C_b$ 是考虑到概率测度集合上的弱拓扑，但只要一对可积函数 $(f,g)$ 几乎处处满足 $f(x)+g(y)\leq\|x-y\|^2$，它们就给出 $W_2^2(\mu,\nu)$ 的这个下界.
+
+\begin{lemma}\label{lem:1.12}
+设 $\mu,\nu\in\mathcal{P}_2(\mathbb{R}^d)$，则
+$$
+\begin{aligned}
+W_2^2(\mu,\nu)
+&=\inf_{\gamma\in\Gamma_{\mu,\nu}}\int\|x-y\|^2\,\gamma(dx,dy)\\
+&\geq\sup_{\substack{f\in L^1(\mu),\ g\in L^1(\nu)\\
+f(x)+g(y)\leq\|x-y\|^2}}
+\left\{\int f\,d\mu+\int g\,d\nu\right\}.
+\end{aligned}
+$$
+\end{lemma}
+\begin{proof}
+设 $f\in L^1(\mu)$、$g\in L^1(\nu)$，使得对 $\mu$ 几乎处处的 $x$、$\nu$ 几乎处处的 $y$，有 $f(x)+g(y)\leq\|x-y\|^2$，并固定 $\gamma\in\Gamma_{\mu,\nu}$. 那么
+$$
+\begin{aligned}
+\int f(x)\,\mu(dx)+\int g(y)\,\nu(dy)
+&=\int\bigl(f(x)+g(y)\bigr)\,\gamma(dx,dy)\\
+&\leq\int\|x-y\|^2\,\gamma(dx,dy).
+\end{aligned}
+$$
+对左侧取上确界，对右侧取下确界，即得结论.
+\end{proof}
+
+Kantorovich 对偶问题为
+\begin{equation}\tag{D-$W_2^2$}\label{eq:D-W22}
+\sup_{\substack{f\in L^1(\mu),\ g\in L^1(\nu)\\
+f(x)+g(y)\leq\|x-y\|^2}}
+\left\{\int f\,d\mu+\int g\,d\nu\right\}.
+\end{equation}
+它是原问题（primal problem）\eqref{eq:W22} 的对偶问题.
+
+具体而言，\autoref{lem:1.12} 描述了一种称为弱对偶（weak duality）的现象，即只证明对偶问题给出了原问题的一个下界. 与之相对的是强对偶（strong duality）：不等式成为等式，原问题与对偶问题的目标函数取得相同的最优值. 严格说来，强对偶只涉及目标函数值，但原问题与对偶问题的解往往也存在联系；关于凸优化中的对偶理论，见\cite[第 5 章]{ref52}.
+
+我们将在\autoref{sec:1.5.3}中证明，强对偶确实成立，并且它对我们关心的问题具有重要推论.
+
+\subsubsection{半对偶}\label{sec:1.5.2}\index{semidual@半对偶（semidual）|hyperpage}
+
+在讨论强对偶之前，先稍作准备，定义半对偶问题（semidual problem）. 它是将对偶问题 \eqref{eq:D-W22} 部分求解后得到的版本，在最优传输映射估计中起着重要作用（\autoref{sec:3}）.
+
+考虑 \eqref{eq:D-W22}，假设固定第一个对偶势 $f$；给定这个 $f$ 后，应如何最优地选择 $g$？由于对偶问题要求取上确界，我们希望使 $g$ 尽可能大，但必须满足约束 $f(x)+g(y)\leq\|x-y\|^2$. 因此，最优函数 $g$ 为
+\begin{equation}\label{eq:1.16}
+g(y)=\inf_{x\in\mathbb{R}^d}\{\|x-y\|^2-f(x)\}.
+\end{equation}
+\eqref{eq:1.16} 定义的函数称为 $f$ 关于代价 $c(x,y)=\|x-y\|^2$ 的 $c$-共轭（$c$-conjugate）或 $c$-变换（$c$-transform），记为 $f^c$. 由此可以将对偶问题改写为
+\begin{equation}\label{eq:1.17}
+\text{\eqref{eq:D-W22}}
+=\sup_{f\in L^1(\mu)}\left\{\int f\,d\mu+\int f^c\,d\nu\right\}.
+\end{equation}
+这是半对偶问题的一种形式. 只需将\eqref{eq:1.16} 中的 $\|x-y\|^2$ 换成 $c(x,y)$，它就适用于任意代价函数 $c$ 的最优传输问题.
+
+不过，对于二次代价，还可以再进一步，显式地建立半对偶与凸分析之间的联系. 此时半对偶为
+\begin{equation}\tag{SD}\label{eq:SD}
+\inf_{\phi\in L^1(\mu)}\left\{\int\phi\,d\mu+\int\phi^*\,d\nu\right\},
+\end{equation}
+其中 $\phi^*$ 表示 $\phi$ 的凸共轭（convex conjugate）；见\autoref{sec:A}.
+
+\begin{proposition}\label{prop:1.13}
+设 $\mu,\nu\in\mathcal{P}_2(\mathbb{R}^d)$ 为概率测度. 那么，对偶问题 \eqref{eq:D-W22} 与半对偶问题 \eqref{eq:SD} 在如下意义下等价：
+\begin{enumerate}
+\item \textbf{目标函数值：}分别用 $\mathrm{S}$ 和 $\mathrm{D}$ 表示 \eqref{eq:SD} 与 \eqref{eq:D-W22} 的最优目标函数值，则
+$$
+\mathrm{D}=\int\|\cdot\|^2\,d\mu+\int\|\cdot\|^2\,d\nu-2\cdot\mathrm{S}.
+$$
+\item \textbf{解：}一对函数 $(f,g)$ 是 \eqref{eq:D-W22} 的最优解，当且仅当 $f=\|\cdot\|^2-2\varphi$ 且 $g=\|\cdot\|^2-2\varphi^*$，其中 $\varphi$ 是 \eqref{eq:SD} 的最优解.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+写成 $f=\|\cdot\|^2-2\phi$ 与 $g=\|\cdot\|^2-2\psi$；这只是对对偶势作重新参数化. 于是
+$$
+\begin{aligned}
+\int f\,d\mu+\int g\,d\nu
+={}&\int\|\cdot\|^2\,d\mu+\int\|\cdot\|^2\,d\nu\\
+&-2\left(\int\phi\,d\mu+\int\psi\,d\nu\right).
+\end{aligned}
+$$
+约束 $f(x)+g(y)\leq\|x-y\|^2$ 可改写为
+$$
+\begin{aligned}
+&\|x\|^2-2\phi(x)+\|y\|^2-2\psi(y)\leq\|x-y\|^2\\
+&\qquad\iff\phi(x)+\psi(y)\geq\langle x,y\rangle.
+\end{aligned}
+$$
+因此，\eqref{eq:D-W22} 等价于
+$$
+\inf_{\substack{\phi\in L^1(\mu),\ \psi\in L^1(\nu)\\
+\phi(x)+\psi(y)\geq\langle x,y\rangle}}
+\left\{\int\phi\,d\mu+\int\psi\,d\nu\right\}.
+$$
+
+接着应用上面同样的技巧：固定 $\phi$ 后，满足约束的最优 $\psi$ 为
+$$
+\psi(y)=\sup_{x\in\mathbb{R}^d}\{\langle x,y\rangle-\phi(x)\},
+$$
+这恰好是凸共轭 $\phi^*$ 的定义. 代入即可得到上述等价关系.
+\end{proof}
+
+在前面的证明中，我们说明了固定 $\phi_0$ 后，最优的 $\psi$ 为 $\psi=\phi_0^*$. 由问题的对称性，固定 $\psi=\phi_0^*$ 后，最优的 $\phi$ 又是 $\psi^*=\phi_0^{**}$. 我们可以设想反复进行这一过程，不断得到更好的对偶势，但实际上到这里过程便停止了. 因为 $\phi_0^*$ 是闭凸函数，所以它是自对偶的，从而 $\phi_0^{***}=\phi_0^*$；见\autoref{sec:A}. 这一论证最终表明，\eqref{eq:SD} 中的最优势 $\varphi$ 可以取为闭凸函数.
+
+至此，我们已经在最优传输问题中遇到了两种凸函数 $\varphi$. 从原问题的角度看，Brenier \autoref{thm:1.8} 表明最优传输计划支撑在某个凸函数的次微分上. 从对偶问题的角度看，\eqref{eq:SD} 的极小化解可以取为凸函数. 下一小节将说明，这两个凸函数其实是同一个函数.
+
+\subsubsection{最优传输基本定理}\label{sec:1.5.3}
+
+回顾 Brenier 定理：若测度 $\mu$ 有密度，则 $\mu$ 与 $\nu$ 之间任一最优耦合都支撑在某个凸函数的梯度的图像上. 事实上，逆命题也成立：任何支撑在某个凸函数的梯度的图像上的耦合 $\gamma\in\Gamma_{\mu,\nu}$ 都必定最优. 这一等价关系由下面的最优传输基本定理推出. 事实上，这一定理还包含原问题 \eqref{eq:W22} 与其对偶问题 \eqref{eq:D-W22} 之间的强对偶这一基本结果，它是建立上述等价关系的关键.
+
+\begin{theorem}[最优传输基本定理]\label{thm:1.14}\index{fundamental theorem of optimal transport@最优传输基本定理（fundamental theorem of optimal transport）|hyperpage}
+设 $\mu,\nu\in\mathcal{P}_2(\mathbb{R}^d)$ 为两个概率测度，且 $\mu$ 有密度；设 $X\sim\mu$. 则下列陈述等价：
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\item\label{item:1.14.i} $\bar\gamma\in\Gamma_{\mu,\nu}$ 是最优耦合，即
+$$
+\int\|x-y\|^2\,\bar\gamma(dx,dy)=W_2^2(\mu,\nu).
+$$
+\item\label{item:1.14.ii} 存在正常凸函数（proper convex function）$\varphi$，使得 $(X,\nabla\varphi(X))\sim\bar\gamma\in\Gamma_{\mu,\nu}$.
+\item\label{item:1.14.iii} \eqref{eq:W22} 与 \eqref{eq:D-W22} 之间成立强对偶：
+$$
+\int\|x-y\|^2\,\bar\gamma(dx,dy)
+=\sup_{\substack{f\in L^1(\mu),\ g\in L^1(\nu)\\
+f(x)+g(y)\leq\|x-y\|^2}}
+\left\{\int f\,d\mu+\int g\,d\nu\right\}.
+$$
+此外，上述上确界由下列函数取得：
+$$
+\bar f(x):=\|x\|^2-2\varphi(x),\qquad
+\bar g(y):=\|y\|^2-2\varphi^*(y).
+$$
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+我们已经在\autoref{sec:1.4}中证明了
+\hyperref[item:1.14.i]{(i)} $\implies$ \hyperref[item:1.14.ii]{(ii)}，所以只需证明
+\hyperref[item:1.14.ii]{(ii)} $\implies$ \hyperref[item:1.14.iii]{(iii)}
+以及 \hyperref[item:1.14.iii]{(iii)} $\implies$ \hyperref[item:1.14.i]{(i)}.
+
+先证明 \hyperref[item:1.14.ii]{(ii)} $\implies$ \hyperref[item:1.14.iii]{(iii)}. 为此注意到，对 $\mu$ 几乎处处的 $x$，
+$$
+\|x-\nabla\varphi(x)\|^2
+=\|x\|^2+\|\nabla\varphi(x)\|^2-2\langle x,\nabla\varphi(x)\rangle.
+$$
+此外，$\varphi$ 的凸共轭 $\varphi^*$ 对 $\mu$ 几乎处处的 $x$ 满足
+$$
+\varphi(x)+\varphi^*(\nabla\varphi(x))=\langle\nabla\varphi(x),x\rangle.
+$$
+这是 Fenchel--Young 不等式（\autoref{thm:A.6}）的取等条件. 以上两式给出
+$$
+\begin{aligned}
+\|x-\nabla\varphi(x)\|^2
+={}&\underbrace{\|x\|^2-2\varphi(x)}_{\bar f(x)}\\
+&+\underbrace{\|\nabla\varphi(x)\|^2-2\varphi^*(\nabla\varphi(x))}_{\bar g(\nabla\varphi(x))}.
+\end{aligned}
+$$
+对 $\mu$ 积分可得
+\begin{equation}\label{eq:1.18}
+\begin{aligned}
+\int\|x-y\|^2\,\bar\gamma(dx,dy)
+&=\int\|x-\nabla\varphi(x)\|^2\,\mu(dx)\\
+&=\int\bar f(x)\,\mu(dx)+\int\bar g(\nabla\varphi(x))\,\mu(dx)\\
+&=\int\bar f(x)\,\mu(dx)+\int\bar g(y)\,\nu(dy).
+\end{aligned}
+\end{equation}
+
+现在检验函数对 $(\bar f,\bar g)$ 满足 \eqref{eq:D-W22} 的约束. 由 Fenchel--Young 不等式（\autoref{thm:A.6}），对任意 $x,y\in\mathbb{R}^d$，
+\begin{equation}\label{eq:1.19}
+\begin{aligned}
+\bar f(x)+\bar g(y)
+&=\|x\|^2+\|y\|^2-2\bigl(\varphi(x)+\varphi^*(y)\bigr)\\
+&\leq\|x\|^2+\|y\|^2-2\langle x,y\rangle=\|x-y\|^2.
+\end{aligned}
+\end{equation}
+为检验可积性，注意根据凸共轭的定义，$\varphi=\varphi^{**}$ 与 $\varphi^*$ 都有仿射函数作为下界. 因此，由于 $\mu,\nu\in\mathcal{P}_2(\mathbb{R}^d)$，有 $f_+\in L^1(\mu)$ 和 $g_+\in L^1(\nu)$. 此外，\eqref{eq:1.18} 给出 $\int f\,d\mu+\int g\,d\nu\geq0$，所以 $\int f\,d\mu>-\infty$ 且 $\int g\,d\nu>-\infty$. 于是
+$$
+\int|f|\,d\mu=2\int f_+\,d\mu-\int f\,d\mu<\infty,
+$$
+即 $f\in L^1(\mu)$；类似地，$g\in L^1(\nu)$. 这就证明了
+\hyperref[item:1.14.ii]{(ii)} $\implies$ \hyperref[item:1.14.iii]{(iii)}.
+
+接下来证明 \hyperref[item:1.14.iii]{(iii)} $\implies$ \hyperref[item:1.14.i]{(i)}. 由\eqref{eq:1.18}，对任意 $\gamma\in\Gamma_{\mu,\nu}$，有
+$$
+\begin{aligned}
+\int\|x-y\|^2\,\bar\gamma(dx,dy)
+&=\int\bar f\,d\mu+\int\bar g\,d\nu\\
+&=\int\bigl(\bar f(x)+\bar g(y)\bigr)\,\gamma(dx,dy)\\
+&\leq\int\|x-y\|^2\,\gamma(dx,dy),
+\end{aligned}
+$$
+最后一步不等式使用了\eqref{eq:1.19}. 因而 $\bar\gamma$ 为最优耦合，\hyperref[item:1.14.i]{(i)} 得证.
+\end{proof}
+
+即使 $\mu$ 没有密度，这一定理的某些推论仍然成立. 特别地，利用这些工具可以证明强对偶仍然成立，而且\autoref{prop:1.11}的逆命题也成立：对于任意两个测度 $\mu,\nu\in\mathcal{P}_2(\mathbb{R}^d)$，若 $\gamma\in\Gamma_{\mu,\nu}$ 支撑在一个循环单调集上，则它必定是最优耦合（例如见\cite{ref17}）.
+
+\autoref{thm:1.14} 中出现的最优函数 $f$ 和 $g$ 在后文中起着核心作用.
+
+\begin{definition}[Kantorovich 势]\label{def:1.15}\index{Kantorovich potentials@Kantorovich势（Kantorovich potentials）|hyperpage}
+在 Kantorovich 对偶问题 \eqref{eq:D-W22} 中实现最优值的函数
+$$
+\bar f(x)=\|x\|^2-2\varphi(x),\qquad
+\bar g(y)=\|y\|^2-2\varphi^*(y)
+$$
+称为测度对 $(\mu,\nu)$ 的 Kantorovich 势（Kantorovich potentials）.
+\end{definition}
+
+虽然 \eqref{eq:D-W22} 的解先验地只在几乎处处的意义下定义，$\bar f$ 和 $\bar g$ 却是在整个 $\mathbb{R}^d$ 上处处定义的实实在在的函数. 注意，由 \eqref{eq:D-W22} 的对称性和 Kantorovich 势的形式，很容易验证：若 $\nu$ 有密度，则 $\nabla\varphi^*$ 是从 $\nu$ 到 $\mu$ 的最优传输映射.
+
+\subsubsection{改进的 Brenier 定理}\label{sec:1.5.4}
+
+借助基本定理，可以给出一个常用的 Brenier 定理的改进版本.
+
+\begin{theorem}[改进的 Brenier 定理]\label{thm:1.16}\index{Brenier’s theorem@Brenier定理（Brenier’s theorem）!improved@改进形式（improved）|hyperpage}
+设 $\mu,\nu\in\mathcal{P}_2(\mathbb{R}^d)$ 为两个概率测度，$\mu$ 有密度，并设 $X\sim\mu$. 那么存在一个凸函数 $\varphi:\mathbb{R}^d\to\mathbb{R}$，使得 $(X,\nabla\varphi(X))\sim\bar\gamma\in\Gamma_{\mu,\nu}$，且 $\bar\gamma$ 是 \eqref{eq:W22} 的最优耦合：
+$$
+\begin{aligned}
+\int\|x-y\|^2\,\bar\gamma(dx,dy)
+&=\min_{\gamma\in\Gamma_{\mu,\nu}}\int\|x-y\|^2\,\gamma(dx,dy)\\
+&=W_2^2(\mu,\nu).
+\end{aligned}
+$$
+此外，$\nabla\varphi$ 在如下意义下唯一：若存在凸函数 $\psi$ 使得 $\nabla\psi(X)\sim\nu$，则几乎必然有 $\nabla\psi(X)=\nabla\varphi(X)$.
+
+特别地，对于任意凸函数 $\psi$，只要形如 $(X,\nabla\psi(X))\sim\gamma$ 的耦合 $\gamma\in\Gamma_{\mu,\nu}$ 是一个有效耦合，它就必定是 $\mu$ 与 $\nu$ 之间唯一的最优耦合.
+\end{theorem}
+\begin{proof}
+我们已经在上一小节证明了 $\varphi$ 的存在性，现在需要证明 $\nabla\varphi$ 的唯一性.
+
+事实上，只要每个最优耦合都由一个传输映射诱导，这个传输映射（从而最优耦合）就必定唯一.
+
+为说明这一点，设 $\gamma_1$ 和 $\gamma_2$ 是两个最优耦合，分别由传输映射 $T_1$ 和 $T_2$ 诱导：
+$$
+\gamma_1(Y=T_1(X))=1,\qquad
+\gamma_2(Y=T_2(X))=1.
+$$
+考虑耦合 $\bar\gamma=(\gamma_1+\gamma_2)/2\in\Gamma_{\mu,\nu}$. 它也是最优的，因为
+$$
+\begin{aligned}
+\int\|x-y\|^2\,\bar\gamma(dx,dy)
+&=\frac12\int\|x-y\|^2\,\gamma_1(dx,dy)
++\frac12\int\|x-y\|^2\,\gamma_2(dx,dy)\\
+&=W_2^2(\mu,\nu).
+\end{aligned}
+$$
+特别地，由 Brenier 定理，$\bar\gamma$ 也由某个传输映射 $T$ 诱导（它恰好是某个凸函数的梯度，但这里并不需要这一事实）. 因而，若 $(X,Y)\sim\bar\gamma$，则给定 $X$ 时 $Y$ 的条件分布必为 Dirac 测度 $\delta_{T(X)}$. 但根据构造，这个条件分布是两个 Dirac 测度的混合 $(\delta_{T_1(X)}+\delta_{T_2(X)})/2$，二者只有在几乎必然有 $T_1(X)=T_2(X)=T(X)$ 时才可能相同.
+
+因此，若存在凸函数 $\psi$，使得 $\nabla\psi(X)\sim\nu$，则由\autoref{thm:1.14}，满足 $(X,\nabla\psi(X))\sim\gamma\in\Gamma_{\mu,\nu}$ 的 $\gamma$ 必为最优耦合；由上述讨论，几乎处处有 $\nabla\psi(X)=\nabla\varphi(X)$.
+
+最后，\autoref{thm:1.14} 中
+\hyperref[item:1.14.ii]{(ii)} $\iff$ \hyperref[item:1.14.i]{(i)}
+这一等价关系意味着，最优耦合支撑在某个凸函数的梯度的图像上；由上述论证，这个梯度必定唯一，从而得到定理的最后一个结论.
+\end{proof}
+
+改进的 Brenier 定理非常有用，因为它刻画了传输映射的最优性：若某个传输映射是凸函数的梯度，则它既最优又唯一！我们称这个映射为 Brenier 映射（Brenier map）. 利用\autoref{thm:1.16}，可以在最优传输问题的两种基本情形——一维情形和高斯情形——中刻画最优传输映射.
+
+\begin{example}[一维最优传输]\label{ex:1.17}
+回顾随机变量 $X$ 的累积分布函数（cumulative distribution function，CDF）$F$，它是映射 $t\mapsto\mathbb{P}(X\leq t)$.
+\end{example}
+
+\begin{proposition}\label{prop:1.18}
+设 $\mu,\nu\in\mathcal{P}_2(\mathbb{R})$ 为两个一元分布，其累积分布函数分别为 $F_\mu$ 和 $F_\nu$，且 $\mu$ 有密度. 则
+$$
+W_2^2(\mu,\nu)=\int_0^1|F_\mu^\dagger(u)-F_\nu^\dagger(u)|^2\,du,
+$$
+且 $\mu$ 与 $\nu$ 之间的最优耦合由 Brenier 映射 $F_\nu^\dagger\circ F_\mu$ 诱导.
+\end{proposition}
+\begin{proof}
+由于 $\mu$ 有密度，$F_\mu\circ F_\mu^\dagger=\mathrm{id}$. 设 $U\sim\operatorname{Unif}([0,1])$ 为均匀随机变量，并定义 $X=F_\mu^\dagger(U)$、$Y=F_\nu^\dagger(U)$，于是 $X\sim\mu$、$Y\sim\nu$. 接着注意到 $Y=F_\nu^\dagger\circ F_\mu(X)$，并且 $F_\nu^\dagger\circ F_\mu$ 是递增函数. 根据\autoref{thm:1.16}，这就给出了 $\mu$ 与 $\nu$ 之间唯一的最优耦合.
+\end{proof}
+
+这一恒等式的几何推论是：赋予 2-Wasserstein 距离的度量空间 $\mathcal{P}_2(\mathbb{R})$ 是平坦的；\autoref{sec:7}将进一步探讨这一点. 的确，映射 $\mu\mapsto F_\mu^\dagger$ 将 $(\mathcal{P}_2(\mathbb{R}),W_2)$ 等距嵌入了平坦的 Hilbert 空间 $L^2([0,1])$.
+
+\begin{example}[高斯最优传输]\label{ex:1.19}
+还可以利用改进的 Brenier 定理推导两个高斯测度之间的最优传输映射. 设 $m_1,m_2\in\mathbb{R}^d$，$\Sigma_1,\Sigma_2$ 为 $d\times d$ 正定矩阵，并设 $\mu_1=\mathcal{N}(m_1,\Sigma_1)$、$\mu_2=\mathcal{N}(m_2,\Sigma_2)$.
+
+回顾仿射映射保持高斯性：若 $X_1\sim\mu_1$ 且 $T(x)=Ax+b$，其中 $A\in\mathbb{R}^{d\times d}$、$b\in\mathbb{R}^d$，则 $T(X_1)$ 也是高斯的. 为计算 $T(X_1)$ 的分布，只需计算其均值和协方差，可得
+$$
+\mathbb{E}T(X_1)=Am_1+b,\qquad
+\operatorname{cov}T(X_1)=A\Sigma_1A^{\mathsf{T}}.
+$$
+因此，猜测从 $\mu_1$ 到 $\mu_2$ 的最优传输映射为仿射映射是合理的，并且可以利用 Brenier \autoref{thm:1.16} 来验证. 为此，需要 $Am_1+b=m_2$ 和 $A\Sigma_1A^{\mathsf{T}}=\Sigma_2$，它们表示约束 $T_\#\mu_1=\mu_2$. 还需要 $T$ 是某个凸函数的梯度. 若取
+$$
+\varphi(x)=\frac12\langle x,Ax\rangle+\langle b,x\rangle,
+$$
+则 $\nabla\varphi(x)=\frac12(A+A^{\mathsf{T}})x+b$，而 $A+A^{\mathsf{T}}\succeq0$ 保证 $\varphi$ 为凸函数. 由此可知，只要 $A$ 对称正定，$T=\nabla\varphi$ 就是凸函数的梯度，因而最优.
+
+如何选择 $A$ 和 $b$，才能同时满足推前约束和 $A$ 的半正定（positive semidefinite，PSD）约束？最朴素的选择 $A=\Sigma_1^{-1/2}\Sigma_2^{1/2}$ 在 $\Sigma_1$ 和 $\Sigma_2$ 可交换时有效，但一般而言，这样的 $A$ 甚至不是对称的. 要找到一个满足要求的半正定 $A$，需要一点巧思，但可以按如下方式做到. 从 $A$ 半正定且满足 $A\Sigma_1A=\Sigma_2$ 出发，将 $\Sigma_1^{1/2}A\Sigma_1^{1/2}$ 平方，得到
+$$
+\begin{aligned}
+(\Sigma_1^{1/2}A\Sigma_1^{1/2})^2
+&=\Sigma_1^{1/2}A\Sigma_1A\Sigma_1^{1/2}\\
+&=\Sigma_1^{1/2}\Sigma_2\Sigma_1^{1/2}.
+\end{aligned}
+$$
+取平方根并求解，得到
+$$
+A=\Sigma_1^{-1/2}(\Sigma_1^{1/2}\Sigma_2\Sigma_1^{1/2})^{1/2}\Sigma_1^{-1/2}.
+$$
+可见这就是我们寻找的矩阵 $A$. 利用另一个约束 $Am_1+b=m_2$，得到
+$$
+T(x)=\Sigma_1^{-1/2}(\Sigma_1^{1/2}\Sigma_2\Sigma_1^{1/2})^{1/2}
+\Sigma_1^{-1/2}(x-m_1)+m_2.
+$$
+由\autoref{thm:1.16}，这就是从 $\mu_1$ 到 $\mu_2$ 唯一的最优传输映射. 此外，将它代入 Wasserstein 距离的定义可得（留作习题！）
+\begin{equation}\label{eq:1.20}
+\begin{aligned}
+W_2^2(\mu_1,\mu_2)
+={}&\|m_1-m_2\|^2\\
+&+\operatorname{tr}\!\left[\Sigma_1+\Sigma_2
+-2(\Sigma_1^{1/2}\Sigma_2\Sigma_1^{1/2})^{1/2}\right].
+\end{aligned}
+\end{equation}
+\end{example}

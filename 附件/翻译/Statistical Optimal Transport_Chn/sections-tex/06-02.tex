@@ -1,0 +1,238 @@
+\subsection{抽样}\label{sec:6.2}
+
+Wasserstein 梯度流理论最引人注目的应用之一，是为 Langevin 扩散\index{Langevin diffusion@Langevin扩散（Langevin diffusion）|hyperpage}提供几何解释；这一思想见于 Jordan、Kinderlehrer 与 Otto 的奠基性工作\cite{ref170}. 如前，设 $V:\mathbb R^d\to\mathbb R$ 为满足 $\int\exp(-V)<\infty$ 的光滑势，用 $\pi$ 表示 $\mathbb R^d$ 上密度为 $\pi\propto\exp(-V)$ 的概率测度.
+
+假设希望从分布 $\pi$ 抽样，即设计算法产生分布接近 $\pi$ 的随机变量. 例如，$\pi$ 可以是贝叶斯推断中的后验分布；非共轭模型中，构造可信区域或点估计等基本下游任务往往难以计算. 不过，若能调用从后验近似抽样的子程序，通常就能近似而高效地完成这些任务. 除计算贝叶斯统计以外，抽样还通过 Monte Carlo 积分以及随机算法设计，在科学计算中发挥重要作用.
+
+解决这一问题的主要方法称为 Markov 链 Monte Carlo（MCMC）：设计唯一平稳分布等于或至少接近目标 $\pi$ 的 Markov 链. 当 $\pi$ 像本节假设的那样具有正的光滑密度时，不失一般性可写成 $\pi\propto\exp(-V)$，其中 $V=\log(1/\pi)+\mathrm{const.}$. 此时，将 Langevin 扩散（Langevin diffusion）离散化可得到典型 MCMC 算法；该扩散是随机微分方程（stochastic differential equation，SDE）
+$$
+dX_t=-\nabla V(X_t)\,dt+\sqrt2\,dB_t
+$$
+的解，其中 $(B_t)_{t\geq0}$ 为标准 Brown 运动. 只要例如 $\nabla V$ 为 Lipschitz 连续，对任意给定初值就存在唯一强解，并且其平稳分布为 $\pi$.
+
+下一小节将说明，追踪 Langevin 扩散的边缘分布 $\mu_t:=\operatorname{law}(X_t)$ 时，$(\mu_t)_{t\geq0}$ 遵循 KL 散度 $\operatorname{KL}(\cdot\|\pi)$ 的 Wasserstein 梯度流. 更广泛地，这一故事是近年来蓬勃发展的抽样优化视角文献的起点，即将梯度流等优化算法应用于抽样问题.
+
+\subsubsection{作为 Wasserstein 梯度流的 Langevin 扩散}\label{sec:6.2.1}
+
+先揭示关键：\eqref{eq:6.2}有随机实现，根本原因在于可以改写
+$$
+\operatorname{div}(\mu_t\nabla\log\mu_t)
+=\operatorname{div}\left(\mu_t\frac{\nabla\mu_t}{\mu_t}\right)
+=\operatorname{div}(\nabla\mu_t)=\Delta\mu_t,
+$$
+其中 $\Delta f=\sum_{i=1}^d\partial_i^2f$ 是 $f$ 的 Laplace 算子. 另一方面，二阶抛物型 PDE——最基本的例子是热方程 $\partial_t\mu_t=\Delta\mu_t$——经典地描述由 Brown 运动驱动的随机微分方程的分布演化. 本小节其余部分将明确这一联系.
+
+根据上述计算，将\eqref{eq:6.2}给出的 KL 散度的 Wasserstein 梯度流改写为
+\begin{equation}\label{eq:6.9}
+\partial_t\mu_t=\Delta\mu_t+\operatorname{div}(\mu_t\nabla V).
+\end{equation}
+接下来计算 Langevin 扩散的边缘演化，与\eqref{eq:6.9}比较. 通常会使用随机微积分中的 Itô 公式，但这里采用较非正式的方法. 首先以 $X_0=x_0$ 为条件，将扩散写成积分形式
+$$
+X_t=x_0-\int_0^t\nabla V(X_s)\,ds+\sqrt2B_t.
+$$
+回顾 $B_t\sim\mathcal N(0,tI)$. 特别地，小 $t$ 时 $\|\int_0^t\nabla V(X_s)\,ds\|=O_{\mathbb P}(t)$、$\|B_t\|=O_{\mathbb P}(t^{1/2})$，所以 Brown 运动项占主导，且 $\|X_t-x_0\|=O_{\mathbb P}(t^{1/2})$. 由对偶性，计算 $\mu_t$ 的演化只需计算任意检验函数 $\varphi:\mathbb R^d\to\mathbb R$ 的期望演化. Taylor 展开给出
+$$
+\begin{aligned}
+\varphi(X_t)
+&=\varphi\left(x_0-\int_0^t\nabla V(X_s)\,ds+\sqrt2B_t\right)\\
+&=\varphi(x_0)+\left\langle\nabla\varphi(x_0),-\int_0^t\nabla V(X_s)\,ds+\sqrt2B_t\right\rangle\\
+&\quad+\frac12\left\langle\nabla^2\varphi(x_0),
+\left(-\int_0^t\nabla V(X_s)\,ds+\sqrt2B_t\right)^{\otimes2}\right\rangle
++O_{\mathbb P}(t^{3/2}).
+\end{aligned}
+$$
+一阶项等于
+$$
+-t\langle\nabla\varphi(x_0),\nabla V(x_0)\rangle
++\sqrt2\langle\nabla\varphi(x_0),B_t\rangle+O_{\mathbb P}(t^{3/2}).
+$$
+二阶项等于
+$$
+\langle\nabla^2\varphi(x_0)B_t,B_t\rangle+O_{\mathbb P}(t^{3/2}).
+$$
+因此
+$$
+\begin{aligned}
+\varphi(X_t)
+&=\varphi(x_0)-t\langle\nabla\varphi(x_0),\nabla V(x_0)\rangle
+++\sqrt2\langle\nabla\varphi(x_0),B_t\rangle\\
+&\quad+\langle\nabla^2\varphi(x_0)B_t,B_t\rangle+O_{\mathbb P}(t^{3/2}).
+\end{aligned}
+$$
+取期望，使用 $\mathbb E[B_t]=0$、$\mathbb E[B_tB_t^{\mathsf T}]=tI$，得到
+$$
+\begin{aligned}
+\mathbb E\varphi(X_t)
+&=\varphi(x_0)+t\bigl(\operatorname{tr}\nabla^2\varphi(x_0)
+-\langle\nabla\varphi(x_0),\nabla V(x_0)\rangle\bigr)+O_{\mathbb P}(t^{3/2})\\
+&=\varphi(x_0)+t\bigl(\Delta\varphi(x_0)
+-\langle\nabla\varphi(x_0),\nabla V(x_0)\rangle\bigr)+O_{\mathbb P}(t^{3/2}).
+\end{aligned}
+$$
+减去 $\varphi(x_0)$，除以 $t$，并令 $t\searrow0$，得到
+\begin{equation}\label{eq:6.10}
+\left.\partial_t\mathbb E\varphi(X_t)\right|_{t=0}
+=\Delta\varphi(x_0)-\langle\nabla\varphi(x_0),\nabla V(x_0)\rangle.
+\end{equation}
+用 Markov 半群理论的语言，我们已算出 Langevin 扩散的生成元（generator）为二阶微分算子 $\mathcal L$，定义为 $\mathcal L\varphi:=\Delta\varphi-\langle\nabla\varphi,\nabla V\rangle$.
+
+更一般地，先对 $X_t$ 的值取条件，再利用 Markov 性与\eqref{eq:6.10}，有
+$$
+\partial_t\mathbb E\varphi(X_t)=\mathbb E\mathcal L\varphi(X_t).
+$$
+用边缘分布 $\mu_t$ 表示，即为
+$$
+\int\varphi\,\partial_t\mu_t=\int(\Delta\varphi-\langle\nabla\varphi,\nabla V\rangle)\,d\mu_t.
+$$
+要认出 $\partial_t\mu_t$ 的方程，必须计算 $\mathcal L$ 关于 Lebesgue 测度的伴随. 分部积分表明，右侧等于
+$$
+\int\varphi\bigl(\Delta\mu_t+\operatorname{div}(\mu_t\nabla V)\bigr).
+$$
+由此建立以下定理.
+
+\begin{theorem}[Fokker--Planck 方程]\label{thm:6.11}\index{Fokker–Planck equation@Fokker–Planck方程（Fokker–Planck equation）|hyperpage}
+势为 $V$ 的 Langevin 扩散的边缘分布 $\mu_t:=\operatorname{law}(X_t)$ 由 Fokker--Planck 方程的解给出：
+$$
+\partial_t\mu_t=\Delta\mu_t+\operatorname{div}(\mu_t\nabla V).
+$$
+\end{theorem}
+
+与\eqref{eq:6.9}比较得到：
+
+\begin{corollary}\label{cor:6.12}
+势为 $V$ 的 Langevin 扩散的边缘分布是 $\operatorname{KL}(\cdot\|\pi)$ 的 Wasserstein 梯度流，其中 $\pi$ 的密度正比于 $\exp(-V)$.
+\end{corollary}
+
+作为 $V=0$ 的特例，还得到以下推论.
+
+\begin{corollary}\label{cor:6.13}
+若 $(\mu_t)_{t\geq0}$ 为经过缩放的 Brown 运动 $(\sqrt2B_t)_{t\geq0}$ 的边缘分布，则它解热方程 $\partial_t\mu_t=\Delta\mu_t$，并且是熵泛函 $\mathcal H$ 的 Wasserstein 梯度流.
+\end{corollary}
+
+在\autoref{cor:6.6}中，已证明 $\pi$ 的强对数凹性蕴含 KL 散度 Wasserstein 梯度流快速收敛. 因而立即得到 Langevin 扩散的以下优美收敛结论.
+
+\begin{corollary}\label{cor:6.14}
+设 $\pi$ 为 $\alpha$-强对数凹测度，$(\mu_t)_{t\geq0}$ 表示以 $\pi$ 为平稳分布的 Langevin 扩散的边缘分布. 那么
+$$
+\operatorname{KL}(\mu_t\|\pi)\leq e^{-2\alpha t}\operatorname{KL}(\mu_0\|\pi).
+$$
+\end{corollary}
+
+最后梳理当前的情况. 回顾 KL 散度的 Wasserstein 梯度流可以通过确定性演化\eqref{eq:WGF}实现. 另一方面，本小节从随机演化 Langevin 扩散出发：
+\begin{equation}\tag{LD}\label{eq:LD}
+dX_t=-\nabla V(X_t)\,dt+\sqrt2\,dB_t.
+\end{equation}
+\autoref{thm:6.11}表明，边缘分布 $\mu_t:=\operatorname{law}(X_t)$ 按 Fokker--Planck 方程
+\begin{equation}\tag{FP}\label{eq:FP}
+\partial_t\mu_t=\Delta\mu_t+\operatorname{div}(\mu_t\nabla V)
+\end{equation}
+演化，而且该演化与 $\operatorname{KL}(\cdot\|\pi)$ 的 Wasserstein 梯度流一致. 注意\eqref{eq:FP}严格比\eqref{eq:LD}粗略，因为\eqref{eq:LD}还包含随机过程不同时刻之间的相关信息.
+
+最终，在对应于概率测度空间中同一曲线的意义下，有等价关系
+$$\text{\eqref{eq:FP}}\iff\text{\eqref{eq:LD}}\iff\text{\eqref{eq:WGF}}.$$
+显然在粒子层面它们不同，但这三种视角为算法设计与理论研究提供了新途径.
+
+\subsubsection{将抽样视为优化}\label{sec:6.2.2}
+
+Langevin 扩散的梯度流视角，是研究抽样优化方法的繁荣文献的起点. 本小节受\cite{ref324}启发，研究将 KL 散度最小化视为优化问题时的基本性质. 下一小节简要介绍这一视角近来对对数凹抽样理论的影响；详细介绍见专著\cite{ref77}.
+
+设势 $V:\mathbb R^d\to\mathbb R$ 为 $\alpha$-凸，$\alpha>0$，目标仍是从 $\pi\propto\exp(-V)$ 输出样本. \autoref{cor:6.14}保证连续时间 Langevin 扩散快速收敛于 $\pi$；但为取得算法保证，必须离散化该过程，为确保稳定性还施加对偶的光滑性假设 $\nabla^2V\preceq\beta I$.
+
+Langevin 扩散离散化的误差估计已相当成熟. 在 $V$ 强凸且光滑的假设下，可以为 Euler--Maruyama 格式建立非渐近收敛保证：
+\begin{equation}\label{eq:6.11}
+X_{k+1}=X_k-h\nabla V(X_k)+\mathcal N(0,2hI),
+\qquad k=0,1,2,\ldots,
+\end{equation}
+这与优化的复杂度理论相呼应\cite{ref236}. 然而，与优化不同，离散化\eqref{eq:6.11}有渐近偏差：Markov 链\eqref{eq:6.11}的平稳分布不等于目标 $\pi$. 为减轻偏差，步长 $h$ 必须取得小，从而收敛速率变慢. 下面解释优化视角如何阐明渐近偏差来源，并提示消除它的近端格式.
+
+如\eqref{eq:6.1}，将 KL 散度写为势能与熵之和：
+$$
+\operatorname{KL}(\mu\|\pi)=\int V\,d\mu+\int\mu\log\mu+\mathrm{const.}
+=\mathcal V(\mu)+\mathcal H(\mu)+\mathrm{const.}
+$$
+从 $\pi$ 抽样就表述为在 $\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 上最小化该目标泛函. 已经开始研究其性质：
+\begin{itemize}
+\item 势能强凸且光滑，$\alpha\leq\nabla\mkern-10mu\nabla^2\mathcal V\leq\beta$. 下界在\autoref{thm:6.1}中证明，上界可由类似计算得到.
+\item 熵凸，即 $0\leq\nabla\mkern-10mu\nabla^2\mathcal H$，这是\autoref{thm:6.3}. 不过，熵非光滑.\footnote{事实上可证明 $\nabla\mkern-10mu\nabla^2\mathcal H(\mu)[v,v]=\int\|\nabla v-I\|_{\mathrm{HS}}^2\,d\mu$，并且不存在常数 $C>0$ 使对所有 $v\in T_\mu\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 都有 $\nabla\mkern-10mu\nabla^2\mathcal H(\mu)[v,v]\leq C\|v\|_\mu^2$.}
+\end{itemize}
+这是优化中常见的复合优化（composite optimization）情形：最小化 $f+g$，其中 $f$（强）凸且光滑，$g$ 凸但非光滑. 典型例子为 $\ell_1$ 惩罚最小二乘目标，即 LASSO：$\theta\mapsto\|y-X\theta\|^2+\lambda\|\theta\|_1$. 优化理论中专门处理这类问题的典型算法是近端梯度法（proximal gradient method）
+\begin{equation}\label{eq:6.12}
+x_{k+1}=\operatorname{prox}_{hg}(x_k-h\nabla f(x_k)),
+\end{equation}
+其中
+\begin{equation}\label{eq:6.13}
+\operatorname{prox}_{hg}(y):=\operatorname*{arg\,min}_{x\in\mathbb R^d}
+\left\{hg(x)+\frac12\|y-x\|^2\right\}.
+\end{equation}
+当 $g$ 有简单结构，如 $\ell_1$ 范数时，近端映射有时有闭式解.
+
+近端梯度算法无偏，即其不动点只能是 $f+g$ 的极小化解. 而且可以证明，尽管 $g$ 非光滑，迭代\eqref{eq:6.12}仍以梯度下降处理凸光滑目标时的相同速率收敛.
+
+更广泛地，我们介绍了梯度下降与近端步\eqref{eq:6.13}两种离散格式，各有优点. 梯度下降实现便宜，尤其当函数不像 $\|\cdot\|_1$ 那样具有简单结构时；近端格式则无须光滑性也能收敛. 因而自然希望对 $f$ 采用一种离散方法，对 $g$ 采用另一种，这称为分裂格式（splitting scheme）. 但并非所有分裂格式都无偏，梯度下降与近端映射的组合尤其合适.\footnote{在数值分析中，这两种离散化互为所谓“伴随”，见\cite[附录 B]{ref324}.}
+
+带着这些优化原则，回到抽样. 离散化\eqref{eq:6.11}可以视为分裂格式
+$$
+X_{k+1/2}=X_k-h\nabla V(X_k),\qquad
+X_{k+1}=X_{k+1/2}+\mathcal N(0,2hI).
+$$
+两步分别对应于 $\mathcal V$ 的梯度下降\footnote{验证：若 $\mu_k=\operatorname{law}(X_k)$、$\mu_{k+1/2}=\operatorname{law}(X_{k+1/2})$，且 $h\leq1/\beta$，则 $\mu_{k+1/2}=\exp_{\mu_k}(-h\nabla\mkern-10mu\nabla\mathcal V(\mu_k))$，这是梯度下降的黎曼类比.}和 $\mathcal H$ 的梯度流，后一点即\autoref{cor:6.13}. 梯度下降与梯度流的组合不产生无偏的分裂格式.
+
+优化直觉提示将 $\mathcal H$ 的梯度流换成它的近端映射. 将定义\eqref{eq:6.13}推广到 Wasserstein 空间，得到
+\begin{equation}\label{eq:6.14}
+\operatorname{prox}_{h\mathcal H}(\mu):=
+\operatorname*{arg\,min}_{\nu\in\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)}
+\left\{h\mathcal H(\nu)+\frac12W_2^2(\mu,\nu)\right\}.
+\end{equation}
+事实上，\cite{ref170}最初正是借助 Wasserstein 空间的近端算子，严格建立了\autoref{sec:6.2.1}中 Langevin 扩散的 Wasserstein 梯度流解释. 所得 Wasserstein 空间近端梯度算法确实可证明快速收敛到 $\pi$\cite{ref278}. 不过，近端映射\eqref{eq:6.14}一般难以计算，所以这一算法仍只是美好设想.
+
+实际上，不仅 $\operatorname{prox}_{h\mathcal H}$ 难以计算，对 $\mathcal H$ 作梯度下降也不实际，因为需要知道整个概率密度；这正是\autoref{sec:6.1.4}讨论 SVGD 的动机. 对最小化 $\mathcal H$，我们似乎唯一能合理实现的操作就是梯度流，这得益于它与 Brown 运动之间的巧妙联系. 这既是好事也是坏事：好处是能实现的梯度流不受 $\mathcal H$ 非光滑性的阻碍，从而解释抽样为何可行；坏处是梯度流与 $\mathcal V$ 的离散化“不匹配”，因而\eqref{eq:6.11}产生渐近偏差.
+
+这或许体现了整个主题的特点：优化理论提示大量希望移植到抽样中的算法范式，但落实时需要细心. 下一小节概述若干成功贯彻这一思想的例子，包括一个令人意外的“近端”抽样算法.
+
+\subsubsection{一些近期进展}\label{sec:6.2.3}
+
+\subsubsection*{算法}
+翻开现代凸优化教材，会看到庞大的方法库：坐标下降、梯度下降、内点法、镜像下降、Newton 法、Nesterov 快速梯度法、近端梯度、随机梯度下降等等. 近年来，大量研究致力于发展所有这些方法以及其他方法的抽样类比，这里只选述少数例子.
+
+第一个例子就是前述近端抽样算法. 因为其动机事后更容易说明，先定义算法. 将目标分布 $\pi$ 增广为 $\mathbb R^d\times\mathbb R^d$ 上密度为
+$$
+\boldsymbol\pi(x,y)\propto\exp\left(-V(x)-\frac1{2h}\|y-x\|^2\right)
+$$
+的分布 $\boldsymbol\pi$. \cite{ref203}引入的近端抽样器\index{proximal sampler@近端抽样器（proximal sampler）|hyperpage}（proximal sampler）对新目标应用 Gibbs 抽样，明确地重复以下两步：
+\begin{enumerate}
+\item\label{item:6.prox.1} 给定 $X=x$，重新抽取 $Y\sim\boldsymbol\pi^{Y\mid X=x}=\mathcal N(x,hI)$.
+\item\label{item:6.prox.2} 给定 $Y=y$，重新抽取 $X\sim\boldsymbol\pi^{X\mid Y=y}$，其中条件分布称为受限高斯预言机（restricted Gaussian oracle，RGO），密度为 $\boldsymbol\pi^{X\mid Y=y}(x)\propto\exp(-V(x)-\|y-x\|^2/(2h))$.
+\end{enumerate}
+立即可以验证几个简单性质. 首先，$\boldsymbol\pi$ 的 $X$ 边缘为原目标 $\pi\propto\exp(-V)$，所以只需从增广目标抽样. 其次，Gibbs 抽样无偏，所以近端抽样器也无偏，其平稳分布为 $\boldsymbol\pi$. 不过，这仍是理想化算法，因为尚不清楚如何实现\hyperref[item:6.prox.2]{第二步}. 注意以下类比：若最小化 $V$ 的优化问题对应于从 $\pi\propto\exp(-V)$ 抽样，那么计算 $V$ 的近端映射\eqref{eq:6.13}就对应于从 $\boldsymbol\pi^{X\mid Y=y}$ 抽样；近端抽样器正是在这一意义上类似“近端”算法.
+
+也许最有说服力的理由来自“如果它看起来像鸭子……”这一说法：\cite{ref71,ref203}的分析表明，近端抽样器的收敛速率精确复现凸优化中近端点法的速率. 通过仔细实现 RGO，近端抽样器在将抽样保证推广到非对数凹、非对数光滑情形中起到了关键作用\cite{ref11,ref130}.
+
+下一个例子是镜像下降的适配. 回顾最初由\cite{ref234}为非欧氏范数优化提出的镜像下降算法：为最小化 $V$，先选严格凸函数即“镜像映射”$\phi:\mathbb R^d\to\mathbb R\cup\{\infty\}$，再迭代
+$$
+\nabla\phi(x_{k+1})=\nabla\phi(x_k)-h\nabla V(x_k),\qquad k=0,1,2,\ldots.
+$$
+\eqref{eq:LD}的镜像类比是所谓镜像 Langevin 扩散\index{Langevin diffusion@Langevin扩散（Langevin diffusion）!mirror Langevin@镜像Langevin（mirror Langevin）|hyperpage}\cite{ref80,ref330}：
+$$
+Y_t:=\nabla\phi(X_t),\qquad
+dY_t=-\nabla V(X_t)\,dt+\sqrt{2\nabla^2\phi(X_t)}\,dB_t.
+$$
+也可以适当地将其解释为 KL 散度的 Wasserstein“镜像”流.\footnote{更明确地说，它是 $\operatorname{KL}(\cdot\|\pi)$ 关于 $\phi$ 诱导的 Hessian 度量所诱导的 Wasserstein 几何的梯度流.}一个重要特例是 $V$ 严格凸并取 $\phi=V$，得到作为 Newton 法抽样类比的 Newton--Langevin 扩散\index{Langevin diffusion@Langevin扩散（Langevin diffusion）!Newton–Langevin@Newton–Langevin|hyperpage}：
+$$
+Y_t:=\nabla V(X_t),\qquad
+dY_t=-Y_t\,dt+\sqrt{2\nabla^2V(X_t)}\,dB_t.
+$$
+它继承了 Newton 法的一些有利性质，例如仿射不变性. 不过，对 Newton--Langevin 扩散乃至更一般镜像 Langevin 扩散离散化的理解，目前不如对\eqref{eq:LD}充分.
+
+最后一个例子是 Nesterov 加速梯度下降\cite{ref235}的适配，这是凸光滑最小化的最优一阶方法. 相应 SDE 方程组称为欠阻尼\index{Langevin diffusion@Langevin扩散（Langevin diffusion）!underdamped Langevin@欠阻尼Langevin（underdamped Langevin）|hyperpage}或动力学 Langevin 扩散（underdamped or kinetic Langevin diffusion），至少可追溯至\cite{ref179}：
+$$
+dX_t=P_t\,dt,\qquad
+dP_t=-\nabla V(X_t)\,dt-\gamma P_t\,dt+\sqrt{2\gamma}\,dB_t.
+$$
+这里 $P$ 为动量变量，$\gamma>0$ 为“摩擦”参数. 这一扩散已经成为许多先进对数凹抽样保证的基础. 但在优化中，Nesterov 法最著名的特点是将强凸光滑最小化的复杂度改善为 $\widetilde O(\sqrt\kappa)$，其中 $\kappa$ 为“条件数”. 这一结果比基本梯度下降节省了 $\sqrt\kappa$ 因子，称为加速现象（acceleration phenomenon）；在抽样中建立这种现象，仍是引人入胜的开放问题.
+
+\subsubsection*{复杂度}
+自\cite{ref234}以来，优化研究的重要目标是精确刻画各种函数类与预言机模型下的极小极大优化复杂度. 这一视角进入 MCMC 后，自然也想对抽样作同样研究，以\cite{ref74,ref99,ref126,ref127}等工作中的非渐近上界为起点. 相似之处很显著：两个领域选择相近的函数类，例如强凸光滑函数，以及相近的预言机模型. 这种联系也促使人们寻找能证明现有算法最优的预言机下界. 这已被证明是困难问题，近期取得了一些有限进展.
+
+另一个思想迁移的例子是构造“近似一阶驻点”的抽样类比，它为一般非对数凹情形中抽样的定量研究提供替代途径\cite{ref31}.
+
+尽管这一方向进展迅速，对数凹抽样复杂度仍有许多基本问题未解决. 关于这一活跃领域的介绍与更多参考文献，见专著\cite{ref77}.

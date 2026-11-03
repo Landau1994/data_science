@@ -1,0 +1,37 @@
+\subsection{二次函数的凸共轭}\label{sec:A.3}
+
+本节证明下面这个有用的引理：二次函数的凸共轭是一个可明确写出的二次函数.
+
+\begin{lemma}\label{lem:A.13}
+若$f(x)=\frac12x^{\mathsf T}Ax+b^{\mathsf T}x$，其中$A>0$，则
+\begin{equation}\label{eq:A.3}
+f^*(y)=\frac12(y-b)^{\mathsf T}A^{-1}(y-b).
+\end{equation}
+若$A$不可逆，只要将$A^{-1}(y-b)$解释为方程$y=Ax+b$存在解时的一个解，同一表达式仍然成立；否则$f^*(y)=+\infty$.
+\end{lemma}
+
+\begin{proof}
+$f^*(y)$的定义给出
+$$
+f^*(y)=\sup_{x\in\mathbb R^d}\left\{y^{\mathsf T}x-\frac12x^{\mathsf T}Ax-b^{\mathsf T}x\right\}.
+$$
+对目标函数求导可知，若极大化点$x^\star$存在，则它满足
+$$
+y=Ax^\star+b.
+$$
+因此，当$y-b\in\operatorname{span}(A)$时有$x^\star=A^{-1}(y-b)$. 此时，
+$$
+\begin{aligned}
+f^*(y)&=y^{\mathsf T}x^\star-\frac12(x^\star)^{\mathsf T}Ax^\star-b^{\mathsf T}x^\star\\
+&=\frac12(y-b)^{\mathsf T}A^{-1}(y-b).
+\end{aligned}
+$$
+另一方面，若$y-b\notin\operatorname{span}(A)$，则可找到$z\in\ker(A)$使$z^{\mathsf T}(y-b)\neq0$. 考虑$x=\lambda z$，其中$\lambda\in\mathbb R$，得到
+$$
+\begin{aligned}
+f^*(y)&\geq\sup_{\lambda\in\mathbb R}\left\{y^{\mathsf T}(\lambda z)-\frac12(\lambda z)^{\mathsf T}A(\lambda z)-b^{\mathsf T}(\lambda z)\right\}\\
+&=\sup_{\lambda\in\mathbb R}\lambda z^{\mathsf T}(y-b)=+\infty,
+\end{aligned}
+$$
+正如所要证明的那样.
+\end{proof}

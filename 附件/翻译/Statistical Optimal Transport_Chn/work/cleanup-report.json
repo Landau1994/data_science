@@ -1,0 +1,3209 @@
+{
+  "date": "2026-11-03",
+  "scope": "E:\\project\\math\\data_science\\附件\\翻译\\Statistical Optimal Transport_Chn",
+  "removed_files": 800,
+  "removed_bytes": 105302896,
+  "preserved": "Original PDF; delivered and historical compiled PDFs; canonical TeX; bibliography; assets; all .log files; source ledgers; audit/review reports; build scripts",
+  "removed": [
+    {
+      "path": "work\\full-temp\\02-layout.txt",
+      "bytes": 121228
+    },
+    {
+      "path": "work\\full-temp\\02-mathtext.txt",
+      "bytes": 112667
+    },
+    {
+      "path": "work\\full-temp\\03-layout.txt",
+      "bytes": 52990
+    },
+    {
+      "path": "work\\full-temp\\03-mathtext.txt",
+      "bytes": 53084
+    },
+    {
+      "path": "work\\full-temp\\04-layout.txt",
+      "bytes": 78923
+    },
+    {
+      "path": "work\\full-temp\\04-mathtext.txt",
+      "bytes": 72446
+    },
+    {
+      "path": "work\\full-temp\\05-layout.txt",
+      "bytes": 86137
+    },
+    {
+      "path": "work\\full-temp\\05-mathtext.txt",
+      "bytes": 94631
+    },
+    {
+      "path": "work\\full-temp\\06-layout.txt",
+      "bytes": 107502
+    },
+    {
+      "path": "work\\full-temp\\06-mathtext.txt",
+      "bytes": 104461
+    },
+    {
+      "path": "work\\full-temp\\07-layout.txt",
+      "bytes": 60412
+    },
+    {
+      "path": "work\\full-temp\\07-mathtext.txt",
+      "bytes": 66951
+    },
+    {
+      "path": "work\\full-temp\\08-layout.txt",
+      "bytes": 48022
+    },
+    {
+      "path": "work\\full-temp\\08-mathtext.txt",
+      "bytes": 49786
+    },
+    {
+      "path": "work\\full-temp\\A-layout.txt",
+      "bytes": 17573
+    },
+    {
+      "path": "work\\full-temp\\A-mathtext.txt",
+      "bytes": 17744
+    },
+    {
+      "path": "work\\full-temp\\appendix1-contact.png",
+      "bytes": 474001
+    },
+    {
+      "path": "work\\full-temp\\appendix2-contact.png",
+      "bytes": 362891
+    },
+    {
+      "path": "work\\full-temp\\appendix3-contact.png",
+      "bytes": 211902
+    },
+    {
+      "path": "work\\full-temp\\appendixB-figB-1.png",
+      "bytes": 2397
+    },
+    {
+      "path": "work\\full-temp\\B-layout.txt",
+      "bytes": 6425
+    },
+    {
+      "path": "work\\full-temp\\B-mathtext.txt",
+      "bytes": 7058
+    },
+    {
+      "path": "work\\full-temp\\back-contact.png",
+      "bytes": 479884
+    },
+    {
+      "path": "work\\full-temp\\fig3-1-check.png",
+      "bytes": 5171
+    },
+    {
+      "path": "work\\full-temp\\fig3-2-check.png",
+      "bytes": 5716
+    },
+    {
+      "path": "work\\full-temp\\fig5-1-preview.png",
+      "bytes": 14153
+    },
+    {
+      "path": "work\\full-temp\\fig7-1-crop.png",
+      "bytes": 10978
+    },
+    {
+      "path": "work\\full-temp\\front-dependencies.png",
+      "bytes": 10986
+    },
+    {
+      "path": "work\\full-temp\\front-layout.txt",
+      "bytes": 38607
+    },
+    {
+      "path": "work\\full-temp\\front-mathtext.txt",
+      "bytes": 28328
+    },
+    {
+      "path": "work\\full-temp\\front1-contact.png",
+      "bytes": 335252
+    },
+    {
+      "path": "work\\full-temp\\front2-contact.png",
+      "bytes": 599569
+    },
+    {
+      "path": "work\\full-temp\\front3-contact.png",
+      "bytes": 320503
+    },
+    {
+      "path": "work\\full-temp\\index-for-skill.md",
+      "bytes": 2642
+    },
+    {
+      "path": "work\\full-temp\\index-layout.txt",
+      "bytes": 4315
+    },
+    {
+      "path": "work\\full-temp\\index-mathtext.txt",
+      "bytes": 2965
+    },
+    {
+      "path": "work\\full-temp\\publisher-layout.txt",
+      "bytes": 6079
+    },
+    {
+      "path": "work\\full-temp\\publisher-mathtext.txt",
+      "bytes": 6006
+    },
+    {
+      "path": "work\\full-temp\\references-layout.txt",
+      "bytes": 67779
+    },
+    {
+      "path": "work\\full-temp\\references-mathtext.txt",
+      "bytes": 65028
+    },
+    {
+      "path": "work\\full-temp\\refs1-contact.png",
+      "bytes": 740562
+    },
+    {
+      "path": "work\\full-temp\\refs2-contact.png",
+      "bytes": 790485
+    },
+    {
+      "path": "work\\full-temp\\refs3-contact.png",
+      "bytes": 775674
+    },
+    {
+      "path": "work\\full-temp\\refs4-contact.png",
+      "bytes": 771110
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\01-01.tex",
+      "bytes": 11984
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\01-02.tex",
+      "bytes": 12003
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\01-03.tex",
+      "bytes": 4722
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\01-04.tex",
+      "bytes": 12338
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\01-05.tex",
+      "bytes": 21834
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\01-06.tex",
+      "bytes": 3736
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\01-07.tex",
+      "bytes": 3239
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\01-08.tex",
+      "bytes": 6934
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\02-01.tex",
+      "bytes": 2080
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\02-02.tex",
+      "bytes": 9913
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\02-03.tex",
+      "bytes": 7975
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\02-04.tex",
+      "bytes": 10653
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\02-05.tex",
+      "bytes": 6356
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\02-06.tex",
+      "bytes": 7713
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\02-07.tex",
+      "bytes": 7828
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\02-08.tex",
+      "bytes": 17360
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\02-09.tex",
+      "bytes": 6268
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\02-10.tex",
+      "bytes": 6532
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\03-01.tex",
+      "bytes": 3687
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\03-02.tex",
+      "bytes": 5605
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\03-03.tex",
+      "bytes": 2756
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\03-04.tex",
+      "bytes": 8196
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\03-05.tex",
+      "bytes": 4599
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\03-06.tex",
+      "bytes": 8029
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\03-07.tex",
+      "bytes": 2845
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\03-08.tex",
+      "bytes": 4889
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\04-01.tex",
+      "bytes": 10042
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\04-02.tex",
+      "bytes": 6592
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\04-03.tex",
+      "bytes": 12476
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\04-04.tex",
+      "bytes": 10998
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\04-05.tex",
+      "bytes": 3386
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\04-06.tex",
+      "bytes": 7902
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\05-01.tex",
+      "bytes": 11774
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\05-02.tex",
+      "bytes": 5132
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\05-03.tex",
+      "bytes": 5334
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\05-04.tex",
+      "bytes": 9114
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\05-05.tex",
+      "bytes": 8416
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\05-06.tex",
+      "bytes": 5050
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\05-07.tex",
+      "bytes": 9684
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\05-08.tex",
+      "bytes": 6455
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\05-09.tex",
+      "bytes": 2454
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\05-10.tex",
+      "bytes": 8191
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\06-01.tex",
+      "bytes": 21753
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\06-02.tex",
+      "bytes": 19621
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\06-03.tex",
+      "bytes": 8139
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\06-04.tex",
+      "bytes": 6508
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\06-05.tex",
+      "bytes": 5342
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\06-06.tex",
+      "bytes": 5932
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\06-07.tex",
+      "bytes": 5227
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\06-08.tex",
+      "bytes": 3960
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\07-01.tex",
+      "bytes": 12830
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\07-02.tex",
+      "bytes": 15003
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\07-03.tex",
+      "bytes": 19430
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\07-04.tex",
+      "bytes": 1212
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\07-05.tex",
+      "bytes": 2054
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\08-01.tex",
+      "bytes": 6881
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\08-02.tex",
+      "bytes": 18136
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\08-03.tex",
+      "bytes": 6456
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\08-04.tex",
+      "bytes": 1715
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\08-05.tex",
+      "bytes": 3830
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\A-01.tex",
+      "bytes": 6140
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\A-02.tex",
+      "bytes": 5912
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\A-03.tex",
+      "bytes": 1483
+    },
+    {
+      "path": "work\\full-temp\\index-helper-stage\\B-01.tex",
+      "bytes": 6204
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-001-004.png",
+      "bytes": 339908
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-005-008.png",
+      "bytes": 950610
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-009-012.png",
+      "bytes": 528864
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-013-016.png",
+      "bytes": 612717
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-017-020.png",
+      "bytes": 520960
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-021-024.png",
+      "bytes": 531652
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-025-028.png",
+      "bytes": 620939
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-029-032.png",
+      "bytes": 496397
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-033-036.png",
+      "bytes": 621053
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-037-040.png",
+      "bytes": 685117
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-041-044.png",
+      "bytes": 612780
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-045-048.png",
+      "bytes": 531901
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-049-052.png",
+      "bytes": 665454
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-053-056.png",
+      "bytes": 575074
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-057-060.png",
+      "bytes": 694864
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-061-064.png",
+      "bytes": 582041
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-065-068.png",
+      "bytes": 599078
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-069-072.png",
+      "bytes": 728470
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-073-076.png",
+      "bytes": 458715
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-077-080.png",
+      "bytes": 630972
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-081-084.png",
+      "bytes": 615895
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-085-088.png",
+      "bytes": 665481
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-089-092.png",
+      "bytes": 573767
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-093-096.png",
+      "bytes": 582581
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-097-100.png",
+      "bytes": 594181
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-101-104.png",
+      "bytes": 442542
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-105-108.png",
+      "bytes": 643578
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-109-112.png",
+      "bytes": 613756
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-113-116.png",
+      "bytes": 812227
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-117-120.png",
+      "bytes": 659594
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-121-124.png",
+      "bytes": 606914
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-125-128.png",
+      "bytes": 693547
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-129-132.png",
+      "bytes": 641365
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-133-136.png",
+      "bytes": 547573
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-137-140.png",
+      "bytes": 705809
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-141-144.png",
+      "bytes": 647028
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-145-148.png",
+      "bytes": 882513
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-149-152.png",
+      "bytes": 692931
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-153-156.png",
+      "bytes": 622985
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-157-160.png",
+      "bytes": 835468
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-161-164.png",
+      "bytes": 566294
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-165-168.png",
+      "bytes": 564255
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-169-172.png",
+      "bytes": 579148
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-173-176.png",
+      "bytes": 565375
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-177-180.png",
+      "bytes": 607845
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-181-184.png",
+      "bytes": 598269
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-185-188.png",
+      "bytes": 498646
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-189-192.png",
+      "bytes": 607579
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-193-196.png",
+      "bytes": 538026
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-197-200.png",
+      "bytes": 488685
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-201-204.png",
+      "bytes": 608999
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-205-208.png",
+      "bytes": 530967
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-209-212.png",
+      "bytes": 584424
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-213-216.png",
+      "bytes": 551507
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-217-220.png",
+      "bytes": 573758
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-221-224.png",
+      "bytes": 574910
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-225-228.png",
+      "bytes": 554811
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-229-232.png",
+      "bytes": 593358
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\contact-233-235.png",
+      "bytes": 585406
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-001.png",
+      "bytes": 43987
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-002.png",
+      "bytes": 75470
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-003.png",
+      "bytes": 105382
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-004.png",
+      "bytes": 26454
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-005.png",
+      "bytes": 111767
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-006.png",
+      "bytes": 202441
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-007.png",
+      "bytes": 155291
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-008.png",
+      "bytes": 170576
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-009.png",
+      "bytes": 153810
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-010.png",
+      "bytes": 75775
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-011.png",
+      "bytes": 80717
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-012.png",
+      "bytes": 75969
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-013.png",
+      "bytes": 31271
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-014.png",
+      "bytes": 135286
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-015.png",
+      "bytes": 127371
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-016.png",
+      "bytes": 132405
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-017.png",
+      "bytes": 69230
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-018.png",
+      "bytes": 103651
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-019.png",
+      "bytes": 125421
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-020.png",
+      "bytes": 88410
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-021.png",
+      "bytes": 120105
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-022.png",
+      "bytes": 97841
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-023.png",
+      "bytes": 82051
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-024.png",
+      "bytes": 84600
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-025.png",
+      "bytes": 85264
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-026.png",
+      "bytes": 138654
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-027.png",
+      "bytes": 100159
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-028.png",
+      "bytes": 116941
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-029.png",
+      "bytes": 71964
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-030.png",
+      "bytes": 89893
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-031.png",
+      "bytes": 102227
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-032.png",
+      "bytes": 98673
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-033.png",
+      "bytes": 113505
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-034.png",
+      "bytes": 126383
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-035.png",
+      "bytes": 88664
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-036.png",
+      "bytes": 124327
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-037.png",
+      "bytes": 144671
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-038.png",
+      "bytes": 115966
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-039.png",
+      "bytes": 99541
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-040.png",
+      "bytes": 127322
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-041.png",
+      "bytes": 117325
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-042.png",
+      "bytes": 103480
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-043.png",
+      "bytes": 107780
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-044.png",
+      "bytes": 108913
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-045.png",
+      "bytes": 149248
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-046.png",
+      "bytes": 75228
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-047.png",
+      "bytes": 89803
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-048.png",
+      "bytes": 68247
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-049.png",
+      "bytes": 96722
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-050.png",
+      "bytes": 113971
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-051.png",
+      "bytes": 126791
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-052.png",
+      "bytes": 135056
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-053.png",
+      "bytes": 106527
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-054.png",
+      "bytes": 96857
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-055.png",
+      "bytes": 82634
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-056.png",
+      "bytes": 130314
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-057.png",
+      "bytes": 145076
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-058.png",
+      "bytes": 147369
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-059.png",
+      "bytes": 94344
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-060.png",
+      "bytes": 101295
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-061.png",
+      "bytes": 132095
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-062.png",
+      "bytes": 69565
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-063.png",
+      "bytes": 99300
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-064.png",
+      "bytes": 116079
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-065.png",
+      "bytes": 127447
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-066.png",
+      "bytes": 87964
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-067.png",
+      "bytes": 104488
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-068.png",
+      "bytes": 108981
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-069.png",
+      "bytes": 115520
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-070.png",
+      "bytes": 101730
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-071.png",
+      "bytes": 144991
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-072.png",
+      "bytes": 153383
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-073.png",
+      "bytes": 117281
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-074.png",
+      "bytes": 102042
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-075.png",
+      "bytes": 19451
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-076.png",
+      "bytes": 94418
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-077.png",
+      "bytes": 119990
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-078.png",
+      "bytes": 141641
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-079.png",
+      "bytes": 72144
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-080.png",
+      "bytes": 113246
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-081.png",
+      "bytes": 98375
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-082.png",
+      "bytes": 135411
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-083.png",
+      "bytes": 112527
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-084.png",
+      "bytes": 92902
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-085.png",
+      "bytes": 130425
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-086.png",
+      "bytes": 97006
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-087.png",
+      "bytes": 90128
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-088.png",
+      "bytes": 158659
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-089.png",
+      "bytes": 111348
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-090.png",
+      "bytes": 59840
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-091.png",
+      "bytes": 134855
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-092.png",
+      "bytes": 103882
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-093.png",
+      "bytes": 104872
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-094.png",
+      "bytes": 93975
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-095.png",
+      "bytes": 82496
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-096.png",
+      "bytes": 144998
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-097.png",
+      "bytes": 142642
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-098.png",
+      "bytes": 106274
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-099.png",
+      "bytes": 102248
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-100.png",
+      "bytes": 77620
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-101.png",
+      "bytes": 64444
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-102.png",
+      "bytes": 100286
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-103.png",
+      "bytes": 92609
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-104.png",
+      "bytes": 79595
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-105.png",
+      "bytes": 78558
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-106.png",
+      "bytes": 136188
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-107.png",
+      "bytes": 112280
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-108.png",
+      "bytes": 131967
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-109.png",
+      "bytes": 97789
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-110.png",
+      "bytes": 26099
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-111.png",
+      "bytes": 152522
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-112.png",
+      "bytes": 156110
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-113.png",
+      "bytes": 123795
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-114.png",
+      "bytes": 131951
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-115.png",
+      "bytes": 166196
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-116.png",
+      "bytes": 139864
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-117.png",
+      "bytes": 117201
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-118.png",
+      "bytes": 121262
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-119.png",
+      "bytes": 123005
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-120.png",
+      "bytes": 110971
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-121.png",
+      "bytes": 115197
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-122.png",
+      "bytes": 63793
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-123.png",
+      "bytes": 117866
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-124.png",
+      "bytes": 135915
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-125.png",
+      "bytes": 146217
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-126.png",
+      "bytes": 143477
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-127.png",
+      "bytes": 109522
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-128.png",
+      "bytes": 87238
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-129.png",
+      "bytes": 102234
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-130.png",
+      "bytes": 103553
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-131.png",
+      "bytes": 156464
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-132.png",
+      "bytes": 95562
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-133.png",
+      "bytes": 113356
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-134.png",
+      "bytes": 52699
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-135.png",
+      "bytes": 121039
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-136.png",
+      "bytes": 102666
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-137.png",
+      "bytes": 130526
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-138.png",
+      "bytes": 117149
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-139.png",
+      "bytes": 147761
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-140.png",
+      "bytes": 108407
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-141.png",
+      "bytes": 114523
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-142.png",
+      "bytes": 139403
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-143.png",
+      "bytes": 109360
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-144.png",
+      "bytes": 94322
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-145.png",
+      "bytes": 140115
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-146.png",
+      "bytes": 147014
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-147.png",
+      "bytes": 166027
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-148.png",
+      "bytes": 154516
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-149.png",
+      "bytes": 112266
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-150.png",
+      "bytes": 121988
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-151.png",
+      "bytes": 134640
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-152.png",
+      "bytes": 124249
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-153.png",
+      "bytes": 93193
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-154.png",
+      "bytes": 93132
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-155.png",
+      "bytes": 116878
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-156.png",
+      "bytes": 140527
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-157.png",
+      "bytes": 106456
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-158.png",
+      "bytes": 171825
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-159.png",
+      "bytes": 180105
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-160.png",
+      "bytes": 130170
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-161.png",
+      "bytes": 113144
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-162.png",
+      "bytes": 86320
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-163.png",
+      "bytes": 112392
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-164.png",
+      "bytes": 94804
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-165.png",
+      "bytes": 94006
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-166.png",
+      "bytes": 117546
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-167.png",
+      "bytes": 101421
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-168.png",
+      "bytes": 95909
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-169.png",
+      "bytes": 129320
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-170.png",
+      "bytes": 101805
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-171.png",
+      "bytes": 83446
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-172.png",
+      "bytes": 107283
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-173.png",
+      "bytes": 86774
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-174.png",
+      "bytes": 139001
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-175.png",
+      "bytes": 91378
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-176.png",
+      "bytes": 91471
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-177.png",
+      "bytes": 70571
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-178.png",
+      "bytes": 104272
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-179.png",
+      "bytes": 106307
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-180.png",
+      "bytes": 148641
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-181.png",
+      "bytes": 121527
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-182.png",
+      "bytes": 84178
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-183.png",
+      "bytes": 128195
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-184.png",
+      "bytes": 91317
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-185.png",
+      "bytes": 87369
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-186.png",
+      "bytes": 93405
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-187.png",
+      "bytes": 108162
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-188.png",
+      "bytes": 74051
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-189.png",
+      "bytes": 110448
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-190.png",
+      "bytes": 100116
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-191.png",
+      "bytes": 105798
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-192.png",
+      "bytes": 120969
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-193.png",
+      "bytes": 66910
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-194.png",
+      "bytes": 106377
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-195.png",
+      "bytes": 116938
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-196.png",
+      "bytes": 91184
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-197.png",
+      "bytes": 107071
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-198.png",
+      "bytes": 78325
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-199.png",
+      "bytes": 58068
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-200.png",
+      "bytes": 111748
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-201.png",
+      "bytes": 129876
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-202.png",
+      "bytes": 108418
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-203.png",
+      "bytes": 110126
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-204.png",
+      "bytes": 118439
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-205.png",
+      "bytes": 116782
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-206.png",
+      "bytes": 99936
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-207.png",
+      "bytes": 104780
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-208.png",
+      "bytes": 107937
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-209.png",
+      "bytes": 118124
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-210.png",
+      "bytes": 113532
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-211.png",
+      "bytes": 121629
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-212.png",
+      "bytes": 113601
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-213.png",
+      "bytes": 108433
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-214.png",
+      "bytes": 109150
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-215.png",
+      "bytes": 103980
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-216.png",
+      "bytes": 116103
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-217.png",
+      "bytes": 112780
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-218.png",
+      "bytes": 107360
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-219.png",
+      "bytes": 114717
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-220.png",
+      "bytes": 112301
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-221.png",
+      "bytes": 103456
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-222.png",
+      "bytes": 117875
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-223.png",
+      "bytes": 112227
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-224.png",
+      "bytes": 114265
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-225.png",
+      "bytes": 115254
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-226.png",
+      "bytes": 105668
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-227.png",
+      "bytes": 114934
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-228.png",
+      "bytes": 104012
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-229.png",
+      "bytes": 108056
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-230.png",
+      "bytes": 111492
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-231.png",
+      "bytes": 108773
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-232.png",
+      "bytes": 127195
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-233.png",
+      "bytes": 123603
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-234.png",
+      "bytes": 167068
+    },
+    {
+      "path": "work\\full-temp\\output-pages\\page-235.png",
+      "bytes": 110591
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-001.png",
+      "bytes": 77790
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-002.png",
+      "bytes": 63606
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-003.png",
+      "bytes": 95112
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-004.png",
+      "bytes": 26374
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-005.png",
+      "bytes": 82935
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-006.png",
+      "bytes": 87048
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-007.png",
+      "bytes": 118654
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-008.png",
+      "bytes": 87075
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-009.png",
+      "bytes": 116902
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-010.png",
+      "bytes": 111882
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-011.png",
+      "bytes": 52768
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-012.png",
+      "bytes": 72661
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-013.png",
+      "bytes": 66063
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-014.png",
+      "bytes": 8238
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-051.png",
+      "bytes": 67777
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-052.png",
+      "bytes": 82209
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-053.png",
+      "bytes": 96674
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-054.png",
+      "bytes": 55608
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-055.png",
+      "bytes": 49865
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-056.png",
+      "bytes": 71106
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-057.png",
+      "bytes": 55205
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-058.png",
+      "bytes": 72553
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-059.png",
+      "bytes": 98745
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-060.png",
+      "bytes": 85996
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-061.png",
+      "bytes": 86111
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-062.png",
+      "bytes": 82586
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-063.png",
+      "bytes": 81356
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-064.png",
+      "bytes": 73732
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-065.png",
+      "bytes": 69431
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-066.png",
+      "bytes": 82898
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-067.png",
+      "bytes": 80500
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-068.png",
+      "bytes": 90555
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-069.png",
+      "bytes": 89867
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-070.png",
+      "bytes": 83572
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-071.png",
+      "bytes": 65961
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-072.png",
+      "bytes": 73107
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-073.png",
+      "bytes": 81572
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-074.png",
+      "bytes": 60373
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-075.png",
+      "bytes": 63938
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-076.png",
+      "bytes": 89235
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-077.png",
+      "bytes": 70720
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-078.png",
+      "bytes": 87695
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-079.png",
+      "bytes": 71596
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-080.png",
+      "bytes": 79831
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-081.png",
+      "bytes": 60198
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-082.png",
+      "bytes": 85284
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-083.png",
+      "bytes": 76662
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-084.png",
+      "bytes": 98953
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-085.png",
+      "bytes": 85995
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-086.png",
+      "bytes": 101652
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-087.png",
+      "bytes": 108781
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-088.png",
+      "bytes": 101861
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-089.png",
+      "bytes": 76219
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-090.png",
+      "bytes": 35612
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-091.png",
+      "bytes": 69298
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-092.png",
+      "bytes": 88977
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-093.png",
+      "bytes": 89542
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-094.png",
+      "bytes": 65307
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-095.png",
+      "bytes": 66063
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-096.png",
+      "bytes": 84718
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-097.png",
+      "bytes": 84323
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-098.png",
+      "bytes": 95554
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-099.png",
+      "bytes": 75132
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-100.png",
+      "bytes": 77813
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-101.png",
+      "bytes": 81300
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-102.png",
+      "bytes": 93096
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-103.png",
+      "bytes": 75653
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-104.png",
+      "bytes": 68025
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-105.png",
+      "bytes": 82382
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-106.png",
+      "bytes": 97294
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-107.png",
+      "bytes": 83828
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-108.png",
+      "bytes": 48243
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-109.png",
+      "bytes": 81523
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-110.png",
+      "bytes": 75606
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-111.png",
+      "bytes": 76820
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-112.png",
+      "bytes": 72729
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-113.png",
+      "bytes": 68265
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-114.png",
+      "bytes": 71653
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-115.png",
+      "bytes": 62807
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-116.png",
+      "bytes": 101325
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-117.png",
+      "bytes": 92651
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-118.png",
+      "bytes": 85233
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-119.png",
+      "bytes": 77061
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-120.png",
+      "bytes": 71146
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-121.png",
+      "bytes": 63378
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-122.png",
+      "bytes": 53706
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-123.png",
+      "bytes": 66881
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-124.png",
+      "bytes": 78870
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-125.png",
+      "bytes": 62630
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-126.png",
+      "bytes": 61966
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-127.png",
+      "bytes": 65007
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-128.png",
+      "bytes": 67658
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-129.png",
+      "bytes": 115062
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-130.png",
+      "bytes": 81686
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-131.png",
+      "bytes": 94379
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-132.png",
+      "bytes": 73066
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-133.png",
+      "bytes": 26084
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-134.png",
+      "bytes": 87430
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-135.png",
+      "bytes": 97542
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-136.png",
+      "bytes": 113628
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-137.png",
+      "bytes": 81439
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-138.png",
+      "bytes": 101145
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-139.png",
+      "bytes": 104369
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-140.png",
+      "bytes": 104030
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-141.png",
+      "bytes": 96730
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-142.png",
+      "bytes": 97239
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-143.png",
+      "bytes": 88390
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-144.png",
+      "bytes": 98252
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-145.png",
+      "bytes": 95215
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-146.png",
+      "bytes": 95560
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-147.png",
+      "bytes": 85261
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-148.png",
+      "bytes": 59596
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-149.png",
+      "bytes": 69532
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-150.png",
+      "bytes": 134597
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-151.png",
+      "bytes": 86572
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-152.png",
+      "bytes": 91315
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-153.png",
+      "bytes": 104583
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-154.png",
+      "bytes": 84423
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-155.png",
+      "bytes": 73395
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-156.png",
+      "bytes": 73870
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-157.png",
+      "bytes": 74766
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-158.png",
+      "bytes": 80214
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-159.png",
+      "bytes": 113336
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-160.png",
+      "bytes": 81618
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-161.png",
+      "bytes": 89214
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-162.png",
+      "bytes": 96354
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-163.png",
+      "bytes": 76807
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-164.png",
+      "bytes": 89871
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-165.png",
+      "bytes": 75396
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-166.png",
+      "bytes": 97857
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-167.png",
+      "bytes": 90333
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-168.png",
+      "bytes": 91922
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-169.png",
+      "bytes": 97736
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-170.png",
+      "bytes": 80141
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-171.png",
+      "bytes": 90102
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-172.png",
+      "bytes": 75064
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-173.png",
+      "bytes": 88585
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-174.png",
+      "bytes": 80193
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-175.png",
+      "bytes": 63753
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-176.png",
+      "bytes": 95036
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-177.png",
+      "bytes": 92765
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-178.png",
+      "bytes": 89591
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-179.png",
+      "bytes": 99268
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-180.png",
+      "bytes": 101401
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-181.png",
+      "bytes": 106009
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-182.png",
+      "bytes": 73222
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-183.png",
+      "bytes": 83457
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-184.png",
+      "bytes": 82825
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-185.png",
+      "bytes": 110913
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-186.png",
+      "bytes": 89140
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-187.png",
+      "bytes": 89620
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-188.png",
+      "bytes": 68261
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-189.png",
+      "bytes": 70661
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-190.png",
+      "bytes": 77933
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-191.png",
+      "bytes": 87634
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-192.png",
+      "bytes": 82453
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-193.png",
+      "bytes": 67819
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-194.png",
+      "bytes": 90319
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-195.png",
+      "bytes": 122239
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-196.png",
+      "bytes": 107490
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-197.png",
+      "bytes": 102738
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-198.png",
+      "bytes": 33794
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-199.png",
+      "bytes": 70114
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-200.png",
+      "bytes": 64730
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-201.png",
+      "bytes": 88737
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-202.png",
+      "bytes": 84675
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-203.png",
+      "bytes": 72877
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-204.png",
+      "bytes": 69505
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-205.png",
+      "bytes": 92065
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-206.png",
+      "bytes": 101500
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-207.png",
+      "bytes": 68805
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-208.png",
+      "bytes": 96277
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-209.png",
+      "bytes": 79490
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-210.png",
+      "bytes": 79704
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-211.png",
+      "bytes": 74275
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-212.png",
+      "bytes": 69839
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-213.png",
+      "bytes": 67776
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-214.png",
+      "bytes": 81175
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-215.png",
+      "bytes": 85190
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-216.png",
+      "bytes": 90400
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-217.png",
+      "bytes": 66016
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-218.png",
+      "bytes": 68931
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-219.png",
+      "bytes": 63707
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-220.png",
+      "bytes": 69920
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-221.png",
+      "bytes": 94081
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-222.png",
+      "bytes": 28241
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-223.png",
+      "bytes": 77012
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-224.png",
+      "bytes": 86176
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-225.png",
+      "bytes": 68602
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-226.png",
+      "bytes": 70764
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-227.png",
+      "bytes": 100500
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-228.png",
+      "bytes": 78925
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-229.png",
+      "bytes": 71202
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-230.png",
+      "bytes": 85343
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-231.png",
+      "bytes": 56598
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-232.png",
+      "bytes": 90095
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-233.png",
+      "bytes": 49050
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-234.png",
+      "bytes": 90746
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-235.png",
+      "bytes": 82283
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-236.png",
+      "bytes": 69036
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-237.png",
+      "bytes": 94163
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-238.png",
+      "bytes": 84019
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-239.png",
+      "bytes": 59288
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-240.png",
+      "bytes": 67723
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-241.png",
+      "bytes": 87858
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-242.png",
+      "bytes": 82034
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-243.png",
+      "bytes": 94284
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-244.png",
+      "bytes": 77086
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-245.png",
+      "bytes": 64109
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-246.png",
+      "bytes": 39938
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-247.png",
+      "bytes": 80799
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-248.png",
+      "bytes": 106244
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-249.png",
+      "bytes": 29513
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-250.png",
+      "bytes": 104232
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-251.png",
+      "bytes": 136085
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-252.png",
+      "bytes": 139267
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-253.png",
+      "bytes": 143367
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-254.png",
+      "bytes": 142990
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-255.png",
+      "bytes": 145721
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-256.png",
+      "bytes": 147449
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-257.png",
+      "bytes": 141929
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-258.png",
+      "bytes": 142650
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-259.png",
+      "bytes": 139545
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-260.png",
+      "bytes": 141547
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-261.png",
+      "bytes": 142714
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-262.png",
+      "bytes": 142012
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-263.png",
+      "bytes": 140566
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-264.png",
+      "bytes": 138918
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-265.png",
+      "bytes": 136470
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-266.png",
+      "bytes": 64486
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-267.png",
+      "bytes": 56071
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-268.png",
+      "bytes": 109317
+    },
+    {
+      "path": "work\\full-temp\\pages\\physical-269.png",
+      "bytes": 96459
+    },
+    {
+      "path": "work\\full-temp\\visual-081-160\\page-104.png",
+      "bytes": 180965
+    },
+    {
+      "path": "work\\full-temp\\visual-081-160\\page-122.png",
+      "bytes": 148232
+    },
+    {
+      "path": "work\\full-temp\\visual-081-160\\page-143.png",
+      "bytes": 253126
+    },
+    {
+      "path": "work\\full-temp\\visual-081-160\\page-146.png",
+      "bytes": 338795
+    },
+    {
+      "path": "work\\full-temp\\visual-081-160\\page-152.png",
+      "bytes": 283474
+    },
+    {
+      "path": "work\\full-temp\\visual-081-160\\page-160.png",
+      "bytes": 309748
+    },
+    {
+      "path": "work\\full-temp\\visual-081-160\\page-99.png",
+      "bytes": 235369
+    },
+    {
+      "path": "work\\rendered\\new-01.png",
+      "bytes": 51851
+    },
+    {
+      "path": "work\\rendered\\new-02.png",
+      "bytes": 47545
+    },
+    {
+      "path": "work\\rendered\\new-03.png",
+      "bytes": 158518
+    },
+    {
+      "path": "work\\rendered\\new-04.png",
+      "bytes": 147196
+    },
+    {
+      "path": "work\\rendered\\new-05.png",
+      "bytes": 154596
+    },
+    {
+      "path": "work\\rendered\\new-06.png",
+      "bytes": 76638
+    },
+    {
+      "path": "work\\rendered\\new-07.png",
+      "bytes": 118996
+    },
+    {
+      "path": "work\\rendered\\new-08.png",
+      "bytes": 144664
+    },
+    {
+      "path": "work\\rendered\\new-09.png",
+      "bytes": 111442
+    },
+    {
+      "path": "work\\rendered\\new-10.png",
+      "bytes": 130525
+    },
+    {
+      "path": "work\\rendered\\new-11.png",
+      "bytes": 113256
+    },
+    {
+      "path": "work\\rendered\\new-12.png",
+      "bytes": 93344
+    },
+    {
+      "path": "work\\rendered\\new-13.png",
+      "bytes": 97177
+    },
+    {
+      "path": "work\\rendered\\new-14.png",
+      "bytes": 97628
+    },
+    {
+      "path": "work\\rendered\\new-15.png",
+      "bytes": 159867
+    },
+    {
+      "path": "work\\rendered\\new-16.png",
+      "bytes": 114208
+    },
+    {
+      "path": "work\\rendered\\new-17.png",
+      "bytes": 134203
+    },
+    {
+      "path": "work\\rendered\\new-18.png",
+      "bytes": 84787
+    },
+    {
+      "path": "work\\rendered\\new-19.png",
+      "bytes": 103804
+    },
+    {
+      "path": "work\\rendered\\new-20.png",
+      "bytes": 117043
+    },
+    {
+      "path": "work\\rendered\\new-21.png",
+      "bytes": 113808
+    },
+    {
+      "path": "work\\rendered\\new-22.png",
+      "bytes": 130681
+    },
+    {
+      "path": "work\\rendered\\new-23.png",
+      "bytes": 146377
+    },
+    {
+      "path": "work\\rendered\\new-24.png",
+      "bytes": 102967
+    },
+    {
+      "path": "work\\rendered\\new-25.png",
+      "bytes": 143646
+    },
+    {
+      "path": "work\\rendered\\new-26.png",
+      "bytes": 165818
+    },
+    {
+      "path": "work\\rendered\\new-27.png",
+      "bytes": 133716
+    },
+    {
+      "path": "work\\rendered\\new-28.png",
+      "bytes": 112130
+    },
+    {
+      "path": "work\\rendered\\new-29.png",
+      "bytes": 144783
+    },
+    {
+      "path": "work\\rendered\\new-30.png",
+      "bytes": 137160
+    },
+    {
+      "path": "work\\rendered\\new-31.png",
+      "bytes": 140076
+    },
+    {
+      "path": "work\\rendered\\new-32.png",
+      "bytes": 103347
+    },
+    {
+      "path": "work\\rendered\\new-33.png",
+      "bytes": 120200
+    },
+    {
+      "path": "work\\rendered\\new-34.png",
+      "bytes": 108394
+    },
+    {
+      "path": "work\\rendered\\page-01.png",
+      "bytes": 57503
+    },
+    {
+      "path": "work\\rendered\\page-02.png",
+      "bytes": 47545
+    },
+    {
+      "path": "work\\rendered\\page-03.png",
+      "bytes": 158518
+    },
+    {
+      "path": "work\\rendered\\page-04.png",
+      "bytes": 147196
+    },
+    {
+      "path": "work\\rendered\\page-05.png",
+      "bytes": 154596
+    },
+    {
+      "path": "work\\rendered\\page-06.png",
+      "bytes": 76638
+    },
+    {
+      "path": "work\\rendered\\page-07.png",
+      "bytes": 118996
+    },
+    {
+      "path": "work\\rendered\\page-08.png",
+      "bytes": 144664
+    },
+    {
+      "path": "work\\rendered\\page-09.png",
+      "bytes": 111442
+    },
+    {
+      "path": "work\\rendered\\page-10.png",
+      "bytes": 130525
+    },
+    {
+      "path": "work\\rendered\\page-11.png",
+      "bytes": 113256
+    },
+    {
+      "path": "work\\rendered\\page-12.png",
+      "bytes": 93344
+    },
+    {
+      "path": "work\\rendered\\page-13.png",
+      "bytes": 97177
+    },
+    {
+      "path": "work\\rendered\\page-14.png",
+      "bytes": 97628
+    },
+    {
+      "path": "work\\rendered\\page-15.png",
+      "bytes": 159867
+    },
+    {
+      "path": "work\\rendered\\page-16.png",
+      "bytes": 114208
+    },
+    {
+      "path": "work\\rendered\\page-17.png",
+      "bytes": 134203
+    },
+    {
+      "path": "work\\rendered\\page-18.png",
+      "bytes": 84787
+    },
+    {
+      "path": "work\\rendered\\page-19.png",
+      "bytes": 103804
+    },
+    {
+      "path": "work\\rendered\\page-20.png",
+      "bytes": 117043
+    },
+    {
+      "path": "work\\rendered\\page-21.png",
+      "bytes": 113808
+    },
+    {
+      "path": "work\\rendered\\page-22.png",
+      "bytes": 130681
+    },
+    {
+      "path": "work\\rendered\\page-23.png",
+      "bytes": 146377
+    },
+    {
+      "path": "work\\rendered\\page-24.png",
+      "bytes": 102967
+    },
+    {
+      "path": "work\\rendered\\page-25.png",
+      "bytes": 143646
+    },
+    {
+      "path": "work\\rendered\\page-26.png",
+      "bytes": 165818
+    },
+    {
+      "path": "work\\rendered\\page-27.png",
+      "bytes": 133716
+    },
+    {
+      "path": "work\\rendered\\page-28.png",
+      "bytes": 112130
+    },
+    {
+      "path": "work\\rendered\\page-29.png",
+      "bytes": 144783
+    },
+    {
+      "path": "work\\rendered\\page-30.png",
+      "bytes": 137160
+    },
+    {
+      "path": "work\\rendered\\page-31.png",
+      "bytes": 140076
+    },
+    {
+      "path": "work\\rendered\\page-32.png",
+      "bytes": 103347
+    },
+    {
+      "path": "work\\rendered\\page-33.png",
+      "bytes": 120200
+    },
+    {
+      "path": "work\\rendered\\page-34.png",
+      "bytes": 108394
+    },
+    {
+      "path": "work\\full-static-scope\\Statistical Optimal Transport_Chn.tex",
+      "bytes": 540541
+    },
+    {
+      "path": "work\\full-static-scope\\bib\\references.bib",
+      "bytes": 76885
+    },
+    {
+      "path": "work\\static-scope\\Statistical Optimal Transport_Chn.tex",
+      "bytes": 83621
+    },
+    {
+      "path": "work\\static-scope\\bib\\references.bib",
+      "bytes": 4479
+    },
+    {
+      "path": "split-pdf\\chapter1.pdf",
+      "bytes": 480340
+    },
+    {
+      "path": "work\\all-source.txt",
+      "bytes": 779478
+    },
+    {
+      "path": "work\\backmatter-source.txt",
+      "bytes": 66755
+    },
+    {
+      "path": "work\\bib-review-046.png",
+      "bytes": 12733
+    },
+    {
+      "path": "work\\bib-review-055.png",
+      "bytes": 11603
+    },
+    {
+      "path": "work\\bib-review-114.png",
+      "bytes": 12035
+    },
+    {
+      "path": "work\\bib-review-173.png",
+      "bytes": 9995
+    },
+    {
+      "path": "work\\bib-review-231.png",
+      "bytes": 9208
+    },
+    {
+      "path": "work\\bib-review-271.png",
+      "bytes": 10760
+    },
+    {
+      "path": "work\\bib-review-273.png",
+      "bytes": 9050
+    },
+    {
+      "path": "work\\bib-review-302.png",
+      "bytes": 15182
+    },
+    {
+      "path": "work\\bib-review-314.png",
+      "bytes": 20011
+    },
+    {
+      "path": "work\\bib-review-317.png",
+      "bytes": 14156
+    },
+    {
+      "path": "work\\bibliography-p257.png",
+      "bytes": 170429
+    },
+    {
+      "path": "work\\build-bibtex.txt",
+      "bytes": 0
+    },
+    {
+      "path": "work\\build-pass1.txt",
+      "bytes": 12508
+    },
+    {
+      "path": "work\\build-pass2.txt",
+      "bytes": 12508
+    },
+    {
+      "path": "work\\build-pass3.txt",
+      "bytes": 12508
+    },
+    {
+      "path": "work\\chapter1-source.txt",
+      "bytes": 101654
+    },
+    {
+      "path": "work\\fig1-1-crop.png",
+      "bytes": 17775
+    },
+    {
+      "path": "work\\fig1-2-crop.png",
+      "bytes": 17802
+    },
+    {
+      "path": "work\\fig1-3-crop.png",
+      "bytes": 6667
+    },
+    {
+      "path": "work\\references-source.txt",
+      "bytes": 67779
+    },
+    {
+      "path": "work\\source-external-5-6.png",
+      "bytes": 45930
+    },
+    {
+      "path": "work\\source-external-B-5.png",
+      "bytes": 84752
+    },
+    {
+      "path": "work\\source-p01.png",
+      "bytes": 63387
+    },
+    {
+      "path": "work\\source-p02.png",
+      "bytes": 69381
+    },
+    {
+      "path": "work\\source-p03.png",
+      "bytes": 68545
+    },
+    {
+      "path": "work\\source-p04.png",
+      "bytes": 71245
+    },
+    {
+      "path": "work\\source-p05.png",
+      "bytes": 64084
+    },
+    {
+      "path": "work\\source-p06.png",
+      "bytes": 60343
+    },
+    {
+      "path": "work\\source-p07.png",
+      "bytes": 71942
+    },
+    {
+      "path": "work\\source-p08.png",
+      "bytes": 62419
+    },
+    {
+      "path": "work\\source-p09.png",
+      "bytes": 68954
+    },
+    {
+      "path": "work\\source-p10.png",
+      "bytes": 66199
+    },
+    {
+      "path": "work\\source-p11.png",
+      "bytes": 37913
+    },
+    {
+      "path": "work\\source-p12.png",
+      "bytes": 59584
+    },
+    {
+      "path": "work\\source-p13.png",
+      "bytes": 54390
+    },
+    {
+      "path": "work\\source-p14.png",
+      "bytes": 58540
+    },
+    {
+      "path": "work\\source-p15.png",
+      "bytes": 68438
+    },
+    {
+      "path": "work\\source-p16.png",
+      "bytes": 49022
+    },
+    {
+      "path": "work\\source-p17.png",
+      "bytes": 52346
+    },
+    {
+      "path": "work\\source-p18.png",
+      "bytes": 61717
+    },
+    {
+      "path": "work\\source-p19.png",
+      "bytes": 50724
+    },
+    {
+      "path": "work\\source-p20.png",
+      "bytes": 53505
+    },
+    {
+      "path": "work\\source-p21.png",
+      "bytes": 58830
+    },
+    {
+      "path": "work\\source-p22.png",
+      "bytes": 49869
+    },
+    {
+      "path": "work\\source-p23.png",
+      "bytes": 67159
+    },
+    {
+      "path": "work\\source-p24.png",
+      "bytes": 60495
+    },
+    {
+      "path": "work\\source-p25.png",
+      "bytes": 73446
+    },
+    {
+      "path": "work\\source-p26.png",
+      "bytes": 56508
+    },
+    {
+      "path": "work\\source-p27.png",
+      "bytes": 68038
+    },
+    {
+      "path": "work\\source-p28.png",
+      "bytes": 80288
+    },
+    {
+      "path": "work\\source-p29.png",
+      "bytes": 82934
+    },
+    {
+      "path": "work\\source-p30.png",
+      "bytes": 57788
+    },
+    {
+      "path": "work\\source-p31.png",
+      "bytes": 54396
+    },
+    {
+      "path": "work\\source-p32.png",
+      "bytes": 54814
+    },
+    {
+      "path": "work\\source-p33.png",
+      "bytes": 83189
+    },
+    {
+      "path": "work\\source-p34.png",
+      "bytes": 68848
+    },
+    {
+      "path": "work\\source-p35.png",
+      "bytes": 71857
+    },
+    {
+      "path": "work\\source-p36.png",
+      "bytes": 40857
+    },
+    {
+      "path": "work\\Statistical Optimal Transport_Chn.aux",
+      "bytes": 10507
+    },
+    {
+      "path": "work\\Statistical Optimal Transport_Chn.bbl",
+      "bytes": 4148
+    },
+    {
+      "path": "work\\Statistical Optimal Transport_Chn.blg",
+      "bytes": 924
+    },
+    {
+      "path": "work\\Statistical Optimal Transport_Chn.out",
+      "bytes": 2791
+    },
+    {
+      "path": "work\\Statistical Optimal Transport_Chn.toc",
+      "bytes": 1680
+    },
+    {
+      "path": "work\\Statistical Optimal Transport_Chn.xdv",
+      "bytes": 351140
+    },
+    {
+      "path": "work\\full-build\\bibtex.txt",
+      "bytes": 0
+    },
+    {
+      "path": "work\\full-build\\makeindex-1.txt",
+      "bytes": 516
+    },
+    {
+      "path": "work\\full-build\\makeindex-2.txt",
+      "bytes": 516
+    },
+    {
+      "path": "work\\full-build\\Statistical Optimal Transport_Chn.aux",
+      "bytes": 71229
+    },
+    {
+      "path": "work\\full-build\\Statistical Optimal Transport_Chn.bbl",
+      "bytes": 71452
+    },
+    {
+      "path": "work\\full-build\\Statistical Optimal Transport_Chn.blg",
+      "bytes": 1093
+    },
+    {
+      "path": "work\\full-build\\Statistical Optimal Transport_Chn.idx",
+      "bytes": 11838
+    },
+    {
+      "path": "work\\full-build\\Statistical Optimal Transport_Chn.ilg",
+      "bytes": 504
+    },
+    {
+      "path": "work\\full-build\\Statistical Optimal Transport_Chn.ind",
+      "bytes": 9146
+    },
+    {
+      "path": "work\\full-build\\Statistical Optimal Transport_Chn.out",
+      "bytes": 16574
+    },
+    {
+      "path": "work\\full-build\\Statistical Optimal Transport_Chn.toc",
+      "bytes": 10970
+    },
+    {
+      "path": "work\\full-build\\xelatex-1.txt",
+      "bytes": 16979
+    },
+    {
+      "path": "work\\full-build\\xelatex-2.txt",
+      "bytes": 16889
+    },
+    {
+      "path": "work\\full-build\\xelatex-3.txt",
+      "bytes": 16889
+    },
+    {
+      "path": "work\\combined-for-static.tex",
+      "bytes": 83738
+    },
+    {
+      "path": "work\\full-combined-for-static.tex",
+      "bytes": 540154
+    },
+    {
+      "path": "work\\full-main-draft.tex",
+      "bytes": 11532
+    },
+    {
+      "path": "work\\full-output-page-digests-previous.json",
+      "bytes": 18225
+    },
+    {
+      "path": "work\\probe.pdf",
+      "bytes": 0
+    }
+  ]
+}

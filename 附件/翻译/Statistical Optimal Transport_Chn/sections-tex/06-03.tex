@@ -1,0 +1,103 @@
+\subsection{相互作用粒子系统}\label{sec:6.3}
+
+\autoref{sec:6.2}中的 SDE 系统每次都演化一个粒子，可能是在扩大的状态空间中. 更一般地，可以考虑确定性或随机的相互作用粒子系统. 这很相关，因为如\autoref{sec:5.8.1}所述，从离散测度出发的 Wasserstein 梯度流可以通过平均场相互作用粒子系统实现. 回顾若梯度流\eqref{eq:6.6}的初值为
+$$
+\mu_0^N=\frac1N\sum_{j=1}^N\delta_{X_0^j},
+$$
+则 $\mu_t$ 由经验测度
+$$
+\mu_t^N=\frac1N\sum_{j=1}^N\delta_{X_t^j}
+$$
+给出，其中
+\begin{equation}\label{eq:6.15}
+\dot X_t^i=-\nabla\mkern-10mu\nabla\mathcal F\left(\frac1N\sum_{j=1}^N\delta_{X_t^j}\right),
+\qquad i\in[N].
+\end{equation}
+只要 Wasserstein 梯度在离散测度 $\mu_t^N$ 处有定义，这就成立. 此时一般预期，当 $N\to\infty$ 且 $\mu_0^N\to\mu_0\in\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 时，动力学\eqref{eq:6.15}收敛到以 $\mu_0$ 为初值的\eqref{eq:6.6}；在对 $\mathcal F$ 的假设下，可以严格建立这一点. 借助其他工具还可证明，若 $\mu_0\in\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$，则所有 $t\geq0$ 时 $\mu_t\in\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$.
+
+\subsubsection{McKean--Vlasov 方程}\label{sec:6.3.1}\index{McKean–Vlasov@McKean–Vlasov|hyperpage}
+
+本小节考虑来自 Wasserstein 梯度流的其他相互作用系统例子. 回顾\autoref{sec:5.4}的三个基本泛函例子：势能、内能和相互作用能. 若取三者之和会如何？
+\begin{equation}\label{eq:6.16}
+\mathcal F(\mu):=\int V\,d\mu
++\iint W(x-y)\,\mu(dx)\mu(dy)+\frac{\sigma^2}2\int\mu\log\mu,
+\end{equation}
+其中 $W$ 为偶函数. 利用\autoref{sec:6.2.1}开头的技巧并计算 Wasserstein 梯度，可自行验证下面的定理.
+
+\begin{theorem}\label{thm:6.15}
+\eqref{eq:6.16}的 Wasserstein 梯度流 $(\mu_t)_{t\geq0}$ 可描述为 $\mu_t=\operatorname{law}(X_t)$，其中 $(X_t)_{t\geq0}$ 解 SDE
+\begin{equation}\label{eq:6.17}
+dX_t=-\nabla V(X_t)\,dt-\int\nabla W(X_t-y)\,\mu_t(dy)\,dt+\sigma\,dB_t.
+\end{equation}
+\end{theorem}
+
+注意 SDE 系统\eqref{eq:6.17}的系数依赖于过程的分布. 这样的系统称为 McKean--Vlasov 过程\cite{ref226}. 为用相互作用粒子系统逼近\eqref{eq:6.17}，将关于 $\mu_t$ 的积分换成粒子平均：
+\begin{equation}\label{eq:6.18}
+dX_t^i=-\nabla V(X_t^i)\,dt
+-\frac1{N-1}\sum_{j\in[N]\setminus i}\nabla W(X_t^i-X_t^j)\,dt+\sigma\,dB_t^i,
+\end{equation}
+其中 $\{B^i\}_{i\in[N]}$ 为独立 Brown 运动族. 自然的问题是定量比较有限粒子系统\eqref{eq:6.18}与其平均场极限\eqref{eq:6.17}的接近程度. 混沌传播（propagation of chaos）理论处理这一问题\cite{ref297}.
+
+更一般地，假设有熵正则泛函
+\begin{equation}\label{eq:6.19}
+\mathcal F(\mu):=\mathcal F_0(\mu)+\frac{\sigma^2}2\int\mu\log\mu.
+\end{equation}
+可以证明，\eqref{eq:6.19}的 Wasserstein 梯度流可描述为下列 SDE 系统的边缘分布 $\mu_t=\operatorname{law}(X_t)$：
+$$
+dX_t=-\nabla\mkern-10mu\nabla\mathcal F_0(\mu_t)(X_t)\,dt+\sigma\,dB_t.
+$$
+该系统称为平均场或相互作用 Langevin 动力学\index{Langevin diffusion@Langevin扩散（Langevin diffusion）!mean-field@平均场（mean-field）|hyperpage}\cite{ref67,ref296}. 相应的有限粒子系统
+$$
+dX_t^i=-\nabla\mkern-10mu\nabla\mathcal F_0\left(\frac1N\sum_{j=1}^N\delta_{X_t^j}\right)(X_t^i)\,dt
++\sigma\,dB_t^i,\qquad i\in[N],
+$$
+实际上就是对应于目标
+$$
+\widehat\pi_N(x^1,\ldots,x^N)\propto
+\exp\left(-\frac{2N}{\sigma^2}\mathcal F_0\left(\frac1N\sum_{j=1}^N\delta_{x_t^j}\right)\right)
+$$
+的 Langevin 扩散. 从泛函\eqref{eq:6.16}与\eqref{eq:6.19}的极小化解中抽样的复杂度，见\cite{ref185}.
+
+最后考虑\autoref{sec:6.1.3}的平均场 VI 应用. 写出其中 Wasserstein 梯度流的随机实现，\cite{ref190}得到 McKean--Vlasov SDE
+$$
+dX_t=-\int\nabla_1W(X_t,y)\,\mu_t(dy)\,dt+\sqrt2\,dB_t,
+$$
+其中 $\mu_t=\operatorname{law}(X_t)$，$\nabla_1$ 表示对第一个参数取梯度，且
+$$
+W(x,y):=\sum_{i=1}^dV(y_1,\ldots,y_{i-1},x_i,y_{i+1},\ldots,y_d).
+$$
+若初值 $X_0\sim\mu_0$ 中 $\mu_0$ 为乘积测度，则所有 $t\geq0$ 时 $\mu_t$ 仍为乘积测度，因此 $(\mu_t)_{t\geq0}$ 确为受约束的 Wasserstein 梯度流.
+
+相应的相互作用粒子系统为
+$$
+dX_t^j=-\frac1{N-1}\sum_{j'\in[N]\setminus i}\nabla_1W(X_t^j,X_t^{j'})\,dt
++\sqrt2\,dB_t^j,\qquad j\in[N].
+$$
+于是预期，只要 $N$ 足够大并运行此粒子系统，例如第一个粒子 $X_t^1$ 的分布就会接近平均场极小化解 $q_\star$.
+
+\subsubsection{生灭抽样}\label{sec:6.3.2}\index{Wasserstein–Fisher–Rao (WFR)@Wasserstein–Fisher–Rao（WFR）（Wasserstein–Fisher–Rao (WFR)）|hyperpage}\index{birth-death sampling@生灭抽样（birth-death sampling）|hyperpage}
+
+回到\autoref{sec:6.2}的抽样问题. 若不采用 KL 散度的 Wasserstein 梯度流，而采用\autoref{sec:5.7}引入的 WFR 梯度流，会如何？根本区别在于，Langevin 扩散是局部算法，很难在相距很远的众数间跳跃. 这一点体现于\autoref{cor:6.14}的收敛速率依赖于目标 $\pi$ 的对数 Sobolev 常数. 另一方面，Fisher--Rao 分量的“瞬移”效应带来通用的指数收敛速率\cite{ref115}.
+
+主要挑战是实现该流. 回顾\autoref{sec:5.8.2}已经给出 WFR 梯度流的粒子实现，但它不适用于 $\mathcal F=\operatorname{KL}(\cdot\|\pi)$，因为那里假定能够在经验测度处求值一阶变分 $\delta\mathcal F$. \cite{ref216}提供了名为“生灭”（birth-death）抽样的实现，下面介绍.
+
+这一实现基于 $N$ 个相互作用粒子，在时刻 $t$ 记为 $X_t^1,\ldots,X_t^N$. \autoref{sec:5.8.2}的方法为每个粒子赋予权重 $w_t^i$，满足 $\dot w_t^i=-\alpha_t(X_t^i)w_t^i$，其中 $\alpha_t(x):=\delta\mathcal F(\mu_t)(x)-\int\delta\mathcal F(\mu_t)\,d\mu_t$. 这里 $\alpha_t(x)$ 表示 $x$ 处密度的指数衰减或增长速率，分别对应于 $\alpha_t(x)>0$ 或 $\alpha_t(x)<0$. 改为在随机等待时间后“杀死”或“复制”粒子的操作，替代权重. 具体地，为每个 $X_t^i$ 配备独立时钟，在下一无穷小区间 $[t,t+dt]$ 以概率 $\alpha_t(X_t^i)dt$ 响铃. 某时钟响起时，若对应 $X_t^i$，则在 $\alpha_t(X_t^i)>0$ 时移除该粒子，或在 $\alpha_t(X_t^i)<0$ 时复制它. 为保持粒子总数不变，前一种情形随机复制另一粒子，后一种情形随机杀死另一粒子.
+
+生灭过程实现 WFR 梯度流的 Fisher--Rao 分量. 为实现 Wasserstein 分量，规定每个粒子在生灭事件之间独立地按 Langevin 扩散演化.
+
+上述讨论仍有歧义：测度 $\mu_t$ 是什么？理想上它应是 $X_t^i$ 的边缘分布，由可交换性它不依赖 $i$；但实现时无法访问该边缘分布. 上一小节的方法提示用粒子经验测度 $\mu_t^N=N^{-1}\sum_{i=1}^N\delta_{X_t^i}$ 替代，但 KL 散度的一阶变分在此测度上没有良好定义. 因而遵循\cite{ref216}，转用核密度估计，以适当核函数 $k:\mathbb R^d\to\mathbb R$ 对应的 $k\star\mu_t^N$ 替代 $\mu_t$. 得到算法：
+\begin{enumerate}
+\item 为每个粒子 $X_t^i$ 配备独立时钟，瞬时响铃速率为 $\widehat\alpha_t(X_t^i)$，其中
+$$
+\widehat\alpha_t(x):=\log\frac{k\star\mu_t^N}\pi(x)
+-\frac1N\sum_{j=1}^N\log\frac{k\star\mu_t^N}\pi(X_t^j).
+$$
+注意，当只给出未归一化密度 $\pi\propto\exp(-V)$ 时，计算 $\widehat\alpha_t$ 不需要知道归一化常数.
+\item 某个时钟响起时，根据 $\widehat\alpha_t(X_t^i)>0$ 或 $\widehat\alpha_t(X_t^i)<0$，杀死或复制对应粒子 $X_t^i$，并随机复制或杀死另一粒子.
+\item 在时钟响铃之间，每个粒子按照 Langevin 扩散演化：
+$$
+dX_t^i=-\nabla V(X_t^i)\,dt+\sqrt2\,dB_t^i,\qquad i\in[N],
+$$
+其中 $\{B^i\}_{i\in[N]}$ 为独立同分布的 Brown 运动.
+\end{enumerate}
+\cite{ref216}表明，当 $N\to\infty$ 且核带宽适当趋零时，这一过程的边缘分布收敛到 WFR 梯度流.

@@ -1,0 +1,71 @@
+[
+  {
+    "tag": "xelatex-1",
+    "command": [
+      "xelatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "-file-line-error",
+      "-output-directory=work/full-build",
+      "Statistical Optimal Transport_Chn.tex"
+    ],
+    "exit": 0
+  },
+  {
+    "tag": "bibtex",
+    "command": [
+      "bibtex",
+      "-terse",
+      "work/full-build/Statistical Optimal Transport_Chn"
+    ],
+    "exit": 0
+  },
+  {
+    "tag": "makeindex-1",
+    "command": [
+      "makeindex",
+      "-o",
+      "work/full-build/Statistical Optimal Transport_Chn.ind",
+      "-t",
+      "work/full-build/Statistical Optimal Transport_Chn.ilg",
+      "work/full-build/Statistical Optimal Transport_Chn.idx"
+    ],
+    "exit": 0
+  },
+  {
+    "tag": "xelatex-2",
+    "command": [
+      "xelatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "-file-line-error",
+      "-output-directory=work/full-build",
+      "Statistical Optimal Transport_Chn.tex"
+    ],
+    "exit": 0
+  },
+  {
+    "tag": "makeindex-2",
+    "command": [
+      "makeindex",
+      "-o",
+      "work/full-build/Statistical Optimal Transport_Chn.ind",
+      "-t",
+      "work/full-build/Statistical Optimal Transport_Chn.ilg",
+      "work/full-build/Statistical Optimal Transport_Chn.idx"
+    ],
+    "exit": 0
+  },
+  {
+    "tag": "xelatex-3",
+    "command": [
+      "xelatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "-file-line-error",
+      "-output-directory=work/full-build",
+      "Statistical Optimal Transport_Chn.tex"
+    ],
+    "exit": 0
+  }
+]

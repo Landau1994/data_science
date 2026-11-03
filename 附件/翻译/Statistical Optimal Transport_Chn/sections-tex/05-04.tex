@@ -1,0 +1,120 @@
+\subsection{Otto 微积分}\label{sec:5.4}
+
+下一步是认出 Wasserstein 梯度，从而定义 Wasserstein 梯度流. 获得泛函测地凸的判别条件之后，就可以得到相应的收敛速率.
+
+Wasserstein 梯度可以用一阶变分表示.
+
+\begin{definition}[一阶变分]\label{def:5.9}\index{first variation@一阶变分（first variation）|hyperpage}
+设 $\mathcal F:\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)\to\mathbb R$ 为泛函. $\mathcal F$ 在 $\mu$ 处的一阶变分（first variation），记为 $\delta\mathcal F(\mu):\mathbb R^d\to\mathbb R$，由下式定义：
+\begin{equation}\label{eq:5.9}
+\lim_{\varepsilon\searrow0}\frac{\mathcal F(\mu+\varepsilon\chi)-\mathcal F(\mu)}{\varepsilon}
+=\int\delta\mathcal F(\mu)\,d\chi,
+\end{equation}
+其中 $\chi$ 遍历满足对充分小的 $\varepsilon$ 都有 $\mu+\varepsilon\chi\in\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 的符号测度.
+\end{definition}
+
+若 $(\mu_t)_{t\geq0}$ 为密度曲线，则当 $\varepsilon$ 很小时，可以写线性近似 $\mu_{t+\varepsilon}\approx\mu_t+\varepsilon\partial_t\mu_t$，其中 $\partial_t\mu_t$ 是普通时间导数. 取 $\chi=\partial_t\mu_t$，则\eqref{eq:5.9}成为 $\partial_t\mathcal F(\mu_t)=\int\delta\mathcal F(\mu_t)\,\partial_t\mu_t$. 还应注意，一阶变分只确定到相差一个加法常数，因为扰动 $\chi$ 总满足 $\int d\chi=0$.
+
+现在可以定义 Wasserstein 梯度. 根据定义，给定具有切向量 $(v_t)_{t\geq0}$ 的测度曲线 $(\mu_t)_{t\geq0}$，泛函 $\mathcal F:\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)\to\mathbb R$ 的梯度是 $T_{\mu_t}\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 中满足 $\partial_t\mathcal F(\mu_t)=\langle\nabla\mkern-10mu\nabla\mathcal F(\mu_t),v_t\rangle_{\mu_t}$ 的元素. 下一个命题表明，这一定义可以直接用一阶变分写出.
+
+\begin{proposition}\label{prop:5.10}\index{Wasserstein gradient@Wasserstein梯度（Wasserstein gradient）|hyperpage}
+设 $\mathcal F:\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)\to\mathbb R$ 为具有一阶变分 $\delta\mathcal F$ 的泛函. 则 $\mathcal F$ 的 Wasserstein 梯度是向量场 $\nabla\mkern-10mu\nabla\mathcal F(\mu):\mathbb R^d\to\mathbb R^d$，定义为
+$$
+\nabla\mkern-10mu\nabla\mathcal F(\mu)=\nabla\delta\mathcal F(\mu),
+$$
+其中右侧的 $\nabla$ 表示普通欧氏梯度.
+\end{proposition}
+\begin{proof}
+设 $(\mu_t)_{t\geq0}$ 为切向量为 $(v_t)_{t\geq0}$ 的测度曲线. $v_t$ 为时刻 $t$ 的切向量，意味着它解连续性方程\eqref{eq:5.2}. 由上面对一阶变分的讨论，
+$$
+\begin{aligned}
+\partial_t\mathcal F(\mu_t)
+&=\int\delta\mathcal F(\mu_t)\,\partial_t\mu_t
+=-\int\delta\mathcal F(\mu_t)\operatorname{div}(\mu_tv_t)\\
+&=\int\langle\nabla\delta\mathcal F(\mu_t),v_t\rangle\,d\mu_t
+=\langle\nabla\delta\mathcal F(\mu_t),v_t\rangle_{\mu_t}.
+\end{aligned}
+$$
+而且，$\nabla\delta\mathcal F(\mu_t)$ 为函数的梯度，所以由\autoref{def:5.5}，它属于 $T_{\mu_t}\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$. 因此，$\nabla\delta\mathcal F(\mu_t)$ 确实是 $\mathcal F$ 在 $\mu_t$ 处的 Wasserstein 梯度.
+\end{proof}
+
+因此，计算 Wasserstein 梯度只需先计算一阶变分，再对它取梯度. 用 $\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 上三个典型泛函作说明.
+
+\begin{example}[势能]\label{ex:5.11}\index{potential energy@势能（potential energy）|hyperpage}
+设 $\mathcal F(\mu):=\int V\,d\mu$，其中 $V:\mathbb R^d\to\mathbb R$ 为某个势函数（potential）. 那么 $\partial_t\mathcal F(\mu_t)=\int V\,\partial_t\mu_t$，可以认出 $\delta\mathcal F(\mu)=V$，因此 $\nabla\mkern-10mu\nabla\mathcal F(\mu)=\nabla V$.
+\end{example}
+
+\begin{example}[内能]\label{ex:5.12}\index{internal energy@内能（internal energy）|hyperpage}
+设 $\mathcal F(\mu):=\int U(\mu(x))\,dx$，其中 $U:\mathbb R_+\to\mathbb R$ 为某个函数. 例如，$U(x)=x\log x$ 给出熵泛函.\footnote{这里是热力学熵的负值.}那么 $\partial_t\mathcal F(\mu_t)=\int U'(\mu_t)\,\partial_t\mu_t$，所以 $\delta\mathcal F(\mu)=U'\circ\mu$，从而 $\nabla\mkern-10mu\nabla\mathcal F(\mu)=\nabla(U'\circ\mu)$. 对熵，$\delta\mathcal F(\mu)=\log\mu+1$，且 $\nabla\mkern-10mu\nabla\mathcal F(\mu)=\nabla\log\mu$.
+\end{example}
+
+\begin{example}[相互作用能]\label{ex:5.13}\index{interaction energy@相互作用能（interaction energy）|hyperpage}
+取对称核 $K:\mathbb R^d\to\mathbb R$，即 $K(-z)=K(z)$. 令 $\mathcal F(\mu):=\frac12\iint K(x-y)\,\mu(dx)\mu(dy)$. 例如，可以考虑高斯核 $K(x)=\exp(-\|x\|^2/(2\sigma^2))$. 那么 $\partial_t\mathcal F(\mu_t)=\iint K(x-y)\,\mu_t(dy)\partial_t\mu_t(dx)$，所以
+$$
+\delta\mathcal F(\mu)=\int K(\cdot-y)\,\mu(dy),\qquad
+\nabla\mkern-10mu\nabla\mathcal F(\mu)=\int\nabla K(\cdot-y)\,\mu(dy).
+$$
+\end{example}
+
+现在可以定义 $\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$ 上泛函 $\mathcal F$ 的 Wasserstein 梯度流. 梯度流是时刻 $t$ 的切向量等于 $-\nabla\mkern-10mu\nabla\mathcal F(\mu_t)$ 的测度曲线 $(\mu_t)_{t\geq0}$. 回顾切向量通过连续性方程\eqref{eq:5.2}支配该曲线的演化，得到以下定义.
+
+\begin{definition}[Wasserstein 梯度流]\label{def:5.14}\index{Wasserstein gradient flow@Wasserstein梯度流（Wasserstein gradient flow）|hyperpage}
+设 $\mathcal F:\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)\to\mathbb R$ 为泛函. 若 $(\mu_t)_{t\geq0}$ 解偏微分方程
+$$
+\partial_t\mu_t=\operatorname{div}\bigl(\mu_t\nabla\mkern-10mu\nabla\mathcal F(\mu_t)\bigr),
+$$
+则称它为 $\mathcal F$ 的 Wasserstein 梯度流（Wasserstein gradient flow）.
+\end{definition}
+
+优化理论中早已知道，梯度流是最小化目标泛函 $\mathcal F$ 的自然动力学，因为如下文所述，它总使目标值下降. 因而，Wasserstein 梯度流提供了有原则的方法，用于在概率测度空间上设计最小化某一准则的动力学；这类任务广泛存在于应用数学、统计学及其他领域，见\autoref{sec:6}.
+
+利用 $\mathcal F$ 的 Wasserstein 梯度流 $(\mu_t)_{t\geq0}$ 的定义，简单计算可得
+\begin{equation}\label{eq:5.10}
+\partial_t\mathcal F(\mu_t)
+=\langle\nabla\mkern-10mu\nabla\mathcal F(\mu_t),v_t\rangle_{\mu_t}
+=-\|\nabla\mkern-10mu\nabla\mathcal F(\mu_t)\|_{\mu_t}^2,
+\end{equation}
+其中 $v_t=-\nabla\mkern-10mu\nabla\mathcal F(\mu_t)$ 是时刻 $t$ 的切向量. 此等式表明，目标泛函以等于梯度范数平方的速率耗散，这是梯度流的一般事实. 特别地，若 $\mathcal F$ 有下界，则梯度流的任何极限点都必为 $\mathcal F$ 的驻点.
+
+不过，若能给耗散速率一个定量下界，就能说得更多. 最简单的此类条件是 Polyak\index{Polyak–Łojasiewicz (PŁ) inequality@Polyak–Łojasiewicz（PŁ）不等式（Polyak–Łojasiewicz (PŁ) inequality）|hyperpage}--Łojasiewicz（PŁ）不等式.
+
+\begin{definition}[Polyak--Łojasiewicz（PŁ）不等式]\label{def:5.15}
+若对所有 $\mu\in\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)$，都有
+$$
+\|\nabla\mkern-10mu\nabla\mathcal F(\mu)\|_\mu^2
+\geq2\alpha\bigl(\mathcal F(\mu)-\inf\mathcal F\bigr),
+$$
+则称 $\mathcal F:\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)\to\mathbb R$ 满足常数为 $\alpha>0$ 的 PŁ 不等式.
+\end{definition}
+
+$\mathbb R^d$ 上的 PŁ 不等式见\autoref{sec:A.2}；以上定义将它适配至当前情形. 由\eqref{eq:5.10}，PŁ 不等式给出
+$$
+\partial_t\bigl(\mathcal F(\mu_t)-\inf\mathcal F\bigr)
+\leq-2\alpha\bigl(\mathcal F(\mu_t)-\inf\mathcal F\bigr).
+$$
+令 $\phi(t):=\mathcal F(\mu_t)-\inf\mathcal F$，则 $\dot\phi(t)\leq-2\alpha\phi(t)$. 若这是等式，则可以求解微分方程得到 $\phi(t)=\phi(0)\exp(-2\alpha t)$. 一般地，对于微分不等式，可以用相应微分方程的解控制 $\phi$；这由 Grönwall\index{Grönwall’s inequality@Grönwall不等式（Grönwall’s inequality）|hyperpage} 不等式严格表述.
+
+\begin{lemma}[Grönwall 不等式]\label{lem:5.16}
+设 $c\in\mathbb R$，$\phi:[0,T]\to\mathbb R$ 可微，且所有 $t\in[0,T]$ 都满足 $\dot\phi(t)\leq c\phi(t)$. 则
+$$
+\phi(t)\leq\phi(0)\exp(ct),\qquad\forall t\in[0,T].
+$$
+\end{lemma}
+\begin{proof}
+有
+$$
+\partial_t[\exp(-ct)\phi(t)]
+=\exp(-ct)[-c\phi(t)+\dot\phi(t)]\leq0.
+$$
+所以 $\exp(-ct)\phi(t)\leq\exp(-c\cdot0)\phi(0)=\phi(0)$.
+\end{proof}
+
+另一方面，使用与\autoref{lem:A.11}相同的论证，可以证明：只要 $\mathcal F$ 为 $\alpha$-测地凸，就满足常数为 $\alpha$ 的 PŁ 不等式. 得到以下有用的推论.
+
+\begin{corollary}\label{cor:5.17}
+设 $\mathcal F:\mathcal P_{2,\mathrm{ac}}(\mathbb R^d)\to\mathbb R$ 为 $\alpha$-测地凸泛函. 则沿着 $\mathcal F$ 的 Wasserstein 梯度流 $(\mu_t)_{t\geq0}$，有
+$$
+\mathcal F(\mu_t)-\inf\mathcal F
+\leq e^{-2\alpha t}\bigl(\mathcal F(\mu_0)-\inf\mathcal F\bigr).
+$$
+\end{corollary}

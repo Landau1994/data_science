@@ -1,0 +1,69 @@
+\subsection{对偶链式界}\label{sec:2.3}
+本节给出一个表面上不同的\autoref{prop:2.5}的证明. 我们不在原始问题中构造耦合，而使用 $1$-Wasserstein 距离的对偶表示. 这种方法的优点在于可以写成
+\begin{equation}\label{eq:2.6}
+\begin{aligned}
+W_1(\mu_n,\mu)&=\sup_{f\in\mathrm{Lip}_1}\left\{\int f\,d\mu_n-\int f\,d\mu\right\}\\
+&=\sup_{f\in\mathrm{Lip}_1}\frac1n\sum_{i=1}^n\{f(X_i)-\mathbb Ef(X_i)\}.
+\end{aligned}
+\end{equation}
+随机过程 $f\mapsto\frac1n\sum_{i=1}^n\{f(X_i)-\mathbb Ef(X_i)\}$ 称为经验过程\index{empirical process@经验过程（empirical process）|hyperpage}（empirical process），而对这种过程上确界的期望作界，是统计学许多领域中非常常见的任务.
+
+为控制这个经验过程，我们使用一种称为链式法\index{chaining@链式法（chaining）|hyperpage}（chaining）的标准技术. 给定 $\Omega\subseteq\mathbb R^d$ 上的实值函数类 $\mathcal F$，若对任意 $f\in\mathcal F$，存在 $f_i\in F$ 使 $\lVert f-f_i\rVert_{L^\infty(\Omega)}\le\varepsilon$，则称集合 $F=\{f_1,\ldots,f_N\}$ 为 $\mathcal F$ 的一个 $\varepsilon$-覆盖（$\varepsilon$-cover）. $\mathcal F$ 的 $\varepsilon$-覆盖数（covering number）为
+$$N(\varepsilon,\mathcal F)=\min\{|F|:F\text{ 是 }\mathcal F\text{ 的一个 }\varepsilon\text{-覆盖}\}.$$
+链式论证表明，函数类 $\mathcal F$ 的覆盖数控制以该类为指标集的经验过程的上确界. 我们使用如下版本.
+\begin{proposition}[\cite{ref310}，定理 5.31]\label{prop:2.6}
+若 $\mathcal F$ 是 $\Omega$ 上的实值函数集合，且所有 $f\in\mathcal F$ 都满足 $\lVert f\rVert_{L^\infty(\Omega)}\le R$，则
+$$\mathbb E\sup_{f\in\mathcal F}\frac1n\sum_{i=1}^n\{f(X_i)-\mathbb Ef(X_i)\}
+\lesssim\inf_{\tau>0}\left\{\tau+\frac1{\sqrt n}\int_\tau^R\sqrt{\log N(\varepsilon,\mathcal F)}\,d\varepsilon\right\}.$$
+\end{proposition}
+\autoref{prop:2.6}与 \eqref{eq:2.6} 意味着，只要能计算 $[0,1]^d$ 上 Lipschitz 函数集合的覆盖数，就能得到 $\mathbb EW_1(\mu_n,\mu)$ 的上界. 还应注意，不失一般性，可以假设 \eqref{eq:2.6} 中出现的函数在 $(0,\ldots,0)$ 处取值为 $0$. 事实上，$[0,1]^d$ 上的 Lipschitz 函数有界，并且给 $f$ 加上常数不影响 $\frac1n\sum_{i=1}^n\{f(X_i)-\mathbb Ef(X_i)\}$ 的值，所以可将其在 $(0,\ldots,0)$ 处的值固定为 $0$.
+\begin{lemma}\label{lem:2.7}
+用 $\overline{\mathrm{Lip}}_1([0,1]^d)$ 表示 $[0,1]^d$ 上满足 $f(0)=0$ 的 $1$-Lipschitz 函数集合. 则
+$$\log N(\varepsilon,\overline{\mathrm{Lip}}_1([0,1]^d))\lesssim(4\sqrt d/\varepsilon)^d.$$
+\end{lemma}
+\begin{proof}
+我们通过构造一个具有指定大小的 $\varepsilon$-覆盖，为覆盖数作界. 为此，再次使用将 $[0,1]^d$ 二进划分为边长 $2^{-j}$ 的立方体集合 $\mathcal Q_j$ 的概念. 其中每个元素都形如 $2^{-j}([k_1,k_1+1]\times\cdots\times[k_d,k_d+1])$，这里整数 $k_1,\ldots,k_d\in[2^j-1]:=\{0,\ldots,2^j-1\}$. 对 $\vec k=(k_1,\ldots,k_d)$，将这一元素记为 $Q_{\vec k}$.\footnote{这些立方体在边界相交，不过如前所述，可以去除重叠部分，得到 $[0,1]^d$ 的不交划分.}
+
+固定一个整数 $j\ge0$ 和稍后指定的正数 $\delta>0$. 考虑满足下列要求的函数 $h$ 组成的集合 $\mathcal H$：
+\begin{enumerate}
+\item $h$ 在 $\mathcal Q_j$ 的每个元素上为常数，即存在常数 $(h_{\vec k})_{\vec k\in[2^j-1]^d}$，使所有 $x\in Q_{\vec k}$ 都满足 $h(x)=h_{\vec k}$.
+\item 对所有 $\vec k\in[2^j-1]^d$，$h_{\vec k}$ 是 $\delta$ 的整数倍.
+\item $h_{(0,\ldots,0)}=0$.
+\item 若 $\lVert\vec k-\vec k'\rVert_\infty\le1$，则 $|h_{\vec k}-h_{\vec k'}|\le2^{-j}\sqrt d+\delta$.
+\end{enumerate}
+首先断言，若 $2^{-j}\sqrt d+\delta\le\varepsilon$，则 $\mathcal H$ 构成 $\overline{\mathrm{Lip}}_1([0,1]^d)$ 的一个 $\varepsilon$-覆盖. 给定任意 $f\in\overline{\mathrm{Lip}}_1([0,1]^d)$，用 $h_f$ 表示对所有 $\vec k\in[2^j-1]^d$ 由 $(h_f)_{\vec k}=\delta\lfloor f(2^{-j}(k_1,\ldots,k_d))/\delta\rfloor$ 给出的 $\mathcal H$ 中元素. 为看出 $h_f\in\mathcal H$，注意其构造立即保证了前三项要求；对于第四项，有
+$$\begin{aligned}
+|(h_f)_{\vec k}-(h_f)_{\vec k'}|
+&=\delta\left|\left\lfloor\frac{f(2^{-j}(k_1,\ldots,k_d))}{\delta}\right\rfloor
+-\left\lfloor\frac{f(2^{-j}(k'_1,\ldots,k'_d))}{\delta}\right\rfloor\right|\\
+&\le|f(2^{-j}(k_1,\ldots,k_d))-f(2^{-j}(k'_1,\ldots,k'_d))|+\delta\\
+&\le2^{-j}\lVert\vec k-\vec k'\rVert_2+\delta,
+\end{aligned}$$
+其中最后一个不等式来自 $f$ 的 Lipschitz 性. 当 $\lVert\vec k-\vec k'\rVert_\infty=1$ 时有 $\lVert\vec k-\vec k'\rVert_2\le\sqrt d$，故得所述结论. 最后，对任意 $x\in Q_{\vec k}$，再次使用 $f$ 的 Lipschitz 性得到
+$$\begin{aligned}
+|f(x)-(h_f)_{\vec k}|
+&=\left|f(x)-\delta\left\lfloor\frac{f(2^{-j}(k_1,\ldots,k_d))}{\delta}\right\rfloor\right|\\
+&\le|f(x)-f(2^{-j}(k_1,\ldots,k_d))|+\delta\\
+&\le\operatorname{diam}(Q_{\vec k})+\delta=2^{-j}\sqrt d+\delta.
+\end{aligned}$$
+因此 $\lVert f-h_f\rVert_\infty\le2^{-j}\sqrt d+\delta$.
+
+我们已证明，对每个 $f\in\overline{\mathrm{Lip}}_1([0,1]^d)$，存在 $h_f\in\mathcal H$ 满足 $\lVert f-h_f\rVert_\infty\le2^{-j}\sqrt d+\delta$. 因而若 $2^{-j}\sqrt d+\delta\le\varepsilon$，$\mathcal H$ 就是一个 $\varepsilon$-覆盖. 固定 $\delta=2^{-j}\sqrt d$，则该要求化为 $2^{-j}\sqrt d\le\varepsilon/2$.
+
+为给 $|\mathcal H|$ 作界，注意若固定某个 $\vec k$ 的 $h_{\vec k}$，那么对满足 $\lVert\vec k-\vec k'\rVert_\infty=1$ 的任意 $\vec k'$，$h_{\vec k'}$ 至多有 $5$ 个可能取值. 这是因为它必须是 $\delta=2^{-j}\sqrt d$ 的整数倍，而区间 $[h_{\vec k}-2\delta,h_{\vec k}+2\delta]$ 中恰有 $5$ 个这样的整数倍. 所以，若通过依次指定 $h_{\vec k}$ 的值来确定 $\mathcal H$ 的元素，先令 $h_{(0,\ldots,0)}=0$，再按字典序推进，那么每一步对下一个 $h_{\vec k}$ 都至多有 $5$ 种选择. 这说明 $|\mathcal H|\le5^{2^{dj}-1}$.
+
+因此，对任意满足 $2^{-j}\sqrt d\le\varepsilon/2$ 的 $j$，都得到了 $\mathcal F$ 的一个 $\varepsilon$-覆盖 $\mathcal H$，且 $\log|\mathcal H|\lesssim2^{dj}$. 取 $2^j$ 为大于 $2\sqrt d/\varepsilon$ 的最小的 $2$ 的幂，即得结论.
+\end{proof}
+有了\autoref{lem:2.7}的界，便能给出\autoref{prop:2.5}的另一个证明.
+\begin{proof}[\autoref{prop:2.5}的证明]
+对所有 $f\in\overline{\mathrm{Lip}}_1([0,1]^d)$，都有 $\lVert f\rVert_\infty\le\sqrt d$；因此根据\autoref{prop:2.6}和 \eqref{eq:2.6}，对任意 $\tau>0$，
+$$\mathbb EW_1(\mu_n,\mu)\lesssim\tau+\frac1{\sqrt n}\int_\tau^{\sqrt d}\sqrt{\log N(\varepsilon,\overline{\mathrm{Lip}}_1([0,1]^d))}\,d\varepsilon.$$
+应用\autoref{lem:2.7}得到
+$$\mathbb EW_1(\mu_n,\mu)\lesssim\tau+\frac1{\sqrt n}\int_\tau^{\sqrt d}(4\sqrt d/\varepsilon)^{d/2}\,d\varepsilon.$$
+现在分别考虑 $d=1$ 与 $d>1$. 若 $d=1$，可取 $\tau=0$，得到
+$$\mathbb EW_1(\mu_n,\mu)\lesssim\frac1{\sqrt n}\int_0^1(4/\varepsilon)^{1/2}\,d\varepsilon\lesssim n^{-1/2}.$$
+若 $d>1$，则 $\varepsilon^{-d/2}$ 在 $0$ 处不再可积，故取 $\tau=4\sqrt d\,n^{-1/d}$，得到
+$$\mathbb EW_1(\mu_n,\mu)\lesssim\sqrt d\,n^{-1/d}+\frac1{\sqrt n}\int_{4\sqrt d\,n^{-1/d}}^{\sqrt d}(4\sqrt d/\varepsilon)^{d/2}\,d\varepsilon.$$
+当 $d=2$ 时，积分为 $O(\log n)$，得到 $\mathbb EW_1(\mu_n,\mu)\lesssim(\log n)/\sqrt n$；当 $d>2$ 时，积分为 $O(n^{1/2-1/d})$，得到 $\mathbb EW_1(\mu_n,\mu)\lesssim\sqrt d\,n^{-1/d}$.
+\end{proof}
+\autoref{prop:2.5}的这两个证明看起来颇为不同，实际上却很相似：两者都采用 $[0,1]^d$ 的多尺度分解. 二进划分论证用该分解在原始问题中构造耦合；链式论证则用它控制对偶问题中 Lipschitz 函数的覆盖数.

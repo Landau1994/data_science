@@ -1,0 +1,96 @@
+\subsection{Wasserstein--Fisher--Rao 几何}\label{sec:5.7}
+
+现在描述 Wasserstein 几何的一种变体，它在应用中经常有用，\autoref{sec:6}将予以说明. 这一变体称为 Wasserstein--Fisher--Rao（WFR）或 Hellinger--Kantorovich 距离，最初作为非平衡\index{unbalanced optimal transport@非平衡最优传输（unbalanced optimal transport）|hyperpage}最优传输（unbalanced optimal transport）的模型提出并研究，即总质量未必相同的正测度之间的最优传输. 一个显著例子是前言提到的细胞轨迹重建：用测度表示不同时刻的细胞群体快照，而细胞的出生与死亡确实会改变总质量.
+
+从静态视角看，WFR 定义了最优传输问题的一种变体，可以类似\autoref{sec:1}那样研究其代价、度量性质、对偶等. 这一方向的详细研究见\cite{ref84,ref183,ref209,ref210}. 本节遵循\cite[附录 H]{ref192}，侧重于所得度量空间的黎曼结构，以推导梯度流.
+
+\subsubsection*{Fisher--Rao}
+讨论 Wasserstein--Fisher--Rao 之前，先介绍其关键组成之一：Fisher--Rao 度量. 这是 $\mathbb R^d$ 上正测度空间 $\mathcal M_+(\mathbb R^d)$ 上的度量，定义为
+$$
+\mathsf d_{\mathsf{FR}}^2(\mu_0,\mu_1):=\int(\sqrt{\mu_0}-\sqrt{\mu_1})^2,
+$$
+其中照常将测度与其 Lebesgue 密度等同，并假设密度存在.\footnote{密度不存在时，可以对任意共同控制测度 $\lambda$ 定义 $\mathsf d_{\mathsf{FR}}^2(\mu_0,\mu_1):=\int(\sqrt{d\mu_0/d\lambda}-\sqrt{d\mu_1/d\lambda})^2\,d\lambda$.}当 $\mu_0,\mu_1$ 为概率测度时，$\mathsf d_{\mathsf{FR}}$ 就是统计学中的 Hellinger 距离.\footnote{这解释了 WFR 度量并存的命名约定；注意 $\{\text{Wasserstein},\text{Fisher--Rao}\}\cong\{\text{Hellinger},\text{Kantorovich}\}$.}
+
+几何上，$\mathsf d_{\mathsf{FR}}$ 是通过要求 $\mu\mapsto\sqrt\mu$ 等距嵌入 Hilbert 空间 $L^2(\mathbb R^d)$ 而得到的非负密度上的度量. 因而 $(\mathcal M_+(\mathbb R^d),\mathsf d_{\mathsf{FR}})$ 的几何是平坦的，可以通过该等距映射得到黎曼结构. 具体地，若 $\dot\mu$ 表示密度曲线的时间导数，则平方根的导数为 $\dot{\sqrt\mu}=\dot\mu/(2\sqrt\mu)$. 若用 $L^2(\mathbb R^d)$ 范数衡量后者的“长度”，得到切空间 $T_\mu\mathcal M_+(\mathbb R^d)$ 上的诱导黎曼度量
+$$
+\mathfrak g_\mu(\dot\mu,\dot\mu)
+:=\|\dot{\sqrt\mu}\|_{L^2(\mathbb R^d)}^2=\int\frac{\dot\mu^2}{4\mu},
+$$
+该切空间由函数 $\dot\mu:\mathbb R^d\to\mathbb R$ 组成.
+
+这一几何建立在所有正测度的空间上，包括质量总量不同的测度，因而适合刻画自然发生质量变化的物理情形. 典型例子是 $\mu$ 表示化学物质浓度，而浓度随化学反应变化. 这由反应方程（reaction equation）$\partial_t\mu_t=\alpha_t\mu_t$ 建模，其中 $\alpha_t:\mathbb R^d\to\mathbb R$ 规定每个空间点的反应速率. 此记号中 $\alpha=\dot\mu/\mu$，相当于对切空间重新参数化. 换言之，也可以将切空间视为函数 $\alpha:\mathbb R^d\to\mathbb R$ 构成的空间，并赋予度量
+\begin{equation}\label{eq:5.17}\index{Fisher–Rao@Fisher–Rao|hyperpage}
+\widetilde{\mathfrak g}_\mu(\alpha,\alpha)
+:=\mathfrak g_\mu(\alpha\mu,\alpha\mu)=\frac14\int\alpha^2\,d\mu.
+\end{equation}
+以下采用这一定义，因而记 $\|\alpha\|_\mu^2:=\widetilde{\mathfrak g}_\mu(\alpha,\alpha)$.
+
+与 Wasserstein 几何的定义比较：在每个测度 $\mu$ 处，“切空间”$T_\mu\mathcal M_+(\mathbb R^d)$ 现在定义为所有函数 $\alpha:\mathbb R^d\to\mathbb R$ 的空间，赋予度量\eqref{eq:5.17}，并用反应方程 $\partial_t\mu_t=\alpha_t\mu_t$ 取代连续性方程. 与 Wasserstein 度量相比，Fisher--Rao 度量基于完全不同的直觉：反应方程描述质量的自发产生与消灭，而非质量传输.
+
+虽然 Fisher--Rao 几何的动机涉及质量变化，我们也可能希望将它用于需要始终在概率测度空间上流动的问题. 为此，考虑 $\mathcal P(\mathbb R^d)$ 上的诱导几何. 方程 $\partial_t\mu_t=\alpha_t\mu_t$ 保持总质量不变，当且仅当所有 $t\geq0$ 都有 $\int\alpha_t\,d\mu_t=0$，所以将切空间限制为 $T_\mu\mathcal P(\mathbb R^d)=\{\alpha:\mathbb R^d\to\mathbb R\mid\int\alpha\,d\mu=0\}$，并赋予度量\eqref{eq:5.17}.\footnote{一个离散类比是：给 $\{1,\ldots,d\}$ 上概率测度的空间，即 $\mathbb R^d$ 中的单纯形，通过等距映射 $p\mapsto\sqrt p$ 赋予几何，其中 $\sqrt p$ 是单位球面 $S^{d-1}$ 的元素. 见\autoref{exer:5.13}.}质量守恒保证，任意被消灭的质量都会在别处立即产生. 沿用传输的语言，这种现象有时称为瞬移（teleportation）；不过，它仅仅对应于重新加权.
+
+梯度流又如何？给定泛函 $\mathcal F:\mathcal M_+(\mathbb R^d)\to\mathbb R$ 或 $\mathcal F:\mathcal P(\mathbb R^d)\to\mathbb R$，根据定义，沿着任意满足 $\partial_t\mu_t=\alpha_t\mu_t$ 的曲线，梯度满足 $\partial_t\mathcal F(\mu_t)=\langle\nabla_{\mathsf{FR}}\mathcal F(\mu_t),\alpha_t\rangle_{\mu_t}$. 展开定义可以验证（见\autoref{exer:5.14}）
+\begin{equation}\label{eq:5.18}
+\begin{aligned}
+\nabla_{\mathsf{FR}}\mathcal F(\mu)&=\delta\mathcal F(\mu),\qquad\text{或}\\
+\nabla_{\mathsf{FR}}\mathcal F(\mu)&=\delta\mathcal F(\mu)-\int\delta\mathcal F(\mu)\,d\mu,
+\end{aligned}
+\end{equation}
+分别对应于 $\mathcal M_+(\mathbb R^d)$ 和 $\mathcal P(\mathbb R^d)$；这里 $\delta\mathcal F$ 为一阶变分（\autoref{def:5.9}）. 为区分两种情况并强调 WFR 度量来自非平衡最优传输的初衷，将前者称为非平衡 Fisher--Rao，后者简称 Fisher--Rao. $\mathcal F$ 的 Fisher--Rao 梯度流在时刻 $t$ 沿切向量 $-\nabla_{\mathsf{FR}}\mathcal F(\mu_t)$ 演化，满足
+\begin{equation}\label{eq:5.19}
+\partial_t\mu_t=-\nabla_{\mathsf{FR}}\mathcal F(\mu_t)\,\mu_t.
+\end{equation}
+
+\subsubsection*{Wasserstein--Fisher--Rao}
+现在将 Wasserstein 与 Fisher--Rao 两种几何结合，得到同时包含质量传输及产生／消灭（也称重新加权或瞬移）的混合几何. 方法是直接考虑带反应的连续性方程 $\partial_t\mu_t+\operatorname{div}(\mu_tv_t)=\alpha_t\mu_t$. 支配方程由函数 $\alpha$ 和向量场 $v$ 参数化，两者共同构成切向量. 因而自然考虑度量\footnote{严格说，将 Wasserstein 与 Fisher--Rao 几何相加时，应在 $\alpha^2$ 项前加系数 $1/4$；部分文献确实采用这一约定. 为简洁起见，本书省略该系数.}
+\begin{equation}\label{eq:5.20}\index{Wasserstein–Fisher–Rao (WFR)@Wasserstein–Fisher–Rao（WFR）（Wasserstein–Fisher–Rao (WFR)）|hyperpage}
+\|(\alpha,v)\|_\mu^2=\int(\alpha^2+\|v\|^2)\,d\mu.
+\end{equation}
+不过，与\autoref{sec:5.1}的讨论类似，这尚未唯一确定切向量，因为在保持同一测度演化 $(\mu_t)_{t\geq0}$ 的同时，$(\alpha,v)$ 的选择仍有过多自由. 可以证明，使范数\eqref{eq:5.20}最小的最优对 $(\alpha,v)$（参见\autoref{sec:5.1}）可刻画为：对某个函数 $\psi:\mathbb R^d\to\mathbb R$，$\alpha=\psi$、$v=\nabla\psi$. 因而，可以将 $\mu$ 处的 WFR 切空间定义为
+$$
+T_\mu\mathcal M_+(\mathbb R^d)
+=\overline{\{(\psi,\nabla\psi)\mid\psi:\mathbb R^d\to\mathbb R\text{ 紧支撑且光滑}\}}^{L^2(\mu)},
+$$
+并赋予范数
+\begin{equation}\label{eq:5.21}
+\|(\psi,\nabla\psi)\|_\mu^2:=\int(\psi^2+\|\nabla\psi\|^2)\,d\mu.
+\end{equation}
+它有一种令人满意的解释：将 Wasserstein 度量 $\|\nabla\psi\|_{L^2(\mu)}^2$ “补全”为 $\psi$ 的完整 Sobolev 范数. 还应注意，支配方程成为
+\begin{equation}\label{eq:5.22}
+\partial_t\mu_t+\operatorname{div}(\mu_t\nabla\psi_t)=\psi_t\mu_t.
+\end{equation}
+与之前一样，也可以限制到概率测度空间 $\mathcal P(\mathbb R^d)$，此时只考虑满足 $\int\psi\,d\mu=0$ 的对 $(\psi,\nabla\psi)$，并赋予同一度量\eqref{eq:5.21}. 称整个空间 $\mathcal M_+(\mathbb R^d)$ 上的 WFR 为非平衡 WFR，以下将 WFR 专指其在 $\mathcal P(\mathbb R^d)$ 上的限制.
+
+下一个定理计算 WFR 梯度.
+
+\begin{theorem}\label{thm:5.24}
+设 $\mathcal F$ 为 $\mathcal M_+(\mathbb R^d)$ 或 $\mathcal P(\mathbb R^d)$ 上的泛函. 那么，$\mathcal F$ 的非平衡 WFR 梯度记为 $\nabla\mkern-10mu\nabla_{\mathsf{FR}}\mathcal F$，满足
+$$
+\nabla\mkern-10mu\nabla_{\mathsf{FR}}\mathcal F(\mu)
+=\bigl(\delta\mathcal F(\mu),\nabla\delta\mathcal F(\mu)\bigr),
+$$
+而 WFR 梯度为
+$$
+\nabla\mkern-10mu\nabla_{\mathsf{FR}}\mathcal F(\mu)
+=\left(\delta\mathcal F(\mu)-\int\delta\mathcal F(\mu)\,d\mu,\nabla\delta\mathcal F(\mu)\right).
+$$
+\end{theorem}
+\begin{proof}
+设 $(\mu_t)_{t\geq0}$ 满足\eqref{eq:5.22}. 分部积分给出
+$$
+\partial_t\mathcal F(\mu_t)
+=\int\langle\nabla\delta\mathcal F(\mu_t),\nabla\psi_t\rangle\,d\mu_t
++\int\delta\mathcal F(\mu_t)\psi_t\,d\mu_t.
+$$
+在非平衡情形，根据度量\eqref{eq:5.21}的定义，可以将它认作
+$$
+\langle(\delta\mathcal F(\mu),\nabla\delta\mathcal F(\mu)),(\psi_t,\nabla\psi_t)\rangle_{\mu_t}.
+$$
+在平衡情形，有 $\int\psi_t\,d\mu_t=0$；而且 WFR 梯度按定义属于切空间，其第一分量也必须均值为零，故结论成立.
+\end{proof}
+
+因此 WFR 梯度流为
+\begin{equation}\label{eq:5.23}
+\partial_t\mu_t=\operatorname{div}\bigl(\mu_t\nabla\delta\mathcal F(\mu_t)\bigr)
+-\left(\delta\mathcal F(\mu_t)-\int\delta\mathcal F(\mu_t)\,d\mu_t\right)\mu_t.
+\end{equation}

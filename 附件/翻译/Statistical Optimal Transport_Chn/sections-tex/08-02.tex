@@ -1,0 +1,247 @@
+\subsection{正曲率空间上的重心}\label{sec:8.2}
+设 $P$ 是正曲率测地空间 $(S,\mathsf d)$ 上的概率测度. 令 $b^\star$ 为 $P$ 的任意一个重心，以 $b_n$ 表示由 $X\sim P$ 的 $n$ 个独立副本 $X_1,\ldots,X_n$ 构造的经验重心：
+$$\begin{aligned}
+b^\star&\in\operatorname*{arg\,min}_{b\in S}\int\mathsf d^2(b,x)\,P(dx),\\
+b_n&\in\operatorname*{arg\,min}_{b\in S}\sum_{i=1}^n\mathsf d^2(b,X_i).
+\end{aligned}$$
+在继续之前，先讨论整体思路. Hilbert 情形的论证依赖于不等式 $P_n\mathsf d^2(b_n,\bullet)\le P_n\mathsf d^2(b^\star,\bullet)$；它由 $b_n$ 的定义成立，也表明经验重心是统计估计文献中经验风险\index{empirical risk minimization (ERM)@经验风险最小化（ERM）（empirical risk minimization (ERM)）|hyperpage}最小化框架的一个实例. 利用经验风险最小化技术，可能希望通过空间 $(S,\mathsf d)$ 的“复杂度”度量来控制估计误差；文献中已有沿这一路径的工作（见\cite{ref4}）. 不过，对于所关心的 Wasserstein 空间应用，其复杂度过大，会导致非参数估计速率；特别地，与\autoref{sec:2}中的情形类似，这些速率受到维数灾难的影响.
+
+然而，刚刚已经看到，Hilbert 空间中的估计速率可以避开维数灾难，即使 Hilbert 空间可以是无限维的. 因此，直觉使我们相信：即使在弯曲空间 $(S,\mathsf d)$ 上工作，只要能将研究限制在 $S$ 足够“平坦”的部分，或许也可以恢复 Hilbert 型速率. 后文将寻找自然的几何条件；本质上，它们编码了曲率界，使快速的参数估计速率成为可能.
+
+\subsubsection{主定理}\label{sec:8.2.1}
+先给出一个一般结果，模仿\autoref{sec:8.1}中 Hilbert 情形的证明.
+
+在陈述之前，引入一个量，用来衡量重心 $b^\star$ 处的切空间在该点附近与原空间“贴合”的程度.
+\begin{definition}[贴合]\label{def:8.2}\index{hugging@贴合函数（hugging）|hyperpage}
+设 $(S,\mathsf d)$ 为满足 $\operatorname{curv}(S)\ge0$ 的测地空间. 对任意 $b^\star,b\in S$，令 $h_{b^\star}^b$ 为 $S$ 在 $b^\star$ 处沿 $b$ 方向的贴合函数（hugging function），定义为
+\begin{equation}\label{eq:8.2}
+h_{b^\star}^b(x)=1-
+\frac{\|\log_{b^\star}(x)-\log_{b^\star}(b)\|_{b^\star}^2-\mathsf d^2(x,b)}
+{\mathsf d^2(b,b^\star)},\qquad x\in S.
+\end{equation}
+\end{definition}
+注意，由\autoref{prop:7.21}，对所有 $x\in S$ 都有 $h_{b^\star}^b(x)\le1$. 此外，如果 $S$ 为 Hilbert 空间，则 $\|\log_{b^\star}(x)-\log_{b^\star}(b)\|_{b^\star}^2=\mathsf d^2(x,b)$，且 $h_{b^\star}^b\equiv1$. 一般地，当 $b^\star$ 周围存在大量曲率时，$h_{b^\star}^b(x)$ 可能为负；但在重心 $b^\star$ 处计算时，它的平均仍保持非负. 这一结果来自下面这个简单而重要的观察.
+\begin{theorem}[方差等式]\label{thm:8.3}\index{variance equality@方差等式（variance equality）|hyperpage}
+设 $(S,\mathsf d)$ 为满足 $\operatorname{curv}(S)\ge0$ 的测地空间. 令 $Q\in\mathcal P_2(S)$ 是 $S$ 上的概率分布，重心为 $b^\star$. 进一步假设，$S$ 在 $b^\star$ 处的切锥赋予 $\langle\cdot,\cdot\rangle_{b^\star}$ 后，是某个 Hilbert 空间的凸子集. 那么，对所有 $b\in S$，
+\begin{equation}\label{eq:8.3}
+\mathsf d^2(b,b^\star)\int h_{b^\star}^b(x)\,Q(dx)
+=\int\bigl(\mathsf d^2(x,b)-\mathsf d^2(x,b^\star)\bigr)\,Q(dx),
+\end{equation}
+其中 $h_{b^\star}^b$ 是 \eqref{eq:8.2} 定义的贴合函数.
+\end{theorem}
+\begin{proof}
+由 $h_{b^\star}^b$ 的定义，有
+$$\begin{aligned}
+\mathsf d^2(b,b^\star)h_{b^\star}^b(\bullet)
+={}&\mathsf d^2(b,b^\star)+\mathsf d^2(\bullet,b)
+-\|\log_{b^\star}b-\log_{b^\star}\bullet\|_{b^\star}^2\\
+={}&\mathsf d^2(b,b^\star)+\mathsf d^2(\bullet,b)
+-\|\log_{b^\star}b\|_{b^\star}^2-\|\log_{b^\star}\bullet\|_{b^\star}^2\\
+&+2\langle\log_{b^\star}\bullet,\log_{b^\star}b\rangle_{b^\star}\\
+={}&\mathsf d^2(b,b^\star)+\mathsf d^2(\bullet,b)
+-\mathsf d^2(b,b^\star)-\mathsf d^2(b^\star,\bullet)\\
+&+2\langle\log_{b^\star}\bullet,\log_{b^\star}b\rangle_{b^\star}\\
+={}&\mathsf d^2(\bullet,b)-\mathsf d^2(\bullet,b^\star)
++2\langle\log_{b^\star}\bullet,\log_{b^\star}b\rangle_{b^\star}.
+\end{aligned}$$
+因此，应用线性算子 $Q$，得到
+$$\begin{aligned}
+\mathsf d^2(b,b^\star)Qh_{b^\star}^b(\bullet)
+={}&Q\mathsf d^2(\bullet,b)-Q\mathsf d^2(\bullet,b^\star)\\
+&+2\langle\log_{b^\star}b^\star,\log_{b^\star}b\rangle_{b^\star},
+\end{aligned}$$
+其中使用了 $Q\log_{b^\star}\bullet=\log_{b^\star}b^\star$，换言之，$\log_{b^\star}b^\star$ 是 $(\log_{b^\star})_\#Q$ 的重心. 事实上，由\autoref{prop:7.21}，对所有 $b\in S$，
+$$\begin{aligned}
+Q\|\log_{b^\star}\bullet-\log_{b^\star}b^\star\|_{b^\star}^2
+&=Q\mathsf d^2(\bullet,b^\star)\le Q\mathsf d^2(\bullet,b)\\
+&\le Q\|\log_{b^\star}\bullet-\log_{b^\star}b\|_{b^\star}^2,
+\end{aligned}$$
+且当 $b=b^\star$ 时等号成立，所以 $\log_{b^\star}b^\star$ 是 $(\log_{b^\star})_\#Q$ 的一个重心，从而 $Q\log_{b^\star}\bullet=\log_{b^\star}b^\star$.
+
+最后，由于 $\log_{b^\star}b^\star=o_{b^\star}$ 为切锥的顶点，有 $\|\log_{b^\star}b^\star\|_{b^\star}=0$，进而 $\langle\log_{b^\star}b^\star,\log_{b^\star}b\rangle_{b^\star}=0$. 证明完毕.
+\end{proof}
+
+方差等式的一个直接推论是，如果 $\int h_{b^\star}^b\,dQ>0$，则 $b^\star$ 是 $Q$ 的唯一重心. 此外，由重心 $b^\star$ 的定义，方差等式右端非负，因此立即得到下面的推论.
+\begin{corollary}\label{cor:8.4}
+在与\autoref{thm:8.3}相同的假设下，对任意 $b\in S$，
+$$0\le\int h_{b^\star}^b(x)\,Q(dx)\le1.$$
+此外，对任意 $b,x\in S$，有 $h_{b^\star}^b(x)\le1$.
+\end{corollary}
+
+事实证明，$b^\star$ 处的贴合函数，是得到经验重心参数收敛速率的关键.
+\begin{theorem}[主定理]\label{thm:8.5}
+设 $P$ 是非负曲率测地空间 $(S,\mathsf d)$ 上的概率测度，$b^\star,b_n$ 分别表示 $P$ 的一个重心和一个经验重心. 进一步假设，$S$ 在 $b^\star$ 处的切锥赋予 $\langle\cdot,\cdot\rangle_{b^\star}$ 后，是某个 Hilbert 空间的凸子集. 那么，如果对任意 $b\in S$，都有
+\begin{equation}\label{eq:8.4}
+h_{b^\star}^b(\bullet)\ge h_{\min}>0,
+\end{equation}
+则 $b_n,b^\star$ 都唯一，且
+$$\mathbb E\mathsf d^2(b_n,b^\star)\le\frac{4\sigma^2}{h_{\min}^2n},$$
+其中 $\sigma^2$ 表示 $P$ 的方差，定义为
+\begin{equation}\label{eq:8.5}
+\sigma^2=\int\mathsf d^2(b^\star,x)\,P(dx).
+\end{equation}
+\end{theorem}
+\begin{proof}
+首先，唯一性直接由方差等式与 \eqref{eq:8.4} 得到.
+
+接着，与 Hilbert 情形一样，先观察到
+$$P_n\mathsf d^2(b_n,\bullet)\le P_n\mathsf d^2(b^\star,\bullet).$$
+这给出
+\begin{equation}\label{eq:8.6}
+\begin{aligned}
+&P_n\mathsf d^2(b_n,\bullet)-P_n\|\log_{b^\star}b_n-\log_{b^\star}\bullet\|_{b^\star}^2\\
+&\quad+P_n\|\log_{b^\star}b_n-\log_{b^\star}\bullet\|_{b^\star}^2
+-P_n\mathsf d^2(b^\star,\bullet)\le0.
+\end{aligned}
+\end{equation}
+现在利用切锥具有 Hilbert 结构这一事实，得到
+$$\begin{aligned}
+\|\log_{b^\star}b_n-\log_{b^\star}\bullet\|_{b^\star}^2
+&=\|\log_{b^\star}b_n\|_{b^\star}^2+\|\log_{b^\star}\bullet\|_{b^\star}^2
+-2\langle\log_{b^\star}b_n,\log_{b^\star}\bullet\rangle_{b^\star}\\
+&=\mathsf d^2(b^\star,b_n)+\mathsf d^2(b^\star,\bullet)
+-2\langle\log_{b^\star}b_n,\log_{b^\star}\bullet\rangle_{b^\star},
+\end{aligned}$$
+第二个恒等式两次使用了\autoref{prop:7.21}的取等情形. 代入 \eqref{eq:8.6}，得到
+$$\begin{aligned}
+\mathsf d^2(b^\star,b_n)\le{}&P_n[\|\log_{b^\star}b_n-\log_{b^\star}\bullet\|_{b^\star}^2
+-\mathsf d^2(b_n,\bullet)]\\
+&+2P_n\langle\log_{b^\star}b_n,\log_{b^\star}\bullet\rangle_{b^\star}.
+\end{aligned}$$
+接着，由贴合函数的定义，
+$$\|\log_{b^\star}b_n-\log_{b^\star}\bullet\|_{b^\star}^2-\mathsf d^2(b_n,\bullet)
+=(1-h_{b^\star}^{b_n}(\bullet))\mathsf d^2(b_n,b^\star).$$
+从而
+$$h_{\min}\mathsf d^2(b_n,b^\star)
+\le2P_n\langle\log_{b^\star}b_n,\log_{b^\star}\bullet\rangle_{b^\star}.$$
+右端只是 Hilbert 空间中的平均，因此两边除以 $\|\log_{b^\star}b_n\|_{b^\star}=\mathsf d(b_n,b^\star)$，并应用 Cauchy--Schwarz 不等式，得到
+$$h_{\min}^2\mathbb E\mathsf d^2(b_n,b^\star)\le\frac{4\sigma^2}n,$$
+其中
+$$\sigma^2=\int\|\log_{b^\star}x\|_{b^\star}^2\,P(dx)
+=\int\mathsf d^2(b^\star,x)\,P(dx),$$
+即为所求.
+\end{proof}
+
+检查主定理的证明可知，为得到 $b^\star$ 的参数估计速率，更弱的条件 $P_nh_{b^\star}^{b_n}(\bullet)\ge h_{\min}>0$ 已经足够. 由于 $P_n$ 是随机测度，我们倾向于不对它施加条件，而着重研究更强的条件 \eqref{eq:8.4}. 接下来将利用可延拓测地线这一概念得到这类结果.
+
+\subsubsection{可延拓测地线}\label{sec:8.2.2}
+现在给出一个有说服力的综合几何条件，它在非负曲率空间中蕴含上述下界：所有从重心 $b^\star$ 出发以及到达该点的测地线，都能按给定因子延拓.
+\begin{definition}[可延拓测地线]\label{def:8.6}\index{geodesic@测地线（geodesic）!extendable@可延拓（extendable）|hyperpage}
+考虑常速测地线 $\omega:[0,1]\to S$. 对 $(\lambda_{\mathrm{in}},\lambda_{\mathrm{out}})\in[0,\infty]^2$，如果存在路径 $\omega^+:[-\lambda_{\mathrm{in}},1+\lambda_{\mathrm{out}}]\to S$，在 $[0,1]$ 上与 $\omega$ 一致，并且在端点 $\omega^+(-\lambda_{\mathrm{in}})$ 与 $\omega^+(1+\lambda_{\mathrm{out}})$ 之间仍为测地线，则称 $\omega$ 是 $(\lambda_{\mathrm{in}},\lambda_{\mathrm{out}})$-可延拓的（extendable）. 路径 $\omega^+$ 称为 $\omega$ 的一个延拓.
+\end{definition}
+陈述本小节的主要结果之前，需要下面的事实.
+\begin{theorem}\label{thm:8.7}
+假设 $\operatorname{curv}(S)\ge0$. 设 $Q\in\mathcal P_2(S)$ 是 $S$ 上的概率测度，重心为 $b^\star$. 假设对每个 $x\in\operatorname{supp}(Q)$，都存在一条连接 $b^\star$ 与 $x$ 的常速测地线 $\omega_x:[0,1]\to S$，它对 $\lambda>0$ 是 $(0,\lambda)$-可延拓的. 再假设 $b^\star$ 仍然是分布 $Q_\lambda=(e_\lambda)_\#Q$ 的重心，其中 $e_\lambda(x)=\omega_x^+(1+\lambda)$. 那么，对所有 $b\in S$，
+\begin{equation}\label{eq:8.7}
+Qh_{b^\star}^b(\bullet)\ge\frac\lambda{1+\lambda}.
+\end{equation}
+特别地，这意味着 $b^\star$ 是 $Q$ 的唯一重心.
+\end{theorem}
+\begin{proof}
+固定 $y\in\operatorname{supp}(Q)$，定义 $y_\lambda=e_\lambda(y)$. 令 $\omega:[0,1]\to S$ 为连接 $b^\star$ 与 $y_\lambda$ 的常速测地线. 根据定义，对 $\tau=1/(1+\lambda)$ 有 $\omega(\tau)=y$. 由于 $\operatorname{curv}(S)\ge0$，对任意 $b\in S$，
+$$\begin{aligned}
+\mathsf d^2(b,y)&\ge(1-\tau)\mathsf d^2(b,b^\star)+\tau\mathsf d^2(b,y_\lambda)
+-\tau(1-\tau)\mathsf d^2(b^\star,y_\lambda)\\
+&=\frac\lambda{1+\lambda}\mathsf d^2(b,b^\star)
++\frac1{1+\lambda}\mathsf d^2(b,y_\lambda)
+-\frac\lambda{(1+\lambda)^2}\mathsf d^2(b^\star,y_\lambda).
+\end{aligned}$$
+再注意到
+$$\mathsf d^2(b^\star,y_\lambda)=(1+\lambda)^2\mathsf d^2(b^\star,y),$$
+因此
+\begin{equation}\label{eq:8.8}
+\begin{aligned}
+\frac\lambda{1+\lambda}\mathsf d^2(b,b^\star)
+&\le\mathsf d^2(b,y)+\lambda\mathsf d^2(b^\star,y)-\frac1{1+\lambda}\mathsf d^2(b,y_\lambda)\\
+&=(\mathsf d^2(b,y)-\mathsf d^2(b^\star,y))
++(1+\lambda)\mathsf d^2(b^\star,y)-\frac1{1+\lambda}\mathsf d^2(b,y_\lambda).
+\end{aligned}
+\end{equation}
+此外，
+$$\begin{aligned}
+&(1+\lambda)\mathsf d^2(b^\star,y)-\frac1{1+\lambda}\mathsf d^2(b,y_\lambda)\\
+&\quad=\frac1{1+\lambda}\bigl((1+\lambda)^2\mathsf d^2(b^\star,y)-\mathsf d^2(b,y_\lambda)\bigr)\\
+&\quad=\frac1{1+\lambda}\bigl(\mathsf d^2(b^\star,y_\lambda)-\mathsf d^2(b,y_\lambda)\bigr).
+\end{aligned}$$
+因此，记 $Q_\lambda:=(e_\lambda)_\#Q$，得到
+$$\begin{aligned}
+&\int\left((1+\lambda)\mathsf d^2(b^\star,y)-\frac1{1+\lambda}\mathsf d^2(b,y_\lambda)\right)Q(dy)\\
+&\quad=\frac1{1+\lambda}\int\bigl(\mathsf d^2(b^\star,y)-\mathsf d^2(b,y)\bigr)Q_\lambda(dy)\le0,
+\end{aligned}$$
+最后一步利用了 $b^\star$ 仍为 $Q_\lambda$ 的重心这一事实. 与对 \eqref{eq:8.8} 关于 $Q$ 积分所得结果结合，得到
+\begin{equation}\label{eq:8.9}
+\frac\lambda{1+\lambda}\mathsf d^2(b,b^\star)
+\le\int\bigl(\mathsf d^2(b,y)-\mathsf d^2(b^\star,y)\bigr)Q(dy).
+\end{equation}
+结合方差等式（\autoref{thm:8.3}），证明完成.
+\end{proof}
+
+上述可延拓测地线概念给出 $Ph_{b^\star}^b(\bullet)$ 关于 $b$ 的一致下界. 这一性质已经相当有吸引力，因为它蕴含重心的唯一性，但仍有两个不足. 第一，需要控制 $P_nh_{b^\star}^{b_n}(\bullet)$，而 $b_n$ 依赖于数据；尚不清楚如何适当地控制偏差 $|P_nh_{b^\star}^{b_n}-Ph_{b^\star}^{b_n}|$. 第二，$P_\lambda=(e_\lambda)_\#P$ 保持相同重心这一条件难以检验，似乎也比较苛刻.
+
+为克服这两个限制，允许从 $b^\star$ 出发的测地线向两个方向延拓.
+\begin{theorem}\label{thm:8.8}
+假设 $\operatorname{curv}(S)\ge0$，且 $x,b,b^\star\in S$. 假设存在 $\lambda_{\mathrm{in}},\lambda_{\mathrm{out}}>0$，以及一条连接 $b^\star$ 与 $x$ 的 $(\lambda_{\mathrm{in}},\lambda_{\mathrm{out}})$-可延拓测地线. 那么
+$$h_{b^\star}^b(x)\ge h_{\min}
+=\frac{\lambda_{\mathrm{out}}}{1+\lambda_{\mathrm{out}}}-\frac1{\lambda_{\mathrm{in}}}.$$
+\end{theorem}
+\begin{proof}
+令 $\omega_x:[0,1]\to S$ 为连接 $b^\star$ 与 $x$ 的一条 $(\lambda_{\mathrm{in}},\lambda_{\mathrm{out}})$-可延拓测地线，其延拓记为 $\omega_x^+:[-\lambda_{\mathrm{in}},1+\lambda_{\mathrm{out}}]\to S$. 令 $z=\omega_x^+(-\xi)$，其中 $\xi=\lambda_{\mathrm{in}}/(1+\lambda_{\mathrm{out}})$，并考虑测度
+$$Q:=\frac\xi{1+\xi}\delta_x+\frac1{1+\xi}\delta_z.$$
+由于 $Q$ 支撑在 $\omega^+$ 上，很容易计算其重心. 事实上，注意 $x=\omega_x^+(1)$，所以 $Q$ 的重心为
+$$\omega_x^+\left(1\cdot\frac\xi{1+\xi}-\xi\cdot\frac1{1+\xi}\right)
+=\omega^+(0)=b^\star.$$
+
+现在希望将\autoref{thm:8.7}用于 $Q$. 为此，注意连接 $b^\star$ 与 $x$ 的常速测地线 $\omega_x$，以及连接 $b^\star$ 与 $z$、定义为 $\sigma(t)=\omega_x^+(-t\xi)$ 的常速测地线 $\sigma$，分别由假设和构造可知，都是 $(0,1+\lambda_{\mathrm{out}})$-可延拓的.
+
+最后，验证 $b^\star$ 仍为概率测度 $Q_{\lambda_{\mathrm{out}}}=(e_{\lambda_{\mathrm{out}}})_\#Q$ 的重心，其中 $e_{\lambda_{\mathrm{out}}}(x)=\omega_x^+(1+\lambda_{\mathrm{out}})$. 事实上，根据构造，$Q_{\lambda_{\mathrm{out}}}$ 是如下两点概率测度：
+$$Q_{\lambda_{\mathrm{out}}}=\frac\xi{1+\xi}\delta_{\omega^+(1+\lambda_{\mathrm{out}})}
++\frac1{1+\xi}\delta_{\omega^+(-\lambda_{\mathrm{in}})}.$$
+因此，其重心为
+$$\begin{aligned}
+&\omega^+\left((1+\lambda_{\mathrm{out}})\cdot\frac\xi{1+\xi}
+-\lambda_{\mathrm{in}}\cdot\frac1{1+\xi}\right)\\
+&\quad=\omega^+\left(\frac{(1+\lambda_{\mathrm{out}})\lambda_{\mathrm{in}}}{1+\lambda_{\mathrm{in}}+\lambda_{\mathrm{out}}}
+-\frac{\lambda_{\mathrm{in}}(1+\lambda_{\mathrm{out}})}{1+\lambda_{\mathrm{in}}+\lambda_{\mathrm{out}}}\right)
+=\omega^+(0)=b^\star.
+\end{aligned}$$
+从而，\autoref{thm:8.7}给出
+$$\begin{aligned}
+\frac{\lambda_{\mathrm{out}}}{1+\lambda_{\mathrm{out}}}
+&\le Qh_{b^\star}^b(\bullet)
+=\frac\xi{1+\xi}h_{b^\star}^b(x)+\frac1{1+\xi}h_{b^\star}^b(z)\\
+&\le\frac\xi{1+\xi}h_{b^\star}^b(x)+\frac1{1+\xi},
+\end{aligned}$$
+其中使用\autoref{cor:8.4}，对所有 $b,z\in S$ 有 $h_{b^\star}^b(z)\le1$.
+
+因此得到
+$$\begin{aligned}
+h_{b^\star}^b(x)&\ge\frac{1+\xi}\xi
+\left(\frac{\lambda_{\mathrm{out}}}{1+\lambda_{\mathrm{out}}}-\frac1{1+\xi}\right)\\
+&=\frac{1+\xi}\xi\left(\frac{\lambda_{\mathrm{out}}}{\lambda_{\mathrm{in}}}\xi-\frac1{1+\xi}\right)\\
+&=\frac{\lambda_{\mathrm{out}}}{\lambda_{\mathrm{in}}}(1+\xi)-\frac1\xi\\
+&=\frac{\lambda_{\mathrm{out}}}{\lambda_{\mathrm{in}}}
++\frac{\lambda_{\mathrm{out}}}{\lambda_{\mathrm{in}}}
+\frac{\lambda_{\mathrm{in}}}{1+\lambda_{\mathrm{out}}}
+-\frac{1+\lambda_{\mathrm{out}}}{\lambda_{\mathrm{in}}}\\
+&=\frac{\lambda_{\mathrm{out}}}{1+\lambda_{\mathrm{out}}}-\frac1{\lambda_{\mathrm{in}}},
+\end{aligned}$$
+证明完毕.
+\end{proof}
+
+注意，\autoref{thm:8.8}给出的 $h_{b^\star}^b(x)$ 下界对 $b,x$ 均一致. 当然，也可以使这一结果只依赖于 $x$，得到形如
+$$h_{b^\star}^b(x)\ge\frac{\lambda_{\mathrm{out}}(x)}{1+\lambda_{\mathrm{out}}(x)}
+-\frac1{\lambda_{\mathrm{in}}(x)}$$
+的结果. 如果假设
+$$P\left(\frac{\lambda_{\mathrm{out}}(\bullet)}{1+\lambda_{\mathrm{out}}(\bullet)}
+-\frac1{\lambda_{\mathrm{in}}(\bullet)}\right)>0,$$
+那么标准的集中工具可以保证，当 $n$ 足够大时，有所需的 $P_nh_{b^\star}^{b_n}(\bullet)>0$.
+
+不再深入这些细节，而更仔细地考察一致下界. 主定理与\autoref{thm:8.8}给出下面的推论.
+\begin{corollary}\label{cor:8.9}
+设 $P$ 是非负曲率测地空间 $(S,\mathsf d)$ 上的概率测度，$b^\star,b_n$ 分别表示 $P$ 的一个重心和一个经验重心. 假设 $b^\star$ 处的切锥赋予 $\langle\cdot,\cdot\rangle_{b^\star}$ 后，是某个 Hilbert 空间的凸子集. 此外，令 $\lambda_{\mathrm{in}},\lambda_{\mathrm{out}}\in[0,\infty]$ 满足
+$$h:=\frac{\lambda_{\mathrm{out}}}{1+\lambda_{\mathrm{out}}}-\frac1{\lambda_{\mathrm{in}}}>0,$$
+并进一步假设，对任意 $x\in\operatorname{supp}(P)$，都存在一条连接 $b^\star$ 与 $x$ 的 $(\lambda_{\mathrm{in}},\lambda_{\mathrm{out}})$-可延拓测地线. 那么 $b^\star$ 唯一，且经验重心满足
+$$\mathbb E[\mathsf d^2(b_n,b^\star)]\le\frac{4\sigma^2}{hn},$$
+其中 $\sigma^2$ 为 \eqref{eq:8.5} 定义的 $P$ 的方差.
+\end{corollary}
+由此，当测地线可以充分延拓时，得到参数速率. 特别地，如果 $S$ 为 Hilbert 空间，则所有测地线都可以无限延拓. 因而 $h=1$，并恢复 \eqref{eq:8.1}.
