@@ -1,0 +1,103 @@
+% 原印刷232--235页／PDF物理256--259；§6.3，止于§6.4之前.
+\subsection{Monge--Ampère方程的数值求解}\label{sec:6.3}\index{M101@Monge--Ampère方程（Monge-Ampère equation）|hyperpage}
+如上一节所见，求解二次最优传输问题等价于寻找一个为凸函数梯度的传输映射，这一事实可用于数值计算. 上一节构造了一种迭代方法，其中考虑具有相同像测度的一列传输映射$\mathrm T_n$（那是一个连续流，但实践中会将其离散），并迫使它们收敛到梯度. 这里的做法在某种意义上恰好相反：考虑一列梯度映射，并迫使对应的测度收敛到所需目标.
+
+更精确地，\cite{b217}中的想法如下：考虑一个简化情形，\phantomsection\label{idx:i148-p232}\index{T148@环面（torus）|hyperpage}
+区域$\Omega=\mathbb T^d$为$d$维环面，源测度$\varrho$是具有上下界的$C^{0,\alpha}$密度，而目标测度是常密度为$1$的均匀测度；我们寻找光滑函数$\varphi$，使$D^2\varphi\le\mathrm I$（这是$\varphi$关于环面上的$c(x,y)=|[x-y]|^2$为$c$-凹的条件，见\autoref{sec:1.3.2}），且
+\[
+\det(\mathrm I-D^2\varphi)=\varrho.
+\]
+应强调，在这一周期设置下，不可能寻找满足$\det(D^2u)=\varrho$的凸函数$u$. 事实上，周期凸函数除常函数以外并不存在！唯一的可能是坚持使用$c$-凹函数的框架，而不转到$x\mapsto\frac12|x|^2-\varphi(x)$的凸性.
+
+若找到这样的函数$\varphi$，则$\mathrm T(x)=x-\nabla\varphi(x)$（周期意义下）就是$\varrho$与$\mathscr L^d$之间的最优映射. 注意，选择均匀目标测度带来了不容忽视的简化：若采用一般目标测度，正确方程的右端分母中就会出现一个关于$x-\nabla\varphi(x)$的函数. 这会使下面的分析复杂得多.
+
+Loeper和Rapetti在\cite{b217}中的想法，是通过基于Newton法的迭代格式求解该方程.
+
+\begin{sourcebox}{备忘：求解方程的Newton法}\label{box:6.4}\index{N111@Newton法（Newton’s method）|hyperpage}
+假设寻找方程$F=0$的解，其中$F:X\to X$是从向量空间$X$到自身的光滑函数. 假设存在解$\bar x$，且$DF(\bar x)$为可逆线性算子. 给定初始点$x_0$，可以按如下方式定义递归序列：$x_{k+1}$是线性化方程$F(x_k)+DF(x_k)\cdot(x-x_k)=0$的唯一解. 换言之，$x_{k+1}=x_k-DF(x_k)^{-1}\cdot F(x_k)$. 这相当于迭代映射$x\mapsto G(x):=x-DF(x)^{-1}\cdot F(x)$. 这一映射有良好定义，并且在$\bar x$的某个邻域内为压缩映射. 如果初始点属于这样的适当邻域，迭代就收敛到$\bar x$. 收敛阶为二次，即$|x_{k+1}-\bar x|\le C|x_k-\bar x|^2$. 这是因为$G$在球$B(\bar x,R)$中的Lipschitz常数正比于$\max\{|F(x)|:x\in B(\bar x,R)\}$，从而以$O(R)$的速度下降. 只需计算下式便可看出这一事实：
+\[
+\begin{aligned}
+DG&=\mathrm I-DF^{-1}\cdot DF+
+DF^{-1}\cdot D^2F\cdot DF^{-1}\cdot F\\
+&=DF^{-1}\cdot D^2F\cdot DF^{-1}\cdot F.
+\end{aligned}
+\]
+另一种较不“激进”的方法可采用步长参数$\tau>0$，定义$x_{k+1}=x_k-\tau DF(x_k)^{-1}\cdot F(x_k)$. 此时映射$G(x)=x-\tau DF(x)^{-1}\cdot F(x)$是压缩映射，但压缩因子为$1-\tau$量级，因而只给出较慢收敛（不过可能在较弱假设下收敛）.
+\end{sourcebox}
+
+这里，若已有猜测$\varphi$，并寻找形如$\varphi+\psi$的解，方程的线性化为
+\[
+\det(\mathrm I-D^2\varphi)
+-\operatorname{Tr}[\operatorname{cof}(\mathrm I-D^2\varphi)D^2\psi]
+=\varrho,
+\]
+其中$\operatorname{cof}(A)$表示给定方阵$A$的余因子矩阵，满足$\operatorname{cof}(A)\cdot A=\det(A)\mathrm I$.
+
+\begin{sourcebox}{备忘：行列式的线性化}\label{box:6.5}
+众所周知，$\det(\mathrm I+\varepsilon B)=1+\varepsilon\operatorname{Tr}[B]+O(\varepsilon^2)$（展开$\mathrm I+\varepsilon B$的行列式并考察$\varepsilon$的一阶项，便可轻易验证）. 这给出单位矩阵邻域内行列式的线性化. 若寻找另一矩阵$A$附近行列式的线性化，并假设$A$可逆，则有
+\[
+\begin{aligned}
+\det(A+\varepsilon B)
+&=\det(A)\det(\mathrm I+\varepsilon A^{-1}B)\\
+&=\det(A)(1+\varepsilon\operatorname{Tr}[A^{-1}B]+O(\varepsilon^2))\\
+&=\det(A)+\varepsilon\operatorname{Tr}[\operatorname{cof}(A)B]+O(\varepsilon^2).
+\end{aligned}
+\]
+由连续性，行列式与映射$A\mapsto\operatorname{cof}(A)$都是$C^\infty$函数，故最后这个表达式（避免使用$A^{-1}$）对不可逆的$A$也有效.
+\end{sourcebox}
+
+因此，\cite{b217}提出的算法的迭代步骤为：
+\begin{itemize}
+\item 从任意满足$\mathrm I-D^2\varphi_0>0$的光滑函数$\varphi_0$出发，并固定一个小的$\tau>0$. 通常取$\varphi_0=0$.
+\item 在每步$n$计算$\varrho_n:=\det(\mathrm I-D^2\varphi_n)$.
+\item 定义矩阵$M_n(x):=\operatorname{cof}(\mathrm I-D^2\varphi_n)$. 假设能够保证$M_n$正定.
+\item 在环面上（即采用周期边界条件）求解$\operatorname{Tr}[M_nD^2\psi]=\varrho_n-\varrho$，这是关于$\varphi$的二阶线性椭圆方程. 只要$M_n>0$，解就在相差加法常数的意义下唯一（例如选择零均值解）. 将解记为$\psi_n$.
+\item 定义$\varphi_{n+1}=\varphi_n+\tau\psi_n$并重新开始.
+\end{itemize}
+从实现角度看，\cite{b217}通过二阶导数的有限差分离散来求解定义$\psi$的椭圆方程，即$\operatorname{Tr}[M_nD^2\psi]=\varrho_n-\varrho$. 值得一提的是，这类方程，即$\operatorname{Tr}[MD^2\psi]=f$，其中$M$是某个Hessian的余因子矩阵，也能写成散度形式. 事实上，它们写成$\sum_{i,j}M^{ij}\psi_{ij}=f$，但$\sum_{i,j}M^{ij}\psi_{ij}=\sum_i(M^{ij}\psi_j)_i$，因为对所有$j$都有$\sum_iM_i^{ij}=0$（见\autoref{ex:43}）. 因而可赋予这一椭圆方程变分结构，并用有限元方法求解. 另一方面，条件$\varrho_n:=\det(\mathrm I-D^2\varphi_n)$用二阶有限差分来解释更自然. 应强调，这些方程的主要困难之一，恰恰是对Monge--Ampère算子（即Hessian的行列式）这样的非线性算子进行离散化.
+
+在正则性假设下，算法的收敛由以下定理保证：
+\begin{theorem}\label{obj:6.4}\index{H072@Hölder正则性（Hölder regularity）|hyperpage}
+设$\varrho\in C^{0,\alpha}(\mathbb T^d)$是严格为正的密度，且$\tau$小于依赖于$\|\log\varrho\|_{L^\infty}$和$\|\varrho\|_{C^{0,\alpha}}$的常数$c_0$. 则上述算法给出一个序列$\varphi_n$，它在$C^2$中收敛到$\det(\mathrm I-D^2\varphi)=\varrho$的解$\varphi$.
+\end{theorem}
+\begin{proof}
+证明基于椭圆正则性理论（例如见\cite{b184}）和Caffarelli的Monge--Ampère正则性（见\autoref{sec:1.7.6}；周期边界条件另见\cite{b127}）所导出的先验界.
+
+选择充分小的$\tau$、适当的常数$c_1>0$以及充分大的$C_1,C_2,C_3$，可以归纳证明如下陈述：在每步$n$，都有$\mathrm I-D^2\varphi_n>c_1\mathrm I$、$\|\log(\varrho_n/\varrho)\|_{L^\infty}\le C_1$、$\|\varrho_n-\varrho\|_{C^{0,\alpha}}\le C_2$以及$\|\varphi_n\|_{C^{2,\alpha}}\le C_3$. 为此，注意由标准椭圆正则性理论（见\cite{b184}第6章的Schauder估计）有$\|\psi_n\|_{C^{2,\alpha}}\le C\|\varrho-\varrho_n\|_{C^{0,\alpha}}$. 可以计算
+\[
+\begin{aligned}
+\varrho_{n+1}
+&=\det(\mathrm I-D^2\varphi_n-\tau D^2\psi_n)\\
+&=\varrho_n-\tau\operatorname{Tr}[
+\operatorname{cof}(\mathrm I-D^2\varphi_n)D^2\psi_n]+r_n\\
+&=(1-\tau)\varrho_n+\tau\varrho+r_n,
+\end{aligned}
+\]
+其中$r_n$是行列式线性化的二阶余项，即它涉及$\varphi_n$的二阶导数和$\psi_n$的二阶导数，但关于$\tau D^2\psi_n$是二阶的. 因此，由$C^{0,\alpha}$范数的代数性质，有
+\[
+\|r_n\|_{C^{0,\alpha}}\le C\tau^2\|D^2\psi_n\|_{C^{0,\alpha}}^2
+\le C\tau^2\|\varrho_n-\varrho\|_{C^{0,\alpha}}^2.
+\]
+由$\varrho_{n+1}-\varrho=(1-\tau)(\varrho_n-\varrho)+r_n$，得到
+\[
+\begin{aligned}
+\|\varrho_{n+1}-\varrho\|_{C^{0,\alpha}}
+&\le(1-\tau)\|\varrho_n-\varrho\|_{C^{0,\alpha}}
++C\tau^2\|\varrho_n-\varrho\|_{C^{0,\alpha}}^2\\
+&\le\|\varrho_n-\varrho\|_{C^{0,\alpha}}(1-\tau+C\tau^2).
+\end{aligned}
+\]
+只需选择充分小的$\tau$使$1-\tau+C\tau^2<1$，就可继续得到$\|\varrho_{n+1}-\varrho\|_{C^{0,\alpha}}$的界. 对$L^\infty$界，再次使用
+\[
+\varrho_{n+1}=(1-\tau)\varrho_n+\tau\varrho+r_n
+\le((1-\tau)e^{C_1}+\tau+C\tau^2)\varrho.
+\]
+同样，对充分小的$\tau$和$C_1>0$，可以保证$(1-\tau)e^{C_1}+\tau+C\tau^2\le e^{C_1}$. 下界的处理相同.
+
+为研究$\varphi_{n+1}$的界，写$\varphi_{n+1}=\varphi_n+\tau\psi_n$. 注意，由$\mathrm I-D^2\varphi_n\ge c_1\mathrm I$和$|D^2\psi_n|\le C$，适当选择$\tau$可保证凸性条件$\mathrm I-D^2\varphi_{n+1}>0$. 因此，一致界$\|\varphi_{n+1}\|_{C^{2,\alpha}}\le C_3$直接由Caffarelli理论及$\varrho_{n+1}$的界得出. 最后，由于行列式条件，$\varphi_{n+1}$的Hessian的上界也蕴含$\mathrm I-D^2\varphi_{n+1}$的下界.
+
+这表明迭代保持这些界；收敛性来自$\|\psi_n\|_{C^{2,\alpha}}\le C\|\varrho-\varrho_n\|_{C^{0,\alpha}}$，其中范数$\|\varrho-\varrho_n\|_{C^{0,\alpha}}$以指数速度趋于零.
+\end{proof}
+
+本节最后指出，在Loper和Rapetti这篇确实给出了有趣数值结果的初始工作之后，已经出现了许多改进. 首先，\cite{b280}推广到了目标密度非常数的情形（但仍需要目标密度具有Lipschitz正则性）. 其次，\cite{b217}的另一个强限制是周期边界条件. 在不同于$\mathbb T^d$的区域上，情况要棘手得多. Benamou、Froese和Oberman在\cite{b39,b41}中使用Monge--Ampère算子的单调离散化，成功研究了这一问题. 单调性使人能够证明离散问题解的存在性，并证明其收敛到极限Monge--Ampère方程的粘性解. 最后，\cite{b39,b41}还处理了边界条件和区域形状问题. 采用粘性解方法，作者能够考虑非凸甚至不连通的源区域（从而允许密度有零点）. \phantomsection\label{idx:i136-p235}\index{S136@第二边值问题（second boundary value problem）|hyperpage}
+他们通过把目标区域写成凸函数的水平集来处理第二边值问题. 不过，由于这些新近结果的技术难度，以及其中涉及本书未展开的粘性解概念，我们不再进入细节.

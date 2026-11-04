@@ -1,5 +1,5 @@
 % 原书印刷9--13页，PDF物理37--41页，止于§1.3标题之前.
-\subsection{对偶性}\label{sec:1.2}
+\subsection{对偶性}\label{sec:1.2}\index{D046@对偶问题（dual problems）|hyperpage}\index{K082@Kantorovich对偶性（Kantorovich duality）|hyperpage}
 
 问题（KP）是在由线性等式或不等式给出的凸约束下的线性优化. 因此，对偶理论将是一项重要工具，它通常用于凸问题. 我们将为（KP）找出一个对偶问题（DP），并利用对偶问题与原问题之间的联系.
 
@@ -63,7 +63,7 @@
 
 不过，（DP）没有直接的存在性结果，因为可行函数类缺少紧性. 回顾一下连续函数空间中关于紧性的主要结果.
 
-\begin{sourcebox}{备忘：一致收敛意义下的紧性}\label{box:1.7}
+\begin{sourcebox}{备忘：一致收敛意义下的紧性}\label{box:1.7}\index{C024@紧性（compactness）!025@Ascoli--Arzelà定理（Ascoli-Arzelà）|hyperpage}
 \begin{theorem*}[Ascoli--Arzelà]
 如果 $X$ 是紧度量空间，且 $f_n:X\to\mathbb R$ 等度连续（即对每个 $\varepsilon>0$，存在共同的 $\delta>0$，使得对所有满足 $d(x,y)<\delta$ 的点对 $x,y$ 以及所有 $n$，都有 $|f_n(x)-f_n(y)|<\varepsilon$），并且一致有界（即存在共同的常数 $C$，使得对所有 $x\in X$ 和所有 $n$，都有 $|f_n(x)|\le C$），则序列 $(f_n)$ 存在一致收敛于某个连续函数 $f:X\to\mathbb R$ 的子列 $f_{n_k}$.
 
@@ -149,8 +149,8 @@
 \]
 这也表明（KP）的最小值是 $(\mu,\nu)$ 的凸函数，因为它是线性泛函的上确界.
 
-\begin{definition}\label{obj:1.12}
-在\orig{114}{(3.1)}中实现最大值的函数 $\varphi$，称为从 $\mu$ 到 $\nu$ 的传输的 Kantorovich 势（Kantorovich potentials）. 这实际上是一种小小的滥用，因为这个术语传统上只用于 $c(x,y)=|x-y|$ 的情形，但如今也用于一般情形.
+\begin{definition}\label{obj:1.12}\index{K083@Kantorovich势（Kantorovich potentials）|hyperpage}
+在\hyperref[eq:3.1]{(3.1)}中实现最大值的函数 $\varphi$，称为从 $\mu$ 到 $\nu$ 的传输的 Kantorovich 势（Kantorovich potentials）. 这实际上是一种小小的滥用，因为这个术语传统上只用于 $c(x,y)=|x-y|$ 的情形，但如今也用于一般情形.
 \end{definition}
 
 \begin{remark}\label{obj:1.13}

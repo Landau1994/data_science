@@ -237,6 +237,9 @@ x))) (d:/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbposter.code.tex
 Library (tcolorbox): 'tcbposter.code.tex' version '6.0.1'
 )) (d:/texlive/2023/texmf-dist/tex/latex/xurl/xurl.sty)
 (d:/texlive/2023/texmf-dist/tex/latex/tools/longtable.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/tools/multicol.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/base/makeidx.sty)
+Writing index file "Optimal Transport for Applied Mathematicians_Chn".idx
 (work/Optimal Transport for Applied Mathematicians_Chn.aux)
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -245,37 +248,98 @@ Library (tcolorbox): 'tcbposter.code.tex' version '6.0.1'
 (./frontmatter/00-title.tex [1]) (./frontmatter/00-publication.tex
 (d:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd)
 (d:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd)
-(d:/texlive/2023/texmf-dist/tex/latex/jknapltx/ursfs.fd) [1] [2] [3])
+(d:/texlive/2023/texmf-dist/tex/latex/jknapltx/ursfs.fd)
+(d:/texlive/2023/texmf-dist/tex/latex/esint/uesint.fd) [1] [2] [3])
 (./frontmatter/00-preface.tex [4] [5] [6] [7])
 (./frontmatter/00-introduction.tex [8] [9] [10])
 (./frontmatter/00-acknowledgments.tex [11]) [12]
-(work/Optimal Transport for Applied Mathematicians_Chn.toc) [13]
-(./frontmatter/00-source-contents.tex [14] [15] [16])
-(./frontmatter/00-notation.tex [17]
-(d:/texlive/2023/texmf-dist/tex/latex/bbm-macros/ubbm.fd) [18] [19]) [20]
+(work/Optimal Transport for Applied Mathematicians_Chn.toc [13] [14] [15])
+[16] (./frontmatter/00-source-contents.tex [17] [18] [19])
+(./frontmatter/00-notation.tex [20]
+(d:/texlive/2023/texmf-dist/tex/latex/bbm-macros/ubbm.fd) [21] [22]) [23]
 (./sections-tex/01-01.tex [1] [2] [3] [4] [5] [6] [7])
 (./sections-tex/01-02.tex [8] [9] [10] [11]) (./sections-tex/01-03.tex [12]
 [13] [14] [15] [16] [17]) (./sections-tex/01-04.tex [18])
 (./sections-tex/01-05.tex [19] [20] [21]) (./sections-tex/01-06.tex [22]
 [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36])
 (./sections-tex/01-07.tex [37] [38] [39] [40] [41] [42] [43] [44] [45] [46]
-[47] [48] [49]) [50] (work/Optimal Transport for Applied Mathematicians_Chn.bbl
-[51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63]
+[47] [48] [49]) [50] (./sections-tex/02-01.tex [51] [52] [53])
+(./sections-tex/02-02.tex [54] [55] [56] [57]) (./sections-tex/02-03.tex
+[58] [59] [60] [61]) (./sections-tex/02-04.tex [62] [63] [64] [65] [66])
+(./sections-tex/02-05.tex [67] [68] [69] [70] [71] [72]) [73]
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <30> not available
+(Font)              size <24.88> substituted on input line 324.
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <15> not available
+(Font)              size <14.4> substituted on input line 324.
+
+
+LaTeX Font Warning: Font shape `U/bbm/m/n' in size <30> not available
+(Font)              size <24.88> substituted on input line 324.
+
+
+LaTeX Font Warning: Font shape `U/bbm/m/n' in size <15> not available
+(Font)              size <14.4> substituted on input line 324.
+
+(./sections-tex/03-01.tex [74] [75] [76] [77] [78] [79] [80] [81] [82] [83]
+[84] [85] [86] [87] [88]) (./sections-tex/03-02.tex [89] [90] [91] [92])
+(./sections-tex/03-03.tex [93] [94] [95] [96] [97] [98] [99] [100] [101])
+[102] (./sections-tex/04-01.tex [103] [104] [105] [106] [107])
+(./sections-tex/04-02.tex [108] [109] [110] [111] [112] [113] [114] [115]
+[116] [117] [118] [119] [120] [121] [122]) (./sections-tex/04-03.tex [123]
+[124] [125] [126] [127] [128] [129]) (./sections-tex/04-04.tex
+(./sections-tex/04-04-1.tex [130] [131] [132] [133] [134] [135] [136] [137])
+(./sections-tex/04-04-2.tex [138] [139] [140] [141] [142] [143] [144] [145]
+[146] [147] [148])) [149] (./sections-tex/05-01.tex [150] [151] [152] [153]
+[154]) (./sections-tex/05-02.tex [155] [156] [157]) (./sections-tex/05-03.tex
+[158] [159] [160] [161] [162] [163] [164] [165] [166] [167] [168] [169])
+(./sections-tex/05-04.tex [170] [171] [172] [173] [174])
+(./sections-tex/05-05.tex [175] [176] [177] [178] [179] [180] [181] [182])
+[183] [184] (./sections-tex/06-01.tex [185] [186] [187] [188] [189])
+(./sections-tex/06-02.tex [190] [191] [192] [193] [194] [195])
+(./sections-tex/06-03.tex [196] [197] [198]) (./sections-tex/06-04.tex [199]
+[200] [201] [202] [203] [204] [205] [206] [207] [208] [209] [210]) [211]
+(./sections-tex/07-00.tex) (./sections-tex/07-01.tex [212] [213] [214] [215]
+[216] [217] [218] [219] [220]) (./sections-tex/07-02.tex [221] [222] [223]
+[224] [225] [226] [227] [228]) (./sections-tex/07-03.tex [229] [230] [231]
+[232] [233] [234]) (./sections-tex/07-04.tex [235] [236] [237] [238] [239]
+[240]) [241] (./sections-tex/08-01.tex [242] [243] [244] [245])
+(./sections-tex/08-02.tex [246] [247]) (./sections-tex/08-03.tex [248] [249]
+[250] [251] [252] [253] [254] [255]) (./sections-tex/08-04.tex
+(./sections-tex/08-04-1.tex [256] [257]) (./sections-tex/08-04-2.tex [258]
+[259] [260] [261] [262] [263]) (./sections-tex/08-04-3.tex [264] [265])
+(./sections-tex/08-04-4.tex [266] [267] [268] [269] [270] [271] [272] [273]))
+(./backmatter/09-exercises.tex [274] (./backmatter/09-exercises-1.tex [275]
+[276] [277]) (./backmatter/09-exercises-2.tex [278] [279] [280] [281] [282]
+[283])) (./backmatter/09-hints.tex [284] [285] [286] [287]) [288]
+(work/Optimal Transport for Applied Mathematicians_Chn.bbl [289] [290] [291]
+[292] [293] [294] [295] [296] [297] [298] [299] [300] [301]
 Underfull \hbox (badness 1874) in paragraph at lines 803--805
 []\TU/lmr/m/n/12 N. Ghoussoub, B. Maurey, Remarks on multi-marginal symmetric M
 onge-
-[64] [65] [66] [67] [68] [69]
+[302] [303] [304] [305] [306] [307]
 Underfull \hbox (badness 1917) in paragraph at lines 1158--1160
 []\TU/lmr/m/n/12 I. Rodríguez-Iturbe, A. Rinaldo, Fractal River Basins: Chance 
 and Self-
-[70] [71] [72]) [73] (work/Optimal Transport for Applied Mathematicians_Chn.aux
-)
+[308] [309] [310]) (./backmatter/10-index.tex
+(work/Optimal Transport for Applied Mathematicians_Chn.ind [311] [312]
+Underfull \hbox (badness 10000) in paragraph at lines 265--268
+[]\TU/lmr/m/n/10.95 Hamilton–Jacobi \TU/FandolSong-Regular(0)/m/n/10.95 方 程  |（
+\TU/lmr/m/n/10.95 Hamilton-Jacobi
+[313]
+Underfull \hbox (badness 10000) in paragraph at lines 385--387
+[]\TU/lmr/m/n/10.95 Monge–Kantorovich \TU/FandolSong-Regular(0)/m/n/10.95 系 统  
+|（\TU/lmr/m/n/10.95 Monge-
+[314])) [315] (work/Optimal Transport for Applied Mathematicians_Chn.aux)
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 5.12pt have occurred.
 
  )
 (see the transcript file for additional information)
-Output written on work/Optimal Transport for Applied Mathematicians_Chn.pdf (94
- pages).
+Output written on work/Optimal Transport for Applied Mathematicians_Chn.pdf (33
+9 pages).
 Transcript written on work/Optimal Transport for Applied Mathematicians_Chn.log
 .

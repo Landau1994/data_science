@@ -1,0 +1,809 @@
+[
+  {
+    "id": 4,
+    "group": "Symbols",
+    "level": 0,
+    "parent": null,
+    "english": "Gamma-convergence",
+    "chinese_tex": "$\\Gamma$-收敛",
+    "references": [
+      {
+        "source_printed_page": "173",
+        "source_physical_page": 198,
+        "target": "box:4.6",
+        "basis": "知识框4.6定义Gamma-liminf/Gamma-limsup与Gamma收敛，并列出极小化问题的主要性质.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      },
+      {
+        "source_printed_page": "174",
+        "source_physical_page": 199,
+        "target": "obj:4.46",
+        "basis": "定理4.46给出二维分支运输椭圆泛函M_epsilon^alpha的Gamma收敛结果.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 8,
+    "group": "A",
+    "level": 0,
+    "parent": null,
+    "english": "absolutely continuous curves",
+    "chinese_tex": "绝对连续曲线",
+    "references": [
+      {
+        "source_printed_page": "134",
+        "source_physical_page": 159,
+        "target": "idx:root4-p134-ac-curves",
+        "basis": "绝对连续曲线空间AC(Omega)及其导数积分定义所在段落，随后为式(4.8).",
+        "target_file": "sections-tex/04-02.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 9,
+    "group": "A",
+    "level": 0,
+    "parent": null,
+    "english": "angle laws",
+    "chinese_tex": "角度定律",
+    "references": [
+      {
+        "source_printed_page": "164",
+        "source_physical_page": 189,
+        "target": "eq:4.31",
+        "basis": "式(4.31)给出自由接合点带质量权重的方向平衡即角度定律，随后脚注14解释三重接合角.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      },
+      {
+        "source_printed_page": "172",
+        "source_physical_page": 197,
+        "target": "obj:4.45",
+        "basis": "定理4.45证明单源最优网络的半切线、切锥及无穷小角度定律(4.31).",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 14,
+    "group": "A",
+    "level": 0,
+    "parent": null,
+    "english": "augmented lagrangian",
+    "chinese_tex": "增广Lagrangian",
+    "references": [
+      {
+        "source_printed_page": "159",
+        "source_physical_page": 184,
+        "target": "idx:root4-p159-augmented-lagrangian",
+        "basis": "长期问题Beckmann重述的原脚注10，明确提及Benamou--Brenier增广Lagrange技术及文献[35].",
+        "target_file": "sections-tex/04-04-1.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 15,
+    "group": "B",
+    "level": 0,
+    "parent": null,
+    "english": "Benamou-Brenier",
+    "chinese_tex": "Benamou--Brenier方法",
+    "references": [
+      {
+        "source_printed_page": "128",
+        "source_physical_page": 153,
+        "target": "idx:root4-p128-benamou-brenier",
+        "basis": "原脚注1将幂次距离成本的流极小化转为Benamou--Brenier问题；锚点置于该脚注内.",
+        "target_file": "sections-tex/04-02.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 17,
+    "group": "B",
+    "level": 0,
+    "parent": null,
+    "english": "branched transport",
+    "chinese_tex": "分支传输",
+    "references": [
+      {
+        "source_printed_page": "162",
+        "source_physical_page": 187,
+        "target": "sec:4.4.2",
+        "basis": "分支运输专题小节4.4.2从本页开始，解释规模经济、共同运输与分支网络的动机.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 18,
+    "group": "B",
+    "level": 1,
+    "parent": 17,
+    "english": "d_alpha distance",
+    "chinese_tex": "$d_\\alpha$距离",
+    "references": [
+      {
+        "source_printed_page": "166",
+        "source_physical_page": 191,
+        "target": "idx:root4-p166-irrigation-distance",
+        "basis": "可灌溉性与灌溉距离段落直接定义d_alpha(mu,nu)=min(XP)，随后命题4.38讨论有限性和距离性质.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 19,
+    "group": "B",
+    "level": 1,
+    "parent": 17,
+    "english": "elliptic approximation",
+    "chinese_tex": "椭圆近似",
+    "references": [
+      {
+        "source_printed_page": "174",
+        "source_physical_page": 199,
+        "target": "eq:4.35",
+        "basis": "式(4.35)定义分支运输的椭圆逼近能量，随后定理4.46给出其Gamma极限.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 22,
+    "group": "B",
+    "level": 0,
+    "parent": null,
+    "english": "BV functions",
+    "chinese_tex": "BV函数",
+    "references": [
+      {
+        "source_printed_page": "141",
+        "source_physical_page": 166,
+        "target": "box:4.4",
+        "basis": "知识框4.4专门介绍BV函数及相关紧性、迹与结构性质.",
+        "target_file": "sections-tex/04-02.tex",
+        "status": "verified-location"
+      },
+      {
+        "source_printed_page": "172",
+        "source_physical_page": 197,
+        "target": "obj:4.45",
+        "basis": "定理4.45明确得到最优曲线导数omega_prime属于BV([0,t_0])及切线性质.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 27,
+    "group": "C",
+    "level": 0,
+    "parent": null,
+    "english": "continuity equation",
+    "chinese_tex": "连续性方程",
+    "references": [
+      {
+        "source_printed_page": "122",
+        "source_physical_page": 147,
+        "target": "idx:root4-p122-continuity",
+        "basis": "由常微分方程流推导密度与速度满足连续性方程的实际首次叙述及无编号公式.",
+        "target_file": "sections-tex/04-01.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 35,
+    "group": "C",
+    "level": 0,
+    "parent": null,
+    "english": "cycles",
+    "chinese_tex": "环",
+    "references": [
+      {
+        "source_printed_page": "139",
+        "source_physical_page": 164,
+        "target": "obj:4.11",
+        "basis": "注4.11定义向量测度的环流及无环流性，并讨论质量分解.",
+        "target_file": "sections-tex/04-02.tex",
+        "status": "verified-location"
+      },
+      {
+        "source_printed_page": "164",
+        "source_physical_page": 189,
+        "target": "obj:4.37",
+        "basis": "定义4.37区分图中的环与强环，并以图4.5说明，后文据此排除最优图中的环.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 37,
+    "group": "D",
+    "level": 0,
+    "parent": null,
+    "english": "Dacorogna-Moser",
+    "chinese_tex": "Dacorogna--Moser方法",
+    "references": [
+      {
+        "source_printed_page": "137",
+        "source_physical_page": 162,
+        "target": "box:4.3",
+        "basis": "知识框4.3给出Dacorogna--Moser构造的假设、运输流及证明.",
+        "target_file": "sections-tex/04-02.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 44,
+    "group": "D",
+    "level": 0,
+    "parent": null,
+    "english": "distance costs",
+    "chinese_tex": "距离成本",
+    "references": [
+      {
+        "source_printed_page": "129",
+        "source_physical_page": 154,
+        "target": "idx:root4-p129-weighted-distance",
+        "basis": "由加权流成本的对偶导出以Riemann加权距离d_k为成本的Kantorovich问题，无编号公式所在段落.",
+        "target_file": "sections-tex/04-02.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 46,
+    "group": "D",
+    "level": 0,
+    "parent": null,
+    "english": "dual problems",
+    "chinese_tex": "对偶问题",
+    "references": [
+      {
+        "source_printed_page": "131",
+        "source_physical_page": 156,
+        "target": "idx:root4-p131-duality",
+        "basis": "定理4.6证明中以Lip_1光滑逼近Kantorovich势，并明确使用max(DP)=min(KP)的对偶论证.",
+        "target_file": "sections-tex/04-02.tex",
+        "status": "verified-location"
+      },
+      {
+        "source_printed_page": "157",
+        "source_physical_page": 182,
+        "target": "obj:4.34",
+        "basis": "命题4.34及式(4.24)给出短期Wardrop问题与度量对偶问题最优值相等和极小元对应.",
+        "target_file": "sections-tex/04-04-1.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 50,
+    "group": "E",
+    "level": 0,
+    "parent": null,
+    "english": "Eikonal equation",
+    "chinese_tex": "程函方程",
+    "references": [
+      {
+        "source_printed_page": "158",
+        "source_physical_page": 183,
+        "target": "eq:4.25",
+        "basis": "式(4.25)把加权距离d_k(x_0,.)刻画为程函方程|grad u|=k的黏性解.",
+        "target_file": "sections-tex/04-04-1.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 61,
+    "group": "F",
+    "level": 0,
+    "parent": null,
+    "english": "Fast Marching Method",
+    "chinese_tex": "快速行进法",
+    "references": [
+      {
+        "source_printed_page": "158",
+        "source_physical_page": 183,
+        "target": "box:4.5",
+        "basis": "知识框4.5专门给出程函方程离散化与快速行进算法FMM.",
+        "target_file": "sections-tex/04-04-1.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 69,
+    "group": "G",
+    "level": 1,
+    "parent": 65,
+    "english": "in traffic congestion",
+    "chinese_tex": "交通拥堵中",
+    "references": [
+      {
+        "source_printed_page": "156",
+        "source_physical_page": 181,
+        "target": "obj:4.31",
+        "basis": "父词条为geodesics：定义4.31及式(4.20)要求Wardrop均衡Q集中于自身拥堵度量的测地线.",
+        "target_file": "sections-tex/04-04-1.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 76,
+    "group": "H",
+    "level": 0,
+    "parent": null,
+    "english": "Helmholtz decomposition",
+    "chinese_tex": "Helmholtz分解",
+    "references": [
+      {
+        "source_printed_page": "160",
+        "source_physical_page": 185,
+        "target": "idx:root4-p160-helmholtz",
+        "basis": "最优性条件将grad H(w)对所有无散场的正交性转成梯度表示，引用框6.2的Helmholtz分解.",
+        "target_file": "sections-tex/04-04-1.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 77,
+    "group": "I",
+    "level": 0,
+    "parent": null,
+    "english": "image processing",
+    "chinese_tex": "图像处理",
+    "references": [
+      {
+        "source_printed_page": "144",
+        "source_physical_page": 169,
+        "target": "idx:root4-p144-image-processing",
+        "basis": "关于文献[208]将运输密度工具用于图像处理并给出绝对连续性证明的具体句子.",
+        "target_file": "sections-tex/04-03.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 83,
+    "group": "K",
+    "level": 0,
+    "parent": null,
+    "english": "Kantorovich potentials",
+    "chinese_tex": "Kantorovich势",
+    "references": [
+      {
+        "source_printed_page": "133",
+        "source_physical_page": 158,
+        "target": "eq:4.7",
+        "basis": "式(4.7)将Kantorovich势u与运输密度sigma作为Monge--Kantorovich系统的联合解.",
+        "target_file": "sections-tex/04-02.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 88,
+    "group": "L",
+    "level": 0,
+    "parent": null,
+    "english": "landscape function",
+    "chinese_tex": "景观函数",
+    "references": [
+      {
+        "source_printed_page": "171",
+        "source_physical_page": 196,
+        "target": "obj:4.43",
+        "basis": "定义4.43正式定义与交通模式eta关联的地形函数z_eta.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 98,
+    "group": "M",
+    "level": 0,
+    "parent": null,
+    "english": "measures on curves",
+    "chinese_tex": "曲线上的测度",
+    "references": [
+      {
+        "source_printed_page": "134",
+        "source_physical_page": 159,
+        "target": "sec:4.2.3",
+        "basis": "小节4.2.3题为曲线测度的交通强度与交通流，在本页引入曲线空间上的概率Q及相关测度；精确专题小节.",
+        "target_file": "sections-tex/04-02.tex",
+        "status": "verified-location"
+      },
+      {
+        "source_printed_page": "155",
+        "source_physical_page": 180,
+        "target": "idx:root4-p155-path-measures",
+        "basis": "连续交通拥堵框架将完整路径运输配置表为路径集合上的概率测度Q的具体段落.",
+        "target_file": "sections-tex/04-04-1.tex",
+        "status": "verified-location"
+      },
+      {
+        "source_printed_page": "168",
+        "source_physical_page": 193,
+        "target": "idx:root4-p168-traffic-plan",
+        "basis": "拉格朗日表述的具体段落定义曲线空间上的概率交通计划Q及端点分布约束.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 102,
+    "group": "M",
+    "level": 0,
+    "parent": null,
+    "english": "Monge-Kantorovich system",
+    "chinese_tex": "Monge--Kantorovich系统",
+    "references": [
+      {
+        "source_printed_page": "133",
+        "source_physical_page": 158,
+        "target": "eq:4.7",
+        "basis": "编号式(4.7)即Monge--Kantorovich系统，含散度方程及梯度约束.",
+        "target_file": "sections-tex/04-02.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 109,
+    "group": "N",
+    "level": 1,
+    "parent": 107,
+    "english": "ramified",
+    "chinese_tex": "分支",
+    "references": [
+      {
+        "source_printed_page": "162",
+        "source_physical_page": 187,
+        "target": "sec:4.4.2",
+        "basis": "父词条为networks：本页分支运输小节解释分支网络的共同运输机制及自然例子.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 110,
+    "group": "N",
+    "level": 0,
+    "parent": null,
+    "english": "Neumann conditions",
+    "chinese_tex": "Neumann边界条件",
+    "references": [
+      {
+        "source_printed_page": "123",
+        "source_physical_page": 148,
+        "target": "idx:root4-p123-neumann",
+        "basis": "解释连续性方程分布表述同时包含边界无通量条件rho_t v_t.n=0的段落.",
+        "target_file": "sections-tex/04-01.tex",
+        "status": "verified-location"
+      },
+      {
+        "source_printed_page": "127",
+        "source_physical_page": 152,
+        "target": "obj:4.5",
+        "basis": "问题4.5及式(4.4)后的正文将散度约束明确按带无通量边界条件的弱意义理解.",
+        "target_file": "sections-tex/04-02.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 128,
+    "group": "R",
+    "level": 1,
+    "parent": 127,
+    "english": "branched networks",
+    "chinese_tex": "分支网络",
+    "references": [
+      {
+        "source_printed_page": "165",
+        "source_physical_page": 190,
+        "target": "idx:root4-p165-rectifiability",
+        "basis": "父词条为rectifiability：在1-可求长集E上定义向量测度[E,tau,theta]，原脚注15解释1-可求长集.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      },
+      {
+        "source_printed_page": "166",
+        "source_physical_page": 191,
+        "target": "idx:root4-p166-rectifiability",
+        "basis": "父词条为rectifiability：White定理推出有限alpha质量的w必为1-可求长，并给出相应积分表达式.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 131,
+    "group": "R",
+    "level": 1,
+    "parent": 130,
+    "english": "for branched transport",
+    "chinese_tex": "分支传输的",
+    "references": [
+      {
+        "source_printed_page": "172",
+        "source_physical_page": 197,
+        "target": "idx:root4-p172-regularity",
+        "basis": "正则性专题段落讨论远离端点支集的局部有限图、内部角度定律及其切线层面的推广；随后定理4.45给出单源结果.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 132,
+    "group": "R",
+    "level": 1,
+    "parent": 130,
+    "english": "for congested problems",
+    "chinese_tex": "拥堵问题的",
+    "references": [
+      {
+        "source_printed_page": "161",
+        "source_physical_page": 186,
+        "target": "idx:root4-p161-regularity",
+        "basis": "式(4.30)后专段讨论u的Lipschitz正则性、w的Sobolev及连续性结果与DiPerna--Lions流.",
+        "target_file": "sections-tex/04-04-1.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 134,
+    "group": "R",
+    "level": 0,
+    "parent": null,
+    "english": "relaxation",
+    "chinese_tex": "松弛",
+    "references": [
+      {
+        "source_printed_page": "165",
+        "source_physical_page": 190,
+        "target": "idx:root4-p165-relaxation",
+        "basis": "Xia的alpha质量M_alpha在离散图能量下以liminf和向量测度弱收敛松弛定义的具体公式.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 143,
+    "group": "S",
+    "level": 0,
+    "parent": null,
+    "english": "Steiner problem",
+    "chinese_tex": "Steiner问题",
+    "references": [
+      {
+        "source_printed_page": "163",
+        "source_physical_page": 188,
+        "target": "idx:root4-p163-steiner",
+        "basis": "Gilbert能量与alpha=0的Steiner最小长度问题关系所在段落，并保留精确等价条件的脚注12.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      },
+      {
+        "source_printed_page": "172",
+        "source_physical_page": 197,
+        "target": "idx:root4-p172-steiner",
+        "basis": "数值方法段落明确将分支运输与Steiner最小连接问题比较，并提及图上NP困难性.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 145,
+    "group": "S",
+    "level": 0,
+    "parent": null,
+    "english": "sub-additivity",
+    "chinese_tex": "次可加性",
+    "references": [
+      {
+        "source_printed_page": "162",
+        "source_physical_page": 187,
+        "target": "idx:root4-p162-subadditivity",
+        "basis": "分支运输引言的首段明确定义运输成本的次可加性和递减边际成本.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 146,
+    "group": "S",
+    "level": 0,
+    "parent": null,
+    "english": "subdifferentials",
+    "chinese_tex": "次微分",
+    "references": [
+      {
+        "source_printed_page": "159",
+        "source_physical_page": 184,
+        "target": "idx:root4-p159-subdifferentials",
+        "basis": "原页顶部承接前页的次微分计算，具体指用FMM同一循环求解导数方程并得到次微分元素的句子.",
+        "target_file": "sections-tex/04-04-1.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 150,
+    "group": "T",
+    "level": 0,
+    "parent": null,
+    "english": "traffic plans",
+    "chinese_tex": "交通方案",
+    "references": [
+      {
+        "source_printed_page": "168",
+        "source_physical_page": 193,
+        "target": "idx:root4-p168-traffic-plan",
+        "basis": "拉格朗日表述的具体段落将交通计划定义为曲线空间上的概率Q，并列出可积长度与端点条件.",
+        "target_file": "sections-tex/04-04-2.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 151,
+    "group": "T",
+    "level": 0,
+    "parent": null,
+    "english": "transport density",
+    "chinese_tex": "传输密度",
+    "references": [
+      {
+        "source_printed_page": "133",
+        "source_physical_page": 158,
+        "target": "idx:root4-p133-transport-density",
+        "basis": "Monge--Kantorovich系统与运输密度段落明确命名sigma_gamma为运输密度并说明其起源与用途.",
+        "target_file": "sections-tex/04-02.tex",
+        "status": "verified-location"
+      },
+      {
+        "source_printed_page": "144",
+        "source_physical_page": 169,
+        "target": "sec:4.3",
+        "basis": "小节4.3运输密度的可积性在本页开始，说明从测度正则性到绝对连续性和L^p估计的研究范围.",
+        "target_file": "sections-tex/04-03.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 156,
+    "group": "V",
+    "level": 0,
+    "parent": null,
+    "english": "vector measures",
+    "chinese_tex": "向量测度",
+    "references": [
+      {
+        "source_printed_page": "130",
+        "source_physical_page": 155,
+        "target": "box:4.2",
+        "basis": "知识框4.2定义向量测度、全变差、弱收敛及散度约束下的向量测度空间.",
+        "target_file": "sections-tex/04-02.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 157,
+    "group": "V",
+    "level": 0,
+    "parent": null,
+    "english": "very degenerate elliptic PDEs",
+    "chinese_tex": "高度退化的椭圆偏微分方程",
+    "references": [
+      {
+        "source_printed_page": "161",
+        "source_physical_page": 186,
+        "target": "eq:4.30",
+        "basis": "式(4.30)即拥堵模型导出的非常退化椭圆偏微分方程，后附Neumann边界条件及正则性讨论.",
+        "target_file": "sections-tex/04-04-1.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 163,
+    "group": "W",
+    "level": 0,
+    "parent": null,
+    "english": "weighted distances",
+    "chinese_tex": "加权距离",
+    "references": [
+      {
+        "source_printed_page": "129",
+        "source_physical_page": 154,
+        "target": "idx:root4-p129-weighted-distance",
+        "basis": "原页给出d_k的加权曲线长度定义及其作为运输成本的无编号公式.",
+        "target_file": "sections-tex/04-02.tex",
+        "status": "verified-location"
+      },
+      {
+        "source_printed_page": "155",
+        "source_physical_page": 180,
+        "target": "idx:root4-p155-weighted-distance",
+        "basis": "交通强度诱导度量k_Q(x)=g(x,i_Q(x))并定义加权长度L_kQ和距离d_kQ的连续框架段落.",
+        "target_file": "sections-tex/04-04-1.tex",
+        "status": "verified-location"
+      },
+      {
+        "source_printed_page": "158",
+        "source_physical_page": 183,
+        "target": "eq:4.25",
+        "basis": "式(4.25)前一句将加权距离d_k(x_0,.)作为程函方程唯一黏性解，随后知识框讨论其离散计算.",
+        "target_file": "sections-tex/04-04-1.tex",
+        "status": "verified-location"
+      }
+    ],
+    "see": null
+  }
+]

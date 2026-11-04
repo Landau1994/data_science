@@ -55,7 +55,7 @@ updated: 2026-11-03
 | [[00 - 首页/教材归档/DS015 - Elements of Information Theory\|DS015]] | [Elements of Information Theory](<Elements of information theory.pdf>)，Thomas M. Cover、Joy A. Thomas | 第 2 版，2006；758 页 | **信息论参考**。熵、相对熵、互信息、编码与容量；与学习目标相关时查阅。 |
 | [[00 - 首页/教材归档/DS016 - 信息论答案册\|DS016]] | [信息论基础答案册](<solution_Elements of Information Theory.pdf>)，Thomas M. Cover、Joy A. Thomas | 对应第 2 版；2006-10-17；397 页 | 来源前言自述提供全书题目答案；本库尚未逐题验证其完整性或正确性。 |
 | [[00 - 首页/教材归档/DS017 - Convex Optimization\|DS017]] | [Convex Optimization](<bv_cvxbook.pdf>)，Stephen Boyd、Lieven Vandenberghe | 2004 年初版；2009 年第 7 次更正印刷；730 页 | **优化参考**。凸性、对偶、最优性条件和算法；不要求先通读再学 UDL。 |
-| [[00 - 首页/教材归档/DS026 - Optimal Transport for Applied Mathematicians\|DS026]] | [Optimal Transport for Applied Mathematicians](<Santambrogio 2015 Optiomal Transport For Applied Mathematicians.pdf>)，Filippo Santambrogio | 2015年出版版；376页 | **最优运输分析与变分专题**。连接对偶、连续性方程、Wasserstein空间与偏微分方程；中文全书翻译已启动，首批为前置内容和第1章。 |
+| [[00 - 首页/教材归档/DS026 - Optimal Transport for Applied Mathematicians\|DS026]] | [Optimal Transport for Applied Mathematicians](<Santambrogio 2015 Optiomal Transport For Applied Mathematicians.pdf>)，Filippo Santambrogio | 2015年出版版；376页 | **最优运输分析与变分专题**。连接对偶、连续性方程、Wasserstein空间与偏微分方程；中文全译稿含前置、8章、全部69题与原提示、300条书目及动态中英索引，文件与实际核验记录见统一台账。 |
 
 ## 三、先读 UDL，还是 Bishop
 

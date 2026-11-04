@@ -1,0 +1,239 @@
+% 原书物理337–347页，印刷313–323页；§8.4.4及本书正文末.
+\subsubsection{演化偏微分方程：不只是梯度流}\label{sec:8.4.4}
+本章（以及本书）最后介绍最优运输与演化偏微分方程之间的其他一些应用和联系（注意，前面已经见过与静态偏微分方程的联系：\autoref{sec:1.7.6}中的 Monge--Amp\`ere 方程，以及\autoref{sec:4.2.2}中的 Monge--Kantorovich 方程组）.
+
+\subsubsection*{不可压缩 Euler 方程}
+\phantomsection\label{idx:i54-p314}\index{E054@Euler方程（流体）（Euler equation (fluids)）|hyperpage}
+\phantomsection\label{idx:i78-p314}\index{I078@不可压缩流体（incompressible fluids）|hyperpage}
+考虑在光滑区域 $\Omega$ 内运动的不可压缩均匀流体. 不可压缩流体的 Euler 方程通过压力场 $p$ 描述速度场 $\mathbf v$ 的演化：
+\[
+\partial_t\mathbf v_t+(\mathbf v_t\cdot\nabla)\mathbf v_t+\nabla p_t=0,
+\qquad\nabla\cdot\mathbf v_t=0.
+\]
+为解释记号 $(\mathbf v\cdot\nabla)\mathbf v$，可以按分量写为 $\partial_t v^i+v^jv_j^i=-p_i$（这里略去时间下标 $t$，用上标表示分量、下标表示导数，并对重复指标使用 Einstein 求和约定）. 注意，$\partial_t\mathbf v_t+(\mathbf v_t\cdot\nabla)\mathbf v_t$ 无非就是 Lagrange 坐标下的加速度. 事实上，初始位置为 $x$ 的粒子轨迹，是沿向量场 $\mathbf v_t$ 运动得到的，即如常取流 $y'_x(t)=\mathbf v_t(y_x(t))$，$y_x(0)=x$. 若用 $Y_t$ 表示映射 $x\mapsto y_x(t)$，则对每个时刻 $t$，$Y_t$ 都是 $\Omega$ 的保测度微分同胚，并且对每个 $x$，有
+\[
+y''_x(t)=-\nabla p_t(y_x(t)).
+\]
+\phantomsection\label{idx:i67-p314}\index{G065@测地线（geodesics）!067@$\operatorname{SDiff}(\Omega)$中（in $\operatorname{SDiff}(\Omega)$）|hyperpage}
+Arnold 在\cite{b22}中将上述方程解释为 $\Omega$ 的保测度微分同胚空间 $\operatorname{SDiff}(\Omega)$ 上的测地线方程；该空间视为无穷维流形，其度量由嵌入 $L^2(\Omega)$ 继承而来（切空间对应于无散向量场）. 按照这一解释，可以通过在所有满足给定端点 $g(0,\cdot)=g_0$、$g(T,\cdot)=g_T$ 的路径 $g(t,\cdot):[0,T]\to\operatorname{SDiff}(\Omega)$ 中极小化
+\begin{equation}\label{eq:8.20}\index{K085@动能（kinetic energy）|hyperpage}
+\int_0^T\int_D\frac12|\dot g(t,x)|^2\dd x\dd t
+\end{equation}
+来寻找解（通常利用右不变性，将 $g_0$ 取为恒等映射）. 这样，压力场就作为不可压缩约束的 Lagrange 乘子出现.
+
+Shnirelman 在\cite{b284,b285}中证明：当 $d\geq3$ 时，下确界一般不取到；当 $d=2$ 时，存在 $h\in\operatorname{SDiff}(D)$，无法通过有限作用量的路径与恒等映射相连. 这些“否定性”结果促使人们研究 Arnold 问题的松弛版本.
+
+Arnold 极小化问题的第一个松弛版本由 Brenier 在\cite{b83}中提出，它是一种运输问题. 它与 Arnold 问题的关系，正如 Kantorovich 问题与 Monge 问题的关系一样. \phantomsection\label{idx:i98-p314}\index{M098@曲线上的测度（measures on curves）|hyperpage}
+Brenier 考虑绝对连续路径空间 $\mathrm{AC}(\Omega)$（下面简记为 $\mathscr C$）上的概率测度 $Q$，其中路径为 $\omega:[0,T]\to\Omega$，并考察以下变分问题.
+
+\begin{problem}\label{obj:8.11}
+求解
+\begin{equation}\label{eq:8.21}
+\text{(EP)}\quad\min\left\{\int_{\mathscr C}K_2(\omega)\dd Q(\omega):
+\begin{array}{l}
+Q\in\mathscr P(\mathscr C),\ (e_0,e_T)_\#Q=\gamma,\\
+(e_t)_\#Q=\mathscr L_\Omega\quad\forall t
+\end{array}\right\},
+\end{equation}
+其中 $K_2(\omega):=\int_0^T\frac12|\omega'(t)|^2\dd t$ 是曲线 $\omega$ 的动能，运输方案 $\gamma\in\mathscr P(\mathscr L_\Omega,\mathscr L_\Omega)$ 已固定，通常形如 $\gamma=(\id,h)_\#\mathscr L_\Omega$.
+\end{problem}
+只要存在至少一个具有有限作用量的 $Q$，极小点 $Q$ 的存在性就是标准的（见\cite{b83}）；当 $\Omega$ 足够光滑时，这一点成立.
+
+注意，任意足够正则的路径 $g(t,\cdot):[0,1]\to\operatorname{SDiff}(\Omega)$ 都诱导一个流（用我们的语言说，是一个交通方案，见\autoref{sec:4.2}）$Q$，但反过来远非如此：允许从不同点出发的粒子在后来相交，也允许从同一点出发的粒子分裂，而这些在经典流中显然都不允许. 这些解称为非确定性解；\cite{b83}在简单情形 $T=\pi$、$\Omega=B(0,1)$、$h(x)=-x$ 中，确实给出了它们可能最优的一个例子.
+
+另一方面，\cite{b83}还证明了一个相容性结论：\phantomsection\label{idx:i118-p315}\index{P118@压力（pressure）|hyperpage}
+只要压力场 $p$ 满足
+\begin{equation}\label{eq:8.22}
+\sup_{t\in[0,T]}\sup_{x\in\Omega}D^2p(t,x)\leq\frac{\pi^2}{T^2}\mathrm I,
+\end{equation}
+Euler 方程的光滑解即使在更大的容许 $Q$ 类中也是最优的；若上式为严格不等式，则它们还是唯一的最优解.
+
+最小作用量问题解的唯一性是一个有趣的问题：\cite{b51}分析了一维情形（在压力光滑的假设下证明了一般的唯一性结论）与二维情形（相反，\cite{b51}推广并刻画了\cite{b83}中的非确定性解，找到了一个十分丰富的非确定性最优解族）.
+
+在这个框架中，最优运输从两个方面出现. 首先，Brenier 的作用量极小化问题实际上是一个多边缘 Kantorovich 问题，对每个时刻 $t$ 都有边缘约束（见\autoref{sec:1.7.4}）. 其次，对这个问题作时间离散时，自然的数值策略包含以下过程：假设已经确定粒子在时刻 $t_{i-1}$ 和 $t_{i+1}$ 的位置（采用均匀划分 $t_i=T\frac in$），分别由函数 $X_{i-1}$ 与 $X_{i+1}$ 表示，二者的像测度均为 $\mathscr L_\Omega$；若没有不可压缩约束，为极小化动能，最优中间值将是 $X_i=(X_{i-1}+X_{i+1})/2$，但其像测度一般不是 $\mathscr L_\Omega$. 因此，需要将它投影到具有给定像测度的映射 $X$ 的集合上，而这正是极分解表述中的经典运输问题（见\autoref{sec:1.7.2}）.
+
+\subsubsection*{耦合 Hamilton--Jacobi 方程与连续性方程、平均场博弈}
+在\autoref{sec:6}的\autoref{obj:6.2}中，已经看到 Benamou--Brenier 方法给出了以下偏微分方程组的一个解：
+\[
+\begin{cases}
+\partial_t\varrho+\nabla\cdot(\varrho\nabla\varphi)=0,\\
+\partial\varphi+\frac12|\nabla\varphi|^2=0,\quad\varrho_0=\mu,\quad\varrho_1=\nu,
+\end{cases}
+\]
+其中第二个方程在 $\varrho$-几乎处处成立，而不等式 $\partial_t\varphi+\frac12|\nabla\varphi|^2\leq0$ 处处成立.
+
+\phantomsection\label{idx:i27-p316}\index{C027@连续性方程（continuity equation）|hyperpage}
+这种耦合 Hamilton--Jacobi 方程与连续性方程的方程组，也出现在其他情形中，特别是在新兴的平均场博弈（mean field games，MFG）理论中.
+
+\phantomsection\label{idx:i97-p316}\index{M097@平均场博弈（Mean Field Games）|hyperpage}
+下面对这一理论作快速而非正式的介绍. 只考虑确定性情形（即主体的演化没有随机部分，使用确定性最优控制理论，而非随机控制）. 更广泛的介绍可参见\cite{b205,b206}与\cite{b105}.
+
+设有一个主体群体随时间演化，每个主体都沿着受控方程
+\begin{equation}\label{eq:8.23}
+y'(t)=f(t,y(t),\alpha(t)),\qquad t\in[0,T]
+\end{equation}
+的轨迹运动，$\alpha:[0,T]\to\R^d$ 是每个主体可以选择的控制. 在每个时刻 $t$，每个主体的目标是极大化收益
+\begin{equation}\label{eq:8.24}
+-\int_t^T\left(\frac{|\alpha(s)|^2}2+g(\varrho(s,y(s)))\right)\dd s+\Phi(y(T)),
+\end{equation}
+其中 $g$ 是给定的递增函数. 这意味着，$\alpha$ 是每个主体为朝希望的方向移动而付出的努力，并为此付费（为简单起见，采用二次费用）；其位置通过\eqref{eq:8.23}依赖于 $\alpha$；它尝试优化终端收益 $\Phi$，但也要根据经过区域的密度付费. 特别地，主体希望避开过于拥挤的区域. 在第一步中，将密度 $\varrho(t,x)$ 视为给定函数. \phantomsection\label{idx:i53-p316}\index{E053@均衡（equilibria）|hyperpage}
+然而，MFG 问题是一个均衡问题：给定初始密度 $\varrho_0$，寻找随时间变化的密度族 $\varrho_t$，使得当每个主体选择自己的最优轨迹以优化\eqref{eq:8.24}时，这些最优轨迹在时刻 $t$ 实现的密度恰好就是 $\varrho_t$.
+
+可以利用值函数，研究由\eqref{eq:8.23}和\eqref{eq:8.24}给出的最优控制问题.
+
+\begin{sourcebox}{备忘：最优控制与 Hamilton--Jacobi 方程}\label{box:8.3}\index{H073@Hamilton--Jacobi方程（Hamilton-Jacobi equations）|hyperpage}
+考虑优化问题
+\[
+\max\left\{\int_0^TL(t,y(t),\alpha(t))\dd t+\Phi(y(T)):
+y'=f(t,y,\alpha),\ y(0)=x_0\right\},
+\]
+其中 $\alpha$ 是可以用来影响轨迹 $x$ 的状态方程解的控制. 定义所谓值函数（value function）
+\[
+\varphi(t,x)=\sup\left\{\int_t^TL(s,y(s),\alpha(s))\dd s+\Phi(y(T)):
+y(t)=x,\ y'=f(s,y,\alpha)\right\}.
+\]
+由最优控制理论熟知（例如，见\cite{b158}的第10.3节），$\varphi$（在黏性意义下）满足 Hamilton--Jacobi--Bellman 方程
+\[
+\partial_t\varphi(t,x)+H(t,x,\nabla\varphi(t,x))=0,
+\qquad\varphi(T,x)=\Phi(x),
+\]
+其中 Hamilton 函数 $H$ 定义为
+\begin{equation}\label{eq:8.25}
+H(t,x,\xi)=\sup_\alpha\xi\cdot f(t,x,\alpha)+L(t,x,\alpha).
+\end{equation}
+此外，同样熟知，在控制问题中，对每个 $(t,x)$，要解出在时刻 $t$ 从 $x$ 出发的优化问题，$\alpha(t)$ 的最优选择，就是在 $\xi=\nabla\varphi(t,x)$ 时使\eqref{eq:8.25}中 $H$ 的定义取到最大值的控制 $\alpha$，也就是使 $\nabla\varphi(t,x)\cdot f(t,x,\alpha)+L(t,x,\alpha)$ 最大的控制.
+
+在重要的特殊情形 $f(t,x,\alpha)=\alpha$、$L(t,x,\alpha)=-\frac12|\alpha|^2-g(t,x)$ 下，得到 $H(t,x,\xi)=\frac12|\xi|^2-g(t,x)$，因此 $\partial_t\varphi+\frac12|\nabla\varphi|^2=g$；最优曲线遵循 $y'=\nabla\varphi(t,y)$.
+\end{sourcebox}
+
+这给出两个耦合方程组成的方程组，因为 $\varphi$ 满足一个 Hamilton 函数中含有 $\varrho$ 的 HJB 方程，而 $\varrho$ 根据连续性方程 $\partial_t\varrho+\nabla\cdot(\varrho\mathbf v)=0$ 演化. 更准确地，在 $f(t,x,\alpha)=\alpha$ 的情形下可以给出一个明确的例子. 此时，连续性方程中的向量场恰好是 $\nabla\varphi$. 于是得到方程组
+\begin{equation}\label{eq:8.26}
+\begin{cases}
+\partial_t\varphi+\dfrac{|\nabla\varphi|^2}2-g(\varrho)=0,\\
+\partial_t\varrho+\nabla\cdot(\varrho\nabla\varphi)=0,\\
+\varphi(T,x)=\Phi(x),\quad\varrho(0,x)=\varrho_0(x),
+\end{cases}
+\end{equation}
+其中第一个方程在黏性意义下成立，第二个在分布意义下成立.
+
+在这种情形下，还知道可以通过极小化一个适当的整体泛函，得到该方程组的解（即平均场博弈中的均衡）（显然，改变符号后也可以将它写成极大化）. 事实上，可以在满足初值 $\varrho(0,x)=\varrho_0(x)$ 的连续性方程 $\partial_t\varrho+\nabla\cdot(\varrho\alpha)=0$ 的解 $(\varrho,\alpha)$ 中，求解
+\[
+\min\int_0^T\int_\Omega\left(\frac12|\alpha(t,x)|^2\varrho(t,x)+G(\varrho(t,x))\right)\dd x\dd t
+-\int_\Omega\Phi(x)\varrho(T,x)\dd x.
+\]
+当将函数 $G$ 选为 $g$ 的原函数（即 $G'=g$，特别地，$G$ 为凸函数）时，这个整体泛函的极小点恰好是上述意义下的均衡（主体根据这些密度选取的轨迹，恰好实现这些密度）. \phantomsection\label{idx:i15-p318}\index{B015@Benamou--Brenier方法（Benamou-Brenier）|hyperpage}
+这些泛函是 Benamou 和 Brenier 在\cite{b34}中提出、并在\autoref{sec:5}和\autoref{sec:6}中研究过的泛函的修改，极小化对应于在 $\mathbb W_2$ 中寻找避开过度拥挤测度的一条好曲线. Buttazzo、Jimenez 和 Oudet 在\cite{b96}中也研究了这类问题，但未涉及均衡问题. 还应注意它与\autoref{sec:4.4.1}中的拥堵问题的相似性. 这里的主要区别在于时间起关键作用，而\autoref{sec:4.4.1}中的运动是稳态的.
+
+\phantomsection\label{idx:i138-p318}\index{S138@半地转方程（Semi-geostrophic equation）|hyperpage}
+\subsubsection*{半地转方程}
+最优运输最早的一些应用之一，就是在这个描述某种渐近状态下大尺度大气行为的方程中发挥作用. 物理描述的主要要素是 Coriolis 力、重力以及不可压缩约束. 假设粒子可以具有不同重量，因而受到不同的重力作用，但其单位体积内的数量在时间和空间上应当保持恒定. 这就是要求密度（单位体积的质量）在 Lagrange 坐标中恒定，但不一定在时间和空间中恒定.
+
+在非常薄的大气层中（考虑到地球半径远大于大气层厚度），忽略 Coriolis 力的竖直效应，并采用竖直轴垂直于地球表面的局部坐标，可以写出 Lagrange 形式的方程：
+\[
+X''(t,a)+JX'(t,a)+\nabla p_t(X(t,a))=f(a),
+\]
+其中 $p_t$ 是时刻 $t$ 的压力，$a$ 是 Lagrange 标号，矩阵 $J\in\mathrm M3\times3$ 为
+\[
+J=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&0\end{pmatrix}.
+\]
+力 $f$ 表示重力，它是竖直的，且仅依赖于标号 $a$. \phantomsection\label{idx:i118-p318}\index{P118@压力（pressure）|hyperpage}
+压力 $p_t$ 的出现，是为了处理不可压缩约束，这对应于 $a\mapsto X(t,a)$ 对每个 $t$ 都保测度. 关于这一理论的细节，参见 M. Cullen 的著作\cite{b130}.
+
+\phantomsection\label{idx:i54-p319}\index{E054@Euler方程（流体）（Euler equation (fluids)）|hyperpage}
+在 Euler 坐标下，上述方程写成
+\[
+\begin{cases}
+\partial_t\mathbf v_t+(\mathbf v_t\cdot\nabla)\mathbf v_t+J\mathbf v+\nabla p_t=f_t,\\
+\partial_tf_t+\mathbf v_t\cdot\nabla f_t=0,\\
+\nabla\cdot\mathbf v_t=0,
+\end{cases}
+\]
+其中第二个方程表示力由流本身运输（因而“跟随”粒子），第三个方程表示不可压缩性.
+
+模型的时间尺度状态是准静态的，即假设时刻 $t$ 的构型稳定. 这可以有几种解释. 第一种带有变分意味：在每个时刻 $t$，有一个粒子分布，每个粒子具有自己的速度. 假设这些粒子要移动，各自从位置 $x$ 移到 $x'$. 新的位置分布必须不可压缩；在这些新的重分布中，需要要求原来的分布使系统能量极小，而系统能量由动能和势能组成. 注意，由于 Coriolis 力，从 $x$ 移到 $x'$ 时，速度从 $\mathbf v(x)$ 变为 $\mathbf v(x)+J(x'-x)$. 因而待极小化的能量形如 $\int\frac12|J(x'-x)|^2+\ell(x,x'-x)$，其中对每个 $x$，$\ell(x,\cdot)$ 都是仿射的（重力部分包含在 $\ell$ 中）. 再考虑用于处理不可压缩约束的压力. 这意味着，在给定像测度下极小化这样的能量（顺便说，这也是一个费用等价于二次费用的最优运输问题），等价于无约束地极小化 $\int\frac12|J(x'-x)|^2+p(x')+\ell(x,x'-x)$（另见不可压缩 Euler 部分）. 显然，每个位置稳定，当且仅当它使 $x'\mapsto\frac12|J(x'-x)|^2+p(x')+\ell(x,x'-x)$ 极小. 这既给出一阶条件，也要求 $x'\mapsto\frac12|Jx'|^2+p(x')$ 为凸函数.
+
+另一种理解同一事实的方式如下. 固定时刻 $t_0$ 及点 $x_0$，该处粒子速度为 $\mathbf v_0$. 假设 $x_0$ 附近一些粒子的速度受到小扰动，变为 $\mathbf v\approx\mathbf v_0$. 我们想知道这些粒子会怎样：它们会留在 $x_0$ 附近，还是远离? 将压力的时间固定，并在 $x_0$ 附近用其在 $x_0$ 的 Taylor 展开来近似. 考虑一个从 $x_0$ 出发、速度为 $\mathbf v(s)$ 的粒子：这里变量 $s$ 表示时间，但其时间尺度比整体演化中的 $t$ 更短（这解释了为何固定 $t=t_0$）. 对加速度定律求导，得到关于 $\mathbf v$ 的方程，形式为 $\mathbf v''+J\mathbf v'+D^2p(x_0)\mathbf v=0$（这里对 $p$ 作二阶 Taylor 展开）. 将 $\mathbf v'$ 替换为 $-J\mathbf v+\text{常数}$（对这个较低阶条件，取 $p$ 的一阶 Taylor 展开），得到
+\[
+\mathbf v''+(D^2p(x_0)-J^2)\mathbf v=\text{常数}.
+\]
+为保证稳定性，需要排除这个方程存在指数发散的解. 若只有有界解，这就意味着速度的小扰动只产生小位移，因而 $(t_0,x_0)$ 处的分布是稳定的.
+
+在两种解释（上面的变分解释与线性稳定性解释）中，所得条件都是 $D^2p(x_0)-J^2$（它是一个对称矩阵）只有正特征值. 这意味着
+\[
+D^2p+\begin{pmatrix}1&0&0\\0&1&0\\0&0&0\end{pmatrix}\geq0
+\]
+在正定对称矩阵的意义下成立. 等价地，函数 $x\mapsto P_t(x):=p_t(x)+\frac12(|x_1|^2+|x_2|^2)$ 必须凸.
+
+这一凸性事实称为 Cullen--Purser 稳定性条件；见\cite{b130}或\cite{b131,b286}.
+
+现在回到加速度定律，像上面一样对它求导，并利用方程替换 $X''$，得到
+\[
+X'''(t,a)+[\nabla_tp(X(t,a))]'-J^2X'(t,a)=J\nabla p_t(X(t,a)).
+\]
+若决定在这一时间尺度下忽略三阶导数（没错!），并令 $Y_t(a)=\nabla P_t(X(t,a))$，就有
+\[
+Y'(t,a)=J(Y(t,a)-X(t,a));
+\]
+这是关于 $Y$ 的演化方程，而 $X$ 按以下方式由 $Y$ 定义：对每个时刻 $t$，$X(t,\cdot)$ 保测度，而 $Y$ 分解为凸函数 $P$ 的梯度与 $X$ 的复合. 最优运输，特别是极分解（见\autoref{sec:1.7.2}），正是在这里发挥作用! 关于最优运输在这个领域的最初应用，参见\cite{b33}.
+
+人们还在所谓对偶变量下研究这个方程，即 $Y$ 及其像测度 $\varrho$（它与流体密度毫无关系）. 它们满足
+\[
+\begin{cases}
+\partial_t\varrho_t+\nabla\cdot\bigl(\varrho_tJ(y-\nabla P_t^*(y))\bigr)=0,\\
+\det(D^2P_t^*)=\varrho_t,\quad P_t^*\text{ 为凸函数}.
+\end{cases}
+\]
+若干文献已经从数学上研究了这个方程，近期关于 Kantorovich 势的 Hessian 的正则性进展（\autoref{sec:1.7.6}中简要提到的 $W^{2,1}$ 结论）使严格结论成为可能（例如，见\cite{b16,b17}）.
+
+\phantomsection\label{idx:i56-p320}\index{E056@Euler--Poisson系统（Euler-Poisson）|hyperpage}
+\subsubsection*{早期宇宙的重建}
+这是二次费用最优运输发挥重要作用的另一个令人惊讶的领域. 问题考虑宇宙中物质密度 $\varrho$ 在由 $\varrho$ 自身产生的引力场下的演化. 在所谓共动坐标（co-moving coordinates）中，方程写成
+\begin{equation}\label{eq:8.27}\index{E054@Euler方程（流体）（Euler equation (fluids)）|hyperpage}
+\begin{cases}
+\partial_t\mathbf v+(\mathbf v\cdot\nabla)\mathbf v=-\dfrac32\dfrac{\nabla\varphi+\mathbf v}{t},\\[2pt]
+\partial_t\varrho+\nabla\cdot(\varrho\mathbf v)=0,\\
+\Delta\varphi=\dfrac{\varrho-1}{t}.
+\end{cases}
+\end{equation}
+第一个方程通过势的梯度给出粒子加速度，第二个表示质量守恒，第三个是势与密度本身的关系. 为了解第一个及第三个方程的具体表达式从何而来，请读者参阅\cite{b45}最前面的几页. 不难看出，关键在于选择共动坐标时所采用的变量替换，即选用跟随宇宙膨胀的坐标. 在这种坐标下，以 $x'=a(t')x$ 为空间变量，其中 $x$ 为物理空间变量，$a$ 为随时间增长的膨胀系数. 通过 $\dd t=a(t')\dd t'$，将时间尺度从 $t$ 改为 $t'$. 变量替换之后，再略去新变量的上标. 膨胀因子 $a$ 需要满足称为 Friedmann 方程的特定方程. 注意，第一个方程中的摩擦项（即右端的负速度）也恰好来自这一变量替换.
+
+从这些方程可以看出，时刻0的密度 $\varrho$ 必须均匀. 它对应于宇宙最初瞬间的物质分布. 相反，今天的宇宙密度远不均匀，可以用若干 Dirac 质量很好地近似，每个质量对应一个星系团（即每个原子代表彼此十分接近的若干星系）. 因而产生这样的问题：只知道当前密度 $\varrho_T$（$T$ 是终止时刻，即现在，但为简单起见，令 $T=1$），而不知道初始速度，能否推测宇宙过去的演化? U. Frisch 及其合作者研究了这个问题；由于该问题与最优运输的联系，参与者中包括 Y. Brenier 等人. 见\cite{b89}和\cite{b172}. 顺便说，\cite{b89}的附录A详细解释了上述共动坐标方程的推导，并说明了相对于\cite{b45}一般框架所作的一系列选择和简化.
+
+这些方程以及仅由 $\varrho_T$ 重建的问题，与最优运输理论有两方面联系. 首先，从所谓 Zel'dovich 近似出发. 这一近似假设，在 $t>0$ 时，所有粒子都沿直线以仅依赖初值的常速运动. 更准确地说，在 Lagrange 坐标下，\eqref{eq:8.27}的第一个方程为
+\[
+\frac{2t}3X''(t,x_0)+X'(t,x_0)=-\nabla\varphi_t(X(t,x_0)).
+\]
+这里要求势 $\varphi_t$ 满足 $1+t\Delta\varphi_t=\varrho_t$，其中 $\varrho_t$ 是 $X(t,\cdot)$ 的像测度. 近似就是忽略二阶导数，并将右端固定在 $t=0$ 时的值，即 $X(t)=x_0-t\nabla\varphi_0(x_0)$.
+
+这看起来是一种粗糙的近似，但在实践中效果良好，而且正如 Y. Brenier 指出的，它有最优运输上的依据. 事实上，取 $\varrho_t$ 为 $\varrho_0=1$ 与 $\varrho_1$ 之间在 $\mathbb W_2$ 中的测地线. 若 $-\varphi_t$ 是 $\varrho_t$ 与 $\varrho_0$ 之间的 Kantorovich 势，则知道它满足 Monge--Amp\`ere 方程
+\[
+\det(\mathrm I+tD^2\varphi_t)=\varrho_t.
+\]
+此外，若 $\mathrm T$ 是从 $\varrho_0$ 到 $\varrho_1$ 的最优运输，则 Lagrange 映射 $X(t,x_0)=(1-t)x_0+t\mathrm T(x_0)$ 是从 $\varrho_0$ 到 $\varrho_t$ 的最优运输. 这意味着粒子在时刻 $t$ 到达时，其速度应等于 $-\nabla\varphi_t(X(t,x_0))$，并证明了 $-\nabla\varphi_t(X(t,x_0))=\mathrm T(x_0)-x_0$ 不依赖于时间. 特别地，它还等于初始值 $-\nabla\varphi_0(x_0)$. 这样，就构造了一个与 Zel'dovich 近似相容的 Lagrange 映射（即粒子的运动满足 $X''=0$），唯一的例外是它满足 $\det(\mathrm I+tD^2\varphi_t)=\varrho_t$，而不是 $1+t\Delta\varphi_t=\varrho_t$. 因此，Zel'dovich 近似给出原方程的近似解，却给出这个新的修改方程的精确解. 注意，这里用非线性方程近似线性方程（线性方程是在 $t=0$ 附近对非线性方程作线性化得到的），这一点颇为特别.
+
+根据以上观察，\cite{b89}的作者集中寻找从均匀密度 $\varrho_0$ 到当前密度 $\varrho_1$ 的最优映射 $\mathrm T$，并取得了令人满意的重建结果. 数值上，他们还离散化了源测度，\phantomsection\label{idx:i13-p322}\index{A013@拍卖算法（auction algorithm）|hyperpage}
+并采用拍卖算法.
+
+另一方面，\cite{b89}还在第6节及附录D中说明，方程组\eqref{eq:8.27}（不作近似，也不将 Poisson 方程替换为 Monge--Amp\`ere 方程）可由一个变分问题的最优性条件得到，即
+\begin{equation}\label{eq:8.28}\index{0001@$H^{-1}$范数（$H^{-1}$ norm）|hyperpage}
+\min\left\{\int_0^1\int\left(\frac{t^{3/2}}2\varrho|\mathbf v|^2
++\frac{3t^{-1/2}}4|\nabla\varphi|^2\right):
+\begin{array}{l}
+\partial_t\varrho+\nabla\cdot(\varrho\mathbf v)=0,\\
+\Delta\varphi=\varrho-1,\\
+\varrho_0=1,\ \varrho_1=\text{给定}
+\end{array}\right\}.
+\end{equation}
+这个问题是一种修改的 Benamou--Brenier 问题，带有时间尺度因子，并增加了一个项 $F(\varrho)$，用于惩罚 $\varrho-1$ 的 $H^{-1}$ 范数（也带有时间尺度系数）. 注意，这一项与趋化梯度流（见\autoref{sec:8.4.2}）中出现的项相同，但符号正确；还应注意它与平均场博弈变分表述的形式相同. 此外，重要的是，这个极小化问题严格凸，从而推出\eqref{eq:8.27}解的唯一性.
+
+将上述极小化问题的最优性条件导出\eqref{eq:8.27}这一事实的证明，留作\autoref{ex:54}.
+
+还要强调，极小点的存在性并非直接可得. 事实上，动能项前的系数 $t^{3/2}$ 使得沿极小化序列不能保留 $t=0$ 处的条件，而 $H^{-1}$ 项乘有可积系数 $t^{-1/2}$，不足以对此作出补偿. 情形类似于以下一维问题：
+\[
+\min\left\{\int_0^1t^{1+\alpha}|x'(t)|^2+t^{-1+\alpha}G(x(t)):x(1)=x_1\right\},
+\]
+其中 $G$ 是具有二次增长、在 $x_0$ 处取极小值的凸泛函. 略去约束 $x(0)=0$，因为这一条件在收敛下不稳定. 特别地，存在满足 $x(0)\neq x_0$ 的有限能量曲线 $x(t)$（对照\autoref{ex:56}）. 另一方面，可以证明，这个问题的极小点由于最优性，必须在 $t=0$ 处满足一个额外条件（类似于 Neumann 条件；不过这里 Neumann 条件没有意义，因为系数 $t^{3/2}$ 使它们只能给出 $0=0$）. 可以像\autoref{ex:55}中那样看到，这个条件就是 $x(0)=x_0$.
+
+Loeper 还在\cite{b215}中，在一个简化的框架下研究了最小作用量问题\eqref{eq:8.28}. 也提及 Brenier 提出的一个变体问题，它旨在更好地理解集中现象的形成\cite{b87}. 事实上，想到在 $\varrho_0$ 与 $\varrho_1$ 之间的最优运输问题中，Dirac 质量只在终止时刻出现（这与\autoref{sec:4.3}对中间测度 $\mu_t$ 的分析一致），不免令人失望. 这意味着它们只在现在，也就是今天出现\ldots{}如果明天再研究同一个问题，又该得出什么结论?
+
+最后，若采用\cite{b89}发表时尚不可得的新数值方法（见\autoref{sec:6}，特别是恰好适用于 $\varrho_0=1$ 和原子型 $\varrho_T$ 的半离散方法），这个宇宙学问题的“静态”版本（即 $\varrho_0$ 与 $\varrho_T$ 之间的最优运输）和“动态”版本\eqref{eq:8.28}都仍有许多秘密等待揭示，这一想法颇具挑战性.

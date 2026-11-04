@@ -7,7 +7,7 @@
 
 本节要借助两个给定测度的累积分布函数，讨论它们之间的单调运输映射（以下“单调”均指“单调不减”），并推广到$\mu$可能含有原子的情形. 这一讨论与最优运输的考虑无关.
 
-\begin{sourcebox}{知识回顾：累积分布函数}\label{box:2.1}
+\begin{sourcebox}{知识回顾：累积分布函数}\label{box:2.1}\index{C033@累积分布函数（cumulative distribution function）|hyperpage}
 \begin{definition*}
 给定概率测度$\mu\in\mathscr P(\mathbb R)$，通过下式定义它的\emph{累积分布函数}（cumulative distribution function，CDF）$F_\mu$：
 \[
@@ -28,7 +28,7 @@ $\mu(]{-\infty},x_1]\times\cdots\times]{-\infty},x_d])$，就足以刻画$\mu$�
 
 遗憾的是，上述CDF并非总能求逆，因为它不一定严格递增，但我们可以定义一个伪逆.
 
-\begin{definition}\label{obj:2.1}
+\begin{definition}\label{obj:2.1}\index{P121@伪逆（pseudo-inverse）|hyperpage}
 给定单调不减且右连续的函数$F:\mathbb R\to[0,1]$，它的\emph{伪逆}（pseudo-inverse）是由
 \[
 F^{[-1]}(x):=\inf\{t\in\mathbb R:F(t)\ge x\}
@@ -45,10 +45,10 @@ F^{[-1]}(x)\le a\iff F(a)\ge x;
 
 \begin{proposition}\label{obj:2.2}
 若$\mu\in\mathscr P(\mathbb R)$，且$F_\mu^{[-1]}$是其累积分布函数$F_\mu$的伪逆，则
-$(F_\mu^{[-1]})_\#(\mathscr L^1\mathbin{\vrule height 1.4ex depth -0.3ex width .07ex\vrule height .07ex depth 0ex width .7ex}[0,1])=\mu$.
+$(F_\mu^{[-1]})_\#(\mathscr L^1\restr[0,1])=\mu$.
 
 此外，给定$\mu,\nu\in\mathscr P(\mathbb R)$，若令
-$\eta:=(F_\mu^{[-1]},F_\nu^{[-1]})_\#(\mathscr L^1\mathbin{\vrule height 1.4ex depth -0.3ex width .07ex\vrule height .07ex depth 0ex width .7ex}[0,1])$，则$\eta\in\Pi(\mu,\nu)$，且
+$\eta:=(F_\mu^{[-1]},F_\nu^{[-1]})_\#(\mathscr L^1\restr[0,1])$，则$\eta\in\Pi(\mu,\nu)$，且
 $\eta(({-\infty},a]\times({-\infty},b])=F_\mu(a)\wedge F_\nu(b)$.
 \end{proposition}
 \begin{proof}
@@ -72,24 +72,24 @@ $\eta(({-\infty},a]\times({-\infty},b])=F_\mu(a)\wedge F_\nu(b)$.
 \end{proof}
 
 \begin{definition}\label{obj:2.3}
-我们把运输方案$\eta:=(F_\mu^{[-1]},F_\nu^{[-1]})_\#(\mathscr L^1\mathbin{\vrule height 1.4ex depth -0.3ex width .07ex\vrule height .07ex depth 0ex width .7ex}[0,1])$称为$\mu$与$\nu$之间的\emph{共单调运输方案}（co-monotone transport plan），记作$\gamma_{\rm mon}$.
+我们把运输方案$\eta:=(F_\mu^{[-1]},F_\nu^{[-1]})_\#(\mathscr L^1\restr[0,1])$称为$\mu$与$\nu$之间的\emph{共单调运输方案}（co-monotone transport plan），记作$\gamma_{\rm mon}$.
 \end{definition}
 
 现在考虑两个测度$\mu,\nu\in\mathscr P(\mathbb R)$：我们要在$\mu$无原子的条件下，构造将$\mu$送到$\nu$的单调运输映射（而不只是运输方案）.
 
 首先需要一个关于无原子测度CDF的简单引理.
 
-\begin{lemma}\label{obj:2.4}
-若$\mu\in\mathscr P(\mathbb R)$无原子，则$(F_\mu)_\#\mu=\mathscr L^1\mathbin{\vrule height 1.4ex depth -0.3ex width .07ex\vrule height .07ex depth 0ex width .7ex}[0,1]$. 因而，对每个$\ell\in[0,1]$，集合$\{x:F_\mu(x)=\ell\}$都是$\mu$-零测集.
+\begin{lemma}\label{obj:2.4}\index{A012@无原子测度（atomless measures）|hyperpage}
+若$\mu\in\mathscr P(\mathbb R)$无原子，则$(F_\mu)_\#\mu=\mathscr L^1\restr[0,1]$. 因而，对每个$\ell\in[0,1]$，集合$\{x:F_\mu(x)=\ell\}$都是$\mu$-零测集.
 \end{lemma}
 \begin{proof}
 先注意，由于$\mu$无原子，$F_\mu$连续. 因此，对$a\in]0,1[$，集合$\{x:F_\mu(x)\le a\}$是形如$]{-\infty},x_a]$的闭区间，且$F_\mu(x_a)=a$. 于是
-$\mu(\{x:F_\mu(x)\le a\})=F_\mu(x_a)=a$，这证明了$(F_\mu)_\#\mu=\mathscr L^1\mathbin{\vrule height 1.4ex depth -0.3ex width .07ex\vrule height .07ex depth 0ex width .7ex}[0,1]$.
+$\mu(\{x:F_\mu(x)\le a\})=F_\mu(x_a)=a$，这证明了$(F_\mu)_\#\mu=\mathscr L^1\restr[0,1]$.
 
 所以，对$\ell\in[0,1]$，集合$\{x:F_\mu(x)=\ell\}$为$\mu$-零测集；否则像测度$(F_\mu)_\#\mu$会在$\ell$处有原子，这与陈述的第一部分矛盾.
 \end{proof}
 
-\begin{theorem}\label{obj:2.5}
+\begin{theorem}\label{obj:2.5}\index{M103@单调映射（monotone map）|hyperpage}
 给定$\mu,\nu\in\mathscr P(\mathbb R)$，假设$\mu$无原子. 则存在唯一的单调不减映射$\mathrm T_{\rm mon}:\mathbb R\to\mathbb R$使$(\mathrm T_{\rm mon})_\#\mu=\nu$.
 \end{theorem}
 \begin{proof}
@@ -99,7 +99,7 @@ $\mu(\{x:F_\mu(x)\le a\})=F_\mu(x_a)=a$，这证明了$(F_\mu)_\#\mu=\mathscr L^
 \]
 定义映射$\mathrm T_{\rm mon}$. 只要$F_\mu(x)\in]0,1[$，这一量就有良好定义且属于$\mathbb R$（这样，\autoref{obj:2.1}中所取下确界的集合既非空，也不会无下界）. 由\autoref{obj:2.4}，集合$\{x:F_\mu(x)=0\}$与$\{x:F_\mu(x)=1\}$都是$\mu$-零测集. 所以$\mathrm T_{\rm mon}$在$\mu$-几乎处处有良好定义.
 
-$\mathrm T_{\rm mon}$单调不减这一点显然；只需证明$(\mathrm T_{\rm mon})_\#\mu=\nu$. 已知$(F_\nu^{[-1]})_\#(\mathscr L^1\mathbin{\vrule height 1.4ex depth -0.3ex width .07ex\vrule height .07ex depth 0ex width .7ex}[0,1])=\nu$，因而通过复合，只需应用证明了$(F_\mu)_\#\mu=\mathscr L^1\mathbin{\vrule height 1.4ex depth -0.3ex width .07ex\vrule height .07ex depth 0ex width .7ex}[0,1]$的\autoref{obj:2.4}即可.
+$\mathrm T_{\rm mon}$单调不减这一点显然；只需证明$(\mathrm T_{\rm mon})_\#\mu=\nu$. 已知$(F_\nu^{[-1]})_\#(\mathscr L^1\restr[0,1])=\nu$，因而通过复合，只需应用证明了$(F_\mu)_\#\mu=\mathscr L^1\restr[0,1]$的\autoref{obj:2.4}即可.
 
 现在证明唯一性. 考虑任意满足$\mathrm T_\#\mu=\nu$的单调不减函数$\mathrm T$. 由单调性，
 $\mathrm T^{-1}(]{-\infty},\mathrm T(x)])\supset]{-\infty},x]$. 于是

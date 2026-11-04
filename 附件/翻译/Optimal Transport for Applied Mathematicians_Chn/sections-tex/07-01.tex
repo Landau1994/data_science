@@ -1,0 +1,330 @@
+% 原书印刷250--260／PDF物理274中--284中.
+\subsection{半连续性}\label{sec:7.1}
+由于主要目标是在变分模型中使用这些泛函，为了能够将其最小化，先给出一些半连续性判据. 我们考虑这些泛函关于弱收敛的半连续性或连续性（像往常一样，弱收敛指与$C_b$函数的对偶）. 从最简单的泛函开始.
+
+\subsubsection{势能、相互作用能、运输代价及对偶范数}\label{sec:7.1.1}
+从最简单的情形——势能——开始回顾.
+\begin{proposition}\label{obj:7.1}\index{L094@下半连续性（lower semi-continuity）|hyperpage}
+若$V\in C_b(\Omega)$，则$\mathscr V$关于概率测度的弱收敛连续. 若$V$下半连续且有下界，则$\mathscr V$半连续. 此外，$V$的半连续性（相应地，连续性）是$\mathscr V$半连续（连续）的必要条件.
+\end{proposition}
+\begin{proof}
+当$V\in C_b$时，$\mu\mapsto\int V\,d\mu$的连续性直接来自弱收敛的定义. 若$V$下半连续且有下界，则已知存在一列Lipschitz且有界的函数$V_k$单调递增地收敛于$V$（见\autoref{box:1.5}）. 由单调收敛得到$\mathscr V(\mu)=\lim_k\int V_k\,d\mu=\sup_k\int V_k\,d\mu$. 这把$\mathscr V$表示为连续泛函族的上确界，因此它下半连续.
+
+对于必要性，只需考虑点列$x_k\to x$及相应的Dirac质量. 因为$\delta_{x_k}\rightharpoonup\delta_x$，$\mathscr V$的连续性蕴含$V(x_k)\to V(x)$，半连续性则蕴含$\liminf_kV(x_k)\geq V(x)$.
+\end{proof}
+现在转向相互作用泛函$\mathscr W$.
+\begin{proposition}\label{obj:7.2}
+若$W\in C_b(\Omega)$，则$\mathscr W$关于概率测度的弱收敛连续. 若$W$下半连续且有下界，则$\mathscr W$半连续.
+\end{proposition}
+这一结果容易由下列引理得到（我们只对$\mathbb R^d$的子集证明，但可以推广到一般局部紧空间）.
+\begin{lemma}\label{obj:7.3}
+设$\Omega$是$\mathbb R^d$的闭子集，$\mu_k,\mu\in\mathscr P(\Omega)$且$\mu_k\rightharpoonup\mu$，则作为$\Omega\times\Omega$上的概率测度，有
+\[
+ \mu_k\otimes\mu_k\rightharpoonup\mu\otimes\mu.
+\]
+\end{lemma}
+\begin{proof}
+希望证明，对任意函数$\phi\in C_b(\Omega\times\Omega)$，有收敛$\int\phi\,d\mu_k\otimes\mu_k\to\int\phi\,d\mu\otimes\mu$. 先考虑$\phi(x,y)=\chi(x)\xi(y)$的情形. 此时
+\[
+ \int_{\Omega\times\Omega}\phi\,d\mu_k\otimes\mu_k
+ =\int_\Omega\chi\,d\mu_k\cdot\int_\Omega\xi\,d\mu_k
+ \longrightarrow\int_\Omega\chi\,d\mu\cdot\int_\Omega\xi\,d\mu
+ =\int_{\Omega\times\Omega}\phi\,d\mu\otimes\mu.
+\]
+这证明了所需收敛对于所有$\phi\in\mathscr A(\Omega)$成立，其中函数类$\mathscr A(\Omega)$为
+\[
+ \mathscr A(\Omega)=\left\{\phi(x,y)=\sum_{i=1}^N\chi_i(x)\xi_i(y):
+          N\in\mathbb N,\ \chi_i,\xi_i\in C_b(\Omega)\right\}.
+\]
+类$\mathscr A$是一个包含常数且分离$\Omega\times\Omega$中各点的函数代数. 因此，由Stone--Weierstrass定理（见\autoref{sec:3.1}中的\autoref{box:2.3}），若$\Omega\times\Omega$紧（即$\Omega$紧），它就在$C(\Omega\times\Omega)$中稠密. 一个一般事实是，只要所考察的序列有界，对偶空间中的弱星收敛就可以在稠密集上检验. 这里在紧情形，弱收敛对应于与$C(\Omega\times\Omega)$对偶的弱星收敛，而所考虑的序列由概率测度组成，故有界. 这证明了紧情形下$\mu_k\otimes\mu_k\rightharpoonup\mu\otimes\mu$.
+
+若$\Omega$不紧，可以用Stone--Weierstrass定理证明对任意紧支撑函数，该收敛都成立. 回顾一列概率测度弱收敛（与$C_b$对偶）当且仅当它在与$C_c$的对偶下弱星收敛，便得到结论. 这一点已在\autoref{obj:5.8}中证明.
+\end{proof}
+除了这两类泛函，还可以考虑如下定义的高阶相互作用能：
+\[
+ \mu\mapsto\int_\Omega\int_\Omega\cdots\int_\Omega
+ W(x_1,x_2,\ldots,x_n)\,d\mu(x_1)\,d\mu(x_2)\cdots d\mu(x_n).
+\]
+特别地，所有这类泛函可以看作空间$\mathscr P(\Omega)$上的“多项式”，对测度空间上的函数进行的某些分析，正是基于这一类泛函\footnote{P.~L.~Lions在法兰西学院的讲座中使用了这一方法；见\cite{b211}.}.
+
+现在转向其他一些泛函.
+\begin{proposition}\label{obj:7.4}
+对任意$p<+\infty$，只要$\Omega$紧，到任意固定测度$\nu\in\mathscr P(\Omega)$的Wasserstein距离$W_p(\cdot,\nu)$便关于弱收敛连续. 若$\Omega$不紧且$\nu\in\mathscr P_p(\Omega)$，则$W_p(\cdot,\nu)$在$\mathscr P_p(\Omega)$上有良好定义、取有限值，但仅下半连续.
+
+更一般地，对于任意连续成本$c:\Omega\times\Omega\to\mathbb R$，若$\Omega$紧，则泛函$\mathscr T_c(\cdot,\nu)$连续. 不假定$\Omega$紧时，若$c$下半连续且有下界，则$\mathscr T_c(\cdot,\nu)$下半连续.
+\end{proposition}
+\begin{proof}
+先从紧情形开始. 对于Wasserstein距离，连续性是直接的，因为距离$W_p$的收敛恰好使弱收敛可度量化，而任意距离关于它自身都是连续的（这是三角不等式的推论）. 对于一般运输代价$\mathscr T_c$，只需应用\autoref{obj:1.51}.
+
+对非紧情形，给出统一证明. 考虑序列$\mu_k\rightharpoonup\mu$及相应的一列最优运输方案$\gamma_k\in\Pi(\mu_k,\nu)$，成本$c$下半连续且有下界（包括$c(x,y)=|x-y|^p$的情形）. 由于$\mu_k$紧，$\gamma_k$也紧. 先取子列使$\lim_h\mathscr T_c(\mu_{k_h},\nu)=\liminf_k\mathscr T_c(\mu_k,\nu)$，再取一次子列，保证对某个$\gamma$有$\gamma_{k_h}\rightharpoonup\gamma$. 已知连续函数下的像测度可以取极限，因此得到$\gamma\in\Pi(\mu,\nu)$. 于是
+\[
+\begin{aligned}
+ \mathscr T_c(\mu,\nu)&\leq\int c(x,y)\,d\gamma
+ \leq\liminf_h\int c(x,y)\,d\gamma_{k_h}\\
+ &=\lim_h\mathscr T_c(\mu_{k_h},\nu)
+ =\liminf_k\mathscr T_c(\mu_k,\nu).
+\end{aligned}
+\]
+第一个不等式来自$\gamma$可行但未必最优这一事实. 第二个来自$c$的积分的半连续性（\autoref{obj:7.1}）.
+\end{proof}
+最后，再给出一类泛函及其中一些有趣的例子.
+\begin{proposition}\label{obj:7.5}
+设$\mathscr X$是$\Omega$上的函数组成的Banach空间，且$\mathscr X\cap C_b(\Omega)$在$\mathscr X$中稠密. 则
+\[
+ \mu\mapsto\|\mu\|_{\mathscr X'}:=
+ \sup_{\varphi\in\mathscr X,\,\|\varphi\|\leq1}\int\varphi\,d\mu
+ =\sup_{\varphi\in\mathscr X\setminus\{0\}}
+                   \frac{\int\varphi\,d\mu}{\|\varphi\|}
+\]
+（当$\mu\notin\mathscr X'$时将该泛函置为$+\infty$）关于弱收敛下半连续.
+\end{proposition}
+\begin{proof}
+只需注意可以写成
+\[
+ \|\mu\|_{\mathscr X'}=
+ \sup_{\varphi\in C_b(\Omega)\cap\mathscr X,\,\|\varphi\|\leq1}
+              \int\varphi\,d\mu,
+\]
+从而把$\|\mu\|_{\mathscr X'}$表示为关于弱收敛连续的线性泛函的上确界，结论便显然成立.
+\end{proof}
+考察两个例子是有意义的.
+\begin{proposition}\label{obj:7.6}
+假设$\mathscr X=H_0^1(\Omega)$（其中$\Omega\subset\mathbb R^d$是光滑紧区域，赋予该空间梯度的$L^2$范数），且对每个$\mu\in H^{-1}(\Omega)$，以$\varphi_\mu$表示
+\[
+ \begin{cases}-\Delta\varphi=\mu&\text{在 }\Omega\text{ 内},\\
+ \varphi=0&\text{在 }\partial\Omega\text{ 上}\end{cases}
+\]
+的解. 则$\|\mu\|_{H^{-1}}^2=\int\varphi_\mu\,d\mu=\iint G(x,y)\,d\mu(x)\,d\mu(y)$，其中$G(x,\cdot)$是Dirichlet Laplace算子的Green函数，定义为
+\[
+ \begin{cases}-\Delta\varphi=\delta_x&\text{在 }\Omega\text{ 内},\\
+ \varphi=0&\text{在 }\partial\Omega\text{ 上}\end{cases}
+\]
+的解. 特别地，若$\Omega=(-1,1)\subset\mathbb R$，则
+\[
+ G(x,y)=\frac12\bigl((1+x)\wedge(1+y)\bigr)
+                         \bigl((1-x)\wedge(1-y)\bigr).
+\]
+若改设$\mathscr X=H^1(\Omega)$（赋予完整的$H^1$范数），且对每个$\mu\in(H^1(\Omega))'=\mathscr X'$，以$\varphi_\mu$表示
+\[
+ \begin{cases}-\Delta\varphi+\varphi=\mu&\text{在 }\Omega\text{ 内},\\
+ \displaystyle\frac{\partial\varphi}{\partial n}=0&\text{在 }\partial\Omega\text{ 上}\end{cases}
+\]
+的解. 则$\|\mu\|_{\mathscr X'}^2=\int\varphi_\mu\,d\mu=\iint G(x,y)\,d\mu(x)\,d\mu(y)$，其中$G(x,\cdot)$定义为
+\[
+ \begin{cases}-\Delta\varphi+\varphi=\delta_x&\text{在 }\Omega\text{ 内},\\
+ \displaystyle\frac{\partial\varphi}{\partial n}=0&\text{在 }\partial\Omega\text{ 上}\end{cases}
+\]
+的解. 特别地，若$\Omega=(-1,1)\subset\mathbb R$，则
+\[
+ G(x,y)=\cosh\bigl((1+x)\wedge(1+y)\bigr)
+       \cosh\bigl((1-x)\wedge(1-y)\bigr)/\sinh(2).
+\]
+\end{proposition}
+\begin{proof}
+先在两种情形下证明$\|\mu\|_{\mathscr X'}^2=\int\varphi_\mu\,d\mu$.
+
+第一种情形：$H_0^1$. 注意，对每个函数$\psi\in H_0^1$，有
+\[
+ \int\psi\,d\mu=\int\nabla\psi\cdot\nabla\varphi_\mu
+             \leq\|\psi\|_{\mathscr X}\|\varphi_\mu\|_{\mathscr X},
+\]
+且当$\psi=\varphi_\mu$时等号成立（这里使用齐次范数$\|\psi\|_{\mathscr X}:=\|\nabla\psi\|_{L^2}$）. 这表明上确界由$\varphi_\mu$的某个倍数实现，并且$\int\varphi_\mu\,d\mu=\|\varphi_\mu\|_{\mathscr X}^2$. 因而
+\[
+ \|\mu\|_{\mathscr X'}^2=
+ \left(\frac{\int\varphi_\mu\,d\mu}{\|\varphi_\mu\|_{\mathscr X}}\right)^2
+ =\int\varphi_\mu\,d\mu.
+\]
+$H^1$的情形类似，唯一的区别在第一个计算：
+\[
+ \int\psi\,d\mu=\int\nabla\psi\cdot\nabla\varphi_\mu+\psi\varphi_\mu
+             \leq\|\psi\|_{\mathscr X}\|\varphi_\mu\|_{\mathscr X},
+\]
+并且仍在$\psi=\varphi_\mu$时等号成立.
+
+最后，将$\int\varphi_\mu\,d\mu$表示为二重积分$\iint G(x,y)\,d\mu(x)\,d\mu(y)$，只需把$\varphi_\mu(x)$表示为$\int G(x,y)\,d\mu(y)$. 这可以利用Green函数理论完成；在一维情形$\Omega=(-1,1)$下，只需计算验证$\int G(x,y)\,d\mu(y)$是所需方程的解.
+\end{proof}
+这样，借助Green函数，就把这些对偶范数泛函表示成了相互作用泛函.
+
+\subsubsection{局部泛函}\label{sec:7.1.2}\index{L091@局部泛函（local functionals）|hyperpage}
+测度上的局部泛函定义为满足如下性质的泛函$F:\mathscr M(\Omega)\to\mathbb R$：只要$\mu$与$\nu$相互奇异（即存在$A,B\subset\Omega$，满足$A\cup B=\Omega$、$\mu(A)=0$和$\nu(B)=0$），就有$F(\mu+\nu)=F(\mu)+F(\nu)$. 对概率测度而言，这显然没有太大意义，因为若$\mu$和$\nu$都是概率测度，则$\mu+\nu$不是概率测度. 不过，本节将考察一些可以在概率测度上定义的泛函，它们也可看作定义在更一般测度上的泛函在概率测度上的限制. 所有证明都容易推广到有限正测度；相反，为简单起见，完全不考虑带符号或向量测度的情形. 这些泛函的一般理论见\cite{b67}.
+
+首先考虑形如
+\[
+ \mu=\varrho\cdot\lambda\mapsto\int f(\varrho(x))\,d\lambda(x)
+\]
+的泛函，其中$\lambda$是$\Omega$上给定的正测度（例如Lebesgue测度）.
+
+先看看$f$应满足哪些自然条件，才能保证下半连续性，再给出精确结果.
+
+首先，考虑一列密度$\varrho_n$，它们分别在两个集合$A_n$、$B_n$上取值$a$与$b$，而这两个集合按如下方式选择：固定$\Omega$的一个划分，使其由直径为$\varepsilon_n\to0$的小立方体组成，再选取$A_n$、$B_n$，使对该划分中的每个立方体$Q$都有$\lambda(A_n\cap Q)=(1-t)\lambda(Q)$与$\lambda(B_n\cap Q)=t\lambda(Q)$. 可以验证，$\varrho_n$弱收敛于均匀密度$\varrho=(1-t)a+tb$. 泛函的半连续性将蕴含
+\[
+ f((1-t)a+tb)\leq(1-t)f(a)+tf(b),
+\]
+即$f$的凸性. 因此，显然需要要求$f$为凸函数.
+
+另一个要求涉及$f$的增长. 为简单起见，总可以假定$f(0)=0$（至多给$f$加一个常数）. 假设对所有$t\geq0$，$f$满足$f(t)\leq Ct$. 考虑如下定义的泛函：
+\[
+ \mathscr F(\mu):\begin{cases}
+ \displaystyle\int f(\varrho(x))\,d\lambda(x)&\text{若 }\mu=\varrho\cdot\lambda,\\
+ +\infty&\text{其他情形}.
+ \end{cases}
+\]
+取一列绝对连续概率测度$\mu_n$弱收敛于奇异测度$\mu$，则$\mathscr F(\mu_n)\leq C$，而$\mathscr F(\mu)=+\infty$，违反半连续性. 这提示应有$C=+\infty$，即$f$超线性. 下列定理给出一个一般结果，其中也包括对非超线性情形的补偿：
+\begin{proposition}\label{obj:7.7}
+设$f:\mathbb R_+\to\mathbb R$是凸下半连续函数，令$L:=\lim_{t\to\infty}f(t)/t=\sup_{t>0}f(t)/t\in\mathbb R\cup\{+\infty\}$. 设$\lambda$是$\Omega$上固定的有限正测度. 对每个测度$\mu$，写成$\mu=\varrho\cdot\lambda+\mu^s$，其中$\varrho\cdot\lambda$为$\mu$的绝对连续部分，$\mu^s$为奇异部分（均相对于$\lambda$）. 则由
+\[
+ \mathscr F(\mu)=\int_\Omega f(\varrho(x))\,d\lambda(x)+L\mu^s(\Omega)
+\]
+定义的泛函下半连续（注意，若$L=+\infty$，则只要$\mu$含有奇异部分，就有\mbox{$F(\mu)=+\infty$）.}
+\end{proposition}
+\begin{proof}
+\phantomsection\label{idx:i90-p256}\index{L090@Legendre--Fenchel变换（Legendre-Flenchel transform）|hyperpage}
+将尝试利用等式
+\[
+ f(t)=\sup_{a\in\mathbb R}at-f^*(a).
+\]
+这一等式来自$f^{**}=f$，后者又来自$f$凸且下半连续这一事实. 此外，容易看出，对$a>L$有$f^*(a)=+\infty$：事实上，$f^*(a)=\sup_t at-f(t)\geq\lim_{t\to+\infty}t(a-f(t)/t)$. 因而可以写成
+\[
+ f(t)=\sup_{a\leq L}at-f^*(a)=\sup_{a<L}at-f^*(a)
+\]
+（最后一个等式由$f^*$在其取有限值的集合上连续这一事实保证）.
+
+考虑如下泛函：
+\[
+ \widetilde{\mathscr F}(\mu):=
+ \sup_{a\in C_b(\Omega),\,\sup a<L}
+ \left\{\int a(x)\,d\mu(x)-\int f^*(a(x))\,d\lambda(x)\right\}.
+\]
+$\widetilde{\mathscr F}$显然下半连续，因为它是一族关于弱收敛连续的仿射泛函的上确界. 希望证明$\widetilde{\mathscr F}=\mathscr F$.
+
+为此，先注意由Lusin定理（见\autoref{sec:1.1}中的\autoref{box:1.6}，此处应用于测度$\lambda+\mu$），不难用可测有界函数代替有界连续函数. 滥用记号，以$L^\infty(\Omega)$表示可测有界函数（尽管这里并不是指关于某个给定测度本性有界的函数，而是确实有界的函数），得到
+\[
+ \widetilde{\mathscr F}(\mu):=
+ \sup_{a\in L^\infty(\Omega),\,\sup a<L}
+ \left\{\int a(x)\,d\mu(x)-\int f^*(a(x))\,d\lambda(x)\right\}.
+\]
+随后取集合$A$，满足$\mu^s(\Omega\setminus A)=\lambda(A)=0$，从而可以写成
+\[
+\begin{aligned}
+ \widetilde{\mathscr F}(\mu):=
+ \sup_{a\in L^\infty(\Omega),\,\sup a<L}\biggl\{
+ &\int_{\Omega\setminus A}[a(x)\varrho(x)-f^*(a(x))]\,d\lambda(x)\\
+ &+\int_A a(x)\,d\mu^s(x)\biggr\}.
+\end{aligned}
+\]
+可以在$A$与$\Omega\setminus A$上独立选择$a(x)$的值，并且可以验证
+\[
+ \sup_{a\in L^\infty(\Omega),\,\sup a<L}
+ \int_{\Omega\setminus A}[a(x)\varrho(x)-f^*(a(x))]\,d\lambda(x)
+ =\int f(\varrho(x))\,d\lambda(x),
+\]
+\[
+ \sup_{a\in L^\infty(\Omega),\,\sup a<L}\int_Aa(x)\,d\mu^s(x)
+       =L\mu^s(A)=L\mu^s(\Omega),
+\]
+从而得出$\widetilde{\mathscr F}=\mathscr F$.
+\end{proof}
+\begin{remark}\label{obj:7.8}\index{E051@熵（entropy）|hyperpage}
+假设$\lambda$为有限测度，是为了避免$\int f^*(a(x))\,d\lambda(x)$这一项的可积性问题. 可能出问题的典型情形是熵$f(t)=t\log t$，此时$f^*(s)=e^{s-1}$. 假设$\lambda$是整个$\mathbb R^d$上的Lebesgue测度；容易看出，对任意$L^\infty$函数$a$，积分$\int_{\mathbb R^d}e^{a(x)-1}\,dx$都不收敛，这使得对每个$\mu$都有$\widetilde{\mathscr F}(\mu)=-\infty$. 不过，若$\lambda$是$\sigma$有限的（整个$\mathbb R^d$上的Lebesgue测度正是如此）且$f\geq0$，则可以通过从下方用有限测度逼近$\lambda$来证明半连续性\footnote{对于熵，整个$\mathbb R^d$上的下半连续性并不成立，但在更强的收敛假设下成立；见\autoref{ex:45}. 这也是在整个空间中研究变分问题的通常策略；对于Fokker--Planck方程，将在\autoref{sec:8.3}中于有界区域上介绍这些变分问题.}.
+\end{remark}
+\begin{remark}\label{obj:7.9}
+读者可能会惊讶，\autoref{obj:7.7}并没有要求$f$具有下界. 特别地，同一结果适用于$f(t)=t$与$f(t)=-t$，这意味着质量关于测度的弱收敛连续！事实上，这里使用的弱收敛是与$C_b$的对偶；质量（即对函数$1$的积分）关于这一收敛连续，完全正常. 若改用非紧空间上与$C_c$对偶的弱星收敛，情况就不同. 为进行同一证明，至少需要$L>0$（否则函数$a\in C_c$不满足$a>L$），或者$L=0$且$f^*(0)<+\infty$.
+\end{remark}
+回到$\mathscr F$的含义，不难验证$\mathscr F$“偏好”分散的测度：首先，它仅对绝对连续测度取有限值；其次，由Jensen不等式，$\mathscr F$的值在常密度处最小.
+
+若希望寻找行为相反、偏好测度集中部分的泛函，至少有两种不同选择. 可以考察相互作用泛函，例如$\mu\mapsto\iint|x-y|^2\,d\mu(x)\,d\mu(y)$（距离平方可以换成距离的任意递增函数）. 这是一个全局的、依赖空间位置的泛函，风格与$\mathscr F$不同. 事实上，通过特别考察$\mu$的原子部分，也可以在同一类局部泛函中找到偏好集中的泛函. 例如
+\[
+ \mathscr G(\mu):=\begin{cases}
+ \displaystyle\sum_i g(a_i)&\text{若 }\mu=\sum_i a_i\delta_{x_i},\quad x_i\ne x_j\ (i\ne j),\\
+ +\infty&\text{若 }\mu\text{ 不是纯原子测度}.
+ \end{cases}
+\]
+像前面一样，先了解为了保证半连续性，$g$需要具备哪些基本性质.
+
+也假设$g(0)=0$（若希望避免零质量原子造成歧义，这一条件也是必要的）. 假设对所有$t>0$有$g(t)\leq Ct$，类似于前面的做法，取序列$\mu_n\rightharpoonup\mu$，其中$\mu_n$是纯原子的而$\mu$不是（例如取\autoref{obj:4.38}中的序列）. 则$\mathscr G(\mu_n)\leq C$，但$\mathscr G(\mu)=+\infty$. 这与半连续性矛盾，提示应考虑满足$\lim_{t\to0}g(t)/t=+\infty$的函数$g$.
+
+第二个考虑是，取$\mu_n=a\delta_{x_n}+b\delta_{y_n}+\nu$（其中$\nu$只有有限个原子；使用$\nu$只是为了使总质量回到1）. 假设$x_n\to x$、$y_n\to x$且$x\notin\operatorname{spt}(\nu)$. 则$\mu_n\rightharpoonup\mu=(a+b)\delta_x+\nu$. 此时半连续性将蕴含
+\[
+ g(a+b)\leq g(a)+g(b),
+\]
+即需要$g$次可加.
+
+建立如下引理是有用的：
+\begin{lemma}\label{obj:7.10}\index{S145@次可加性（sub-additivity）|hyperpage}
+假设$g(0)=0$且$g$次可加. 设$\mu_n=\sum_{i=1}^Na_{i,n}\delta_{x_{i,n}}$是一列原子概率测度，其原子数有界. 则取子列后，有$\mu_n\rightharpoonup\mu$，其中$\mu$也是至多具有$N$个原子的原子测度，且$\mathscr G(\mu)\leq\liminf\mathscr G(\mu_n)$.
+\end{lemma}
+\begin{proof}
+先明确要求点$x_{i,n}$两两不同. 若某个测度$\mu_n$的原子不足$N$个，就任意选取点$x_{i,n}$补齐原子列表，并对这些额外下标令$a_{i,n}=0$.
+
+现在取子列（不重新标记），使对每个$i=1,\ldots,N$都有$a_{i,n}\to a_i$与$x_{i,n}\to x_i$. 对这一子列，有$\mu_n\rightharpoonup\mu:=\sum_{i=1}^Na_i\delta_{x_i}$. 点$x_i$可能并不两两不同. 若两两不同，则$\mathscr G(\mu)=\sum_{i=1}^ng(a_i)$；否则（由次可加性）有$\mathscr G(\mu)\leq\sum_{i=1}^ng(a_i)$. 无论如何，
+\[
+ \mathscr G(\mu)\leq\sum_{i=1}^ng(a_i)
+ =\lim_n\sum_{i=1}^ng(a_{i,n})=\lim_n\mathscr G(\mu_n),
+\]
+这证明了所需结果（可以选取子列使它实现整个序列的下极限）.
+\end{proof}
+现在可以证明：
+\begin{lemma}\label{obj:7.11}
+假设$g(0)=0$、$g(t)\geq0$，$g$次可加且下半连续，并且$\lim_{t\to0}g(t)/t=+\infty$. 则$\mathscr G$在$\mathscr P(\Omega)$上下半连续.
+\end{lemma}
+\begin{proof}
+不失一般性，假设所有$\mu_n$都是纯原子的. 固定数$M>0$并利用$\lim_{t\to0}g(t)/t=+\infty$：这意味着存在$\varepsilon_0$，使对所有$t<\varepsilon_0$都有$g(t)>Mt$. 考虑序列$\mu_n\rightharpoonup\mu$，假设$\mathscr G(\mu_n)\leq C<+\infty$，并分解为$\mu_n=\mu_n^s+\mu_n^b$，其中$\mu_n^b=\sum_{i=1}^Na_{i,n}\delta_{x_{i,n}}$是$\mu_n$中质量至少为$\varepsilon_0$的原子之和. 特别地，这些原子不超过$N:=\varepsilon_0^{-1}$个. 另一部分$\mu_n^s$（“小”部分，$\mu_n^b$则为“大”部分）定义为其余原子组成的测度（由于$\mathscr G(\mu_n)<+\infty$，每个$\mu_n$都是纯原子的）.
+
+写成
+\[
+ C\geq\mathscr G(\mu_n)\geq\mathscr G(\mu_n^s)
+   =\sum_i g(a_{i,n})\geq M\sum_i a_{i,n}=M\mu_n^s(\Omega),
+\]
+便得到“小”部分的质量估计. 因而取子列后可得
+\[
+ \mu_n^b\rightharpoonup\mu^b\qquad\text{及}\qquad
+ \mu_n^s\rightharpoonup\mu^s,\quad\mu^s(\Omega)\leq\frac CM.
+\]
+现在可应用\autoref{obj:7.10}，证明$\mu^b$纯原子，且$\mathscr G(\mu^b)\leq\liminf_n\mathscr G(\mu_n^b)\leq\liminf_n\mathscr G(\mu_n)$.
+
+这证明$\mu$必为纯原子测度，因为$\mu$中可能的无原子部分必须包含在$\mu^s$中，而$\mu^s(\Omega)\leq C/M$. 因此，对每个$M>0$，$\mu$的非原子部分质量都必须小于$C/M$，即必为零.
+
+现在已经证明$\mu$纯原子，并且得到了$\mathscr G(\mu^b)$的估计，其中$\mu^b$是$\mu$中依赖于$M$的部分. 若以$(a_i)_i$表示$\mu$的各原子质量，以$(a_i^M)_i$表示$\mu^b$的各原子质量，则
+\[
+ \sum_i g(a_i^M)\leq\liminf_n\mathscr G(\mu_n)=:\ell.
+\]
+希望证明$\sum_i g(a_i)\leq\ell$，为此只需令$M\to\infty$. 事实上，$\mu^s(\Omega)=\sum_i(a_i-a_i^M)\leq C/M\to0$蕴含对每个$i$都有$a_i-a_i^M\to0$，从而$a_i^M\to a_i$. 利用$g$的半连续性，有$g(a_i)\leq\liminf_{M\to\infty}g(a_i^M)$. 固定任意数$N$，便得到
+\[
+ \sum_{i=1}^Ng(a_i)\leq\liminf_{M\to\infty}\sum_{i=1}^Ng(a_i^M)\leq\ell.
+\]
+再对$N$取上确界，最终得到
+\[
+ \sum_{i=1}^\infty g(a_i)\leq\ell,
+\]
+即为所需结论.
+\end{proof}
+作为$\mathscr F$型泛函的一个特殊例子，可以考虑$L^p$范数的$p$次幂，即
+\[
+ \mathscr F(\mu)=\|\mu\|_{L^p}^p=\begin{cases}
+ \displaystyle\int\varrho(x)^p\,dx&\text{若 }\mu=\varrho\cdot\mathscr L^d,\\
+ +\infty&\text{其他情形}.
+ \end{cases}
+\]
+对于$\mathscr G$型泛函，则可以考虑支集的基数，它由$t>0$时$g(t)=1$、$g(0)=0$得到：
+\[
+ \mathscr G(\mu)=\#(\operatorname{spt}(\mu)).
+\]
+
+\begin{sourcebox}{知识补充：$\mathscr M^d(\Omega)$上局部下半连续泛函的刻画}\label{box:7.1}\index{L091@局部泛函（local functionals）|hyperpage}
+还应注意，可以将$\mathscr F$与$\mathscr G$形式的泛函混合，得到同时允许绝对连续部分与原子部分的局部泛函. 文献\cite{b67,b68,b69}所发展的一般理论给出一个一般的下半连续性结果，同时也刻画了半连续性. 它还涵盖向量值测度，可表述如下.
+\begin{theorem*}
+设$f:\mathbb R^d\to\mathbb R\cup\{+\infty\}$凸且下半连续，$g:\mathbb R^d\to\mathbb R\cup\{+\infty\}$次可加且下半连续. 对每个向量$\mathbf v\in\mathbb R^d$，定义
+\[
+ f^\infty(\mathbf v):=\lim_{t\to+\infty}\frac{f(t\mathbf v)}t,
+ \qquad g^0(\mathbf v):=\lim_{t\to0}\frac{g(t\mathbf v)}t,
+\]
+并假设$f^\infty=g^0$. 给定有限正测度$\lambda$，将每个向量测度$\mu\in\mathscr M^d(\Omega)$分解为$\mu=\varrho\cdot\lambda+\mu^c+\mu^\#$，其中$\mu^c+\mu^\#$是$\mu$关于$\lambda$的奇异部分，它又分解为纯原子部分$\mu^\#=\sum_i a_i\delta_{x_i}$与余项，后者通常称为Cantor部分；$\varrho:\Omega\to\mathbb R^d$是向量密度，$a_i=\mu(\{x_i\})\in\mathbb R^d$也是向量；还以$\mathbf w:\Omega\to\mathbb S^{d-1}$表示$\mu^c$关于它自身的全变差测度$|\mu^c|$的密度. 则泛函
+\[
+ \mu\mapsto\int f(\varrho(x))\,d\lambda(x)
+       +\int f^\infty(\mathbf w(x))\,d|\mu^c|(x)+\sum_i g(a_i)
+\]
+是局部的，并且关于测度的弱收敛下半连续.
+
+反之，$\mathscr M^d(\Omega)$上每个局部下半连续泛函都可以通过适当选取$f$、$g$与$\lambda$，写成上述形式.
+\end{theorem*}
+\end{sourcebox}

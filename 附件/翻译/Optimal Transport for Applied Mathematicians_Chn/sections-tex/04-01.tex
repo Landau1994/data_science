@@ -24,7 +24,7 @@ Euler模型又可分为静态模型与动态模型. 在动态模型中，通常�
  y_x(0)=x
  \end{cases}
 \end{equation}
-的解给出. 通过$Y_t(x)=y_x(t)$定义映射$Y_t$，并考察测度$\varrho_t:=(Y_t)_\#\varrho_0$. 众所周知，$\varrho_t$与$\mathbf v_t$共同满足所谓的连续性方程
+的解给出. 通过$Y_t(x)=y_x(t)$定义映射$Y_t$，并考察测度$\varrho_t:=(Y_t)_\#\varrho_0$. \phantomsection\label{idx:root4-p122-continuity}\index{C027@连续性方程（continuity equation）|hyperpage}众所周知，$\varrho_t$与$\mathbf v_t$共同满足所谓的连续性方程
 \[
  \partial_t\varrho_t+\nabla\cdot(\varrho_t\mathbf v_t)=0,
 \]
@@ -59,7 +59,7 @@ Euler模型又可分为静态模型与动态模型. 在动态模型中，通常�
 则称这一族测度／向量场对在分布意义下解$(0,T)$上的连续性方程. 注意，我们要求支集远离$t=0,1$，但当$\Omega$有界时，不要求其远离$\partial\Omega$；此外，$\Omega$本身通常已假设为闭集，这里写$\overline\Omega$是为了强调边界也包含在内.
 \end{definition}
 
-这一表述包含$\mathbf v_t$在$\partial\Omega$上的无通量边界条件（当然，当$\Omega$就是$\mathbb R^d$时无需此条件），即$\varrho_t\mathbf v_t\cdot\mathbf n=0$. 若还要指定初始和终止测度，可以说$(\varrho_t,\mathbf v_t)$在分布意义下解同一方程，且初始、终止数据分别为$\varrho_0,\varrho_T$，如果对每个测试函数$\phi\in C_c^1([0,T]\times\overline\Omega)$（现在不要求支集远离$t=0,1$）均有
+\phantomsection\label{idx:root4-p123-neumann}\index{N110@Neumann边界条件（Neumann conditions）|hyperpage}这一表述包含$\mathbf v_t$在$\partial\Omega$上的无通量边界条件（当然，当$\Omega$就是$\mathbb R^d$时无需此条件），即$\varrho_t\mathbf v_t\cdot\mathbf n=0$. 若还要指定初始和终止测度，可以说$(\varrho_t,\mathbf v_t)$在分布意义下解同一方程，且初始、终止数据分别为$\varrho_0,\varrho_T$，如果对每个测试函数$\phi\in C_c^1([0,T]\times\overline\Omega)$（现在不要求支集远离$t=0,1$）均有
 \begin{equation}\label{eq:4.3}
 \begin{aligned}
  &\int_0^T\int_\Omega(\partial_t\phi)\,\mathrm d\varrho_t\,\mathrm dt
@@ -104,7 +104,7 @@ $a$的任意性表明，$\int_\Omega\psi(x)\,\mathrm d\varrho_t$关于时间的�
 先注意，在这些假设下，$\partial_t\varrho$和$\nabla\cdot(\varrho\mathbf v)$都几乎处处有定义. 固定可数集$D\subset C_c^1(\mathring\Omega)$，使其在$C_c^0(\mathring\Omega)$的一致收敛意义下稠密（例如，使用有理系数多项式乘以适当的截断函数）. 固定$t_0$，使$(t,x)\mapsto\varrho(t,x)$对几乎每个$x$在$(t_0,x)$处可微，并使对所有$\phi\in D$，$t\mapsto\int_\Omega\phi\,\mathrm d\varrho_t$在$t=t_0$处可微，且导数为$\int_\Omega\nabla\phi\cdot\mathbf v_t\,\mathrm d\varrho_t$. 几乎所有$t_0$都满足这些条件. 于是还可以将求导移入积分号，写成
 \[
  \left.\frac{\mathrm d}{\mathrm dt}\right|_{t=t_0}
-       \int_\Omega\phi\varrho_t\,\mathrm dx
+       \int_\Omega\phi\,\mathrm d\varrho_t\,\mathrm dx
  =\int_\Omega\phi(\partial_t\varrho)_{t_0}\,\mathrm dx,
 \]
 这就证明$\int_\Omega(\nabla\phi\cdot\mathbf v_{t_0})\varrho_{t_0}\,\mathrm dx

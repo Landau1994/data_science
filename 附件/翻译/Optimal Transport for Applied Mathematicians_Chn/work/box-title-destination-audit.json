@@ -1,0 +1,482 @@
+{
+  "pdf_sha256": "dbccdda368e058abba4fbf8a0a0cd75f2f6c33a41fba5cff7d4df33f6582c540",
+  "pdf_physical_pages": 339,
+  "status": "passed-43-actual-heading-destinations",
+  "method": "Independently locate all 43 visible box headings in the final PDF text runs.\n\nThe existing XeLaTeX PDF uses FandolHei for the three-character heading and\nLMRoman Bold for its adjacent number.  pypdf's CMap decoder does not recover\nthese Chinese glyphs correctly, so the font/three-glyph/adjacent-number signature\nis used, calibrated against Poppler full-title extraction and actual PNG images\nin the first pass.  This does not mistake an earlier autoref for the box heading.\n",
+  "boxes": [
+    {
+      "label": "box:1.1",
+      "title_tex": "备忘：极小元存在的 Weierstrass 判据与半连续性",
+      "actual_heading_physical_pages": [
+        26
+      ],
+      "aux_page_label": "2",
+      "pdf_destination_physical": 26,
+      "destination_name": "boxcounter.1.1",
+      "status": "passed"
+    },
+    {
+      "label": "box:1.2",
+      "title_tex": "备忘：对偶空间中的弱紧性",
+      "actual_heading_physical_pages": [
+        27
+      ],
+      "aux_page_label": "3",
+      "pdf_destination_physical": 27,
+      "destination_name": "boxcounter.1.2",
+      "status": "passed"
+    },
+    {
+      "label": "box:1.3",
+      "title_tex": "备忘：$C_0$ 与 $\\mathscr M$ 之间的对偶性",
+      "actual_heading_physical_pages": [
+        27
+      ],
+      "aux_page_label": "3",
+      "pdf_destination_physical": 27,
+      "destination_name": "boxcounter.1.3",
+      "status": "passed"
+    },
+    {
+      "label": "box:1.4",
+      "title_tex": "备忘：概率测度的弱收敛",
+      "actual_heading_physical_pages": [
+        28
+      ],
+      "aux_page_label": "4",
+      "pdf_destination_physical": 28,
+      "destination_name": "boxcounter.1.4",
+      "status": "passed"
+    },
+    {
+      "label": "box:1.5",
+      "title_tex": "备忘：下半连续函数作为 Lipschitz 函数的上确界",
+      "actual_heading_physical_pages": [
+        29
+      ],
+      "aux_page_label": "5",
+      "pdf_destination_physical": 29,
+      "destination_name": "boxcounter.1.5",
+      "status": "passed"
+    },
+    {
+      "label": "box:1.6",
+      "title_tex": "备忘：Lusin 定理",
+      "actual_heading_physical_pages": [
+        31
+      ],
+      "aux_page_label": "7",
+      "pdf_destination_physical": 31,
+      "destination_name": "boxcounter.1.6",
+      "status": "passed"
+    },
+    {
+      "label": "box:1.7",
+      "title_tex": "备忘：一致收敛意义下的紧性",
+      "actual_heading_physical_pages": [
+        33
+      ],
+      "aux_page_label": "9",
+      "pdf_destination_physical": 33,
+      "destination_name": "boxcounter.1.7",
+      "status": "passed"
+    },
+    {
+      "label": "box:1.8",
+      "title_tex": "备忘：以下确界或上确界定义的函数的连续性",
+      "actual_heading_physical_pages": [
+        34
+      ],
+      "aux_page_label": "10",
+      "pdf_destination_physical": 34,
+      "destination_name": "boxcounter.1.8",
+      "status": "passed"
+    },
+    {
+      "label": "box:1.9",
+      "title_tex": "备忘：Lipschitz 函数的可微性",
+      "actual_heading_physical_pages": [
+        37
+      ],
+      "aux_page_label": "13",
+      "pdf_destination_physical": 37,
+      "destination_name": "boxcounter.1.9",
+      "status": "passed"
+    },
+    {
+      "label": "box:1.10",
+      "title_tex": "知识回顾：松弛",
+      "actual_heading_physical_pages": [
+        43
+      ],
+      "aux_page_label": "19",
+      "pdf_destination_physical": 43,
+      "destination_name": "boxcounter.1.10",
+      "status": "passed"
+    },
+    {
+      "label": "box:1.11",
+      "title_tex": "知识回顾：凸函数",
+      "actual_heading_physical_pages": [
+        46
+      ],
+      "aux_page_label": "22",
+      "pdf_destination_physical": 46,
+      "destination_name": "boxcounter.1.11",
+      "status": "passed"
+    },
+    {
+      "label": "box:1.12",
+      "title_tex": "知识回顾：Legendre变换与次微分",
+      "actual_heading_physical_pages": [
+        47
+      ],
+      "aux_page_label": "23",
+      "pdf_destination_physical": 47,
+      "destination_name": "boxcounter.1.12",
+      "status": "passed"
+    },
+    {
+      "label": "box:1.13",
+      "title_tex": "知识回顾：Hausdorff收敛",
+      "actual_heading_physical_pages": [
+        60
+      ],
+      "aux_page_label": "36",
+      "pdf_destination_physical": 60,
+      "destination_name": "boxcounter.1.13",
+      "status": "passed"
+    },
+    {
+      "label": "box:1.14",
+      "title_tex": "知识回顾：变量代换与像测度",
+      "actual_heading_physical_pages": [
+        72
+      ],
+      "aux_page_label": "48",
+      "pdf_destination_physical": 72,
+      "destination_name": "boxcounter.1.14",
+      "status": "passed"
+    },
+    {
+      "label": "box:2.1",
+      "title_tex": "知识回顾：累积分布函数",
+      "actual_heading_physical_pages": [
+        75
+      ],
+      "aux_page_label": "51",
+      "pdf_destination_physical": 75,
+      "destination_name": "boxcounter.2.1",
+      "status": "passed"
+    },
+    {
+      "label": "box:2.2",
+      "title_tex": "重要概念：测度的分解",
+      "actual_heading_physical_pages": [
+        83
+      ],
+      "aux_page_label": "59",
+      "pdf_destination_physical": 83,
+      "destination_name": "boxcounter.2.2",
+      "status": "passed"
+    },
+    {
+      "label": "box:2.3",
+      "title_tex": "知识回顾：Stone--Weierstrass定理",
+      "actual_heading_physical_pages": [
+        85
+      ],
+      "aux_page_label": "61",
+      "pdf_destination_physical": 85,
+      "destination_name": "boxcounter.2.3",
+      "status": "passed"
+    },
+    {
+      "label": "box:2.4",
+      "title_tex": "相关知识：Radon变换与X射线变换",
+      "actual_heading_physical_pages": [
+        94
+      ],
+      "aux_page_label": "70",
+      "pdf_destination_physical": 94,
+      "destination_name": "boxcounter.2.4",
+      "status": "passed"
+    },
+    {
+      "label": "box:3.1",
+      "title_tex": "知识回顾：$\\mathbb R^d$中的BV函数",
+      "actual_heading_physical_pages": [
+        107
+      ],
+      "aux_page_label": "83",
+      "pdf_destination_physical": 107,
+      "destination_name": "boxcounter.3.1",
+      "status": "passed"
+    },
+    {
+      "label": "box:3.2",
+      "title_tex": "知识回顾：密度点",
+      "actual_heading_physical_pages": [
+        115
+      ],
+      "aux_page_label": "91",
+      "pdf_destination_physical": 115,
+      "destination_name": "boxcounter.3.2",
+      "status": "passed"
+    },
+    {
+      "label": "box:3.3",
+      "title_tex": "重要概念：近似梯度",
+      "actual_heading_physical_pages": [
+        124
+      ],
+      "aux_page_label": "100",
+      "pdf_destination_physical": 124,
+      "destination_name": "boxcounter.3.3",
+      "status": "passed"
+    },
+    {
+      "label": "box:4.1",
+      "title_tex": "知识回顾：时变向量场的流",
+      "actual_heading_physical_pages": [
+        130
+      ],
+      "aux_page_label": "106",
+      "pdf_destination_physical": 130,
+      "destination_name": "boxcounter.4.1",
+      "status": "passed"
+    },
+    {
+      "label": "box:4.2",
+      "title_tex": "知识回顾：向量测度",
+      "actual_heading_physical_pages": [
+        134
+      ],
+      "aux_page_label": "110",
+      "pdf_destination_physical": 134,
+      "destination_name": "boxcounter.4.2",
+      "status": "passed"
+    },
+    {
+      "label": "box:4.3",
+      "title_tex": "补充知识：Dacorogna--Moser运输",
+      "actual_heading_physical_pages": [
+        140
+      ],
+      "aux_page_label": "116",
+      "pdf_destination_physical": 140,
+      "destination_name": "boxcounter.4.3",
+      "status": "passed"
+    },
+    {
+      "label": "box:4.4",
+      "title_tex": "知识回顾：一元有界变差函数",
+      "actual_heading_physical_pages": [
+        145
+      ],
+      "aux_page_label": "121",
+      "pdf_destination_physical": 145,
+      "destination_name": "boxcounter.4.4",
+      "status": "passed"
+    },
+    {
+      "label": "box:4.5",
+      "title_tex": "值得了解：程函方程的离散化与FMM",
+      "actual_heading_physical_pages": [
+        159
+      ],
+      "aux_page_label": "135",
+      "pdf_destination_physical": 159,
+      "destination_name": "boxcounter.4.5",
+      "status": "passed"
+    },
+    {
+      "label": "box:4.6",
+      "title_tex": "重要概念：伽马收敛",
+      "actual_heading_physical_pages": [
+        171
+      ],
+      "aux_page_label": "147",
+      "pdf_destination_physical": 171,
+      "destination_name": "boxcounter.4.6",
+      "status": "passed"
+    },
+    {
+      "label": "box:5.1",
+      "title_tex": "相关知识：度量空间中的曲线与速率",
+      "actual_heading_physical_pages": [
+        182
+      ],
+      "aux_page_label": "158",
+      "pdf_destination_physical": 182,
+      "destination_name": "boxcounter.5.1",
+      "status": "passed"
+    },
+    {
+      "label": "box:5.2",
+      "title_tex": "相关知识：一般度量空间中的常速测地线",
+      "actual_heading_physical_pages": [
+        194
+      ],
+      "aux_page_label": "170",
+      "pdf_destination_physical": 194,
+      "destination_name": "boxcounter.5.2",
+      "status": "passed"
+    },
+    {
+      "label": "box:6.1",
+      "title_tex": "备忘：鞍点、Uzawa算法与增广Lagrangian",
+      "actual_heading_physical_pages": [
+        211
+      ],
+      "aux_page_label": "187",
+      "pdf_destination_physical": 211,
+      "destination_name": "boxcounter.6.1",
+      "status": "passed"
+    },
+    {
+      "label": "box:6.2",
+      "title_tex": "备忘：Helmholtz分解",
+      "actual_heading_physical_pages": [
+        216
+      ],
+      "aux_page_label": "192",
+      "pdf_destination_physical": 216,
+      "destination_name": "boxcounter.6.2",
+      "status": "passed"
+    },
+    {
+      "label": "box:6.3",
+      "title_tex": "备忘：线性传输方程",
+      "actual_heading_physical_pages": [
+        217
+      ],
+      "aux_page_label": "193",
+      "pdf_destination_physical": 217,
+      "destination_name": "boxcounter.6.3",
+      "status": "passed"
+    },
+    {
+      "label": "box:6.4",
+      "title_tex": "备忘：求解方程的Newton法",
+      "actual_heading_physical_pages": [
+        221
+      ],
+      "aux_page_label": "197",
+      "pdf_destination_physical": 221,
+      "destination_name": "boxcounter.6.4",
+      "status": "passed"
+    },
+    {
+      "label": "box:6.5",
+      "title_tex": "备忘：行列式的线性化",
+      "actual_heading_physical_pages": [
+        221
+      ],
+      "aux_page_label": "197",
+      "pdf_destination_physical": 221,
+      "destination_name": "boxcounter.6.5",
+      "status": "passed"
+    },
+    {
+      "label": "box:6.6",
+      "title_tex": "值得了解：Voronoi单元",
+      "actual_heading_physical_pages": [
+        224
+      ],
+      "aux_page_label": "200",
+      "pdf_destination_physical": 224,
+      "destination_name": "boxcounter.6.6",
+      "status": "passed"
+    },
+    {
+      "label": "box:6.7",
+      "title_tex": "值得了解：单纯形算法",
+      "actual_heading_physical_pages": [
+        224
+      ],
+      "aux_page_label": "200",
+      "pdf_destination_physical": 224,
+      "destination_name": "boxcounter.6.7",
+      "status": "passed"
+    },
+    {
+      "label": "box:6.8",
+      "title_tex": "备忘：梯度算法",
+      "actual_heading_physical_pages": [
+        230
+      ],
+      "aux_page_label": "206",
+      "pdf_destination_physical": 230,
+      "destination_name": "boxcounter.6.8",
+      "status": "passed"
+    },
+    {
+      "label": "box:7.1",
+      "title_tex": "知识补充：$\\mathscr M^d(\\Omega)$上局部下半连续泛函的刻画",
+      "actual_heading_physical_pages": [
+        245
+      ],
+      "aux_page_label": "221",
+      "pdf_destination_physical": 245,
+      "destination_name": "boxcounter.7.1",
+      "status": "passed"
+    },
+    {
+      "label": "box:7.2",
+      "title_tex": "备忘：对称矩阵乘积的对角化",
+      "actual_heading_physical_pages": [
+        257
+      ],
+      "aux_page_label": "233",
+      "pdf_destination_physical": 257,
+      "destination_name": "boxcounter.7.2",
+      "status": "passed"
+    },
+    {
+      "label": "box:7.3",
+      "title_tex": "重要概念：Nash均衡",
+      "actual_heading_physical_pages": [
+        263
+      ],
+      "aux_page_label": "239",
+      "pdf_destination_physical": 263,
+      "destination_name": "boxcounter.7.3",
+      "status": "passed"
+    },
+    {
+      "label": "box:8.1",
+      "title_tex": "备忘：显式与隐式 Euler 格式",
+      "actual_heading_physical_pages": [
+        268
+      ],
+      "aux_page_label": "244",
+      "pdf_destination_physical": 268,
+      "destination_name": "boxcounter.8.1",
+      "status": "passed"
+    },
+    {
+      "label": "box:8.2",
+      "title_tex": "备忘：等度可积性与 Dunford--Pettis 定理",
+      "actual_heading_physical_pages": [
+        279
+      ],
+      "aux_page_label": "255",
+      "pdf_destination_physical": 279,
+      "destination_name": "boxcounter.8.2",
+      "status": "passed"
+    },
+    {
+      "label": "box:8.3",
+      "title_tex": "备忘：最优控制与 Hamilton--Jacobi 方程",
+      "actual_heading_physical_pages": [
+        293
+      ],
+      "aux_page_label": "269",
+      "pdf_destination_physical": 293,
+      "destination_name": "boxcounter.8.3",
+      "status": "passed"
+    }
+  ],
+  "failures": []
+}

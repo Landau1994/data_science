@@ -13,7 +13,7 @@
 \subsubsection{距离成本的对偶性}\label{sec:3.1.1}
 先讨论成本$c(x,y)$本身就是距离的情形（因而满足三角不等式，当$x=y$时为零，等等）. 由于成本对称，不再区分$\bar c$-变换与$c$-变换.
 
-\begin{proposition}\label{obj:3.1}
+\begin{proposition}\label{obj:3.1}\index{D044@距离成本（distance costs）|hyperpage}
 若$c:X\times X\to\mathbb R$是距离，则函数$u:X\to\mathbb R$为$c$-凹函数，当且仅当它关于距离$c$为Lipschitz连续函数且Lipschitz常数小于$1$. 这些函数的集合记为$\operatorname{Lip}_1$. 此外，对每个$u\in\operatorname{Lip}_1$都有$u^c=-u$.
 \end{proposition}
 
@@ -88,6 +88,7 @@ O(\mu,\nu)=\operatorname*{argmin}_{\gamma\in\Pi(\mu,\nu)}K_1(\gamma)
 \[
 \min\{K_1(\gamma)+\varepsilon K_2(\gamma):\gamma\in\Pi(\mu,\nu)\},
 \]
+\phantomsection\label{idx:i5-p90}\index{0004@$\Gamma$-收敛（$\Gamma$-convergence）!005@高阶展开（higher order developments）|hyperpage}
 但这里不使用这一事实（其证明可沿$\Gamma$-收敛的思路进行，如\autoref{sec:2.4}）.
 
 现在的目标是刻画方案$\bar\gamma$，并证明它由传输映射诱导.
@@ -107,6 +108,7 @@ c(x,y)=\begin{cases}|x-y|^2,&(x,y)\in A,\\+\infty,&\text{否则},\end{cases}
 \end{equation}
 的成本，其中$A$是$\Omega\times\Omega$的给定闭子集. 首先注意，这样的成本在$\Omega\times\Omega$上下半连续.
 
+\phantomsection\label{idx:i7-p90}\index{0007@$c$-循环单调性（$c$-cyclical monotonicity）|hyperpage}
 成本的半连续性意味着，最优方案集中于一个$c$-CM集合（\autoref{obj:1.43}）. 在这一情形这意味着什么？$c$-循环单调性对每个$k$、每个$\sigma$以及每组点$(x_1,y_1),\ldots,(x_k,y_k)$施加一个不等式；这里仅使用$k=2$的条件，得到如下结果.
 
 \begin{lemma}\label{obj:3.4}
@@ -171,7 +173,7 @@ u(z'+th)-u(z'+t_0e)
 \]
 这两个不等式给出$\pm2t_0\delta\le\delta^2\pm2t_0\delta\le t^2$，因而$2t_0|\delta|\le t^2$，即$|\delta|\le t^2/(2t_0)$.
 
-现在考虑点$z\in]x,y[$和数$t_0<\min\{|z-x|,|z-y|\}$. 任何充分接近$z$的点$z''$，均可写成$z''=z'+th$，其中$h$为单位向量，$t\ll1$，$z'\in]x,y[$满足$z'\pm t_0e\in[x,y]$. 由此可写成
+现在考虑点$z\in]x,y[$和数$t_0<\min\{|z-x|,|z-y|\}$. 任何充分接近$z$的点$z''$，均可写成$z''=z'+th$，其中$h$为垂直于$e$的单位向量，$t\ll1$，$z'\in]x,y[$满足$z'\pm t_0e\in[x,y]$. 由此可写成
 \begin{equation*}
 \begin{aligned}
 u(z'')-u(z)&=u(z'+th)-u(z')+u(z')-u(z)\\
@@ -277,17 +279,17 @@ N_s=\{x\in s\setminus\operatorname{Trans}^{(b+)}(u):\#\{y:(x,y)\in\Gamma\}>1\}
 \end{figure}
 
 现在需要证明$\nabla u$可数Lipschitz.
-\begin{definition}\label{obj:3.13}
+\begin{definition}\label{obj:3.13}\index{C030@可数Lipschitz（countably Lipschitz）|hyperpage}
 若存在可数集族$E_h$，使函数$f:\Omega\to\mathbb R^d$在每个$E_h$上Lipschitz连续，且$|\Omega\setminus\bigcup_hE_h|=0$，则称$f$为\emph{可数Lipschitz}（countably Lipschitz）.
 \end{definition}
 注意，“在集合$E$上Lipschitz连续”和“是某个定义在整个$\mathbb R^d$上的Lipschitz连续函数在$E$上的限制”，实际上是同一性质，这是由Lipschitz延拓定理得到的. 事实上，只要$E\subset X$是度量空间，每个$L$-Lipschitz函数$f:E\to\mathbb R$都能延拓成$X$上的$L$-Lipschitz函数. 这称为Kirszbraun定理，使用\autoref{box:1.5}中的函数$f_k$、取$k\ge L$，就容易得到.
 
 我们希望证明$\nabla u$可数Lipschitz. 首先证明，在一列覆盖几乎所有点的集合上，$u$与某些$\lambda$-凸或$\lambda$-凹函数相同. 为此需要一个定义.
-\begin{definition}\label{obj:3.14}
+\begin{definition}\label{obj:3.14}\index{0006@$\lambda$-凸性（$\lambda$-convexity）|hyperpage}
 若$x\mapsto f(x)-\frac\lambda2|x|^2$凸，则称$f:\Omega\to\mathbb R$为$\lambda$-凸函数；若$x\mapsto f(x)+\frac\lambda2|x|^2$凹，则称其为$\lambda$-凹函数. 注意，不要求数$\lambda$为正，因此$\lambda>0$时$\lambda$-凸函数严格凸，$\lambda<0$时，它们只要求二阶导数（在存在的地方）有下界. 对某个$\lambda$为$\lambda$-凸（或$\lambda$-凹）的函数，称为\emph{半凸}（semi-convex）（或\emph{半凹}，semi-concave）函数.
 \end{definition}
 
-\begin{proposition}\label{obj:3.15}
+\begin{proposition}\label{obj:3.15}\index{S137@半凹函数（semi-concave functions）|hyperpage}
 存在集合$E_h$使得：
 \begin{itemize}
 \item $\bigcup_hE_h=\operatorname{Trans}(u)\setminus\operatorname{Trans}(u)^{(b+)}$；
@@ -329,19 +331,19 @@ u_h(x)+\frac{\lambda_h}2|x|^2
 
 前一定理允许用正则性更好的函数$u_h$替换$u$（因为它们$\lambda$-凹，具有与凸函数相同的正则性）. 可惜这还不够，因为一般凸函数甚至未必可微. 还需要新的可数分解，可以从下面这条不予证明的定理得到.
 
-\begin{theorem}\label{obj:3.16}
+\begin{theorem}\label{obj:3.16}\index{C028@凸函数（convex functions）|hyperpage}
 若$f$为凸函数，则$\nabla f$可数Lipschitz.
 \end{theorem}
 该定理的证明见\cite{b13}定理5.34. 当把$\nabla f$换成任意BV函数时，它仍成立，而\cite{b13}正是在这一框架下表述的.
 
-\begin{sourcebox}{知识回顾：$\mathbb R^d$中的BV函数}\label{box:3.1}
+\begin{sourcebox}{知识回顾：$\mathbb R^d$中的BV函数}\label{box:3.1}\index{B022@BV函数（BV functions）|hyperpage}
 在区域$\Omega\subset\mathbb R^d$上，如果$L^1$函数$f:\Omega\to\mathbb R$的分布导数是有限测度，则称它为BV函数. 这意味着要求对每个$C_c^1$向量场$\xi:\Omega\to\mathbb R^d$都有
 \[
 \int_\Omega f(\nabla\cdot\xi)\,dx\le C\|\xi\|_{L^\infty}.
 \]
 因此BV空间比Sobolev空间$W^{1,p}$更宽，后者要求分布导数属于$L^p$（即它们为具有可积性性质的绝对连续测度）.
 
-分布导数$\nabla f$并非任意测度，而必须形如$\nabla f=\nabla^af(x)\,dx+D^sf+D^jf$，其中$\nabla^af(x)\,dx$是$\nabla f$关于Lebesgue测度的绝对连续部分，$D^jf$是所谓跳跃部分，关于$\mathscr H^{d-1}$有密度（它集中于点集$J_f$，在每个这样的点上，存在一个超平面，使函数$f$在超平面两侧有两个不同极限，取适当的测度论意义；而$D^ju$关于$\mathscr H^{d-1}_{|J_f}$的密度恰好是这两个极限值之差乘以超平面的法向方向：$D^jf=(f^+-f^-)n_{J_f}\cdot\mathscr H^{d-1}_{|J_f}$），$D^c$则为所谓Cantor部分，它与Lebesgue测度奇异，但在任意$(d-1)$维集合上为零.
+分布导数$\nabla f$并非任意测度，而必须形如$\nabla f=\nabla^af(x)\,dx+D^sf+D^jf$，其中$\nabla^af(x)\,dx$是$\nabla f$关于Lebesgue测度的绝对连续部分，$D^jf$是所谓跳跃部分，关于$\mathscr H^{d-1}$有密度（它集中于点集$J_f$，在每个这样的点上，存在一个超平面，使函数$f$在超平面两侧有两个不同极限，取适当的测度论意义；而$D^ju$关于$\mathscr H^{d-1}_{|J_f}$的密度恰好是这两个极限值之差乘以超平面的法向方向：$D^jf=(f^+-f^-)\mathbf n_{J_f}\cdot\mathscr H^{d-1}_{|J_f}$），$D^c$则为所谓Cantor部分，它与Lebesgue测度奇异，但在任意$(d-1)$维集合上为零.
 
 以$BV_{\mathrm{loc}}(\mathbb R^d)$表示局部BV函数空间，即其导数为Radon测度、也就是局部有限测度的函数（在使用检验函数$\xi$的定义中，取$\xi\in C_c^1(\mathbb R^d)$，常数$C$可以依赖$\xi$的支集）. 向量值BV函数就是逐分量为BV的函数$f=(f_1,\ldots,f_k):\mathbb R^d\to\mathbb R^k$，即对每个$i=1,\ldots,k$都有$f_i\in BV$. 有意思的是，凸函数的梯度$g=\nabla f$总是局部BV的. 这是因为凸函数梯度的Jacobian矩阵就是该函数的Hessian矩阵，并且正定. 这意味着矩阵值分布$\nabla(\nabla f)=D^2f$为正分布，而正分布必定为正测度（注意：涉及矩阵值和向量值函数时，这需要精确定义）.
 
@@ -352,7 +354,7 @@ BV函数关于Lebesgue或$\mathscr H^{d-1}$测度几乎处处满足多种精细�
 \end{sourcebox}
 
 由\autoref{obj:3.15}及\autoref{obj:3.16}得到：
-\begin{proposition}\label{obj:3.17}
+\begin{proposition}\label{obj:3.17}\index{C030@可数Lipschitz（countably Lipschitz）|hyperpage}
 若$u$是Kantorovich势，则$\nabla u:\operatorname{Trans}(u)\to\mathbb R^d$可数Lipschitz.
 \end{proposition}
 \begin{proof}
@@ -361,7 +363,7 @@ BV函数关于Lebesgue或$\mathscr H^{d-1}$测度几乎处处满足多种精细�
 
 \subsubsection{最优传输映射的存在与不存在}\label{sec:3.1.4}
 由前面各节的分析，得到下面主要取自\cite{b10,b14,b44}的结果.
-\begin{theorem}\label{obj:3.18}
+\begin{theorem}\label{obj:3.18}\index{E058@最优映射的存在性（existence of an optimal map）|hyperpage}
 在通常假设$\mu\ll\mathscr L^d$下，次级变分问题存在唯一解$\bar\gamma$，它由传输映射$\mathrm T$诱导，并在每条传输射线上单调非减.
 \end{theorem}
 \begin{proof}
@@ -379,7 +381,8 @@ BV函数关于Lebesgue或$\mathscr H^{d-1}$测度几乎处处满足多种精细�
 \subsubsection*{从图像到正方形的传输}
 考虑连续函数$B:[0,1]\to\mathbb R$，满足：对每个Lipschitz函数$f:\mathbb R\to\mathbb R$，集合$\{t\in[0,1]:B(t)=f(t)\}$和$\{t\in[0,1]:f(B(t))=t\}$都是Lebesgue零测集. 取$\mu=(\mathrm{id},B)_\#(\mathscr L^1\restr[0,1])$、$\nu=\mathscr L^2\restr Q$，其中$Q=[0,1]\times[L,L+1]$为正方形，$L=\|B\|_{L^\infty}$.
 
-实际上，$\mu$集中于$B$的图像，$\nu$集中于图像上方的正方形. 这样选取后，测度$\mu$对任意形如$\{(t,f(t))\}$或$\{(f(s),s)\}$的可求长曲线都赋予零质量，其中$f$为Lipschitz函数. 另一方面，它不绝对连续，因为它给一个$\mathscr L^2$-零测的图像赋予正质量. 现在要证明，不存在从$\mu$到$\nu$的最优传输映射（\autoref{fig:3.3}）.
+实际上，$\mu$集中于$B$的图像，$\nu$集中于图像上方的正方形. 这样选取后，测度$\mu$对任意形如$\{(t,f(t))\}$或$\{(f(s),s)\}$的可求长曲线都赋予零质量，其中$f$为Lipschitz函数. 另一方面，它不绝对连续，因为它给一个$\mathscr L^2$-零测的图像赋予正质量. \phantomsection\label{idx:i112-p99}\index{N112@最优映射的不存在性（non-existence of optimal maps）|hyperpage}
+现在要证明，不存在从$\mu$到$\nu$的最优传输映射（\autoref{fig:3.3}）.
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=.48\textwidth]{assets/ch03-fig-3-3.pdf}
@@ -429,7 +432,7 @@ BV函数关于Lebesgue或$\mathscr H^{d-1}$测度几乎处处满足多种精细�
 当$\varepsilon\to0$时，$\nu_\varepsilon\rightharpoonup\nu$且$\gamma_\varepsilon\rightharpoonup\bar\gamma$.
 \end{lemma}
 \begin{proof}
-只需证明，任何子列的可能极限分别等于$\nu$或$\bar\gamma$. 令$\gamma_0$为一个这样的极限，$\nu_0=(\pi_y)_\#\gamma_0$为相应$\nu_\varepsilon$子列的极限. 考虑由大约$Cn^d$个点构成的规则网格$G_n\subset\Omega$（取$G_n=\frac1n\mathbb Z^d\cap\Omega$），并令$p_n$为从$\Omega$到$G_n$的任意可测映射，满足$|p_n(x)-x|\le1/n$（例如，在定义良好处可以取投影映射）. 令$\nu^n=(p_n)_\#\nu$，注意$\#\nu^n\le Cn^d$，$\nu^n\rightharpoonup\nu$，且$\mathscr T_c(\nu^n,\nu)\le1/n$.
+只需证明，任何子列的可能极限分别等于$\nu$或$\bar\gamma$. 令$\gamma_0$为一个这样的极限，$\nu_0=(\pi_y)_\#\gamma_0$为相应$\nu_\varepsilon$子列的极限. 考虑由大约$Cn^d$个点构成的规则网格$G^n\subset\Omega$（取$G^n=\frac1n\mathbb Z^d\cap\Omega$），并令$p_n$为从$\Omega$到$G^n$的任意可测映射，满足$|p_n(x)-x|\le1/n$（例如，在定义良好处可以取投影映射）. 令$\nu^n=(p_n)_\#\nu$，注意$\#\nu^n\le Cn^d$，$\nu^n\rightharpoonup\nu$，且$\mathscr T_c(\nu^n,\nu)\le1/n$.
 
 \emph{第一步：$\nu_0=\nu$.} 取从$\mu$到$\nu^n$的任意传输方案$\gamma^n$. 由$\gamma_\varepsilon$的最优性，
 \[
@@ -506,6 +509,7 @@ K_2(\gamma_0)\le K_2(\gamma),
 令$\gamma_n$为成本$|x-y|$下$\mu_n$与$\nu_n$之间沿射线单调的最优传输方案. 假设$\mu_n\rightharpoonup\mu$、$\nu_n\rightharpoonup\nu$、$\gamma_n\rightharpoonup\gamma$. $\gamma$是否为$\mu$与$\nu$之间沿射线单调的最优传输方案？
 \end{openproblem}
 \begin{openproblem}[正则化距离成本的极限]
-令$\gamma_\varepsilon$为两个给定测度$\mu$、$\nu$之间成本$\sqrt{\varepsilon^2+|x-y|^2}$的最优传输方案. 若$\operatorname{spt}(\mu)\cap\operatorname{spt}(\nu)=\varnothing$，则容易证明$\gamma_\varepsilon$收敛于沿射线单调的最优传输方案（因为按$\varepsilon$的首个非零阶，成本扰动形如$|x-y|+\varepsilon^2/|x-y|+o(\varepsilon^2)$，且函数$h(t)=1/t$在$\{t>0\}$上严格凸）. 若两测度的支集相交（或相同），同一结论是否仍成立？
+令$\gamma_\varepsilon$为两个给定测度$\mu$、$\nu$之间成本$\sqrt{\varepsilon^2+|x-y|^2}$的最优传输方案. 若$\operatorname{spt}(\mu)\cap\operatorname{spt}(\nu)=\varnothing$，则容易证明$\gamma_\varepsilon$收敛于沿射线单调的最优传输方案（因为按$\varepsilon$的首个非\phantomsection\label{idx:i5-p101}\index{0004@$\Gamma$-收敛（$\Gamma$-convergence）!005@高阶展开（higher order developments）|hyperpage}
+零阶，成本扰动形如$|x-y|+\varepsilon^2/|x-y|+o(\varepsilon^2)$，且函数$h(t)=1/t$在$\{t>0\}$上严格凸）. 若两测度的支集相交（或相同），同一结论是否仍成立？
 \end{openproblem}
 最后这一逼近在证明（或尝试证明）正则性结果时很有用（见\cite{b210}）.

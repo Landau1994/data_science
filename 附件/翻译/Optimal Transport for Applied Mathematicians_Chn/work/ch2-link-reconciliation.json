@@ -1,0 +1,43 @@
+{
+  "unit": "chapter2",
+  "status": "verified-source-mislink-exclusion",
+  "source_sha256": "7820e876d4312d7355f0a1549b2af2186594eebef8d411d651c6235b8c119b68",
+  "output_pdf_sha256": "e4796ce808e77a8c5653f10e76820095ec6bc5ddfafe2fbc733c31ea6969e479",
+  "source_internal_annotations": 80,
+  "output_internal_annotations": 79,
+  "relevant_source_baseline": 79,
+  "reason": "原印刷82/PDF物理109的“See also Chapter 5 in [65] for a revised and more general proof.”中，Chapter 5显然属于文献[65]，但原PDF把它错误链接到本书第5章（源物理201）。中文忠实译作“修订后更一般的证明还可参阅[65]第5章”，[65]保持可点击，本书第5章的无关错误跳转未复制。其余全部79个源内部链接按可见引用/目标类型转换后的多重集合与译稿79个链接完全相等。不是跨行双矩形，也不补假链接。",
+  "source_mislink": {
+    "page": 109,
+    "destination": "chapter.120.5",
+    "rect": [
+      200.394,
+      487.818,
+      207.363,
+      496.632
+    ],
+    "visible": "5",
+    "target_physical_page": 201
+  },
+  "output_bibliography_link": [
+    {
+      "page": 94,
+      "destination": "cite.b65",
+      "rect": [
+        125.836,
+        265.773,
+        137.552,
+        282.594
+      ],
+      "visible": "[65] of"
+    }
+  ],
+  "source_visible_sentence": "See also Chapter 5 in [65] for a revised and more general proof.",
+  "output_visible_sentence": "修订后更一般的证明还可参阅[65]第5章.",
+  "semantic_counter_difference_source_minus_output": {
+    "sec:5": 1
+  },
+  "semantic_counter_difference_output_minus_source": {},
+  "all_other_79_targets_match": true,
+  "rectangle_ledger": "work/ch2-link-rectangles.json"
+}

@@ -1,0 +1,42 @@
+% 原书印刷249--250／PDF物理273--274上部，章标题由根文件给出.
+本章考虑空间$\mathscr P(\Omega)$上的几类泛函，它们在许多变分问题中颇有意义，也自然出现于许多建模问题中. 事实上，在若干应用模型中，可能遇到这样的极小化问题：待定的未知量是一定数量质量的分布，而准则涉及下列一个或多个泛函：
+\begin{itemize}
+ \item \phantomsection\label{idx:i116-p249}\index{P116@势能（potential energy）|hyperpage}
+给定函数的积分（势能）
+ \[
+ \mathscr V(\mu):=\int_\Omega V\,d\mu.
+ \]
+ \item \phantomsection\label{idx:i79-p249}\index{I079@相互作用能（interaction energy）|hyperpage}
+按张量积$\mu\otimes\mu$对$\Omega\times\Omega$上的函数作二重积分（相互作用能）
+ \[
+ \mathscr W(\mu):=\int_{\Omega\times\Omega}W(x,y)\,d\mu(x)\,d\mu(y).
+ \]
+ \item 到某个固定测度$\nu$的Wasserstein距离$W_p$（或它的函数）；为简单起见，考虑$W_p$的$p$次幂：
+ \[
+ \mu\mapsto W_p^p(\mu,\nu).
+ \]
+ 更一般地，也将考虑一般成本$c(x,y)$的运输代价$\mathscr T_c(\mu,\nu)$，像往常一样定义为$\min\{\int c(x,y)\,d\gamma:\gamma\in\Pi(\mu,\nu)\}$.
+ \item \phantomsection\label{idx:i45-p249}\index{D045@对偶范数（dual norms）|hyperpage}
+对偶函数空间中的范数：给定$\Omega$上的函数组成的Banach空间，取
+ \[
+ \|\mu\|_{\mathscr X'}:=\sup_{\varphi\in\mathscr X,\,\|\varphi\|\leq1}
+       \int\varphi\,d\mu
+     =\sup_{\varphi\in\mathscr X\setminus\{0\}}
+       \frac{\int\varphi\,d\mu}{\|\varphi\|}.
+ \]
+ \item 密度的某个函数的积分
+ \[
+ \mathscr F(\mu):=\begin{cases}
+ \displaystyle\int_\Omega f(\varrho(x))\,dx&\text{若 }\mu=\varrho\cdot dx,\\
+ +\infty&\text{其他情形}.
+ \end{cases}
+ \]
+ \item 原子质量的某个函数之和
+ \[
+ \mathscr G(\mu):=\begin{cases}
+ \displaystyle\sum_i g(a_i)&\text{若 }\mu=\sum_i a_i\delta_{x_i},\\
+ +\infty&\text{若 }\mu\text{ 不是纯原子测度}.
+ \end{cases}
+ \]
+\end{itemize}
+本章旨在研究这些泛函的一些性质. 首先分析经典的变分问题（半连续性、凸性、一阶变分等）. 随后还将引入并分析一个新概念，即测地凸性. 这是度量空间上分析中的自然概念：某个泛函沿度量空间中的测地线是否为凸？对于Wasserstein空间，特别是$\mathbb W_2$，由McCann在\cite{b229}中引入的这一概念称为位移凸性（displacement convexity）. 它与通常的凸性颇为不同，却在许多情形下十分有用.

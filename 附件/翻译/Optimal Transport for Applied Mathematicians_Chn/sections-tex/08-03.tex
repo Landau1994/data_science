@@ -1,0 +1,351 @@
+% 原书物理317–325页，印刷293–301页；§8.3，至Box8.2末.
+\subsection{Fokker--Planck 情形的分析}\label{sec:8.3}\index{F063@Fokker--Planck方程（Fokker-Planck）|hyperpage}
+\phantomsection\label{idx:i116-p293}\index{P116@势能（potential energy）|hyperpage}
+这里以 Fokker--Planck 方程为例进行研究. 它是泛函
+\[
+J(\varrho)=\int_\Omega\varrho\log\varrho+\int_\Omega V\dd\varrho
+\]
+的梯度流，其中 $V$ 是紧区域 $\Omega$ 上的 Lipschitz 函数. 选取初始测度 $\varrho_0\in\mathscr P(\Omega)$，使 $J(\varrho_0)<+\infty$.
+
+强调一下，\phantomsection\label{idx:i51-p293}\index{E051@熵（entropy）|hyperpage}
+泛函的第一项定义为
+\[
+\mathscr F(\varrho):=\begin{cases}
+\displaystyle\int_\Omega\varrho(x)\log\varrho(x)\dd x,&\varrho\ll\mathscr L^d,\\
++\infty,&\text{其他情形},
+\end{cases}
+\]
+其中，当测度 $\varrho$ 绝对连续时，将它与其密度视为同一个对象. 由\autoref{obj:7.7}，这一泛函下半连续（因为这里的区域具有有限测度，所以可以应用该命题；否则情形会更加微妙，参见\autoref{ex:45}）.
+
+半连续性是建立下面结论的关键工具：
+\begin{proposition}\label{obj:8.5}
+泛函 $J$ 在 $\mathscr P(\Omega)$ 上有唯一极小点. 特别地，$J$ 下有界. 此外，对每个 $\tau>0$，以下递归定义的优化问题序列是适定的：
+\begin{equation}\label{eq:8.5}
+\varrho_{(k+1)}^\tau\in\operatorname*{argmin}_\varrho
+J(\varrho)+\frac{W_2^2(\varrho,\varrho_{(k)}^\tau)}{2\tau},
+\end{equation}
+也就是说，每一步都有极小点，而且极小点唯一.
+\end{proposition}
+\begin{proof}
+只需应用直接法，注意 $\mathscr P(\Omega)$ 关于弱收敛是紧的；弱收敛与 $W_2$ 距离的收敛相同（仍是因为 $\Omega$ 紧），而关于这种收敛，$\mathscr F$ 下半连续，其他各项连续. 这同时给出了 $J$ 的极小点，以及上面每个极小化问题\eqref{eq:8.5}的解的存在性. 唯一性来自所有泛函都在通常意义下凸，而 $\mathscr F$ 严格凸.
+\end{proof}
+
+\subsubsection*{每个时间步的最优性条件}
+我们将使用\autoref{obj:7.17}、\autoref{obj:7.20}和\autoref{obj:7.18}；为此，首先需要证明以下结论：
+
+\begin{lemma}\label{obj:8.6}
+\eqref{eq:8.5}中的任意极小点 $\widehat\varrho$ 必须满足几乎处处 $\widehat\varrho>0$，且 $\log\widehat\varrho\in L^1$.
+\end{lemma}
+\begin{proof}
+考虑在 $\Omega$ 中具有正常数密度 $c$ 的测度 $\widetilde\varrho$（即 $c=|\Omega|^{-1}$）. 定义 $\varrho_\varepsilon=(1-\varepsilon)\widehat\varrho+\varepsilon\widetilde\varrho$，并将 $\widehat\varrho$ 与 $\varrho_\varepsilon$ 比较.
+
+由 $\widehat\varrho$ 的最优性，可以写成
+\begin{equation}\label{eq:8.6}
+\begin{aligned}
+\mathscr F(\widehat\varrho)-\mathscr F(\varrho_\varepsilon)
+\leq{}&\int_\Omega V\dd\varrho_\varepsilon-\int_\Omega V\dd\widehat\varrho\\
+&+\frac{W_2^2(\varrho_\varepsilon,\varrho_{(k)}^\tau)}{2\tau}
+-\frac{W_2^2(\widehat\varrho,\varrho_{(k)}^\tau)}{2\tau}.
+\end{aligned}
+\end{equation}
+右端的 Wasserstein 项可以利用凸性估计：
+\[
+\frac{W_2^2(\varrho_\varepsilon,\varrho_{(k)}^\tau)}{2\tau}
+\leq(1-\varepsilon)\frac{W_2^2(\widehat\varrho,\varrho_{(k)}^\tau)}{2\tau}
++\varepsilon\frac{W_2^2(\widetilde\varrho,\varrho_{(k)}^\tau)}{2\tau}.
+\]
+势能项同样具有 $\varepsilon$ 的阶：
+\[
+\int_\Omega V\dd\varrho_\varepsilon-\int_\Omega V\dd\widehat\varrho
+=\varepsilon\int_\Omega V\dd(\widetilde\varrho-\widehat\varrho)\leq C\varepsilon.
+\]
+这说明\eqref{eq:8.6}的整个右端都被 $C\varepsilon$ 控制，从而得到
+\[
+\int_\Omega f(\widehat\varrho)-f(\varrho_\varepsilon)\leq C\varepsilon,
+\]
+其中 $f(t)=t\log t$（在 $t=0$ 处定义为0）. 记
+\[
+A=\{x\in\Omega:\widehat\varrho(x)>0\},\qquad
+B=\{x\in\Omega:\widehat\varrho(x)=0\}.
+\]
+由于 $f$ 为凸函数，对 $x\in A$，可写
+\[
+\begin{aligned}
+f(\widehat\varrho(x))-f(\varrho_\varepsilon(x))
+&\geq(\widehat\varrho(x)-\varrho_\varepsilon(x))f'(\varrho_\varepsilon(x))\\
+&=\varepsilon(\widehat\varrho(x)-\widetilde\varrho(x))(1+\log\varrho_\varepsilon(x)).
+\end{aligned}
+\]
+对 $x\in B$，则直接写 $f(\widehat\varrho(x))-f(\varrho_\varepsilon(x))=-\varepsilon c\log(\varepsilon c)$. 因而可以写成
+\[
+-\varepsilon c\log(\varepsilon c)|B|
++\varepsilon\int_A(\widehat\varrho(x)-c)(1+\log\varrho_\varepsilon(x))\dd x\leq C\varepsilon,
+\]
+再除以 $\varepsilon$，得到
+\begin{equation}\label{eq:8.7}
+-c\log(\varepsilon c)|B|+\int_A(\widehat\varrho(x)-c)(1+\log\varrho_\varepsilon(x))\dd x\leq C.
+\end{equation}
+注意，总有
+\[
+(\widehat\varrho(x)-c)(1+\log\varrho_\varepsilon(x))
+\geq(\widehat\varrho(x)-c)(1+\log c)
+\]
+（只需区分 $\widehat\varrho(x)\geq c$ 与 $\widehat\varrho(x)\leq c$ 两种情形）. 因此，可以写
+\[
+-c\log(\varepsilon c)|B|+\int_A(\widehat\varrho(x)-c)(1+\log c)\dd x\leq C.
+\]
+除非 $|B|=0$，否则令 $\varepsilon\to0$ 就会得到矛盾.
+
+这证明了几乎处处 $\widehat\varrho>0$. 现在回到\eqref{eq:8.7}，它给出了函数 $(\widehat\varrho(x)-c)(1+\log\varrho_\varepsilon(x))$ 的积分上界. 已经注意到，这些函数都以下式为下界：$(\widehat\varrho(x)-c)(1+\log c)$；由于 $c$ 为常数且 $\widehat\varrho\in L^1$，后者属于 $L^1$. 因而可以应用 Fatou 引理，在 $\varepsilon\to0$ 的极限下得到
+\[
+\int_\Omega(\widehat\varrho(x)-c)(1+\log\widehat\varrho(x))\dd x\leq C
+\]
+（由于 $B$ 是零测集，将 $A$ 上的积分换成了 $\Omega$ 上的积分）. 已知 $(\widehat\varrho-c)(1+\log\widehat\varrho)$ 被一个 $L^1$ 函数从下方控制，而且其积分有限，所以它属于 $L^1$. 又已经知道 $\widehat\varrho,\widehat\varrho\log\widehat\varrho\in L^1$，于是推出 $\log\widehat\varrho\in L^1$.
+\end{proof}
+
+现在可以计算一阶变分，并给出最优测度 $\varrho_{(k+1)}^\tau$ 的最优性条件.
+
+\begin{proposition}\label{obj:8.7}
+\eqref{eq:8.5}中的最优测度 $\varrho_{(k+1)}^\tau$ 满足
+\begin{equation}\label{eq:8.8}
+\log(\varrho_{(k+1)}^\tau)+V+\frac{\bar\varphi}\tau=\text{常数}\qquad\text{几乎处处},
+\end{equation}
+其中 $\bar\varphi$ 是从 $\varrho_{(k+1)}^\tau$ 到 $\varrho_{(k)}^\tau$ 的（唯一的）Kantorovich 势. 特别地，$\log\varrho_{(k+1)}^\tau$ 是 Lipschitz 连续的. 若 $\mathrm T_{k+1}^\tau$ 是从 $\varrho_{(k+1)}^\tau$ 到 $\varrho_{(k)}^\tau$ 的最优运输，则它满足
+\begin{equation}\label{eq:8.9}
+\mathbf v_{(k+1)}^\tau:=\frac{\id-\mathrm T_{k+1}^\tau}{\tau}
+=-\nabla\bigl(\log(\varrho_{(k+1)}^\tau)+V\bigr)\qquad\text{几乎处处}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+取最优测度 $\widehat\varrho:=\varrho_{(k+1)}^\tau$. 可以说，它对于泛函 $J$ 是正则的（见\autoref{obj:7.12}），因为唯一一个并非在 $\mathscr P(\Omega)$ 的所有概率测度上都有限的项是熵项，但熵项为凸泛函，且在最优测度 $\widehat\varrho$ 以及 $L^\infty$ 密度上均有限. 可以验证，$J$ 在 $\widehat\varrho$ 处具有一阶变分. 对线性项，这是直接的；对 Wasserstein 项，可以应用\autoref{obj:7.17}. Kantorovich 势的唯一性由\autoref{obj:7.18}与\autoref{obj:8.6}共同保证. 对熵项，取 $\widetilde\varrho\in L^\infty$，考虑 $\varrho_\varepsilon:=(1-\varepsilon)\widehat\varrho+\varepsilon\widetilde\varrho$. 设 $M=\|\widetilde\varrho\|_{L^\infty}$，考察 $\varepsilon\mapsto\int\varrho_\varepsilon\log\varrho_\varepsilon$. 被积函数可以关于 $\varepsilon$ 逐点求导，得到 $(1+\log\varrho_\varepsilon)(\widetilde\varrho-\widehat\varrho)$. 对 $\varepsilon<1/2$，可以验证，这些函数被 $(\widehat\varrho+M)(|\log\widehat\varrho|+\log M+1)$ 控制；由于 $\widehat\varrho,\log\widehat\varrho,\widehat\varrho\log\widehat\varrho\in L^1$（由\autoref{obj:8.6}），它属于 $L^1$. 因而可以在积分号下求导，并证明这一项的一阶变分为 $1+\log\widehat\varrho$.
+
+所以 $J$ 的一阶变分为
+\[
+\frac{\delta J}{\delta\varrho}=f'(\varrho)+V=\log(\varrho)+1+V.
+\]
+应用\autoref{obj:7.20}得到\eqref{eq:8.8}；由于 $\widehat\varrho>0$，它几乎处处成立. 特别地，这意味着 $\varrho_{(k+1)}^\tau$ 为 Lipschitz 连续函数，因为
+\[
+\varrho_{(k+1)}^\tau(x)=\exp\left(C-V(x)-\frac{\bar\varphi(x)}\tau\right).
+\]
+接着求导，得到等式
+\[
+\nabla\bar\varphi=\frac{\id-\mathrm T_{k+1}^\tau}{\tau}
+=-\nabla\bigl(\log(\varrho_{(k+1)}^\tau)+V\bigr)\qquad\text{几乎处处},
+\]
+这就得到了结论.
+\end{proof}
+
+\subsubsection*{时间步之间的插值与一致估计}
+再准备一些工具.
+\begin{proposition}\label{obj:8.8}
+对任意 $\tau>0$，极小点序列满足
+\[
+\sum_k\frac{W_2^2(\varrho_{(k+1)}^\tau,\varrho_{(k)}^\tau)}\tau
+\leq C:=2(J(\varrho_0)-\inf J).
+\]
+\end{proposition}
+\begin{proof}
+将最优测度 $\varrho_{(k+1)}^\tau$ 与前一个测度 $\varrho_{(k)}^\tau$ 比较即得. 有
+\begin{equation}\label{eq:8.10}
+J(\varrho_{(k+1)}^\tau)+\frac{W_2^2(\varrho_{(k+1)}^\tau,\varrho_{(k)}^\tau)}{2\tau}
+\leq J(\varrho_k^\tau),
+\end{equation}
+从而
+\[
+\sum_k\frac{W_2^2(\varrho_{(k+1)}^\tau,\varrho_{(k)}^\tau)}\tau
+\leq\sum_k2\bigl(J(\varrho_k^\tau)-J(\varrho_{(k+1)}^\tau)\bigr).
+\]
+最后的求和是望远镜求和，因而得到结论.
+\end{proof}
+
+定义测度 $\varrho_{(k)}^\tau$ 之间的两种插值.
+
+通过时间离散方法，对每个 $\tau>0$，已经得到一个序列 $(\varrho_{(k)}^\tau)_k$. 可以用它在测度空间中构造至少两条有用的曲线：
+\begin{itemize}
+\item 首先可以定义分段常值曲线，即对 $t\in ]k\tau,(k+1)\tau]$，令 $\varrho_t^\tau:=\varrho_{(k+1)}^\tau$；与该曲线相应，也在 $t\in ]k\tau,(k+1)\tau]$ 上定义速度 $\mathbf v_t^\tau=\mathbf v_{(k+1)}^\tau$，其中 $\mathbf v_{(k+1)}^\tau$ 如\eqref{eq:8.9}中所定义：$\mathbf v_{(k+1)}^\tau=(\id-\mathrm T_{k+1}^\tau)/\tau$，这里 $\mathrm T_{k+1}^\tau$ 是从 $\varrho_{(k+1)}^\tau$ 到 $\varrho_{(k)}^\tau$ 的最优运输；还定义动量变量 $E^\tau=\varrho^\tau\mathbf v^\tau$.
+\item 其次，也可以考虑沿测地线插值离散值 $(\varrho_{(k)}^\tau)_k$ 所得到的密度 $\widetilde\varrho_t^\tau$：
+\begin{equation}\label{eq:8.11}\index{G065@测地线（geodesics）!066@$\mathbb W_p$中（in $\mathbb W_p$）|hyperpage}
+\widetilde\varrho_t^\tau=\left(\frac{k\tau-t}\tau\mathbf v_{(k)}^\tau+\id\right)_\#\varrho_{(k)}^\tau,
+\qquad t\in ](k-1)\tau,k\tau[;
+\end{equation}
+定义速度 $\widetilde{\mathbf v}_t^\tau$，使 $(\widetilde\varrho^\tau,\widetilde{\mathbf v}^\tau)$ 满足连续性方程，并且 $\|\widetilde{\mathbf v}_t^\tau\|_{L^2(\widetilde\varrho_t^\tau)}=|(\widetilde\varrho^\tau)'|(t)$. 为此，取
+\[
+\widetilde{\mathbf v}_t^\tau=\mathbf v_t^\tau\circ\bigl((k\tau-t)\mathbf v_{(k)}^\tau+\id\bigr)^{-1};
+\]
+与前面一样，定义动量变量 $\widetilde E^\tau=\widetilde\varrho^\tau\widetilde{\mathbf v}^\tau$.
+\end{itemize}
+
+作出这些定义之后，考虑所定义曲线与速度的一些先验界. 首先给出极小化运动框架中的若干标准估计.
+
+注意，$\widetilde\varrho^\tau$ 的\phantomsection\label{idx:i99-p298}\index{M099@度量导数（metric derivative）|hyperpage}
+速率（即度量导数）在每个区间 $]k\tau,(k+1)\tau[$ 上为常数，等于
+\[
+\frac{W_2(\varrho_{(k+1)}^\tau,\varrho_{(k)}^\tau)}\tau
+=\frac1\tau\left(\int|\id-\mathrm T_{k+1}^\tau|^2\dd\varrho_{(k+1)}^\tau\right)^{1/2}
+=\|\mathbf v_{k+1}^\tau\|_{L^2(\varrho_{(k+1)}^\tau)},
+\]
+从而
+\[
+\|\widetilde{\mathbf v}_t^\tau\|_{L^2(\widetilde\varrho_t^\tau)}
+=|(\widetilde\varrho^\tau)'|(t)
+=\frac{W_2(\varrho_{(k+1)}^\tau,\varrho_{(k)}^\tau)}\tau
+=\|\mathbf v_t^\tau\|_{L^2(\varrho_t^\tau)},
+\]
+这里利用了速度场 $\widetilde{\mathbf v}^\tau$ 的选取方式：其 $L^2$ 范数等于曲线 $\widetilde\varrho^\tau$ 的度量导数.
+
+特别地，可以得到
+\[
+\begin{aligned}
+|E^\tau|([0,T]\times\Omega)
+&=\int_0^T\dd t\int_\Omega|\mathbf v_t^\tau|\dd\varrho_t^\tau
+=\int_0^T\|\mathbf v_t^\tau\|_{L^1(\varrho_t^\tau)}\dd t\\
+&\leq\int_0^T\|\mathbf v_t^\tau\|_{L^2(\varrho_t^\tau)}\dd t
+\leq T^{1/2}\int_0^T\|\mathbf v_t^\tau\|_{L^2(\varrho_t^\tau)}^2\dd t\\
+&=T^{1/2}\sum_k\tau\left(\frac{W_2(\varrho_{(k+1)}^\tau,\varrho_{(k)}^\tau)}\tau\right)^2\leq C.
+\end{aligned}
+\]
+对 $\widetilde E^\tau$ 的估计完全类似：
+\[
+\begin{aligned}
+|\widetilde E^\tau|([0,T]\times\Omega)
+&=\int_0^T\dd t\int_\Omega|\widetilde{\mathbf v}_t^\tau|\dd\widetilde\varrho_t^\tau
+\leq T^{1/2}\int_0^T\|\widetilde{\mathbf v}_t^\tau\|_{L^2(\widetilde\varrho_t^\tau)}^2\\
+&=T^{1/2}\sum_k\tau\left(\frac{W_2(\varrho_{(k+1)}^\tau,\varrho_{(k)}^\tau)}\tau\right)^2\leq C.
+\end{aligned}
+\]
+这就给出了 $E^\tau$ 和 $\widetilde E^\tau$ 在时空向量测度空间中关于弱收敛的紧性. 对于 $\widetilde\varrho^\tau$，还可以得到更多结论. 对 $s<t$，考虑估计
+\[
+W_2(\widetilde\varrho_t^\tau,\widetilde\varrho_s^\tau)
+\leq\int_s^t|(\widetilde\varrho^\tau)'|(r)\dd r
+\leq(t-s)^{1/2}\left(\int_s^t|(\widetilde\varrho^\tau)'|(r)^2\dd r\right)^{1/2}.
+\]
+由前面的计算，再次得到
+\[
+\int_0^T|(\widetilde\varrho^\tau)'|(r)^2\dd r
+=\sum_k\tau\left(\frac{W_2(\varrho_{(k+1)}^\tau,\varrho_{(k)}^\tau)}\tau\right)^2\leq C,
+\]
+从而
+\begin{equation}\label{eq:8.12}
+W_2(\widetilde\varrho_t^\tau,\widetilde\varrho_s^\tau)\leq C(t-s)^{1/2},
+\end{equation}
+这意味着曲线 $\widetilde\varrho^\tau$ 一致 Hölder 连续. 由于它们定义在 $[0,T]$ 上，取值于紧空间 $\mathbb W_2(\Omega)$，可以应用 Ascoli--Arzel\`a 定理. 这表明，至多取子列后，有
+\[
+\begin{gathered}
+E^\tau\rightharpoonup E\quad\text{于 }\mathscr M^d([0,T]\times\Omega),\qquad
+\widetilde E^\tau\rightharpoonup\widetilde E\quad\text{于 }\mathscr M^d([0,T]\times\Omega);\\
+\widetilde\varrho^\tau\to\varrho\quad\text{关于 }W_2\text{ 距离一致收敛}.
+\end{gathered}
+\]
+由 $\widetilde\varrho^\tau$ 的一致界，极限曲线 $\varrho$ 在 $\mathbb W_2$ 中既是 $1/2$-Hölder 连续的，又是绝对连续的.
+
+至于曲线 $\varrho^\tau$，它们也一致收敛于同一条曲线 $\varrho$，因为 $W_2(\varrho_t^\tau,\widetilde\varrho_t^\tau)\leq C\sqrt\tau$（这是\eqref{eq:8.12}、$\widetilde\varrho^\tau=\varrho^\tau$ 在形如 $k\tau$ 的时刻成立，以及 $\varrho^\tau$ 在每个区间 $]k\tau,(k+1)\tau]$ 上为常数这几个事实的推论）.
+
+现在证明 $\widetilde E=E$.
+\Needspace{12\baselineskip}
+\begin{lemma}\label{obj:8.9}
+设有两个向量测度族 $E^\tau$ 和 $\widetilde E^\tau$，满足
+\begin{itemize}
+\item $\widetilde E^\tau=\widetilde\varrho^\tau\widetilde{\mathbf v}^\tau$，$E^\tau=\varrho^\tau\mathbf v^\tau$；
+\item $\widetilde{\mathbf v}_t^\tau=\mathbf v_t^\tau\circ((k\tau-t)\mathbf v_{(k)}^\tau+\id)^{-1}$，$\widetilde\varrho^\tau=((k\tau-t)\mathbf v_{(k)}^\tau+\id)_\#\varrho^\tau$；
+\item $\iint|\mathbf v^\tau|^2\dd\varrho^\tau\leq C$（其中 $C$ 与 $\tau$ 无关）；
+\item 当 $\tau\to0$ 时，$E^\tau\rightharpoonup E$ 且 $\widetilde E^\tau\rightharpoonup\widetilde E$.
+\end{itemize}
+则 $\widetilde E=E$.
+\end{lemma}
+\begin{proof}
+只需固定一个 Lipschitz 函数 $f:[0,T]\times\Omega\to\R^d$，证明 $\int f\cdot\dd E=\int f\cdot\dd\widetilde E$. 为此，写成
+\[
+\begin{aligned}
+\int f\cdot\dd\widetilde E^\tau
+&=\int_0^T\dd t\int_\Omega f\cdot\widetilde{\mathbf v}_t^\tau\dd\widetilde\varrho^\tau\\
+&=\int_0^T\dd t\int_\Omega f\circ((k\tau-t)\mathbf v^\tau+\id)\cdot\mathbf v_t^\tau\dd\varrho^\tau,
+\end{aligned}
+\]
+从而
+\[
+\begin{aligned}
+\left|\int f\cdot\dd\widetilde E^\tau-\int f\cdot\dd E^\tau\right|
+&\leq\int_0^T\dd t\int_\Omega
+|f\circ((k\tau-t)\mathbf v^\tau+\id)-f|\,|\mathbf v_t^\tau|\dd\varrho^\tau\\
+&\leq\Lip(f)\tau\int_0^T\int_\Omega|\mathbf v_t^\tau|^2\dd\varrho^\tau\leq C\tau.
+\end{aligned}
+\]
+这个估计证明 $\int f\cdot\dd\widetilde E^\tau$ 和 $\int f\cdot\dd E^\tau$ 有相同的极限，即 $E=\widetilde E$.
+\end{proof}
+
+\subsubsection*{\texorpdfstring{$\varrho$ 与 $E$}{密度与动量}的关系}
+可以得到以下结论：
+\begin{proposition}\label{obj:8.10}\index{C027@连续性方程（continuity equation）|hyperpage}\index{H075@热方程（heat equation）|hyperpage}
+二元组 $(\varrho,E)$ 在分布意义下满足
+\[
+\partial_t\varrho+\nabla\cdot E=0,\qquad E=-\nabla\varrho-\varrho\nabla V,
+\]
+并在 $\partial\Omega$ 上满足无通量边界条件. 特别地，我们得到了问题
+\[
+\begin{cases}
+\partial_t\varrho-\Delta\varrho+\nabla\cdot(\varrho\nabla V)=0,\\
+\varrho(0)=\varrho_0,
+\end{cases}
+\]
+的一个解，其中初始条件作如下理解：曲线 $t\mapsto\varrho_t$ 在 $\mathbb W_2$ 中（绝对）连续，其初值为 $\varrho_0$.
+\end{proposition}
+\begin{proof}
+首先考虑弱收敛 $(\widetilde\varrho^\tau,\widetilde E^\tau)\rightharpoonup(\varrho,E)$（这是 $\widetilde E=E$ 的推论）. 二元组 $(\widetilde\varrho^\tau,\widetilde E^\tau)$ 在分布意义下满足连续性方程 $\partial_t\widetilde\varrho^\tau+\nabla\cdot\widetilde E^\tau=0$（与\autoref{sec:4.1.2}中一样；用 $]0,T[\times\Omega$ 上的 $C_c^1$ 函数检验方程，这特别意味着并不要求检验函数在 $\partial\Omega$ 上消失），这一性质可传到极限.
+
+所以 $\partial_t\varrho+\nabla\cdot E=0$.
+
+由\eqref{eq:8.12}中的一致 $C^{0,1/2}$ 界，$\mathbb W_2$ 中的连续性和初始条件也传到极限.
+
+接着利用收敛 $(\varrho^\tau,E^\tau)\rightharpoonup(\varrho,E)$. 事实上，由\autoref{obj:8.7}的最优性条件和定义 $E^\tau=\mathbf v^\tau\varrho^\tau$，对每个 $\tau>0$，有 $E^\tau=-\nabla\varrho^\tau-\varrho^\tau\nabla V$（仍在分布意义下：$\varrho^\tau\nabla V$ 是 $L^1$ 函数与 $L^\infty$ 函数的乘积）. 将这个条件传到极限也并不困难. 取 $f\in C_c^1(]0,T[\times\Omega;\R^d)$ 进行检验：
+\[
+\begin{aligned}
+\int f\cdot\dd E^\tau
+&=-\int f\cdot\nabla\varrho^\tau-\int f\cdot\nabla V\varrho^\tau\\
+&=\int\nabla\cdot f\dd\varrho^\tau-\int f\cdot\nabla V\varrho^\tau.
+\end{aligned}
+\]
+当 $\varrho^\tau\rightharpoonup\varrho$ 时，这些项都可以传到极限，至少在 $V\in C^1$ 时如此，因为上面所有检验函数都是连续的. 这就给出 $\int f\cdot\dd E=\int(\nabla\cdot f)\dd\varrho-\int f\cdot\nabla V\dd\varrho$，从而 $E=-\nabla\varrho-\varrho\nabla V$（再次强调，$\nabla\varrho$ 应在分布意义下理解）.
+
+为处理 $V$ 仅为 Lipschitz 连续的情形，注意对每个 $\tau,t$，有 $J(\varrho_t^\tau)\leq J(\varrho_0)$（这是\eqref{eq:8.10}的推论，将该式对 $k$ 迭代，得到 $J(\varrho_{(k)}^\tau)\leq J(\varrho_0)$）. 这给出了 $\mathscr F(\varrho_t^\tau)$ 的一致界，下面的 Dunford--Pettis 定理将测度意义下的弱收敛 $\varrho_t^\tau\rightharpoonup\varrho_t$ 转化为 $L^1$ 中的弱收敛. 考察项
+\[
+\int f\cdot\nabla V\varrho_t^\tau
+:=\int_0^T\dd t\int_\Omega f(t,x)\cdot\nabla V(x)\varrho_t^\tau(x)\dd x.
+\]
+关于 $t$ 的被积函数一致地被 $\|f\|_{L^\infty}\|\nabla V\|_{L^\infty}$ 控制. 因此，由于存在控制函数，只需考察每个固定 $t$ 时的极限，就能计算 $\tau\to0$ 的极限. 对固定 $t$，$\varrho_t^\tau$ 在 $L^1$ 中弱收敛于 $\varrho_t$；与固定的 $L^\infty$ 函数 $f\cdot\nabla V$ 配对，就给出了所需的积分极限.
+\end{proof}
+
+\begin{sourcebox}{备忘：等度可积性与 Dunford--Pettis 定理}\label{box:8.2}\index{D047@Dunford--Pettis定理（Dunford-Pettis Theorem）|hyperpage}\index{E052@等度可积性（equi-integrability）|hyperpage}
+\begin{definition*}
+称函数序列 $\varrho_n$ 等度可积（equi-integrable），若对每个 $\varepsilon>0$，存在 $\delta>0$，使得对任意满足 $|A|\leq\delta$ 的集合 $A$，以及任意 $n$，都有 $\int_A\varrho_n(x)\dd x\leq\varepsilon$.
+\end{definition*}
+可以验证，等度可积性等价于：对任意超线性函数 $f$，存在界 $\int f(\varrho_n(x))\dd x\leq C<+\infty$. 这里只证明，这样的界蕴含等度可积性. 事实上，固定 $\varepsilon>0$，取 $M$ 使得对所有 $t>M$，有 $f(t)/t>2C/\varepsilon$（由 $f$ 的超线性可以做到）. 于是估计
+\[
+\begin{aligned}
+\int_A\varrho_n
+&=\int_{A\cap\{\varrho_n\leq M\}}\varrho_n
++\int_{A\cap\{\varrho_n>M\}}\frac{\varrho_n}{f(\varrho_n)}f(\varrho_n)\dd x\\
+&\leq M|A|+\frac\varepsilon{2C}C.
+\end{aligned}
+\]
+现在只需取 $\delta=\varepsilon/(2M)$，就得到 $\int_A\varrho_n(x)\dd x<\varepsilon$.
+
+\begin{theorem*}
+设 $\varrho_n$ 是一个概率密度序列，作为测度弱收敛于 $\varrho\in\mathscr P(\Omega)$. 假设对某个超线性函数 $f$，$\int f(\varrho_n)$ 有界. 则 $\varrho$ 也绝对连续，而且弱收敛还在 $L^1$ 中成立（即与 $L^\infty$ 函数配对，而不只是与连续函数配对）.
+\end{theorem*}
+\begin{proof}
+$\varrho$ 的绝对连续性来自泛函 $\mathscr F$ 的下半连续性，其中当 $\varrho\ll\mathscr L^d$ 时，定义 $\mathscr F(\varrho)=\int_\Omega f(\varrho(x))\dd x$，否则取 $+\infty$.
+
+此外，$\int f(\varrho_n(x))\dd x$ 的界蕴含等度可积性. 固定检验函数 $\varphi\in L^\infty$，利用以下事实：对每个 $\varepsilon>0$，存在 $\delta>0$，使得 $|A|\leq\delta\Longrightarrow\int_A\varrho_n(x)\dd x\leq\varepsilon$；而由 Lusin 定理，对这个 $\delta>0$，存在连续函数 $\widetilde\varphi$，使 $\|\widetilde\varphi\|_{L^\infty}\leq\|\varphi\|_{L^\infty}$ 且 $\{\varphi\neq\widetilde\varphi\}\subset A$，其中 $A$ 是开集，$|A|<\delta$. 有
+\[
+\left|\int\varphi(\varrho_n-\varrho)\right|
+\leq\left|\int\widetilde\varphi(\varrho_n-\varrho)\right|
++2\|\varphi\|_{L^\infty}\int_A(\varrho_n+\varrho).
+\]
+由于 $A$ 是开集且 $\varrho_n\rightharpoonup\varrho$，有 $\int_A\varrho(x)\dd x\leq\liminf\int_A\varrho_n(x)\dd x\leq\varepsilon$；因此
+\[
+\limsup\left|\int\varphi(x)\varrho_n(x)\dd x-\int\varphi(x)\varrho(x)\dd x\right|
+\leq0+2\|\varphi\|_{L^\infty}\varepsilon,
+\]
+由 $\varepsilon$ 的任意性，得到 $\int\varphi(x)\varrho_n(x)\dd x\to\int\varphi(x)\varrho(x)\dd x$.
+\end{proof}
+\end{sourcebox}

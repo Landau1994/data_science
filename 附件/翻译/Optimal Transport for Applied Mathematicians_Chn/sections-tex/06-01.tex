@@ -1,0 +1,192 @@
+% 原印刷219--225页／PDF物理243--249；章开头与§6.1，止于§6.2之前.
+本章介绍若干求解最优传输问题的数值方法. 在最优传输主要从理论角度加以研究的一段时期之后，寻找高效数值策略如今已成为十分活跃的领域. 我们不可能列出这一领域所有近期进展；而且，由于贯穿全书的变分法与偏微分方程趣味，我们选择优先介绍可归类为“连续”的方法. 这意味着它们特别适合处理两个给定密度之间的最优传输问题. 与之相对的是一些更离散的方法，我们将在“讨论”（\autoref{sec:6.4}）中简要介绍，它们处理两个有限原子测度之间，或一个原子测度与一个密度之间的情形. 其中最著名的方法无疑是J.~D.~Benamou和Y.~Brenier的方法，它把问题转化为$d+1$维的、易于处理的凸变分问题. 本章标题即由这一方法而来，它也说明了为何本章放在\autoref{sec:5}之后. 事实上，我们将大量利用Wasserstein测地线理论来叙述它（这一方法找到的是测地曲线$\mu_t$，而非映射）.
+
+我们还将介绍另外两种经典连续方法：Angenent--Hacker--Tannenbaum方法，基于最优映射应为梯度、去掉非梯度部分会降低能量这一事实；以及基于求解Monge--Ampère方程的Loeper--Rapetti方法. 两者都要求光滑且处处非零的密度，以及便于处理边界数据的特殊区域（矩形，或者更好地，环面）. 在更一般的区域上求解Monge--Ampère方程要微妙得多，这是较近时期才处理的问题（见\autoref{sec:6.3}末）.
+
+本章既不追求穷尽所有方法，也不介绍最新方法或比较所有方法的效率和优点. 由于这一主题正在取得巨大进展，这样做是不可能的. 我们主要希望让读者概览那些可以转化为数值工具的最自然的想法.
+
+\subsection{Benamou--Brenier公式及其数值应用}\label{sec:6.1}\index{B015@Benamou--Brenier方法（Benamou-Brenier）|hyperpage}
+\autoref{sec:5.3}和\autoref{sec:5.4}的结果使我们能够巧妙地改写对应于成本$|x-y|^p$的优化问题，将其化为凸优化问题. 事实上：
+\begin{itemize}
+\item \phantomsection\label{idx:i43-p220}\index{D043@位移插值（displacement interpolation）|hyperpage}
+\phantomsection\label{idx:i66-p220}\index{G065@测地线（geodesics）!066@$\mathbb W_p$中（in $\mathbb W_p$）|hyperpage}
+寻找成本$c(x,y)=|x-y|^p$的最优传输，等价于寻找$\mathbb W_p$中的恒速测地线，因为由最优传输方案可以重构测地线，而由测地线（通过其速度场）又可以重构最优传输；
+\item 恒速测地线可通过极小化$\int_0^1|\mu'|(t)^p\,\mathrm dt$得到；
+\item 在Wasserstein空间中，有$|\mu'|(t)^p=\int_\Omega|\mathbf v_t|^p\,\mathrm d\mu_t$，其中$\mathbf v$是与$\mu$一起满足连续性方程的速度场（这一场不唯一，但度量导数$|\mu'|(t)$等于所有可能的场中$L^p$范数的最小值）.
+\end{itemize}
+由这些考虑，对于$p>1$，\phantomsection\label{idx:i85-p220}\index{K085@动能（kinetic energy）|hyperpage}
+求解动能极小化问题
+\[
+\min\left\{\int_0^1\int_\Omega|\mathbf v_t|^p\,\mathrm d\varrho_t\,\mathrm dt:
+ \partial_t\varrho_t+\nabla\cdot(\mathbf v_t\varrho_t)=0,\quad
+ \varrho_0=\mu,\quad\varrho_1=\nu\right\}
+\]
+就能选出连接$\mu$与$\nu$的恒速测地线，从而找到这两个测度之间的最优传输\footnote{我们选择用$\varrho$表示插值测度，以强调这一方法的“连续”特点（通常$\varrho$是密度，而$\mu$是一般测度）.}.
+
+另一方面，以$(\varrho_t,\mathbf v_t)$为变量的这一极小化问题具有非线性约束（由于乘积$\mathbf v_t\varrho_t$），而且泛函也非凸（因为$(t,x)\mapsto t|x|^p$不凸）. 但是，借助\autoref{sec:5.3.1}的工具，我们已经看到，可以将它化为凸问题.
+
+为此，只需把变量从$(\varrho_t,\mathbf v_t)$改为$(\varrho_t,E_t)$，其中$E_t=\mathbf v_t\varrho_t$，并使用时空中的泛函$\mathscr B_p$. 回忆$\mathscr B_p(\varrho,E):=\int f_p(\varrho,E)$，其中$f_p:\mathbb R\times\mathbb R^d\to\mathbb R\cup\{+\infty\}$在\autoref{obj:5.17}中定义. 为方便读者，再写出其定义：
+\[
+f_p(t,x):=\sup_{(a,b)\in K_q}(at+b\cdot x)=
+\begin{cases}
+\dfrac1p\dfrac{|x|^p}{t^{p-1}}&\text{若 }t>0,\\
+0&\text{若 }t=0,\ x=0,\\
++\infty&\text{若 }t=0,\ x\ne0,\ \text{或 }t<0,
+\end{cases}
+\]
+其中$K_q:=\{(a,b)\in\mathbb R\times\mathbb R^d:a+\frac1q|b|^q\le0\}$. 问题变为
+\begin{problem}\label{obj:6.1}
+求解
+\[
+(\mathrm B_p\mathrm P)\qquad
+\min\{\mathscr B_p(\varrho,E):\partial_t\varrho_t+\nabla\cdot E_t=0,\quad
+\varrho_0=\mu,\quad\varrho_1=\nu\}.
+\]
+\end{problem}
+注意，可以写成
+\[
+\mathscr B_p(\varrho,E)
+=\int_0^1\mathscr B_p(\varrho_t,E_t)\,\mathrm dt
+=\int_0^1\int_\Omega f_p(\varrho_t(x),E_t(x))\,\mathrm dx\,\mathrm dt,
+\]
+其中泛函的第三个表达式隐含地假设$\varrho_t,E_t\ll\mathscr L^d$. 事实上，如\autoref{obj:5.18}所示，只要$\varrho_t$和$E_t$关于同一个正测度绝对连续，泛函$\mathscr B_p$就具有这种形式的积分表示\footnote{结果与参照测度无关，这是$1$次齐次泛函的典型特征.}.
+
+还应强调，由$\partial_t\varrho_t+\nabla\cdot E_t=0$、$\varrho_0=\mu$、$\varrho_1=\nu$给出的约束，实际上是时空中的一个散度约束（考虑向量$(\varrho,E):[0,1]\times\Omega\to\mathbb R^{d+1}$）. 空间边界约束已经是无通量型的，而$\varrho$的初值和终值则在边界$\{0\}\times\Omega$和$\{1\}\times\Omega$上给出非齐次Neumann数据. 实际上，整个约束可以写成$\nabla_{t,x}\cdot(\varrho,E)=\delta_0\otimes\mu-\delta_1\otimes\nu$（注意，这种使用$(t,x)$中导数的观点还将在本节出现）. 我们极小化的泛函是$1$次齐次泛函；这样，$(\mathrm B_p\mathrm P)$就成了\autoref{sec:4.2}中Beckmann问题在时空中的动力学版本. 顺便说，这也正是对成本$|x-y|^p$应用\cite{b196}建议的约化所得到的问题；该约化将其转化为时空中的一次齐次传输成本.
+
+如今约束是线性的，泛函是凸的. 不过，这一泛函（以及函数$f_p$）虽然凸，凸性却不强，因为如前所述，它是$1$次齐次的. 特别地，它既不严格凸，也不可微. 这降低了用梯度下降算法求解该问题的效率，但可以采用一些改进方法.
+
+在\cite{b34}中，作者基于上述凸性换元、对偶性及所谓“增广Lagrangian”提出了一种数值方法.
+
+\begin{sourcebox}{备忘：鞍点、Uzawa算法与增广Lagrangian}\label{box:6.1}\index{A014@增广Lagrangian（augmented lagrangian）|hyperpage}\index{U155@Uzawa算法（Uzawa algorithm）|hyperpage}
+假设需要极小化凸函数$f:\mathbb R^N\to\mathbb R$，同时满足$k$个线性等式约束$Ax=b$（其中$b\in\mathbb R^k$，$A\in\mathrm M^{k\times N}$）. 这一问题等价于
+\[
+\min_{x\in\mathbb R^N} f(x)+\sup_{\lambda\in\mathbb R^k}\lambda\cdot(Ax-b).
+\]
+这给出一个极小极大问题，其Lagrangian函数为$L(x,\lambda):=f(x)+\lambda\cdot(Ax-b)$. 如果相信对偶性，那么寻找约束下$f$的极小化元，就等价于寻找$g(\lambda):=\inf_{x\in\mathbb R^N} f(x)+\lambda\cdot(Ax-b)$的极大化元. 这也等价于寻找$L$的鞍点（即对每个$x$和每个$\lambda$满足$L(x,\bar\lambda)\ge L(\bar x,\bar\lambda)\ge L(\bar x,\lambda)$的点$(\bar x,\bar\lambda)$，也就是对$x$极小、对$\lambda$极大的点）.
+
+关于$\lambda$的极大化比较容易，因为问题无约束：可以应用梯度算法（见\autoref{box:6.8}）. 只需计算$\nabla g(\lambda)$，而这容易由$\nabla g(\lambda)=Ax(\lambda)-b$给出，其中$x(\lambda)$是$x\mapsto f(x)+\lambda\cdot(Ax-b)$的（希望唯一的）极小化元.
+
+由此想法得到的算法称为Uzawa算法\footnote{Uzawa算法实际上比这里更一般：它可以处理形如$\varphi^i(x)\le0$的不等式约束，其Lagrangian为$L(x,\lambda)=f(x)+\sum_i\lambda^i\varphi^i(x)$，且$\lambda\in(\mathbb R_+)^k$；但为叙述简便，这里只考虑等式约束.}，具体如下：给定$(x_k,\lambda_k)$，对给定的小$\tau$，令$x_{k+1}:=x(\lambda_k)$以及$\lambda_{k+1}=\lambda_k+\tau\nabla g(\lambda_k)=\lambda_k+\tau(Ax_{k+1}-b)$. 在合理假设下，点列$x_k$收敛到原问题的极小化元.
+
+另一种想法可以简化点$x(\lambda)$的计算并加速收敛：不用Lagrangian $L(x,\lambda)$，而用下面的变体——对给定的$\tilde\tau$，令$\widetilde L(x,\lambda):=L(x,\lambda)+\frac{\tilde\tau}{2}|Ax-b|^2$. 成为$\widetilde L$与$L$的鞍点所需的条件分别为
+\[
+\text{对 }\widetilde L:\ 
+\begin{cases}
+\nabla f(x)+A^t\lambda+\tilde\tau(Ax-b)=0,\\
+Ax-b=0,
+\end{cases}
+\qquad
+\text{对 }L:\ 
+\begin{cases}
+\nabla f(x)+A^t\lambda=0,\\
+Ax-b=0.
+\end{cases}
+\]
+因此，$\widetilde L$与$L$的鞍点相同，但使用$\widetilde L$使问题关于$x$更凸，也更易处理. 然后以步长$\tau$，对$\tilde g(\lambda):=\inf_x f(x)+\lambda\cdot(Ax-b)+\frac{\tilde\tau}{2}|Ax-b|^2$采用相同的梯度算法. 可以取$\tau=\tilde\tau$，迭代以下算法：
+\[
+\begin{cases}
+x_{k+1}=\operatorname*{argmin} f(x)+\lambda_k\cdot(Ax-b)+\dfrac{\tau}{2}|Ax-b|^2,\\
+\lambda_{k+1}=\lambda_k+\tau(Ax_{k+1}-b).
+\end{cases}
+\]
+更多细节和收敛结果可参见例如\cite{b170}.
+\end{sourcebox}
+
+下面给出构造算法的主要步骤.
+
+首先，借助\eqref{eq:4.3}，将约束写成弱形式（实际上是分布意义下的形式）. 这意味着我们实际上要解
+\[
+\min_{\varrho,E}\ \mathscr B_p(\varrho,E)+
+\sup_\phi\left(-\int_0^1\int_\Omega
+((\partial_t\phi)\varrho_t+\nabla\phi\cdot E_t)+G(\phi)\right),
+\]
+其中令
+\[
+G(\phi):=\int_\Omega\phi(1,x)\,\mathrm d\nu(x)
+-\int_\Omega\phi(0,x)\,\mathrm d\mu(x),
+\]
+而上确界取遍定义在$[0,1]\times\Omega$上的所有函数（这里不考虑其正则性，因为无论如何，它们都将由定义在$[0,1]\times\mathbb R^d$中某个网格点上的函数来表示）.
+
+\begin{remark}\label{obj:6.2}\index{H073@Hamilton--Jacobi方程（Hamilton-Jacobi equations）|hyperpage}
+稍作离题，看看上述问题与Hamilton--Jacobi方程的联系，是很有意思的. 我们考虑最简单的$p=2$情形. 此时可以把问题写成
+\[
+\min_{(E,\varrho):\varrho\ge0}\int_0^1\int_\Omega\frac{|E|^2}{2\varrho}
++\sup_\phi\left(-\int_0^1\int_\Omega
+((\partial_t\phi)\varrho+\nabla\phi\cdot E)+G(\phi)\right),
+\]
+这里用$\mathscr B_2$的积分表达式来表示它；该表达式在测度绝对连续且$\varrho\ge0$时有效（在$\varrho=0$处，为使能量有限，必须有$E=0$）.
+
+若形式地交换$\inf$与$\sup$，得到以下问题：
+\[
+\sup_\phi G(\phi)+\inf_{(E,\varrho):\varrho\ge0}
+\int_0^1\int_\Omega\left(\frac{|E|^2}{2\varrho}
+-(\partial_t\phi)\varrho-\nabla\phi\cdot E\right).
+\]
+可以先对固定的$\varrho$和$\phi$计算最优$E$，得到$E=\varrho\nabla\phi$. 问题变为
+\[
+\sup_\phi G(\phi)+\inf_{\varrho\ge0}\int_0^1\int_\Omega
+\left(-(\partial_t\phi)\varrho-\frac12|\nabla\phi|^2\varrho\right).
+\]
+下确界有限（从而等于零）的条件是$\partial_t\phi+\frac12|\nabla\phi|^2\le0$，而在最优情形下，$\{\varrho>0\}$上必须取等号. 这给出Hamilton--Jacobi方程：
+\[
+\partial_t\phi+\frac12|\nabla\phi|^2=0\qquad\varrho\text{-a.e.}
+\]
+顺便说，\phantomsection\label{idx:i83-p223}\index{K083@Kantorovich势（Kantorovich potentials）|hyperpage}
+由最优$\phi$可以通过$\psi(x):=\phi(1,x)$与$\varphi(x):=-\phi(0,x)$恢复Kantorovich势.
+\end{remark}
+
+这一变分问题中的量$\mathscr B_p$可以表示为上确界，于是得到
+\[
+\min_{\varrho,E}\ \sup_{(a,b)\in K_q,\phi}
+\int_0^1\int_\Omega
+(a(t,x)\,\mathrm d\varrho+b(t,x)\cdot\mathrm dE
+-\partial_t\phi\,\mathrm d\varrho-\nabla\phi\cdot\mathrm dE)+G(\phi).
+\]
+记$m=(\varrho,E)$. 这里$m:[0,1]\times\Omega\to\mathbb R^{d+1}$是在$(d+1)$维空间上定义的$(d+1)$维向量场. 同样，这里不考虑$m$是测度还是真正的函数，因为我们无论如何都会在离散设置中工作，$m$将是在$[0,1]\times\mathbb R^d$中某个网格的每一点上定义的函数. 类似地，记$\xi=(a,b)$. 另以$\nabla_{t,x}\phi$表示$\phi$的时空梯度，即$\nabla_{t,x}\phi=(\partial_t\phi,\nabla\phi)$.
+
+问题可以改写为
+\[
+\min_m\ \sup_{\xi,\phi:\xi\in K_q}
+\langle\xi-\nabla_{t,x}\phi,m\rangle+G(\phi).
+\]
+这就引出了使用增广Lagrangian方法的想法. 上述问题的确令人想起Lagrangian，只不过角色颠倒了. 应将$m$看作对偶变量，而$(\xi,\phi)$是原变量. 函数$f(\xi,\phi)$包含项$G(\phi)$和约束$\xi\in K_q$，另有等式约束$\xi=\nabla_{t,x}\phi$. 实际上，我们不关心产生这一Lagrangian的原始约束问题，只决定在优化中加入项$\frac\tau2|\xi-\nabla_{t,x}\phi|^2$（其中步长$\tau$很小）.
+
+因此，我们寻找
+\[
+\min_m\ \sup_{\xi,\phi:\xi\in K_q}
+\langle\xi-\nabla_{t,x}\phi,m\rangle+G(\phi)
+-\frac\tau2|\xi-\nabla_{t,x}\phi|^2
+\]
+的解.
+
+为找到最优$m$，可以考虑如下算法：产生一个序列$m_k$，对每个$k$找到最优$(\xi_k,\phi_k)$. 不过，我们不精确地寻找最优$(\xi_k,\phi_k)$，而是分两步优化（先固定$\xi$求最优$\phi$，再对这个$\phi$求最优$\xi$）.
+
+算法将循环执行三个步骤. 设已有三元组$(m_k,\xi_k,\phi_k)$.
+\begin{itemize}
+\item 给定$m_k$与$\xi_k$，求解
+\[
+\max_\phi -\langle\nabla_{t,x}\phi,m_k\rangle+G(\phi)
+-\frac\tau2\|\xi_k-\nabla_{t,x}\phi\|^2
+\]
+以找到最优$\phi_{k+1}$. 这相当于极小化关于$\nabla_{t,x}\phi$的二次问题. \phantomsection\label{idx:i110-p224}\index{N110@Neumann边界条件（Neumann conditions）|hyperpage}
+解可通过求解Laplace方程$\tau\Delta_{t,x}\phi=\nabla\cdot(\tau\xi_k-m_k)$获得，其中采用时空Laplacian和Neumann边界条件. 这些条件在空间上是齐次的，而在$t=0$和$t=1$处由于$G$的作用而非齐次. 大多数Laplace求解器能以$O(N\log N)$的时间找到此解，其中$N$是离散化的点数.
+\item 给定$m_k$与$\phi_{k+1}$，求解
+\[
+\max_{\xi\in K_q}\langle\xi,m_k\rangle
+-\frac\tau2|\xi-\nabla_{t,x}\phi_{k+1}|^2
+\]
+以找到最优$\xi_{k+1}$. 展开平方可见，这一问题等价于投影$\nabla_{t,x}\phi_{k+1}+\frac1\tau m_k$，而极小化中没有梯度出现. 这意味着可以逐点进行极小化：对每个$(t,x)$，在凸集$K_q$中选择最接近$\nabla_{t,x}\phi_{k+1}(t,x)+\frac1\tau m_k(t,x)$的点$\xi=(a,b)$. 如果我们有一种在$\mathbb R^{n+1}$中进行这种投影的方法，且只需常数次运算，那么这一逐点步骤的成本就是$O(N)$.
+\item 最后，通过令$m_{k+1}=m_k-\tau(\xi_{k+1}-\nabla_{t,x}\phi_{k+1})$更新$m$.
+\end{itemize}
+这一算法每次迭代总体需要$O(N\log N)$次运算（注意：$N$由时空离散化给出）. 可以证明它收敛；不过，关于收敛性，读者更应参阅K.~Guittet及Benamou--Brenier--Guittet的工作\cite{b36,b188,b189}，因为Benamou和Brenier的原论文并未着重讨论这一方面. 另见较近的论文\cite{b194}，它补正了Guittet证明中的一些地方.
+
+与其他算法——包括本章后面介绍的算法及其他更新的算法——相比，Benamou--Brenier方法有若干重要优点：
+\begin{enumerate}
+\item 目前它几乎是唯一能够毫无困难地处理有零点的密度、且不对其支集要求特殊假设的方法；
+\item 它并非专用于二次成本：我们对幂成本$c(x,y)=|x-y|^p$介绍了该方法，但它可以适配于其他凸成本$h(x-y)$以及所有源于Lagrangian作用量的成本（见\cite{b293}第7章）；它可以纳入依赖于位置和时间的成本，并适用于Riemann流形；
+\item 它还可适配于密度$\varrho$上的凸约束（例如下界或上界）；
+\item 它可以处理不同的“动力学”问题，其中加入密度或速度的惩罚项，例如平均场博弈（见\autoref{sec:8.4.4}）中出现的情形，这一点已在例如\cite{b35}中得到利用；
+\item 它可以处理多个群体，其行为可能相互作用.
+\end{enumerate}
+上述第2和第3点的变体的数值处理可参见例如\cite{b96,b248}，多群体情形的实现见\cite{b37}. \phantomsection\label{idx:i148-p225}\index{T148@环面（torus）|hyperpage}
+这里给出一幅简单图片（\autoref{fig:6.1}），它是在最简单的情形下，利用环面上的Benamou--Brenier方法得到的.

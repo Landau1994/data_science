@@ -1,0 +1,148 @@
+% 原书印刷276下--284／PDF物理300下--308.
+\subsection{讨论}\label{sec:7.4}
+\subsubsection[一个变分极小化问题的研究]{一个实例研究：$\min F(\varrho)+W_2^2(\varrho,\nu)$}\label{sec:7.4.1}
+在涉及最优运输与Wasserstein距离的变分问题中，下列问题反复出现：
+\begin{equation}\label{eq:7.2}
+ \min_{\varrho\in\mathscr P_2(\Omega)}\frac12W_2^2(\varrho,\nu)+\tau F(\varrho),
+\end{equation}
+其中$F$是给定的概率测度上的泛函，$\tau>0$是一个可能很小的参数，$\nu$是$\mathscr P_2(\Omega)$中给定的概率测度（该空间由$\Omega$上具有有限二阶矩$\int|x|^2\,d\varrho(x)<+\infty$的概率测度组成）. 这一问题恰好出现在$F$于$\mathbb W_2(\Omega)$中梯度流的时间离散化中（见\autoref{sec:8.2}）.
+
+不过，对固定$\tau>0$，同一问题也出现在其他框架中. \phantomsection\label{idx:i77-p277}\index{I077@图像处理（image processing）|hyperpage}
+例如在图像处理中，若$F$是平滑泛函，这就是寻找一个更好（更光滑）且离原始密度$\nu$不太远的图像$\varrho$的模型（选择距离$W_2$由稳健性方面的论证支持）；见\cite{b92,b208}. \phantomsection\label{idx:i154-p277}\index{U154@城市规划（urban planning）|hyperpage}
+在城市规划中（见\cite{b93,b270}），$\nu$可以代表某些资源的分布，$\varrho$代表人口分布，后者希望靠近$\nu$，同时又为每个个体保证足够空间. 此时泛函$F$偏好弥散测度（例如使用泛函$\mathscr F(\varrho)=\int f(\varrho(x))\,dx$，其中$f$凸、超线性且$f(0)=0$；它对$\varrho$的高密度赋予较高代价，在有界区域上由均匀测度最小化）. 反过来，$\nu$也可以代表人口分布，$\varrho$代表服务设施分布，需要选择后者使它们离$\nu$足够近，同时更为集中. 此时$F$偏好集中测度. 当$F$惩罚$\varrho$支集中点的数目时，$\varrho$成为有限原子测度，便遇到\phantomsection\label{idx:i93-p277}\index{L093@选址问题（location problem）|hyperpage}
+所谓的选址问题（寻找有限个点应放在哪里，以逼近给定连续分布），这在物流以及\phantomsection\label{idx:i124-p277}\index{Q124@量化（quantization）|hyperpage}
+信号处理中的量化问题中都有用. 例如，关于用运输方法分析这一问题的渐近行为，见\cite{b72,b75}.
+
+注意，当$F$只取值$0$与$+\infty$时，上述问题成为投影问题. 特别地（见\autoref{sec:8.4.2}），投影到以常数1为上界的密度集合上，受到很多关注，因为它应用于具有密度约束的演化问题的时间离散化，\phantomsection\label{idx:i32-p277}\index{C032@人群运动（crowd motion）|hyperpage}
+特别是人群运动（见\cite{b225,b265}）；其中人群被描述为一群不能重叠、也不能超过某个阈值密度的粒子.
+
+本小节希望简要讨论最优元的刻画与正则性，至少在$\mathscr F(\varrho)=\int f(\varrho)$的情形下，其中被积函数$f:\mathbb R_+\to\mathbb R$是良好的凸函数，在无穷远处超线性（即本章研究的主要泛函之一）.
+
+我们关心可以对极小元$\widehat\varrho$给出哪些估计. 大致分为两类：一类与$\nu$无关但依赖于$\tau$，另一类关于$\tau$一致，但涉及$\nu$的类似界.
+
+例如，在$\mathscr F(\varrho)=\int f(\varrho)$的情形下，用\autoref{obj:7.20}写出\eqref{eq:7.2}的最优性条件. 先假设$f\in C^2$、$0<c\leq f''\leq C$且$\operatorname{spt}(\nu)=\Omega$. 这允许对泛函的两项求导（关于$\nu$的假设用于得到$c$凹Kantorovich势的唯一性），得到
+\begin{equation}\label{eq:7.3}
+ \begin{cases}
+ \varphi+\tau f'(\widehat\varrho)=C&\widehat\varrho\text{ 几乎处处},\\
+ \varphi+\tau f'(\widehat\varrho)\geq C&\text{在 }\{\widehat\varrho=0\}\text{ 上},
+ \end{cases}
+\end{equation}
+其中$\varphi$是从$\widehat\varrho$到$\nu$的运输中的适当Kantorovich势. 可将上述条件写为
+\begin{equation}\label{eq:7.4}
+ \widehat\varrho=(\tau f')^{-1}\bigl((C-\varphi)\vee f'(0)\bigr).
+\end{equation}
+这给出$\varrho$的Lipschitz界，它只依赖于$\varphi$的Lipschitz常数（依赖于$\operatorname{diam}(\Omega)$）与$(\tau f')^{-1}$的Lipschitz常数（以$c^{-1}$为界）. 特别地，若让$f$与$\nu$变化，同时保持条件$f''\geq c>0$，则可对$\varrho$应用Ascoli--Arzelà定理并取极限（由于$f$的严格凸性保证极小元唯一，极小元可取极限）. 因此，可以保证只在假设$f''\geq c>0$下，\eqref{eq:7.4}也成立. 注意，当$f'(0)=-\infty$时，得到$\widehat\varrho=(\tau f')^{-1}(C-\varphi)$，我们更愿将其改写为$\tau f'(\widehat\varrho)=C-\varphi$.
+
+这些考虑可给出$\widehat\varrho$的连续性，但显然当$\tau\to0$时界会退化. 另一方面，它们实际上不依赖于$\nu$.
+
+另一类可以证明的界如下：
+\begin{proposition}\label{obj:7.32}\index{M101@Monge--Ampère方程（Monge-Ampère equation）|hyperpage}
+若$g\in L^\infty$是紧凸光滑区域$\Omega$上给定的概率密度，$\widehat\varrho$求解
+\[
+ \min_{\varrho\in\mathscr P(\Omega)}\frac12W_2^2(\varrho,g)
+                         +\int_\Omega f(\varrho(x))\,dx,
+\]
+其中$f$凸且超线性，则$\|\widehat\varrho\|_{L^\infty}\leq\|g\|_{L^\infty}$.
+\end{proposition}
+与前面的界不同，这个界不依赖于$\tau$，其证明见\cite{b110,b270}. 可以给出证明草图.
+\begin{proof}
+从如下情形开始：$g$光滑严格正，$f$在$]0,+\infty[$上光滑，在$\mathbb R_+$上连续，且$f''\geq c>0$、$f'(0)=-\infty$. 由上述考虑（取$\tau=1$），已知最优$\widehat\varrho$的密度是连续函数，由$\widehat\varrho=(f')^{-1}(C-\varphi)$给出. 注意，由$f''$的下界，$(f')^{-1}$是Lipschitz连续的，且$\widehat\varrho>0$，因为$\widehat\varrho=0$将意味着$-\varphi=-\infty$. 由连续性，$\widehat\varrho$取到最大值$\widehat\varrho(x_0)$. 注意，$\widehat\varrho$的最大值点对应于$\varphi$的最小值点. 利用Caffarelli正则性理论（见\autoref{sec:1.7.6}），可以给出$\varphi$足够的正则性，来保证以下所有考虑合理（事实上，在凸集上，$g$光滑，$\widehat\varrho$ Lipschitz，二者都严格正、因而有正下界，所以至少有$\varphi\in C^{2,\alpha}$）. 先假设$x_0\notin\partial\Omega$. 此时应有$D^2\varphi(x_0)\geq0$. 但Monge--Ampère方程给出
+\[
+ \widehat\varrho(x_0)=\det(\mathrm I-D^2\varphi(x_0))g(\mathrm T(x_0)),
+\]
+其中$\mathrm T=\mathrm{id}-\nabla\varphi$是从$\widehat\varrho$到$g$的最优运输. 由$D^2\varphi(x_0)\geq0$，得到$\det(\mathrm I-D^2\varphi(x_0))\leq1$，从而
+\[
+ \|\widehat\varrho\|_{L^\infty}=\widehat\varrho(x_0)
+                   \leq g(\mathrm T(x_0))\leq\|g\|_{L^\infty}.
+\]
+还需考虑$x_0\in\partial\Omega$的情形. 由于$\mathrm T(x_0)=x_0-\nabla\varphi(x_0)\in\Omega$且$\Omega$凸，有$\nabla\varphi(x_0)\cdot\mathbf n\geq0$. 由$x_0$的最优性（它是$\varphi$的最小值点），还有反向不等式，因此无论如何都得到$\nabla\varphi(x_0)\cdot\mathbf n=0$. 于是可得此时也有$D^2\varphi(x_0)\geq0$（事实上，若已知梯度为零，则二阶极小性条件在边界上也成立；由于切向部分在极值点总是为零，只需考虑法向部分）.
+
+最后，可以通过逼近去掉对$g$和$f$的假设（因为已知，当$g\in L^\infty$、$f$仅凸且超线性时，原问题的极小元唯一）.
+\end{proof}
+最后强调，还可以得到某些有限的类似高阶估计，它们是近期论文的研究对象. \phantomsection\label{idx:i22-p279}\index{B022@BV函数（BV functions）|hyperpage}
+例如\cite{b151}给出基于某些分部积分技巧的$BV$估计$\|\widehat\varrho\|_{BV}\leq\|g\|_{BV}$. 还可提及一个Lipschitz估计：在$f(t)=t\log t$时，\cite{b207}利用某些Pogorelov型方法，连同一些半凹界一起证明了它. 两类估计都可以推广到在泛函中加上势能$\mathscr V$的情形. 但这里不展开细节.
+
+\subsubsection{Brunn--Minkowski不等式}\label{sec:7.4.2}\index{B021@Brunn--Minkowski不等式（Brunn-Minkowski inequality）|hyperpage}
+$\mathbb W_2$中位移凸性的另一个有趣推论，是用运输方法证明一个著名的几何不等式，即Brunn--Minkowski不等式. 它指出，对任意两个集合$E,F\subset\mathbb R^d$（这里忽略可测性问题），有
+\[
+ |E+F|^{1/d}\geq|E|^{1/d}+|F|^{1/d},\qquad
+ E+F=\{x+y:x\in E,\ y\in F\}.
+\]
+如\cite{b229}所指出，可以如下证明这一不等式. 考虑在$E$上具有常密度$1/|E|$的测度$\mu$，以及在$F$上具有常密度$1/|F|$的测度$\nu$. 随后取二者之间的常速测地线在$t=1/2$时的测度$\mu_{1/2}$. 因为$\mu_{1/2}=(\frac12\mathrm{id}+\frac12\mathrm T)_\#\mu_0$，已知$\mu_{1/2}$集中于$A:=\frac12E+\frac12F$. 此外，$\mu_{1/2}$绝对连续，以$\varrho$表示其密度（由\autoref{obj:7.29}，由于$\mu,\nu\in L^\infty$，知道$\varrho\in L^\infty$）. 注意，对凸函数$f$有
+\[
+ \frac1{|A|}\int_A f(\varrho(x))\,dx
+ \geq f\left(\frac{\int_A\varrho(x)\,dx}{|A|}\right)=f(|A|^{-1}).
+\]
+对$f(t)=-t^{1-1/d}$，$\mathscr F$的测地凸性蕴含
+\[
+\begin{aligned}
+ -\frac12|E|^{1/d}-\frac12|F|^{1/d}
+ &=\frac12\mathscr F(\mu)+\frac12\mathscr F(\nu)\geq\mathscr F(\mu_{1/2})\\
+ &=\int_A f(\varrho(x))\,dx\geq|A|f(|A|^{-1})=-|A|^{1/d}.
+\end{aligned}
+\]
+将不等式两边各乘$-2$，并利用Lebesgue测度的尺度性质，恰好得到Brunn--Minkowski不等式.
+
+\subsubsection{位移凸性、博弈论与空间经济学：城市均衡}\label{sec:7.4.3}\index{E053@均衡（equilibria）|hyperpage}
+由于最优运输描述已知密度的质量（或个体）的移动成本，它自然成为分析空间经济学问题的工具；这类问题涉及参与者与活动的密度，并希望计入地理效应. 往往需要将某些“绩效”与这些密度联系起来，于是本章所分析的泛函就出现了. 在空间经济学研究的对象中，正如日常生活所见，城市结构是最引人入胜的对象之一.
+
+经济学文献中有许多模型，大多数与最优运输无关. 书\cite{b28}有趣地研究了一些涉及最优运输概念的空间问题（更多是像\autoref{sec:4}那样的流极小化形式，而非Monge--Kantorovich问题形式）；顺便说，它也启发了\autoref{sec:4.4.1}中关于拥挤运输的某些工作.
+
+不过，本小节无意全面综述这一主题的文献，而是指出城市经济学中一些近期问题，本章所作分析对它们尤为相关. 事实上，将看到位移凸性能够在证明均衡唯一性，以及将均衡刻画为全局能量的极小元方面发挥作用.
+
+特别地，\phantomsection\label{idx:i154-p280}\index{U154@城市规划（urban planning）|hyperpage}
+不讨论\cite{b93,b94}中的城市规划模型；这些模型的目标是寻找人口分布$\mu$与“服务”分布$\nu$的最优形状，以最小化全局量$\mathscr F(\mu)+\mathscr T_c(\mu,\nu)+\mathscr G(\nu)$. 它们涉及社会规划者，不讨论均衡问题，最优运输直接出现在建模中，而非作为工具. 也不讨论\cite{b106,b107}中的均衡模型；那里寻求居民分布$\mu$、工作岗位分布$\nu$、二者之间的配对$\gamma$、给出地价的函数$\varphi$、给出工资的函数$\psi$及其他相关量. 在该模型中，可以将$\varphi$与$\psi$视为某个适当成本的Kantorovich势来寻找均衡，但模型描述相当长（该模型及其他模型的简短介绍也见\cite{b275}），并且它利用最优运输思想证明存在性，而不是刻画均衡.
+
+这里集中考虑另一类简单模型：假设人口$\varrho$分布于区域$\Omega$，每个个体希望选择自己的位置，以最小化两类成本之和：
+\begin{itemize}
+ \item 居住成本，它是居住地人口密度的递增函数：住在$x$处的个体“支付”形如$h(\varrho(x))$的函数，其中$h:\mathbb R_+\to\mathbb R_+$递增；这反映人口较多的地方地价更高（或同样价格只能得到较小空间）；
+ \item \phantomsection\label{idx:i79-p281}\index{I079@相互作用能（interaction energy）|hyperpage}
+相互作用成本，依赖于与所有其他个体之间的距离：住在$x$处的人“支付”形如$\int W(x-y)\varrho(y)\,dy$的成本，其中$W$通常是距离的递增函数（即$W(z)$随$|z|$\mbox{递增）.}
+\end{itemize}
+这意味着每个个体支付的成本依赖于他的位置$x$及所有人的整体分布$\varrho$. 我们寻找均衡构型，即密度$\varrho$，使对每个$x_0$，住在$x_0$的人都没有理由迁往其他位置，因为按Nash均衡的思想，函数$f_\varrho(x):=h(\varrho(x))+\int W(x-y)\varrho(y)\,dy$在$x_0$处最小.
+
+\begin{sourcebox}{重要概念：Nash均衡}\label{box:7.3}\index{N105@Nash均衡（Nash equilibria）|hyperpage}
+\begin{definition*}
+考虑一个博弈，其中若干参与者$i=1,\ldots,n$必须从可能选择的集合$S_i$中选取策略，假设每个参与者的收益（即他从博弈中获得多少）依赖于每个人的选择，由函数$p_i:S_1\times\cdots\times S_n\to\mathbb R$给出. 若对每个$i$，选择$s_i$都使$S_i\ni s\mapsto f_i(s_1,\ldots,s_{i-1},s,s_{i+1},\ldots,s_n)$最优（即假定其他参与者固定其选择时，$s_i$对参与者$i$最优），则称构型$(s_1,\ldots,s_n)$（其中$s_i\in S_i$）为均衡（Nash均衡）.
+\end{definition*}
+注意，Nash均衡并非在所有情况下都存在，但Nash方法的力量恰在于（通过凸分析论证）证明：考虑所谓混合策略时，它们总是存在. 这意味着允许每个参与者不选取某个元素$s_i\in S_i$，而只选择$S_i$上的概率测度，再按其选定的分布随机抽取策略. 这以一种类似于从Monge问题转向Kantorovich问题的方式，将博弈凸化.
+
+这一概念最初由J.~Nash在\cite{b243,b244}中对有限个参与者的情形引入，容易推广到连续统的参与者，其中每个参与者与其他人相比都可忽略（无原子博弈）. 为简单起见，考虑参与者相同的情形，拥有共同的可能策略空间$S$，并寻找测度$\varrho\in\mathscr P(S)$. 这一测度诱导收益函数$f_\varrho:S\to\mathbb R$，希望满足如下条件：存在$C\in\mathbb R$，使$f_\varrho(x)=C$在$\varrho$几乎处处成立，且处处有$f_\varrho(x)\leq C$（若参与者希望最大化收益；否则，若它是要最小化的成本，则$f_\varrho(x)\geq C$），即$f_\varrho$必须在$\varrho$几乎处处最优.
+\end{sourcebox}
+
+容易看出，均衡条件，即
+\[
+ h(\varrho(x))+\int W(x-y)\varrho(y)\,dy
+\]
+必须在$\varrho$几乎处处最小，实际上是泛函
+\[
+ \varrho\mapsto F(\varrho):=\int H(\varrho(x))\,dx
+             +\frac12\iint W(x-y)\varrho(y)\,dy\,\varrho(x)\,dx
+\]
+在概率测度$\varrho\in\mathscr P(\Omega)$中最小化的一阶最优性条件，其中$H'=h$（只需对形如$\varrho_\varepsilon=(1-\varepsilon)\varrho+\varepsilon\widetilde\varrho$的扰动计算一阶变分）. 我们可以问，这个对极小性必要的最优性条件是否也充分，是否所有均衡都是极小元. 如果是，就可以说面对的是势博弈（即可以通过最小化某个全局能量来寻找均衡的博弈；见\cite{b238}）. 顺便注意，所最小化的能量不是居民的总成本，后者由$\int f_\varrho(x)\varrho(x)\,dx$给出（与\autoref{obj:4.29}中\phantomsection\label{idx:i119-p282}\index{P119@无政府价格（price of anarchy）|hyperpage}
+无政府代价概念比较）. 后一个量与所考虑的量有两处不同：相互作用部分的$1/2$因子，以及一般有$H(t)\ne th(t)$（正如\autoref{sec:4.4.1}关于交通拥挤的讨论中所见）.
+
+\phantomsection\label{idx:i42-p282}\index{D042@位移凸性（displacement convexity）|hyperpage}
+若泛函$F$为凸，上述问题的答案就是肯定的. 然而，第一部分为凸，因为$H$为凸（它是递增函数的原函数），但如本章所见，相互作用能并不凸. 另一方面，若$H$满足McCann关于位移凸性的假设，$W$为凸（例如相互作用成本$|x-y|$或$|x-y|^2$就是如此），则$F$位移凸. 文献\cite{b59}的一个有趣观察恰是：位移凸性也足以像通常的凸性一样，保证所有均衡都是$F$的极小元. 为证明这一事实，只需取$\varrho_\varepsilon=((1-\varepsilon)\mathrm{id}+\varepsilon\mathrm T)_\#\varrho$，计算$F(\varrho_\varepsilon)$在$\varepsilon=0$处的导数，其中$\mathrm T$是$\varrho$与任意其他可行$\widetilde\varrho$之间的最优运输映射. 顺便说，在均衡条件中加入地理异质性（即势函数）并无困难，只需取$f_\varrho(x)=h(\varrho(x))+\int W(x-y)\varrho(y)\,dy+V(x)$，此时给$F(\varrho)$增加一项$\int V(x)\varrho(x)\,dx$. 为进行相同分析，$V$的凸性将是适当假设.
+
+既然提到了凸函数$H$的McCann条件，有必要说几句它的经济含义. 为此，需要通过地价的形成，考察$h$与$H$如何依赖密度. 这来自一个简单考虑：假设每个位置上的参与者有一定预算，在土地消费与货币消费之间分配，并具有关于土地的凹递增效用函数$U$. 这意味着他们求解形如
+\[
+ \max\{U(L)+m:pL+m\leq0\}
+\]
+的问题，其中$p$代表地价，$L$为土地消费，$m$为剩余货币；为简单起见，将预算约束设为0. 最优土地消费将使约束饱和，并满足$U'(L)=p$. 由此可以计算最优效用$U(L)-U'(L)L$，得到$L$与效用之间的关系. 但土地消费是密度的倒数，因而$L=1/\varrho$，居住成本$h(\varrho)$是成本而非效用，可以取为该效用的相反数. 因而取
+\[
+ h(\varrho)=\frac1\varrho U'\left(\frac1\varrho\right)
+                             -U\left(\frac1\varrho\right).
+\]
+由于函数$t\mapsto\frac1tU'(\frac1t)-U(\frac1t)$是$-tU(\frac1t)$的导数，$H$的正确选择确实是$H(t)=-tU(\frac1t)$. 这样，验证McCann的位移凸性条件十分容易，因为$t\mapsto t^dH(t^{-d})$变成$t\mapsto-U(t^d)$，只需$t\mapsto U(t^d)$凹且递增. 由于$U$单调，单调性得到保证；而与$d$次幂复合后仍为凹，确实是额外假设\footnote{感谢R.~McCann本人的观察，这对应于效用不仅是土地“体积”的凹函数，也是土地“线性尺寸”的凹函数；这似乎合理，因为它必须与相互作用项中的距离等“线性”量进行比较.}.
+
+还要强调，为使用位移凸性，需要区域$\Omega$凸；\cite{b59}也给出将凸区域换成一维圆周时存在多个均衡的例子（找到具有多个子城市的均衡，即$\operatorname{spt}(\varrho)$可以不连通；均衡的多重性并非仅来自旋转不变性，还找到了具有不同形状、不同分支数的均衡）. 有趣的是，\cite{b59}描述的模型强烈令人联想到R.~McCann在\cite{b232}中描述的旋转恒星模型. 在该文中，作者引入$W_\infty$局部极小元的概念，它可转化为局部均衡概念：每个参与者只将自己的成本与附近参与者的成本比较；若$\varrho$的支集不连通（\cite{b59,b232}中就是如此），其效用的常数值可以随连通分支而变. 注意这里很早就使用了距离$W_\infty$，而且只有这一距离允许此类局部现象. 事实上，对于$W_p$等积分型距离，若通过最优性条件将局部极小性转化为均衡表达式，得到的不是每个参与者的局部极小性，而自动是全局极小性. 在\cite{b59}的圆周例子中可以观察到这一点：其中存在许多均衡，每个参与者都是全局满意的，而不只是局部满意，但其中大多数都不是全局能量的全局极小元.
+
+文献\cite{b56}在\phantomsection\label{idx:i31-p283}\index{C031@Cournot--Nash均衡（Cournot-Nash equilibria）|hyperpage}
+所谓Cournot--Nash均衡框架中给出了一个更有趣的情形. 这一名称用于指参与者可以区分的无原子博弈. 情形与上面类似，但增加一个变量来区分参与者：假设一个分布于空间$Z$上的参与者群体$\mu$，每人必须选择一个位置$x\in\Omega$，每个参与者$z$的收益由$c(z,x)+f_\varrho(x)$给出，其中$\varrho$是他们在$\Omega$上的选择分布. 更精确地，寻找测度$\gamma\in\mathscr P(Z\times\Omega)$，满足$(\pi_Z)_\#\gamma=\mu$，并将$(\pi_\Omega)_\#\gamma$记为$\varrho$. 目标是找到$\gamma$，使没有参与者$z$希望改变其选择，即存在函数$\varphi:Z\to\mathbb R$，使对所有$(z,x)$都有$c(z,x)+f_\varrho(x)\geq\varphi(z)$，且$c(z,x)+f_\varrho(x)=\varphi(z)$在$\gamma$几乎处处成立. 注意，变量$z$代表参与者的类型，参与者自身无法改变；这就是只对$x$检验$c(z,x)+f_\varrho(x)$的极小性，从而给出依赖于$z$的最小值的原因.
+
+不难证明下列事实（见\cite{b56}）：测度$\gamma$为均衡，当且仅当它在$\Pi(\mu,\nu)$中对成本$c$最优，函数对$(\varphi,-f_\varrho)$是同一运输问题的一对Kantorovich势，且$c$变换$\varphi^c$对所有$x$满足$\varphi^c(x)+f_\varrho(x)\geq0$，并在$\varrho$几乎处处满足$\varphi^c(x)+f_\varrho(x)=0$. 这导出只关于$\varrho$的条件：寻找$\varrho$使$\psi+f_\varrho$在$\varrho$几乎处处最小，其中$\psi=\varphi^c$是成本$c$下从$\varrho$到给定测度$\mu$的运输中的Kantorovich势.
+
+本章同样的考虑允许将它看作最小化$\varrho\mapsto\mathscr T_c(\mu,\varrho)+F(\varrho)$的最优性条件，而关于位移凸性的同样问题也存在. 正如\autoref{sec:7.3.3}所见，泛函$\mathscr T_c(\mu,\cdot)$一般并不位移凸，需要使用广义测地线上的凸性. 但计算和结果类似，如\cite{b56}所示.
+
+最后，有趣的是，若不在必须选择$x$的参与者类型$z$上定义均衡，而直接在$x$上设置均衡问题，也会出现同类模型：参与者必须选择在哪里居住，既面临居住成本，也面临相互作用成本，同时还需要获取按分布$\mu$配置的商品$z$，获取成本为$c(x,z)$. 由于商品的分布固定，参与者不能简单选择他们最喜欢的$z$（即最小化$z\mapsto c(x,z)$）：将出现一个匹配问题，以及每种商品的价格$\varphi(z)$. 在均衡时，根据\autoref{sec:1.7.3}中所见的理论，参与者的商品成本由$\varphi(z)+c(x,z)=\varphi^c(y)$给出. 这意味着，恰如上面一样，参与者在其成本中增加一项，由Kantorovich势$\varphi^c$给出.

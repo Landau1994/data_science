@@ -1,0 +1,45 @@
+% 原书物理335–337页，印刷311–313页；§8.4.3.
+\subsubsection{Dirichlet 边界条件}\label{sec:8.4.3}\index{D040@Dirichlet边界条件（Dirichlet conditions）|hyperpage}\index{H075@热方程（heat equation）|hyperpage}
+细心的读者一定已经注意到，在有界区域 $\Omega$ 上，所有已经被识别为关于距离 $W_2$ 的梯度流的方程，总是伴随 Neumann 边界条件. 这并不奇怪. Wasserstein 距离描述质量从一种构型变为另一种构型时的运动，而方程表达质量守恒. 这意味着，我们在描述一群粒子 $\varrho$ 的运动，它们被限制在给定区域 $\Omega$ 内，并且按照某种与整体泛函值 $F(\varrho)$ 相联系的方式选择各自的速度 $\mathbf v$. 此时，自然的边界条件应当表达粒子不离开区域这一事实. 边界 $\partial\Omega$ 各点处密度 $\varrho$ 的逐点取值，在这种分析中并不特别相关. 注意，“不离开”不意味着“边界上的粒子一直留在边界上”；后者发生在解光滑且速度场 $\mathbf v$ 满足 $\mathbf v\cdot\mathbf n=0$ 的情形. 然而，这里正确的无通量条件应当是几乎处处 $\varrho\mathbf v\cdot\mathbf n=0$，这意味着粒子可以从 $\partial\Omega$ 进入内部 $\mathring\Omega$；但在此之后，边界上（局部）就立即没有质量，所以并不违反这一条件. 相反，若有质量从 $\mathring\Omega$ 移到 $\Omega$ 之外，就会违反无通量条件，因为（直观地说）此时边界上存在某种质量 $\varrho>0$，且速度朝外.
+
+总之，可以看到，Dirichlet 条件无法在 $W_2$ 梯度流中得到表达!
+
+\phantomsection\label{idx:i75-p312}\index{H075@热方程（heat equation）|hyperpage}
+为处理 Dirichlet 边界条件，Figalli 和 Gigli 在\cite{b165}中定义了一种修改的 Wasserstein 距离，使边界 $\partial\Omega$ 起特殊作用，用以研究在 $\partial\Omega$ 上满足 Dirichlet 边界条件 $\varrho=1$ 的热方程 $\partial_t\varrho=\Delta\varrho$.
+
+其定义如下：给定两个有限正测度 $\mu,\nu\in\mathscr M_+(\mathring\Omega)$（不一定是概率测度，也不一定具有相同质量），定义
+\[
+\Pi b(\mu,\nu)=\left\{\gamma\in\mathscr M_+(\overline\Omega\times\overline\Omega):
+(\pi_x)_\#\gamma\restr\mathring\Omega=\mu,\ (\pi_y)_\#\gamma\restr\mathring\Omega=\nu\right\}.
+\]
+然后定义
+\[
+Wb_2(\mu,\nu):=\sqrt{\inf\left\{\int_{\overline\Omega\times\overline\Omega}|x-y|^2\dd\gamma:
+\gamma\in\Pi b(\mu,\nu)\right\}}.
+\]
+下标 $b$ 表示边界所起的特殊作用. 非正式地说，这意味着从 $\mu$ 到 $\nu$ 的运输可以按通常方式进行（用集中在 $\mathring\Omega\times\mathring\Omega$ 上的一部分 $\gamma$）；也可以先将 $\mu$ 的一部分质量移到 $\partial\Omega$（使用 $\gamma\restr(\mathring\Omega\times\partial\Omega)$），再从边界上一点移到边界上另一点（本应使用 $\gamma\restr(\partial\Omega\times\partial\Omega)$，但由于这部分 $\gamma$ 不出现在约束中，可以忽略，所以在 $\partial\Omega$ 上运输免费），最后从 $\partial\Omega$ 移到 $\nu$（使用 $\gamma\restr(\partial\Omega\times\mathring\Omega)$）.
+
+在\cite{b165}中，作者证明 $Wb_2$ 是一个距离，而且空间 $\mathscr M_+(\mathring\Omega)$ 总是测地空间，与 $\Omega$ 的凸性或连通性无关（这与通常在 $\Omega$ 上的情形不同，因为这里允许运输从边界的一部分“瞬移”到另一部分，既可以从一个连通分支移到另一个，也可以沿离开 $\Omega$ 的更短路径移动）. 他们还研究了泛函 $F(\varrho)=\int(\varrho\log\varrho-\varrho)\dd x$ 关于这一距离的梯度流. 注意，通常在 $\mathscr P(\Omega)$ 上研究熵时，可以忽略 $-\int\varrho$ 这一项，因为总质量固定，它只是一个常数. 这里，这一项变得重要（通常偏爱函数 $f(t)=t\log t-t$ 而非 $t\log t$，是因为其导数更简单，即 $f'(t)=\log t$，同时又不改变主要性质）.
+
+对泛函和距离作上述选择后，Figalli 和 Gigli 得到的梯度流是带有特殊边界条件 $\varrho=1$ 于 $\partial\Omega$ 的热方程. 读者可能会问，这个常数1从何而来. 一个合理的解释如下：若边界上的运输免费，那么解就会自动选择对泛函最有利的值，即使 $f(t)=t\log t-t$ 极小的常数 $t$. 因此，改变线性部分，使用 $F(\varrho)=\int(\varrho\log\varrho-c\varrho)\dd x$，就可以改变边界上的常数，但目前还不能取常数0. 值得研究这一方法能走多远，能以这种方式研究哪些 Dirichlet 条件和哪些方程，但目前似乎尚未有人完成这项工作.
+
+此外，作者解释说，由于熵关于 $Wb_2$ 缺乏测地凸性，标准的抽象梯度流理论不能给出唯一性结论（这种凸性的缺失，在某种意义上来自质量可能集中于边界，这与\cite{b225}处理 $\partial\Omega$ 上出口时的情况类似）. 另一方面，正如作者在\cite{b165}中指出的，关于热方程的标准 Hilbert 空间结论，可以给出这一方程的唯一性.
+
+注意，这类边界运输免费的距离已经出现在\cite{b70,b71}中，不过那里考虑的是 Wasserstein 距离 $W_1$；这些文献中的分析并不是为了应用于梯度流，而在 $p=1$ 时，梯度流的研究也不那么自然. 还可以指出一个漂亮的对偶公式：
+\[
+\begin{aligned}
+Wb_1(\mu,\nu)&:=\min\left\{\int|x-y|\dd\gamma:\gamma\in\Pi b(\mu,\nu)\right\}\\
+&=\sup\left\{\int u\dd(\mu-\nu):u\in\Lip_1(\Omega),\ u=0\text{ 于 }\partial\Omega\right\}.
+\end{aligned}
+\]
+注意，一般还具有以下容易得到的等式：
+\[
+Wb_p(\mu,\nu)=\inf\left\{W_p(\mu+\chi^+,\nu+\chi^-):\spt(\chi^\pm)\subset\partial\Omega\right\},
+\]
+其中右边的 Wasserstein 距离以记号的滥用方式，定义在任意一对具有相同质量的正测度上，而不仅限于概率测度. \phantomsection\label{idx:i44-p313}\index{D044@距离成本（distance costs）|hyperpage}
+在 $p=1$ 且 $\mu(\mathring\Omega)=\nu(\mathring\Omega)$ 的特殊情形下，还得到
+\[
+Wb_1(\mu,\nu)=\mathscr T_c(\mu,\nu),\qquad
+c(x,y)=\min\{|x-y|,d(x,\partial\Omega)+d(y,\partial\Omega)\}.
+\]
+费用 $c$ 是 $\Omega$ 上的一个伪距离，在边界上移动免费. 这类距离还在\cite{b95}中（受到\cite{b70}的启发）被用于描述其他低维集合上，而不只是边界上的免费运输（目的是，例如，建立运输网络模型并优化其形状）. 同样的思想出现在如此不同的目标中，十分有意思.

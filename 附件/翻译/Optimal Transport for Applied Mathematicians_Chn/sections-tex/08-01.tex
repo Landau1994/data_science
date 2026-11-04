@@ -1,0 +1,163 @@
+% 原书物理309–314页，印刷285–290页；章首与§8.1.
+本章介绍最优运输和 Wasserstein 距离在偏微分方程中最引人注目的应用之一. 我们将看到，若干演化偏微分方程可以解释为空间 $\mathbb W_2$ 中的最速下降运动. 前面各章已经建立了我们所需的许多技术工具，因此本章很大一部分将用于非正式地介绍一般框架.
+
+因此，不必再让读者等待，让我们立即进入正题!
+
+\subsection[欧氏空间与度量空间中的梯度流]{$\R^d$ 与度量空间中的梯度流}\label{sec:8.1}\index{C028@凸函数（convex functions）|hyperpage}
+首先，在最简单的情形下介绍什么是梯度流（gradient flow）. 设有函数 $F:\R^d\to\R$ 和点 $x_0\in\R^d$. 梯度流是从 $x_0$ 出发、始终沿 $F$ 下降最快的方向运动的演化，也就是从 $x_0$ 开始“逐渐极小化” $F$. 更准确地说，它就是下述 Cauchy 问题的解：
+\[
+\begin{cases}
+x'(t)=-\nabla F(x(t)),&t>0,\\
+x(0)=x_0.
+\end{cases}
+\]
+这是一个标准的 Cauchy 问题. 若 $\nabla F$ 是 Lipschitz 连续的，即 $F\in C^{1,1}$，则它有唯一解. 我们将看到，由于方程具有变分结构，即使没有这一强假设，存在性与唯一性也可能成立.
+
+第一个有趣的性质涉及唯一性和估计，如下所述.
+
+\begin{proposition}\label{obj:8.1}
+设 $F$ 为凸函数，$x_1$ 和 $x_2$ 是 $x'(t)=-\nabla F(x(t))$ 的两个解（若 $F$ 不可微，可以考虑 $x'(t)\in\partial F(x(t))$）. 则对每个 $t$，有 $|x_1(t)-x_2(t)|\leq |x_1(0)-x_2(0)|$. 这特别给出了 Cauchy 问题解的唯一性.
+\end{proposition}
+\begin{proof}
+考虑 $g(t)=\frac12|x_1(t)-x_2(t)|^2$，并对它求导. 有
+\[
+\begin{aligned}
+g'(t)&=(x_1(t)-x_2(t))\cdot(x'_1(t)-x'_2(t))\\
+&=-(x_1(t)-x_2(t))\cdot(\nabla F(x_1(t))-\nabla F(x_2(t))).
+\end{aligned}
+\]
+这里利用凸函数梯度的基本性质，即对每个 $x_1$ 和 $x_2$，有
+\[
+(x_1-x_2)\cdot(\nabla F(x_1)-\nabla F(x_2))\geq 0.
+\]
+更一般地，对每个 $x_1,x_2$ 以及每个 $p_1\in\partial F(x_1)$、$p_2\in\partial F(x_2)$，也有
+\[
+(x_1-x_2)\cdot(p_1-p_2)\geq 0.
+\]
+由此得到 $g'(t)\leq 0$ 和 $g(t)\leq g(0)$. 这给出了结论的第一部分.
+
+再取同一 Cauchy 问题的两个不同解，则 $x_1(0)=x_2(0)$，从而对任意 $t>0$，有 $x_1(t)=x_2(t)$.
+\end{proof}
+
+\begin{remark}\label{obj:8.2}\index{0006@$\lambda$-凸性（$\lambda$-convexity）|hyperpage}
+当 $F$ 仅为半凸函数时，同一个证明也能给出唯一性及稳定性估计. 回顾，半凸是指它对某个 $\lambda\in\R$ 是 $\lambda$-凸的，即 $x\mapsto F(x)-\frac\lambda2|x|^2$ 为凸函数. 事实上，此时得到
+$|x_1(t)-x_2(t)|\leq |x_1(0)-x_2(0)|e^{-\lambda t}$；当 $\lambda>0$ 时，这也证明了向 $F$ 的唯一极小点的指数收敛. 关键在于，若 $F$ 为 $\lambda$-凸函数，对 $x\mapsto F(x)-\frac\lambda2|x|^2$ 应用上面的单调性不等式，很容易得到
+\[
+(x_1-x_2)\cdot(\nabla F(x_1)-\nabla F(x_2))\geq\lambda|x_1(t)-x_2(t)|^2.
+\]
+这推出 $g'(t)\leq-2\lambda g(t)$，再由 Gronwall 引理得出 $g(t)\leq g(0)e^{-2\lambda t}$. 关于指数收敛，若 $\lambda>0$，则 $F$ 是强制的，因而有极小点；严格凸性保证其唯一. 将它记为 $\bar x$. 取一个解 $x(t)$，将其与常值曲线 $\bar x$ 比较；由于 $0\in\partial F(\bar x)$，后者也是解. 于是得到 $|x_1(t)-\bar x|\leq e^{-\lambda t}|x_1(0)-\bar x|$.
+\end{remark}
+
+这些作为梯度流的特殊 Cauchy 问题，还有一个有趣的特点，就是时间离散化. 事实上，可以固定一个小的时间步长参数 $\tau>0$，寻找由下式定义的点列 $(x_k^\tau)_k$：
+\[
+x_{k+1}^\tau\in\operatorname*{argmin}_x F(x)+\frac{|x-x_k^\tau|^2}{2\tau}.
+\]
+现在可以不再要求 $F$ 满足凸性假设，因为这部分分析并不需要它们. 事实上，对 $F$ 作很弱的假设（下半连续，以及某种下界，例如 $F(x)\geq C_1-C_2|x|^2$），就足以保证这些问题在 $\tau$ 较小时有解. $F$ 为 $\lambda$-凸函数的情形包含在这些假设中，而且还给出极小点的唯一性. 当 $\lambda>0$ 时，这一点显然，因为对每个 $\tau$ 都有严格凸性；若 $\lambda$ 为负数，那么在 $\tau$ 较小时，上述和仍是严格凸的.
+
+可以将这个点列解释为曲线 $x(t)$ 在时刻 $t=0,\tau,2\tau,\ldots,k\tau,\ldots$ 的取值. 恰好，递归极小化的最优性条件在这些极小化问题与方程之间建立了联系，因为
+\[
+\begin{aligned}
+x_{k+1}^\tau\in\operatorname*{argmin} F(x)+\frac{|x-x_k^\tau|^2}{2\tau}
+\quad\Longrightarrow\quad
+\nabla F(x_{k+1}^\tau)+\frac{x_{k+1}^\tau-x_k^\tau}{\tau}=0,
+\end{aligned}
+\]
+即
+\[
+\frac{x_{k+1}^\tau-x_k^\tau}{\tau}=-\nabla F(x_{k+1}^\tau).
+\]
+这个表达式恰好就是 $x'=-\nabla F(x)$ 的离散时间隐式 Euler 格式!
+
+\Needspace{6\baselineskip}
+\begin{sourcebox}{备忘：显式与隐式 Euler 格式}\label{box:8.1}\index{E055@Euler格式（Euler schemes）|hyperpage}
+给定常微分方程 $x'(t)=\mathbf v(x(t))$（为简单起见，假设它是自治的），以及初值 $x(0)=x_0$，Euler 格式是一种用有限差分代替导数的时间离散化. 固定时间步长 $\tau>0$，定义点列 $x_k^\tau$. 显式格式为
+\[
+x_{k+1}^\tau=x_k^\tau+\tau\mathbf v(x_k^\tau),\qquad x_0^\tau=x_0.
+\]
+隐式格式则为
+\[
+x_{k+1}^\tau=x_k^\tau+\tau\mathbf v(x_{k+1}^\tau),\qquad x_0^\tau=x_0.
+\]
+这意味着 $x_{k+1}^\tau$ 是通过求解一个含有 $x_k^\tau$ 的方程来选取的，而非直接由 $x_k^\tau$ 显式算出. 显式格式显然更容易实现，但其稳定性与定性性质不如隐式格式. 例如，设 $\mathbf v=-\nabla F$：在连续解中，量 $F(x(t))$ 随 $t$ 递减，隐式格式也具有这一性质，而显式格式则没有（后者对应于极小化 $F$ 的梯度法迭代）.
+
+注意，同样可以对演化偏微分方程进行这样的处理，而\phantomsection\label{idx:i75-p287}\index{H075@热方程（heat equation）|hyperpage}
+用显式格式求解热方程 $\partial_t\varrho=\Delta\varrho_t$ 十分危险：在每一步，$\varrho_{k+1}^\tau$ 的正则性都会比 $\varrho_k^\tau$ 低两阶，因为它由 $\varrho_{k+1}^\tau=\varrho_k^\tau-\Delta\varrho_k^\tau$ 得到.
+\end{sourcebox}
+
+可以证明，当 $\tau\to0$ 时，将所得到的点列适当插值之后，它收敛到问题的解. 这甚至提示了如何为仅下半连续、根本没有梯度的函数 $F$ 定义解!
+
+这种离散化表述的另一项巨大优势，在于很容易将它推广到度量空间. 事实上，给定度量空间 $(X,d)$ 及下有界的下半连续函数 $F:X\to\R\cup\{+\infty\}$，可以定义
+\begin{equation}\label{eq:8.1}
+x_{k+1}^\tau\in\operatorname*{argmin}_x F(x)+\frac{d(x,x_k^\tau)^2}{2\tau}
+\end{equation}
+并研究 $\tau\to0$ 的极限. 显然，需要相应调整对 $F$ 的假设，因为我们需要极小点存在，从而需要一定的紧性. 不过，若 $X$ 紧，则只需 $F$ 下半连续，一切就能成立.
+
+对于点列 $x_k^\tau$，可以考虑两种不同的插值，分别为
+\[
+x^\tau(t)=x_k^\tau,\qquad
+\widetilde x^\tau(t)=\omega_{x_{k-1}^\tau,x_k^\tau}\left(\frac{t-(k-1)\tau}{\tau}\right),
+\quad t\in ](k-1),\tau,k\tau],
+\]
+其中 $\omega_{x,y}(s)$ 表示连接点 $x$ 与 $y$、在单位区间 $[0,1]$ 上参数化的任意常速测地线. 显然，插值 $\widetilde x^\tau$ 只在存在测地线的空间中才有意义. 此时它是一条连续的（局部 Lipschitz）曲线，在时刻 $t=k\tau$ 与分段常值插值 $x^\tau$ 重合.
+
+De Giorgi 在\cite{b137}中定义了\footnote{这里不区分极小化运动与广义极小化运动，因为这一区分对于我们的分析并不关键.}极小化运动（minimizing movements）的概念（另见\cite{b7}）.
+
+\begin{definition}\label{obj:8.3}\index{M100@极小化运动（minimizing movements）|hyperpage}
+若存在时间步长序列 $\tau_j\to0$，使得由迭代极小化格式\eqref{eq:8.1}的一系列解构造的分段常值插值 $x^{\tau_j}$ 在 $[0,T]$ 上一致收敛于曲线 $x:[0,T]\to X$，则称 $x$ 为极小化运动.
+\end{definition}
+
+保证极小化运动存在的紧性结论，来自一个使曲线 $x^\tau$ 具有 Hölder 型行为的简单性质：对每个 $\tau$ 和每个 $k$，$x_{k+1}^\tau$ 的最优性给出
+\begin{equation}\label{eq:8.2}
+F(x_{k+1}^\tau)+\frac{d(x_{k+1}^\tau,x_k^\tau)^2}{2\tau}\leq F(x_k^\tau),
+\end{equation}
+从而
+\[
+d(x_{k+1}^\tau,x_k^\tau)^2\leq2\tau\bigl(F(x_k^\tau)-F(x_{k+1}^\tau)\bigr).
+\]
+若 $F(x_0)$ 有限且 $F$ 下有界，对 $k$ 求和得到
+\[
+\sum_{k=0}^l d(x_{k+1}^\tau,x_k^\tau)^2
+\leq2\tau\bigl(F(x_0^\tau)-F(x_{l+1}^\tau)\bigr)\leq C\tau.
+\]
+给定 $t\in[0,T]$，以 $\ell(t)$ 表示使 $t\in ](\ell(t)-1)\tau,\ell(t)\tau]$ 成立的唯一整数. 对 $t<s$，在指标 $\ell(t)$ 和 $\ell(s)$ 之间的和上应用 Cauchy--Schwarz 不等式（注意 $|\ell(t)-\ell(s)|\leq |t-s|/\tau+1$）：
+\[
+\begin{aligned}
+d(x^\tau(t),x^\tau(s))
+&\leq\sum_{k=\ell(t)}^{\ell(s)-1}d(x_{k+1}^\tau,x_k^\tau)\\
+&\leq\left(\sum_{k=\ell(t)}^{\ell(s)-1}d(x_{k+1}^\tau,x_k^\tau)^2\right)^{1/2}
+|\ell(s)-\ell(t)|^{1/2}\\
+&\leq C\sqrt\tau\,\frac{(|t-s|+\tau)^{1/2}}{\sqrt\tau}
+\leq C\bigl(|t-s|^{1/2}+\sqrt\tau\bigr).
+\end{aligned}
+\]
+这意味着，暂且不考虑曲线 $x^\tau$ 实际上不连续，它们本质上是一族指数为 $1/2$ 的等度 Hölder 连续曲线. 对 $\widetilde x^\tau$ 而言，情形更为清楚. 事实上，有
+\[
+\tau\left(\frac{d(x_{k-1}^\tau,x_k^\tau)}{\tau}\right)^2
+=\int_{(k-1)\tau}^{k\tau}|(\widetilde x^\tau)'|^2(t)\dd t,
+\]
+求和后得到
+\[
+\int_0^T |(\widetilde x^\tau)'|^2(t)\dd t\leq C.
+\]
+这意味着曲线 $\widetilde x^\tau$ 在 $H^1([0,T];X)$（度量导数平方可积的绝对连续曲线空间）中有界；由通常的 Sobolev 嵌入，还可得到 $C^{0,1/2}$ 有界性.
+
+若明确知道空间 $X$、距离 $d$ 和泛函 $F$，那么在某些情形下，已经可以在时间离散情形下每一个优化问题的最优性条件中取极限，从而刻画极限曲线 $x(t)$. 对于本章所讨论的概率测度空间，可以这样做，但在许多其他情形下则不行. 事实上，若 $X$ 没有一点（微分）结构，这几乎是不可能的. 如果要建立度量空间中梯度流的一般理论，就需要运用更精细的工具，仅借助度量量来刻画曲线 $x(t)$ 是梯度流这一事实.
+
+这里介绍一个不等式，光滑欧氏情形下的梯度流满足它；由于其中涉及的各个量均有度量对应物，它可以用作度量情形下梯度流的定义. 另一个称为 EVI 的不等式将在讨论部分的\autoref{sec:8.4.1}中介绍.
+
+第一个观察如下：由 Cauchy--Schwarz 不等式，对每条曲线 $x(t)$，有
+\[
+\begin{aligned}
+F(x(s))-F(x(t))
+&=\int_s^t-\nabla F(x(r))\cdot x'(r)\dd r\\
+&\leq\int_s^t|\nabla F(x(r))|\,|x'(r)|\dd r\\
+&\leq\int_s^t\left(\frac12|x'(r)|^2+\frac12|\nabla F(x(r))|^2\right)\dd r.
+\end{aligned}
+\]
+这里，第一个不等式取等当且仅当对几乎处处的 $r$，向量 $x'(r)$ 与 $\nabla F(x(r))$ 方向相反；第二个不等式取等当且仅当它们的模长相等. 因此，\phantomsection\label{idx:i49-p290}\index{E049@EDE条件（EDE condition）|hyperpage}
+称为能量耗散等式（Energy Dissipation Equality，EDE）的条件
+\[
+F(x(s))-F(x(t))=\int_s^t\left(\frac12|x'(r)|^2+\frac12|\nabla F(x(r))|^2\right)\dd r,
+\qquad\text{对所有 }s<t,
+\]
+（甚至只要求不等式 $F(x(s))-F(x(t))\geq\int_s^t(\frac12|x'(r)|^2+\frac12|\nabla F(x(r))|^2)\dd r$）等价于几乎处处成立的 $x'=-\nabla F(x)$，因而可以作为梯度流的定义. Ambrosio、Gigli 和 Savar\'e 的一系列工作，特别是他们的著作\cite{b15}，就是这样做的. 展开这一庞大的理论并非本书的目标. 对这种抽象方法感兴趣、又希望从本书作者的角度了解他们工作概貌的读者，可以参阅\cite{b277}. 该文尽可能澄清了理论各部分对于可能应用的作用\footnote{遗憾的是，需要一定的法语知识（Bourbaki 讨论班虽不禁止英语，却很少使用英语，因为“Nicolas Bourbaki a une pr\'ef\'erence pour le fran\c{c}ais”，即“Nicolas Bourbaki 偏爱法语”）.}（我们也在\autoref{sec:8.4.1}中简要讨论其中一些问题）.

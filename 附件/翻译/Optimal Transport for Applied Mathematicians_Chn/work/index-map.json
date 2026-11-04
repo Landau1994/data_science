@@ -1,0 +1,5318 @@
+{
+  "source_index_physical_pages": [
+    374,
+    375,
+    376
+  ],
+  "source_index_printed_pages": [
+    351,
+    352,
+    353
+  ],
+  "entries": [
+    {
+      "id": 1,
+      "group": "Symbols",
+      "level": 0,
+      "parent": null,
+      "english": "H^{-1} norm",
+      "chinese_tex": "$H^{-1}$范数",
+      "references": [
+        {
+          "source_printed_page": "210",
+          "source_physical_page": 234,
+          "target": "idx:root5-p210-hminusone",
+          "basis": "原234页引理5.33后明确定义dot H^{-1}范数与Neumann表示",
+          "target_file": "sections-tex\\05-05.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "306",
+          "source_physical_page": 330,
+          "target": "idx:i1-p306",
+          "basis": "原页关于H^{-1} norm的段落；译文段落匹配“这个 Dirichlet 项实际上”",
+          "target_file": "sections-tex\\08-04-2.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "322",
+          "source_physical_page": 346,
+          "target": "eq:8.28",
+          "basis": "原页H^{-1} norm所对应的编号陈述／知识框／专题小节，与译文eq:8.28核对",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "210, 306, 322",
+      "english_tex": "$H^{-1}$ norm",
+      "index_key": "0001@$H^{-1}$范数（$H^{-1}$ norm）"
+    },
+    {
+      "id": 2,
+      "group": "Symbols",
+      "level": 0,
+      "parent": null,
+      "english": "L^infinity density constraints",
+      "chinese_tex": "$L^\\infty$密度约束",
+      "references": [
+        {
+          "source_printed_page": "211",
+          "source_physical_page": 235,
+          "target": "idx:root5-p211-crowd",
+          "basis": "原235页首段讨论拥挤约束rho<=1的L-infinity密度限制",
+          "target_file": "sections-tex\\05-05.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "309",
+          "source_physical_page": 333,
+          "target": "idx:i2-p309",
+          "basis": "原页关于L^infinity density constraints的段落；译文段落匹配“约束成为密度约束”",
+          "target_file": "sections-tex\\08-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "211, 309",
+      "english_tex": "$L^\\infty$ density constraints",
+      "index_key": "0002@$L^\\infty$密度约束（$L^\\infty$ density constraints）"
+    },
+    {
+      "id": 3,
+      "group": "Symbols",
+      "level": 0,
+      "parent": null,
+      "english": "L^infinity transport cost",
+      "chinese_tex": "$L^\\infty$传输成本",
+      "references": [
+        {
+          "source_printed_page": "104",
+          "source_physical_page": 130,
+          "target": "sec:3.2",
+          "basis": "原页L^infinity transport cost所对应的编号陈述／知识框／专题小节，与译文sec:3.2核对",
+          "target_file": "sections-tex\\03-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "207",
+          "source_physical_page": 231,
+          "target": "sec:5.5.1",
+          "basis": "原231页5.5.1标题及首显示式定义W_infinity运输费用距离",
+          "target_file": "sections-tex\\05-05.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "104, 207",
+      "english_tex": "$L^\\infty$ transport cost",
+      "index_key": "0003@$L^\\infty$传输成本（$L^\\infty$ transport cost）"
+    },
+    {
+      "id": 4,
+      "group": "Symbols",
+      "level": 0,
+      "parent": null,
+      "english": "Gamma-convergence",
+      "chinese_tex": "$\\Gamma$-收敛",
+      "references": [
+        {
+          "source_printed_page": "173",
+          "source_physical_page": 198,
+          "target": "box:4.6",
+          "basis": "知识框4.6定义Gamma-liminf/Gamma-limsup与Gamma收敛，并列出极小化问题的主要性质.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "174",
+          "source_physical_page": 199,
+          "target": "obj:4.46",
+          "basis": "定理4.46给出二维分支运输椭圆泛函M_epsilon^alpha的Gamma收敛结果.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "240",
+          "source_physical_page": 264,
+          "target": "idx:i4-p240",
+          "basis": "原页关于Gamma-convergence的段落；译文段落匹配“当$\\varepsilon\\to0$时，上述极小化问题收敛”",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "173, 174, 240",
+      "english_tex": "$\\Gamma$-convergence",
+      "index_key": "0004@$\\Gamma$-收敛（$\\Gamma$-convergence）"
+    },
+    {
+      "id": 5,
+      "group": "Symbols",
+      "level": 1,
+      "parent": 4,
+      "english": "higher order developments",
+      "chinese_tex": "高阶展开",
+      "references": [
+        {
+          "source_printed_page": "73",
+          "source_physical_page": 100,
+          "target": "obj:2.23",
+          "basis": "原页higher order developments所对应的编号陈述／知识框／专题小节，与译文obj:2.23核对",
+          "target_file": "sections-tex\\02-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "90",
+          "source_physical_page": 116,
+          "target": "idx:i5-p90",
+          "basis": "原页关于higher order developments的段落；译文段落匹配“但这里不使用这一事实”",
+          "target_file": "sections-tex\\03-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "101",
+          "source_physical_page": 127,
+          "target": "idx:i5-p101",
+          "basis": "原页关于higher order developments的段落；译文段落匹配“零阶”",
+          "target_file": "sections-tex\\03-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "73, 90, 101",
+      "english_tex": "higher order developments",
+      "index_key": "0004@$\\Gamma$-收敛（$\\Gamma$-convergence）!005@高阶展开（higher order developments）"
+    },
+    {
+      "id": 6,
+      "group": "Symbols",
+      "level": 0,
+      "parent": null,
+      "english": "lambda-convexity",
+      "chinese_tex": "$\\lambda$-凸性",
+      "references": [
+        {
+          "source_printed_page": "96",
+          "source_physical_page": 122,
+          "target": "obj:3.14",
+          "basis": "原页lambda-convexity所对应的编号陈述／知识框／专题小节，与译文obj:3.14核对",
+          "target_file": "sections-tex\\03-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "286",
+          "source_physical_page": 310,
+          "target": "obj:8.2",
+          "basis": "原页lambda-convexity所对应的编号陈述／知识框／专题小节，与译文obj:8.2核对",
+          "target_file": "sections-tex\\08-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "293",
+          "source_physical_page": 317,
+          "target": "idx:i6-p293",
+          "basis": "原页关于lambda-convexity的段落；译文段落匹配“通常唯一性都与某种凸性”",
+          "target_file": "sections-tex\\08-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "301",
+          "source_physical_page": 325,
+          "target": "sec:8.4.1",
+          "basis": "原页lambda-convexity所对应的编号陈述／知识框／专题小节，与译文sec:8.4.1核对",
+          "target_file": "sections-tex\\08-04-1.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "302",
+          "source_physical_page": 326,
+          "target": "idx:i6-p302",
+          "basis": "原页关于lambda-convexity的段落；译文段落匹配“定义 $\\mathrm{EVI}_\\lambda$ 性质不需要”",
+          "target_file": "sections-tex\\08-04-1.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "96, 286, 293, 301, 302",
+      "english_tex": "$\\lambda$-convexity",
+      "index_key": "0006@$\\lambda$-凸性（$\\lambda$-convexity）"
+    },
+    {
+      "id": 7,
+      "group": "Symbols",
+      "level": 0,
+      "parent": null,
+      "english": "c-cyclical monotonicity",
+      "chinese_tex": "$c$-循环单调性",
+      "references": [
+        {
+          "source_printed_page": "28",
+          "source_physical_page": 56,
+          "target": "obj:1.36",
+          "basis": "原页c-cyclical monotonicity所对应的编号陈述／知识框／专题小节，与译文obj:1.36核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "30",
+          "source_physical_page": 58,
+          "target": "obj:1.38",
+          "basis": "原页c-cyclical monotonicity所对应的编号陈述／知识框／专题小节，与译文obj:1.38核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "64",
+          "source_physical_page": 91,
+          "target": "eq:2.3",
+          "basis": "原页c-cyclical monotonicity所对应的编号陈述／知识框／专题小节，与译文eq:2.3核对",
+          "target_file": "sections-tex\\02-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "90",
+          "source_physical_page": 116,
+          "target": "idx:i7-p90",
+          "basis": "原页关于c-cyclical monotonicity的段落；译文段落匹配“成本的半连续性意味着”",
+          "target_file": "sections-tex\\03-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "106",
+          "source_physical_page": 132,
+          "target": "obj:3.22",
+          "basis": "原页c-cyclical monotonicity所对应的编号陈述／知识框／专题小节，与译文obj:3.22核对",
+          "target_file": "sections-tex\\03-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "28, 30, 64, 90, 106",
+      "english_tex": "$c$-cyclical monotonicity",
+      "index_key": "0007@$c$-循环单调性（$c$-cyclical monotonicity）"
+    },
+    {
+      "id": 8,
+      "group": "A",
+      "level": 0,
+      "parent": null,
+      "english": "absolutely continuous curves",
+      "chinese_tex": "绝对连续曲线",
+      "references": [
+        {
+          "source_printed_page": "134",
+          "source_physical_page": 159,
+          "target": "idx:root4-p134-ac-curves",
+          "basis": "绝对连续曲线空间AC(Omega)及其导数积分定义所在段落，随后为式(4.8).",
+          "target_file": "sections-tex\\04-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "188",
+          "source_physical_page": 212,
+          "target": "idx:root5-p188-ac",
+          "basis": "原212页框5.1绝对连续曲线的g积分控制定义及AC记号",
+          "target_file": "sections-tex\\05-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "134, 188",
+      "english_tex": "absolutely continuous curves",
+      "index_key": "A008@绝对连续曲线（absolutely continuous curves）"
+    },
+    {
+      "id": 9,
+      "group": "A",
+      "level": 0,
+      "parent": null,
+      "english": "angle laws",
+      "chinese_tex": "角度定律",
+      "references": [
+        {
+          "source_printed_page": "164",
+          "source_physical_page": 189,
+          "target": "eq:4.31",
+          "basis": "式(4.31)给出自由接合点带质量权重的方向平衡即角度定律，随后脚注14解释三重接合角.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "172",
+          "source_physical_page": 197,
+          "target": "obj:4.45",
+          "basis": "定理4.45证明单源最优网络的半切线、切锥及无穷小角度定律(4.31).",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "164, 172",
+      "english_tex": "angle laws",
+      "index_key": "A009@角度定律（angle laws）"
+    },
+    {
+      "id": 10,
+      "group": "A",
+      "level": 0,
+      "parent": null,
+      "english": "approximate gradient",
+      "chinese_tex": "近似梯度",
+      "references": [
+        {
+          "source_printed_page": "116",
+          "source_physical_page": 142,
+          "target": "box:3.3",
+          "basis": "原页approximate gradient所对应的编号陈述／知识框／专题小节，与译文box:3.3核对",
+          "target_file": "sections-tex\\03-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "116",
+      "english_tex": "approximate gradient",
+      "index_key": "A010@近似梯度（approximate gradient）"
+    },
+    {
+      "id": 11,
+      "group": "A",
+      "level": 0,
+      "parent": null,
+      "english": "assignment problem",
+      "chinese_tex": "分配问题",
+      "references": [
+        {
+          "source_printed_page": "83",
+          "source_physical_page": 110,
+          "target": "fig:2.5",
+          "basis": "原页assignment problem所对应的编号陈述／知识框／专题小节，与译文fig:2.5核对",
+          "target_file": "sections-tex\\02-05.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "238",
+          "source_physical_page": 262,
+          "target": "idx:i11-p238",
+          "basis": "原页关于assignment problem的段落；译文段落匹配“我们专门考虑分配问题”",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "83, 238",
+      "english_tex": "assignment problem",
+      "index_key": "A011@分配问题（assignment problem）"
+    },
+    {
+      "id": 12,
+      "group": "A",
+      "level": 0,
+      "parent": null,
+      "english": "atomless measures",
+      "chinese_tex": "无原子测度",
+      "references": [
+        {
+          "source_printed_page": "18",
+          "source_physical_page": 46,
+          "target": "obj:1.23",
+          "basis": "原页atomless measures所对应的编号陈述／知识框／专题小节，与译文obj:1.23核对",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "23",
+          "source_physical_page": 51,
+          "target": "obj:1.27",
+          "basis": "原页atomless measures所对应的编号陈述／知识框／专题小节，与译文obj:1.27核对",
+          "target_file": "sections-tex\\01-05.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "61",
+          "source_physical_page": 88,
+          "target": "obj:2.4",
+          "basis": "原页atomless measures所对应的编号陈述／知识框／专题小节，与译文obj:2.4核对",
+          "target_file": "sections-tex\\02-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "18, 23, 61",
+      "english_tex": "atomless measures",
+      "index_key": "A012@无原子测度（atomless measures）"
+    },
+    {
+      "id": 13,
+      "group": "A",
+      "level": 0,
+      "parent": null,
+      "english": "auction algorithm",
+      "chinese_tex": "拍卖算法",
+      "references": [
+        {
+          "source_printed_page": "238",
+          "source_physical_page": 262,
+          "target": "idx:i13-p238",
+          "basis": "原页关于auction algorithm的段落；译文段落匹配“这一算法也与对偶问题有关”",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "322",
+          "source_physical_page": 346,
+          "target": "idx:i13-p322",
+          "basis": "原页关于auction algorithm的段落；译文段落匹配“并采用拍卖算法”",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "238, 322",
+      "english_tex": "auction algorithm",
+      "index_key": "A013@拍卖算法（auction algorithm）"
+    },
+    {
+      "id": 14,
+      "group": "A",
+      "level": 0,
+      "parent": null,
+      "english": "augmented lagrangian",
+      "chinese_tex": "增广Lagrangian",
+      "references": [
+        {
+          "source_printed_page": "159",
+          "source_physical_page": 184,
+          "target": "idx:root4-p159-augmented-lagrangian",
+          "basis": "长期问题Beckmann重述的原脚注10，明确提及Benamou--Brenier增广Lagrange技术及文献[35].",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "221",
+          "source_physical_page": 245,
+          "target": "box:6.1",
+          "basis": "原页augmented lagrangian所对应的编号陈述／知识框／专题小节，与译文box:6.1核对",
+          "target_file": "sections-tex\\06-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "159, 221",
+      "english_tex": "augmented lagrangian",
+      "index_key": "A014@增广Lagrangian（augmented lagrangian）"
+    },
+    {
+      "id": 15,
+      "group": "B",
+      "level": 0,
+      "parent": null,
+      "english": "Benamou-Brenier",
+      "chinese_tex": "Benamou--Brenier方法",
+      "references": [
+        {
+          "source_printed_page": "128",
+          "source_physical_page": 153,
+          "target": "idx:root4-p128-benamou-brenier",
+          "basis": "原脚注1将幂次距离成本的流极小化转为Benamou--Brenier问题；锚点置于该脚注内.",
+          "target_file": "sections-tex\\04-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "189",
+          "source_physical_page": 213,
+          "target": "sec:5.3.1",
+          "basis": "原213页5.3.1标题引入Benamou–Brenier泛函B_p",
+          "target_file": "sections-tex\\05-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "203",
+          "source_physical_page": 227,
+          "target": "idx:root5-p203-bb",
+          "basis": "原227页定理5.27后段引入Benamou–Brenier公式名称及动态解释",
+          "target_file": "sections-tex\\05-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "211",
+          "source_physical_page": 235,
+          "target": "idx:root5-p211-bb",
+          "basis": "原235页定理5.34证明应用Benamou–Brenier公式求反向估计",
+          "target_file": "sections-tex\\05-05.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "220",
+          "source_physical_page": 244,
+          "target": "sec:6.1",
+          "basis": "原页Benamou-Brenier所对应的编号陈述／知识框／专题小节，与译文sec:6.1核对",
+          "target_file": "sections-tex\\06-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "318",
+          "source_physical_page": 342,
+          "target": "idx:i15-p318",
+          "basis": "原页关于Benamou-Brenier的段落；译文段落匹配“这些泛函是 Benamou 和 Brenier”",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "128, 189, 203, 211, 220, 318",
+      "english_tex": "Benamou-Brenier",
+      "index_key": "B015@Benamou--Brenier方法（Benamou-Brenier）"
+    },
+    {
+      "id": 16,
+      "group": "B",
+      "level": 0,
+      "parent": null,
+      "english": "Braess paradox",
+      "chinese_tex": "Braess悖论",
+      "references": [
+        {
+          "source_printed_page": "154",
+          "source_physical_page": 179,
+          "target": "obj:4.29",
+          "basis": "原页Braess paradox所对应的编号陈述／知识框／专题小节，与译文obj:4.29核对",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "154",
+      "english_tex": "Braess paradox",
+      "index_key": "B016@Braess悖论（Braess paradox）"
+    },
+    {
+      "id": 17,
+      "group": "B",
+      "level": 0,
+      "parent": null,
+      "english": "branched transport",
+      "chinese_tex": "分支传输",
+      "references": [
+        {
+          "source_printed_page": "162",
+          "source_physical_page": 187,
+          "target": "sec:4.4.2",
+          "basis": "分支运输专题小节4.4.2从本页开始，解释规模经济、共同运输与分支网络的动机.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "162",
+      "english_tex": "branched transport",
+      "index_key": "B017@分支传输（branched transport）"
+    },
+    {
+      "id": 18,
+      "group": "B",
+      "level": 1,
+      "parent": 17,
+      "english": "d_alpha distance",
+      "chinese_tex": "$d_\\alpha$距离",
+      "references": [
+        {
+          "source_printed_page": "166",
+          "source_physical_page": 191,
+          "target": "idx:root4-p166-irrigation-distance",
+          "basis": "可灌溉性与灌溉距离段落直接定义d_alpha(mu,nu)=min(XP)，随后命题4.38讨论有限性和距离性质.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "211",
+          "source_physical_page": 235,
+          "target": "sec:5.5.3",
+          "basis": "原235页5.5.3首段回顾d_alpha分支运输距离的定义",
+          "target_file": "sections-tex\\05-05.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "166, 211",
+      "english_tex": "$d_\\alpha$ distance",
+      "index_key": "B017@分支传输（branched transport）!018@$d_\\alpha$距离（$d_\\alpha$ distance）"
+    },
+    {
+      "id": 19,
+      "group": "B",
+      "level": 1,
+      "parent": 17,
+      "english": "elliptic approximation",
+      "chinese_tex": "椭圆近似",
+      "references": [
+        {
+          "source_printed_page": "174",
+          "source_physical_page": 199,
+          "target": "eq:4.35",
+          "basis": "式(4.35)定义分支运输的椭圆逼近能量，随后定理4.46给出其Gamma极限.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "174",
+      "english_tex": "elliptic approximation",
+      "index_key": "B017@分支传输（branched transport）!019@椭圆近似（elliptic approximation）"
+    },
+    {
+      "id": 20,
+      "group": "B",
+      "level": 0,
+      "parent": null,
+      "english": "Brenier Theorem",
+      "chinese_tex": "Brenier定理",
+      "references": [
+        {
+          "source_printed_page": "18",
+          "source_physical_page": 46,
+          "target": "obj:1.22",
+          "basis": "原页Brenier Theorem所对应的编号陈述／知识框／专题小节，与译文obj:1.22核对",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "43",
+          "source_physical_page": 71,
+          "target": "obj:1.53",
+          "basis": "原页Brenier Theorem所对应的编号陈述／知识框／专题小节，与译文obj:1.53核对",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "18, 43",
+      "english_tex": "Brenier Theorem",
+      "index_key": "B020@Brenier定理（Brenier Theorem）"
+    },
+    {
+      "id": 21,
+      "group": "B",
+      "level": 0,
+      "parent": null,
+      "english": "Brunn-Minkowski inequality",
+      "chinese_tex": "Brunn--Minkowski不等式",
+      "references": [
+        {
+          "source_printed_page": "279",
+          "source_physical_page": 303,
+          "target": "sec:7.4.2",
+          "basis": "原页Brunn-Minkowski inequality所对应的编号陈述／知识框／专题小节，与译文sec:7.4.2核对",
+          "target_file": "sections-tex\\07-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "279",
+      "english_tex": "Brunn-Minkowski inequality",
+      "index_key": "B021@Brunn--Minkowski不等式（Brunn-Minkowski inequality）"
+    },
+    {
+      "id": 22,
+      "group": "B",
+      "level": 0,
+      "parent": null,
+      "english": "BV functions",
+      "chinese_tex": "BV函数",
+      "references": [
+        {
+          "source_printed_page": "56",
+          "source_physical_page": 84,
+          "target": "idx:i22-p56",
+          "basis": "原页关于BV functions的段落；译文段落匹配“De Philippis”",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "98",
+          "source_physical_page": 124,
+          "target": "box:3.1",
+          "basis": "原页BV functions所对应的编号陈述／知识框／专题小节，与译文box:3.1核对",
+          "target_file": "sections-tex\\03-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "141",
+          "source_physical_page": 166,
+          "target": "box:4.4",
+          "basis": "知识框4.4专门介绍BV函数及相关紧性、迹与结构性质.",
+          "target_file": "sections-tex\\04-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "172",
+          "source_physical_page": 197,
+          "target": "obj:4.45",
+          "basis": "定理4.45明确得到最优曲线导数omega_prime属于BV([0,t_0])及切线性质.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "279",
+          "source_physical_page": 303,
+          "target": "idx:i22-p279",
+          "basis": "原页关于BV functions的段落；译文段落匹配“例如\\cite{b151}给出”",
+          "target_file": "sections-tex\\07-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "56, 98, 141, 172, 279",
+      "english_tex": "BV functions",
+      "index_key": "B022@BV函数（BV functions）"
+    },
+    {
+      "id": 23,
+      "group": "C",
+      "level": 0,
+      "parent": null,
+      "english": "chemotaxis",
+      "chinese_tex": "趋化",
+      "references": [
+        {
+          "source_printed_page": "305",
+          "source_physical_page": 329,
+          "target": "idx:i23-p305",
+          "basis": "原页关于chemotaxis的段落；译文段落匹配“数学生物学中有一个有趣的模型”",
+          "target_file": "sections-tex\\08-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "305",
+      "english_tex": "chemotaxis",
+      "index_key": "C023@趋化（chemotaxis）"
+    },
+    {
+      "id": 24,
+      "group": "C",
+      "level": 0,
+      "parent": null,
+      "english": "compactness",
+      "chinese_tex": "紧性",
+      "references": [
+        {
+          "source_printed_page": "3",
+          "source_physical_page": 31,
+          "target": "box:1.1",
+          "basis": "原页compactness所对应的编号陈述／知识框／专题小节，与译文box:1.1核对",
+          "target_file": "sections-tex\\01-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "3",
+      "english_tex": "compactness",
+      "index_key": "C024@紧性（compactness）"
+    },
+    {
+      "id": 25,
+      "group": "C",
+      "level": 1,
+      "parent": 24,
+      "english": "Ascoli-Arzelà",
+      "chinese_tex": "Ascoli--Arzelà定理",
+      "references": [
+        {
+          "source_printed_page": "10",
+          "source_physical_page": 38,
+          "target": "box:1.7",
+          "basis": "原页Ascoli-Arzelà所对应的编号陈述／知识框／专题小节，与译文box:1.7核对",
+          "target_file": "sections-tex\\01-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "10",
+      "english_tex": "Ascoli-Arzelà",
+      "index_key": "C024@紧性（compactness）!025@Ascoli--Arzelà定理（Ascoli-Arzelà）"
+    },
+    {
+      "id": 26,
+      "group": "C",
+      "level": 1,
+      "parent": 24,
+      "english": "tightness",
+      "chinese_tex": "紧性（测度族）",
+      "references": [
+        {
+          "source_printed_page": "5",
+          "source_physical_page": 33,
+          "target": "box:1.4",
+          "basis": "原页tightness所对应的编号陈述／知识框／专题小节，与译文box:1.4核对",
+          "target_file": "sections-tex\\01-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "5",
+      "english_tex": "tightness",
+      "index_key": "C024@紧性（compactness）!026@紧性（测度族）（tightness）"
+    },
+    {
+      "id": 27,
+      "group": "C",
+      "level": 0,
+      "parent": null,
+      "english": "continuity equation",
+      "chinese_tex": "连续性方程",
+      "references": [
+        {
+          "source_printed_page": "122",
+          "source_physical_page": 147,
+          "target": "idx:root4-p122-continuity",
+          "basis": "由常微分方程流推导密度与速度满足连续性方程的实际首次叙述及无编号公式.",
+          "target_file": "sections-tex\\04-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "291",
+          "source_physical_page": 315,
+          "target": "idx:i27-p291",
+          "basis": "原页关于continuity equation的段落；译文段落匹配“所有绝对连续曲线都在某个适当向量场”",
+          "target_file": "sections-tex\\08-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "300",
+          "source_physical_page": 324,
+          "target": "obj:8.10",
+          "basis": "原页continuity equation所对应的编号陈述／知识框／专题小节，与译文obj:8.10核对",
+          "target_file": "sections-tex\\08-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "316",
+          "source_physical_page": 340,
+          "target": "idx:i27-p316",
+          "basis": "原页关于continuity equation的段落；译文段落匹配“这种耦合 Hamilton--Jacobi 方程与连续性方程”",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "122, 291, 300, 316",
+      "english_tex": "continuity equation",
+      "index_key": "C027@连续性方程（continuity equation）"
+    },
+    {
+      "id": 28,
+      "group": "C",
+      "level": 0,
+      "parent": null,
+      "english": "convex functions",
+      "chinese_tex": "凸函数",
+      "references": [
+        {
+          "source_printed_page": "25",
+          "source_physical_page": 53,
+          "target": "box:1.11",
+          "basis": "原页convex functions所对应的编号陈述／知识框／专题小节，与译文box:1.11核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "98",
+          "source_physical_page": 124,
+          "target": "obj:3.16",
+          "basis": "原页convex functions所对应的编号陈述／知识框／专题小节，与译文obj:3.16核对",
+          "target_file": "sections-tex\\03-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "285",
+          "source_physical_page": 309,
+          "target": "sec:8.1",
+          "basis": "原页convex functions所对应的编号陈述／知识框／专题小节，与译文sec:8.1核对",
+          "target_file": "sections-tex\\08-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "25, 98, 285",
+      "english_tex": "convex functions",
+      "index_key": "C028@凸函数（convex functions）"
+    },
+    {
+      "id": 29,
+      "group": "C",
+      "level": 0,
+      "parent": null,
+      "english": "convex transport costs",
+      "chinese_tex": "凸传输成本",
+      "references": [
+        {
+          "source_printed_page": "15",
+          "source_physical_page": 43,
+          "target": "obj:1.17",
+          "basis": "原页convex transport costs所对应的编号陈述／知识框／专题小节，与译文obj:1.17核对",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "63",
+          "source_physical_page": 90,
+          "target": "obj:2.9",
+          "basis": "原页convex transport costs所对应的编号陈述／知识框／专题小节，与译文obj:2.9核对",
+          "target_file": "sections-tex\\02-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "109",
+          "source_physical_page": 135,
+          "target": "sec:3.3.1",
+          "basis": "原页convex transport costs所对应的编号陈述／知识框／专题小节，与译文sec:3.3.1核对",
+          "target_file": "sections-tex\\03-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "15, 63, 109",
+      "english_tex": "convex transport costs",
+      "index_key": "C029@凸传输成本（convex transport costs）"
+    },
+    {
+      "id": 30,
+      "group": "C",
+      "level": 0,
+      "parent": null,
+      "english": "countably Lipschitz",
+      "chinese_tex": "可数Lipschitz",
+      "references": [
+        {
+          "source_printed_page": "54",
+          "source_physical_page": 82,
+          "target": "idx:i30-p54",
+          "basis": "原页关于countably Lipschitz的段落；译文段落匹配“若 $\\mathrm{T}$ 不是 Lipschitz 映射”",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "96",
+          "source_physical_page": 122,
+          "target": "obj:3.13",
+          "basis": "原页countably Lipschitz所对应的编号陈述／知识框／专题小节，与译文obj:3.13核对",
+          "target_file": "sections-tex\\03-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "98",
+          "source_physical_page": 124,
+          "target": "obj:3.17",
+          "basis": "原页countably Lipschitz所对应的编号陈述／知识框／专题小节，与译文obj:3.17核对",
+          "target_file": "sections-tex\\03-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "117",
+          "source_physical_page": 143,
+          "target": "idx:i30-p117",
+          "basis": "原页关于countably Lipschitz的段落；译文段落匹配“可数Lipschitz”",
+          "target_file": "sections-tex\\03-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "272",
+          "source_physical_page": 296,
+          "target": "idx:i30-p272",
+          "basis": "原页关于countably Lipschitz的段落；译文段落匹配“先看较容易的$p=2$情形”",
+          "target_file": "sections-tex\\07-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "54, 96, 98, 117, 272",
+      "english_tex": "countably Lipschitz",
+      "index_key": "C030@可数Lipschitz（countably Lipschitz）"
+    },
+    {
+      "id": 31,
+      "group": "C",
+      "level": 0,
+      "parent": null,
+      "english": "Cournot-Nash equilibria",
+      "chinese_tex": "Cournot--Nash均衡",
+      "references": [
+        {
+          "source_printed_page": "283",
+          "source_physical_page": 307,
+          "target": "idx:i31-p283",
+          "basis": "原页关于Cournot-Nash equilibria的段落；译文段落匹配“所谓Cournot--Nash均衡框架”",
+          "target_file": "sections-tex\\07-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "283",
+      "english_tex": "Cournot-Nash equilibria",
+      "index_key": "C031@Cournot--Nash均衡（Cournot-Nash equilibria）"
+    },
+    {
+      "id": 32,
+      "group": "C",
+      "level": 0,
+      "parent": null,
+      "english": "crowd motion",
+      "chinese_tex": "人群运动",
+      "references": [
+        {
+          "source_printed_page": "211",
+          "source_physical_page": 235,
+          "target": "idx:root5-p211-crowd",
+          "basis": "原235页同段以人群运动解释密度接近1的演化模型",
+          "target_file": "sections-tex\\05-05.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "277",
+          "source_physical_page": 301,
+          "target": "idx:i32-p277",
+          "basis": "原页关于crowd motion的段落；译文段落匹配“特别是人群运动”",
+          "target_file": "sections-tex\\07-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "308",
+          "source_physical_page": 332,
+          "target": "idx:i32-p308",
+          "basis": "原页关于crowd motion的段落；译文段落匹配“Wasserstein 梯度流理论一个有趣的应用”",
+          "target_file": "sections-tex\\08-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "211, 277, 308",
+      "english_tex": "crowd motion",
+      "index_key": "C032@人群运动（crowd motion）"
+    },
+    {
+      "id": 33,
+      "group": "C",
+      "level": 0,
+      "parent": null,
+      "english": "cumulative distribution function",
+      "chinese_tex": "累积分布函数",
+      "references": [
+        {
+          "source_printed_page": "60",
+          "source_physical_page": 87,
+          "target": "box:2.1",
+          "basis": "原页cumulative distribution function所对应的编号陈述／知识框／专题小节，与译文box:2.1核对",
+          "target_file": "sections-tex\\02-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "60",
+      "english_tex": "cumulative distribution function",
+      "index_key": "C033@累积分布函数（cumulative distribution function）"
+    },
+    {
+      "id": 34,
+      "group": "C",
+      "level": 0,
+      "parent": null,
+      "english": "cut locus",
+      "chinese_tex": "割迹",
+      "references": [
+        {
+          "source_printed_page": "19",
+          "source_physical_page": 47,
+          "target": "idx:i34-p19",
+          "basis": "原页关于cut locus的段落；译文段落匹配“注意，\\eqref{eq:1.5}中的最优”",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "19",
+      "english_tex": "cut locus",
+      "index_key": "C034@割迹（cut locus）"
+    },
+    {
+      "id": 35,
+      "group": "C",
+      "level": 0,
+      "parent": null,
+      "english": "cycles",
+      "chinese_tex": "环",
+      "references": [
+        {
+          "source_printed_page": "139",
+          "source_physical_page": 164,
+          "target": "obj:4.11",
+          "basis": "注4.11定义向量测度的环流及无环流性，并讨论质量分解.",
+          "target_file": "sections-tex\\04-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "164",
+          "source_physical_page": 189,
+          "target": "obj:4.37",
+          "basis": "定义4.37区分图中的环与强环，并以图4.5说明，后文据此排除最优图中的环.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "139, 164",
+      "english_tex": "cycles",
+      "index_key": "C035@环（cycles）"
+    },
+    {
+      "id": 36,
+      "group": "C",
+      "level": 0,
+      "parent": null,
+      "english": "cyclical monotonicity",
+      "chinese_tex": "循环单调性",
+      "references": [
+        {
+          "source_printed_page": "28",
+          "source_physical_page": 56,
+          "target": "obj:1.35",
+          "basis": "原页cyclical monotonicity所对应的编号陈述／知识框／专题小节，与译文obj:1.35核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "28",
+      "english_tex": "cyclical monotonicity",
+      "index_key": "C036@循环单调性（cyclical monotonicity）"
+    },
+    {
+      "id": 37,
+      "group": "D",
+      "level": 0,
+      "parent": null,
+      "english": "Dacorogna-Moser",
+      "chinese_tex": "Dacorogna--Moser方法",
+      "references": [
+        {
+          "source_printed_page": "137",
+          "source_physical_page": 162,
+          "target": "box:4.3",
+          "basis": "知识框4.3给出Dacorogna--Moser构造的假设、运输流及证明.",
+          "target_file": "sections-tex\\04-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "230",
+          "source_physical_page": 254,
+          "target": "idx:i37-p230",
+          "basis": "原页关于Dacorogna-Moser的段落；译文段落匹配“包括Dacorogna--Moser传输映射”",
+          "target_file": "sections-tex\\06-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "137, 230",
+      "english_tex": "Dacorogna-Moser",
+      "index_key": "D037@Dacorogna--Moser方法（Dacorogna-Moser）"
+    },
+    {
+      "id": 38,
+      "group": "D",
+      "level": 0,
+      "parent": null,
+      "english": "Density Functional Theory",
+      "chinese_tex": "密度泛函理论",
+      "references": [
+        {
+          "source_printed_page": "49",
+          "source_physical_page": 77,
+          "target": "idx:i38-p49",
+          "basis": "原页关于Density Functional Theory的段落；译文段落匹配“在物理学的一些近期工作中”",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "49",
+      "english_tex": "Density Functional Theory",
+      "index_key": "D038@密度泛函理论（Density Functional Theory）"
+    },
+    {
+      "id": 39,
+      "group": "D",
+      "level": 0,
+      "parent": null,
+      "english": "determinant of the Jacobian",
+      "chinese_tex": "Jacobi行列式",
+      "references": [
+        {
+          "source_printed_page": "xv",
+          "source_physical_page": 16,
+          "target": "eq:intro2",
+          "basis": "原页determinant of the Jacobian所对应的编号陈述／知识框／专题小节，与译文eq:intro2核对",
+          "target_file": "frontmatter\\00-introduction.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "54",
+          "source_physical_page": 82,
+          "target": "box:1.14",
+          "basis": "原页determinant of the Jacobian所对应的编号陈述／知识框／专题小节，与译文box:1.14核对",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "84",
+          "source_physical_page": 111,
+          "target": "eq:2.8",
+          "basis": "原页determinant of the Jacobian所对应的编号陈述／知识框／专题小节，与译文eq:2.8核对",
+          "target_file": "sections-tex\\02-05.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "273",
+          "source_physical_page": 297,
+          "target": "idx:i39-p273",
+          "basis": "原页关于determinant of the Jacobian的段落；译文段落匹配“由像测度的密度公式”",
+          "target_file": "sections-tex\\07-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "xv, 54, 84, 273",
+      "english_tex": "determinant of the Jacobian",
+      "index_key": "D039@Jacobi行列式（determinant of the Jacobian）"
+    },
+    {
+      "id": 40,
+      "group": "D",
+      "level": 0,
+      "parent": null,
+      "english": "Dirichlet conditions",
+      "chinese_tex": "Dirichlet边界条件",
+      "references": [
+        {
+          "source_printed_page": "311",
+          "source_physical_page": 335,
+          "target": "sec:8.4.3",
+          "basis": "原页Dirichlet conditions所对应的编号陈述／知识框／专题小节，与译文sec:8.4.3核对",
+          "target_file": "sections-tex\\08-04-3.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "311",
+      "english_tex": "Dirichlet conditions",
+      "index_key": "D040@Dirichlet边界条件（Dirichlet conditions）"
+    },
+    {
+      "id": 41,
+      "group": "D",
+      "level": 0,
+      "parent": null,
+      "english": "disintegration of measures",
+      "chinese_tex": "测度的分解",
+      "references": [
+        {
+          "source_printed_page": "69",
+          "source_physical_page": 96,
+          "target": "box:2.2",
+          "basis": "原页disintegration of measures所对应的编号陈述／知识框／专题小节，与译文box:2.2核对",
+          "target_file": "sections-tex\\02-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "182",
+          "source_physical_page": 206,
+          "target": "obj:5.4",
+          "basis": "原206页引理5.4，明确以测度分解证明三角不等式",
+          "target_file": "sections-tex\\05-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "69, 182",
+      "english_tex": "disintegration of measures",
+      "index_key": "D041@测度的分解（disintegration of measures）"
+    },
+    {
+      "id": 42,
+      "group": "D",
+      "level": 0,
+      "parent": null,
+      "english": "displacement convexity",
+      "chinese_tex": "位移凸性",
+      "references": [
+        {
+          "source_printed_page": "269",
+          "source_physical_page": 293,
+          "target": "obj:7.23",
+          "basis": "原页displacement convexity所对应的编号陈述／知识框／专题小节，与译文obj:7.23核对",
+          "target_file": "sections-tex\\07-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "275",
+          "source_physical_page": 299,
+          "target": "obj:7.30",
+          "basis": "原页displacement convexity所对应的编号陈述／知识框／专题小节，与译文obj:7.30核对",
+          "target_file": "sections-tex\\07-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "282",
+          "source_physical_page": 306,
+          "target": "idx:i42-p282",
+          "basis": "原页关于displacement convexity的段落；译文段落匹配“若泛函$F$为凸”",
+          "target_file": "sections-tex\\07-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "301",
+          "source_physical_page": 325,
+          "target": "sec:8.4.1",
+          "basis": "原页displacement convexity所对应的编号陈述／知识框／专题小节，与译文sec:8.4.1核对",
+          "target_file": "sections-tex\\08-04-1.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "269, 275, 282, 301",
+      "english_tex": "displacement convexity",
+      "index_key": "D042@位移凸性（displacement convexity）"
+    },
+    {
+      "id": 43,
+      "group": "D",
+      "level": 0,
+      "parent": null,
+      "english": "displacement interpolation",
+      "chinese_tex": "位移插值",
+      "references": [
+        {
+          "source_printed_page": "202",
+          "source_physical_page": 226,
+          "target": "sec:5.4",
+          "basis": "原226页5.4节引入Wasserstein空间常速测地线/位移插值",
+          "target_file": "sections-tex\\05-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "220",
+          "source_physical_page": 244,
+          "target": "idx:i43-p220",
+          "basis": "原页关于displacement interpolation的段落；译文段落匹配“寻找成本$c(x,y)”",
+          "target_file": "sections-tex\\06-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "270",
+          "source_physical_page": 294,
+          "target": "idx:i43-p270",
+          "basis": "原页关于displacement interpolation的段落；译文段落匹配“回顾，距离$W_p$的测地线形如”",
+          "target_file": "sections-tex\\07-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "202, 220, 270",
+      "english_tex": "displacement interpolation",
+      "index_key": "D043@位移插值（displacement interpolation）"
+    },
+    {
+      "id": 44,
+      "group": "D",
+      "level": 0,
+      "parent": null,
+      "english": "distance costs",
+      "chinese_tex": "距离成本",
+      "references": [
+        {
+          "source_printed_page": "88",
+          "source_physical_page": 114,
+          "target": "obj:3.1",
+          "basis": "原页distance costs所对应的编号陈述／知识框／专题小节，与译文obj:3.1核对",
+          "target_file": "sections-tex\\03-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "114",
+          "source_physical_page": 140,
+          "target": "idx:i44-p114",
+          "basis": "原页关于distance costs的段落；译文段落匹配“注意，这些成本都满足三角不等式”",
+          "target_file": "sections-tex\\03-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "129",
+          "source_physical_page": 154,
+          "target": "idx:root4-p129-weighted-distance",
+          "basis": "由加权流成本的对偶导出以Riemann加权距离d_k为成本的Kantorovich问题，无编号公式所在段落.",
+          "target_file": "sections-tex\\04-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "184",
+          "source_physical_page": 208,
+          "target": "obj:5.9",
+          "basis": "原208页定理5.9及证明以距离费用W1的Lip1对偶公式刻画弱收敛",
+          "target_file": "sections-tex\\05-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "313",
+          "source_physical_page": 337,
+          "target": "idx:i44-p313",
+          "basis": "原页关于distance costs的段落；译文段落匹配“在 $p=1$ 且”",
+          "target_file": "sections-tex\\08-04-3.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "88, 114, 129, 184, 313",
+      "english_tex": "distance costs",
+      "index_key": "D044@距离成本（distance costs）"
+    },
+    {
+      "id": 45,
+      "group": "D",
+      "level": 0,
+      "parent": null,
+      "english": "dual norms",
+      "chinese_tex": "对偶范数",
+      "references": [
+        {
+          "source_printed_page": "209",
+          "source_physical_page": 233,
+          "target": "sec:5.5.2",
+          "basis": "原233页5.5.2节首段将W1写为Lipschitz半范数的对偶范数",
+          "target_file": "sections-tex\\05-05.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "249",
+          "source_physical_page": 273,
+          "target": "idx:i45-p249",
+          "basis": "原页关于dual norms的段落；译文段落匹配“对偶函数空间中的范数：给定”",
+          "target_file": "sections-tex\\07-00.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "263",
+          "source_physical_page": 287,
+          "target": "sec:7.2.1",
+          "basis": "原页dual norms所对应的编号陈述／知识框／专题小节，与译文sec:7.2.1核对",
+          "target_file": "sections-tex\\07-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "209, 249, 263",
+      "english_tex": "dual norms",
+      "index_key": "D045@对偶范数（dual norms）"
+    },
+    {
+      "id": 46,
+      "group": "D",
+      "level": 0,
+      "parent": null,
+      "english": "dual problems",
+      "chinese_tex": "对偶问题",
+      "references": [
+        {
+          "source_printed_page": "9",
+          "source_physical_page": 37,
+          "target": "sec:1.2",
+          "basis": "原页dual problems所对应的编号陈述／知识框／专题小节，与译文sec:1.2核对",
+          "target_file": "sections-tex\\01-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "31",
+          "source_physical_page": 59,
+          "target": "obj:1.39",
+          "basis": "原页dual problems所对应的编号陈述／知识框／专题小节，与译文obj:1.39核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "32",
+          "source_physical_page": 60,
+          "target": "obj:1.40",
+          "basis": "原页dual problems所对应的编号陈述／知识框／专题小节，与译文obj:1.40核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "35",
+          "source_physical_page": 63,
+          "target": "obj:1.44",
+          "basis": "原页dual problems所对应的编号陈述／知识框／专题小节，与译文obj:1.44核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "131",
+          "source_physical_page": 156,
+          "target": "idx:root4-p131-duality",
+          "basis": "定理4.6证明中以Lip_1光滑逼近Kantorovich势，并明确使用max(DP)=min(KP)的对偶论证.",
+          "target_file": "sections-tex\\04-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "157",
+          "source_physical_page": 182,
+          "target": "obj:4.34",
+          "basis": "命题4.34及式(4.24)给出短期Wardrop问题与度量对偶问题最优值相等和极小元对应.",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "9, 31, 32, 35, 131, 157",
+      "english_tex": "dual problems",
+      "index_key": "D046@对偶问题（dual problems）"
+    },
+    {
+      "id": 47,
+      "group": "D",
+      "level": 0,
+      "parent": null,
+      "english": "Dunford-Pettis Theorem",
+      "chinese_tex": "Dunford--Pettis定理",
+      "references": [
+        {
+          "source_printed_page": "301",
+          "source_physical_page": 325,
+          "target": "box:8.2",
+          "basis": "原页Dunford-Pettis Theorem所对应的编号陈述／知识框／专题小节，与译文box:8.2核对",
+          "target_file": "sections-tex\\08-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "301",
+      "english_tex": "Dunford-Pettis Theorem",
+      "index_key": "D047@Dunford--Pettis定理（Dunford-Pettis Theorem）"
+    },
+    {
+      "id": 48,
+      "group": "E",
+      "level": 0,
+      "parent": null,
+      "english": "Earth Mover Distance",
+      "chinese_tex": "推土机距离",
+      "references": [
+        {
+          "source_printed_page": "177",
+          "source_physical_page": 201,
+          "target": "idx:root5-p177-emd",
+          "basis": "原201页脚注1的Earth Mover Distance译名与名称讨论",
+          "target_file": "sections-tex\\05-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "177",
+      "english_tex": "Earth Mover Distance",
+      "index_key": "E048@推土机距离（Earth Mover Distance）"
+    },
+    {
+      "id": 49,
+      "group": "E",
+      "level": 0,
+      "parent": null,
+      "english": "EDE condition",
+      "chinese_tex": "EDE条件",
+      "references": [
+        {
+          "source_printed_page": "290",
+          "source_physical_page": 314,
+          "target": "idx:i49-p290",
+          "basis": "原页关于EDE condition的段落；译文段落匹配“称为能量耗散等式”",
+          "target_file": "sections-tex\\08-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "290",
+      "english_tex": "EDE condition",
+      "index_key": "E049@EDE条件（EDE condition）"
+    },
+    {
+      "id": 50,
+      "group": "E",
+      "level": 0,
+      "parent": null,
+      "english": "Eikonal equation",
+      "chinese_tex": "程函方程",
+      "references": [
+        {
+          "source_printed_page": "158",
+          "source_physical_page": 183,
+          "target": "eq:4.25",
+          "basis": "式(4.25)把加权距离d_k(x_0,.)刻画为程函方程|grad u|=k的黏性解.",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "158",
+      "english_tex": "Eikonal equation",
+      "index_key": "E050@程函方程（Eikonal equation）"
+    },
+    {
+      "id": 51,
+      "group": "E",
+      "level": 0,
+      "parent": null,
+      "english": "entropy",
+      "chinese_tex": "熵",
+      "references": [
+        {
+          "source_printed_page": "240",
+          "source_physical_page": 264,
+          "target": "eq:6.3",
+          "basis": "原页entropy所对应的编号陈述／知识框／专题小节，与译文eq:6.3核对",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "257",
+          "source_physical_page": 281,
+          "target": "obj:7.8",
+          "basis": "原页entropy所对应的编号陈述／知识框／专题小节，与译文obj:7.8核对",
+          "target_file": "sections-tex\\07-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "274",
+          "source_physical_page": 298,
+          "target": "idx:i51-p274",
+          "basis": "原页关于entropy的段落；译文段落匹配“熵函数$f(t)=t\\log t$”",
+          "target_file": "sections-tex\\07-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "293",
+          "source_physical_page": 317,
+          "target": "idx:i51-p293",
+          "basis": "原页关于entropy的段落；译文段落匹配“泛函的第一项定义为”",
+          "target_file": "sections-tex\\08-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "305",
+          "source_physical_page": 329,
+          "target": "idx:i51-p305",
+          "basis": "原页关于entropy的段落；译文段落匹配“这正是\\autoref{sec:8.3}中使用过的熵”",
+          "target_file": "sections-tex\\08-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "240, 257, 274, 293, 305",
+      "english_tex": "entropy",
+      "index_key": "E051@熵（entropy）"
+    },
+    {
+      "id": 52,
+      "group": "E",
+      "level": 0,
+      "parent": null,
+      "english": "equi-integrability",
+      "chinese_tex": "等度可积性",
+      "references": [
+        {
+          "source_printed_page": "301",
+          "source_physical_page": 325,
+          "target": "box:8.2",
+          "basis": "原页equi-integrability所对应的编号陈述／知识框／专题小节，与译文box:8.2核对",
+          "target_file": "sections-tex\\08-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "301",
+      "english_tex": "equi-integrability",
+      "index_key": "E052@等度可积性（equi-integrability）"
+    },
+    {
+      "id": 53,
+      "group": "E",
+      "level": 0,
+      "parent": null,
+      "english": "equilibria",
+      "chinese_tex": "均衡",
+      "references": [
+        {
+          "source_printed_page": "46",
+          "source_physical_page": 74,
+          "target": "idx:i53-p46",
+          "basis": "原页关于equilibria的段落；译文段落匹配“这一最优运输解释表明”",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "152",
+          "source_physical_page": 177,
+          "target": "idx:i53-p152",
+          "basis": "原页关于equilibria的段落；译文段落匹配“为开始分析，首先介绍Wardrop”",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "238",
+          "source_physical_page": 262,
+          "target": "idx:i53-p238",
+          "basis": "原页关于equilibria的段落；译文段落匹配“给定价格体系$p$和分配$\\sigma$”",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "280",
+          "source_physical_page": 304,
+          "target": "sec:7.4.3",
+          "basis": "原页equilibria所对应的编号陈述／知识框／专题小节，与译文sec:7.4.3核对",
+          "target_file": "sections-tex\\07-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "316",
+          "source_physical_page": 340,
+          "target": "idx:i53-p316",
+          "basis": "原页关于equilibria的段落；译文段落匹配“然而，MFG 问题是一个均衡问题”",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "46, 152, 238, 280, 316",
+      "english_tex": "equilibria",
+      "index_key": "E053@均衡（equilibria）"
+    },
+    {
+      "id": 54,
+      "group": "E",
+      "level": 0,
+      "parent": null,
+      "english": "Euler equation (fluids)",
+      "chinese_tex": "Euler方程（流体）",
+      "references": [
+        {
+          "source_printed_page": "314",
+          "source_physical_page": 338,
+          "target": "idx:i54-p314",
+          "basis": "原页关于Euler equation (fluids)的段落；译文段落匹配“考虑在光滑区域”",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "319",
+          "source_physical_page": 343,
+          "target": "idx:i54-p319",
+          "basis": "原页关于Euler equation (fluids)的段落；译文段落匹配“在 Euler 坐标下，上述方程写成”",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "321",
+          "source_physical_page": 345,
+          "target": "eq:8.27",
+          "basis": "原页Euler equation (fluids)所对应的编号陈述／知识框／专题小节，与译文eq:8.27核对",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 374,
+      "source_page_expression": "314, 319, 321",
+      "english_tex": "Euler equation (fluids)",
+      "index_key": "E054@Euler方程（流体）（Euler equation (fluids)）"
+    },
+    {
+      "id": 55,
+      "group": "E",
+      "level": 0,
+      "parent": null,
+      "english": "Euler schemes",
+      "chinese_tex": "Euler格式",
+      "references": [
+        {
+          "source_printed_page": "287",
+          "source_physical_page": 311,
+          "target": "box:8.1",
+          "basis": "原页Euler schemes所对应的编号陈述／知识框／专题小节，与译文box:8.1核对",
+          "target_file": "sections-tex\\08-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "287",
+      "english_tex": "Euler schemes",
+      "index_key": "E055@Euler格式（Euler schemes）"
+    },
+    {
+      "id": 56,
+      "group": "E",
+      "level": 0,
+      "parent": null,
+      "english": "Euler-Poisson",
+      "chinese_tex": "Euler--Poisson系统",
+      "references": [
+        {
+          "source_printed_page": "320",
+          "source_physical_page": 344,
+          "target": "idx:i56-p320",
+          "basis": "原页关于Euler-Poisson的段落；译文段落匹配“早期宇宙的重建”",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "320",
+      "english_tex": "Euler-Poisson",
+      "index_key": "E056@Euler--Poisson系统（Euler-Poisson）"
+    },
+    {
+      "id": 57,
+      "group": "E",
+      "level": 0,
+      "parent": null,
+      "english": "EVI condition",
+      "chinese_tex": "EVI条件",
+      "references": [
+        {
+          "source_printed_page": "301",
+          "source_physical_page": 325,
+          "target": "sec:8.4.1",
+          "basis": "原页EVI condition所对应的编号陈述／知识框／专题小节，与译文sec:8.4.1核对",
+          "target_file": "sections-tex\\08-04-1.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "301",
+      "english_tex": "EVI condition",
+      "index_key": "E057@EVI条件（EVI condition）"
+    },
+    {
+      "id": 58,
+      "group": "E",
+      "level": 0,
+      "parent": null,
+      "english": "existence of an optimal map",
+      "chinese_tex": "最优映射的存在性",
+      "references": [
+        {
+          "source_printed_page": "15",
+          "source_physical_page": 43,
+          "target": "obj:1.17",
+          "basis": "原页existence of an optimal map所对应的编号陈述／知识框／专题小节，与译文obj:1.17核对",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "17",
+          "source_physical_page": 45,
+          "target": "idx:i58-p17",
+          "basis": "原页关于existence of an optimal map的段落；译文段落匹配“这一著名事实最早由 Brenier 研究”",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "18",
+          "source_physical_page": 46,
+          "target": "obj:1.22",
+          "basis": "原页existence of an optimal map所对应的编号陈述／知识框／专题小节，与译文obj:1.22核对",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "19",
+          "source_physical_page": 47,
+          "target": "obj:1.25",
+          "basis": "原页existence of an optimal map所对应的编号陈述／知识框／专题小节，与译文obj:1.25核对",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "63",
+          "source_physical_page": 90,
+          "target": "obj:2.9",
+          "basis": "原页existence of an optimal map所对应的编号陈述／知识框／专题小节，与译文obj:2.9核对",
+          "target_file": "sections-tex\\02-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "99",
+          "source_physical_page": 125,
+          "target": "obj:3.18",
+          "basis": "原页existence of an optimal map所对应的编号陈述／知识框／专题小节，与译文obj:3.18核对",
+          "target_file": "sections-tex\\03-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "109",
+          "source_physical_page": 135,
+          "target": "obj:3.24",
+          "basis": "原页existence of an optimal map所对应的编号陈述／知识框／专题小节，与译文obj:3.24核对",
+          "target_file": "sections-tex\\03-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "110",
+          "source_physical_page": 136,
+          "target": "idx:i58-p110",
+          "basis": "原页关于existence of an optimal map的段落；译文段落匹配“随后，Champion与De Pascale”",
+          "target_file": "sections-tex\\03-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "15, 17–19, 63, 99, 109, 110",
+      "english_tex": "existence of an optimal map",
+      "index_key": "E058@最优映射的存在性（existence of an optimal map）"
+    },
+    {
+      "id": 59,
+      "group": "E",
+      "level": 0,
+      "parent": null,
+      "english": "existence of an optimal plan",
+      "chinese_tex": "最优方案的存在性",
+      "references": [
+        {
+          "source_printed_page": "5",
+          "source_physical_page": 33,
+          "target": "obj:1.4",
+          "basis": "原页existence of an optimal plan所对应的编号陈述／知识框／专题小节，与译文obj:1.4核对",
+          "target_file": "sections-tex\\01-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "6",
+          "source_physical_page": 34,
+          "target": "obj:1.7",
+          "basis": "原页existence of an optimal plan所对应的编号陈述／知识框／专题小节，与译文obj:1.7核对",
+          "target_file": "sections-tex\\01-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "5, 6",
+      "english_tex": "existence of an optimal plan",
+      "index_key": "E059@最优方案的存在性（existence of an optimal plan）"
+    },
+    {
+      "id": 60,
+      "group": "F",
+      "level": 0,
+      "parent": null,
+      "english": "fast diffusion",
+      "chinese_tex": "快速扩散",
+      "references": [
+        {
+          "source_printed_page": "304",
+          "source_physical_page": 328,
+          "target": "idx:i60-p304",
+          "basis": "原页关于fast diffusion的段落；译文段落匹配“考虑 $m<1$ 的情形”",
+          "target_file": "sections-tex\\08-04-2.tex",
+          "status": "verified-location",
+          "source_location_note": "原索引给304（多孔介质专题的起始页），快速扩散的明确命名及m<1段在305续页；动态索引定位到译文该专题中的具体快速扩散段，不隐藏这一源索引跨度",
+          "located_source_printed_page": "305",
+          "located_source_physical_page": 329
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "304",
+      "english_tex": "fast diffusion",
+      "index_key": "F060@快速扩散（fast diffusion）"
+    },
+    {
+      "id": 61,
+      "group": "F",
+      "level": 0,
+      "parent": null,
+      "english": "Fast Marching Method",
+      "chinese_tex": "快速行进法",
+      "references": [
+        {
+          "source_printed_page": "158",
+          "source_physical_page": 183,
+          "target": "box:4.5",
+          "basis": "知识框4.5专门给出程函方程离散化与快速行进算法FMM.",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "158",
+      "english_tex": "Fast Marching Method",
+      "index_key": "F061@快速行进法（Fast Marching Method）"
+    },
+    {
+      "id": 62,
+      "group": "F",
+      "level": 0,
+      "parent": null,
+      "english": "first variation",
+      "chinese_tex": "一阶变分",
+      "references": [
+        {
+          "source_printed_page": "261",
+          "source_physical_page": 285,
+          "target": "idx:i62-p261",
+          "basis": "原页关于first variation的段落；译文段落匹配“现在转向这些泛函的一阶变分计算”",
+          "target_file": "sections-tex\\07-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "291",
+          "source_physical_page": 315,
+          "target": "idx:i62-p291",
+          "basis": "原页关于first variation的段落；译文段落匹配“表示泛函 $G:”",
+          "target_file": "sections-tex\\08-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "261, 291",
+      "english_tex": "first variation",
+      "index_key": "F062@一阶变分（first variation）"
+    },
+    {
+      "id": 63,
+      "group": "F",
+      "level": 0,
+      "parent": null,
+      "english": "Fokker-Planck",
+      "chinese_tex": "Fokker--Planck方程",
+      "references": [
+        {
+          "source_printed_page": "293",
+          "source_physical_page": 317,
+          "target": "sec:8.3",
+          "basis": "原页Fokker-Planck所对应的编号陈述／知识框／专题小节，与译文sec:8.3核对",
+          "target_file": "sections-tex\\08-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "293",
+      "english_tex": "Fokker-Planck",
+      "index_key": "F063@Fokker--Planck方程（Fokker-Planck）"
+    },
+    {
+      "id": 64,
+      "group": "G",
+      "level": 0,
+      "parent": null,
+      "english": "generalized geodesics",
+      "chinese_tex": "广义测地线",
+      "references": [
+        {
+          "source_printed_page": "275",
+          "source_physical_page": 299,
+          "target": "sec:7.3.3",
+          "basis": "原页generalized geodesics所对应的编号陈述／知识框／专题小节，与译文sec:7.3.3核对",
+          "target_file": "sections-tex\\07-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "275",
+      "english_tex": "generalized geodesics",
+      "index_key": "G064@广义测地线（generalized geodesics）"
+    },
+    {
+      "id": 65,
+      "group": "G",
+      "level": 0,
+      "parent": null,
+      "english": "geodesics",
+      "chinese_tex": "测地线",
+      "references": [],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "",
+      "english_tex": "geodesics",
+      "index_key": "G065@测地线（geodesics）"
+    },
+    {
+      "id": 66,
+      "group": "G",
+      "level": 1,
+      "parent": 65,
+      "english": "in W_p",
+      "chinese_tex": "$\\mathbb W_p$中",
+      "references": [
+        {
+          "source_printed_page": "203",
+          "source_physical_page": 227,
+          "target": "obj:5.27",
+          "basis": "原227页定理5.27显式构造Wp常速测地线",
+          "target_file": "sections-tex\\05-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "220",
+          "source_physical_page": 244,
+          "target": "idx:i66-p220",
+          "basis": "原页关于in W_p的段落；译文段落匹配“寻找成本$c(x,y)”",
+          "target_file": "sections-tex\\06-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "270",
+          "source_physical_page": 294,
+          "target": "idx:i66-p270",
+          "basis": "原页关于in W_p的段落；译文段落匹配“回顾，距离$W_p$的测地线形如”",
+          "target_file": "sections-tex\\07-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "297",
+          "source_physical_page": 321,
+          "target": "eq:8.11",
+          "basis": "原页in W_p所对应的编号陈述／知识框／专题小节，与译文eq:8.11核对",
+          "target_file": "sections-tex\\08-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "203, 220, 270, 297",
+      "english_tex": "in $\\mathbb W_p$",
+      "index_key": "G065@测地线（geodesics）!066@$\\mathbb W_p$中（in $\\mathbb W_p$）"
+    },
+    {
+      "id": 67,
+      "group": "G",
+      "level": 1,
+      "parent": 65,
+      "english": "in SDiff(Omega)",
+      "chinese_tex": "$\\operatorname{SDiff}(\\Omega)$中",
+      "references": [
+        {
+          "source_printed_page": "314",
+          "source_physical_page": 338,
+          "target": "idx:i67-p314",
+          "basis": "原页关于in SDiff(Omega)的段落；译文段落匹配“Arnold 在\\cite{b22}中”",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "314",
+      "english_tex": "in $\\operatorname{SDiff}(\\Omega)$",
+      "index_key": "G065@测地线（geodesics）!067@$\\operatorname{SDiff}(\\Omega)$中（in $\\operatorname{SDiff}(\\Omega)$）"
+    },
+    {
+      "id": 68,
+      "group": "G",
+      "level": 1,
+      "parent": 65,
+      "english": "in metric spaces",
+      "chinese_tex": "度量空间中",
+      "references": [
+        {
+          "source_printed_page": "202",
+          "source_physical_page": 226,
+          "target": "box:5.2",
+          "basis": "原226页框5.2的一般度量空间测地线与长度空间定义",
+          "target_file": "sections-tex\\05-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "202",
+      "english_tex": "in metric spaces",
+      "index_key": "G065@测地线（geodesics）!068@度量空间中（in metric spaces）"
+    },
+    {
+      "id": 69,
+      "group": "G",
+      "level": 1,
+      "parent": 65,
+      "english": "in traffic congestion",
+      "chinese_tex": "交通拥堵中",
+      "references": [
+        {
+          "source_printed_page": "153",
+          "source_physical_page": 178,
+          "target": "eq:4.16",
+          "basis": "原页in traffic congestion所对应的编号陈述／知识框／专题小节，与译文eq:4.16核对",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "156",
+          "source_physical_page": 181,
+          "target": "obj:4.31",
+          "basis": "父词条为geodesics：定义4.31及式(4.20)要求Wardrop均衡Q集中于自身拥堵度量的测地线.",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "153, 156",
+      "english_tex": "in traffic congestion",
+      "index_key": "G065@测地线（geodesics）!069@交通拥堵中（in traffic congestion）"
+    },
+    {
+      "id": 70,
+      "group": "G",
+      "level": 0,
+      "parent": null,
+      "english": "gluing lemma",
+      "chinese_tex": "粘合引理",
+      "references": [
+        {
+          "source_printed_page": "182",
+          "source_physical_page": 206,
+          "target": "obj:5.5",
+          "basis": "原206页gluing lemma的原陈述5.5",
+          "target_file": "sections-tex\\05-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "182",
+      "english_tex": "gluing lemma",
+      "index_key": "G070@粘合引理（gluing lemma）"
+    },
+    {
+      "id": 71,
+      "group": "G",
+      "level": 0,
+      "parent": null,
+      "english": "gradient algorithm",
+      "chinese_tex": "梯度算法",
+      "references": [
+        {
+          "source_printed_page": "244",
+          "source_physical_page": 268,
+          "target": "box:6.8",
+          "basis": "原页gradient algorithm所对应的编号陈述／知识框／专题小节，与译文box:6.8核对",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "244",
+      "english_tex": "gradient algorithm",
+      "index_key": "G071@梯度算法（gradient algorithm）"
+    },
+    {
+      "id": 72,
+      "group": "H",
+      "level": 0,
+      "parent": null,
+      "english": "Hölder regularity",
+      "chinese_tex": "Hölder正则性",
+      "references": [
+        {
+          "source_printed_page": "55",
+          "source_physical_page": 83,
+          "target": "obj:1.54",
+          "basis": "原页Hölder regularity所对应的编号陈述／知识框／专题小节，与译文obj:1.54核对",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "234",
+          "source_physical_page": 258,
+          "target": "obj:6.4",
+          "basis": "原页Hölder regularity所对应的编号陈述／知识框／专题小节，与译文obj:6.4核对",
+          "target_file": "sections-tex\\06-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "55, 234",
+      "english_tex": "Hölder regularity",
+      "index_key": "H072@Hölder正则性（Hölder regularity）"
+    },
+    {
+      "id": 73,
+      "group": "H",
+      "level": 0,
+      "parent": null,
+      "english": "Hamilton-Jacobi equations",
+      "chinese_tex": "Hamilton--Jacobi方程",
+      "references": [
+        {
+          "source_printed_page": "223",
+          "source_physical_page": 247,
+          "target": "obj:6.2",
+          "basis": "原页Hamilton-Jacobi equations所对应的编号陈述／知识框／专题小节，与译文obj:6.2核对",
+          "target_file": "sections-tex\\06-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "317",
+          "source_physical_page": 341,
+          "target": "box:8.3",
+          "basis": "原页Hamilton-Jacobi equations所对应的编号陈述／知识框／专题小节，与译文box:8.3核对",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "223, 317",
+      "english_tex": "Hamilton-Jacobi equations",
+      "index_key": "H073@Hamilton--Jacobi方程（Hamilton-Jacobi equations）"
+    },
+    {
+      "id": 74,
+      "group": "H",
+      "level": 0,
+      "parent": null,
+      "english": "Hausdorff convergence",
+      "chinese_tex": "Hausdorff收敛",
+      "references": [
+        {
+          "source_printed_page": "40",
+          "source_physical_page": 68,
+          "target": "box:1.13",
+          "basis": "原页Hausdorff convergence所对应的编号陈述／知识框／专题小节，与译文box:1.13核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "40",
+      "english_tex": "Hausdorff convergence",
+      "index_key": "H074@Hausdorff收敛（Hausdorff convergence）"
+    },
+    {
+      "id": 75,
+      "group": "H",
+      "level": 0,
+      "parent": null,
+      "english": "heat equation",
+      "chinese_tex": "热方程",
+      "references": [
+        {
+          "source_printed_page": "287",
+          "source_physical_page": 311,
+          "target": "idx:i75-p287",
+          "basis": "原页关于heat equation的段落；译文段落匹配“用显式格式求解热方程”",
+          "target_file": "sections-tex\\08-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "292",
+          "source_physical_page": 316,
+          "target": "idx:i75-p292",
+          "basis": "原页关于heat equation的段落；译文段落匹配“对应的梯度流方程就是”",
+          "target_file": "sections-tex\\08-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "293",
+          "source_physical_page": 317,
+          "target": "idx:i75-p293",
+          "basis": "原页关于heat equation的段落；译文段落匹配“热方程或其 Fokker--Planck 变体”",
+          "target_file": "sections-tex\\08-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "300",
+          "source_physical_page": 324,
+          "target": "obj:8.10",
+          "basis": "原页heat equation所对应的编号陈述／知识框／专题小节，与译文obj:8.10核对",
+          "target_file": "sections-tex\\08-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "311",
+          "source_physical_page": 335,
+          "target": "sec:8.4.3",
+          "basis": "原页heat equation所对应的编号陈述／知识框／专题小节，与译文sec:8.4.3核对",
+          "target_file": "sections-tex\\08-04-3.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "312",
+          "source_physical_page": 336,
+          "target": "idx:i75-p312",
+          "basis": "原页关于heat equation的段落；译文段落匹配“为处理 Dirichlet 边界条件，Figalli”",
+          "target_file": "sections-tex\\08-04-3.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "287, 292, 293, 300, 311, 312",
+      "english_tex": "heat equation",
+      "index_key": "H075@热方程（heat equation）"
+    },
+    {
+      "id": 76,
+      "group": "H",
+      "level": 0,
+      "parent": null,
+      "english": "Helmholtz decomposition",
+      "chinese_tex": "Helmholtz分解",
+      "references": [
+        {
+          "source_printed_page": "160",
+          "source_physical_page": 185,
+          "target": "idx:root4-p160-helmholtz",
+          "basis": "最优性条件将grad H(w)对所有无散场的正交性转成梯度表示，引用框6.2的Helmholtz分解.",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "227",
+          "source_physical_page": 251,
+          "target": "box:6.2",
+          "basis": "原页Helmholtz decomposition所对应的编号陈述／知识框／专题小节，与译文box:6.2核对",
+          "target_file": "sections-tex\\06-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "160, 227",
+      "english_tex": "Helmholtz decomposition",
+      "index_key": "H076@Helmholtz分解（Helmholtz decomposition）"
+    },
+    {
+      "id": 77,
+      "group": "I",
+      "level": 0,
+      "parent": null,
+      "english": "image processing",
+      "chinese_tex": "图像处理",
+      "references": [
+        {
+          "source_printed_page": "79",
+          "source_physical_page": 106,
+          "target": "sec:2.5.1",
+          "basis": "原页image processing所对应的编号陈述／知识框／专题小节，与译文sec:2.5.1核对",
+          "target_file": "sections-tex\\02-05.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "144",
+          "source_physical_page": 169,
+          "target": "idx:root4-p144-image-processing",
+          "basis": "关于文献[208]将运输密度工具用于图像处理并给出绝对连续性证明的具体句子.",
+          "target_file": "sections-tex\\04-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "215",
+          "source_physical_page": 239,
+          "target": "idx:root5-p215-images",
+          "basis": "原239页段落将图像空间位置和RGB分量联系于R5上的测度",
+          "target_file": "sections-tex\\05-05.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "277",
+          "source_physical_page": 301,
+          "target": "idx:i77-p277",
+          "basis": "原页关于image processing的段落；译文段落匹配“例如在图像处理中”",
+          "target_file": "sections-tex\\07-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "79, 144, 215, 277",
+      "english_tex": "image processing",
+      "index_key": "I077@图像处理（image processing）"
+    },
+    {
+      "id": 78,
+      "group": "I",
+      "level": 0,
+      "parent": null,
+      "english": "incompressible fluids",
+      "chinese_tex": "不可压缩流体",
+      "references": [
+        {
+          "source_printed_page": "51",
+          "source_physical_page": 79,
+          "target": "idx:i78-p51",
+          "basis": "原51页连续路径动能成本与Brenier不可压缩Euler变分问题的段落；译文在“出现在 Brenier 对不可压缩 Euler 方程”前精确定位",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "314",
+          "source_physical_page": 338,
+          "target": "idx:i78-p314",
+          "basis": "原页关于incompressible fluids的段落；译文段落匹配“考虑在光滑区域”",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "51, 314",
+      "english_tex": "incompressible fluids",
+      "index_key": "I078@不可压缩流体（incompressible fluids）"
+    },
+    {
+      "id": 79,
+      "group": "I",
+      "level": 0,
+      "parent": null,
+      "english": "interaction energy",
+      "chinese_tex": "相互作用能",
+      "references": [
+        {
+          "source_printed_page": "249",
+          "source_physical_page": 273,
+          "target": "idx:i79-p249",
+          "basis": "原页关于interaction energy的段落；译文段落匹配“按张量积”",
+          "target_file": "sections-tex\\07-00.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "270",
+          "source_physical_page": 294,
+          "target": "obj:7.24",
+          "basis": "原页interaction energy所对应的编号陈述／知识框／专题小节，与译文obj:7.24核对",
+          "target_file": "sections-tex\\07-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "281",
+          "source_physical_page": 305,
+          "target": "idx:i79-p281",
+          "basis": "原页关于interaction energy的段落；译文段落匹配“相互作用成本，依赖于”",
+          "target_file": "sections-tex\\07-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "307",
+          "source_physical_page": 331,
+          "target": "idx:i79-p307",
+          "basis": "原页关于interaction energy的段落；译文段落匹配“考虑更一般的情形：运动受到”",
+          "target_file": "sections-tex\\08-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "249, 270, 281, 307",
+      "english_tex": "interaction energy",
+      "index_key": "I079@相互作用能（interaction energy）"
+    },
+    {
+      "id": 80,
+      "group": "I",
+      "level": 0,
+      "parent": null,
+      "english": "IPFP",
+      "chinese_tex": "迭代比例拟合程序（IPFP）",
+      "references": [
+        {
+          "source_printed_page": "241",
+          "source_physical_page": 265,
+          "target": "idx:i80-p241",
+          "basis": "原页关于IPFP的段落；译文段落匹配“这一想法称为迭代比例拟合程序”",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "241",
+      "english_tex": "IPFP",
+      "index_key": "I080@迭代比例拟合程序（IPFP）（IPFP）"
+    },
+    {
+      "id": 81,
+      "group": "I",
+      "level": 0,
+      "parent": null,
+      "english": "isoperimetric inequality",
+      "chinese_tex": "等周不等式",
+      "references": [
+        {
+          "source_printed_page": "83",
+          "source_physical_page": 110,
+          "target": "sec:2.5.3",
+          "basis": "原页isoperimetric inequality所对应的编号陈述／知识框／专题小节，与译文sec:2.5.3核对",
+          "target_file": "sections-tex\\02-05.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "83",
+      "english_tex": "isoperimetric inequality",
+      "index_key": "I081@等周不等式（isoperimetric inequality）"
+    },
+    {
+      "id": 82,
+      "group": "K",
+      "level": 0,
+      "parent": null,
+      "english": "Kantorovich duality",
+      "chinese_tex": "Kantorovich对偶性",
+      "references": [
+        {
+          "source_printed_page": "9",
+          "source_physical_page": 37,
+          "target": "sec:1.2",
+          "basis": "原页Kantorovich duality所对应的编号陈述／知识框／专题小节，与译文sec:1.2核对",
+          "target_file": "sections-tex\\01-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "31",
+          "source_physical_page": 59,
+          "target": "obj:1.39",
+          "basis": "原页Kantorovich duality所对应的编号陈述／知识框／专题小节，与译文obj:1.39核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "32",
+          "source_physical_page": 60,
+          "target": "obj:1.40",
+          "basis": "原页Kantorovich duality所对应的编号陈述／知识框／专题小节，与译文obj:1.40核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "33",
+          "source_physical_page": 61,
+          "target": "obj:1.41",
+          "basis": "原页Kantorovich duality所对应的编号陈述／知识框／专题小节，与译文obj:1.41核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "34",
+          "source_physical_page": 62,
+          "target": "obj:1.42",
+          "basis": "原页Kantorovich duality所对应的编号陈述／知识框／专题小节，与译文obj:1.42核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "35",
+          "source_physical_page": 63,
+          "target": "obj:1.44",
+          "basis": "原页Kantorovich duality所对应的编号陈述／知识框／专题小节，与译文obj:1.44核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "9, 31–35",
+      "english_tex": "Kantorovich duality",
+      "index_key": "K082@Kantorovich对偶性（Kantorovich duality）"
+    },
+    {
+      "id": 83,
+      "group": "K",
+      "level": 0,
+      "parent": null,
+      "english": "Kantorovich potentials",
+      "chinese_tex": "Kantorovich势",
+      "references": [
+        {
+          "source_printed_page": "13",
+          "source_physical_page": 41,
+          "target": "obj:1.12",
+          "basis": "原页Kantorovich potentials所对应的编号陈述／知识框／专题小节，与译文obj:1.12核对",
+          "target_file": "sections-tex\\01-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "17",
+          "source_physical_page": 45,
+          "target": "idx:i83-p17",
+          "basis": "原页关于Kantorovich potentials的段落；译文段落匹配“还要注意，对于 $”",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "29",
+          "source_physical_page": 57,
+          "target": "obj:1.37",
+          "basis": "原页Kantorovich potentials所对应的编号陈述／知识框／专题小节，与译文obj:1.37核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "41",
+          "source_physical_page": 69,
+          "target": "obj:1.52",
+          "basis": "原页Kantorovich potentials所对应的编号陈述／知识框／专题小节，与译文obj:1.52核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "56",
+          "source_physical_page": 84,
+          "target": "idx:i83-p56",
+          "basis": "原页关于Kantorovich potentials的段落；译文段落匹配“一般成本下 Kantorovich 势的正则性”",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "133",
+          "source_physical_page": 158,
+          "target": "eq:4.7",
+          "basis": "式(4.7)将Kantorovich势u与运输密度sigma作为Monge--Kantorovich系统的联合解.",
+          "target_file": "sections-tex\\04-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "223",
+          "source_physical_page": 247,
+          "target": "idx:i83-p223",
+          "basis": "原页关于Kantorovich potentials的段落；译文段落匹配“由最优$\\phi$可以”",
+          "target_file": "sections-tex\\06-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "264",
+          "source_physical_page": 288,
+          "target": "obj:7.17",
+          "basis": "原页Kantorovich potentials所对应的编号陈述／知识框／专题小节，与译文obj:7.17核对",
+          "target_file": "sections-tex\\07-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "13, 17, 29, 41, 56, 133, 223, 264",
+      "english_tex": "Kantorovich potentials",
+      "index_key": "K083@Kantorovich势（Kantorovich potentials）"
+    },
+    {
+      "id": 84,
+      "group": "K",
+      "level": 1,
+      "parent": 83,
+      "english": "uniqueness",
+      "chinese_tex": "唯一性",
+      "references": [
+        {
+          "source_printed_page": "266",
+          "source_physical_page": 290,
+          "target": "obj:7.18",
+          "basis": "原页uniqueness所对应的编号陈述／知识框／专题小节，与译文obj:7.18核对",
+          "target_file": "sections-tex\\07-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "266",
+      "english_tex": "uniqueness",
+      "index_key": "K083@Kantorovich势（Kantorovich potentials）!084@唯一性（uniqueness）"
+    },
+    {
+      "id": 85,
+      "group": "K",
+      "level": 0,
+      "parent": null,
+      "english": "kinetic energy",
+      "chinese_tex": "动能",
+      "references": [
+        {
+          "source_printed_page": "205",
+          "source_physical_page": 229,
+          "target": "idx:root5-p205-kinetic",
+          "basis": "原229页末定义曲线p-动能K_p，随后用于表示定理",
+          "target_file": "sections-tex\\05-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "220",
+          "source_physical_page": 244,
+          "target": "idx:i85-p220",
+          "basis": "原页关于kinetic energy的段落；译文段落匹配“求解动能极小化问题”",
+          "target_file": "sections-tex\\06-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "314",
+          "source_physical_page": 338,
+          "target": "eq:8.20",
+          "basis": "原页kinetic energy所对应的编号陈述／知识框／专题小节，与译文eq:8.20核对",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "205, 220, 314",
+      "english_tex": "kinetic energy",
+      "index_key": "K085@动能（kinetic energy）"
+    },
+    {
+      "id": 86,
+      "group": "K",
+      "level": 0,
+      "parent": null,
+      "english": "Knothe map",
+      "chinese_tex": "Knothe映射",
+      "references": [
+        {
+          "source_printed_page": "67",
+          "source_physical_page": 94,
+          "target": "sec:2.3",
+          "basis": "原页Knothe map所对应的编号陈述／知识框／专题小节，与译文sec:2.3核对",
+          "target_file": "sections-tex\\02-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "83",
+          "source_physical_page": 110,
+          "target": "sec:2.5.3",
+          "basis": "原页Knothe map所对应的编号陈述／知识框／专题小节，与译文sec:2.5.3核对",
+          "target_file": "sections-tex\\02-05.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "230",
+          "source_physical_page": 254,
+          "target": "idx:i86-p230",
+          "basis": "原页关于Knothe map的段落；译文段落匹配“但至少乍看起来，最合适的是Knothe传输”",
+          "target_file": "sections-tex\\06-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "247",
+          "source_physical_page": 271,
+          "target": "idx:i86-p247",
+          "basis": "原页关于Knothe map的段落；译文段落匹配“该方法的想法来自”",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "67, 83, 230, 247",
+      "english_tex": "Knothe map",
+      "index_key": "K086@Knothe映射（Knothe map）"
+    },
+    {
+      "id": 87,
+      "group": "K",
+      "level": 0,
+      "parent": null,
+      "english": "Kullback-Leibler",
+      "chinese_tex": "Kullback--Leibler散度",
+      "references": [
+        {
+          "source_printed_page": "240",
+          "source_physical_page": 264,
+          "target": "idx:i87-p240",
+          "basis": "原页关于Kullback-Leibler的段落；译文段落匹配“表示所谓Kullback--Leibler散度”",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "240",
+      "english_tex": "Kullback-Leibler",
+      "index_key": "K087@Kullback--Leibler散度（Kullback-Leibler）"
+    },
+    {
+      "id": 88,
+      "group": "L",
+      "level": 0,
+      "parent": null,
+      "english": "landscape function",
+      "chinese_tex": "景观函数",
+      "references": [
+        {
+          "source_printed_page": "171",
+          "source_physical_page": 196,
+          "target": "obj:4.43",
+          "basis": "定义4.43正式定义与交通模式eta关联的地形函数z_eta.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "171",
+      "english_tex": "landscape function",
+      "index_key": "L088@景观函数（landscape function）"
+    },
+    {
+      "id": 89,
+      "group": "L",
+      "level": 0,
+      "parent": null,
+      "english": "Lebesgue points",
+      "chinese_tex": "Lebesgue点",
+      "references": [
+        {
+          "source_printed_page": "106",
+          "source_physical_page": 132,
+          "target": "box:3.2",
+          "basis": "原页Lebesgue points所对应的编号陈述／知识框／专题小节，与译文box:3.2核对",
+          "target_file": "sections-tex\\03-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "106",
+      "english_tex": "Lebesgue points",
+      "index_key": "L089@Lebesgue点（Lebesgue points）"
+    },
+    {
+      "id": 90,
+      "group": "L",
+      "level": 0,
+      "parent": null,
+      "english": "Legendre-Flenchel transform",
+      "chinese_tex": "Legendre--Fenchel变换",
+      "references": [
+        {
+          "source_printed_page": "26",
+          "source_physical_page": 54,
+          "target": "box:1.12",
+          "basis": "原页Legendre-Flenchel transform所对应的编号陈述／知识框／专题小节，与译文box:1.12核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "36",
+          "source_physical_page": 64,
+          "target": "sec:1.6.3",
+          "basis": "原页Legendre-Flenchel transform所对应的编号陈述／知识框／专题小节，与译文sec:1.6.3核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "256",
+          "source_physical_page": 280,
+          "target": "idx:i90-p256",
+          "basis": "原页关于Legendre-Flenchel transform的段落；译文段落匹配“将尝试利用等式”",
+          "target_file": "sections-tex\\07-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "263",
+          "source_physical_page": 287,
+          "target": "obj:7.15",
+          "basis": "原页Legendre-Flenchel transform所对应的编号陈述／知识框／专题小节，与译文obj:7.15核对",
+          "target_file": "sections-tex\\07-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "26, 36, 256, 263",
+      "english_tex": "Legendre-Flenchel transform",
+      "index_key": "L090@Legendre--Fenchel变换（Legendre-Flenchel transform）"
+    },
+    {
+      "id": 91,
+      "group": "L",
+      "level": 0,
+      "parent": null,
+      "english": "local functionals",
+      "chinese_tex": "局部泛函",
+      "references": [
+        {
+          "source_printed_page": "254",
+          "source_physical_page": 278,
+          "target": "sec:7.1.2",
+          "basis": "原页local functionals所对应的编号陈述／知识框／专题小节，与译文sec:7.1.2核对",
+          "target_file": "sections-tex\\07-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "260",
+          "source_physical_page": 284,
+          "target": "box:7.1",
+          "basis": "原页local functionals所对应的编号陈述／知识框／专题小节，与译文box:7.1核对",
+          "target_file": "sections-tex\\07-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "254, 260",
+      "english_tex": "local functionals",
+      "index_key": "L091@局部泛函（local functionals）"
+    },
+    {
+      "id": 92,
+      "group": "L",
+      "level": 0,
+      "parent": null,
+      "english": "locally compact spaces",
+      "chinese_tex": "局部紧空间",
+      "references": [
+        {
+          "source_printed_page": "184",
+          "source_physical_page": 208,
+          "target": "idx:root5-p184-localcompact",
+          "basis": "原208页第三条bullet讨论紧邻域、局部紧性和C0的对偶",
+          "target_file": "sections-tex\\05-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "184",
+      "english_tex": "locally compact spaces",
+      "index_key": "L092@局部紧空间（locally compact spaces）"
+    },
+    {
+      "id": 93,
+      "group": "L",
+      "level": 0,
+      "parent": null,
+      "english": "location problem",
+      "chinese_tex": "选址问题",
+      "references": [
+        {
+          "source_printed_page": "236",
+          "source_physical_page": 260,
+          "target": "box:6.6",
+          "basis": "原页location problem所对应的编号陈述／知识框／专题小节，与译文box:6.6核对",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "277",
+          "source_physical_page": 301,
+          "target": "idx:i93-p277",
+          "basis": "原页关于location problem的段落；译文段落匹配“所谓的选址问题”",
+          "target_file": "sections-tex\\07-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "236, 277",
+      "english_tex": "location problem",
+      "index_key": "L093@选址问题（location problem）"
+    },
+    {
+      "id": 94,
+      "group": "L",
+      "level": 0,
+      "parent": null,
+      "english": "lower semi-continuity",
+      "chinese_tex": "下半连续性",
+      "references": [
+        {
+          "source_printed_page": "3",
+          "source_physical_page": 31,
+          "target": "box:1.1",
+          "basis": "原页lower semi-continuity所对应的编号陈述／知识框／专题小节，与译文box:1.1核对",
+          "target_file": "sections-tex\\01-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "5",
+          "source_physical_page": 33,
+          "target": "obj:1.4",
+          "basis": "原页lower semi-continuity所对应的编号陈述／知识框／专题小节，与译文obj:1.4核对",
+          "target_file": "sections-tex\\01-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "6",
+          "source_physical_page": 34,
+          "target": "obj:1.6",
+          "basis": "原页lower semi-continuity所对应的编号陈述／知识框／专题小节，与译文obj:1.6核对",
+          "target_file": "sections-tex\\01-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "104",
+          "source_physical_page": 130,
+          "target": "obj:3.21",
+          "basis": "原页lower semi-continuity所对应的编号陈述／知识框／专题小节，与译文obj:3.21核对",
+          "target_file": "sections-tex\\03-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "250",
+          "source_physical_page": 274,
+          "target": "obj:7.1",
+          "basis": "原页lower semi-continuity所对应的编号陈述／知识框／专题小节，与译文obj:7.1核对",
+          "target_file": "sections-tex\\07-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "3, 5, 6, 104, 250",
+      "english_tex": "lower semi-continuity",
+      "index_key": "L094@下半连续性（lower semi-continuity）"
+    },
+    {
+      "id": 95,
+      "group": "L",
+      "level": 0,
+      "parent": null,
+      "english": "Lusin theorem",
+      "chinese_tex": "Lusin定理",
+      "references": [
+        {
+          "source_printed_page": "8",
+          "source_physical_page": 36,
+          "target": "box:1.6",
+          "basis": "原页Lusin theorem所对应的编号陈述／知识框／专题小节，与译文box:1.6核对",
+          "target_file": "sections-tex\\01-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "8",
+      "english_tex": "Lusin theorem",
+      "index_key": "L095@Lusin定理（Lusin theorem）"
+    },
+    {
+      "id": 96,
+      "group": "M",
+      "level": 0,
+      "parent": null,
+      "english": "Ma-Trudinger-Wang",
+      "chinese_tex": "Ma--Trudinger--Wang条件",
+      "references": [
+        {
+          "source_printed_page": "48",
+          "source_physical_page": 76,
+          "target": "idx:i96-p48",
+          "basis": "原页关于Ma-Trudinger-Wang的段落；译文段落匹配“对于更一般的耦合函数”",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "56",
+          "source_physical_page": 84,
+          "target": "idx:i96-p56",
+          "basis": "原页关于Ma-Trudinger-Wang的段落；译文段落匹配“一般成本下 Kantorovich 势的正则性”",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "48, 56",
+      "english_tex": "Ma-Trudinger-Wang",
+      "index_key": "M096@Ma--Trudinger--Wang条件（Ma-Trudinger-Wang）"
+    },
+    {
+      "id": 97,
+      "group": "M",
+      "level": 0,
+      "parent": null,
+      "english": "Mean Field Games",
+      "chinese_tex": "平均场博弈",
+      "references": [
+        {
+          "source_printed_page": "316",
+          "source_physical_page": 340,
+          "target": "idx:i97-p316",
+          "basis": "原页关于Mean Field Games的段落；译文段落匹配“下面对这一理论作快速而非正式的介绍”",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "316",
+      "english_tex": "Mean Field Games",
+      "index_key": "M097@平均场博弈（Mean Field Games）"
+    },
+    {
+      "id": 98,
+      "group": "M",
+      "level": 0,
+      "parent": null,
+      "english": "measures on curves",
+      "chinese_tex": "曲线上的测度",
+      "references": [
+        {
+          "source_printed_page": "50",
+          "source_physical_page": 78,
+          "target": "idx:i98-p50",
+          "basis": "原页关于measures on curves的段落；译文段落匹配“本小节最后强调另一个要点”",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "134",
+          "source_physical_page": 159,
+          "target": "sec:4.2.3",
+          "basis": "小节4.2.3题为曲线测度的交通强度与交通流，在本页引入曲线空间上的概率Q及相关测度；精确专题小节.",
+          "target_file": "sections-tex\\04-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "155",
+          "source_physical_page": 180,
+          "target": "idx:root4-p155-path-measures",
+          "basis": "连续交通拥堵框架将完整路径运输配置表为路径集合上的概率测度Q的具体段落.",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "168",
+          "source_physical_page": 193,
+          "target": "idx:root4-p168-traffic-plan",
+          "basis": "拉格朗日表述的具体段落定义曲线空间上的概率交通计划Q及端点分布约束.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "205",
+          "source_physical_page": 229,
+          "target": "idx:root5-p205-kinetic",
+          "basis": "原229页末引出曲线表示定理并定义AC/C上的动能，随后5.31给曲线测度Q",
+          "target_file": "sections-tex\\05-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "314",
+          "source_physical_page": 338,
+          "target": "idx:i98-p314",
+          "basis": "原页关于measures on curves的段落；译文段落匹配“Brenier 考虑绝对连续路径空间”",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "50, 134, 155, 168, 205, 314",
+      "english_tex": "measures on curves",
+      "index_key": "M098@曲线上的测度（measures on curves）"
+    },
+    {
+      "id": 99,
+      "group": "M",
+      "level": 0,
+      "parent": null,
+      "english": "metric derivative",
+      "chinese_tex": "度量导数",
+      "references": [
+        {
+          "source_printed_page": "187",
+          "source_physical_page": 211,
+          "target": "idx:root5-p187-metricderivative",
+          "basis": "原211页框5.1第一无编号定义，度量导数首次定义",
+          "target_file": "sections-tex\\05-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "188",
+          "source_physical_page": 212,
+          "target": "idx:root5-p188-metricformula",
+          "basis": "原212页框5.1延续的度量导数极限公式",
+          "target_file": "sections-tex\\05-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "298",
+          "source_physical_page": 322,
+          "target": "idx:i99-p298",
+          "basis": "原页关于metric derivative的段落；译文段落匹配“速率（即度量导数）”",
+          "target_file": "sections-tex\\08-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "187, 188, 298",
+      "english_tex": "metric derivative",
+      "index_key": "M099@度量导数（metric derivative）"
+    },
+    {
+      "id": 100,
+      "group": "M",
+      "level": 0,
+      "parent": null,
+      "english": "minimizing movements",
+      "chinese_tex": "极小化运动",
+      "references": [
+        {
+          "source_printed_page": "288",
+          "source_physical_page": 312,
+          "target": "obj:8.3",
+          "basis": "原页minimizing movements所对应的编号陈述／知识框／专题小节，与译文obj:8.3核对",
+          "target_file": "sections-tex\\08-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "288",
+      "english_tex": "minimizing movements",
+      "index_key": "M100@极小化运动（minimizing movements）"
+    },
+    {
+      "id": 101,
+      "group": "M",
+      "level": 0,
+      "parent": null,
+      "english": "Monge-Ampère equation",
+      "chinese_tex": "Monge--Ampère方程",
+      "references": [
+        {
+          "source_printed_page": "54",
+          "source_physical_page": 82,
+          "target": "sec:1.7.6",
+          "basis": "原页Monge-Ampère equation所对应的编号陈述／知识框／专题小节，与译文sec:1.7.6核对",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "232",
+          "source_physical_page": 256,
+          "target": "sec:6.3",
+          "basis": "原页Monge-Ampère equation所对应的编号陈述／知识框／专题小节，与译文sec:6.3核对",
+          "target_file": "sections-tex\\06-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "278",
+          "source_physical_page": 302,
+          "target": "obj:7.32",
+          "basis": "原页Monge-Ampère equation所对应的编号陈述／知识框／专题小节，与译文obj:7.32核对",
+          "target_file": "sections-tex\\07-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "54, 232, 278",
+      "english_tex": "Monge-Ampère equation",
+      "index_key": "M101@Monge--Ampère方程（Monge-Ampère equation）"
+    },
+    {
+      "id": 102,
+      "group": "M",
+      "level": 0,
+      "parent": null,
+      "english": "Monge-Kantorovich system",
+      "chinese_tex": "Monge--Kantorovich系统",
+      "references": [
+        {
+          "source_printed_page": "133",
+          "source_physical_page": 158,
+          "target": "eq:4.7",
+          "basis": "编号式(4.7)即Monge--Kantorovich系统，含散度方程及梯度约束.",
+          "target_file": "sections-tex\\04-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "133",
+      "english_tex": "Monge-Kantorovich system",
+      "index_key": "M102@Monge--Kantorovich系统（Monge-Kantorovich system）"
+    },
+    {
+      "id": 103,
+      "group": "M",
+      "level": 0,
+      "parent": null,
+      "english": "monotone map",
+      "chinese_tex": "单调映射",
+      "references": [
+        {
+          "source_printed_page": "61",
+          "source_physical_page": 88,
+          "target": "obj:2.5",
+          "basis": "原页monotone map所对应的编号陈述／知识框／专题小节，与译文obj:2.5核对",
+          "target_file": "sections-tex\\02-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "63",
+          "source_physical_page": 90,
+          "target": "sec:2.2",
+          "basis": "原页monotone map所对应的编号陈述／知识框／专题小节，与译文sec:2.2核对",
+          "target_file": "sections-tex\\02-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "61, 63",
+      "english_tex": "monotone map",
+      "index_key": "M103@单调映射（monotone map）"
+    },
+    {
+      "id": 104,
+      "group": "M",
+      "level": 0,
+      "parent": null,
+      "english": "multi-marginal problems",
+      "chinese_tex": "多边际问题",
+      "references": [
+        {
+          "source_printed_page": "48",
+          "source_physical_page": 76,
+          "target": "sec:1.7.4",
+          "basis": "原页multi-marginal problems所对应的编号陈述／知识框／专题小节，与译文sec:1.7.4核对",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "51",
+          "source_physical_page": 79,
+          "target": "sec:1.7.5",
+          "basis": "原页multi-marginal problems所对应的编号陈述／知识框／专题小节，与译文sec:1.7.5核对",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "215",
+          "source_physical_page": 239,
+          "target": "sec:5.5.5",
+          "basis": "原239页开始5.5.5重心问题；其多边缘等价描述延续至原240页，保留原索引指向节首的范围",
+          "target_file": "sections-tex\\05-05.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "241",
+          "source_physical_page": 265,
+          "target": "idx:i104-p241",
+          "basis": "原页关于multi-marginal problems的段落；译文段落匹配“可以适配于多边际问题和其他线性问题”",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "48, 51, 215, 241",
+      "english_tex": "multi-marginal problems",
+      "index_key": "M104@多边际问题（multi-marginal problems）"
+    },
+    {
+      "id": 105,
+      "group": "N",
+      "level": 0,
+      "parent": null,
+      "english": "Nash equilibria",
+      "chinese_tex": "Nash均衡",
+      "references": [
+        {
+          "source_printed_page": "153",
+          "source_physical_page": 178,
+          "target": "obj:4.27",
+          "basis": "原页Nash equilibria所对应的编号陈述／知识框／专题小节，与译文obj:4.27核对",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "281",
+          "source_physical_page": 305,
+          "target": "box:7.3",
+          "basis": "原页Nash equilibria所对应的编号陈述／知识框／专题小节，与译文box:7.3核对",
+          "target_file": "sections-tex\\07-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "153, 281",
+      "english_tex": "Nash equilibria",
+      "index_key": "N105@Nash均衡（Nash equilibria）"
+    },
+    {
+      "id": 106,
+      "group": "N",
+      "level": 0,
+      "parent": null,
+      "english": "network simplex",
+      "chinese_tex": "网络单纯形法",
+      "references": [
+        {
+          "source_printed_page": "237",
+          "source_physical_page": 261,
+          "target": "idx:i106-p237",
+          "basis": "原页关于network simplex的段落；译文段落匹配“所谓网络单纯形法”",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "239",
+          "source_physical_page": 263,
+          "target": "idx:i106-p239",
+          "basis": "原页关于network simplex的段落；译文段落匹配“给出了网络单纯形算法成本”",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "237, 239",
+      "english_tex": "network simplex",
+      "index_key": "N106@网络单纯形法（network simplex）"
+    },
+    {
+      "id": 107,
+      "group": "N",
+      "level": 0,
+      "parent": null,
+      "english": "networks",
+      "chinese_tex": "网络",
+      "references": [],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "",
+      "english_tex": "networks",
+      "index_key": "N107@网络（networks）"
+    },
+    {
+      "id": 108,
+      "group": "N",
+      "level": 1,
+      "parent": 107,
+      "english": "congestion",
+      "chinese_tex": "拥堵",
+      "references": [
+        {
+          "source_printed_page": "152",
+          "source_physical_page": 177,
+          "target": "idx:i108-p152",
+          "basis": "原页关于congestion的段落；译文段落匹配“模型的主要数据包括”",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "152",
+      "english_tex": "congestion",
+      "index_key": "N107@网络（networks）!108@拥堵（congestion）"
+    },
+    {
+      "id": 109,
+      "group": "N",
+      "level": 1,
+      "parent": 107,
+      "english": "ramified",
+      "chinese_tex": "分支",
+      "references": [
+        {
+          "source_printed_page": "162",
+          "source_physical_page": 187,
+          "target": "sec:4.4.2",
+          "basis": "父词条为networks：本页分支运输小节解释分支网络的共同运输机制及自然例子.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "162",
+      "english_tex": "ramified",
+      "index_key": "N107@网络（networks）!109@分支（ramified）"
+    },
+    {
+      "id": 110,
+      "group": "N",
+      "level": 0,
+      "parent": null,
+      "english": "Neumann conditions",
+      "chinese_tex": "Neumann边界条件",
+      "references": [
+        {
+          "source_printed_page": "123",
+          "source_physical_page": 148,
+          "target": "idx:root4-p123-neumann",
+          "basis": "解释连续性方程分布表述同时包含边界无通量条件rho_t v_t.n=0的段落.",
+          "target_file": "sections-tex\\04-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "127",
+          "source_physical_page": 152,
+          "target": "obj:4.5",
+          "basis": "问题4.5及式(4.4)后的正文将散度约束明确按带无通量边界条件的弱意义理解.",
+          "target_file": "sections-tex\\04-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "224",
+          "source_physical_page": 248,
+          "target": "idx:i110-p224",
+          "basis": "原页关于Neumann conditions的段落；译文段落匹配“解可通过求解Laplace方程”",
+          "target_file": "sections-tex\\06-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "291",
+          "source_physical_page": 315,
+          "target": "idx:i110-p291",
+          "basis": "原页关于Neumann conditions的段落；译文段落匹配“在 $\\partial\\Omega$ 上满足无通量边界条件”",
+          "target_file": "sections-tex\\08-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "123, 127, 224, 291",
+      "english_tex": "Neumann conditions",
+      "index_key": "N110@Neumann边界条件（Neumann conditions）"
+    },
+    {
+      "id": 111,
+      "group": "N",
+      "level": 0,
+      "parent": null,
+      "english": "Newton’s method",
+      "chinese_tex": "Newton法",
+      "references": [
+        {
+          "source_printed_page": "233",
+          "source_physical_page": 257,
+          "target": "box:6.4",
+          "basis": "原页Newton’s method所对应的编号陈述／知识框／专题小节，与译文box:6.4核对",
+          "target_file": "sections-tex\\06-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "244",
+          "source_physical_page": 268,
+          "target": "idx:i111-p244",
+          "basis": "原页关于Newton’s method的段落；译文段落匹配“尽管用梯度算法较容易描述”",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "233, 244",
+      "english_tex": "Newton’s method",
+      "index_key": "N111@Newton法（Newton’s method）"
+    },
+    {
+      "id": 112,
+      "group": "N",
+      "level": 0,
+      "parent": null,
+      "english": "non-existence of optimal maps",
+      "chinese_tex": "最优映射的不存在性",
+      "references": [
+        {
+          "source_printed_page": "20",
+          "source_physical_page": 48,
+          "target": "sec:1.4",
+          "basis": "原页non-existence of optimal maps所对应的编号陈述／知识框／专题小节，与译文sec:1.4核对",
+          "target_file": "sections-tex\\01-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "99",
+          "source_physical_page": 125,
+          "target": "idx:i112-p99",
+          "basis": "原页关于non-existence of optimal maps的段落；译文段落匹配“现在要证明，不存在从”",
+          "target_file": "sections-tex\\03-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "115",
+          "source_physical_page": 141,
+          "target": "idx:i112-p115",
+          "basis": "原页关于non-existence of optimal maps的段落；译文段落匹配“共同质量留在原地，意味着一般不存在”",
+          "target_file": "sections-tex\\03-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "20, 99, 115",
+      "english_tex": "non-existence of optimal maps",
+      "index_key": "N112@最优映射的不存在性（non-existence of optimal maps）"
+    },
+    {
+      "id": 113,
+      "group": "O",
+      "level": 0,
+      "parent": null,
+      "english": "option pricing",
+      "chinese_tex": "期权定价",
+      "references": [
+        {
+          "source_printed_page": "51",
+          "source_physical_page": 79,
+          "target": "sec:1.7.5",
+          "basis": "原页option pricing所对应的编号陈述／知识框／专题小节，与译文sec:1.7.5核对",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "51",
+      "english_tex": "option pricing",
+      "index_key": "O113@期权定价（option pricing）"
+    },
+    {
+      "id": 114,
+      "group": "P",
+      "level": 0,
+      "parent": null,
+      "english": "Polish spaces",
+      "chinese_tex": "Polish空间",
+      "references": [
+        {
+          "source_printed_page": "5",
+          "source_physical_page": 33,
+          "target": "box:1.4",
+          "basis": "原页Polish spaces所对应的编号陈述／知识框／专题小节，与译文box:1.4核对",
+          "target_file": "sections-tex\\01-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "6",
+          "source_physical_page": 34,
+          "target": "obj:1.7",
+          "basis": "原页Polish spaces所对应的编号陈述／知识框／专题小节，与译文obj:1.7核对",
+          "target_file": "sections-tex\\01-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "183",
+          "source_physical_page": 207,
+          "target": "obj:5.6",
+          "basis": "原207页注5.6明确推广到一般Polish空间",
+          "target_file": "sections-tex\\05-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "5, 6, 183",
+      "english_tex": "Polish spaces",
+      "index_key": "P114@Polish空间（Polish spaces）"
+    },
+    {
+      "id": 115,
+      "group": "P",
+      "level": 0,
+      "parent": null,
+      "english": "porous media",
+      "chinese_tex": "多孔介质",
+      "references": [
+        {
+          "source_printed_page": "304",
+          "source_physical_page": 328,
+          "target": "idx:i115-p304",
+          "basis": "原页关于porous media的段落；译文段落匹配“这个方程描述一种物质向某种材料内部的扩散”",
+          "target_file": "sections-tex\\08-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "304",
+      "english_tex": "porous media",
+      "index_key": "P115@多孔介质（porous media）"
+    },
+    {
+      "id": 116,
+      "group": "P",
+      "level": 0,
+      "parent": null,
+      "english": "potential energy",
+      "chinese_tex": "势能",
+      "references": [
+        {
+          "source_printed_page": "49",
+          "source_physical_page": 77,
+          "target": "idx:i116-p49",
+          "basis": "原页关于potential energy的段落；译文段落匹配“状态的能量表示为下列各项之和”",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "249",
+          "source_physical_page": 273,
+          "target": "idx:i116-p249",
+          "basis": "原页关于potential energy的段落；译文段落匹配“给定函数的积分（势能）”",
+          "target_file": "sections-tex\\07-00.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "270",
+          "source_physical_page": 294,
+          "target": "obj:7.24",
+          "basis": "原页potential energy所对应的编号陈述／知识框／专题小节，与译文obj:7.24核对",
+          "target_file": "sections-tex\\07-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "293",
+          "source_physical_page": 317,
+          "target": "idx:i116-p293",
+          "basis": "原页关于potential energy的段落；译文段落匹配“这里以 Fokker--Planck 方程为例”",
+          "target_file": "sections-tex\\08-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "49, 249, 270, 293",
+      "english_tex": "potential energy",
+      "index_key": "P116@势能（potential energy）"
+    },
+    {
+      "id": 117,
+      "group": "P",
+      "level": 0,
+      "parent": null,
+      "english": "power cells",
+      "chinese_tex": "幂单元",
+      "references": [
+        {
+          "source_printed_page": "242",
+          "source_physical_page": 266,
+          "target": "idx:i117-p242",
+          "basis": "原页关于power cells的段落；译文段落匹配“这些单元称为幂单元”",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "242",
+      "english_tex": "power cells",
+      "index_key": "P117@幂单元（power cells）"
+    },
+    {
+      "id": 118,
+      "group": "P",
+      "level": 0,
+      "parent": null,
+      "english": "pressure",
+      "chinese_tex": "压力",
+      "references": [
+        {
+          "source_printed_page": "310",
+          "source_physical_page": 334,
+          "target": "idx:i118-p310",
+          "basis": "原页关于pressure的段落；译文段落匹配“起到影响运动的压力作用”",
+          "target_file": "sections-tex\\08-04-2.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "315",
+          "source_physical_page": 339,
+          "target": "idx:i118-p315",
+          "basis": "原页关于pressure的段落；译文段落匹配“只要压力场 $p$ 满足”",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "318",
+          "source_physical_page": 342,
+          "target": "idx:i118-p318",
+          "basis": "原页关于pressure的段落；译文段落匹配“压力 $p_t$ 的出现，是为了处理不可压缩约束”",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "310, 315, 318",
+      "english_tex": "pressure",
+      "index_key": "P118@压力（pressure）"
+    },
+    {
+      "id": 119,
+      "group": "P",
+      "level": 0,
+      "parent": null,
+      "english": "price of anarchy",
+      "chinese_tex": "无政府价格",
+      "references": [
+        {
+          "source_printed_page": "154",
+          "source_physical_page": 179,
+          "target": "idx:i119-p154",
+          "basis": "原页关于price of anarchy的段落；译文段落匹配“无政府代价”",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "282",
+          "source_physical_page": 306,
+          "target": "idx:i119-p282",
+          "basis": "原页关于price of anarchy的段落；译文段落匹配“无政府代价概念比较”",
+          "target_file": "sections-tex\\07-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "154, 282",
+      "english_tex": "price of anarchy",
+      "index_key": "P119@无政府价格（price of anarchy）"
+    },
+    {
+      "id": 120,
+      "group": "P",
+      "level": 0,
+      "parent": null,
+      "english": "principal-agent problem",
+      "chinese_tex": "委托人--代理人问题",
+      "references": [
+        {
+          "source_printed_page": "48",
+          "source_physical_page": 76,
+          "target": "idx:i120-p48",
+          "basis": "原页关于principal-agent problem的段落；译文段落匹配“委托人”",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "48",
+      "english_tex": "principal-agent problem",
+      "index_key": "P120@委托人--代理人问题（principal-agent problem）"
+    },
+    {
+      "id": 121,
+      "group": "P",
+      "level": 0,
+      "parent": null,
+      "english": "pseudo-inverse",
+      "chinese_tex": "伪逆",
+      "references": [
+        {
+          "source_printed_page": "60",
+          "source_physical_page": 87,
+          "target": "obj:2.1",
+          "basis": "原页pseudo-inverse所对应的编号陈述／知识框／专题小节，与译文obj:2.1核对",
+          "target_file": "sections-tex\\02-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "60",
+      "english_tex": "pseudo-inverse",
+      "index_key": "P121@伪逆（pseudo-inverse）"
+    },
+    {
+      "id": 122,
+      "group": "Q",
+      "level": 0,
+      "parent": null,
+      "english": "quadratic cost",
+      "chinese_tex": "二次成本",
+      "references": [
+        {
+          "source_printed_page": "16",
+          "source_physical_page": 44,
+          "target": "sec:1.3.1",
+          "basis": "原页quadratic cost所对应的编号陈述／知识框／专题小节，与译文sec:1.3.1核对",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "16",
+      "english_tex": "quadratic cost",
+      "index_key": "Q122@二次成本（quadratic cost）"
+    },
+    {
+      "id": 123,
+      "group": "Q",
+      "level": 1,
+      "parent": 122,
+      "english": "on manifolds",
+      "chinese_tex": "流形上",
+      "references": [
+        {
+          "source_printed_page": "xvii",
+          "source_physical_page": 18,
+          "target": "idx:i123-pxvii",
+          "basis": "原页关于on manifolds的段落；译文段落匹配“在为最优映射存在性付出许多努力后”",
+          "target_file": "frontmatter\\00-introduction.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "18",
+          "source_physical_page": 46,
+          "target": "sec:1.3.2",
+          "basis": "原页on manifolds所对应的编号陈述／知识框／专题小节，与译文sec:1.3.2核对",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "xvii, 18",
+      "english_tex": "on manifolds",
+      "index_key": "Q122@二次成本（quadratic cost）!123@流形上（on manifolds）"
+    },
+    {
+      "id": 124,
+      "group": "Q",
+      "level": 0,
+      "parent": null,
+      "english": "quantization",
+      "chinese_tex": "量化",
+      "references": [
+        {
+          "source_printed_page": "236",
+          "source_physical_page": 260,
+          "target": "idx:i124-p236",
+          "basis": "原页关于quantization的段落；译文段落匹配“它与测度$\\mu,\\nu$的量化问题有关”",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "277",
+          "source_physical_page": 301,
+          "target": "idx:i124-p277",
+          "basis": "原页关于quantization的段落；译文段落匹配“信号处理中的量化问题”",
+          "target_file": "sections-tex\\07-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 375,
+      "source_page_expression": "236, 277",
+      "english_tex": "quantization",
+      "index_key": "Q124@量化（quantization）"
+    },
+    {
+      "id": 125,
+      "group": "R",
+      "level": 0,
+      "parent": null,
+      "english": "Rademacher theorem",
+      "chinese_tex": "Rademacher定理",
+      "references": [
+        {
+          "source_printed_page": "15",
+          "source_physical_page": 43,
+          "target": "box:1.9",
+          "basis": "原页Rademacher theorem所对应的编号陈述／知识框／专题小节，与译文box:1.9核对",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "15",
+      "english_tex": "Rademacher theorem",
+      "index_key": "R125@Rademacher定理（Rademacher theorem）"
+    },
+    {
+      "id": 126,
+      "group": "R",
+      "level": 0,
+      "parent": null,
+      "english": "Radon transform",
+      "chinese_tex": "Radon变换",
+      "references": [
+        {
+          "source_printed_page": "82",
+          "source_physical_page": 109,
+          "target": "box:2.4",
+          "basis": "原页Radon transform所对应的编号陈述／知识框／专题小节，与译文box:2.4核对",
+          "target_file": "sections-tex\\02-05.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "82",
+      "english_tex": "Radon transform",
+      "index_key": "R126@Radon变换（Radon transform）"
+    },
+    {
+      "id": 127,
+      "group": "R",
+      "level": 0,
+      "parent": null,
+      "english": "rectifiability",
+      "chinese_tex": "可求长性",
+      "references": [],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "",
+      "english_tex": "rectifiability",
+      "index_key": "R127@可求长性（rectifiability）"
+    },
+    {
+      "id": 128,
+      "group": "R",
+      "level": 1,
+      "parent": 127,
+      "english": "branched networks",
+      "chinese_tex": "分支网络",
+      "references": [
+        {
+          "source_printed_page": "165",
+          "source_physical_page": 190,
+          "target": "idx:root4-p165-rectifiability",
+          "basis": "父词条为rectifiability：在1-可求长集E上定义向量测度[E,tau,theta]，原脚注15解释1-可求长集.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "166",
+          "source_physical_page": 191,
+          "target": "idx:root4-p166-rectifiability",
+          "basis": "父词条为rectifiability：White定理推出有限alpha质量的w必为1-可求长，并给出相应积分表达式.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "165, 166",
+      "english_tex": "branched networks",
+      "index_key": "R127@可求长性（rectifiability）!128@分支网络（branched networks）"
+    },
+    {
+      "id": 129,
+      "group": "R",
+      "level": 1,
+      "parent": 127,
+      "english": "singular set of convex functions",
+      "chinese_tex": "凸函数的奇异集",
+      "references": [
+        {
+          "source_printed_page": "17",
+          "source_physical_page": 45,
+          "target": "idx:i129-p17",
+          "basis": "原页关于singular set of convex functions的段落；译文段落匹配“凸函数的不可微点集是”",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "17",
+      "english_tex": "singular set of convex functions",
+      "index_key": "R127@可求长性（rectifiability）!129@凸函数的奇异集（singular set of convex functions）"
+    },
+    {
+      "id": 130,
+      "group": "R",
+      "level": 0,
+      "parent": null,
+      "english": "regularity",
+      "chinese_tex": "正则性",
+      "references": [],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "",
+      "english_tex": "regularity",
+      "index_key": "R130@正则性（regularity）"
+    },
+    {
+      "id": 131,
+      "group": "R",
+      "level": 1,
+      "parent": 130,
+      "english": "for branched transport",
+      "chinese_tex": "分支传输的",
+      "references": [
+        {
+          "source_printed_page": "172",
+          "source_physical_page": 197,
+          "target": "idx:root4-p172-regularity",
+          "basis": "正则性专题段落讨论远离端点支集的局部有限图、内部角度定律及其切线层面的推广；随后定理4.45给出单源结果.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "172",
+      "english_tex": "for branched transport",
+      "index_key": "R130@正则性（regularity）!131@分支传输的（for branched transport）"
+    },
+    {
+      "id": 132,
+      "group": "R",
+      "level": 1,
+      "parent": 130,
+      "english": "for congested problems",
+      "chinese_tex": "拥堵问题的",
+      "references": [
+        {
+          "source_printed_page": "161",
+          "source_physical_page": 186,
+          "target": "idx:root4-p161-regularity",
+          "basis": "式(4.30)后专段讨论u的Lipschitz正则性、w的Sobolev及连续性结果与DiPerna--Lions流.",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "161",
+      "english_tex": "for congested problems",
+      "index_key": "R130@正则性（regularity）!132@拥堵问题的（for congested problems）"
+    },
+    {
+      "id": 133,
+      "group": "R",
+      "level": 1,
+      "parent": 130,
+      "english": "for potentials and maps",
+      "chinese_tex": "势与映射的",
+      "references": [
+        {
+          "source_printed_page": "54",
+          "source_physical_page": 82,
+          "target": "sec:1.7.6",
+          "basis": "原页for potentials and maps所对应的编号陈述／知识框／专题小节，与译文sec:1.7.6核对",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "54",
+      "english_tex": "for potentials and maps",
+      "index_key": "R130@正则性（regularity）!133@势与映射的（for potentials and maps）"
+    },
+    {
+      "id": 134,
+      "group": "R",
+      "level": 0,
+      "parent": null,
+      "english": "relaxation",
+      "chinese_tex": "松弛",
+      "references": [
+        {
+          "source_printed_page": "22",
+          "source_physical_page": 50,
+          "target": "box:1.10",
+          "basis": "原页relaxation所对应的编号陈述／知识框／专题小节，与译文box:1.10核对",
+          "target_file": "sections-tex\\01-05.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "165",
+          "source_physical_page": 190,
+          "target": "idx:root4-p165-relaxation",
+          "basis": "Xia的alpha质量M_alpha在离散图能量下以liminf和向量测度弱收敛松弛定义的具体公式.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "22, 165",
+      "english_tex": "relaxation",
+      "index_key": "R134@松弛（relaxation）"
+    },
+    {
+      "id": 135,
+      "group": "R",
+      "level": 0,
+      "parent": null,
+      "english": "Rockafellar Theorem",
+      "chinese_tex": "Rockafellar定理",
+      "references": [
+        {
+          "source_printed_page": "29",
+          "source_physical_page": 57,
+          "target": "obj:1.37",
+          "basis": "原页Rockafellar Theorem所对应的编号陈述／知识框／专题小节，与译文obj:1.37核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "29",
+      "english_tex": "Rockafellar Theorem",
+      "index_key": "R135@Rockafellar定理（Rockafellar Theorem）"
+    },
+    {
+      "id": 136,
+      "group": "S",
+      "level": 0,
+      "parent": null,
+      "english": "second boundary value problem",
+      "chinese_tex": "第二边值问题",
+      "references": [
+        {
+          "source_printed_page": "55",
+          "source_physical_page": 83,
+          "target": "idx:i136-p55",
+          "basis": "原页关于second boundary value problem的段落；译文段落匹配“先考虑边界条件”",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "235",
+          "source_physical_page": 259,
+          "target": "idx:i136-p235",
+          "basis": "原页关于second boundary value problem的段落；译文段落匹配“他们通过把目标区域写成凸函数的水平集”",
+          "target_file": "sections-tex\\06-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "55, 235",
+      "english_tex": "second boundary value problem",
+      "index_key": "S136@第二边值问题（second boundary value problem）"
+    },
+    {
+      "id": 137,
+      "group": "S",
+      "level": 0,
+      "parent": null,
+      "english": "semi-concave functions",
+      "chinese_tex": "半凹函数",
+      "references": [
+        {
+          "source_printed_page": "18",
+          "source_physical_page": 46,
+          "target": "obj:1.24",
+          "basis": "原页semi-concave functions所对应的编号陈述／知识框／专题小节，与译文obj:1.24核对",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "19",
+          "source_physical_page": 47,
+          "target": "idx:i137-p19",
+          "basis": "原页关于semi-concave functions的段落；译文段落匹配“注意，\\eqref{eq:1.5}中的最优”",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "20",
+          "source_physical_page": 48,
+          "target": "idx:i137-p20",
+          "basis": "原页关于semi-concave functions的段落；译文段落匹配“然而，$\\varphi(x)=\\inf_y”",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "97",
+          "source_physical_page": 123,
+          "target": "obj:3.15",
+          "basis": "原页semi-concave functions所对应的编号陈述／知识框／专题小节，与译文obj:3.15核对",
+          "target_file": "sections-tex\\03-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "200",
+          "source_physical_page": 224,
+          "target": "idx:root5-p200-semiconcavity",
+          "basis": "原224页定理5.24证明用一致半凹性推出梯度几乎处处收敛",
+          "target_file": "sections-tex\\05-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "18–20, 97, 200",
+      "english_tex": "semi-concave functions",
+      "index_key": "S137@半凹函数（semi-concave functions）"
+    },
+    {
+      "id": 138,
+      "group": "S",
+      "level": 0,
+      "parent": null,
+      "english": "Semi-geostrophic equation",
+      "chinese_tex": "半地转方程",
+      "references": [
+        {
+          "source_printed_page": "318",
+          "source_physical_page": 342,
+          "target": "idx:i138-p318",
+          "basis": "原页关于Semi-geostrophic equation的段落；译文段落匹配“半地转方程”",
+          "target_file": "sections-tex\\08-04-4.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "318",
+      "english_tex": "Semi-geostrophic equation",
+      "index_key": "S138@半地转方程（Semi-geostrophic equation）"
+    },
+    {
+      "id": 139,
+      "group": "S",
+      "level": 0,
+      "parent": null,
+      "english": "simplex algorithm",
+      "chinese_tex": "单纯形算法",
+      "references": [
+        {
+          "source_printed_page": "237",
+          "source_physical_page": 261,
+          "target": "box:6.7",
+          "basis": "原页simplex algorithm所对应的编号陈述／知识框／专题小节，与译文box:6.7核对",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "237",
+      "english_tex": "simplex algorithm",
+      "index_key": "S139@单纯形算法（simplex algorithm）"
+    },
+    {
+      "id": 140,
+      "group": "S",
+      "level": 0,
+      "parent": null,
+      "english": "Sliced Wasserstein distance",
+      "chinese_tex": "切片Wasserstein距离",
+      "references": [
+        {
+          "source_printed_page": "82",
+          "source_physical_page": 109,
+          "target": "idx:i140-p82",
+          "basis": "原页关于Sliced Wasserstein distance的段落；译文段落匹配“关于构造类似运输映射的另一种有趣想法来自”",
+          "target_file": "sections-tex\\02-05.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "214",
+          "source_physical_page": 238,
+          "target": "sec:5.5.4",
+          "basis": "原238页5.5.4给出切片Wasserstein距离的积分定义",
+          "target_file": "sections-tex\\05-05.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "217",
+          "source_physical_page": 241,
+          "target": "fig:5.3",
+          "basis": "原241页图5.3图注第二排明确解释SW2重心插值",
+          "target_file": "sections-tex\\05-05.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "310",
+          "source_physical_page": 334,
+          "target": "idx:i140-p310",
+          "basis": "原页关于Sliced Wasserstein distance的段落；译文段落匹配“切片 Wasserstein 距离”",
+          "target_file": "sections-tex\\08-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "82, 214, 217, 310",
+      "english_tex": "Sliced Wasserstein distance",
+      "index_key": "S140@切片Wasserstein距离（Sliced Wasserstein distance）"
+    },
+    {
+      "id": 141,
+      "group": "S",
+      "level": 0,
+      "parent": null,
+      "english": "Spence-Mirrlees",
+      "chinese_tex": "Spence--Mirrlees条件",
+      "references": [
+        {
+          "source_printed_page": "14",
+          "source_physical_page": 42,
+          "target": "obj:1.16",
+          "basis": "原页Spence-Mirrlees所对应的编号陈述／知识框／专题小节，与译文obj:1.16核对",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "14",
+      "english_tex": "Spence-Mirrlees",
+      "index_key": "S141@Spence--Mirrlees条件（Spence-Mirrlees）"
+    },
+    {
+      "id": 142,
+      "group": "S",
+      "level": 0,
+      "parent": null,
+      "english": "stable marriage",
+      "chinese_tex": "稳定婚姻",
+      "references": [
+        {
+          "source_printed_page": "45",
+          "source_physical_page": 73,
+          "target": "idx:i142-p45",
+          "basis": "原页关于stable marriage的段落；译文段落匹配“第一个例子是稳定婚姻”",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "45",
+      "english_tex": "stable marriage",
+      "index_key": "S142@稳定婚姻（stable marriage）"
+    },
+    {
+      "id": 143,
+      "group": "S",
+      "level": 0,
+      "parent": null,
+      "english": "Steiner problem",
+      "chinese_tex": "Steiner问题",
+      "references": [
+        {
+          "source_printed_page": "163",
+          "source_physical_page": 188,
+          "target": "idx:root4-p163-steiner",
+          "basis": "Gilbert能量与alpha=0的Steiner最小长度问题关系所在段落，并保留精确等价条件的脚注12.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "172",
+          "source_physical_page": 197,
+          "target": "idx:root4-p172-steiner",
+          "basis": "数值方法段落明确将分支运输与Steiner最小连接问题比较，并提及图上NP困难性.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "163, 172",
+      "english_tex": "Steiner problem",
+      "index_key": "S143@Steiner问题（Steiner problem）"
+    },
+    {
+      "id": 144,
+      "group": "S",
+      "level": 0,
+      "parent": null,
+      "english": "Stone-Weierstrass theorem",
+      "chinese_tex": "Stone--Weierstrass定理",
+      "references": [
+        {
+          "source_printed_page": "71",
+          "source_physical_page": 98,
+          "target": "box:2.3",
+          "basis": "原页Stone-Weierstrass theorem所对应的编号陈述／知识框／专题小节，与译文box:2.3核对",
+          "target_file": "sections-tex\\02-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "71",
+      "english_tex": "Stone-Weierstrass theorem",
+      "index_key": "S144@Stone--Weierstrass定理（Stone-Weierstrass theorem）"
+    },
+    {
+      "id": 145,
+      "group": "S",
+      "level": 0,
+      "parent": null,
+      "english": "sub-additivity",
+      "chinese_tex": "次可加性",
+      "references": [
+        {
+          "source_printed_page": "114",
+          "source_physical_page": 140,
+          "target": "idx:i145-p114",
+          "basis": "原页关于sub-additivity的段落；译文段落匹配“这些成本全都次可加”",
+          "target_file": "sections-tex\\03-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "162",
+          "source_physical_page": 187,
+          "target": "idx:root4-p162-subadditivity",
+          "basis": "分支运输引言的首段明确定义运输成本的次可加性和递减边际成本.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "258",
+          "source_physical_page": 282,
+          "target": "obj:7.10",
+          "basis": "原页sub-additivity所对应的编号陈述／知识框／专题小节，与译文obj:7.10核对",
+          "target_file": "sections-tex\\07-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "114, 162, 258",
+      "english_tex": "sub-additivity",
+      "index_key": "S145@次可加性（sub-additivity）"
+    },
+    {
+      "id": 146,
+      "group": "S",
+      "level": 0,
+      "parent": null,
+      "english": "subdifferentials",
+      "chinese_tex": "次微分",
+      "references": [
+        {
+          "source_printed_page": "26",
+          "source_physical_page": 54,
+          "target": "box:1.12",
+          "basis": "原页subdifferentials所对应的编号陈述／知识框／专题小节，与译文box:1.12核对",
+          "target_file": "sections-tex\\01-06.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "159",
+          "source_physical_page": 184,
+          "target": "idx:root4-p159-subdifferentials",
+          "basis": "原页顶部承接前页的次微分计算，具体指用FMM同一循环求解导数方程并得到次微分元素的句子.",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "260",
+          "source_physical_page": 284,
+          "target": "sec:7.2",
+          "basis": "原页subdifferentials所对应的编号陈述／知识框／专题小节，与译文sec:7.2核对",
+          "target_file": "sections-tex\\07-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "26, 159, 260",
+      "english_tex": "subdifferentials",
+      "index_key": "S146@次微分（subdifferentials）"
+    },
+    {
+      "id": 147,
+      "group": "S",
+      "level": 0,
+      "parent": null,
+      "english": "super-hedging",
+      "chinese_tex": "超额对冲",
+      "references": [
+        {
+          "source_printed_page": "53",
+          "source_physical_page": 81,
+          "target": "idx:i147-p53",
+          "basis": "原页关于super-hedging的段落；译文段落匹配“本小节最后介绍另一种方法”",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "53",
+      "english_tex": "super-hedging",
+      "index_key": "S147@超额对冲（super-hedging）"
+    },
+    {
+      "id": 148,
+      "group": "T",
+      "level": 0,
+      "parent": null,
+      "english": "torus",
+      "chinese_tex": "环面",
+      "references": [
+        {
+          "source_printed_page": "18",
+          "source_physical_page": 46,
+          "target": "sec:1.3.2",
+          "basis": "原页torus所对应的编号陈述／知识框／专题小节，与译文sec:1.3.2核对",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "196",
+          "source_physical_page": 220,
+          "target": "obj:5.22",
+          "basis": "原220页注5.22完整定义环面周期卷积及同等构造",
+          "target_file": "sections-tex\\05-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "199",
+          "source_physical_page": 223,
+          "target": "idx:root5-p199-torus",
+          "basis": "原223页定理5.24证明第二部分为保紧性选用环面构造",
+          "target_file": "sections-tex\\05-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "225",
+          "source_physical_page": 249,
+          "target": "idx:i148-p225",
+          "basis": "原页关于torus的段落；译文段落匹配“这里给出一幅简单图片”",
+          "target_file": "sections-tex\\06-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "232",
+          "source_physical_page": 256,
+          "target": "idx:i148-p232",
+          "basis": "原页关于torus的段落；译文段落匹配“区域$\\Omega=\\mathbb T^d$”",
+          "target_file": "sections-tex\\06-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "18, 196, 199, 225, 232",
+      "english_tex": "torus",
+      "index_key": "T148@环面（torus）"
+    },
+    {
+      "id": 149,
+      "group": "T",
+      "level": 0,
+      "parent": null,
+      "english": "traffic congestion",
+      "chinese_tex": "交通拥堵",
+      "references": [
+        {
+          "source_printed_page": "151",
+          "source_physical_page": 176,
+          "target": "sec:4.4.1",
+          "basis": "原页traffic congestion所对应的编号陈述／知识框／专题小节，与译文sec:4.4.1核对",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "151",
+      "english_tex": "traffic congestion",
+      "index_key": "T149@交通拥堵（traffic congestion）"
+    },
+    {
+      "id": 150,
+      "group": "T",
+      "level": 0,
+      "parent": null,
+      "english": "traffic plans",
+      "chinese_tex": "交通方案",
+      "references": [
+        {
+          "source_printed_page": "168",
+          "source_physical_page": 193,
+          "target": "idx:root4-p168-traffic-plan",
+          "basis": "拉格朗日表述的具体段落将交通计划定义为曲线空间上的概率Q，并列出可积长度与端点条件.",
+          "target_file": "sections-tex\\04-04-2.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "168",
+      "english_tex": "traffic plans",
+      "index_key": "T150@交通方案（traffic plans）"
+    },
+    {
+      "id": 151,
+      "group": "T",
+      "level": 0,
+      "parent": null,
+      "english": "transport density",
+      "chinese_tex": "传输密度",
+      "references": [
+        {
+          "source_printed_page": "133",
+          "source_physical_page": 158,
+          "target": "idx:root4-p133-transport-density",
+          "basis": "Monge--Kantorovich系统与运输密度段落明确命名sigma_gamma为运输密度并说明其起源与用途.",
+          "target_file": "sections-tex\\04-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "144",
+          "source_physical_page": 169,
+          "target": "sec:4.3",
+          "basis": "小节4.3运输密度的可积性在本页开始，说明从测度正则性到绝对连续性和L^p估计的研究范围.",
+          "target_file": "sections-tex\\04-03.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "133, 144",
+      "english_tex": "transport density",
+      "index_key": "T151@传输密度（transport density）"
+    },
+    {
+      "id": 152,
+      "group": "T",
+      "level": 0,
+      "parent": null,
+      "english": "transport equation",
+      "chinese_tex": "传输方程",
+      "references": [
+        {
+          "source_printed_page": "228",
+          "source_physical_page": 252,
+          "target": "box:6.3",
+          "basis": "原页transport equation所对应的编号陈述／知识框／专题小节，与译文box:6.3核对",
+          "target_file": "sections-tex\\06-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "228",
+      "english_tex": "transport equation",
+      "index_key": "T152@传输方程（transport equation）"
+    },
+    {
+      "id": 153,
+      "group": "T",
+      "level": 0,
+      "parent": null,
+      "english": "twist condition",
+      "chinese_tex": "扭曲条件",
+      "references": [
+        {
+          "source_printed_page": "14",
+          "source_physical_page": 42,
+          "target": "obj:1.16",
+          "basis": "原页twist condition所对应的编号陈述／知识框／专题小节，与译文obj:1.16核对",
+          "target_file": "sections-tex\\01-03.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "56",
+          "source_physical_page": 84,
+          "target": "idx:i153-p56",
+          "basis": "原页关于twist condition的段落；译文段落匹配“一般成本下 Kantorovich 势的正则性”",
+          "target_file": "sections-tex\\01-07.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "65",
+          "source_physical_page": 92,
+          "target": "obj:2.13",
+          "basis": "原页twist condition所对应的编号陈述／知识框／专题小节，与译文obj:2.13核对",
+          "target_file": "sections-tex\\02-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "229",
+          "source_physical_page": 253,
+          "target": "idx:i153-p229",
+          "basis": "原页关于twist condition的段落；译文段落匹配“对于不满足扭曲条件的成本”",
+          "target_file": "sections-tex\\06-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "266",
+          "source_physical_page": 290,
+          "target": "obj:7.18",
+          "basis": "原页twist condition所对应的编号陈述／知识框／专题小节，与译文obj:7.18核对",
+          "target_file": "sections-tex\\07-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "14, 56, 65, 229, 266",
+      "english_tex": "twist condition",
+      "index_key": "T153@扭曲条件（twist condition）"
+    },
+    {
+      "id": 154,
+      "group": "U",
+      "level": 0,
+      "parent": null,
+      "english": "urban planning",
+      "chinese_tex": "城市规划",
+      "references": [
+        {
+          "source_printed_page": "277",
+          "source_physical_page": 301,
+          "target": "idx:i154-p277",
+          "basis": "原页关于urban planning的段落；译文段落匹配“在城市规划中”",
+          "target_file": "sections-tex\\07-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "280",
+          "source_physical_page": 304,
+          "target": "idx:i154-p280",
+          "basis": "原页关于urban planning的段落；译文段落匹配“不讨论\\cite{b93,b94}中的城市规划模型”",
+          "target_file": "sections-tex\\07-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "277, 280",
+      "english_tex": "urban planning",
+      "index_key": "U154@城市规划（urban planning）"
+    },
+    {
+      "id": 155,
+      "group": "U",
+      "level": 0,
+      "parent": null,
+      "english": "Uzawa algorithm",
+      "chinese_tex": "Uzawa算法",
+      "references": [
+        {
+          "source_printed_page": "221",
+          "source_physical_page": 245,
+          "target": "box:6.1",
+          "basis": "原页Uzawa algorithm所对应的编号陈述／知识框／专题小节，与译文box:6.1核对",
+          "target_file": "sections-tex\\06-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "221",
+      "english_tex": "Uzawa algorithm",
+      "index_key": "U155@Uzawa算法（Uzawa algorithm）"
+    },
+    {
+      "id": 156,
+      "group": "V",
+      "level": 0,
+      "parent": null,
+      "english": "vector measures",
+      "chinese_tex": "向量测度",
+      "references": [
+        {
+          "source_printed_page": "130",
+          "source_physical_page": 155,
+          "target": "box:4.2",
+          "basis": "知识框4.2定义向量测度、全变差、弱收敛及散度约束下的向量测度空间.",
+          "target_file": "sections-tex\\04-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "130",
+      "english_tex": "vector measures",
+      "index_key": "V156@向量测度（vector measures）"
+    },
+    {
+      "id": 157,
+      "group": "V",
+      "level": 0,
+      "parent": null,
+      "english": "very degenerate elliptic PDEs",
+      "chinese_tex": "高度退化的椭圆偏微分方程",
+      "references": [
+        {
+          "source_printed_page": "161",
+          "source_physical_page": 186,
+          "target": "eq:4.30",
+          "basis": "式(4.30)即拥堵模型导出的非常退化椭圆偏微分方程，后附Neumann边界条件及正则性讨论.",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "161",
+      "english_tex": "very degenerate elliptic PDEs",
+      "index_key": "V157@高度退化的椭圆偏微分方程（very degenerate elliptic PDEs）"
+    },
+    {
+      "id": 158,
+      "group": "V",
+      "level": 0,
+      "parent": null,
+      "english": "Voronoi cells",
+      "chinese_tex": "Voronoi单元",
+      "references": [
+        {
+          "source_printed_page": "236",
+          "source_physical_page": 260,
+          "target": "box:6.6",
+          "basis": "原页Voronoi cells所对应的编号陈述／知识框／专题小节，与译文box:6.6核对",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "242",
+          "source_physical_page": 266,
+          "target": "idx:i158-p242",
+          "basis": "原页关于Voronoi cells的段落；译文段落匹配“它们与点$y_j$的Voronoi单元重合”",
+          "target_file": "sections-tex\\06-04.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "236, 242",
+      "english_tex": "Voronoi cells",
+      "index_key": "V158@Voronoi单元（Voronoi cells）"
+    },
+    {
+      "id": 159,
+      "group": "W",
+      "level": 0,
+      "parent": null,
+      "english": "Wasserstein distance",
+      "chinese_tex": "Wasserstein距离",
+      "references": [
+        {
+          "source_printed_page": "179",
+          "source_physical_page": 203,
+          "target": "sec:5.1",
+          "basis": "原203页5.1节给出Wp费用最小值的正式定义",
+          "target_file": "sections-tex\\05-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "183",
+          "source_physical_page": 207,
+          "target": "sec:5.2",
+          "basis": "原207页5.2节开头比较Wp距离诱导拓扑与弱收敛",
+          "target_file": "sections-tex\\05-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "179, 183",
+      "english_tex": "Wasserstein distance",
+      "index_key": "W159@Wasserstein距离（Wasserstein distance）"
+    },
+    {
+      "id": 160,
+      "group": "W",
+      "level": 1,
+      "parent": 159,
+      "english": "triangle inequality",
+      "chinese_tex": "三角不等式",
+      "references": [
+        {
+          "source_printed_page": "181",
+          "source_physical_page": 205,
+          "target": "obj:5.3",
+          "basis": "原205页引理5.3，映射与逼近的三角不等式证明",
+          "target_file": "sections-tex\\05-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "182",
+          "source_physical_page": 206,
+          "target": "obj:5.4",
+          "basis": "原206页引理5.4的三角不等式第二证明",
+          "target_file": "sections-tex\\05-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "181, 182",
+      "english_tex": "triangle inequality",
+      "index_key": "W159@Wasserstein距离（Wasserstein distance）!160@三角不等式（triangle inequality）"
+    },
+    {
+      "id": 161,
+      "group": "W",
+      "level": 1,
+      "parent": 159,
+      "english": "Wasserstein spaces",
+      "chinese_tex": "Wasserstein空间",
+      "references": [
+        {
+          "source_printed_page": "183",
+          "source_physical_page": 207,
+          "target": "obj:5.7",
+          "basis": "原207页定义5.7，Wasserstein空间的原定义",
+          "target_file": "sections-tex\\05-01.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "183",
+      "english_tex": "Wasserstein spaces",
+      "index_key": "W159@Wasserstein距离（Wasserstein distance）!161@Wasserstein空间（Wasserstein spaces）"
+    },
+    {
+      "id": 162,
+      "group": "W",
+      "level": 0,
+      "parent": null,
+      "english": "weak convergence",
+      "chinese_tex": "弱收敛",
+      "references": [
+        {
+          "source_printed_page": "3",
+          "source_physical_page": 31,
+          "target": "box:1.2",
+          "basis": "原页weak convergence所对应的编号陈述／知识框／专题小节，与译文box:1.2核对",
+          "target_file": "sections-tex\\01-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "4",
+          "source_physical_page": 32,
+          "target": "box:1.3",
+          "basis": "原页weak convergence所对应的编号陈述／知识框／专题小节，与译文box:1.3核对",
+          "target_file": "sections-tex\\01-01.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "183",
+          "source_physical_page": 207,
+          "target": "sec:5.2",
+          "basis": "原207页5.2节开头重述弱/窄收敛与Cb对偶",
+          "target_file": "sections-tex\\05-02.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "3, 4, 183",
+      "english_tex": "weak convergence",
+      "index_key": "W162@弱收敛（weak convergence）"
+    },
+    {
+      "id": 163,
+      "group": "W",
+      "level": 0,
+      "parent": null,
+      "english": "weighted distances",
+      "chinese_tex": "加权距离",
+      "references": [
+        {
+          "source_printed_page": "129",
+          "source_physical_page": 154,
+          "target": "idx:root4-p129-weighted-distance",
+          "basis": "原页给出d_k的加权曲线长度定义及其作为运输成本的无编号公式.",
+          "target_file": "sections-tex\\04-02.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "155",
+          "source_physical_page": 180,
+          "target": "idx:root4-p155-weighted-distance",
+          "basis": "交通强度诱导度量k_Q(x)=g(x,i_Q(x))并定义加权长度L_kQ和距离d_kQ的连续框架段落.",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        },
+        {
+          "source_printed_page": "158",
+          "source_physical_page": 183,
+          "target": "eq:4.25",
+          "basis": "式(4.25)前一句将加权距离d_k(x_0,.)作为程函方程唯一黏性解，随后知识框讨论其离散计算.",
+          "target_file": "sections-tex\\04-04-1.tex",
+          "status": "verified-location"
+        }
+      ],
+      "see": null,
+      "source_index_physical_page": 376,
+      "source_page_expression": "129, 155, 158",
+      "english_tex": "weighted distances",
+      "index_key": "W163@加权距离（weighted distances）"
+    }
+  ],
+  "coverage": {
+    "main_entries": 143,
+    "subentries": 20,
+    "all_entries": 163,
+    "source_link_annotations": 351,
+    "source_locations_after_expanding_ranges": 356,
+    "unique_source_pages": 205,
+    "see_guides": 0,
+    "unresolved_locations": 0,
+    "unique_label_targets": 319,
+    "unique_index_anchors": 356
+  }
+}

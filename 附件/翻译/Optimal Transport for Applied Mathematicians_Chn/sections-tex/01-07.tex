@@ -32,7 +32,7 @@ $p=2$ 的情形更有意思，因为这时可用协方差来表述问题. 确切
  &\quad-2\mathbb E[(X-x_0)\cdot(Y-y_0)].
 \end{aligned}
 \end{equation*}
-在此式中，前三项分别只依赖于 $X$ 与 $Y$ 各自的分布：第一项为 $X$ 的方差，第二项为 $Y$ 的方差，第三项为两个均值之间的距离平方. 接下来的两项为零，因为 $X-x_0$ 与 $Y-y_0$ 的均值均为零. 因而，问题归结为极大化 $\mathbb E[(X-x_0)\cdot(Y-y_0)]$. 换言之，需要在给定两个随机变量分布的情况下，寻找使其协方差最大（也就是在某种意义下使其依赖性最大）的联合分布. 在实值随机变量的情形（见\orig{86}{下一章}），答案是：当 $X$ 与 $Y$ 完全依赖，且其中一个是另一个的递增函数时，就得到最优耦合. 在多维情形中，这种递增性自然被其他单调性所取代.
+在此式中，前三项分别只依赖于 $X$ 与 $Y$ 各自的分布：第一项为 $X$ 的方差，第二项为 $Y$ 的方差，第三项为两个均值之间的距离平方. 接下来的两项为零，因为 $X-x_0$ 与 $Y-y_0$ 的均值均为零. 因而，问题归结为极大化 $\mathbb E[(X-x_0)\cdot(Y-y_0)]$. 换言之，需要在给定两个随机变量分布的情况下，寻找使其协方差最大（也就是在某种意义下使其依赖性最大）的联合分布. 在实值随机变量的情形（见\hyperref[sec:2]{下一章}），答案是：当 $X$ 与 $Y$ 完全依赖，且其中一个是另一个的递增函数时，就得到最优耦合. 在多维情形中，这种递增性自然被其他单调性所取代.
 
 \subsubsection{极分解}\label{sec:1.7.2}
 
@@ -65,7 +65,7 @@ $p=2$ 的情形更有意思，因为这时可用协方差来表述问题. 确切
 类似地，Y.~Brenier 在有关二次最优运输的早期工作中注意到，Monge--Kantorovich 理论能够给向量场提供与线性映射类似的分解（见\cite{b82,b84}，另见\cite{b174}）.
 
 其陈述如下：
-\begin{theorem}\label{obj:1.53}
+\begin{theorem}\label{obj:1.53}\index{B020@Brenier定理（Brenier Theorem）|hyperpage}
 给定向量映射 $\xi:\Omega\to\mathbb R^d$，其中 $\Omega\subset\mathbb R^d$. 考虑 $\Omega$ 上经归一化的 Lebesgue 测度 $\mathscr L_\Omega$，并假设 $\xi_\#\mathscr L_\Omega$ 绝对连续. 则存在凸函数 $u:\Omega\to\mathbb R$ 以及保测映射 $s:\Omega\to\Omega$（即 $s_\#\mathscr L_\Omega=\mathscr L_\Omega$），使得 $\xi=(\nabla u)\circ s$. 此外，$s$ 与 $\nabla u$ 都在几乎处处意义下唯一确定，且 $s$ 解下列问题：
 \[
  \max\left\{\int\xi(x)\cdot r(x)\,\mathrm dx:
@@ -122,10 +122,12 @@ $\nabla u$ 的唯一性来自如下事实：$\xi=(\nabla u)\circ s$ 且 $s$ 保�
 \]
 这个问题容易理解，但我们还想分析一些 Kantorovich 势同样发挥作用的问题.
 
+\phantomsection\label{idx:i142-p45}\index{S142@稳定婚姻（stable marriage）|hyperpage}
 第一个例子是稳定婚姻. 给定女性群体 $W$ 和男性群体 $M$，分别用 $W$ 上的测度 $\mu$ 和 $M$ 上的测度 $\nu$ 表示. 用 $u_w(x,y)$ 表示女士 $x$ 对先生 $y$ 的兴趣，用 $u_m(x,y)$ 表示先生 $y$ 对女士 $x$ 的兴趣. 问题是寻找一组稳定婚姻，即寻找 $W\times M$ 上的测度 $\gamma$，描述有多少 $x$ 型女性与多少 $y$ 型男性结婚. 这个 $\gamma$ 显然必须属于 $\Pi(\mu,\nu)$；我们还希望选出的 $\gamma$ 稳定，也就是说，不会出现某一对 $(x,y)$ 决定各自与现有伴侣离婚而走到一起. 我们关注的是\emph{可转移效用}情形：假设 $x$ 与 $y$ 一旦结婚，就商定如何分配总效用 $u_w(x,y)+u_m(x,y)$. 将其分为女士 $x$ 的效用盈余 $\varphi(x)$（她现在是 $y$ 夫人，但仍用她的婚前姓名称呼她）与先生 $y$ 的效用盈余 $\psi(y)$. 注意，这时真正起作用的只有和 $U(x,y):=u_w(x,y)+u_m(x,y)$. 稳定婚姻是三元组 $(\gamma,\varphi,\psi)$，满足 $U(x,y)=\varphi(x)+\psi(y)$ 在 $\gamma$-几乎处处成立（表示 $\varphi$ 与 $\psi$ 分配了总效用），并且对所有 $(x,y)$ 有 $U(x,y)\leq\varphi(x)+\psi(y)$（表示没有一对 $(x,y)$ 愿意离开现状）. 容易看出，这对应于一个最优 $\gamma$ 及其势. 文献\cite{b125} 对此问题有有趣的讨论. 另一方面，不可转移效用情形复杂得多，也不对应于运输问题.
 
 在上例中，势表示分配后的效用；还可以考虑势真正表示价格的情形. 确切地说，设变量 $x$ 表示市场上供应的商品，$\mu$ 表示这些商品的分布（各类型有多少），并将其视为固定. 变量 $y$ 表示消费者的类型，$\nu$ 是其分布. 以 $u(x,y)$ 表示消费者 $y$ 购买商品 $x$ 时的效用. 目标是确定商品的价格，以及谁购买什么. 暂且假设各商品的价格 $\varphi(x)$ 已知，那么每个消费者都通过求解 $\max_x u(x,y)-\varphi(x)$ 来决定购买什么. 将此值记为 $\varphi^u(y)$；这略微滥用了记号，因为此前我们通常采用极小化而非极大化. 用测度 $\gamma\in\Pi(\mu,\nu)$ 描述消费者的选择，其中 $\gamma(A\times B)$ 表示购买商品 $x\in A$ 的 $y\in B$ 型消费者的数量. 约束 $\gamma\in\Pi(\mu,\nu)$ 表示市场供需所给出的约束（称市场出清）. 另一个自然条件是，每个消费者只购买对自己最优的商品，即 $\gamma$ 集中在满足 $\varphi^u(y)=u(x,y)-\varphi(x)$ 的点对 $(x,y)$ 上；换言之，在给定 $\varphi$ 时，$x$ 是 $y$ 的最优选择.
 
+\phantomsection\label{idx:i53-p46}\index{E053@均衡（equilibria）|hyperpage}
 这就导出如下问题：
 \begin{equation*}
 \begin{gathered}
@@ -164,6 +166,7 @@ $\nabla u$ 的唯一性来自如下事实：$\xi=(\nabla u)\circ s$ 且 $s$ 保�
 
 研究最多的是 $x$ 与 $y$ 分别属于凸集 $X,Y\subset\mathbb R^d$，且函数 $u(x,y)=x\cdot y$ 为标量积的情形. 如果把商品描述为一组参数（以汽车为例，可以使用座位数、行李厢容积、油耗、最高车速等），并用消费者对各参数的重视程度描述消费者，这种情形就十分自然. 类型为 $y=(y_1,\ldots,y_n)$ 的消费者，愿意为商品第 $i$ 个参数每增加一个单位，多付出 $y_i$ 个货币单位. 因此，系数 $y_i$ 的值给出了商品各项特征相对于货币的价值（以汽车为例，较富裕的人不太在意金钱，或非常喜欢汽车、极其需要汽车的人，其系数通常会较高）. 空商品可选为点 $x_0=0\in\mathbb R^d$.
 
+\phantomsection\label{idx:i120-p48}\index{P120@委托人--代理人问题（principal-agent problem）|hyperpage}
 此时容易验证，$\varphi^u$ 就是凸分析中的 Legendre 变换 $\varphi^*$. 凸分析中的标准论证表明，若 $\varphi^*$ 在 $y$ 处可微，那么 $\max_x x\cdot y-\varphi(x)$ 中的最优选择 $x$ 恰为 $x=\nabla\varphi^*(y)$；当 $\nu$ 绝对连续时，凸函数的可微性使该选择几乎处处唯一. 于是，映射 $\nabla\varphi^*(y)$ 将 $\nu$ 送至 $\mu$，反过来，$\nabla\varphi$ 将 $\mu$ 送至 $\nu$. 因而，优化问题写为
 \[
  \max\left\{\int\varphi_\mu\,\mathrm d\mu:
@@ -184,9 +187,10 @@ $\nabla u$ 的唯一性来自如下事实：$\xi=(\nabla u)\circ s$ 且 $s$ 保�
 \end{equation*}
 约束 $\min\psi=0$ 来自 $0=\psi^*(0)=\sup_y 0\cdot y-\psi(y)$. 这是一个标准的变分法问题，但被限制在凸函数类中. 文献\cite{b262} 对其进行了深入研究，通常称之为\emph{委托人--代理人问题}（principal-agent problem）.
 
+\phantomsection\label{idx:i96-p48}\index{M096@Ma--Trudinger--Wang条件（Ma-Trudinger-Wang）|hyperpage}
 对于更一般的耦合函数 $u(x,y)$，文献\cite{b168} 研究了该问题的细致性质，特别研究了对效用 $u$ 施加哪些假设能够使优化问题成为凸优化问题. 有趣的是，保证这种凸性的条件，与\autoref{sec:1.7.6} 中就正则性所要提到的 MTW 假设有关.
 
-\subsubsection{多边缘运输问题}\label{sec:1.7.4}
+\subsubsection{多边缘运输问题}\label{sec:1.7.4}\index{M104@多边际问题（multi-marginal problems）|hyperpage}
 
 最优运输理论中这一较新的部分正日益受到重视，并在许多不同领域得到应用. 这里仅简述这一主题已经开展或可以开展的工作.
 
@@ -218,10 +222,12 @@ $\nabla u$ 的唯一性来自如下事实：$\xi=(\nabla u)\circ s$ 且 $s$ 保�
  c(x_1,\ldots,x_d):=|\det(x_1,\ldots,x_d)|.
 \end{gathered}
 \end{equation*}
-这里，$\mathbb R^d$ 中 $d$ 个向量组成的族的行列式，是以这些向量为列的矩阵的行列式（见\cite{b109}）. $d>2$ 时该问题才有意思，因为在二维中，由 $\det(x,y)=x\cdot Ry$（其中 $R$ 为 $90^\circ$ 旋转）可通过变量代换回到 Brenier 问题（另比较\orig{348}{习题2}）. 文献\cite{b177} 的情形还将在\orig{239}{第5.5.5节}讨论重心时出现.
+这里，$\mathbb R^d$ 中 $d$ 个向量组成的族的行列式，是以这些向量为列的矩阵的行列式\mbox{（见\cite{b109}）.} $d>2$ 时该问题才有意思，因为在二维中，由 $\det(x,y)=x\cdot Ry$（其中 $R$ 为 $90^\circ$ 旋转）可通过变量代换回到 Brenier 问题（另比较\hyperref[ex:2]{习题2}）. 文献\cite{b177} 的情形还将在\hyperref[sec:5.5.5]{第5.5.5节}讨论重心时出现.
 
 不过，我们更愿意介绍一些重要应用自然导出多边缘运输问题的例子. 例如，在经济学中（见\cite{b108}），可以考虑涉及两个以上参与者的合约：卖方将商品交给买方并换取货币，是两个参与者之间的合约；某人想建造房屋，购买土地并雇用木匠和建筑师时，则至少涉及四个参与者. 此时，空间 $\mathscr X$ 中的一点表示参与者 $x_1,x_2,\ldots,x_N$ 之间的一份可能合约，$c(x_1,\ldots,x_N)$ 是该合约的总效用.
 
+\phantomsection\label{idx:i116-p49}\index{P116@势能（potential energy）|hyperpage}
+\phantomsection\label{idx:i38-p49}\index{D038@密度泛函理论（Density Functional Theory）|hyperpage}
 在物理学的一些近期工作中，电子密度泛函理论（Electronic Density Functional Theory）框架提供了一个完全不同的背景（见\cite{b97,b128}）. 为了极其简化地描述这些问题，考虑围绕原子核运动的 $N$ 个电子. 在量子物理学中，电子的构型由波函数 $\psi:\Omega^N\to\mathbb C$ 描述，其中 $\Omega$ 是电子所处的物理区域（通常 $\Omega=\mathbb R^3$）. 为简单起见，忽略自旋问题，以及 $\psi$ 的对称性依赖于粒子是费米子还是玻色子这一事实. 只考虑 $|\psi|^2$ 在变量置换下不变. 这个标量函数也表示电子位置的联合分布. 因此，由 $(\pi_1)_\#(|\psi|^2)$ 给出的概率测度 $\varrho\in\mathscr P(\mathbb R^3)$ 表示单个电子位置的分布. 状态的能量表示为下列各项之和：
 \begin{equation*}
 \begin{aligned}
@@ -239,6 +245,7 @@ $\nabla u$ 的唯一性来自如下事实：$\xi=(\nabla u)\circ s$ 且 $s$ 保�
 
 可以看到，我们已经遇到数个边缘相同时仍有意义的“对称”成本函数的例子（文献\cite{b177} 和\cite{b109} 的成本不具有这一特点）. 这引出了关于对称极小解的若干问题. 确实，所有这些问题都可限制在分量置换下不变的方案 $\gamma$ 的集合上. N.~Ghoussoub 及其合作者深入研究了对称运输问题的理论，并将它与极分解理论的一个变体以及自对偶凸问题联系起来；可参阅\cite{b179,b180}，此处不再展开.
 
+\phantomsection\label{idx:i98-p50}\index{M098@曲线上的测度（measures on curves）|hyperpage}
 本小节最后强调另一个要点：在演化问题中，特别是在流体力学中，一个自然的 Lagrange 观点是用可能轨迹集合上的测度描述整体运动. 这通常需要使用定义在 $[0,1]$ 上的连续或 Lipschitz 路径集合上的概率，但对这一框架所作的任何时间离散化，都可理解为 $\Omega^N$ 上的测度；其中 $\Omega$ 是状态空间，$N$ 表示时间步数，每步长度为 $\tau=1/N$. 这时，各边缘在某种意义上是“有序的”，成本也考虑到了这一特征；例如，自然的成本可以为
 \begin{equation*}
 \begin{aligned}
@@ -246,7 +253,8 @@ $\nabla u$ 的唯一性来自如下事实：$\xi=(\nabla u)\circ s$ 且 $s$ 保�
  c(x_1,\ldots,x_N)&=\sum_{i=1}^{N-1}\frac{|x_i-x_{i+1}|^2}{\tau},
 \end{aligned}
 \end{equation*}
-二者分别是离散路径的总长度和总动能（其中 $|x-y|^2/\tau$ 表示速度 $|x-y|/\tau$ 在长度为 $\tau$ 的时间区间上的积分）. 还要提到，后一成本的连续对应物，即对于 $\omega\in\mathscr C:=H^1([0,1];\Omega)$ 定义的 $c(\omega):=\int_0^1|\omega'(t)|^2\,\mathrm dt$，出现在 Brenier 对不可压缩 Euler 方程的变分表述中（见\cite{b83}），由此导出形如
+二者分别是离散路径的总长度和总动能（其中 $|x-y|^2/\tau$ 表示速度 $|x-y|/\tau$ 在长度为 $\tau$ 的时间区间上的积分）. 还要提到，后一成本的连续对应物，即对于 $\omega\in\mathscr C:=H^1([0,1];\Omega)$ 定义的 $c(\omega):=\int_0^1|\omega'(t)|^2\,\mathrm dt$，\phantomsection\label{idx:i78-p51}\index{I078@不可压缩流体（incompressible fluids）|hyperpage}
+出现在 Brenier 对不可压缩 Euler 方程的变分表述中（见\cite{b83}），由此导出形如
 \begin{equation*}
 \begin{aligned}
  \min\biggl\{&\int_Hc(\omega)\,\mathrm dQ(\omega):
@@ -257,7 +265,7 @@ $\nabla u$ 的唯一性来自如下事实：$\xi=(\nabla u)\circ s$ 且 $s$ 保�
 \end{equation*}
 的极小化问题. 这里 $e_t:\mathscr C\to\Omega$ 是取值映射 $e_t(\omega):=\omega(t)$，$\mathscr L_\Omega$ 是 $\Omega$ 上归一化的 Lebesgue 测度，$\gamma_{0,1}$ 是 $\mathscr P(\Omega\times\Omega)$ 中的给定测度，且其两个边缘均等于 $\mathscr L_\Omega$.
 
-\subsubsection{鞅最优运输与金融应用}\label{sec:1.7.5}
+\subsubsection{鞅最优运输与金融应用}\label{sec:1.7.5}\index{M104@多边际问题（multi-marginal problems）|hyperpage}\index{O113@期权定价（option pricing）|hyperpage}
 
 本小节介绍数理金融中涉及多边缘最优运输的两个问题. 要分析它们，首先应了解期权是什么. 期权是一种合约，赋予持有人在给定条件下买入或卖出某种金融资产的权利，从而可能带来金钱收益. 最典型的是欧式看涨期权，其条款是：“在时刻 $T$，你有权以价格 $K$ 买入该资产.” 如果届时价格为 $S_T$ 且高于 $K$，你就获得收益 $S_T-K$；如果价格低于 $K$，则不行使期权，最终收益为 $(S_T-K)_+$. 更一般地，凡是给予持有人某种收益、且该收益为给定资产（如股票）在时刻 $T$ 的价值 $S_T$ 的函数的金融合约，都称为期权. 这一价值是随时间演化的随机变量（以概率 $\mathbb P$ 为基础）. 还有一些更复杂的奇异期权，其收益依赖于资产价值的整个历史 $(S_t)_t$. 数理金融的主要问题之一，是给出计算这些合约合理价格的公式. 这建立在无套利假设上：合约唯一合理的价格，是使市场不存在套利\footnote{不存在套利通常称为“没有免费午餐”（no free lunch）.}机会的价格；套利是指在买卖该合约及相关标的资产时，能够无中生有地创造正的金额. 更精确地说，由于所有价值都是随机变量，这意味着以概率 $1$ 产生非负金额，并以严格正的概率产生严格正的金额. 数理金融中的一个一般定理（有关参考文献可见\cite{b139}）指出，所有这些无套利价格，实际上都是合约在某个概率 $\mathbb Q$ 下的期望值. 一般来说 $\mathbb Q$ 不同于 $\mathbb P$（但 $\mathbb P\ll\mathbb Q$ 且 $\mathbb Q\ll\mathbb P$，因此两者具有相同的零测集），并且在 $\mathbb Q$ 下，市场中所有资产的价值都是鞅. 因而，例如，欧式看涨期权的价格应为 $\mathbb E^{\mathbb Q}[(S_T-K)_+]$. 注意，知道每个 $K$ 对应的这个价格，就知道了 $S_T$ 在 $\mathbb Q$ 下的分布.
 
@@ -297,6 +305,7 @@ $\nabla u$ 的唯一性来自如下事实：$\xi=(\nabla u)\circ s$ 且 $s$ 保�
 \end{equation*}
 由于 $\phi$ 是任意测试函数，得到 $\mathrm{T}(x)=x$ 在 $\mu$-几乎处处成立. 这意味着，除非 $\nu=\mu$，否则双边缘鞅运输问题不存在由运输映射诱导的可行运输方案. 另一方面，可以将 $\gamma$ 实现为两个运输映射的组合；文献\cite{b31,b193} 证明了这类最优性结果. 鞅最优运输问题的一般介绍可见\cite{b32,b173}.
 
+\phantomsection\label{idx:i147-p53}\index{S147@超额对冲（super-hedging）|hyperpage}
 本小节最后介绍另一种方法，它基于最优对冲思想并导出同样的问题. 设 $f(S_0,\allowbreak\ldots,\allowbreak S_N)$ 是公司可能面临的损失，取决于资产 $S$ 的价格（即公司因债务或其他合约而必须支付的金额）. 公司希望利用市场中的机会“覆盖”（或“对冲”）这一金额. 为此，公司可以
 \begin{itemize}
  \item 购买依赖于资产在时刻 $t$ 的价值的通常期权，即购买到时价值为 $\phi(S_t)$ 的合约，其已知价格为 $\int\phi\,\mathrm d\mu_t$；
@@ -313,7 +322,7 @@ $\nabla u$ 的唯一性来自如下事实：$\xi=(\nabla u)\circ s$ 且 $s$ 保�
 \end{equation*}
 由边缘约束和鞅条件\eqref{eq:1.7}，不难验证，此问题正是上述鞅运输问题的对偶.
 
-\subsubsection{Monge--Amp\`ere 方程与正则性}\label{sec:1.7.6}
+\subsubsection{Monge--Amp\`ere 方程与正则性}\label{sec:1.7.6}\index{M101@Monge--Ampère方程（Monge-Ampère equation）|hyperpage}\index{R130@正则性（regularity）!133@势与映射的（for potentials and maps）|hyperpage}
 
 我们已在\autoref{sec:1.3.1} 看到，二次情形的最优运输具有 $\mathrm{T}(x)=\nabla u(x)$ 的形式，其中 $u$ 为凸函数. 若该函数光滑且严格凸，两个测度 $\mu$ 与 $\nu$ 都绝对连续（设密度分别为 $f$ 与 $g$），则可将条件 $\mathrm{T}_\#\mu=\nu$ 写成偏微分方程的形式. 确切地说，若 $\mu=f(x)\,\mathrm dx$、$\nu=g(y)\,\mathrm dy$，且 $\mathrm{T}$ 为 $C^1$ 单射，那么这个条件等价于 Jacobian 条件
 \[
@@ -321,7 +330,7 @@ $\nabla u$ 的唯一性来自如下事实：$\xi=(\nabla u)\circ s$ 且 $s$ 保�
 \]
 它可由一个简单的变量代换计算得到，说明如下.
 
-\begin{sourcebox}{知识回顾：变量代换与像测度}\label{box:1.14}
+\begin{sourcebox}{知识回顾：变量代换与像测度}\label{box:1.14}\index{D039@Jacobi行列式（determinant of the Jacobian）|hyperpage}
 \begin{proposition*}
 假设 $\varrho\in L^1(\Omega)$ 是 $\Omega\subset\mathbb R^d$ 上的正密度，$\mathrm{T}:\Omega\to\mathbb R^d$ 是 Lipschitz 单射，因而几乎处处可微. 假设在 $\{\varrho>0\}$ 上几乎处处有 $\det(D\mathrm{T})\neq0$. 则像测度 $\mathrm{T}_\#\varrho$ 绝对连续，其密度 $\varrho_{\mathrm{T}}$ 为
 \[
@@ -333,7 +342,8 @@ $\nabla u$ 的唯一性来自如下事实：$\xi=(\nabla u)\circ s$ 且 $s$ 保�
 \]
 给出.
 
-若 $\mathrm{T}$ 不是 Lipschitz 映射，但存在可测集 $E_i$，使 $|\Omega\setminus\bigcup_iE_i|=0$，且 $\mathrm{T}$ 在每个 $E_i$ 上 Lipschitz 连续，则上述公式仍然成立（关于可数 Lipschitz 函数，另见\orig{122}{定义3.13}）. 此处的微分 $D\mathrm{T}$ 实际上是 $\mathrm{T}$ 限制在各个使其 Lipschitz 连续的集合上之后的微分，因此与 $\mathrm{T}$ 的近似微分一致，见\orig{139}{第3.3.2节}.
+\phantomsection\label{idx:i30-p54}\index{C030@可数Lipschitz（countably Lipschitz）|hyperpage}
+若 $\mathrm{T}$ 不是 Lipschitz 映射，但存在可测集 $E_i$，使 $|\Omega\setminus\bigcup_iE_i|=0$，且 $\mathrm{T}$ 在每个 $E_i$ 上 Lipschitz 连续，则上述公式仍然成立（关于可数 Lipschitz 函数，另见\hyperref[obj:3.13]{定义3.13}）. 此处的微分 $D\mathrm{T}$ 实际上是 $\mathrm{T}$ 限制在各个使其 Lipschitz 连续的集合上之后的微分，因此与 $\mathrm{T}$ 的近似微分一致，见\hyperref[sec:3.3.2]{第3.3.2节}.
 \end{proposition*}
 \end{sourcebox}
 
@@ -345,6 +355,7 @@ $\nabla u$ 的唯一性来自如下事实：$\xi=(\nabla u)\circ s$ 且 $s$ 保�
 
 在我们的情形中，重要的是理解该方程的意义及应与之配合的边界条件.
 
+\phantomsection\label{idx:i136-p55}\index{S136@第二边值问题（second boundary value problem）|hyperpage}
 先考虑边界条件. 鉴于这一偏微分方程的运输意义，若考虑 $\mu\in\mathscr P(\Omega)$ 和 $\nu\in\mathscr P(\Omega')$，规定 $u$ 或 $\nabla u$ 在 $\partial\Omega$ 上的行为并无意义. 自然条件只是 $\nabla u(\Omega)=\Omega'$，它是关于 $u$ 的一个整体条件. 粗略地说，而且仅当 $u$ 为同胚时，这对应于 $u(\partial\Omega)=\partial\Omega'$. 这种特殊的“边界”条件通常称为 Monge--Amp\`ere 方程的\emph{第二边值问题}.
 
 对\eqref{eq:1.8}，可以定义几种不同的解：
@@ -357,11 +368,12 @@ $\nabla u$ 的唯一性来自如下事实：$\xi=(\nabla u)\circ s$ 且 $s$ 保�
 注意，除第一种以外，所有这些概念也可用于更一般的方程 $\det D^2u=f$（$f$ 固定，不具有 $f/g\circ \mathrm{T}$ 的结构），而第一种仅适用于这一特殊的运输情形.
 
 \eqref{eq:1.8} 的解的正则性能够给出最优运输映射的正则性. Caffaelli 在20世纪90年代研究了这一问题，得到了很强的结果. 我们要使用的结果在\cite{b292} 的定理50中有很好的概括：
-\begin{theorem}\label{obj:1.54}
+\begin{theorem}\label{obj:1.54}\index{H072@Hölder正则性（Hölder regularity）|hyperpage}
 若 $f$ 与 $g$ 均属于 $C^{0,\alpha}(\Omega)$，在整个 $\Omega$ 上均有正常数上界和正常数下界，且 $\Omega$ 是凸开集，则\eqref{eq:1.8} 的唯一 Brenier 解 $u$ 属于 $C^{2,\alpha}(\Omega)\cap C^{1,\alpha}(\overline\Omega)$，并且 $u$ 在经典意义下满足该方程（从而也在 Alexandroff 意义及黏性意义下满足它）.
 \end{theorem}
 这里只详述一条通往该结果的可能文献路径. Brenier 解不易直接处理，因此思路是考虑黏性解，后者一般容易用 Perron 方法证明存在性. 随后证明黏性解的一些正则性，直至得到经典解. 一旦得到 Monge--Amp\`ere 方程的经典凸解，它也就是 Brenier 解. 由于这种解在相差加性常数的意义下唯一，便得到 Brenier 解的正则性结论. 关于黏性解的结果可见\cite{b98,b100} 以及\cite{b99}. 文献\cite{b98} 给出了一些条件，以便在 $f$ 有上、下界时保证 $\det D^2u=f$ 的解严格凸. 对同一个方程，文献\cite{b100} 在严格凸的前提下证明了 $C^{1,\alpha}$ 正则性. 这样一来，$f/g(\nabla u)$ 成为 $C^{0,\alpha}$ 函数，而\cite{b99} 证明了 $f\in C^{0,\alpha}$ 时，$\det D^2u=f$ 的解具有 $C^{2,\alpha}$ 正则性.
 
+\phantomsection\label{idx:i22-p56}\index{B022@BV函数（BV functions）|hyperpage}
 这一正则性理论的一些近期改进由 De Philippis 与 Figalli 获得. 他们研究了如下自然问题：若 $f$ 与 $g$ 有上、下界，则运输映射是 BV 映射（因为它是凸函数的梯度），并且它连续（因为 $u\in C^{1,\alpha}$）；其导数没有跳跃部分（由于连续性）. 由此便问，是否有 $\mathrm{T}\in W^{1,1}$，即 $u\in W^{2,1}$？答案是肯定的，见\cite{b147,b148,b150}；甚至还能证明更精细的估计：$D^2u$ 不仅属于 $L^1$，而且稍好一些，包括某些 $L^{1+\varepsilon}$ 结果，Schmidt 在\cite{b281} 中也证明了此类结果. 关于 Monge--Amp\`ere 方程与最优运输的联系及其正则性的系统综述，见\cite{b149}.
 
 处理二次成本以外的成本时，情况复杂得多. 若成本 $c$ 满足扭转条件（twist condition），则仍可用一个梯度表示最优映射 $\mathrm{T}$，即 $\mathrm{T}(x)=(\nabla_xc(x,\cdot))^{-1}(\nabla\varphi(x))$. 写成 $\nabla_xc(x,\mathrm{T}(x))=\nabla\varphi(x)$ 并求导，得到
@@ -389,4 +401,7 @@ $\nabla u$ 的唯一性来自如下事实：$\xi=(\nabla u)\circ s$ 且 $s$ 保�
 \]
 的 Monge--Amp\`ere 型方程.
 
+\phantomsection\label{idx:i153-p56}\index{T153@扭曲条件（twist condition）|hyperpage}
+\phantomsection\label{idx:i96-p56}\index{M096@Ma--Trudinger--Wang条件（Ma-Trudinger-Wang）|hyperpage}
+\phantomsection\label{idx:i83-p56}\index{K083@Kantorovich势（Kantorovich potentials）|hyperpage}
 一般成本下 Kantorovich 势的正则性长期以来是一个难题，在\cite{b292} 中还被列为未解决问题. Ma、Trudinger 与 Wang 的一篇重要论文使情况变得相当清楚：他们在\cite{b219} 中找到了成本 $c$ 的一个关键假设，从而能够基于某些 Pogorelov 型方法建立正则性估计. 关于 $c$ 的这一假设非常技术性，要求其四阶导数满足某些不等式. 此处不写出这些不等式，但应指出，Loeper 后来在\cite{b216} 中证明了这些假设是尖锐的. 特别地，$c(x,y)=|x-y|^2$ 满足该假设，但它是一个极限情形；对 $p\in(1,+\infty)$，其他任何幂成本 $|x-y|^p$ 都不满足. 对每个 $\varepsilon>0$，成本 $\sqrt{\varepsilon^2+|x-y|^2}$ 也满足 MTW 假设，由此可以得到对线性成本 $|x-y|$ 的某些逼近结果（见\cite{b210}）. 区域 $\Omega$ 的凸性也要替换为一种适当的 $c$-凸性概念，此处不详述. 正如\autoref{sec:1.7.3} 所见，文献\cite{b168} 也强调了它与 $c$-凹函数相关凸性之间的联系. 在这一发现之后，该理论得到了深入研究，并考察了许多成本；还可以研究流形上的距离平方，此时这一条件转化为流形上的曲率条件. 关于整个理论的一篇有趣综述，见\cite{b164}.

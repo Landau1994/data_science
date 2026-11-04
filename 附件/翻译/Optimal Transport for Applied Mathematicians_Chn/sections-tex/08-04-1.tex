@@ -1,0 +1,54 @@
+% 原书物理325–327页，印刷301–303页；§8.4.1.
+\subsubsection{EVI、唯一性与测地凸性}\label{sec:8.4.1}\index{0006@$\lambda$-凸性（$\lambda$-convexity）|hyperpage}\index{D042@位移凸性（displacement convexity）|hyperpage}\index{E057@EVI条件（EVI condition）|hyperpage}
+在度量空间中梯度流的一般理论\cite{b15}中，为了处理唯一性及稳定性，提出了另一种不同于 EDE 的刻画. 它基于以下观察：若 $F:\R^d\to\R$ 是凸函数，则不等式
+\[
+F(y)\geq F(x)+p\cdot(y-x)\qquad\text{对所有 }y\in\R^d
+\]
+（按照定义）刻画了向量 $p\in\partial F(x)$；若 $F\in C^1$，则只有 $p=\nabla F(x)$ 才满足它. 类似地，若 $F$ 为 $\lambda$-凸函数，则刻画梯度的不等式为
+\[
+F(y)\geq F(x)+\frac\lambda2|x-y|^2+p\cdot(y-x)
+\qquad\text{对所有 }y\in\R^d.
+\]
+于是，取一条曲线 $x(t)$ 和一个点 $y$，计算
+\[
+\frac\dd{\dd t}\frac12|x(t)-y|^2=(y-x(t))\cdot(-x'(t)).
+\]
+因此，要求对所有 $y$ 有
+\[
+\frac\dd{\dd t}\frac12|x(t)-y|^2
+\leq F(y)-F(x(t))-\frac\lambda2|x(t)-y|^2,
+\]
+就等价于 $-x'(t)=\nabla F(x(t))$. 这将在度量环境中给出梯度流的第二种刻画（称为演化变分不等式，evolution variational inequality，EVI）. 事实上，上述不等式的各项都有度量对应物（只出现距离的平方与时间导数）. 虽然我们经常略去对 $\lambda$ 的依赖，但应当注意，EVI 条件实际上应该写为 $\mathrm{EVI}_\lambda$，因为其中含有一个事先任意的参数 $\lambda$. 事实上，\phantomsection\label{idx:i6-p302}\index{0006@$\lambda$-凸性（$\lambda$-convexity）|hyperpage}
+定义 $\mathrm{EVI}_\lambda$ 性质不需要 $F$ 的 $\lambda$-凸性，但要保证存在满足该条件的曲线，就需要这种凸性. 因此，$\lambda$-凸性概念在度量空间中同样至关重要；在那里，更准确地说，它是“$\lambda$-测地凸性”.
+
+EVI 条件在梯度流唯一性及稳定性中的作用很容易猜到. 取两条曲线，分别记为 $x(t)$ 和 $y(s)$，并计算
+\begin{equation}\label{eq:8.13}
+\frac\dd{\dd t}\frac12d(x(t),y(s))^2
+\leq F(y(s))-F(x(t))-\frac\lambda2d(x(t),y(s))^2,
+\end{equation}
+\begin{equation}\label{eq:8.14}
+\frac\dd{\dd s}\frac12d(x(t),y(s))^2
+\leq F(x(t))-F(y(s))-\frac\lambda2d(x(t),y(s))^2.
+\end{equation}
+若要估计 $E(t)=\frac12d(x(t),y(t))^2$，将上述两个不等式相加，并对二元函数\footnote{注意，一种基于双变量技巧的类似论证，也经常用于沿 $\mathbb W_2$ 中曲线对 $W_2^2$ 求导；我们在\autoref{sec:5.3.5}中用的是另一种方法.} $(t,s)\mapsto\frac12d(x(t),y(s))^2$ 与曲线 $t\mapsto(t,t)$ 的复合应用链式法则，得到
+\[
+\frac\dd{\dd t}E(t)\leq-2\lambda E(t).
+\]
+由 Gronwall 引理，这就给出了唯一性（当 $x(0)=y(0)$ 时）和稳定性.
+
+Savar\'e 澄清了抽象度量空间中这两种不同梯度流概念（EVI 与 EDE）的关系（见其一篇未发表的笔记，证明也可在\cite{b9}中找到）. 他证明了：
+\begin{itemize}
+\item 所有 EVI 意义下的梯度流曲线也满足 EDE 条件.
+\item 一般而言，EDE 条件不足以保证梯度流的唯一性. 作为简单的例子，取配备 $\ell^\infty$ 距离的 $X=\R^2$，即
+\[
+d((x_1,x_2),(y_1,y_2))=|x_1-y_1|\vee|x_2-y_2|,
+\]
+并取 $F(x_1,x_2)=x_1$；可以验证，任意满足 $x'_1(t)=-1$ 和 $|x'_2(t)|\leq1$ 的曲线 $(x_1(t),x_2(t))$ 都满足 EDE.
+\item 另一方面，EDE 意义下梯度流的存在性相当容易得到，并且可以在很弱的假设下证明.
+\item 一般而言，对存在性来说，EVI 条件过强（在上面 $\ell^\infty$ 范数的例子中，就不存在 EVI 梯度流），但它总能保证唯一性及关于初值的稳定性.
+\end{itemize}
+此外，EVI 梯度流的存在性本身，也对函数 $F$ 有很强的限制：事实上，\cite{b134}证明了，若从每个起点 $x_0$ 出发都存在 $F$ 的一个 $\mathrm{EVI}_\lambda$ 梯度流，则 $F$ 必然是 $\lambda$-测地凸的.
+
+必须强调，在一般的度量框架中，所有这些关于 EDE 与 EVI 的抽象考虑都是必需的；但对于具体应用，往往可以略去它们. 对本章核心的偏微分方程应用而言，以下观点似乎更加具体：已有一个写成偏微分方程的演化模型，我们想研究这个方程（存在性；唯一性及稳定性；定性、正则性与渐近性质；数值模拟）. 若这个偏微分方程恰好是某个泛函关于 $W_2$ 距离的梯度流，就能通过梯度流方法（更具体地说，通过离散变分问题的极小化运动方法）获得许多信息. 但所采用的解概念，事先应当是在问题建模时随该偏微分方程而来的那个概念（一般是连续性方程的弱解）. 因此，尽管已有一些非平凡结论证明，度量空间 $\mathbb W_2$ 中某些抽象的 EVI 或 EDE 概念与演化方程弱解之间等价（见\cite{b15}），本书仍选择不进入这些细节.
+
+另一方面，作为最后一点支持\cite{b15}中一般理论的说明，我们很快将在下一小节看到：面对非线性项时，用极小化运动方法证明存在性并不总是容易；有时利用\cite{b15}中建立的 $\mathbb W_2$ 梯度流刻画，反而更加方便.

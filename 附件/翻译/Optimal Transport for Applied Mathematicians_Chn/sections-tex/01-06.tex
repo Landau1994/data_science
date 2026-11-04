@@ -5,7 +5,7 @@
 
 本节把$c$-凹函数的性质与更为熟悉的凸函数作比较. 我们先回顾凸分析中的一些概念.
 
-\begin{sourcebox}{知识回顾：凸函数}\label{box:1.11}
+\begin{sourcebox}{知识回顾：凸函数}\label{box:1.11}\index{C028@凸函数（convex functions）|hyperpage}
 凸函数的定义始终相同：$f:\mathbb R^d\to\mathbb R\cup\{+\infty\}$是凸的，当且仅当对所有$x,y\in\mathbb R^d$及$t\in[0,1]$都有
 \[
 f((1-t)x+ty)\le(1-t)f(x)+tf(y).
@@ -28,7 +28,7 @@ f_\alpha((1-t)x+ty)\le(1-t)f_\alpha(x)+tf_\alpha(y)
 一个方向很容易（若$f$是仿射函数的上确界，由于仿射蕴含凸，所以$f$凸）. 逆命题背后的几何直觉在于：凸且下半连续函数的上图集是$\mathbb R^d\times\mathbb R$中的闭凸集，可写成所有包含它的半空间之交. 严格证明需要使用几何形式的Hahn--Banach定理.
 \end{sourcebox}
 
-\begin{sourcebox}{知识回顾：Legendre变换与次微分}\label{box:1.12}
+\begin{sourcebox}{知识回顾：Legendre变换与次微分}\label{box:1.12}\index{L090@Legendre--Fenchel变换（Legendre-Flenchel transform）|hyperpage}\index{S146@次微分（subdifferentials）|hyperpage}
 \begin{definition*}[Legendre--Flenchel变换]
 对任意给定函数$f:\mathbb R^d\to\mathbb R\cup\{+\infty\}$，可定义其变换
 \[
@@ -121,7 +121,7 @@ p\in\partial f(x)\iff x\in\partial f^*(p)\iff f(x)+f^*(p)=x\cdot p.
 
 更强的概念是循环单调性.
 
-\begin{definition}\label{obj:1.35}
+\begin{definition}\label{obj:1.35}\index{C036@循环单调性（cyclical monotonicity）|hyperpage}
 若集合$A\subset\mathbb R^d\times\mathbb R^d$满足：对每个$k\in\mathbb N$、每个置换$\sigma$及任意有限组点$(x_1,p_1),\ldots,(x_k,p_k)\in A$，都有
 \[
 \sum_{i=1}^k x_i\cdot p_i\ge\sum_{i=1}^k x_i\cdot p_{\sigma(i)},
@@ -142,7 +142,7 @@ Rockafellar的一个著名定理（\cite{b260}，定理24.8）表明，每个循
 
 先把循环单调性的定义转到$c$-凹情形.
 
-\begin{definition}\label{obj:1.36}
+\begin{definition}\label{obj:1.36}\index{0007@$c$-循环单调性（$c$-cyclical monotonicity）|hyperpage}
 给定函数$c:X\times Y\to\mathbb R\cup\{+\infty\}$，若集合$\Gamma\subset X\times Y$满足：对每个$k\in\mathbb N$、每个置换$\sigma$及任意有限组点$(x_1,y_1),\ldots,(x_k,y_k)\in\Gamma$，都有
 \[
 \sum_{i=1}^k c(x_i,y_i)\le\sum_{i=1}^k c(x_i,y_{\sigma(i)}),
@@ -154,7 +154,7 @@ Rockafellar的一个著名定理（\cite{b260}，定理24.8）表明，每个循
 
 值得回顾下面的定理，它推广了凸分析中Rockafellar的一个定理. 这一证明的经典参考文献是\cite{b269}，但有趣的是，它实际上可追溯到更早的论文，例如\cite{b261}（经济学中的行为可理性化框架，见该文定理1），或\cite{b91}（液晶的应用，作为距离成本下离散Kantorovich对偶性证明的一部分，见该文引理2）.
 
-\begin{theorem}\label{obj:1.37}
+\begin{theorem}\label{obj:1.37}\index{K083@Kantorovich势（Kantorovich potentials）|hyperpage}\index{R135@Rockafellar定理（Rockafellar Theorem）|hyperpage}
 若$\Gamma\ne\varnothing$是$X\times Y$中的$c$-CM集合，且$c:X\times Y\to\mathbb R$（注意，要求$c$不取值$+\infty$），则存在$c$-凹函数$\varphi:X\to\mathbb R\cup\{-\infty\}$（不恒等于$-\infty$）满足
 \[
 \Gamma\subset\{(x,y)\in X\times Y:\varphi(x)+\varphi^c(y)=c(x,y)\}.
@@ -201,7 +201,7 @@ Rockafellar的一个著名定理（\cite{b260}，定理24.8）表明，每个循
 
 现在可以证明以下结论.
 
-\begin{theorem}\label{obj:1.38}
+\begin{theorem}\label{obj:1.38}\index{0007@$c$-循环单调性（$c$-cyclical monotonicity）|hyperpage}
 若$\gamma$是成本$c$下的最优传输计划，且$c$连续，则$\operatorname{spt}(\gamma)$是$c$-CM集合.
 \end{theorem}
 \begin{proof}
@@ -257,7 +257,7 @@ Rockafellar的一个著名定理（\cite{b260}，定理24.8）表明，每个循
 
 由上一条定理以及\autoref{obj:1.37}，便得到我们从\autoref{sec:1.2}以来一直等待的对偶结论.\footnote{我们强调，这只是一条可能的路线：这里通过循环单调性证明对偶；也可以先证明对偶（见\autoref{sec:1.6.3}），再通过\autoref{obj:1.42}那样的论证证明循环单调性.}
 
-\begin{theorem}\label{obj:1.39}
+\begin{theorem}\label{obj:1.39}\index{D046@对偶问题（dual problems）|hyperpage}\index{K082@Kantorovich对偶性（Kantorovich duality）|hyperpage}
 设$X,Y$是Polish空间，$c:X\times Y\to\mathbb R$一致连续且有界. 则问题(DP)存在解$(\varphi,\varphi^c)$，并且$\max(\mathrm{DP})=\min(\mathrm{KP})$.
 \end{theorem}
 \begin{proof}
@@ -285,7 +285,7 @@ Rockafellar的一个著名定理（\cite{b260}，定理24.8）表明，每个循
 
 我们还希望处理上一条定理未涵盖的若干情形. 首先，为呼应\autoref{sec:1.3.1}，给出关于$\mathbb R^d$上二次情形的一个简短陈述. 与\autoref{obj:1.39}相比，区别在于成本$c(x,y)=\frac12|x-y|^2$既不有界，也不一致连续.
 
-\begin{theorem}\label{obj:1.40}
+\begin{theorem}\label{obj:1.40}\index{D046@对偶问题（dual problems）|hyperpage}\index{K082@Kantorovich对偶性（Kantorovich duality）|hyperpage}
 设$\mu,\nu$是$\mathbb R^d$上的概率测度，$c(x,y)=\frac12|x-y|^2$. 假设$\int|x|^2\,dx,\int|y|^2\,dy<+\infty$. 考虑(DP)的如下变体：
 \begin{equation*}\tag{DP-var}\label{eq:DP-var}
 \begin{aligned}
@@ -322,7 +322,7 @@ Rockafellar的一个著名定理（\cite{b260}，定理24.8）表明，每个循
 
 为处理有下界的下半连续成本$c$，我们使用如下事实：存在连续函数序列$c_k$（每个都是$k$-Lipschitz的）单调递增地收敛到$c$. 需要下面的引理.
 
-\begin{lemma}\label{obj:1.41}
+\begin{lemma}\label{obj:1.41}\index{K082@Kantorovich对偶性（Kantorovich duality）|hyperpage}
 假设$c_k,c$下半连续且有下界，$c_k$单调递增地收敛到$c$. 则
 \begin{equation*}
 \begin{aligned}
@@ -362,7 +362,7 @@ Rockafellar的一个著名定理（\cite{b260}，定理24.8）表明，每个循
 
 现在可以确立半连续成本下对偶公式的有效性.
 
-\begin{theorem}\label{obj:1.42}
+\begin{theorem}\label{obj:1.42}\index{K082@Kantorovich对偶性（Kantorovich duality）|hyperpage}
 若$X,Y$是Polish空间，$c:X\times Y\to\mathbb R\cup\{+\infty\}$下半连续且有下界，则对偶公式$\min(\mathrm{KP})=\sup(\mathrm{DP})$成立.
 \end{theorem}
 \begin{proof}
@@ -405,11 +405,11 @@ Rockafellar的一个著名定理（\cite{b260}，定理24.8）表明，每个循
 这证明该集合为$c$-CM.
 \end{proof}
 
-\begin{remark}\label{obj:1.44}
+\begin{remark}\label{obj:1.44}\index{D046@对偶问题（dual problems）|hyperpage}\index{K082@Kantorovich对偶性（Kantorovich duality）|hyperpage}
 我们对下半连续成本$c$证明的对偶公式与连续成本下的公式不同之处在于：对偶问题(DP)未必存在解. 事实上，若按\eqref{eq:DP-var}重新表述对偶问题，就能先应用\autoref{obj:1.43}，说明最优$\gamma$集中于某个$c$-CM集合$\Gamma$，再通过\autoref{obj:1.37}构造势$\varphi$，从而得到最优解. 这在$c$为实值的假设下成立，不依赖其连续性.\footnote{但要注意，这一构造需要使用最优$\gamma$；当$c$下半连续时其存在性有保证，在某些特殊情形也可能存在，例如可以应用\autoref{obj:1.8}时. 此外，对非一致连续的成本$c$，\autoref{obj:1.37}中的函数$\varphi$存在可测性问题.}
 \end{remark}
 
-\subsubsection{对偶性的一个直接证明}\label{sec:1.6.3}
+\subsubsection{对偶性的一个直接证明}\label{sec:1.6.3}\index{L090@Legendre--Fenchel变换（Legendre-Flenchel transform）|hyperpage}
 
 在\autoref{sec:1.6.2}中，我们偿还了\autoref{sec:1.2}欠下的对偶性之债：借助$c$-循环单调性论证，在相当一般的假设下证明了$\min(\mathrm{KP})=\sup(\mathrm{DP})$，没有对偶间隙.
 
@@ -601,7 +601,7 @@ u(x)+u^*(y)&=x\cdot y&&\text{若 }y=\nabla u(x).
 即得结论.
 \end{proof}
 
-\begin{sourcebox}{知识回顾：Hausdorff收敛}\label{box:1.13}
+\begin{sourcebox}{知识回顾：Hausdorff收敛}\label{box:1.13}\index{H074@Hausdorff收敛（Hausdorff convergence）|hyperpage}
 \begin{definition*}
 在紧度量空间$X$中，两个紧子集之间的Hausdorff距离定义为
 \[
@@ -628,7 +628,7 @@ $d_H$是一个距离：它非负、对称，只在两个集合相同时为零，
 
 再用一个关于Kantorovich势稳定性的结果作为结束.
 
-\begin{theorem}\label{obj:1.52}
+\begin{theorem}\label{obj:1.52}\index{K083@Kantorovich势（Kantorovich potentials）|hyperpage}
 设$X,Y$为紧度量空间，$c:X\times Y\to\mathbb R$连续. 假设$\mu_n\in\mathscr P(X)$与$\nu_n\in\mathscr P(Y)$是两个概率测度序列，满足$\mu_n\rightharpoonup\mu$及$\nu_n\rightharpoonup\nu$. 对每个$n$，令$(\varphi_n,\psi_n)$为成本$c$下从$\mu_n$到$\nu_n$传输的一对$c$-凹Kantorovich势. 则取子列后，有$\varphi_n\to\varphi$、$\psi_n\to\psi$，收敛一致成立，且$(\varphi,\psi)$是$\mu,\nu$的一对Kantorovich势.
 \end{theorem}
 \begin{proof}

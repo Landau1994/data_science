@@ -1,0 +1,125 @@
+% 原书印刷183--187页，PDF物理207--211页，止于5.3标题之前.
+\subsection[Wasserstein距离诱导的拓扑]{由$W_p$诱导的拓扑}\label{sec:5.2}\index{W159@Wasserstein距离（Wasserstein distance）|hyperpage}\index{W162@弱收敛（weak convergence）|hyperpage}
+
+本节分析空间$\mathbb W_p$中的收敛，并与弱收敛比较. 先回顾“弱收敛”的含义：正如\autoref{sec:1}的\autoref{box:1.3}所指出，这里用它表示与有界连续函数空间$C_b$对偶意义下的收敛（经常称为窄收敛），并用$\mu_n\rightharpoonup\mu$表示$\mu_n$在这一意义下收敛到$\mu$.
+
+测度的另一自然收敛概念是与无穷远处消失函数空间的对偶收敛：
+\[
+C_0(X):=\{\phi\in C(X):\text{对每个 }\varepsilon>0,\ \text{存在紧集 }K\subset X,
+\ |\phi|<\varepsilon\text{ 于 }X\setminus K\}.
+\]
+指出以下事实是有用的：
+\begin{itemize}
+\item 当$X$紧时，空间$C_0(X)$、$C_c(X)$、$C(X)$和$C_b(X)$相同.
+\item 定义$\phi\in C_0(X)$的条件表示$\phi$在“离开$X$的紧子集”时趋于$0$：当$X=\mathbb R^d$时指在无穷远处；当$X=\Omega\subset\mathbb R^d$为开集时指在$\partial\Omega$上；若$X$本身紧，则不提出额外要求.
+\item\phantomsection\label{idx:root5-p184-localcompact}\index{L092@局部紧空间（locally compact spaces）|hyperpage} 对每个$x_0\in X$，若存在满足$\phi(x_0)\ne0$的$\phi\in C_0(X)$，则$x_0$有紧邻域. 特别地，空间$C_0(X)$只有对局部紧空间$X$才有意义；若$X$没有任何点具有紧邻域（例如无限维Banach空间），它就只包含零函数. 事实上，断言$\mathscr M(X)$是$C_0(X)$的对偶的对偶性结果，只对局部紧空间成立（见\autoref{sec:1.1}的\autoref{box:1.3}）.
+\end{itemize}
+
+下面的引理给出一个有用的弱收敛判据（它对局部紧空间成立，但这里只对$\mathbb R^d$的子集陈述）.
+
+\begin{lemma}\label{obj:5.8}
+若所有测度$\mu_n$与$\mu$都是子集$\Omega\subset\mathbb R^d$上的概率测度，则$\mu_n\rightharpoonup\mu$等价于与$C_c(\Omega)$对偶意义下的收敛.
+\end{lemma}
+\begin{proof}
+只需说明，若取$\psi\in C_b(\Omega)$、$\mu_n,\mu\in\mathscr P(\Omega)$，并假设对每个$\phi\in C_c(\Omega)$有$\int\phi\,d\mu_n\to\int\phi\,d\mu$，则也有$\int\psi\,d\mu_n\to\int\psi\,d\mu$. 若所有测度均为概率测度，就可以给$\psi$“免费”加上常数$C$；由于$\psi$有界，可选择$C$使$\psi+C\ge0$. 因而$\psi+C$是一族递增函数$\phi_n\in C_c$的上确界（取$\phi_n=(\psi+C)\chi_n$，其中$\chi_n$为一列递增的截断函数，\footnote{截断函数，即逐点收敛到$1$的一列连续紧支撑函数，其存在实际上是局部紧空间的特征.}且$\chi_n=1$于$B(0,n)$）. 因此由半连续性，
+$\int(\psi+C)\,d\mu\le\liminf_n\int(\psi+C)\,d\mu_n$，这蕴含$\int\psi\,d\mu\le\liminf_n\int\psi\,d\mu_n$. 对$-\psi$作同样论证，就得到所需的积分收敛.
+\end{proof}
+
+注意，由于$C_c\subset C_0$，上述引理中也可用$C_0$取代$C_c$. 理解弱收敛后，可以从以下结果开始.
+
+\begin{theorem}\label{obj:5.9}\index{D044@距离成本（distance costs）|hyperpage}
+若$\Omega\subset\mathbb R^d$紧，则$\mu_n\rightharpoonup\mu$当且仅当$W_1(\mu_n,\mu)\to0$.
+\end{theorem}
+\begin{proof}
+回顾对偶公式：对任意$\mu,\nu\in\mathscr P(\Omega)$，
+\[
+W_1(\mu,\nu)=\max\left\{\int_\Omega\varphi\,d(\mu-\nu):\varphi\in\operatorname{Lip}_1\right\}.
+\]
+先取满足$W_1(\mu_n,\mu)\to0$的一列$\mu_n$. 由对偶公式，对每个$\varphi\in\operatorname{Lip}_1(\Omega)$，有$\int\varphi\,d(\mu_n-\mu)\to0$. 由线性，对任意Lipschitz函数也成立. 再由稠密性，对$C(\Omega)$中的任意函数成立. 这说明Wasserstein收敛蕴含弱收敛.
+
+为证明反向蕴含，先固定一个子列$\mu_{n_k}$，使$\lim_kW_1(\mu_{n_k},\mu)=\limsup_nW_1(\mu_n,\mu)$. 对每个$k$，选取函数$\varphi_{n_k}\in\operatorname{Lip}_1(\Omega)$，使$\int\varphi_{n_k}\,d(\mu_{n_k}-\mu)=W_1(\mu_{n_k},\mu)$. 加常数不影响积分，故可假设所有$\varphi_{n_k}$在同一点取零，因而它们一致有界且等度连续. 由Ascoli--Arzelà定理，可以再取子列，一致收敛到某个$\varphi\in\operatorname{Lip}_1(\Omega)$. 用新子列替换原子列后，可不另改记号. 现在有
+\[
+W_1(\mu_{n_k},\mu)=\int\varphi_{n_k}\,d(\mu_{n_k}-\mu)
+\longrightarrow\int\varphi\,d(\mu-\mu)=0,
+\]
+积分收敛来自弱收敛$\mu_{n_k}\rightharpoonup\mu$以及$\varphi_{n_k}\to\varphi$在$C(\Omega)$中的强收敛. 这说明$\limsup_n\allowbreak W_1(\mu_n,\mu)\le0$，证明完成.
+\end{proof}
+
+\begin{theorem}\label{obj:5.10}
+若$\Omega\subset\mathbb R^d$紧且$p\in[1,+\infty[$，则在空间$\mathbb W_p(\Omega)$中，$\mu_n\rightharpoonup\mu$当且仅当$W_p(\mu_n,\mu)\to0$.
+\end{theorem}
+\begin{proof}
+已经证明$p=1$时的等价性. 对其他$p$，只需使用不等式
+\[
+W_1(\mu,\nu)\le W_p(\mu,\nu)\le C W_1(\mu,\nu)^{1/p},
+\]
+它给出$W_p$收敛与$W_1$收敛的等价性.
+\end{proof}
+
+现在转到无界区域. 由于距离$W_p$实际上不依赖于环境区域，只考虑$\Omega=\mathbb R^d$即可.
+
+\begin{theorem}\label{obj:5.11}
+在空间$\mathbb W_p(\mathbb R^d)$中，$W_p(\mu_n,\mu)\to0$当且仅当$\mu_n\rightharpoonup\mu$且$\int|x|^p\,d\mu_n\to\int|x|^p\,d\mu$.
+\end{theorem}
+\begin{proof}
+先考虑在$\mathbb W_p(\mathbb R^d)$中收敛到$\mu$的一列$\mu_n$. 此时仍有
+\[
+\sup\left\{\int\phi\,d(\mu_n-\mu):\phi\in\operatorname{Lip}_1\right\}\longrightarrow0,
+\]
+从而对任意Lipschitz测试函数都收敛. 注意，Lipschitz函数在$C_0(\Omega)$中关于一致收敛稠密（在$C_b(\Omega)$中却未必如此）. 由\autoref{obj:5.8}，这足以证明$\mu_n\to\mu$.
+
+为得到另一条件$\int|x|^p\,d\mu_n\to\int|x|^p\,d\mu$（因$|x|^p$无界，它并非弱收敛的推论），只需注意
+\[
+\int|x|^p\,d\mu_n=W_p^p(\mu_n,\delta_0)
+\longrightarrow W_p^p(\mu,\delta_0)=\int|x|^p\,d\mu.
+\]
+现在证明反向蕴含. 考虑还满足$\int|x|^p\,d\mu_n\to\int|x|^p\,d\mu$的序列$\mu_n\rightharpoonup\mu$. 固定$R>0$，考虑连续有界函数$\phi(x):=(|x|\wedge R)^p$. 有
+\[
+\begin{aligned}
+\int(|x|^p-(|x|\wedge R)^p)\,d\mu_n
+&=\int|x|^p\,d\mu_n-\int\phi\,d\mu_n\\
+&\longrightarrow\int|x|^p\,d\mu-\int\phi\,d\mu
+=\int(|x|^p-(|x|\wedge R)^p)\,d\mu.
+\end{aligned}
+\]
+由于$\int(|x|^p-(|x|\wedge R)^p)\,d\mu\le\int_{B(0,R)^c}|x|^p\,d\mu$，且$\int_{\mathbb R^d}|x|^p\,d\mu<\infty$，可选择$R$使
+\[
+\int(|x|^p-(|x|\wedge R)^p)\,d\mu<\varepsilon/2,
+\]
+并保证对所有充分大的$n$，有$\int(|x|^p-(|x|\wedge R)^p)\,d\mu_n<\varepsilon$.
+
+利用对$|x|\ge R$成立的不等式$(|x|-R)^p\le|x|^p-R^p=|x|^p-(|x|\wedge R)^p$（见\autoref{obj:5.12}），得到
+\[
+\int(|x|-R)^p\,d\mu_n<\varepsilon\quad\text{对充分大的 }n,
+\qquad\int(|x|-R)^p\,d\mu<\varepsilon.
+\]
+现在考虑$\pi_R:\mathbb R^d\to\overline{B(0,R)}$，定义为到$\overline{B(0,R)}$上的投影. 这一映射有良好定义、连续，且在$\overline{B(0,R)}$上为恒等映射. 此外，对每个$x\notin\overline{B(0,R)}$，有$|x-\pi_R(x)|=|x|-R$. 可以推出
+\[
+\begin{aligned}
+W_p(\mu,(\pi_R)_\#\mu)&\le\left(\int(|x|-R)^p\,d\mu\right)^{1/p}\le\varepsilon^{1/p},\\
+W_p(\mu_n,(\pi_R)_\#\mu_n)&\le\left(\int(|x|-R)^p\,d\mu_n\right)^{1/p}\le\varepsilon^{1/p}.
+\end{aligned}
+\]
+还注意到，由弱收敛与连续函数复合的通常性质，$\mu_n\rightharpoonup\mu$蕴含$(\pi_R)_\#\mu_n\rightharpoonup(\pi_R)_\#\mu$. 而这些测度都集中于紧集$\overline{B(0,R)}$，因此可使用弱收敛与$W_p$收敛的等价性. 于是
+\[
+\begin{aligned}
+\limsup_nW_p(\mu_n,\mu)
+&\le\limsup_n\bigl(W_p(\mu_n,(\pi_R)_\#\mu_n)
++W_p((\pi_R)_\#\mu_n,(\pi_R)_\#\mu)\\
+&\hspace{8em}+W_p(\mu,(\pi_R)_\#\mu)\bigr)\\
+&\le2\varepsilon^{1/p}+\lim_nW_p((\pi_R)_\#\mu_n,(\pi_R)_\#\mu)=2\varepsilon^{1/p}.
+\end{aligned}
+\]
+由于参数$\varepsilon>0$任意，得到$\limsup_nW_p(\mu_n,\mu)=0$，证明完成.
+\end{proof}
+
+\begin{lemma}\label{obj:5.12}
+对$a,b\in\mathbb R_+$与$p\ge1$，有$a^p+b^p\le(a+b)^p$.
+\end{lemma}
+\begin{proof}
+不失一般性，假设$a\ge b$. 可写成$(a+b)^p=a^p+p\xi^{p-1}b$，其中某点$\xi\in[a,a+b]$. 利用$p\ge1$与$\xi\ge a\ge b$，便得$(a+b)^p\ge a^p+b^p$.
+\end{proof}
+
+\begin{remark}\label{obj:5.13}
+如何处理比$\mathbb R^d$子集更一般的度量空间$X$？首先，\autoref{obj:5.8}一般不成立（例如，在无限维Banach空间中显然不成立）. 还会遇到Lipschitz函数在连续函数空间中的稠密性问题（即使$X$紧）. 事实上，在$\mathbb R^d$中，通过卷积容易得到光滑函数的稠密性，但一般空间没有这一工具. 为克服困难，可证明足以满足这里需求的如下陈述：“若对任意Lipschitz测试函数均有收敛，则对$C_b$中的任意测试函数也收敛”（留作习题，见\autoref{ex:31}）. 因而，就\autoref{obj:5.9}与\autoref{obj:5.10}而言，一切都可转到Polish空间的框架（不需要局部紧性）. 另一方面，所给的\autoref{obj:5.11}的证明在某种意义上是$\mathbb R^d$所特有的：关键在于存在从整个空间到紧子集（球$\overline{B(0,R)}$）的连续收缩映射$\pi_R$，且能控制$x$与$\pi_R(x)$之间的距离. 加上专门的假设，可将证明调整到更一般的空间，但对一般情形，我们更愿意请读者参阅\cite{b9,b15}.
+\end{remark}

@@ -46,7 +46,7 @@ x\mapsto\varphi(x)-c(x,y_0)\qquad\text{在 }x=x_0\text{ 处最小},
 
 当 $c$ 满足下面定义时，等式 $\nabla\varphi=\nabla_x c$ 尤其有用.
 
-\begin{definition}\label{obj:1.16}
+\begin{definition}\label{obj:1.16}\index{S141@Spence--Mirrlees条件（Spence-Mirrlees）|hyperpage}\index{T153@扭曲条件（twist condition）|hyperpage}
 对 $\Omega\subset\mathbb R^d$，若 $c:\Omega\times\Omega\to\mathbb R$ 在每一点都对 $x$ 可微，且映射 $y\mapsto\nabla_x c(x_0,y)$ 对每个 $x_0$ 都是单射，则称 $c$ 满足扭转条件. 这一条件在经济学中也称为 Spence--Mirrlees 条件（例如见\cite{b261}）. 对“良好”的区域和成本函数，它对应于 $\det\bigl(\frac{\partial^2c}{\partial y_i\partial x_j}\bigr)\ne0$.
 \end{definition}
 
@@ -62,7 +62,7 @@ x_0-y_0=(\nabla h)^{-1}(\nabla\varphi(x_0)).
 
 只要 $\varphi$ 关于 $\mu$ 几乎处处可微，这一公式就给出具有此成本的传输问题的解. 通常，要求 $\mu$ 关于 Lebesgue 测度绝对连续，并利用 $\varphi$ 可证为 Lipschitz 的事实，就能保证这一点.
 
-\begin{sourcebox}{备忘：Lipschitz 函数的可微性}\label{box:1.9}
+\begin{sourcebox}{备忘：Lipschitz 函数的可微性}\label{box:1.9}\index{R125@Rademacher定理（Rademacher theorem）|hyperpage}
 \begin{theorem*}[Rademacher]
 设 $f:\mathbb R^d\to\mathbb R$ 为 Lipschitz 连续函数. 则 $f$ 不可微的点集关于 Lebesgue 测度为零测集.
 \end{theorem*}
@@ -74,7 +74,7 @@ x_0-y_0=(\nabla h)^{-1}(\nabla\varphi(x_0)).
 
 可以把以上内容概括为如下定理：
 
-\begin{theorem}\label{obj:1.17}
+\begin{theorem}\label{obj:1.17}\index{C029@凸传输成本（convex transport costs）|hyperpage}\index{E058@最优映射的存在性（existence of an optimal map）|hyperpage}
 给定紧区域 $\Omega\subset\mathbb R^d$ 上的概率测度 $\mu$ 与 $\nu$，对成本 $c(x,y)=h(x-y)$、其中 $h$ 严格凸，存在最优传输方案 $\gamma$. 若 $\mu$ 绝对连续且 $\partial\Omega$ 为零测集，则该方案唯一，且具有 $(\mathrm{id},\mathrm{T})_\#\mu$ 的形式. 此外，存在 Kantorovich 势 $\varphi$，且 $\mathrm{T}$ 与势 $\varphi$ 由下式联系：
 \[
 \mathrm{T}(x)=x-(\nabla h)^{-1}(\nabla\varphi(x)).
@@ -96,7 +96,7 @@ x_0-y_0=(\nabla h)^{-1}(\nabla\varphi(x_0)).
 \autoref{obj:1.17}表明，在对 $\mu$ 的某些假设下，最优 $\gamma$ 具有 $(\mathrm{id},\mathrm{T})_\#\mu$ 的形式. 如果 $\nu$ 也满足同样的假设，就还能断言反向存在一个最优映射，即 $\gamma=(S,\mathrm{id})_\#\nu$. 特别地，$\gamma$-几乎处处有 $y=\mathrm{T}(x)$ 且 $x=S(y)$，这意味着 $S(\mathrm{T}(x))=x$ 在 $\gamma$-几乎处处成立，即对 $\mu$-几乎处处的点 $x$ 成立. 因而 $\mathrm{T}$ 在一个满测度集合上可逆，其逆正是从 $\nu$ 到 $\mu$ 的最优映射.
 \end{remark}
 
-\subsubsection[欧氏空间中的二次情形]{$\mathbb R^d$ 中的二次情形}\label{sec:1.3.1}
+\subsubsection[欧氏空间中的二次情形]{$\mathbb R^d$ 中的二次情形}\label{sec:1.3.1}\index{Q122@二次成本（quadratic cost）|hyperpage}
 
 在 $\mathbb R^d$ 中，成本为 $c(x,y)=\frac12|x-y|^2$ 的情形值得特别关注. 主要原因是 $c$-凹性与通常的凸性概念之间存在联系.
 
@@ -120,12 +120,15 @@ u_{\chi^c}(x)
 \[
 \mathrm{T}(x)=x-\nabla\varphi(x)=\nabla\left(\frac{x^2}{2}-\varphi(x)\right)=\nabla u(x),
 \]
-其中 $u$ 为凸函数. 因为后面还将看到逆向蕴含（充分最优性条件），这也将证明存在唯一的凸函数梯度把 $\mu$ 传输到 $\nu$. 这一著名事实最早由 Brenier 研究（见\cite{b82}），通常称为 Brenier 定理（但也见\cite{b227}）. \autoref{sec:1.7.2}将介绍 Brenier 最初的途径，称为“极分解”（polar factorization）.
+其中 $u$ 为凸函数. 因为后面还将看到逆向蕴含（充分最优性条件），这也将证明存在唯一的凸函数梯度把 $\mu$ 传输到 $\nu$. \phantomsection\label{idx:i58-p17}\index{E058@最优映射的存在性（existence of an optimal map）|hyperpage}
+这一著名事实最早由 Brenier 研究（见\cite{b82}），通常称为 Brenier 定理（但也见\cite{b227}）. \autoref{sec:1.7.2}将介绍 Brenier 最初的途径，称为“极分解”（polar factorization）.
 
+\phantomsection\label{idx:i83-p17}\index{K083@Kantorovich势（Kantorovich potentials）|hyperpage}
 还要注意，对于 $|x-y|^2$ 的情形，一种专门的处理方式能更容易地得到同一结果：从成本中去掉只依赖 $x$ 或只依赖 $y$ 的部分，转而极大化 $\int x\cdot y\,d\gamma$. 实际上，对某个凸函数 $\varphi$ 及其 Legendre 变换 $\varphi^*$，得到 $\varphi(x_0)+\varphi^*(y_0)=x_0\cdot y_0$，并推出 $y_0\in\partial\varphi(x_0)$（见\autoref{sec:1.6}中的\autoref{box:1.12}）.
 
 现在注意，在对 $\mu$ 更弱的假设下，最优传输映射的存在性仍然成立：可以把绝对连续条件替换为“对任意满足 $\mathscr H^{d-1}(A)<+\infty$ 的 $A\subset\mathbb R^d$，都有 $\mu(A)=0$”，或任何能保证 $u$ 的不可微点集为零测集的条件.
 
+\phantomsection\label{idx:i129-p17}\index{R127@可求长性（rectifiability）!129@凸函数的奇异集（singular set of convex functions）|hyperpage}
 \cite{b4,b5}证明，凸函数的不可微点集是 $(d-1)$-可求长的（rectifiable）（即除去 $\mathscr H^{d-1}$-零测集后，包含于 $\mathbb R^{d-1}$ 的 Lipschitz 像的可数并）；更一般地，次微分的维数至少为 $k$ 的点集是 $(d-k)$-可求长的. 借助用 $C^1$ 函数对 Lipschitz 函数进行 Lusin 型逼近的结果（见\cite{b160}第6章），可以把 Lipschitz 的 $(d-k)$ 维曲面替换为 $C^1$ 曲面.
 
 此外，对于不可微点集还能给出更强的结果：它在 $\mathscr H^{d-1}$-几乎处处的意义下包含于可数个 $C^2$ 类的 $(d-1)$ 维曲面的并，证明见\cite{b3}. 而且，每个在这一 $C^2$ 意义下 $(d-1)$-可求长的集合，都包含在某个凸函数的不可微点集中\footnote{这些考虑使 N.~Gigli 在\cite{b182}中证明了如下推广\autoref{obj:1.17}的刻画定理：给定 $\mu,\nu\in\mathscr P(\Omega)$，假设对每个余维为 $1$ 的 $C^2$ 曲面 $A$ 都有 $\mu(A)=0$；则不论 $\nu$ 为何，二次成本 $|x-y|^2$ 的最优传输方案 $\gamma\in\Pi(\mu,\nu)$ 都唯一，且由传输映射诱导. 此外，条件“对每个余维为 $1$ 的 $C^2$ 曲面 $A$ 都有 $\mu(A)=0$”刻画了如下测度 $\mu$ 的类：对于每个目标测度 $\nu$，从 $\mu$ 出发的最优传输方案（关于二次成本）都唯一，且由映射诱导.}.
@@ -140,32 +143,35 @@ u_{\chi^c}(x)
 \end{equation*}
 以及 $\max(\mathrm{DP}\text{-}\mathrm{var})=\min(\mathrm{KP})$. 无界情形中最尖锐的结果详见下述定理.
 
-\begin{theorem}\label{obj:1.22}
+\begin{theorem}\label{obj:1.22}\index{B020@Brenier定理（Brenier Theorem）|hyperpage}\index{E058@最优映射的存在性（existence of an optimal map）|hyperpage}
 设 $\mu,\nu$ 为 $\mathbb R^d$ 上的概率测度，且 $c(x,y)=\frac12|x-y|^2$. 假设 $\int|x|^2\,dx,\int|y|^2\,dy<+\infty$，这蕴含 $\min(\mathrm{KP})<+\infty$；再假设 $\mu$ 不赋予 $C^2$ 类的 $(d-1)$ 维曲面任何质量. 则存在唯一的从 $\mu$ 到 $\nu$ 的最优传输映射 $\mathrm{T}$，且它具有 $\mathrm{T}=\nabla u$ 的形式，其中 $u$ 为凸函数.
 \end{theorem}
 \begin{proof}
 再次沿用前面的思路：最优 $\gamma$ 存在，且\autoref{obj:1.40}也给出最优对偶函数对 $(\varphi,\psi)\in L^1(\mu)\times L^1(\nu)$ 的存在性，并保证没有对偶间隙. 随后可以看出，只要 $u$（或等价地，$\varphi$）$\mu$-几乎处处可微，$\gamma$ 就集中在 $x\mapsto x-\nabla\varphi(x):=\nabla u(x)$ 的图像上. 由于 $\varphi\in L^1(\mu)$，推知 $u$ 在 $\mu$-几乎处处有限；又因为 $u$ 凸，得到 $\operatorname{spt}(\mu)\subset\overline{\{u<+\infty\}}$，后者为凸集. 注意，$\partial(\{u<+\infty\})$ 局部可以表示为某个凹函数的图像；因此，它是 $(d-1)$-$C^2$ 可求长集，根据假设为 $\mu$-零测集. 在 $\{u<+\infty\}$ 的内部，$u$ 在 $\mu$-几乎处处可微（这同样由对 $\mu$ 的假设以及 $u$ 的凸性得到）.
 \end{proof}
 
-\begin{remark}\label{obj:1.23}
+\begin{remark}\label{obj:1.23}\index{A012@无原子测度（atomless measures）|hyperpage}
 上述全部考虑的一个后果是，二次情形在一维给出一个很有意思的结果. 假设 $\mu\in\mathscr P(\mathbb R)$ 无原子. 那么每个凸函数都 $\mu$-几乎处处可微，因为我们知道，凸函数的不可微点集至多可数（这是如下事实的后果：若 $\psi$ 凸，则当 $x$ 遍历不可微点时，区间 $]\psi'_l(x),\psi'_r(x)[$ 全部非空且彼此不交，其中 $\psi'_l$、$\psi'_r$ 分别表示左导数与右导数）. 这蕴含在 $\mu$ 与任意测度 $\nu\in\mathscr P(\mathbb R)$ 之间，存在二次成本的最优传输映射. 这一映射将是凸函数的导数，即一个非减映射.
 \end{remark}
 
-\begin{remark}\label{obj:1.24}
+\begin{remark}\label{obj:1.24}\index{S137@半凹函数（semi-concave functions）|hyperpage}
 若转向一般的成本 $c(x,y)$，它属于 $C^{1,1}$ 且满足\autoref{obj:1.16}的扭转条件，则二次情形的某些性质仍然成立. 显然，传输是凸函数梯度这一事实不再成立；另一方面，Kantorovich 势的可微性性质与凸函数相同，因为可以证明 $\varphi$ 半凹（即减去一个二次函数后为凹函数），这使我们可以对 $\mu$ 使用与\autoref{obj:1.22}中相同的假设.
 \end{remark}
 
-\subsubsection{平坦环面上的二次情形}\label{sec:1.3.2}
+\subsubsection{平坦环面上的二次情形}\label{sec:1.3.2}\index{Q122@二次成本（quadratic cost）!123@流形上（on manifolds）|hyperpage}\index{T148@环面（torus）|hyperpage}
 
 若把 $\mathbb R^d$ 上的测度换成平坦环面 $\mathbb T^d=\mathbb R^d/\mathbb Z^d$ 上的测度，并把成本 $\frac12|x-y|^2$ 换成环面上距离的平方，即 $c(x,y)=\frac12|[x-y]|^2$，考察此时发生什么，是有用且有意思的. 这里
 \begin{equation}\label{eq:1.5}
 |[z]|:=\min\{|z+k|:k\in\mathbb Z^d\}.
 \end{equation}
-这是流形上最优传输的最简单例子，McCann 已在\cite{b231}中建立了流形情形的一般存在性定理. 不过，由于 $\mathbb T^d$ 从 $\mathbb R^d$ 继承的结构，最早在\cite{b127}中研究的环面情形要简单得多. 在很多情况下（尤其将见于\orig{201}{第5章}与\orig{243}{第6章}），研究环面上的情形，可以摆脱缺少紧性和／或边界问题带来的困难，从而理解问题的主要定性特征. 对紧支测度，可以把其支集看成一个大立方体的一部分，再把立方体识别为环面，而无需付出任何代价. 事实上，如果测度远离立方体的边界，则环面上与欧氏空间中的最优传输映射相同.
+这是流形上最优传输的最简单例子，McCann 已在\cite{b231}中建立了流形情形的一般存在性定理. 不过，由于 $\mathbb T^d$ 从 $\mathbb R^d$ 继承的结构，最早在\cite{b127}中研究的环面情形要简单得多. 在很多情况下（尤其将见于\hyperref[sec:5]{第5章}与\hyperref[sec:6]{第6章}），研究环面上的情形，可以摆脱缺少紧性和／或边界问题带来的困难，从而理解问题的主要定性特征. 对紧支测度，可以把其支集看成一个大立方体的一部分，再把立方体识别为环面，而无需付出任何代价. 事实上，如果测度远离立方体的边界，则环面上与欧氏空间中的最优传输映射相同.
 
+\phantomsection\label{idx:i137-p19}\index{S137@半凹函数（semi-concave functions）|hyperpage}
+\phantomsection\label{idx:i34-p19}\index{C034@割迹（cut locus）|hyperpage}
 注意，\eqref{eq:1.5}中的最优 $\bar k$ 总存在. 若取 $z\in Q:=[-\frac12,\frac12]^d$，则 $\bar k\in\{-1,0,+1\}^d$，且除非 $z\in\partial Q$，否则它唯一（并等于 $0$）. 此外，函数 $\mathbb R^d\ni z\mapsto\frac12|[z]|^2$ 半凹，因为它是一族 Hessian 等于恒等矩阵 $\mathrm I$ 的函数的下确界. 它在最优 $\bar k$ 唯一的每一点可微. 对给定的点 $x$，把如下点 $y$ 的集合称为 $x$ 的\emph{割迹}（cut locus）：距离平方函数视为点对 $(x,y)$ 的函数时，在 $(x,y)$ 处不可微. 这是微分几何中的一般概念，记作 $\operatorname{cut}(x)$（其在最优传输中的运用见\cite{b294}），但在平坦环面情形，它恰好就是满足 $y-x\in\partial Q+\mathbb Z^d$ 的点 $y$ 的集合.
 
-\begin{theorem}\label{obj:1.25}
+\phantomsection\label{idx:i137-p20}\index{S137@半凹函数（semi-concave functions）|hyperpage}
+\begin{theorem}\label{obj:1.25}\index{E058@最优映射的存在性（existence of an optimal map）|hyperpage}
 取 $\mu,\nu\in\mathscr P(\mathbb T^d)$，其中 $\mu\ll\mathscr L^d$，且 $c(x,y)=\frac12|[x-y]|^2$. 则存在唯一的最优传输方案 $\gamma\in\Pi(\mu,\nu)$. 它具有 $\gamma=\gamma_\mathrm{T}$ 的形式，且最优映射 $\mathrm{T}$ 在几乎处处的 $x$ 由 $\mathrm{T}(x)=x-\nabla\varphi(x)$ 给出，其中和 $x-\nabla\varphi(x)$ 应按模 $\mathbb Z^d$ 理解. 这里，函数 $\varphi$ 是从 $\mu$ 到 $\nu$、成本为 $c$ 的传输的 Kantorovich 势，是对偶问题的解. 此外，对几乎处处的 $x\in\mathbb T^d$，点 $\mathrm{T}(x)$ 不属于 $\operatorname{cut}(x)$.
 \end{theorem}
 \begin{proof}
@@ -188,6 +194,6 @@ u_{\chi^c}(x)
 若假设 $x_0$ 满足 $\nabla\varphi(x_0)$ 存在，则由上述最小性推出 $x_0-y_0-k_0=\nabla\varphi(x_0)$. 这意味着 $k_0$ 由 $x_0$、$y_0$ 唯一确定，因而 $y_0\notin\operatorname{cut}(x_0)$. 此外，$y_0$ 由 $x_0$ 唯一确定，从而得到最优映射存在性和唯一性的通常结果.
 \end{proof}
 
-\begin{remark}\label{obj:1.26}
+\begin{remark}\leavevmode\label{obj:1.26}
 在前一定理的证明中，还可以注意到，若 $x_0-y_0\in Q$，则 $k_0=0$；这尤其意味着，只要 $\operatorname{spt}(\mu),\operatorname{spt}(\nu)\subset\frac12 Q$，传输就完全等同于在 $\mathbb R^d$ 中使用经典二次成本、而不采用 $\mathbb T^d$ 的周期框架时的传输.
 \end{remark}

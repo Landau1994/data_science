@@ -12,8 +12,8 @@ c_\varepsilon(x,y):=\sum_{i=1}^d\lambda_i(\varepsilon)(x_i-y_i)^2,
 我们将在上一节的绝对连续性假设下证明它. 另一方面，\cite{b114}在稍弱的假设下证明了同一结果，即要求所有分解后的测度无原子. 有趣之处在于，也需要目标测度$\nu$无原子；若不满足这一条件，便存在不收敛的反例.
 
 \begin{example}[Gauss测度的显式计算]\label{obj:2.22}
-为在有显式解的特殊情形中说明问题，取$d=2$，并取两个Gauss测度$\mu=\mathcal N(0,\mathrm I)$与
-$\nu=\mathcal N\!\left(0,\begin{pmatrix}a&b\\b&c\end{pmatrix}\right)$，其中$ac>b^2$、$a>0$；记号$\mathcal N(a,A)$表示以$a$为中心、协方差矩阵为$A$的Gauss密度. 取$\lambda_1(\varepsilon)=\varepsilon$、$\lambda_2(\varepsilon)=1$. 可以验证（另见\autoref{ex:11}），$\mathrm T_\varepsilon$为线性映射，且其在$\mathbb R^2$标准基下的矩阵为
+为在有显式解的特殊情形中说明问题，取$d=2$，并取两个Gauss测度$\mu=N(0,\mathrm I)$与
+$\nu=N\!\left(0,\begin{pmatrix}a&b\\b&c\end{pmatrix}\right)$，其中$ac>b^2$、$a>0$；记号$N(a,A)$表示以$a$为中心、协方差矩阵为$A$的Gauss密度. 取$\lambda_1(\varepsilon)=\varepsilon$、$\lambda_2(\varepsilon)=1$. 可以验证（另见\autoref{ex:11}），$\mathrm T_\varepsilon$为线性映射，且其在$\mathbb R^2$标准基下的矩阵为
 \[
 \mathrm T_\varepsilon=
 \frac{1}{\sqrt{a\varepsilon^2+c+2\varepsilon\sqrt{ac-b^2}}}
@@ -31,7 +31,7 @@ b\varepsilon&c+\varepsilon\sqrt{ac-b^2}
 
 直接陈述第一个结果；其证明具有$\Gamma$-收敛展开的精神（见\cite{b77}和\autoref{box:4.6}），需要分几步完成.
 
-\begin{theorem}\label{obj:2.23}
+\begin{theorem}\label{obj:2.23}\index{0004@$\Gamma$-收敛（$\Gamma$-convergence）!005@高阶展开（higher order developments）|hyperpage}
 设$\mu$与$\nu$是$\mathbb R^d$上两个紧支撑的绝对连续概率测度，且$\gamma_\varepsilon\in\Pi(\mu,\nu)$为成本
 $c_\varepsilon(x,y)=\sum_{i=1}^d\lambda_i(\varepsilon)(x_i-y_i)^2$的最优运输方案，其中权重$\lambda_k(\varepsilon)>0$. 假设对每个$k\in\{1,\ldots,d-1\}$，当$\varepsilon\to0$时有$\lambda_k(\varepsilon)/\lambda_{k+1}(\varepsilon)\to0$. 设$\mathrm T$为$\mu$与$\nu$之间的Knothe--Rosenblatt映射，$\gamma_K\in\mathscr P(\mathbb R^d\times\mathbb R^d)$为相应的运输方案（即$\gamma_K:=(\mathrm{id},\mathrm T)_\#\mu$）. 则当$\varepsilon\to0$时，$\gamma_\varepsilon\rightharpoonup\gamma_K$.
 
@@ -198,7 +198,7 @@ c_\varepsilon(x,y):=\sum_{i=1}^d\lambda_i(\varepsilon)c_i(x_i-y_i),
 其中每个$c_i$都是光滑严格凸函数（具有适当增长），则前面的收敛证明仍适用.
 
 \begin{example}[测度有原子时的反例]\label{obj:2.26}
-现在说明一个有趣事实：\autoref{obj:2.23}中的绝对连续性假设不仅对$\mu$必要，对$\nu$也必要（见\autoref{obj:2.21}，以核对这一情形下Knothe映射的定义）. 给出$\mathbb R^2$中一个十分简单的例子，其中$\mu$关于Lebesgue测度绝对连续而$\nu$不然，并说明定理的结论不成立. 在正方形$\Omega:=[-1,1]\times[-1,1]$上，定义$\mu=\frac12\mathbf1_E\cdot\mathscr L^2$，其中
+现在说明一个有趣事实：\autoref{obj:2.23}中的绝对连续性假设不仅对$\mu$必要，对$\nu$也必要（见\autoref{obj:2.21}，以核对这一情形下Knothe映射的定义）. 给出$\mathbb R^2$中一个十分简单的例子，其中$\mu$关于Lebesgue测度绝对连续而$\nu$不然，并说明定理的结论不成立. 在正方形$\Omega:=[-1,1]\times[-1,1]$上，定义$\mu=\frac12\mathbbm1_E\cdot\mathscr L^2$，其中
 $E=\{(x_1,x_2)\in[-1,1]\times[-1,1]:x_1x_2<0\}$，所以$\mu$均匀分布在左上与右下象限；另令$\nu=\frac12\mathscr H^1|_S$，其中$S$为线段$[-1,1]\times\{0\}$.
 
 容易计算，Knothe--Rosenblatt映射为

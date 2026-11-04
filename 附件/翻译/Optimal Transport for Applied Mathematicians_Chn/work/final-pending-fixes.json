@@ -1,0 +1,37 @@
+[
+  {
+    "kind": "link",
+    "scope": "frontmatter",
+    "change": "在六个section*后补phantomsection，使标签与目录目标落到标题实际页"
+  },
+  {
+    "kind": "url",
+    "scope": "frontmatter/00-publication.tex",
+    "change": "给DOI和Springer网址补完整scheme，保持原可见文字"
+  },
+  {
+    "kind": "anchor",
+    "scope": "obj:1.26、obj:4.41",
+    "change": "先leavevmode再label，使写入随真实标题行，列表式命题锚不丢失"
+  },
+  {
+    "kind": "anchor/layout",
+    "scope": "box:3.2、box:3.3",
+    "change": "局部Needspace使refstepcounter与真实框首同页"
+  },
+  {
+    "kind": "layout",
+    "scope": "obj:6.5、obj:8.9",
+    "change": "局部Needspace使陈述条件连续，消除页尾单行标题"
+  },
+  {
+    "kind": "punctuation",
+    "scope": "01-04、01-05、01-07、07-01、07-04、hint52",
+    "change": "局部闭括号与ASCII句点不可断，修复行首或孤行句点"
+  },
+  {
+    "kind": "punctuation",
+    "scope": "work/translated-index.ist",
+    "change": "delim_0、delim_1、delim_2逗号前不可断，避免索引逗号行首"
+  }
+]

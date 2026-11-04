@@ -1,0 +1,500 @@
+% 原书印刷187--202页，PDF物理211--226页，止于5.4标题之前.
+\subsection[Wasserstein空间中的Lipschitz曲线与连续性方程]{$\mathbb W_p$中的Lipschitz曲线与连续性方程}\label{sec:5.3}
+
+本节分析空间$\mathbb W_p$中Lipschitz曲线与绝对连续曲线的若干性质. 为此，需要度量空间分析中的一些简单知识. 希望了解更多的读者，例如可参阅\cite{b12}.
+
+\begin{sourcebox}{相关知识：度量空间中的曲线与速率}\label{box:5.1}
+回顾度量空间中Lipschitz曲线的若干性质.
+
+曲线$\omega$是在某个区间（例如$[0,1]$）上定义、取值于度量空间$(X,d)$的连续函数. 它是度量空间之间的映射，因此谈论它是否Lipschitz有意义，但除非$X$是向量空间，其速度$\omega'(t)$并无意义.
+
+令人意外的是，却能赋予速度的模$|\omega'|(t)$以意义.
+\phantomsection\label{idx:root5-p187-metricderivative}\index{M099@度量导数（metric derivative）|hyperpage}
+\begin{definition*}
+若$\omega:[0,1]\to X$是取值于度量空间$(X,d)$的曲线，则通过\phantomsection\label{idx:root5-p188-metricformula}\index{M099@度量导数（metric derivative）|hyperpage}
+\[
+|\omega'|(t):=\lim_{h\to0}\frac{d(\omega(t+h),\omega(t))}{|h|}
+\]
+定义$\omega$在时刻$t$的\emph{度量导数}（metric derivative），记为$|\omega'|(t)$，只要这一极限存在.
+\end{definition*}
+以下定理具有Rademacher定理的精神（见\autoref{sec:1.3}的\autoref{box:1.9}），保证Lipschitz曲线的度量导数存在.
+\begin{theorem*}
+假设$\omega:[0,1]\to X$为Lipschitz连续. 则对几乎每个$t\in[0,1]$，度量导数$|\omega'|(t)$存在. 此外，对$t<s$，有
+\[
+d(\omega(t),\omega(s))\le\int_t^s|\omega'|(\tau)\,d\tau.
+\]
+\end{theorem*}
+上述定理可利用每个紧度量空间都能等距嵌入$\ell^\infty$这一事实来证明，在其中可逐分量处理（$\omega([0,1])$是紧集在连续映射下的像，因而紧）. 关于度量导数的全部概念及证明，例如可参阅\cite{b12}第4章.
+
+还需要考虑更一般的曲线，而不只是Lipschitz连续曲线.
+\phantomsection\label{idx:root5-p188-ac}\index{A008@绝对连续曲线（absolutely continuous curves）|hyperpage}
+\begin{definition*}
+若存在$g\in L^1([0,1])$，使每个$t_0<t_1$均满足$d(\omega(t_0),\omega(t_1))\le\int_{t_0}^{t_1}g(s)\,ds$，则称曲线$\omega:[0,1]\to X$\emph{绝对连续}. 定义于$[0,1]$、取值于$X$的绝对连续曲线集合记为$\mathrm{AC}(X)$.
+\end{definition*}
+众所周知，每条绝对连续曲线都能通过单调递增的时间重参数化成为Lipschitz连续曲线. 一种可能的办法如下：令$G(t):=\int_0^t g(s)\,ds$，再令$S(t)=\varepsilon t+G(t)$（任意$\varepsilon>0$），则$S$连续、严格递增，并取值于某区间$[0,L]$；对$t\in[0,L]$，令$\widetilde\omega(t)=\omega(S^{-1}(t))$. 容易验证$\widetilde\omega\in\operatorname{Lip}_1$. 令$\varepsilon\to0$，还可得到$\omega$的单位速率重参数化. 若希望参数化仍定义于区间$[0,1]$，只需按因子$L$重新缩放.
+
+特别地，上述Rademacher定理也对$\omega\in\mathrm{AC}(X)$成立（因为所定义的重参数化几乎处处可微）.
+\end{sourcebox}
+
+本节目标是将空间$\mathbb W_p(\Omega)$中的绝对连续曲线，与具有$L^p$向量场$\mathbf v_t$的连续性方程$\partial_t\mu_t+\nabla\cdot(\mathbf v_t\mu_t)=0$的解相对应. 还要把$\mathbf v_t$的$L^p$范数与度量导数$|\mu'|(t)$联系起来.
+
+回顾一下（见\autoref{sec:4.1}），连续性方程可以解释为支配一族粒子密度$\mu_t$演化的方程；粒子初始按$\mu_0$分布，每个粒子都沿流
+\[
+\begin{cases}
+y_x'(t)=\mathbf v_t(y_x(t)),\\
+y_x(0)=x
+\end{cases}
+\]
+运动. 下面陈述联系$\mathbb W_p$中绝对连续曲线与连续性方程解的主要定理（最初由\cite{b15}证明）. 为简单起见，只在紧区域$\Omega\subset\mathbb R^d$的框架中陈述. 将解释何处用到了紧性假设，以及如何去掉它.
+
+\begin{theorem}\label{obj:5.14}
+设$(\mu_t)_{t\in[0,1]}$是$\mathbb W_p(\Omega)$中的绝对连续曲线（$p>1$且$\Omega\subset\mathbb R^d$紧）. 则对几乎每个$t\in[0,1]$，存在向量场$\mathbf v_t\in L^p(\mu_t;\mathbb R^d)$，使得：
+\begin{itemize}
+\item 连续性方程$\partial_t\mu_t+\nabla\cdot(\mathbf v_t\mu_t)=0$在弱意义下成立（见\autoref{sec:4.1.2}）；
+\item 对几乎每个$t$，有$\|\mathbf v_t\|_{L^p(\mu_t)}\le|\mu'|(t)$（其中$|\mu'|(t)$表示曲线$t\mapsto\mu_t$关于距离$W_p$在时刻$t$的度量导数）.
+\end{itemize}
+反之，若$(\mu_t)_{t\in[0,1]}$是$\mathscr P_p(\Omega)$中的一族测度，且对每个$t$有向量场$\mathbf v_t\in L^p(\mu_t;\mathbb R^d)$，满足$\int_0^1\|\mathbf v_t\|_{L^p(\mu_t)}\,dt<+\infty$并解出$\partial_t\mu_t+\nabla\cdot(\mathbf v_t\mu_t)=0$，则$(\mu_t)_t$在$\mathbb W_p(\Omega)$中绝对连续，且几乎每个$t$满足$|\mu'|(t)\le\|\mathbf v_t\|_{L^p(\mu_t)}$.
+\end{theorem}
+
+\begin{remark}\label{obj:5.15}
+注意，由陈述的第二部分，第一部分引入的向量场$\mathbf v_t$事后必满足$\|\mathbf v_t\|_{L^p(\mu_t)}=|\mu'|(t)$.
+\end{remark}
+
+将此定理的证明分成两部分，分别处理正向与反向蕴含. 先引入所需工具，特别是下面这个工具，在\autoref{obj:5.14}陈述的两部分中都要用到.
+
+\begin{remark}\label{obj:5.16}
+需要注意，通过时间重参数化，总可假设陈述第一部分的绝对连续曲线$\mu_t$实际上是Lipschitz曲线（此时得到$\|\mathbf v_t\|_{L^p(\mu_t)}$的一致界），并假设第二部分的范数$\|\mathbf v_t\|_{L^p(\mu_t)}$有界（从而得到$\mu_t$为Lipschitz曲线）. 因而，所有证明都将在这一Lipschitz框架下进行.
+\end{remark}
+
+\subsubsection[Benamou--Brenier泛函]{Benamou--Brenier泛函$\mathscr B_p$}\label{sec:5.3.1}\index{B015@Benamou--Brenier方法（Benamou-Brenier）|hyperpage}
+
+从一个后面会用到的简单计算开始. 考虑一对指数$p,q$，满足$\frac1p+\frac1q=1$.
+
+\begin{lemma}\label{obj:5.17}
+令$K_q:=\{(a,b)\in\mathbb R\times\mathbb R^d:a+\frac1q|b|^q\le0\}$. 则对$(t,x)\in\mathbb R\times\mathbb R^d$，有
+\begin{equation}\label{eq:5.2}
+\sup_{(a,b)\in K_q}(at+b\cdot x)=f_p(t,x):=
+\begin{cases}
+\dfrac1p\dfrac{|x|^p}{t^{p-1}}&\text{若 }t>0,\\
+0&\text{若 }t=0,\ x=0,\\
++\infty&\text{若 }t=0,\ x\ne0,\ \text{或 }t<0.
+\end{cases}
+\end{equation}
+特别地，$f_p$凸且下半连续.
+\end{lemma}
+\begin{proof}
+先证明\eqref{eq:5.2}. 假设$t>0$：显然，在上确界中应取尽可能大的$a$，故$a=-\frac1q|b|^q$. 这给出
+\[
+\sup_b\left(-\frac1q t|b|^q+b\cdot x\right)
+=t\left(\sup_b-\frac1q|b|^q+b\cdot\left(\frac xt\right)\right).
+\]
+回顾$p\mapsto\frac1q|p|^q$的Legendre变换为$x\mapsto\frac1p|x|^p$，得到
+\begin{equation}\label{eq:5.3}
+\sup_b-\frac1q|b|^q+b\cdot y=\frac1p|y|^p\qquad\text{对所有 }y,
+\end{equation}
+因而
+\[
+\sup\left\{at+b\cdot x:a\in\mathbb R,\ b\in\mathbb R^d,\ a+\frac1q|b|^q\le0\right\}
+=t\frac1p\left|\frac xt\right|^p=\frac1p\frac{|x|^p}{t^{p-1}}.
+\]
+情形$(t,x)=(0,0)$显然. 若$t=0$而$x\ne0$，则显然任意向量$b$均可由足够负的$a$补偿，得到
+\[
+\sup\left\{at+b\cdot x:a\in\mathbb R,\ b\in\mathbb R^d,\ a+\frac1q|b|^q\le0\right\}
+=\sup_b b\cdot x=+\infty.
+\]
+最后，当$t<0$时，可取任意负的$a$与$b=0$，使
+\[
+\sup\left\{at+b\cdot x:a\in\mathbb R,\ b\in\mathbb R^d,\ a+\frac1q|b|^q\le0\right\}
+\ge\sup_{a<0}at=+\infty.
+\]
+$f_p$凸且下半连续，因为它表示为线性函数的上确界.
+\end{proof}
+
+上述结果中，我们计算了一个示性函数的Legendre变换，并如预期一样得到一个一阶齐次凸函数. 现在利用$f_p$定义测度上的泛函. 对$\varrho\in\mathscr M(X)$与$E\in\mathscr M^d(X)$，令
+\[
+\mathscr B_p(\varrho,E):=\sup\left\{\int_Xa(x)\,d\varrho+\int_Xb(x)\cdot dE:
+(a,b)\in C_b(X;K_q)\right\},
+\]
+选择字母$\mathscr B$是因为这一泛函在所谓Benamou--Brenier公式中起的作用（见\autoref{sec:6.1}）.
+
+证明以下结果.
+
+\begin{proposition}\label{obj:5.18}
+泛函$\mathscr B_p$在空间$\mathscr M(X)\times\mathscr M^d(X)$上关于弱收敛凸且下半连续. 此外，具有以下性质：
+\begin{enumerate}
+\item $\mathscr B_p(\varrho,E)\ge0$；
+\item $\mathscr B_p(\varrho,E):=\sup\{\int a(x)\,d\varrho+\int b(x)\cdot dE:(a,b)\in L^\infty(X;K_q)\}$；
+\item 若$\varrho$与$E$都关于$X$上的同一个正测度$\lambda$绝对连续，则可写成$\mathscr B_p(\varrho,E)=\int_Xf_p(\varrho(x),E(x))\,d\lambda(x)$，其中将$\varrho$与$E$等同于它们关于$\lambda$的密度；
+\item 只有$\varrho\ge0$且$E\ll\varrho$时，才可能$\mathscr B_p(\varrho,E)<+\infty$；
+\item 对$\varrho\ge0$与$E\ll\varrho$，有$E=\mathbf v\cdot\varrho$与$\mathscr B_p(\varrho,E)=\int\frac1p|\mathbf v|^p\,d\varrho$；
+\item 若$X=\mathbb R^d$，$\varrho^\varepsilon:=\varrho*\eta_\varepsilon$且$E^\varepsilon:=E*\eta_\varepsilon$（$\eta_\varepsilon$为标准偶磨光核），则$\mathscr B_p(\varrho^\varepsilon,E^\varepsilon)\le\mathscr B_p(\varrho,E)$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+$\mathscr B_p$定义为线性泛函的上确界，凸性与下半连续性由此直接得到. 第一项性质（正性）显然，因为可在上确界中取$a=0$与$b=0$.
+
+为证明上确界可以对有界函数而不只是连续函数取，只需用连续函数逼近每个有界函数（注意，这里滥用记号，以$L^\infty(X;K_q)$表示取值于$K_q$的有界可测函数空间，与参考测度无关）. 这可通过Lusin定理完成（见\autoref{sec:1.1}的\autoref{box:1.6}）；每个有界函数对$(a,b)$均可用连续函数对$(\widetilde a,\widetilde b)$逼近，使
+$(\varrho+|E|)(\{(a,b)\ne(\widetilde a,\widetilde b)\})<\varepsilon$，且$\sup|\widetilde a|\le\sup|a|$、$\sup|\widetilde b|\le\sup|b|$. 再将$\widetilde a$替换为$\min\{\widetilde a,-\frac1q|\widetilde b|^q\}$，保证函数取值于$K_q$. 差
+\[
+\left|\int a(x)\,d\varrho+\int b(x)\cdot dE
+-\int\widetilde a(x)\,d\varrho+\int\widetilde b(x)\cdot dE\right|
+\]
+由$C\varepsilon$控制，其中$C$只依赖于$\sup|a|$与$\sup|b|$.
+
+既已知道可以使用可测函数$a,b$而无需连续性，性质3就是\autoref{obj:5.2}的推论. 由\autoref{obj:5.17}，可写成
+\[
+\begin{aligned}
+\mathscr B_p(\varrho,E)
+&=\sup\left\{\int[a(x)\varrho(x)+b(x)\cdot E(x)]\,d\lambda(x):(a,b)\in L^\infty(X;K_q)\right\}\\
+&=\int f_p(\varrho(x),E(x))\,d\lambda(x).
+\end{aligned}
+\]
+只有$\varrho\ge0$时$\mathscr B_p$才有限，这很容易：反设不然，取集合$A$使$\varrho(A)<0$，令$a=-n\mathbbm1_A$与$b=0$. 有$\mathscr B_p(\varrho,E)\ge n\varrho(A)$，而$n$任意，故$\mathscr B_p(\varrho,E)=+\infty$. 为证明只有$E\ll\varrho$时才有限，假设存在集合$A$满足$\varrho(A)=0$而$E(A)\ne0$. 取任意单位向量$e$，使用$a=-\frac{n^q}{q}\mathbbm1_A$与$b=ne\mathbbm1_A$. 有$\mathscr B_p(\varrho,E)\ge ne\cdot E(A)$. 由于$e$与$n$均任意，得到$\mathscr B_p(\varrho,E)=+\infty$.
+
+限制在$\varrho\ge0$与$E=\mathbf v\cdot\varrho$时，性质5是性质3的推论. 事实上，只需取$\lambda=\varrho$，得到
+\[
+\mathscr B_p(\varrho,\mathbf v\cdot\varrho)
+=\int f_p(1,\mathbf v(x))\,d\varrho(x)=\int\frac1p|\mathbf v|^p\,d\varrho.
+\]
+现在证明性质6. 取任意有界函数$a:\mathbb R^d\to\mathbb R$与$b:\mathbb R^d\to\mathbb R^d$，对所有$x$满足$a(x)+\frac1q|b(x)|^q\le0$. 由卷积的标准性质，
+\[
+\int a\,d\varrho^\varepsilon+\int b\cdot dE^\varepsilon
+=\int a^\varepsilon\,d\varrho+\int b^\varepsilon\cdot dE,
+\]
+其中$a^\varepsilon:=a*\eta_\varepsilon$、$b^\varepsilon:=b*\eta_\varepsilon$. 注意，由Jensen不等式，
+\[
+|b^\varepsilon(y)|^q
+=\left|\int b(x)\eta_\varepsilon(x-y)\,dx\right|^q
+\le\int|b(x)|^q\eta_\varepsilon(x-y)\,dx,
+\]
+因而
+\[
+a^\varepsilon(y)+\frac1q|b^\varepsilon(y)|^q
+\le\int\left(a(x)+\frac1q|b(x)|^q\right)\eta_\varepsilon(x-y)\,dx\le0.
+\]
+这证明$(a^\varepsilon,b^\varepsilon)\in C(\mathbb R^d;K_q)$，从而
+\[
+\int a\,d\varrho^\varepsilon+\int b\cdot dE^\varepsilon
+=\int a^\varepsilon\,d\mu+\int b^\varepsilon\cdot dE\le\mathscr B_p(\varrho,E).
+\]
+对$a,b$取上确界，得到$\mathscr B_p(\varrho^\varepsilon,E^\varepsilon)\le\mathscr B_p(\varrho,E)$.
+\end{proof}
+
+\begin{remark}\label{obj:5.19}
+作为凸且下半连续的泛函，$\mathscr B_p$具有次微分；为优化目的，计算它会很有用. \cite{b235}展开了这一计算，但本框架中不需要它.
+\end{remark}
+
+现在已准备好证明\autoref{obj:5.14}的第一部分.
+
+\subsubsection[主要定理的证明，第一部分：构造速度场]{\autoref{obj:5.14}的证明，第一部分：$\mu$绝对连续$\Rightarrow$存在$\mathbf v$}\label{sec:5.3.2}
+
+\begin{proof}
+首先，假设$\mu$是Lipschitz曲线并不损失一般性（否则只需作时间重参数化）.
+
+通过逼近来证明：构造一列曲线$\mu_t^k$，使它们有适当的向量场$\mathbf v_t^k$，并使$\mu_t^k\rightharpoonup\mu_t$，同时向量场也能找到极限.
+
+如下定义$\mu_t^k$. 对$t=i/k$，$i=0,1,\ldots,k$，定义$\mu_t^k=\mu_t*\eta_k$，其中$\eta_k$是一个光滑恒等逼近核，即支撑于$B(0,1/k)$、积分为$1$的光滑偶正函数. 这一光滑化的唯一目的是保证测度绝对连续. 此时测度的支集包含于稍大的区域$\Omega'\supset\Omega$中，可选$\Omega'$凸. 然后，对每个$i=0,1,\ldots,k-1$，定义$\mathrm T^{i,k}:\Omega'\to\Omega'$为从$\mu_{i/k}^k$到$\mu_{(i+1)/k}^k$的最优运输（成本$c(x,y)=|x-y|^p$）. 因为每个$\mu_{i/k}^k$绝对连续，这些最优运输映射存在. 对$t\in]i/k,(i+1)/k[$，定义
+\[
+\mu_t^k:=\bigl((i+1-kt)\mathrm{id}+(kt-i)\mathrm T^{i,k}\bigr)_\#\mu_{i/k}^k,
+\]
+即在时刻$i/k$位于$x$的粒子，在区间$]i/k,(i+1)/k[$内沿连接两个位置的线段作匀速运动，并在时刻$(i+1)/k$到达$\mathrm T^{i,k}(x)$. 该运动的速度为$\mathbf v^{i,k}:=k(\mathrm T^{i,k}(x)-x)$. 令$\mathrm T_t^{i,k}:=(i+1-kt)\mathrm{id}+(kt-i)\mathrm T^{i,k}$；此映射单射（见\autoref{obj:4.23}）. 因而可令$\mathbf v_t^k:=\mathbf v^{i,k}\circ(\mathrm T_t^{i,k})^{-1}$. 最后这个向量场恰好表示各粒子在时刻$t$运动时的速度：先找出该粒子在时刻$i/k$的初始位置，再赋予它与这一初始位置相联系的速度.
+
+由此构造及\autoref{sec:4.1}中的讨论，二元组$(\mu_t^k,\mathbf v_t^k)$满足连续性方程$\partial_t\mu_t^k+\nabla\cdot(\mathbf v_t^k\mu_t^k)=0$.
+
+重要之处是以下计算：
+\[
+\begin{aligned}
+\|\mathbf v_t^k\|_{L^p(\mu_t^k)}^p
+&=\int|\mathbf v_t^k|^p\,d\mu_t^k
+=\int|\mathbf v^{i,k}|^p\circ(\mathrm T_t^{i,k})^{-1}\,d(\mathrm T_t^{i,k})_\#\mu_{i/k}^k\\
+&=\int|\mathbf v^{i,k}|^p\,d\mu_{i/k}^k
+=k^pW_p^p(\mu_{i/k}^k,\mu_{(i+1)/k}^k)\\
+&\le k^pW_p^p(\mu_{i/k},\mu_{(i+1)/k})
+\le k^p\left(\int_{i/k}^{(i+1)/k}|\mu'|(s)\,ds\right)^p\\
+&\le k\int_{i/k}^{(i+1)/k}|\mu'|^p(s)\,ds.
+\end{aligned}
+\]
+这里使用了$W_p(\mu_{i/k}*\eta_\varepsilon,\mu_{(i+1)/k}*\eta_\varepsilon)\le W_p(\mu_{i/k},\mu_{(i+1)/k})$（见\autoref{obj:5.2}），最后使用Jensen不等式. 特别地，因为$k\int_{i/k}^{(i+1)/k}|\mu'|^p(s)\,ds\le\operatorname{Lip}(\mu)$，还得到$\|\mathbf v_t^k\|_{L^p(\mu_t^k)}$的一致界.
+
+这蕴含，对任意时刻$0\le a<b\le1$（其中$i_a/k\le a\le(i_a+1)/k$且$i_b/k\le b\le(i_b+1)/k$），有
+\begin{equation}\label{eq:5.4}
+\begin{aligned}
+\int_a^b\|\mathbf v_t^k\|_{L^p(\mu_t^k)}^p\,dt
+&\le\sum_{i=i_a}^{i_b}\int_{i/k}^{(i+1)/k}|\mu'|^p(s)\,ds\\
+&=\int_{i_a/k}^{(i_b+1)/k}|\mu'|^p(s)\,ds
+\le\int_a^b|\mu'|^p(s)\,ds+\frac{2\operatorname{Lip}(\mu)}k.
+\end{aligned}
+\end{equation}
+现在通过
+\[
+\int\phi(t,x)\cdot dE^k:=\int_0^1\left(\int\phi(t,x)\cdot\mathbf v_t^k(x)\,d\mu_t^k(x)\right)dt
+\]
+在$\Omega'\times[0,1]$上定义向量测度$E^k$. 容易验证
+\[
+\|E^k\|=\int_0^1\|\mathbf v_t^k\|_{L^1(\mu_t^k)}\,dt
+\le\int_0^1\|\mathbf v_t^k\|_{L^p(\mu_t^k)}\,dt
+\le\left(\int_0^1\|\mathbf v_t^k\|_{L^p(\mu_t^k)}^p\,dt\right)^{1/p}\le C.
+\]
+因而取子列后，向量测度列$E^k$有弱极限$E$. 另一方面，容易验证$\mu^k$在$W_p$下关于时间一致收敛到$\mu$. 事实上，
+\[
+W_p(\mu_t^k,\mu_t)
+\le W_p(\mu_t^k,\mu_{i/k}^k)+W_p(\mu_{i/k}^k,\mu_{i/k})+W_p(\mu_{i/k},\mu_t).
+\]
+第一项可用
+\[
+W_p(\mu_t^k,\mu_{i/k}^k)\le|t-i/k|\,\|\mathbf v^{i,k}\|_{L^p(\mu_{i/k}^k)}\le\frac Ck
+\]
+估计；第二项可由核$\eta_\varepsilon$的支集大小估计（利用该核从$\mu_{i/k}$得到$\mu_{i/k}^k$），其大小为$\varepsilon=1/k$；第三项由$\mu$的Lipschitz常数乘以$|t-i/k|\le1/k$估计. 总之，得到
+\[
+W_p(\mu_t^k,\mu_t)\le\frac Ck.
+\]
+从$\partial_t\mu^k+\nabla\cdot E^k=0$容易取极限，得到$\partial_t\mu+\nabla\cdot E=0$. 现在要证明$E_t=\mathbf v_t\mu_t$，且几乎处处有$\|\mathbf v_t\|_{L^p(\mu_t)}\le|\mu'|(t)$.
+
+这是\autoref{obj:5.18}关于$\mathscr B_p$半连续性的推论. 事实上，在\eqref{eq:5.4}中取$a=0,b=1$，有$\mathscr B_p(\mu^k,E^k)\le C$（将泛函$\mathscr B_p$看作定义于整个时空区域$[0,1]\times\Omega$）. 这足以得到$\mathscr B_p(\mu,E)<+\infty$与$E\ll\mu$，即$E_t=\mathbf v_t\mu_t$. 再将同一引理应用于测度$\mu^k$与$E^k$在闭区间$[a,b]$上的限制，得到
+\[
+\int_a^b\|\mathbf v_t\|_{L^p(\mu_t)}^p\,dt
+\le\liminf_k\int_a^b\|\mathbf v_t^k\|_{L^p(\mu_t^k)}^p\,dt
+\le\int_a^b|\mu'|^p(t)\,dt.
+\]
+由于这对任意$a,b$成立，在$t\mapsto\|\mathbf v_t\|_{L^p(\mu_t)}^p$与$t\mapsto|\mu'|^p(t)$的每个Lebesgue点$t_0$，均得到所需不等式.
+\end{proof}
+
+现在证明\autoref{obj:5.14}的反向蕴含. 为严格进行计算，仍需通过卷积正则化. 这里的构造以后会多次用到，值得详细叙述和分析.
+
+\subsubsection{连续性方程解的正则化}\label{sec:5.3.3}
+
+假设$(\mu,E)$解出连续性方程$\partial_t\mu_t+\nabla\cdot E_t=0$，所有测度$\mu_t$与$E_t$的支集均包含于同一个紧集$\Omega\subset\mathbb R^d$，且$E_t$在测度空间中有界，即$\|E_t\|:=|E_t|(\mathbb R^d)\le C$. 取一个$C^\infty$严格正核$\eta^\varepsilon$（仅为空间变量的函数），定义$\mu_t^\varepsilon:=\eta^\varepsilon*\mu_t$、$E_t^\varepsilon:=\eta^\varepsilon*E_t$与$\mathbf v_t^\varepsilon:=E_t^\varepsilon/\mu_t^\varepsilon$. 这一选择使$\partial_t\mu_t^\varepsilon+\nabla\cdot(\mu_t^\varepsilon\mathbf v_t^\varepsilon)=0$.
+
+为应用连续性方程解的刻画结果（\autoref{obj:4.4}），需验证$\mathbf v^\varepsilon$的一致全局界. 为此，须特别选择$\eta^\varepsilon$；具体地，取$\eta^\varepsilon(z)=\varepsilon^{-d}\eta(|z|/\varepsilon)$，其中$\eta:\mathbb R^+\to\mathbb R^+$光滑，且$t\ge1$时$\eta(t)=Ce^{-t}$. 在\autoref{obj:5.20}中，将验证这保证$\mathbf v^\varepsilon$满足所需全局界，并说明$\mu^\varepsilon$的正则性（将在\autoref{sec:5.3.5}用到）.
+
+\begin{lemma}\label{obj:5.20}
+对上述卷积核$\eta^\varepsilon$的选择，只要$\Omega$有界，函数$\mu^\varepsilon$关于$(t,x)$为Lipschitz，$\mathbf v^\varepsilon$关于$x$为Lipschitz且有界，并关于$t$一致成立（固定$\varepsilon>0$）.
+\end{lemma}
+\begin{proof}
+可固定$\varepsilon=1$，其他$\varepsilon$的计算相似. 令$\eta=\eta^\varepsilon$. 由$\mu^\varepsilon(t,x)=\int\eta(|y-x|)\mu_t(dx)$，借助标准卷积性质得到关于$x$的Lipschitz界；此外还有
+\[
+\partial_t\mu^\varepsilon(t,x)
+=\frac d{dt}\int\eta(y-x)\,d\mu_t(x)
+=\int\nabla\eta(y-x)\cdot dE_t(x),
+\]
+它由$\operatorname{Lip}(\eta)|E_t|(\mathbb R^d)$控制.
+
+对$\mathbf v^\varepsilon$，计算更复杂，因为它定义为$E^\varepsilon/\mu^\varepsilon$. 由$\eta>0$得到$\mu^\varepsilon>0$，保证$\mathbf v^\varepsilon$是分母不消失的两个光滑函数之比，因而光滑. 但还需对大$|x|$计算显式全局界. 若$R_0=\operatorname{diam}(\Omega)$且$0\in\Omega$，则对$|x|=R\ge1$，必有$\mu^\varepsilon(x)\ge\eta(R+R_0)$. 另一方面，对$R\ge2R_0\vee1$，有$|E^\varepsilon|\le C\eta(R-R_0)$、$|\nabla E^\varepsilon|\le C|\eta'(R-R_0)|$，同样有$|\nabla\mu^\varepsilon|\le C|\eta'(R-R_0)|$. 由
+\[
+|\mathbf v^\varepsilon|=\frac{|E^\varepsilon|}{\mu^\varepsilon},
+\qquad|\nabla\mathbf v^\varepsilon|
+\le\frac{|\nabla E^\varepsilon|}{\mu^\varepsilon}
++\frac{|E^\varepsilon|\,|\nabla\mu^\varepsilon|}{(\mu^\varepsilon)^2},
+\]
+利用$[1,+\infty[$上$\eta=\eta'=\eta''$，以及$\eta(R+R_0)=e^{-2R_0}\eta(R-R_0)$，得到一致界.
+\end{proof}
+
+将看到，应用\autoref{obj:5.20}是唯一需要$\Omega$有界的地方. 没有这一假设，就不能应用\autoref{obj:4.4}中陈述的连续性方程刻画结果. 另一方面，前面已提过，存在更一般的唯一性结果（例如\cite{b15}），只是为简单起见没有介绍.
+
+由定义，
+\[
+\partial_t\mu_t^\varepsilon+\nabla\cdot(\mathbf v_t^\varepsilon\mu_t^\varepsilon)=0.
+\]
+此外，应用\autoref{obj:4.4}，知道$\partial_t\varrho_t+\nabla\cdot(\mathbf v_t^\varepsilon\varrho_t)=0$的唯一解由$\mathbf v^\varepsilon$的流给出. 因而
+\begin{equation}\label{eq:5.5}
+\mu_t^\varepsilon=(Y_t)_\#\mu_0^\varepsilon,
+\quad Y_t(x)=y_x(t),\qquad
+\begin{cases}y_x'(t)=\mathbf v_t^\varepsilon(y_x(t)),\\y_x(0)=x.\end{cases}
+\end{equation}
+以下命题概括这一构造.
+
+\begin{proposition}\label{obj:5.21}
+考虑解出$\partial_t\mu_t+\nabla\cdot E_t=0$的二元组$(\mu,E)$，假设所有测度$\mu_t$与$E_t$的支集均包含于同一个紧集$\Omega\subset\mathbb R^d$，且$E_t$在测度空间中有界，即$|E_t|(\mathbb R^d)\le C$. 则存在一族逼近曲线$(\mu_t^\varepsilon)_t$及速度向量场$\mathbf v_t^\varepsilon$，使得：
+\begin{itemize}
+\item $\mu^\varepsilon$关于$(t,x)$为Lipschitz，$\mathbf v^\varepsilon$关于$x$为Lipschitz且有界，并关于$t$一致成立；此外，$\mu^\varepsilon$处处严格为正；
+\item 在\eqref{eq:5.5}的意义下，$\mu_t^\varepsilon$由$\mu_0^\varepsilon$沿向量场$\mathbf v^\varepsilon$的流得到；
+\item 对每个$t$，有$\mu_t^\varepsilon\rightharpoonup\mu_t$；对几乎每个$t$，有$E_t^\varepsilon\rightharpoonup E_t$；
+\item $\|\mathbf v_t^\varepsilon\|_{L^p(\mu_t^\varepsilon)}\le\mathscr B_p(\mu_t,E_t)$.
+\end{itemize}
+\end{proposition}
+\begin{proof}
+使用上述构造. 第一项性质在\autoref{obj:5.20}中已证明，第二项前面已讨论，第三项由构造显然得到. 第四项是\autoref{obj:5.18}中性质5的推论. 注意，这意味着当$E_t=\mathbf v_t\cdot\mu_t$时，有$\|\mathbf v_t^\varepsilon\|_{L^p(\mu_t^\varepsilon)}\le\|\mathbf v_t\|_{L^p(\mu_t)}$.
+\end{proof}
+
+最后指出，同样的构造也可在环面上进行.
+
+\begin{remark}\label{obj:5.22}\index{T148@环面（torus）|hyperpage}
+若$\mu_t\in\mathscr P(\mathbb T^d)$，可考虑任意形如$\eta^\varepsilon(z)=\varepsilon^{-d}\eta(z/\varepsilon)$的逼近核$\eta^\varepsilon\in C^\infty(\mathbb R^d)$（严格为正，但无需强加指数行为），并定义环面上的卷积. 准确地说，$\mathbb T^d$上的测度$\mu$与$\mathbb R^d$上的函数$\eta$之间的周期卷积$\eta\mathbin{\underline *}\mu$定义如下. 先将$\mu$视为$Q=[-\frac12,\frac12]\subset\mathbb R^d$上的测度，在$\mathbb R^d$中作通常卷积，再定义
+\[
+(\eta\mathbin{\underline *}\mu)(x):=\sum_{k\in\mathbb Z^d}(\eta*\mu)(x+k).
+\]
+等价地，这就是环面上以$\sum_{k\in\mathbb Z^d}\eta(x+k)$为卷积核的卷积.
+
+使用这一构造，\autoref{obj:5.21}的结论同样成立. 此外，每个紧区域$\Omega$都可看作与环面等同的立方体$Q$的子集，甚至可放进$Q$任意小的部分中. 此时，$\Omega$上的测度之间每个成本为$|x-y|^p$的最优运输问题都“看不见”$Q$被等同于环面这一事实（只需$\Omega\subset\frac12Q$）.
+\end{remark}
+
+强调一下，环面情形的一致界更容易得到，但从概念上，我们觉得处理$\mathbb R^d$上的测度（特别是$\mathbb R^d$中的最优运输问题）更容易. 因而更倾向于使用Euclid空间中的构造. 不过，两种构造均予介绍，是因为\autoref{sec:5.3.5}要用到它们，在那里紧性对估计至关重要.
+
+\subsubsection[主要定理的证明，第二部分：由速度场得到绝对连续性]{\autoref{obj:5.14}的证明，第二部分：存在$\mathbf v\Rightarrow\mu$绝对连续}\label{sec:5.3.4}
+
+\begin{proof}
+从满足连续性方程的二元组$(\mu,E)$出发，其中几乎每个$t$有$E_t=\mathbf v_t\cdot\mu_t$与$\mathbf v_t\in L^p(\mu_t)$. 再次作重参数化：通过时间变量替换，可将$(\mu_t,E_t)$替换为新二元组，其中$E_t$只乘以一个依赖于$t$的标量常数. 选择适当变量替换，可以要求$\|\mathbf v_t\|_{L^p(\mu_t)}$一致有界. 这也蕴含$\|E_t\|=|E_t|(\mathbb R^d)=\|\mathbf v_t\|_{L^1(\mu_t)}$有界.
+
+在这一额外假设（$\|E_t\|$的一致界）下，可使用上一小节的构造（为叙述简单，使用$\mathbb R^d$中的构造）. 因而能构造逼近曲线$\mu_t^\varepsilon$，由空间上光滑的向量场$\mathbf v^\varepsilon$的流驱动. 这给出$\mu_t^\varepsilon$与$\mu_{t+h}^\varepsilon$之间一个有用的运输方案：取$\gamma=(\mathrm T_t,\mathrm T_{t+h})_\#\mu_0^\varepsilon\in\Pi(\mu_t^\varepsilon,\mu_{t+h}^\varepsilon)$. 得到
+\[
+\begin{aligned}
+W_p(\mu_t^\varepsilon,\mu_{t+h}^\varepsilon)
+&\le\left(\int_{\Omega\times\Omega}|x-y|^p\,d\gamma\right)^{1/p}
+=\left(\int_\Omega|\mathrm T_t(x)-\mathrm T_{t+h}(x)|^p\,d\mu_0^\varepsilon\right)^{1/p}\\
+&\le|h|^{1/q}\left(\int_\Omega\int_t^{t+h}\left|\frac d{ds}\mathrm T_s(x)\right|^p\,ds\,d\mu_0^\varepsilon\right)^{1/p}\\
+&=|h|^{1/q}\left(\int_t^{t+h}ds\int_\Omega|\mathbf v_s^\varepsilon(y_x(s))|^p\,d\mu_0^\varepsilon\right)^{1/p}\\
+&=|h|^{1/q}\left(\int_t^{t+h}ds\int_\Omega|\mathbf v_s^\varepsilon(y)|^p\,d\mu_s^\varepsilon(y)\right)^{1/p}.
+\end{aligned}
+\]
+已在\autoref{obj:5.17}中证明$\int|\mathbf v_s^\varepsilon(y)|^p\,d\mu_s^\varepsilon(y)\le\|\mathbf v_s\|_{L^p(\mu_s)}^p$. 由此得到
+\[
+\begin{aligned}
+W_p(\mu_t^\varepsilon,\mu_{t+h}^\varepsilon)
+&\le|h|^{1/q}\left(\int_t^{t+h}\|\mathbf v_s\|_{L^p(\mu_s)}^p\,ds\right)^{1/p}\\
+&=|h|\left(\frac1{|h|}\int_t^{t+h}\|\mathbf v_s\|_{L^p(\mu_t)}^p\,ds\right)^{1/p}.
+\end{aligned}
+\]
+先令$\varepsilon\to0$，得到
+\[
+\frac{W_p(\mu_t,\mu_{t+h})}{|h|}
+\le\left(\frac1{|h|}\int_t^{t+h}\|\mathbf v_s\|_{L^p(\mu_s)}^p\,ds\right)^{1/p}.
+\]
+这说明$\mu_t$具有Lipschitz性质. 然后在$|\mu'|(t)$存在、且$t$为$t\mapsto\|\mathbf v_t\|_{L^p(\mu_t)}^p$的Lebesgue点处，令$h\to0$，得到
+\[
+|\mu'|(t)\le\|\mathbf v_t\|_{L^p(\mu_t)},
+\]
+这就是所需估计.
+\end{proof}
+
+注意，\autoref{obj:5.14}的证明大量使用了泛函$\mathscr B_p$：第二部分需要其凸性，第一部分需要其半连续性.\footnote{第二部分的证明是标准的，基于\autoref{sec:4}给出的连续性方程解释. 所作逼近与\cite{b15}相同，但为使叙述自足，我们尝试加以简化，因而选择了十分具体的卷积核. 关于第一部分，强调一下，\cite{b15}有一种不同且优美得多的方法，不使用逼近. 本书所给方法或多或少受到Lisini论文\cite{b212}的启发.}
+
+\begin{remark}\label{obj:5.23}
+还注意到，只对$p>1$定义了泛函$\mathscr B_p$，而$p=1$唯一自然的延拓为$\mathscr B_1(\varrho,E)=\|E\|$. 容易理解，\autoref{obj:5.14}的第一部分在$p=1$时不可能仍成立. 实际上，失效的是向量场$\mathbf v_t$的存在性，因为不能再推出$E\ll\mu$：不难调整证明，得到满足$\partial_t\mu_t+\nabla\cdot E_t=0$的一族向量测度$E_t$，但$E_t$不再具有$\mathbf v_t\cdot\mu_t$的形式. 绝对连续性不成立的例子如下：取$\mu_t:=(1-t)\delta_{x_0}+t\delta_{x_1}$，它在$\mathbb W_1$中为Lipschitz曲线（但在$\mathbb W_p$、$p>1$中不是）. 此时可取$E_t=\frac{x_1-x_0}{|x_1-x_0|}\mathscr H^1\restr[x_0,x_1]$（连接两点的线段上的均匀测度，方向与线段相同），但不存在集中于$\{x_0,x_1\}$、散度为$\delta_{x_1}-\delta_{x_0}$的测度.
+\end{remark}
+
+\subsubsection[Wasserstein距离的幂沿测度曲线的导数]{$W_p^p$沿测度曲线的导数}\label{sec:5.3.5}
+
+最后给出一个有用的计算，可用于演化偏微分方程研究中的许多情形. \cite{b15}有效地证明了同一结果，这里提供另一种证明.
+
+\begin{theorem}\label{obj:5.24}
+设对$i=1,2$，$(\varrho_t^{(i)},\mathbf v_t^{(i)})$是紧区域$\Omega$上连续性方程$\partial_t\varrho_t^{(i)}+\nabla\cdot(\mathbf v_t^{(i)}\varrho_t^{(i)})=0$的两个解（满足无通量边界条件），并假设每个$t$都有$\varrho_t^{(i)}\ll\mathscr L^d$，且$\varrho^{(i)}$是$\mathbb W_p(\Omega)$中的绝对连续曲线. 则几乎每个$t$满足
+\[
+\frac d{dt}\left(\frac1pW_p^p(\varrho_t^{(1)},\varrho_t^{(2)})\right)
+=\int\nabla\varphi_t\cdot\mathbf v_t^{(1)}\varrho_t^{(1)}\,dx
++\int\nabla\psi_t\cdot\mathbf v_t^{(2)}\varrho_t^{(2)}\,dx,
+\]
+其中$(\varphi_t,\psi_t)$是成本$\frac1p|x-y|^p$下$\varrho_t^{(1)}$到$\varrho_t^{(2)}$运输中的任意一对Kantorovich势.
+\end{theorem}
+\begin{proof}
+先在如下假设下证明：对$i=1,2$，$\varrho^{(i)}$关于$(t,x)$为Lipschitz连续，而$\mathbf v^{(i)}$关于$x$为Lipschitz，并关于$t$一致成立. 此时，对任意$t,t_0$，由对偶公式（\autoref{obj:1.39}）可写出
+\begin{equation}\label{eq:5.6}
+\frac1pW_p^p(\varrho_t^{(1)},\varrho_t^{(2)})
+-\int\varphi_{t_0}\varrho_t^{(1)}-\int\psi_{t_0}\varrho_t^{(2)}\ge0,
+\end{equation}
+且$t=t_0$时取等号. 选$t_0$使$t\mapsto W_p^p(\varrho_t^{(1)},\varrho_t^{(2)})$在$t=t_0$处可微，且对几乎每个$x$，$\varrho^{(i)}(t,x)$在$(t_0,x)$处关于$t$可微，其时间导数等于$-\nabla\cdot(\varrho^{(i)}(t,x)\mathbf v^i(t,x))$. 这些条件对几乎每个$t_0$都满足（利用\autoref{obj:4.3}）. 因而\eqref{eq:5.6}左端在$t=t_0$处可微，且由于在$t=t_0$处取得最小值，导数必为零. 这证明
+\[
+\left.\frac d{dt}\left(\frac1pW_p^p(\varrho_t^{(1)},\varrho_t^{(2)})\right)\right|_{t=t_0}
+=\int\varphi_{t_0}(\partial_t\varrho^{(1)})_{t_0}
++\int\psi_{t_0}(\partial_t\varrho^{(2)})_{t_0},
+\]
+再使用$\partial_t\varrho^{(i)}=-\nabla\cdot(\mathbf v^{(i)}\varrho^{(i)})$并分部积分，就得到所需公式.\footnote{这一结果的困难之一是，函数$t\mapsto\int\varphi_{t_0}\varrho_t^{(1)}$与$t\mapsto\int\psi_{t_0}\varrho_t^{(2)}$对几乎每个$t$可微，却未必在$t=t_0$处可微（知道的是，对每个被积函数，积分对几乎每个$T$可微，而不是对几乎每个$t$，每个被积函数对应的积分都可微）. 这里提出通过Lipschitz解克服这一困难的方法. 另一种做法是，像基于\cite{b15}思想的\cite{b155}那样，尝试找出使每个被积函数均对应可微积分的确切时刻集合.}
+
+\phantomsection\label{idx:root5-p199-torus}\index{T148@环面（torus）|hyperpage}为处理一般情形，先通过时间重参数化，将曲线$\varrho^{(i)}$化为$\mathbb W_p(\Omega)$中的Lipschitz曲线. 再应用\autoref{sec:5.3.3}的正则化过程. 为保持紧性，选择环面上的构造，并假设$\Omega\subset\frac12Q$（缩放后可以做到）. 从而得到两族更光滑的曲线$\varrho_t^{(i,\varepsilon)}$及其速度场$\mathbf v_t^{(i,\varepsilon)}$. 对$t_0<t_1$，证明的第一部分蕴含
+\[
+\begin{aligned}
+&\frac1pW_p^p(\varrho_{t_1}^{(1,\varepsilon)},\varrho_{t_1}^{(2,\varepsilon)})
+-\frac1pW_p^p(\varrho_{t_0}^{(1,\varepsilon)},\varrho_{t_0}^{(2,\varepsilon)})\\
+&\qquad=\int_{t_0}^{t_1}dt\int_{\mathbb T^d}
+\nabla\varphi_t^\varepsilon\cdot E_t^{(1,\varepsilon)}
++\nabla\psi_t^\varepsilon\cdot E_t^{(2,\varepsilon)},
+\end{aligned}
+\]
+其中$E_t^{(i,\varepsilon)}=\varrho_t^{(i,\varepsilon)}\mathbf v_t^{(i,\varepsilon)}$（另令$E_t^{(i)}=\varrho_t^{(i)}\mathbf v_t^{(i)}$），$\varphi_t^\varepsilon$与$\psi_t^\varepsilon$是$\varrho_t^{(1,\varepsilon)}$到$\varrho_t^{(2,\varepsilon)}$运输中的Kantorovich势.
+
+只需在上式中取极限. 左端显然收敛到测度$\varrho^{(i)}$之间相应的Wasserstein距离（注意，空间紧，卷积弱收敛到原测度）. 接着分析右端第一部分（即$i=1$，另一部分完全类似）.
+
+对每个$t$，有
+\[
+\begin{aligned}
+\left|\int_{\mathbb T^d}\nabla\varphi_t^\varepsilon\cdot E_t^{(1,\varepsilon)}\right|
+&\le\operatorname{Lip}(\varphi_t^\varepsilon)\|\mathbf v_t^{(i,\varepsilon)}\|_{L^1(\varrho_t^{(i,\varepsilon)})}\\
+&\le C\|\mathbf v_t^{(i,\varepsilon)}\|_{L^p(\varrho_t^{(i,\varepsilon)})}
+\le C\|\mathbf v_t^{(i)}\|_{L^p(\varrho_t^{(i)})}\le C,
+\end{aligned}
+\]
+这里使用了\autoref{obj:5.18}的性质5，以及所有函数$\varphi^\varepsilon$等Lipschitz这一事实（见\autoref{sec:1.3.2}）.
+
+现在只需对固定$t$考察极限，因为关于$t$可使用支配收敛. 令$\varphi_t^{\varepsilon\varepsilon}:=\eta^\varepsilon*\varphi_t^\varepsilon$. 由卷积的标准性质，
+\[
+\int_{\mathbb T^d}\nabla\varphi_t^\varepsilon\cdot E_t^{(1,\varepsilon)}
+=\int_{\mathbb T^d}\nabla\varphi_t^\varepsilon\cdot(\eta^\varepsilon*E_t^{(1)})
+=\int\nabla\varphi_t^{\varepsilon\varepsilon}\cdot E_t^{(1)}.
+\]
+\phantomsection\label{idx:root5-p200-semiconcavity}\index{S137@半凹函数（semi-concave functions）|hyperpage}因而只需证明$\nabla\varphi_t^{\varepsilon\varepsilon}\to\nabla\varphi_t$几乎处处成立. 函数$\varphi_t^{\varepsilon\varepsilon}$在紧集上等Lipschitz、等半凹（再见\autoref{sec:1.3.2}），调整平均值后可应用Ascoli--Arzelà定理. 因而取子列后，它们收敛到某函数$\widetilde\varphi$. 注意，由半凹性，函数收敛蕴含梯度几乎处处收敛（例如见\cite{b102}定理3.3.3）. 只需证明$\nabla\widetilde\varphi=\nabla\varphi_t$（这还将蕴含整个序列都收敛）.
+
+由\autoref{obj:1.52}，$\varphi_t^\varepsilon$的极限必为Kantorovich势. 此外有一般估计
+\[
+\begin{aligned}
+|(\eta^\varepsilon*f)(x)-f(x)|
+&\le\int|f(x)-f(x-y)|\,\eta\left(\frac y\varepsilon\right)\frac{dy}{\varepsilon^d}\\
+&\le\operatorname{Lip}(f)\int|y|\,\eta\left(\frac y\varepsilon\right)\frac{dy}{\varepsilon^d}
+=\varepsilon\operatorname{Lip}(f)\int|z|\eta(z)\,dz,
+\end{aligned}
+\]
+这里使用了变量替换$y=\varepsilon z$. 同样的估计也适用于周期卷积，说明
+$\|\varphi_t^{\varepsilon\varepsilon}-\varphi_t^\varepsilon\|_{L^\infty}\le C\operatorname{Lip}(\varphi^\varepsilon)\varepsilon\le C\varepsilon\to0$.
+由此可知，$\varphi_t^{\varepsilon\varepsilon}$的极限必与$\varphi_t^\varepsilon$的极限相同，即为Kantorovich势. 即使Kantorovich势未必唯一，其梯度却唯一，从而推出$\nabla\varphi_t^{\varepsilon\varepsilon}\to\nabla\varphi_t$.
+\end{proof}
+
+注意，上述证明大量使用了区域$\Omega$（及环面）的紧性：若通过$\mathbb R^d$上的测度作正则化，同一证明似乎会因缺少$\nabla\varphi_t^{\varepsilon\varepsilon}$的界而变得困难. 测度绝对连续的假设，则用于利用梯度几乎处处收敛到唯一极限（极限势的梯度）. 没有它，要恢复整个序列的收敛可能会有困难.
+
+作为前一结果的推论，得到以下有用公式.
+
+\begin{corollary}\label{obj:5.25}
+在与\autoref{obj:5.24}相同的假设下，有
+\[
+\frac d{dt}\left(\frac1pW_p^p(\varrho_t^{(1)},\varrho_t^{(2)})\right)
+=\int_\Omega(x-\mathrm T_t(x))\cdot\bigl(\mathbf v_t^{(1)}(x)-\mathbf v_t^{(2)}(\mathrm T_t(x))\bigr)\varrho_t^{(1)}(x)\,dx,
+\]
+其中$\mathrm T_t$为成本$\frac1p|x-y|^p$下从$\varrho_t^{(1)}$到$\varrho_t^{(2)}$的最优运输映射.
+\end{corollary}
+\begin{proof}
+只需改写\autoref{obj:5.24}的结论，使用$\nabla\varphi_t(x)=x-\mathrm T_t(x)$与$\nabla\psi_t(y)=y-S_t(y)$，其中$S_t$是从$\varrho_t^{(2)}$到$\varrho_t^{(1)}$的最优运输. 利用
+\[
+\int(y-S_t(y))\cdot\mathbf v_t^{(2)}(y)\,d\varrho_t^{(2)}(y)
+=\int(\mathrm T_t(x)-x)\cdot\mathbf v_t^{(2)}(\mathrm T_t(x))\,d\varrho_t^{(1)}(x),
+\]
+这来自$(\mathrm T_t)_\#\varrho_t^{(1)}=\varrho_t^{(2)}$与$S_t=\mathrm T_t^{-1}$. 因而\autoref{obj:5.24}中的公式给出
+\[
+\begin{aligned}
+\frac d{dt}\left(\frac1pW_p^p(\varrho_t^{(1)},\varrho_t^{(2)})\right)
+&=\int_\Omega(x-\mathrm T_t(x))\cdot\mathbf v_t^{(1)}(x)\,d\varrho_t^{(1)}(x)\\
+&\quad+\int_\Omega(\mathrm T_t(x)-x)\cdot\mathbf v_t^{(2)}(\mathrm T_t(x))\,d\varrho_t^{(1)}(x),
+\end{aligned}
+\]
+从而得到断言.
+\end{proof}
+
+上述计算在若干演化偏微分方程解的唯一性和性质方面的应用，见习题部分（\autoref{ex:34}、\autoref{ex:66}、\autoref{ex:67}、\autoref{ex:68}、\autoref{ex:69}）.
+
+这里只给出一个应用例子，说明给定向量场的连续性方程的唯一性.
+
+\begin{proposition}\label{obj:5.26}
+设$\mathbf v_t:\Omega\to\mathbb R^d$是紧光滑区域$\Omega$上以时间为参数的一族向量场，满足单侧Lipschitz条件
+$(\mathbf v_t(x)-\mathbf v_t(y))\cdot(x-y)\le C|x-y|^2$，其中固定常数$C$不依赖于$x,y,t$. 再假设$\partial\Omega$上$\mathbf v_t\cdot\mathbf n=0$，考虑给定初值$\varrho_0$的方程$\partial_t\varrho_t+\nabla\cdot(\varrho_t\mathbf v_t)=0$. 则在$\mathbb W_2(\Omega)$中几乎每个$t$都是绝对连续测度的绝对连续曲线之中，至多有一个解$\varrho_t$.
+\end{proposition}
+\begin{proof}
+考虑两个解$\varrho_t^{(1)},\varrho_t^{(2)}$，计算$W_2^2(\varrho_t^{(1)},\varrho_t^{(2)})$的时间导数. 利用\autoref{obj:5.25}，有
+\[
+\begin{aligned}
+\frac d{dt}\left(\frac12W_2^2(\varrho_t^{(1)},\varrho_t^{(2)})\right)
+&=\int_\Omega(x-\mathrm T(x))\cdot\bigl(\mathbf v_t(x)-\mathbf v_t(\mathrm T(x))\bigr)\varrho_t^{(1)}\,dx\\
+&\le C\int_\Omega|x-\mathrm T(x)|^2\varrho_t^{(1)}\,dx
+=CW_2^2(\varrho_t^{(1)},\varrho_t^{(2)}).
+\end{aligned}
+\]
+因此可应用Gronwall引理，由这一距离在$t=0$时为零，推出$W_2^2(\varrho_t^{(1)},\varrho_t^{(2)})=0$.
+\end{proof}
+
+注意，上述证明也可用于证明连续性方程的唯一性，并应用于\autoref{obj:4.4}.
+

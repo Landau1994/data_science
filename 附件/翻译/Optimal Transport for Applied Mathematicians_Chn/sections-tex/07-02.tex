@@ -1,0 +1,265 @@
+% 原书印刷260下--269上／PDF物理284下--293上.
+\subsection{凸性、一阶变分与次微分}\label{sec:7.2}\index{S146@次微分（subdifferentials）|hyperpage}
+本节转向与这些泛函有关的另一个重要概念. 如果说下半连续性对于建立极小化问题的存在性结果至关重要，那么凸性（特别是严格凸性）对于唯一性至关重要. 此外，凸性伴随着次微分概念；于是又来到变分法中的一个自然问题：如何计算这些泛函的一阶变分？
+
+从最初的问题开始：这些泛函中哪些是凸的？
+\paragraph{凸性与严格凸性}
+\begin{itemize}
+ \item $\mathscr V$是线性的，因而凸，但不严格凸.
+ \item $\mathscr W$是二次型，却不总为凸. 例如取$W(x,y)=|x-y|^2$，计算
+ \[
+ \begin{aligned}
+ &\int_\Omega\int_\Omega|x-y|^2\,d\mu(x)\,d\mu(y)\\
+ &=\int_\Omega\int_\Omega|x|^2\,d\mu(x)\,d\mu(y)
+ +\int_\Omega\int_\Omega|y|^2\,d\mu(x)\,d\mu(y)\\
+ &\qquad-2\int_\Omega\int_\Omega x\cdot y\,d\mu(x)\,d\mu(y)\\
+ &=2\int_\Omega|x|^2\,d\mu(x)-2\left(\int_\Omega x\,d\mu(x)\right)^2.
+ \end{aligned}
+ \]
+ 这表明，$\mathscr W$在此情形是一个线性部分减去另一个线性部分的平方；因此它是凹的，而非凸的.
+ \item 所有运输代价都能由对偶公式表示为线性泛函的上确界：
+ \[
+ \mathscr T_c(\mu,\nu)=\sup_{\varphi(x)+\psi(y)\leq c(x,y)}
+                    \left\{\int\varphi\,d\mu+\int\psi\,d\nu\right\},
+ \]
+ 因而为凸（但$W_p$一般不是）. 严格凸性稍后讨论（对于$c(x,y)=|x-y|^p$、$p>1$及$\nu\ll\mathscr L^d$，严格凸性成立）.
+ \item 对偶函数空间中的范数总是凸的，因为它是范数；但它从不严格凸，因为它是1次齐次的. 注意，范数的平方也可能不严格凸（$L^\infty$或$L^1$范数就是如此）.
+ \item 由于对$f$的假设，前面考虑的泛函$\mathscr F$确实为凸. 若$f$严格凸且$L=+\infty$，则严格凸性成立（例如，取严格凸的$f(t)=\sqrt{1+t^2}-1$时，$\mathscr F$并不严格凸，因为它在奇异测度上取有限值且为线性）.
+ \item 相反，前面考虑的泛函$\mathscr G$通常不凸，因为次可加函数的典型例子是凹函数.
+\end{itemize}
+
+\paragraph{一阶变分}
+\phantomsection\label{idx:i62-p261}\index{F062@一阶变分（first variation）|hyperpage}
+现在转向这些泛函的一阶变分计算. 由于其中许多泛函只在凸集$\mathscr P(\Omega)$上考察，而后者是Banach空间$\mathscr M(\Omega)$的真子集（但为凸集），因此更愿意给出一个专门而实用的定义.
+\begin{definition}\label{obj:7.12}
+给定泛函$F:\mathscr P(\Omega)\to\mathbb R\cup\{+\infty\}$，若对每个$\varepsilon\in[0,1]$及每个$\widetilde\varrho\in\mathscr P(\Omega)\cap L_c^\infty(\Omega)$（具有$L^\infty$密度与紧支集的绝对连续概率测度），都有$F((1-\varepsilon)\varrho+\varepsilon\widetilde\varrho)<+\infty$，即$\{\varrho\}$与$L_c^\infty(\Omega)\cap\mathscr P(\Omega)$的凸包包含在$\{F<+\infty\}$中，则称$\varrho\in\mathscr P(\Omega)$对于$F$是正则的.
+
+若$\varrho$对于$F$正则，则以$\frac{\delta F}{\delta\varrho}(\varrho)$表示（若存在）满足如下条件的任意可测函数：对每个形如$\chi=\widetilde\varrho-\varrho$、$\widetilde\varrho\in L_c^\infty(\Omega)\cap\mathscr P(\Omega)$的扰动，都有
+\[
+ \left.\frac d{d\varepsilon}F(\varrho+\varepsilon\chi)\right|_{\varepsilon=0}
+             =\int\frac{\delta F}{\delta\varrho}(\varrho)\,d\chi.
+\]
+\end{definition}
+\begin{remark}\label{obj:7.13}
+由必有$\int d\chi=0$这一事实，显然$\frac{\delta F}{\delta\varrho}(\varrho)$只在相差加法常数的意义下确定. 另一方面，除去这一不变性后，它具有唯一性.
+\end{remark}
+\begin{itemize}
+ \item 由$\mathscr V(\mu+\varepsilon\chi)=\mathscr V(\mu)+\varepsilon\int V\,d\chi$，得到$\frac{\delta\mathscr V}{\delta\varrho}(\varrho)=V$.
+ \item 因为$\mathscr W$为二次型，计算很容易：
+ \[
+ \begin{aligned}
+ \mathscr W(\mu+\varepsilon\chi)-\mathscr W(\mu)
+ &=\varepsilon\iint W(x,y)\,d\mu(x)\,d\chi(y)\\
+ &\quad+\varepsilon\iint W(x,y)\,d\mu(y)\,d\chi(x)\\
+ &\quad+\varepsilon^2\iint W(x,y)\,d\chi(x)\,d\chi(y).
+ \end{aligned}
+ \]
+ 从而
+ \[
+ \frac{\delta\mathscr W}{\delta\varrho}(\varrho)(y)
+       =\int W(x,y)\,d\mu(x)+\int W(y,y')\,d\mu(y').
+ \]
+ 当$W$对称时，公式更简单（两项相等）；当$W(x,y)=h(x-y)$，其中$h$为偶函数时，又更简单，此时写成卷积形式$\frac{\delta\mathscr W}{\delta\varrho}(\varrho)=2h*\mu$.
+ \item 对于$\mu\mapsto\mathscr T_c(\mu,\nu)$，只要从$\mu$到$\nu$的运输中的Kantorovich势$\varphi$唯一，一阶变分就由它给出；稍后将讨论这一点.
+ \item 类似地，$\mu\mapsto\|\mu\|_{\mathscr X'}$的一阶变分由在$\max\{\int\varphi\,d\mu:\|\varphi\|_{\mathscr X}\leq1\}$中实现最大值的函数$\varphi$给出，前提是它存在且唯一.
+ \item 若$f\in C^1$且$f'$满足适当的界（通常需要$f$和$f'$具有多项式增长），则可见$\frac{\delta\mathscr F}{\delta\varrho}(\varrho)=f'(\varrho)$. 事实上，可取$\chi=\theta\cdot\lambda$，写成$\mathscr F(\varrho+\varepsilon\chi)=\int f(\varrho(x)+\varepsilon\theta(x))\,d\lambda(x)$，并在积分号下求导（这需要某些增长条件），得到
+ \[
+ \left.\frac d{d\varepsilon}\mathscr F(\varrho+\varepsilon\chi)\right|_{\varepsilon=0}
+ =\int f'(\varrho(x))\theta(x)\,d\lambda=\int f'(\varrho)\,d\chi.
+ \]
+ 对$f'$的界只用于保证可以在积分号下求导.
+ \item 注意，一般而言，泛函$\mathscr G$沿这类扰动不可微，而且一般不存在对于$\mathscr G$正则的测度. 事实上，由$g'(0)=+\infty$可推断，通常只有在$\chi$集中于与$\mu$相同的原子上时，$G(\mu+\varepsilon\chi)$才可微；尽管当$\chi$只有有限个原子时，也会有$\mathscr G(\mu+\varepsilon\chi)<+\infty$.
+\end{itemize}
+\begin{remark}\label{obj:7.14}
+强调，一阶变分定义中赋予$L_c^\infty$函数的特殊地位完全是任意选择的. 但它们代表一类密度：在概率测度类中足够稠密，同时又足够正则，能保证大多数有意义的泛函取有限值. 特别地，对上述所有泛函，除$\mathscr G$之外，概率测度$\varrho$正则，当且仅当该泛函在它处取有限值.
+\end{remark}
+
+\subsubsection{对偶范数}\label{sec:7.2.1}\index{D045@对偶范数（dual norms）|hyperpage}
+从上述非平凡的问题，即运输代价与对偶范数的情形开始. 二者的共同特征是定义为线性泛函的上确界. 由于它们都是凸泛函，先从凸分析中的一个一般事实开始，它不仅给出一阶变分，还给出次微分.
+\begin{lemma}\label{obj:7.15}\index{L090@Legendre--Fenchel变换（Legendre-Flenchel transform）|hyperpage}
+设$\mathscr X$是Banach空间，$H:\mathscr X\to\mathbb R\cup\{+\infty\}$凸且下半连续. 对$y\in\mathscr X'$令$H^*(y)=\sup\langle x,y\rangle-H(x)$，其中$\langle x,y\rangle$表示$\mathscr X$与$\mathscr X'$之间的对偶. 则$\partial H^*(y_0)=\operatorname*{argmax}_x\{\langle x,y_0\rangle-H(x)\}$.
+\end{lemma}
+\begin{proof}
+已知$x_0\in\partial H^*(y_0)\Longleftrightarrow y_0\in\partial H(x_0)$（见\autoref{sec:1.6}中的\autoref{box:1.12}）. 这等价于$0$属于$x\mapsto H(x)-\langle x,y_0\rangle$在$x_0$处的次微分，又等价于$x_0$最小化同一表达式.
+\end{proof}
+\begin{proposition}\label{obj:7.16}
+假设$\mathscr X$是由$\Omega$上的函数组成的自反可分Banach空间，且$\mathscr X\cap C_b(\Omega)$在$\mathscr X$中稠密. 令$F(\mu):=\|\mu\|_{\mathscr X'}=\sup\{\int\varphi\,d\mu:\|\varphi\|_{\mathscr X}\leq1\}$. 假设对给定的$\mu$，在$F(\mu)$定义中实现最大值的函数$\varphi_\mu\in\mathscr X$存在且唯一. 则$\frac{\delta F}{\delta\varrho}(\mu)=\varphi_\mu$. 此外，次微分$\partial F(\mu)$（此处将$F$看作Banach空间$\mathscr M(\Omega)$上的泛函，在$\mathscr P(\Omega)\cap\mathscr X'$之外置为$+\infty$）总等于所有极大元的集合（未必是单点集）.
+\end{proposition}
+\begin{proof}
+陈述的第二部分容易由\autoref{obj:7.15}得到，只需应用于如下定义的泛函$F$：当$\|\varphi\|\leq1$时$F(\varphi)=0$，当$\|\varphi\|>1$时$F(\varphi)=+\infty$. 对第一部分，取扰动$\chi$，使对小的$\varepsilon$，$\mu+\varepsilon\chi$属于$\mathscr X'$. 这意味着$\mu$与$\chi$都属于$\mathscr X'$. 由$F$的定义，可以写成
+\[
+ \int\varphi_\mu\,d\chi\leq\frac{F(\mu+\varepsilon\chi)-F(\mu)}\varepsilon
+                  \leq\int\varphi_{\mu+\varepsilon\chi}\,d\chi.
+\]
+为了取极限，只需证明当$\varepsilon\to0$时右端趋于$\int\varphi_\mu\,d\chi$. 首先注意，函数$\varphi_{\mu+\varepsilon\chi}$属于自反可分Banach空间的单位球. 这意味着取子列后，有$\varphi_{\mu+\varepsilon\chi}\rightharpoonup\varphi$，其中$\|\varphi\|\leq1$. 只需证明$\varphi=\varphi_\mu$. 由极大元$\varphi_\mu$的唯一性，只需证明$\varphi$也是$\mu$的极大元，即$\int\varphi\,d\mu=F(\mu)$.
+
+为此，注意$\mu+\varepsilon\chi$在$\mathscr X'$中强收敛于$\mu$，因而
+\[
+\begin{aligned}
+ \lim_{\varepsilon\to0}F(\mu+\varepsilon\chi)
+ &=\lim_{\varepsilon\to0}\int\varphi_{\mu+\varepsilon\chi}\,d(\mu+\varepsilon\chi)\\
+ &=\int\varphi\,d\mu\leq F(\mu)=\lim_{\varepsilon\to0}F(\mu+\varepsilon\chi),
+\end{aligned}
+\]
+最后一个等式来自$F$关于$\mathscr X'$中强收敛的连续性. 因此不等式$\int\varphi\,d\mu\leq F(\mu)$实际上是等式，且$\varphi=\varphi_\mu$.
+\end{proof}
+
+\subsubsection{运输代价}\label{sec:7.2.2}
+这里考虑到固定测度的Wasserstein距离（特别是形如$\mu\mapsto W_p^p(\mu,\nu)$的泛函），更一般地，考虑运输代价$\mathscr T_c(\mu,\nu):=\min\{\int c(x,y)\,d\gamma:\gamma\in\Pi(\mu,\nu)\}$，即测度与某个固定测度之间的最小运输代价. 注意，对于连续性问题，利用$W_p$的距离结构很有帮助；但对于凸性与一阶变分，这不是合适的方法.
+
+为简单起见，下列结果只在紧区域$\Omega\subset\mathbb R^d$的情形下给出.
+\begin{proposition}\label{obj:7.17}\index{K083@Kantorovich势（Kantorovich potentials）|hyperpage}
+设$\Omega\subset\mathbb R^d$紧，$c:\Omega\times\Omega\to\mathbb R$连续. 则泛函$\mu\mapsto\mathscr T_c(\mu,\nu)$为凸，且其在$\mu_0$处的次微分等于Kantorovich势的集合$\{\varphi\in C^0(\Omega):\int\varphi\,d\mu_0+\int\varphi^c\,d\nu=\mathscr T_c(\mu,\nu)\}$. 此外，若从$\mu_0$到$\nu$的$c$凹Kantorovich势在相差加法常数的意义下唯一，即上述集合中的$c$凹函数都由同一函数$\varphi_\mu$加任意常数给出，则还有$\frac{\delta\mathscr T_c(\cdot,\nu)}{\delta\varrho}(\mu)=\varphi_\mu$.
+\end{proposition}
+\begin{proof}
+回到表达式
+\[
+ \mathscr T_c(\mu,\nu)=\sup\left\{\int\varphi\,d\mu+\int\varphi^c\,d\nu:
+                                      \varphi\in C^0(\Omega)\right\},
+\]
+它把$\mathscr T_c(\cdot,\nu)$表示为关于$\mu$的仿射泛函的上确界. 这里$\nu$是固定的概率测度. 注意，若取$\mu\in\mathscr M(\Omega)\setminus\mathscr P(\Omega)$，同一个上确界给出$+\infty$，即
+\[
+ \sup_{\varphi\in C^0(\Omega)}\left\{\int\varphi\,d\mu+\int\varphi^c\,d\nu\right\}
+ =\begin{cases}\mathscr T_c(\mu,\nu)&\text{若 }\mu\in\mathscr P(\Omega),\\
+ +\infty&\text{若 }\mu\in\mathscr M(\Omega)\setminus\mathscr P(\Omega).
+ \end{cases}
+\]
+事实上，若$\mu$不是正测度，则存在函数$\varphi\in C^0(\Omega)$，满足$\varphi\leq0$且$\int\varphi\,d\mu>0$. 因为$\varphi^c(y)=\inf_y c(x,y)-\varphi(x)\geq\inf c$（假设$c$有下界），所以$\int\varphi\,d\mu+\int\varphi^c\,d\nu\geq\int\varphi\,d\mu+\inf c$. 用$\lambda\varphi$代替$\varphi$并令$\lambda\to+\infty$，便看出上确界为$+\infty$.
+
+另一方面，若$\mu\geq0$但$\mu(\Omega)\ne1=\nu(\Omega)$，在上确界中同样得到$+\infty$. 事实上，总可以给任意$\varphi$加常数$\lambda$，并有$(\varphi+\lambda)^c=\varphi^c-\lambda$. 例如取$\varphi=0$，得到
+\[
+ \sup_{\varphi\in C^0(\Omega)}\left\{\int\varphi\,d\mu+\int\varphi^c\,d\nu\right\}
+ \geq\int0^c(y)\,d\nu(y)+\lambda\bigl(\mu(\Omega)-\nu(\Omega)\bigr),
+\]
+若$\mu(\Omega)-\nu(\Omega)\ne0$，便可使它任意大（这里$0^c$是有界函数，其精确表达式依赖于$c$）.
+
+为刻画次微分，应用\autoref{obj:7.15}，取$\mathscr X=C^0(\Omega)$（赋予上确界范数），$H:\mathscr X\to\mathbb R$由$H(\varphi):=-\int\varphi^c\,d\nu$给出. 只需证明该泛函凸且半连续（事实上连续）. 注意，对$\varphi_0,\varphi_1\in C^0(\Omega)$，有
+\[
+\begin{aligned}
+ \varphi_1^c(y)&=\inf_x c(x,y)-\varphi_1(x)\\
+ &\leq\inf_x c(x,y)-\varphi_0(x)+\|\varphi_1-\varphi_0\|_\infty
+ =\varphi_0^c(y)+\|\varphi_1-\varphi_0\|_\infty.
+\end{aligned}
+\]
+交换$\varphi_0$与$\varphi_1$的角色，并利用$y$的任意性，得到$\|\varphi_1^c-\varphi_0^c\|_\infty\leq\|\varphi_1-\varphi_0\|_\infty$，从而$|\int\varphi_1^c\,d\nu-\int\varphi_0^c\,d\nu|\leq\|\varphi_1-\varphi_0\|_\infty$，这就得到泛函的连续性. 对于凸性，令$\varphi_t=(1-t)\varphi_0+t\varphi_1$，则
+\[
+ \varphi_t^c(y)=\inf_x c(x,y)-(1-t)\varphi_0(x)-t\varphi_1(x)
+       \geq(1-t)\varphi_0^c(y)+t\varphi_1^c(y).
+\]
+这蕴含凹性$\int\varphi_t^c\,d\nu\geq(1-t)\int\varphi_0^c\,d\nu+t\int\varphi_1^c\,d\nu$，因而$H$为凸.
+
+为在陈述所述情形（$c$凹Kantorovich势唯一）得到一阶变分，取$\mu_\varepsilon=\mu+\varepsilon\chi$，其中$\chi=\widetilde\mu-\mu$，并估计比值$(\mathscr T_c(\mu_\varepsilon,\nu)-\mathscr T_c(\mu,\nu))/\varepsilon$. 首先，利用$(\varphi_\mu,\varphi_\mu^c)$对$\mu$的对偶表述最优、但未必对$\mu_\varepsilon$最优，得到
+\[
+\begin{aligned}
+ &\frac{\mathscr T_c(\mu_\varepsilon,\nu)-\mathscr T_c(\mu,\nu)}\varepsilon\\
+ &\quad\geq\frac{\int\varphi_\mu\,d\mu_\varepsilon+\int\varphi_\mu^c\,d\nu
+                  -\int\varphi_\mu\,d\mu-\int\varphi_\mu^c\,d\nu}\varepsilon
+ =\int\varphi_\mu\,d\chi,
+\end{aligned}
+\]
+给出下界$\liminf_{\varepsilon\to0}(\mathscr T_c(\mu_\varepsilon,\nu)-\mathscr T_c(\mu,\nu))/\varepsilon\geq\int\varphi_\mu\,d\chi$.
+
+为考察上极限，先固定一列实现上极限的$\varepsilon_k$值，即$\lim_k(\mathscr T_c(\mu_{\varepsilon_k},\nu)-\mathscr T_c(\mu,\nu))/\varepsilon_k=\limsup_{\varepsilon\to0}(\mathscr T_c(\mu_\varepsilon,\nu)-\mathscr T_c(\mu,\nu))/\varepsilon$. 随后利用从$\mu_{\varepsilon_k}$到$\nu$的Kantorovich势对$(\varphi_k,\varphi_k^c)$的最优性估计同一比值（可以假设这些函数$c$凹，且对固定点$x_0\in\Omega$满足$\varphi_k(x_0)=0$）. 现在可以写成
+\begin{equation}\label{eq:7.1}
+\begin{aligned}
+ &\frac{\mathscr T_c(\mu_{\varepsilon_k},\nu)-\mathscr T_c(\mu,\nu)}{\varepsilon_k}\\
+ &\quad\leq\frac{\int\varphi_k\,d\mu_{\varepsilon_k}+\int\varphi_k^c\,d\nu
+                 -\int\varphi_k\,d\mu-\int\varphi_k^c\,d\nu}{\varepsilon_k}
+ =\int\varphi_k\,d\chi.
+\end{aligned}
+\end{equation}
+如\autoref{obj:7.16}中一样，需要对$k$取极限. \autoref{obj:1.52}表明（再取子列后）有一致收敛$(\varphi_k,\varphi_k^c)\to(\varphi,\varphi^c)$，且$(\varphi,\varphi^c)$必在$\mu$与$\nu$间运输的对偶公式中最优. 由唯一性得到$\varphi=\varphi_\mu$. 最后在\eqref{eq:7.1}中取极限，还得到$\limsup_{\varepsilon\to0}(\mathscr T_c(\mu_\varepsilon,\nu)-\mathscr T_c(\mu,\nu))/\varepsilon\leq\int\varphi_\mu\,d\chi$.
+\end{proof}
+由于\autoref{obj:7.17}要求Kantorovich势唯一，才能有效计算一阶变分，这里也给出一个充分条件.
+\begin{proposition}\label{obj:7.18}\index{K083@Kantorovich势（Kantorovich potentials）!084@唯一性（uniqueness）|hyperpage}\index{T153@扭曲条件（twist condition）|hyperpage}
+若$\Omega$是有界连通开集的闭包，$c$为$C^1$，且测度$\mu$、$\nu$中至少一个的支集为整个$\Omega$，则从$\mu$到$\nu$的运输中的$c$凹Kantorovich势在相差加法常数的意义下唯一.
+\end{proposition}
+\begin{proof}
+假设$\operatorname{spt}(\mu)=\Omega$. 先注意，$c\in C^1$蕴含$c$在$\Omega\times\Omega$上Lipschitz，因而所有$c$凹Kantorovich势也都Lipschitz，且几乎处处可微. 考虑两个不同的Kantorovich势$\varphi_0$与$\varphi_1$. 使用\autoref{obj:1.15}，它保证二者梯度在$\Omega$上几乎处处相同. 由于$\Omega$是连通开集的闭包，这意味着差$\varphi_0-\varphi_1$为常数，得到所需结果. 若具有全支集的测度是$\nu$，只需对从$\nu$到$\mu$的运输应用同样过程，得到势$\psi$的唯一性. 随后由$\varphi=\psi^c$（此处使用$c$凹性），也得到$\varphi$的唯一性.
+\end{proof}
+注意，为将上述结果用于\autoref{obj:7.17}，仅$\mu$几乎处处唯一并不足够（因为还要关于其他测度$\mu_\varepsilon$积分）；而且无论如何，没有关于$\operatorname{spt}(\mu)$的连通性假设，就不可能推出$\varphi$的唯一性.
+
+以一个关于严格凸性的说明结束本小节. 为简单起见，回到$c(x,y)=|x-y|^p$，即泛函$W_p^p(\cdot,\nu)$，但读者可见，在扭转条件下（或$c(x,y)=h(x-y)$、$h$严格凸时），一切仍然适用. 此外，至少对$p=2$，假设$\nu\ll\mathscr L^d$并非最弱条件（见\autoref{sec:1.3.1}）.
+\begin{proposition}\label{obj:7.19}
+若$\nu\ll\mathscr L^d$且$p>1$，则泛函$W_p^p(\cdot,\nu)$严格凸.
+\end{proposition}
+\begin{proof}
+反设存在$\mu_0\ne\mu_1$与$t\in]0,1[$，使得$W_p^p(\mu_t,\nu)=(1-t)W_p^p(\mu_0,\nu)+tW_p^p(\mu_1,\nu)$，其中$\mu_t=(1-t)\mu_0+t\mu_1$. 设$\gamma_0$是从$\nu$到$\mu_0$的最优运输方案（注意方向：反向看时，即从$\nu$到$\mu_0$，它是运输映射，因为$\nu\ll\mathscr L^d$）；写成$\gamma_0=(\mathrm T_0,\mathrm{id})_\#\nu$. 类似地，取从$\nu$到$\mu_1$最优的$\gamma_1=(\mathrm T_1,\mathrm{id})_\#\nu$. 令$\gamma_t:=(1-t)\gamma_0+t\gamma_1\in\Pi(\mu_t,\nu)$. 有
+\[
+\begin{aligned}
+ (1-t)W_p^p(\mu_0,\nu)+tW_p^p(\mu_1,\nu)
+ &=W_p^p(\mu_t,\nu)\leq\int|x-y|^p\,d\gamma_t\\
+ &=(1-t)W_p^p(\mu_0,\nu)+tW_p^p(\mu_1,\nu),
+\end{aligned}
+\]
+这意味着$\gamma_t$实际上对从$\nu$到$\mu_t$的运输最优. 但除非$\mathrm T_0=\mathrm T_1$，$\gamma_t$并不由运输映射诱导. 这与$\mu_0\ne\mu_1$矛盾，从而证明严格凸性.
+\end{proof}
+
+\subsubsection{最优性条件}\label{sec:7.2.3}
+用一个重要计算结束本章关于一阶变分的这一部分，它将导出空间$\mathscr P(\Omega)$中的最优性条件. 不声称这一结果为最精细的版本，但它足以应对大多数情形，读者也容易看出如何将其调整到其他情形.
+\begin{proposition}\label{obj:7.20}
+假设$\varrho_0$最小化泛函$F:\mathscr P(\Omega)\to\mathbb R\cup\{+\infty\}$，$\varrho_0$对于$F$正则（见\autoref{obj:7.12}），且$\frac{\delta F}{\delta\varrho}(\varrho_0)$存在. 将这一函数记为$g$，令$\ell=\operatorname*{ess\,inf}g$，即$g$的本性下确界（关于Lebesgue测度）.
+
+第一种情形：假设$g\in C(\Omega)$. 则$\operatorname{spt}(\varrho_0)\subset\operatorname*{argmin}g=\{g=\ell\}$，且处处有不等式$g\geq\ell$，在$\operatorname{spt}(\varrho_0)$上有等式$g=\ell$.
+
+第二种情形：假设$g$仅可测，但$\varrho_0\ll\mathscr L^d$. 则几乎处处有不等式$g\geq\ell$，且在$\{\varrho_0>0\}$上几乎处处有$g=\ell$.
+\end{proposition}
+\begin{proof}
+考虑竞争者$\widetilde\varrho\in L_c^\infty(\Omega)$. 取$\varrho_\varepsilon:=(1-\varepsilon)\varrho+\varepsilon\widetilde\varrho=\varrho+\varepsilon\chi$，其中$\chi=\widetilde\varrho-\varrho$. 只要$\varepsilon\in[0,1]$，测度$\varrho_\varepsilon$就是极小化问题中的可行竞争者. 推得
+\[
+ \left.\frac d{d\varepsilon}(F(\varrho_\varepsilon))\right|_{\varepsilon=0}\geq0.
+\]
+这意味着
+\[
+ \int g\,d\chi\geq0,\qquad\text{即}\qquad
+       \int g\,d\widetilde\varrho\geq\int g\,d\varrho_0.
+\]
+现在利用$\widetilde\varrho$的任意性. 取任意$\ell'>\ell$. 由本性下确界的定义，集合$\{g<\ell'\}$具有正Lebesgue测度，可以选取集中于其上的$L^\infty$密度$\widetilde\varrho$. 得到$\ell'>\int g\,d\varrho_0$. 令$\ell'\to\ell$，得到$\ell\geq\int g\,d\varrho_0$.
+
+第一种情形下，本性下确界与下确界相同，因而处处有$g\geq\ell$. 但关于$\varrho_0$积分后得到反向不等式，故$g=\ell$在$\varrho_0$几乎处处成立. 由于$g$连续，该等式扩展到$\varrho_0$的支集上.
+
+第二种情形下，几乎处处有$g\geq\ell$. 因为假定$\varrho_0$绝对连续，所以$\varrho_0$几乎处处也如此；进而$g=\ell$在$\varrho_0$几乎处处成立，即在$\{\varrho_0>0\}$上几乎处处成立.
+\end{proof}
+例如，在\autoref{sec:7.4.1}与\autoref{sec:8.3}中会看到这一判据的一些应用.
+
+还要强调，当$F$为凸时，可以使用次微分给出其他论证，但没有凸性时，上述策略是唯一可行的. 下面用几个例子看看它如何奏效.
+\begin{example}\label{obj:7.21}
+考虑
+\[
+ \min\left\{F(\varrho):=W_2^2(\varrho,\nu)+\int V(x)\,d\varrho(x):
+                    \varrho\in\mathscr P(\Omega)\right\},
+\]
+其中$\Omega\subset\mathbb R^d$紧，$V$连续. 此时显然存在极小元$\varrho_0$，且它对于$F$正则，因为$F$在整个空间$\mathscr P(\Omega)$上取有限值. 若从$\varrho_0$到$\nu$的运输中（成本$c(x,y)=|x-y|^2$）Kantorovich势$\varphi$在相差加法常数的意义下唯一，则$F$在$\varrho_0$处的一阶变分为$\varphi+V$，应用\autoref{obj:7.20}，得到存在常数$C$，满足
+\[
+ \varphi+V\geq C\quad\text{在 }\Omega\text{ 上},\qquad
+ \varphi+V=C\quad\text{在 }\operatorname{spt}(\varrho_0)\text{ 上}.
+\]
+例如，当$\operatorname{spt}(\nu)=\Omega$时，就是如此.
+
+得到最优性条件的另一种方法如下：$F$的第二项是$\mathscr M(\Omega)$上的连续线性泛函，第一项是定义在$\mathscr M(\Omega)$上的凸泛函，其次微分由Kantorovich势的集合给出. 因此可以证明
+\[
+ \partial F(\varrho_0)=\{V+\varphi:\varphi\text{ 为从 }\varrho_0\text{ 到 }\nu
+                                     \text{ 的Kantorovich势}\}.
+\]
+由凸分析中的标准最优性条件，得到存在势$\varphi$使$V+\varphi=0$. 此时，这个凸性方法给出的结果强得多，因为去掉了不等式情形. 但要注意，得到的函数$\varphi$未必$c$凹：已知$\varphi=\varphi^{cc}$在$\operatorname{spt}(\varrho_0)$上成立，这意味着为了保证等式，在$\operatorname{spt}(\varrho_0)$之外修改了它.
+\end{example}
+\begin{example}\label{obj:7.22}
+考虑
+\[
+ \min\left\{F(\varrho):=W_2^2(\varrho,\nu)
+                  +\int_\Omega\frac1p\varrho^p(x)\,dx:
+             \varrho\in\mathscr P(\Omega),\ \varrho\ll\mathscr L^d\right\},
+\]
+其中$\Omega\subset\mathbb R^d$紧，$p>1$. 同样，存在极小元$\varrho_0\in L^p(\Omega)$，且它正则（按\autoref{obj:7.12}的含义），因为$F$在$L^p(\Omega)\cap\mathscr P(\Omega)$上取有限值，而该集合必然包含$\varrho_0$与$L^\infty$函数的所有凸组合. 计算一阶变分并使用\autoref{obj:7.20}，得到存在常数$C$使得
+\[
+ \varphi+\varrho^{p-1}\geq C\quad\text{在 }\Omega\text{ 上},\qquad
+ \varphi+\varrho^{p-1}=C\quad\text{在 }\operatorname{spt}(\varrho_0)\text{ 上}.
+\]
+顺便指出，这可以改写为$\varrho^{p-1}=(C-\varphi)_+$.
+
+另一方面，虽然该泛函仍为凸，但将$F$看作$\mathscr M(\Omega)$上的泛函（在$L^p$概率测度之外置为$+\infty$）时，其次微分并不容易计算. 事实上，和的次微分未必等于次微分之和（关于无限维凸分析问题，例如见\cite{b157}；不过，这要求两个泛函中至少一个连续，而这里二者都只在$\mathscr M(\Omega)$的一个小子集上取有限值）. 此外，第二项的一阶变分，即$\varrho^{p-1}$，一般不属于空间$C(\Omega)$，即与$\mathscr M(\Omega)$对偶的空间. 一种绕过此困难的方法，是把$F$看作$L^p(\Omega)$上的泛函. 此时第二项成为连续凸泛函，第一项必须改写为$\sup\{\int\phi\,d\varrho+\int\phi^c\,d\nu:\phi\in L^{p'}(\Omega)\}$（用本性下确界而非下确界适当定义$c$变换）. 这给出最优性条件：存在$L^{p'}$ Kantorovich势$\varphi$，使$\varphi+\varrho^{p-1}=0$. 同样，$\varphi=\varphi^{cc}$在$\varrho_0$几乎处处成立，其他地方则$\varphi\leq\varphi^{cc}$. 因而再次得到
+\[
+ \varphi^{cc}+\varrho^{p-1}\geq C\quad\text{在 }\Omega\text{ 上},\qquad
+ \varphi^{cc}+\varrho^{p-1}=C\quad\text{在 }\operatorname{spt}(\varrho_0)\text{ 上}.
+\]
+\end{example}

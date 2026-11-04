@@ -16,7 +16,7 @@
 这里回顾一下，记作 $\mathrm{T}_\#\mu$ 的测度对每个 $A$ 由 $(\mathrm{T}_\#\mu)(A):=\mu(\mathrm{T}^{-1}(A))$ 定义，称为 $\mu$ 经 $\mathrm{T}$ 的\emph{像测度}（image measure）或\emph{推前}（pushforward）.
 \end{problem}
 
-正如导论中指出的，问题（MP）\footnote{为明确记号，强调一下：我们用（MP）表示极小化问题的\emph{名称}，后面的（KP）、（BP）及许多其他记号也一样. 对其最小值，我们写作 $\min(\mathrm{MP})$.}的困难在于约束. 特别是，对 $\mathrm{T}$ 的这一约束在弱收敛下不封闭：见\orig{348}{习题(1)}，或者考虑 $[0,2\pi]$ 上的 $\mathrm{T}_n(x)=\sin(nx)$.
+正如导论中指出的，问题（MP）\footnote{为明确记号，强调一下：我们用（MP）表示极小化问题的\emph{名称}，后面的（KP）、（BP）及许多其他记号也一样. 对其最小值，我们写作 $\min(\mathrm{MP})$.}的困难在于约束. 特别是，对 $\mathrm{T}$ 的这一约束在弱收敛下不封闭：见\hyperref[ex:1]{习题(1)}，或者考虑 $[0,2\pi]$ 上的 $\mathrm{T}_n(x)=\sin(nx)$.
 
 由于这一困难，我们暂且搁置（MP），转而考虑从 Kantorovich 的工作\cite{b200}中自然产生的推广：
 
@@ -43,7 +43,7 @@ Kantorovich 的这一推广问题，比 Monge 原来提出的问题容易处理�
 
 无论如何，重要的是注意到，简单应用变分法中的直接法，就能证明最小值确实存在. 也就是说，我们取一条极小化序列，说明它在某种拓扑下具有紧性（这里采用概率测度的弱收敛），然后找出极限并证明所极小化泛函的半连续性（或连续性），从而该极限就是一个极小元.
 
-\begin{sourcebox}{备忘：极小元存在的 Weierstrass 判据与半连续性}\label{box:1.1}
+\begin{sourcebox}{备忘：极小元存在的 Weierstrass 判据与半连续性}\label{box:1.1}\index{C024@紧性（compactness）|hyperpage}\index{L094@下半连续性（lower semi-continuity）|hyperpage}
 证明函数存在极小元的最常用方法，称为“变分法中的直接法”. 它就是经典的 Weierstrass 定理，必要时把连续性替换为半连续性.
 
 \begin{definition*}
@@ -63,7 +63,7 @@ Kantorovich 的这一推广问题，比 Monge 原来提出的问题容易处理�
 \end{proof}
 \end{sourcebox}
 
-\begin{sourcebox}{备忘：对偶空间中的弱紧性}\label{box:1.2}
+\begin{sourcebox}{备忘：对偶空间中的弱紧性}\label{box:1.2}\index{W162@弱收敛（weak convergence）|hyperpage}
 \begin{definition*}
 若 Banach 空间 $\mathscr X$ 中的序列 $x_n$ 满足：对每个 $\xi\in\mathscr X'$（其中 $\mathscr X'$ 为 $\mathscr X$ 的拓扑对偶，$\langle\cdot,\cdot\rangle$ 表示两空间间的对偶配对），都有 $\langle\xi,x_n\rangle\to\langle\xi,x\rangle$，则称 $x_n$ \emph{弱收敛}于 $x$，记为 $x_n\rightharpoonup x$. 若序列 $\xi_n\in\mathscr X'$ 满足：对每个 $x\in\mathscr X$ 都有 $\langle\xi_n,x\rangle\to\langle\xi,x\rangle$，则称其\emph{弱-*收敛}于 $\xi$，记为 $\xi_n\overset{*}{\rightharpoonup}\xi$.
 \end{definition*}
@@ -75,9 +75,9 @@ Kantorovich 的这一推广问题，比 Monge 原来提出的问题容易处理�
 泛函分析的全部细节可参见例如\cite{b90}.
 \end{sourcebox}
 
-\begin{sourcebox}{备忘：$C_0$ 与 $\mathscr M$ 之间的对偶性}\label{box:1.3}
+\begin{sourcebox}{备忘：$C_0$ 与 $\mathscr M$ 之间的对偶性}\label{box:1.3}\index{W162@弱收敛（weak convergence）|hyperpage}
 \begin{definition*}
-度量空间 $X$ 上的\emph{有限符号测度}，是一个给每个 Borel 子集 $A\subset X$ 指定数值 $\lambda(A)\in\mathbb R$ 的映射（我们将在\orig{146}{第4章}讨论向量测度，即 $\lambda$ 取值于 $\mathbb R^d$ 的情形），使得对每个可数不交并 $A=\bigcup_i A_i$（当 $i\ne j$ 时 $A_i\cap A_j=\varnothing$），都有
+度量空间 $X$ 上的\emph{有限符号测度}，是一个给每个 Borel 子集 $A\subset X$ 指定数值 $\lambda(A)\in\mathbb R$ 的映射（我们将在\hyperref[sec:4]{第4章}讨论向量测度，即 $\lambda$ 取值于 $\mathbb R^d$ 的情形），使得对每个可数不交并 $A=\bigcup_i A_i$（当 $i\ne j$ 时 $A_i\cap A_j=\varnothing$），都有
 \[
 \sum_i|\lambda(A_i)|<+\infty\qquad\text{且}\qquad\lambda(A)=\sum_i\lambda(A_i).
 \]
@@ -96,7 +96,7 @@ Kantorovich 的这一推广问题，比 Monge 原来提出的问题容易处理�
 对 $\mathscr M(X)$ 中的符号测度，我们应把与 $C_0(X)$ 对偶意义下的收敛称为弱-*收敛. 不过，另一种值得关注的收敛概念是与 $C_b(X)$ 对偶意义下的收敛. 我们将把它称为\emph{弱收敛}（这是一种记号上的滥用），并用符号 $\rightharpoonup$ 表示：$\mu_n\rightharpoonup\mu$ 当且仅当对每个 $\phi\in C_b(X)$ 都有 $\int\phi\,d\mu_n\to\int\phi\,d\mu$（注意，取 $\phi=1$ 还能得到 $\mu_n(X)\to\mu(X)$，而 $\overset{*}{\rightharpoonup}$ 收敛则不具有这一性质）. 注意，当 $X$ 紧时，$C_0(X)=C_b(X)=C(X)$，这时两种收敛概念相同. 另一方面，对非紧的 $X$，空间 $\mathscr M(X)$ 并不是 $C_b(X)$ 的对偶：由 Hahn--Banach 定理，可以构造出（例如见\cite{b292}第1.3节）$C_b(X)'$ 中的元素，它们只看 $C_b(X)$ 中函数“在紧子集之外”（即在无穷远处或边界处）的行为. 与 $C_b$ 对偶意义下的弱收敛，有时也称为\emph{窄收敛}（narrow convergence）. 测度论的全部细节可参见例如\cite{b268}.
 \end{sourcebox}
 
-\begin{sourcebox}{备忘：概率测度的弱收敛}\label{box:1.4}
+\begin{sourcebox}{备忘：概率测度的弱收敛}\label{box:1.4}\index{C024@紧性（compactness）!026@紧性（测度族）（tightness）|hyperpage}\index{P114@Polish空间（Polish spaces）|hyperpage}
 概率测度是 $\mathscr M(X)$ 中的特殊测度：$\mu\in\mathscr P(X)$ 当且仅当 $\mu\in\mathscr M_+(X)$ 且 $\mu(X)=1$（注意，对正测度，$\mu$ 与 $|\mu|$ 相同）.
 
 \begin{definition*}
@@ -119,7 +119,7 @@ Kantorovich 的这一推广问题，比 Monge 原来提出的问题容易处理�
 现在可以陈述一些存在性结果了.
 
 \Needspace{5\baselineskip}
-\begin{theorem}\label{obj:1.4}
+\begin{theorem}\label{obj:1.4}\index{E059@最优方案的存在性（existence of an optimal plan）|hyperpage}\index{L094@下半连续性（lower semi-continuity）|hyperpage}
 设 $X$、$Y$ 是紧度量空间，$\mu\in\mathscr P(X)$、$\nu\in\mathscr P(Y)$，且 $c:X\times Y\to\mathbb R$ 为连续函数. 则（KP）有解.
 \end{theorem}
 \begin{proof}
@@ -135,7 +135,7 @@ Kantorovich 的这一推广问题，比 Monge 原来提出的问题容易处理�
 唯一的区别是：$K$ 不再连续，而是对概率测度的弱收敛下半连续. 这是下面引理的推论，只需在空间 $X\times Y$ 上取 $f=c$.
 \end{proof}
 
-\begin{lemma}\label{obj:1.6}
+\begin{lemma}\label{obj:1.6}\index{L094@下半连续性（lower semi-continuity）|hyperpage}
 如果 $f:X\to\mathbb R\cup\{+\infty\}$ 是度量空间 $X$ 上有下界的下半连续函数，则在 $X$ 上正测度中由 $J(\mu):=\int f\,d\mu$ 定义的泛函 $J:\mathscr M_+(X)\to\mathbb R\cup\{+\infty\}$，关于测度的弱收敛下半连续.
 \end{lemma}
 \begin{proof}
@@ -168,7 +168,7 @@ d(y_k,x)\le\frac{\ell+1/k-f(y_k)}{k}\le\frac Ck.
 \end{proof}
 \end{sourcebox}
 
-\begin{theorem}\label{obj:1.7}
+\begin{theorem}\label{obj:1.7}\index{E059@最优方案的存在性（existence of an optimal plan）|hyperpage}\index{P114@Polish空间（Polish spaces）|hyperpage}
 设 $X$、$Y$ 是 Polish 空间，即完备可分度量空间，$\mu\in\mathscr P(X)$、$\nu\in\mathscr P(Y)$，且 $c:X\times Y\to[0,+\infty]$ 下半连续. 则（KP）有解.
 \end{theorem}
 \begin{proof}
@@ -213,7 +213,7 @@ d(y_k,x)\le\frac{\ell+1/k-f(y_k)}{k}\le\frac Ck.
 如果 $c$ 非负但无界，只需用截断 $c_M=c\wedge M$ 从下方逼近它，就证明了积分泛函的下半连续性，因为它是下半连续泛函的上确界. 再把 $c$ 替换为函数 $\widetilde X\times\widetilde Y\ni(\widetilde x,\widetilde y)\mapsto f(\widetilde x)+g(\widetilde y)-c(\widetilde x,\widetilde y)$，也就证明了上半连续性.
 \end{proof}
 
-\begin{sourcebox}{备忘：Lusin 定理}\label{box:1.6}
+\begin{sourcebox}{备忘：Lusin 定理}\label{box:1.6}\index{L095@Lusin定理（Lusin theorem）|hyperpage}
 测度论中的一个著名定理断言，合理的测度空间 $(X,\mu)$ 上的每个可测函数 $f$，实际上在某个满足 $\mu(X\setminus K)$ 很小的集合 $K$ 上连续. 这个 $K$ 可以取为紧集. 事实上，至少可以有两种表述：或者只要求 $f$ 在 $K$ 上连续，或者要求 $f$ 在 $K$ 上与某个定义于 $X$ 的连续函数相同. 这个定理通常针对实值函数陈述，但我们需要它用于取值于更一般空间的函数. 更确切地说，取赋有有限正则测度 $\mu$ 的拓扑空间 $X$（即任意 Borel 集 $A\subset X$ 满足 $\mu(A)=\sup\{\mu(K):K\subset A,\ K\text{ 紧}\}=\inf\{\mu(B):B\supset A,\ B\text{ 开}\}$）. 假设目标空间 $Y$ 满足第二可数公理（即存在可数开集族 $(B_i)_i$，使得任意其他开集 $B\subset Y$ 都可以写成若干 $B_i$ 的并；例如，可分度量空间满足第二可数公理）.
 
 \begin{theorem*}[弱Lusin定理]

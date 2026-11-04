@@ -1,0 +1,69 @@
+% 原书物理314–317页，印刷290–293页；§8.2.
+\subsection[Wasserstein 空间中的梯度流与偏微分方程的推导]{$\mathbb W_2$ 中的梯度流与偏微分方程的推导}\label{sec:8.2}
+本节简短而概略地介绍，考虑泛函 $F:\mathscr P(\Omega)\to\R\cup\{+\infty\}$ 的梯度流时可以做些什么. 假设该泛函关于概率测度的弱收敛下半连续，且 $\Omega$ 紧（因而 $F$ 有极小点，并且下有界）. 特别地，我们将启发式地说明，如何由每个时间步的最优性条件推导偏微分方程. 显然，这只有在这个特定的度量空间中才能做到，对一般的抽象度量空间并不适用.\footnote{导向这一理论的最初思想来自\cite{b198}和\cite{b246}，通过所谓“Otto 的形式演算”提出，后来又在\cite{b15}中加以重新研究.}
+
+事实上，这里利用的是\autoref{sec:5}中的结论：空间 $\mathbb W_2(\Omega)$ 中\phantomsection\label{idx:i27-p291}\index{C027@连续性方程（continuity equation）|hyperpage}
+所有绝对连续曲线都在某个适当向量场 $\mathbf v$ 下满足连续性方程 $\partial_t\varrho_t+\nabla\cdot(\varrho_t\mathbf v_t)=0$. 目标是按照泛函 $F$ 所规定的方式，确定依赖于测度 $\varrho_t$ 的向量场 $\mathbf v_t$.
+
+考虑迭代极小化格式
+\begin{equation}\label{eq:8.3}
+\varrho_{(k+1)}^\tau\in\operatorname*{argmin}_{\varrho}
+F(\varrho)+\frac{W_2^2(\varrho,\varrho_{(k)}^\tau)}{2\tau}.
+\end{equation}
+由于 $\mathscr P(\Omega)$ 的紧性以及目标函数的半连续性，每个这样的极小化问题都有解. 与欧氏情形（$F$ 定义在 $\R^d$ 上）完全一样，我们希望研究这些问题的最优性条件，以猜出极限方程.
+
+回顾，$\frac{\delta G}{\delta\varrho}(\varrho)$ \phantomsection\label{idx:i62-p291}\index{F062@一阶变分（first variation）|hyperpage}
+表示泛函 $G:\mathscr P(\Omega)\to\R\cup\{+\infty\}$ 的一阶变分. 假定 $\frac{\delta F}{\delta\varrho}$ 已知，并尝试用这一算子写出极限方程.
+
+现在取第 $k$ 步极小化问题的一个最优测度 $\widehat\varrho$，考虑形如 $\varrho_\varepsilon:=(1-\varepsilon)\widehat\varrho+\varepsilon\widetilde\varrho$ 的扰动并计算变分，其中 $\widetilde\varrho$ 为任意其他概率测度. 由\autoref{obj:7.20}得到
+\[
+\frac{\delta F}{\delta\varrho}(\varrho)+\frac\varphi\tau=\text{常数},
+\]
+其中 $\varphi$ 是从 $\widehat\varrho$ 到 $\varrho_{(k)}^\tau$、费用为 $\frac12|x-y|^2$ 的运输问题的 Kantorovich 势. 实际上，上式在 $\widehat\varrho$-几乎处处成立，而且需要 $\varphi$ 的唯一性. 对这两点，证明 $\varrho_\varepsilon>0$ 就足够了；在给出严格证明时，我们会处理这一点.
+
+将上式之和为常数这一事实，与最优映射 $\mathrm T$ 满足 $\mathrm T(x)=x-\nabla\varphi(x)$ 相结合，得到
+\begin{equation}\label{eq:8.4}
+\frac{\mathrm T(x)-x}{\tau}=-\frac{\nabla\varphi(x)}\tau
+=\nabla\left(\frac{\delta F}{\delta\varrho}(\varrho)\right)(x).
+\end{equation}
+将比值 $\frac{\mathrm T(x)-x}\tau$ 记为 $-\mathbf v$. 为什么这样记? 作为位移与时间步长的比值，它具有速度的含义；但由于该位移对应的是从 $\varrho_{(k+1)}^\tau$ 到 $\varrho_{(k)}^\tau$ 的运输，最好将其看成向后速度（这解释了负号）.
+
+由于这里有 $\mathbf v=-\nabla(\frac{\delta F}{\delta\varrho}(\varrho))$，这提示我们在极限 $\tau\to0$ 时，将得到方程
+\[
+\partial_t\varrho-\nabla\cdot\left(\varrho\,\nabla\left(\frac{\delta F}{\delta\varrho}(\varrho)\right)\right)=0
+\]
+的一个解，并且\phantomsection\label{idx:i110-p291}\index{N110@Neumann边界条件（Neumann conditions）|hyperpage}
+在 $\partial\Omega$ 上满足无通量边界条件.
+
+在进入使上述方法严格化的细节（下一节）之前，先给出一些这类方程的例子. 考虑已经在\autoref{sec:7}中分析过的两个泛函，更准确地说，考虑
+\[
+\mathscr F(\varrho)=\int f(\varrho(x))\dd x,
+\qquad\mathscr V(\varrho)=\int V(x)\dd\varrho.
+\]
+这种情形下，前面已经看到
+\[
+\frac{\delta\mathscr F}{\delta\varrho}(\varrho)=f'(\varrho),
+\qquad\frac{\delta\mathscr V}{\delta\varrho}(\varrho)=V.
+\]
+一个有趣的例子是 $f(t)=t\log t$. 此时 $f'(t)=\log t+1$，且 $\nabla(f'(\varrho))=\nabla\varrho/\varrho$：这意味着与泛函 $\mathscr F$ \phantomsection\label{idx:i75-p292}\index{H075@热方程（heat equation）|hyperpage}
+对应的梯度流方程就是\emph{热方程}
+\[
+\partial_t\varrho-\Delta\varrho=0,
+\]
+而对 $\mathscr F+\mathscr V$，得到的是 \emph{Fokker--Planck 方程}
+\[
+\partial_t\varrho-\Delta\varrho-\nabla\cdot(\varrho\nabla V)=0.
+\]
+在讨论部分，我们将看到更多梯度流方程，其中包括对 $f$ 作其他选择而得到的所谓多孔介质方程.
+
+\begin{remark}\label{obj:8.4}
+读者可能会问，热方程与 Fokker--Planck 方程通常的随机扩散解释，如何与这里完全确定性的框架相容；在这里，每个粒子的速度由 $-\nabla\varrho/\varrho-\nabla V$ 给定（取 $V=0$ 就得到热方程）. 事实上，Fokker--Planck 方程也是一群满足随机方程 $\dd X_t=-\nabla V(X_t)\dd t+\dd B_t$ 的粒子，其密度所满足的偏微分方程，其中 $B$ 是标准布朗运动（每个粒子的布朗运动相互独立）. 如\cite{b88}清楚指出的，答案基于以下思想：在这种最优运输解释中，我们对粒子进行重排（即重新编号）. 在一维情形下，这一点相当清楚：如果每个时间步粒子都从 $x$ 移到 $x-\tau\nabla V(x)+B_\tau$（即它们遵循漂移 $-\nabla V$，并按照高斯律扩散），随后将它们重新排序（始终把最左侧的称为粒子1，下一个称为粒子2，\ldots，最右侧的称为粒子 $N$），那么就得到一个离散轨迹族；当 $\tau$ 趋于0、粒子数 $N$ 趋于无穷时，这些轨迹收敛于一个 Fokker--Planck 解，其速度恰好由 $-\nabla\varrho/\varrho-\nabla V$ 给定. 在高维中，采用适当的重排概念，也能进行类似的考虑.
+\end{remark}
+
+注意，所有这些偏微分方程都带有 $\partial\Omega$ 上的 Neumann 边界条件 $\varrho\frac\partial{\partial n}(\frac{\delta F}{\delta\varrho}(\varrho))=0$，这是\autoref{sec:5.3}中连续性方程无通量条件的推论. \autoref{sec:8.4.3}将给出一个推广到 Dirichlet 边界条件的例子.
+
+以一些方法论上的思考结束本节. 为什么要把某些偏微分方程看成距离 $W_2$ 下的梯度流来研究? 至少有三个理由. 第一个理由是，这样可以利用下一节将介绍的技巧，给出这种偏微分方程弱解的存在性结论. 当方程已经广为人知时，这显然并无用处，\phantomsection\label{idx:i75-p293}\index{H075@热方程（heat equation）|hyperpage}
+热方程或其 Fokker--Planck 变体就是如此. 但是，同样的策略可以应用于这些方程的变体（或更特殊空间中的类似方程，正如目前对度量测度空间中的热流所做的那样，见\cite{b18,b183}）. 当方程属于新的类型时，这一策略也很有用（我们将在\autoref{sec:8.4.2}中看到人群运动模型的例子）. 第二个目的可以是，在知道它是梯度流之后，推导流及其解的性质. 一个简单的性质是 $t\mapsto F(\varrho_t)$ 必须随时间递减. 不过，这通常也能用其他方式从偏微分方程中推出，一般并不需要梯度流结构. 第三个目的涉及数值计算：用于得到梯度流的离散格式，本身就是一种近似求解算法. 若将每个时间步的极小化问题离散化，并用适当方式求解，就能得到有效的数值工具（例如，见\cite{b40}）.
+
+最后，前面介绍的全部过程都与弱解的研究和存在性有关. 那么，唯一性如何? 强调一下，在偏微分方程应用中，重要的是证明速度 $\mathbf v=-\nabla\frac{\delta F}{\delta\varrho}$ 对应的连续性方程弱解的唯一性（即我们并不关心度量结构，也不关心 EVI 和 EDE 的定义）. 某些情形下，可以独立于梯度流结构来研究这种唯一性（例如热方程就是如此）. 无论采用偏微分方程弱解的方法，还是度量空间中的抽象方法，\phantomsection\label{idx:i6-p293}\index{0006@$\lambda$-凸性（$\lambda$-convexity）|hyperpage}
+通常唯一性都与某种凸性或 $\lambda$-凸性，特别是位移凸性有关. 正因如此，理论中很大一部分是针对 $\lambda$-测地凸泛函建立的.

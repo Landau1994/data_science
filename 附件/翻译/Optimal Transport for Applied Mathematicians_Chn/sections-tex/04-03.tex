@@ -1,9 +1,9 @@
 % 原书印刷144–151／物理169–176，止于实际§4.4标题前.
-\subsection{运输密度的可积性}\label{sec:4.3}
+\subsection{运输密度的可积性}\label{sec:4.3}\index{T151@传输密度（transport density）|hyperpage}
 \setcounter{theorem}{15}\setcounter{equation}{10}\setcounter{figure}{1}\setcounter{footnote}{3}
 前几节对Beckmann问题的分析主要在测度框架中进行，最优$\mathbf w$与运输密度$\sigma$只是$\Omega$上的测度. 这里研究的问题是：对$\mu$和／或$\nu$施加额外假设后，它们是否具有额外正则性.
 
-我们将给出可积性结果，证明$\sigma$在某些情形下绝对连续，并给出$L^p$估计. 证明主要取自\cite{b273}，另见\cite{b61,b166}；更早的结果最初由\cite{b143,b144,b145}通过很不相同的技术给出. 这些论文还给出$\sigma$的“维数”的不同估计，因此在$\sigma$不绝对连续时，也能提供有趣信息. 还应指出，\cite{b208}在将这些工具应用于图像处理时，给出了一个新的\footnote{他们的证明介于\cite{b143}的证明与本书这里的证明之间：与这里一样，\cite{b208}也采用原子测度逼近，但同时逼近源测度和目标测度，因此需要像\cite{b143}那样对运输射线进行几何分析.}绝对连续性证明.
+我们将给出可积性结果，证明$\sigma$在某些情形下绝对连续，并给出$L^p$估计. 证明主要取自\cite{b273}，另见\cite{b61,b166}；更早的结果最初由\cite{b143,b144,b145}通过很不相同的技术给出. 这些论文还给出$\sigma$的“维数”的不同估计，因此在$\sigma$不绝对连续时，也能提供有趣信息. \phantomsection\label{idx:root4-p144-image-processing}\index{I077@图像处理（image processing）|hyperpage}还应指出，\cite{b208}在将这些工具应用于图像处理时，给出了一个新的\footnote{他们的证明介于\cite{b143}的证明与本书这里的证明之间：与这里一样，\cite{b208}也采用原子测度逼近，但同时逼近源测度和目标测度，因此需要像\cite{b143}那样对运输射线进行几何分析.}绝对连续性证明.
 
 注意，更高阶的问题，例如当$\mu$与$\nu$具有光滑密度时，$\sigma$是否连续、Lipschitz连续或更正则，迄今仍完全未解. 唯一例外是二维中的一个部分结果，见\cite{b171}：当$\mu$和$\nu$在互不相交的凸区域上具有Lipschitz密度时，可以得到连续性.
 
@@ -54,11 +54,12 @@
 \left|\bigcup_i\frac{A\cap\Omega_i(t)-tx_i}{1-t}\right|
 \leq\frac{1}{(1-t)^d}|A|.
 \]
+因而，只需假设$|A|<(1-t)^d\delta(\varepsilon)$，就得到$\mu_t(A)<\varepsilon$. 这确认了$\mu_t\ll\mathscr L^d$，并给出一个可以传递到极限的估计.
+
 \begin{figure}[htbp]\centering
 \includegraphics[width=.95\textwidth]{assets/ch04b-fig4-2.pdf}
 \caption{集合$\Omega_i(t)$的不交性.}\label{fig:4.2}
 \end{figure}
-因而，只需假设$|A|<(1-t)^d\delta(\varepsilon)$，就得到$\mu_t(A)<\varepsilon$. 这确认了$\mu_t\ll\mathscr L^d$，并给出一个可以传递到极限的估计.
 
 取一列收敛到$\nu$的原子测度$\nu^n$. 相应的最优运输方案$\gamma^n$收敛到某个最优运输方案$\gamma$，而$\mu_t^n$收敛到相应的$\mu_t$，见\autoref{sec:1}的\autoref{obj:1.50}. 因此，要证明与此$\gamma$关联的运输密度$\sigma$绝对连续，只须证明这些$\mu_t$绝对连续.
 
@@ -181,12 +182,12 @@ h(a)+h(b)&\leq h(\mathrm T(x')-x)+h(\mathrm T(x)-x')\\
 假设$\mu$、$\nu$是$\Omega$上的概率测度，且都属于$L^p(\Omega)$；令$\sigma$为从$\mu$到$\nu$的运输所关联的唯一运输密度. 则$\sigma$也属于$L^p(\Omega)$.
 \end{theorem}
 \begin{proof}
-考虑由\eqref{eq:3.4}定义的从$\mu$到$\nu$的最优运输方案$\gamma$. 已知此方案可以由方案$\gamma^\varepsilon$逼近，后者对于成本$|x-y|+\varepsilon|x-y|^2$，在从$\mu$到某些离散原子测度$\nu_\varepsilon$的运输中最优. 相应插值测度$\mu_t^\varepsilon$满足\autoref{obj:4.22}的$L^p$估计；在极限中，
+考虑由\eqref{eq:3.4}定义的从$\mu$到$\nu$的最优运输方案$\bar\gamma$. 已知此方案可以由方案$\gamma^\varepsilon$逼近，后者对于成本$|x-y|+\varepsilon|x-y|^2$，在从$\mu$到某些离散原子测度$\nu_\varepsilon$的运输中最优. 相应插值测度$\mu_t^\varepsilon$满足\autoref{obj:4.22}的$L^p$估计；在极限中，
 \[
 \|\mu_t\|_{L^p}\leq\liminf_{\varepsilon\to0}\|\mu_t^\varepsilon\|_{L^p}
 \leq(1-t)^{-d/p'}\|\mu\|_{L^p}.
 \]
-同样的估计可以从另一方向进行，因为同一个运输方案$\gamma$也可以被关于成本$|x-y|+\varepsilon|x-y|^2$、从原子测度到$\nu$的最优方案逼近. 合并两组估计，得到
+同样的估计可以从另一方向进行，因为同一个运输方案$\bar\gamma$也可以被关于成本$|x-y|+\varepsilon|x-y|^2$、从原子测度到$\nu$的最优方案逼近. 合并两组估计，得到
 \begin{equation*}\begin{aligned}
 \|\mu_t\|_{L^p}
 &\leq\min\left\{(1-t)^{-d/p'}\|\mu\|_{L^p},t^{-d/p'}\|\nu\|_{L^p}\right\}\\
@@ -196,7 +197,7 @@ h(a)+h(b)&\leq h(\mathrm T(x')-x)+h(\mathrm T(x)-x')\\
 \end{proof}
 
 \begin{remark}\label{obj:4.25}
-借助泛函$\mu\mapsto\|\mu\|_{L^p}^p$的位移凸性，可以用一种很不相同的方式得到同一结果. 实际上，对$q>1$，此泛函沿空间$\mathbb W_q(\Omega)$中的测地线凸，见\autoref{obj:7.29}；可惜那里$p$与$q$的记号正好相反. 随后令$q\to1$：这就给出与$K_q$-最优方案的极限对应的最优方案之插值测度的结果. 顺便说，这个方案仍然是$\gamma$. 积分估计也随之直接得到. 不过，这需要比目前已发展的工具更精细的工具.
+借助泛函$\mu\mapsto\|\mu\|_{L^p}^p$的位移凸性，可以用一种很不相同的方式得到同一结果. 实际上，对$q>1$，此泛函沿空间$\mathbb W_q(\Omega)$中的测地线凸，见\autoref{obj:7.29}；可惜那里$p$与$q$的记号正好相反. 随后令$q\to1$：这就给出与$K_q$-最优方案的极限对应的最优方案之插值测度的结果. 顺便说，这个方案仍然是$\bar\gamma$. 积分估计也随之直接得到. 不过，这需要比目前已发展的工具更精细的工具.
 \end{remark}
 
 \begin{example}\label{obj:4.26}

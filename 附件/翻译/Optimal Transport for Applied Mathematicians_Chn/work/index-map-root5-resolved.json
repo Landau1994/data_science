@@ -1,0 +1,537 @@
+[
+  {
+    "id": 1,
+    "group": "Symbols",
+    "level": 0,
+    "parent": null,
+    "english": "H^{-1} norm",
+    "chinese_tex": "$H^{-1}$范数",
+    "references": [
+      {
+        "source_printed_page": "210",
+        "source_physical_page": 234,
+        "target": "idx:root5-p210-hminusone",
+        "basis": "原234页引理5.33后明确定义dot H^{-1}范数与Neumann表示"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 2,
+    "group": "Symbols",
+    "level": 0,
+    "parent": null,
+    "english": "L^infinity density constraints",
+    "chinese_tex": "$L^\\infty$密度约束",
+    "references": [
+      {
+        "source_printed_page": "211",
+        "source_physical_page": 235,
+        "target": "idx:root5-p211-crowd",
+        "basis": "原235页首段讨论拥挤约束rho<=1的L-infinity密度限制"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 3,
+    "group": "Symbols",
+    "level": 0,
+    "parent": null,
+    "english": "L^infinity transport cost",
+    "chinese_tex": "$L^\\infty$传输成本",
+    "references": [
+      {
+        "source_printed_page": "207",
+        "source_physical_page": 231,
+        "target": "sec:5.5.1",
+        "basis": "原231页5.5.1标题及首显示式定义W_infinity运输费用距离"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 8,
+    "group": "A",
+    "level": 0,
+    "parent": null,
+    "english": "absolutely continuous curves",
+    "chinese_tex": "绝对连续曲线",
+    "references": [
+      {
+        "source_printed_page": "188",
+        "source_physical_page": 212,
+        "target": "idx:root5-p188-ac",
+        "basis": "原212页框5.1绝对连续曲线的g积分控制定义及AC记号"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 15,
+    "group": "B",
+    "level": 0,
+    "parent": null,
+    "english": "Benamou-Brenier",
+    "chinese_tex": "Benamou--Brenier方法",
+    "references": [
+      {
+        "source_printed_page": "189",
+        "source_physical_page": 213,
+        "target": "sec:5.3.1",
+        "basis": "原213页5.3.1标题引入Benamou–Brenier泛函B_p"
+      },
+      {
+        "source_printed_page": "203",
+        "source_physical_page": 227,
+        "target": "idx:root5-p203-bb",
+        "basis": "原227页定理5.27后段引入Benamou–Brenier公式名称及动态解释"
+      },
+      {
+        "source_printed_page": "211",
+        "source_physical_page": 235,
+        "target": "idx:root5-p211-bb",
+        "basis": "原235页定理5.34证明应用Benamou–Brenier公式求反向估计"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 18,
+    "group": "B",
+    "level": 1,
+    "parent": 17,
+    "english": "d_alpha distance",
+    "chinese_tex": "$d_\\alpha$距离",
+    "references": [
+      {
+        "source_printed_page": "211",
+        "source_physical_page": 235,
+        "target": "sec:5.5.3",
+        "basis": "原235页5.5.3首段回顾d_alpha分支运输距离的定义"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 32,
+    "group": "C",
+    "level": 0,
+    "parent": null,
+    "english": "crowd motion",
+    "chinese_tex": "人群运动",
+    "references": [
+      {
+        "source_printed_page": "211",
+        "source_physical_page": 235,
+        "target": "idx:root5-p211-crowd",
+        "basis": "原235页同段以人群运动解释密度接近1的演化模型"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 41,
+    "group": "D",
+    "level": 0,
+    "parent": null,
+    "english": "disintegration of measures",
+    "chinese_tex": "测度的分解",
+    "references": [
+      {
+        "source_printed_page": "182",
+        "source_physical_page": 206,
+        "target": "obj:5.4",
+        "basis": "原206页引理5.4，明确以测度分解证明三角不等式"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 43,
+    "group": "D",
+    "level": 0,
+    "parent": null,
+    "english": "displacement interpolation",
+    "chinese_tex": "位移插值",
+    "references": [
+      {
+        "source_printed_page": "202",
+        "source_physical_page": 226,
+        "target": "sec:5.4",
+        "basis": "原226页5.4节引入Wasserstein空间常速测地线/位移插值"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 44,
+    "group": "D",
+    "level": 0,
+    "parent": null,
+    "english": "distance costs",
+    "chinese_tex": "距离成本",
+    "references": [
+      {
+        "source_printed_page": "184",
+        "source_physical_page": 208,
+        "target": "obj:5.9",
+        "basis": "原208页定理5.9及证明以距离费用W1的Lip1对偶公式刻画弱收敛"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 45,
+    "group": "D",
+    "level": 0,
+    "parent": null,
+    "english": "dual norms",
+    "chinese_tex": "对偶范数",
+    "references": [
+      {
+        "source_printed_page": "209",
+        "source_physical_page": 233,
+        "target": "sec:5.5.2",
+        "basis": "原233页5.5.2节首段将W1写为Lipschitz半范数的对偶范数"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 48,
+    "group": "E",
+    "level": 0,
+    "parent": null,
+    "english": "Earth Mover Distance",
+    "chinese_tex": "推土机距离",
+    "references": [
+      {
+        "source_printed_page": "177",
+        "source_physical_page": 201,
+        "target": "idx:root5-p177-emd",
+        "basis": "原201页脚注1的Earth Mover Distance译名与名称讨论"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 66,
+    "group": "G",
+    "level": 1,
+    "parent": 65,
+    "english": "in W_p",
+    "chinese_tex": "$\\mathbb W_p$中",
+    "references": [
+      {
+        "source_printed_page": "203",
+        "source_physical_page": 227,
+        "target": "obj:5.27",
+        "basis": "原227页定理5.27显式构造Wp常速测地线"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 68,
+    "group": "G",
+    "level": 1,
+    "parent": 65,
+    "english": "in metric spaces",
+    "chinese_tex": "度量空间中",
+    "references": [
+      {
+        "source_printed_page": "202",
+        "source_physical_page": 226,
+        "target": "box:5.2",
+        "basis": "原226页框5.2的一般度量空间测地线与长度空间定义"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 70,
+    "group": "G",
+    "level": 0,
+    "parent": null,
+    "english": "gluing lemma",
+    "chinese_tex": "粘合引理",
+    "references": [
+      {
+        "source_printed_page": "182",
+        "source_physical_page": 206,
+        "target": "obj:5.5",
+        "basis": "原206页gluing lemma的原陈述5.5"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 77,
+    "group": "I",
+    "level": 0,
+    "parent": null,
+    "english": "image processing",
+    "chinese_tex": "图像处理",
+    "references": [
+      {
+        "source_printed_page": "215",
+        "source_physical_page": 239,
+        "target": "idx:root5-p215-images",
+        "basis": "原239页段落将图像空间位置和RGB分量联系于R5上的测度"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 85,
+    "group": "K",
+    "level": 0,
+    "parent": null,
+    "english": "kinetic energy",
+    "chinese_tex": "动能",
+    "references": [
+      {
+        "source_printed_page": "205",
+        "source_physical_page": 229,
+        "target": "idx:root5-p205-kinetic",
+        "basis": "原229页末定义曲线p-动能K_p，随后用于表示定理"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 92,
+    "group": "L",
+    "level": 0,
+    "parent": null,
+    "english": "locally compact spaces",
+    "chinese_tex": "局部紧空间",
+    "references": [
+      {
+        "source_printed_page": "184",
+        "source_physical_page": 208,
+        "target": "idx:root5-p184-localcompact",
+        "basis": "原208页第三条bullet讨论紧邻域、局部紧性和C0的对偶"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 98,
+    "group": "M",
+    "level": 0,
+    "parent": null,
+    "english": "measures on curves",
+    "chinese_tex": "曲线上的测度",
+    "references": [
+      {
+        "source_printed_page": "205",
+        "source_physical_page": 229,
+        "target": "idx:root5-p205-kinetic",
+        "basis": "原229页末引出曲线表示定理并定义AC/C上的动能，随后5.31给曲线测度Q"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 99,
+    "group": "M",
+    "level": 0,
+    "parent": null,
+    "english": "metric derivative",
+    "chinese_tex": "度量导数",
+    "references": [
+      {
+        "source_printed_page": "187",
+        "source_physical_page": 211,
+        "target": "idx:root5-p187-metricderivative",
+        "basis": "原211页框5.1第一无编号定义，度量导数首次定义"
+      },
+      {
+        "source_printed_page": "188",
+        "source_physical_page": 212,
+        "target": "idx:root5-p188-metricformula",
+        "basis": "原212页框5.1延续的度量导数极限公式"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 104,
+    "group": "M",
+    "level": 0,
+    "parent": null,
+    "english": "multi-marginal problems",
+    "chinese_tex": "多边际问题",
+    "references": [
+      {
+        "source_printed_page": "215",
+        "source_physical_page": 239,
+        "target": "sec:5.5.5",
+        "basis": "原239页开始5.5.5重心问题；其多边缘等价描述延续至原240页，保留原索引指向节首的范围"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 114,
+    "group": "P",
+    "level": 0,
+    "parent": null,
+    "english": "Polish spaces",
+    "chinese_tex": "Polish空间",
+    "references": [
+      {
+        "source_printed_page": "183",
+        "source_physical_page": 207,
+        "target": "obj:5.6",
+        "basis": "原207页注5.6明确推广到一般Polish空间"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 137,
+    "group": "S",
+    "level": 0,
+    "parent": null,
+    "english": "semi-concave functions",
+    "chinese_tex": "半凹函数",
+    "references": [
+      {
+        "source_printed_page": "200",
+        "source_physical_page": 224,
+        "target": "idx:root5-p200-semiconcavity",
+        "basis": "原224页定理5.24证明用一致半凹性推出梯度几乎处处收敛"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 140,
+    "group": "S",
+    "level": 0,
+    "parent": null,
+    "english": "Sliced Wasserstein distance",
+    "chinese_tex": "切片Wasserstein距离",
+    "references": [
+      {
+        "source_printed_page": "214",
+        "source_physical_page": 238,
+        "target": "sec:5.5.4",
+        "basis": "原238页5.5.4给出切片Wasserstein距离的积分定义"
+      },
+      {
+        "source_printed_page": "217",
+        "source_physical_page": 241,
+        "target": "fig:5.3",
+        "basis": "原241页图5.3图注第二排明确解释SW2重心插值"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 148,
+    "group": "T",
+    "level": 0,
+    "parent": null,
+    "english": "torus",
+    "chinese_tex": "环面",
+    "references": [
+      {
+        "source_printed_page": "196",
+        "source_physical_page": 220,
+        "target": "obj:5.22",
+        "basis": "原220页注5.22完整定义环面周期卷积及同等构造"
+      },
+      {
+        "source_printed_page": "199",
+        "source_physical_page": 223,
+        "target": "idx:root5-p199-torus",
+        "basis": "原223页定理5.24证明第二部分为保紧性选用环面构造"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 159,
+    "group": "W",
+    "level": 0,
+    "parent": null,
+    "english": "Wasserstein distance",
+    "chinese_tex": "Wasserstein距离",
+    "references": [
+      {
+        "source_printed_page": "179",
+        "source_physical_page": 203,
+        "target": "sec:5.1",
+        "basis": "原203页5.1节给出Wp费用最小值的正式定义"
+      },
+      {
+        "source_printed_page": "183",
+        "source_physical_page": 207,
+        "target": "sec:5.2",
+        "basis": "原207页5.2节开头比较Wp距离诱导拓扑与弱收敛"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 160,
+    "group": "W",
+    "level": 1,
+    "parent": 159,
+    "english": "triangle inequality",
+    "chinese_tex": "三角不等式",
+    "references": [
+      {
+        "source_printed_page": "181",
+        "source_physical_page": 205,
+        "target": "obj:5.3",
+        "basis": "原205页引理5.3，映射与逼近的三角不等式证明"
+      },
+      {
+        "source_printed_page": "182",
+        "source_physical_page": 206,
+        "target": "obj:5.4",
+        "basis": "原206页引理5.4的三角不等式第二证明"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 161,
+    "group": "W",
+    "level": 1,
+    "parent": 159,
+    "english": "Wasserstein spaces",
+    "chinese_tex": "Wasserstein空间",
+    "references": [
+      {
+        "source_printed_page": "183",
+        "source_physical_page": 207,
+        "target": "obj:5.7",
+        "basis": "原207页定义5.7，Wasserstein空间的原定义"
+      }
+    ],
+    "see": null
+  },
+  {
+    "id": 162,
+    "group": "W",
+    "level": 0,
+    "parent": null,
+    "english": "weak convergence",
+    "chinese_tex": "弱收敛",
+    "references": [
+      {
+        "source_printed_page": "183",
+        "source_physical_page": 207,
+        "target": "sec:5.2",
+        "basis": "原207页5.2节开头重述弱/窄收敛与Cb对偶"
+      }
+    ],
+    "see": null
+  }
+]

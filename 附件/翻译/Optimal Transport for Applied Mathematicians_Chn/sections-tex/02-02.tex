@@ -1,16 +1,16 @@
 % 原书印刷63--67页，PDF物理90--94页，止于2.3标题之前.
-\subsection{单调映射的最优性}\label{sec:2.2}
+\subsection{单调映射的最优性}\label{sec:2.2}\index{M103@单调映射（monotone map）|hyperpage}
 
 现在我们已相当清楚地了解映射$\mathrm T_{\rm mon}$与方案$\gamma_{\rm mon}$的性质、定义及刻画，可以看到，在一维中，它们对于多种不同成本都是最优的，而不仅仅对二次成本如此. 这确实是一维情形特有的现象，在高维并不成立. 我们考虑的成本是差$x-y$的凸函数；为强调这些成本可能具有非对称性，宁愿将其写成$h(y-x)$，而不是$h(x-y)$.
 
-\begin{theorem}\label{obj:2.9}
+\begin{theorem}\label{obj:2.9}\index{C029@凸传输成本（convex transport costs）|hyperpage}\index{E058@最优映射的存在性（existence of an optimal map）|hyperpage}
 设$h:\mathbb R\to\mathbb R_+$严格凸，$\mu,\nu\in\mathscr P(\mathbb R)$为概率测度. 考虑成本$c(x,y)=h(y-x)$，并假设(KP)的值有限. 则(KP)有唯一解，且该解为$\gamma_{\rm mon}$. 若$\mu$无原子，这个最优方案由映射$\mathrm T_{\rm mon}$诱导.
 
 此外，若去掉严格凸性假设，只要求$h$凸，则同一个$\gamma_{\rm mon}$仍然是最优运输方案，但不再保证唯一性.
 \end{theorem}
 \begin{proof}
 利用任意最优$\gamma$的支集都是$c$-循环单调集$\Gamma$这一事实. 这特别意味着，对$(x,y),(x',y')\in\Gamma$，有
-\begin{equation}\label{eq:2.3}
+\begin{equation}\label{eq:2.3}\index{0007@$c$-循环单调性（$c$-cyclical monotonicity）|hyperpage}
 h(y-x)+h(y'-x')\le h(y'-x)+h(y-x').
 \end{equation}
 只需证明，在严格凸情形下，这蕴含单调性：实际上，将由\eqref{eq:2.3}推出$x<x'$蕴含$y\le y'$，从而借助\autoref{obj:2.8}得出结论.
@@ -61,7 +61,7 @@ f(t):=\frac12\sqrt{4+(at+b)^2}+\frac12(at+b)
 强调一下，完全类似的证明可以用来说明：严格凹成本（形如$h(y-x)$且$h$严格凹）的最优映射是单调递减，而不是单调递增的. 可与\autoref{sec:3.3.2}的描述比较.
 \end{remark}
 
-\begin{remark}\label{obj:2.13}
+\begin{remark}\label{obj:2.13}\index{T153@扭曲条件（twist condition）|hyperpage}
 $\gamma_{\rm mon}$的最优性也在更一般的假设下成立，即某些不具有$h(x-y)$形式、但满足扭曲条件的成本也如此. 见\autoref{ex:10}.
 \end{remark}
 
@@ -82,7 +82,7 @@ $\gamma_{\rm mon}$的最优性也在更一般的假设下成立，即某些不�
 \end{example}
 
 \begin{example}[移动书籍]\label{obj:2.16}
-考虑$c(x,y)=|x-y|$、$\mu=\frac12\mathscr L^1_{[0,2]}$及$\nu=\frac12\mathscr L^1_{[1,3]}$. 则$\mathrm T_{\rm mon}(x)=x+1$是把$\mu$运输到$\nu$的单调运输方案. 其成本为$\mathcal M(\mathrm T)=\int|\mathrm T_{\rm mon}(x)-x|\,d\mu=1$. 但由
+考虑$c(x,y)=|x-y|$、$\mu=\frac12\mathscr L^1_{[0,2]}$及$\nu=\frac12\mathscr L^1_{[1,3]}$. 则$\mathrm T_{\rm mon}(x)=x+1$是把$\mu$运输到$\nu$的单调运输方案. 其成本为$M(\mathrm T)=\int|\mathrm T_{\rm mon}(x)-x|\,d\mu=1$. 但由
 \[
 \mathrm T(x)=\begin{cases}x+2&\text{若 }x\le1,\\x&\text{若 }x>1\end{cases}
 \]

@@ -1,5 +1,5 @@
 % 原书印刷67--72页，PDF物理94--99页，止于2.4标题之前.
-\subsection{Knothe运输}\label{sec:2.3}
+\subsection{Knothe运输}\label{sec:2.3}\index{K086@Knothe映射（Knothe map）|hyperpage}
 
 Knothe运输又称Knothe--Rosenblatt重排，是可与两个给定测度$\mu,\nu\in\mathscr P(\mathbb R^d)$相联系的一种特殊运输映射，它先验地与最优运输无关. Rosenblatt为统计目的\cite{b264}，Knothe为几何不等式的应用\cite{b203}，分别独立提出了这一映射（另见\autoref{sec:2.5.3}）. 这种映射最有吸引力之处在于计算简单. 我们将在两个测度均绝对连续的较简单情形下说明其原理：$\mu=f(x)\,dx$，$\nu=g(y)\,dy$.
 
@@ -34,7 +34,7 @@ g^k(y_k,y_{k+1},\ldots,y_d)&=\frac{\widehat g^{\,k}(y_k,y_{k+1},\ldots,y_d)}{\wi
 
 把$f^k$视为以$(x_{k+1},\ldots,x_d)$为参数的$x_k$的函数时，它实际可看作$\mu^k$按变量$(x_{k+1},\ldots,x_d)$分解所得测度的密度；同样，$g^k$是$\nu^k$分解所得测度的密度. 下面简要介绍测度分解的主要概念. 借助这一语言，即使测度不绝对连续，只要满足某些无原子假设，也能定义即将介绍的Knothe运输. 不过，为简单起见，大多数结果仍在测度绝对连续的情形下陈述.
 
-\begin{sourcebox}{重要概念：测度的分解}\label{box:2.2}
+\begin{sourcebox}{重要概念：测度的分解}\label{box:2.2}\index{D041@测度的分解（disintegration of measures）|hyperpage}
 \begin{definition*}
 考虑赋有Borel测度$\mu$的测度空间$X$，以及取值于拓扑空间$Y$的映射$f:X\to Y$. 若一族测度$(\mu_y)_{y\in Y}$中的每个$\mu_y$都是集中于$f^{-1}(\{y\})$的概率测度，且对每个测试函数$\varphi\in C(X)$，映射$y\mapsto\int_X\varphi\,d\mu_y$为Borel可测，并满足
 \[
@@ -50,7 +50,7 @@ $\mu$的分解也经常（滥用记号地）写成$\mu=\mu_y\otimes\nu$.
 \int_{Y\times Z}\varphi(y,z)\,d\mu(y,z)
 =\int_Y d\nu(y)\int_Z\varphi(y,z)\,d\mu_y(z).
 \]
-测度$\mu$的分解恰好对应于概率论中的条件分布. 读者可参阅\cite{b152}中关于条件概率的证明，再将其转换为分解的语言. 事实上，在概率论中，通常谈论已知$Y=y$时随机变量$X$的条件分布. 这意味着将概率空间$\Omega$上的概率$P$按映射$Y:\Omega\to E$（$E$为$Y$的像空间）分解为概率$P_y$，再取$X$在$P_y$下的分布. 分解的存在性与唯一性依赖于空间的一些假设，但当$X=\mathbb R^d$时，它们成立.
+测度$\mu$的分解恰好对应于概率论中的条件分布. 读者可参阅\cite{b152}中关于条件概率的证明，再将其转换为分解的语言. 事实上，在概率论中，通常谈论已知$Y=y$时随机变量$X$的条件分布. 这意味着将概率空间$\Omega$上的概率$\mathbb P$按映射$Y:\Omega\to E$（$E$为$Y$的像空间）分解为概率$\mathbb P_y$，再取$X$在$\mathbb P_y$下的分布. 分解的存在性与唯一性依赖于空间的一些假设，但当$X=\mathbb R^d$时，它们成立.
 \end{sourcebox}
 
 为定义Knothe重排，从$k=d$开始，将运输映射$\mathrm T^d:\mathbb R\to\mathbb R$定义为把$f^d$送到$g^d$的单调不减运输映射（将这两个函数视为概率密度）. 已知这一映射有良好定义，而且知道如何用累积分布函数计算它. 现在定义一族映射$\mathrm T^k:\mathbb R^{d-k+1}\to\mathbb R$，其变量为$(x_k,x_{k+1},\ldots,x_d)$. 第一个就是刚定义的$\mathrm T^d$. 为方便记号，还定义映射$\widehat{\mathrm T}^{\,k}:\mathbb R^{d-k+1}\to\mathbb R^{d-k+1}$：
@@ -58,7 +58,7 @@ $\mu$的分解也经常（滥用记号地）写成$\mu=\mu_y\otimes\nu$.
 \widehat{\mathrm T}^{\,k}(x_k,x_{k+1},\ldots,x_d)
 =\bigl(\mathrm T^k(x_k,x_{k+1},\ldots,x_d),\mathrm T^{k+1}(x_{k+1},\ldots,x_d),\ldots,\mathrm T^d(x_d)\bigr).
 \]
-显然，$\mathrm T^d$与$\widehat{\mathrm T}^{\,d}$相同. 现在分别用$f^k_{(x_{k+1},\ldots,x_d)}$与$g^k_{(y_{k+1},\ldots,y_d)}$表示函数$x_k\mapsto f^k(x_k,x_{k+1},\ldots,x_d)$与$y_k\mapsto g^k(y_k,y_{k+1},\ldots,y_d)$，并将其解释为概率测度的密度. 假设已对$j>k$定义了$\mathrm T^j$，则可如下定义$\mathrm T^k$：取$\mathrm T^k_{(x_{k+1},\ldots,x_d)}$为将$f^k_{(x_{k+1},\ldots,x_d)}$送到$g^k_{\widehat{\mathrm T}^{\,k+1}(x_{k+1},\ldots,x_d)}$的单调不减运输映射.
+显然，$\mathrm T^d$与$\widehat{\mathrm T}^{\,d}$相同. 现在分别用$f^k_{(x_{k+1},\ldots,x_d)}$与$g^k_{(y_{k+1},\ldots,y_d)}$表示函数$x_k\mapsto\allowbreak f^k(x_k,\allowbreak x_{k+1},\ldots,x_d)$与$y_k\mapsto\allowbreak g^k(y_k,\allowbreak y_{k+1},\ldots,y_d)$，并将其解释为概率测度的密度. 假设已对$j>k$定义了$\mathrm T^j$，则可如下定义$\mathrm T^k$：取$\mathrm T^k_{(x_{k+1},\ldots,x_d)}$为将$f^k_{(x_{k+1},\ldots,x_d)}$送到$g^k_{\widehat{\mathrm T}^{\,k+1}(x_{k+1},\ldots,x_d)}$的单调不减运输映射.
 
 最后，以$\mathrm T=\widehat{\mathrm T}^{\,1}$定义Knothe--Rosenblatt重排$\mathrm T$.
 
@@ -107,13 +107,13 @@ $\mu$的分解也经常（滥用记号地）写成$\mu=\mu_y\otimes\nu$.
 从而证明断言.
 \end{proof}
 
-\begin{sourcebox}{知识回顾：Stone--Weierstrass定理}\label{box:2.3}
+\begin{sourcebox}{知识回顾：Stone--Weierstrass定理}\label{box:2.3}\index{S144@Stone--Weierstrass定理（Stone-Weierstrass theorem）|hyperpage}
 \begin{theorem*}
 设$X$为紧空间，且$E\subset C(X)$为$X$上连续函数空间的一个子集，满足：
-\begin{enumerate}[label=\roman*)]
-\item 常值函数属于$E$；
-\item $E$为代数，即在加法与乘法下封闭：$f,g\in E\Rightarrow f+g,fg\in E$；
-\item $E$分离$X$中的点，即对所有$x\ne y\in X$，存在$f\in E$使$f(x)\ne f(y)$.
+\begin{enumerate}
+\item[i)] 常值函数属于$E$；
+\item[ii)] $E$为代数，即在加法与乘法下封闭：$f,g\in E\Rightarrow f+g,fg\in E$；
+\item[iii)] $E$分离$X$中的点，即对所有$x\ne y\in X$，存在$f\in E$使$f(x)\ne f(y)$.
 \end{enumerate}
 则$E$关于一致收敛在$C(X)$中稠密（例如见\cite{b268}）.
 \end{theorem*}

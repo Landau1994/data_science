@@ -8,7 +8,7 @@
 这里考虑Beckmann在20世纪50年代作为最优运输模型提出的问题的一个简单版本. Beckmann称其为\emph{连续运输模型}，当时并不知道Kantorovich的工作以及两个理论之间可能存在的联系.
 
 \paragraph{Beckmann最小流问题}
-\begin{problem}\label{obj:4.5}
+\begin{problem}\label{obj:4.5}\index{N110@Neumann边界条件（Neumann conditions）|hyperpage}
 考虑极小化问题
 \begin{equation}\label{eq:4.4}
  (\mathrm{BP})\quad
@@ -56,14 +56,14 @@
 \]
 由于该问题恰好与\hyperref[obj:1.9]{(DP)}相同（这是因为$\operatorname{Lip}_1$函数恰好就是梯度不超过1的函数），便得到\hyperref[obj:4.5]{(BP)}与\hyperref[obj:1.2]{(KP)}的形式等价性. 称其只是形式上的，是因为尚未证明\eqref{eq:4.5}中的等号. 注意，还需要假设$\Omega$凸；否则，梯度不超过1的函数，只是关于$\Omega$内的测地距离为$\operatorname{Lip}_1$的函数.
 
-上述大部分讨论，特别是关于\hyperref[obj:4.5]{(BP)}的讨论，都特定于成本等于距离$|x-y|$的情形. 一般而言，对形如$h(x-y)$的成本，若希望类似结果成立，$h$就需要是1次齐次的. 文献\cite{b195,b196}给出了一种将凸成本变成凸1次齐次成本的一般方法：增加一个对应于时间的变量.\footnote{这样，成本形如$|x-y|^p$的流极小化问题就变为所谓的Benamou--Brenier问题，我们将在\autoref{sec:5}和\autoref{sec:6}中讨论；但这里不沿这一类比进一步推论.} 一个有趣的推广仍保留Euclid距离情形的形式，它涉及由Riemann距离$k(x)$导出的成本$c$.
+上述大部分讨论，特别是关于\hyperref[obj:4.5]{(BP)}的讨论，都特定于成本等于距离$|x-y|$的情形. 一般而言，对形如$h(x-y)$的成本，若希望类似结果成立，$h$就需要是1次齐次的. 文献\cite{b195,b196}给出了一种将凸成本变成凸1次齐次成本的一般方法：增加一个对应于时间的变量.\footnote{\phantomsection\label{idx:root4-p128-benamou-brenier}\index{B015@Benamou--Brenier方法（Benamou-Brenier）|hyperpage}这样，成本形如$|x-y|^p$的流极小化问题就变为所谓的Benamou--Brenier问题，我们将在\autoref{sec:5}和\autoref{sec:6}中讨论；但这里不沿这一类比进一步推论.} 一个有趣的推广仍保留Euclid距离情形的形式，它涉及由Riemann距离$k(x)$导出的成本$c$.
 
 确切地说，考虑
 \[
  \min\left\{\int k(x)|\mathbf w(x)|\,\mathrm dx:
                                \nabla\cdot\mathbf w=\mu-\nu\right\}.
 \]
-通过与满足$|\nabla u|\leq k$的函数$u$的对偶，它对应于
+\phantomsection\label{idx:root4-p129-weighted-distance}\index{D044@距离成本（distance costs）|hyperpage}\index{W163@加权距离（weighted distances）|hyperpage}通过与满足$|\nabla u|\leq k$的函数$u$的对偶，它对应于
 \[
  \min\left\{\int d_k(x,y)\,\mathrm d\gamma(x,y):
                                       \gamma\in\Pi(\mu,\nu)\right\},
@@ -84,7 +84,7 @@
 
 为避开这一困难，我们为\hyperref[obj:4.5]{(BP)}选择其自然框架，即向量测度框架.
 
-\begin{sourcebox}{知识回顾：向量测度}\label{box:4.2}
+\begin{sourcebox}{知识回顾：向量测度}\label{box:4.2}\index{V156@向量测度（vector measures）|hyperpage}
 \begin{definition*}
 集合$\Omega$上的有限向量测度$\lambda$，是给每个Borel子集$A\subset\Omega$赋一个值$\lambda(A)\in\mathbb R^d$的映射，并满足：对每个不交并$A=\bigcup_iA_i$（$i\neq j$时$A_i\cap A_j=\varnothing$），都有
 \[
@@ -122,23 +122,23 @@
 \[
  (\mathrm{BP})\quad
  \min\bigl\{|\mathbf w|(\Omega):
-     \mathbf w\in\mathscr M^d_{\mathrm{div}}(\Omega),\
+     \mathbf w\in\mathscr M^d_{\mathrm{div}}(\Omega),\quad
      \nabla\cdot\mathbf w=\mu-\nu\bigr\}
 \]
 有解，这里散度在弱意义下规定，即对每个$\phi\in C^1(\overline\Omega)$，要求$-\int\nabla\phi\cdot\mathrm d\mathbf w=\int\phi\,\mathrm d(\mu-\nu)$，其中也包含无通量边界条件. 此外，其最小值等于\hyperref[obj:1.2]{(KP)}的最小值，而且可以从\hyperref[obj:1.2]{(KP)}的一个解构造\hyperref[obj:4.5]{(BP)}的一个解. 因此，这两个问题等价.
 \end{theorem}
 \begin{proof}
-首先要证明\hyperref[obj:4.5]{(BP)}与\hyperref[obj:1.2]{(KP)}的最小值相等. 先证明$\min(\mathrm{BP})\geq\min(\mathrm{KP})$. 为此，任取满足$|\nabla\phi|\leq1$的函数$\phi\in C^1$. 对任意满足$\nabla\cdot\mathbf w=\mu-\nu$的$\mathbf w$，有
+首先要证明\hyperref[obj:4.5]{(BP)}与\hyperref[obj:1.2]{(KP)}的最小值相等. 先证明$\min\hyperref[obj:4.5]{(\mathrm{BP})}\geq\min\hyperref[obj:1.2]{(\mathrm{KP})}$. 为此，任取满足$|\nabla\phi|\leq1$的函数$\phi\in C^1$. 对任意满足$\nabla\cdot\mathbf w=\mu-\nu$的$\mathbf w$，有
 \[
  |\mathbf w|(\Omega)=\int_\Omega1\,\mathrm d|\mathbf w|
  \geq\int_\Omega(-\nabla\phi)\cdot\mathrm d\mathbf w
  =\int_\Omega\phi\,\mathrm d(\mu-\nu).
 \]
-若取一列$\operatorname{Lip}_1\cap C^1$函数，一致收敛到满足$\int_\Omega u\,\mathrm d(\mu-\nu)=\max(\mathrm{DP})=\min(\mathrm{KP})$的Kantorovich势$u$（例如，取卷积$\phi_k=\eta_k*u$），便对任意可行$\mathbf w$得到
+\phantomsection\label{idx:root4-p131-duality}\index{D046@对偶问题（dual problems）|hyperpage}若取一列$\operatorname{Lip}_1\cap C^1$函数，一致收敛到满足$\int_\Omega u\,\mathrm d(\mu-\nu)=\max\hyperref[obj:1.9]{(\mathrm{DP})}=\min\hyperref[obj:1.2]{(\mathrm{KP})}$的Kantorovich势$u$（例如，取卷积$\phi_k=\eta_k*u$），便对任意可行$\mathbf w$得到
 \[
- \int_\Omega\mathrm d|\mathbf w|\geq\min(\mathrm{KP}),
+ \int_\Omega\mathrm d|\mathbf w|\geq\min\hyperref[obj:1.2]{(\mathrm{KP})},
 \]
-即$\min(\mathrm{BP})\geq\min(\mathrm{KP})$.
+即$\min\hyperref[obj:4.5]{(\mathrm{BP})}\geq\min\hyperref[obj:1.2]{(\mathrm{KP})}$.
 
 接下来同时证明反向不等式，并说明如何从\hyperref[obj:1.2]{(KP)}的一个最优$\gamma$构造最优$\mathbf w$.
 
@@ -213,15 +213,15 @@ $\sigma_\gamma$的质量显然为
  \int_\Omega\mathrm d\sigma_\gamma
  &=\int_\Omega\int_0^1|\omega_{x,y}'(t)|\,\mathrm dt\,\mathrm d\gamma(x,y)\\
  &=\int_{\Omega\times\Omega}|x-y|\,\mathrm d\gamma(x,y)
-  =\min(\mathrm{KP}).
+  =\min\hyperref[obj:1.2]{(\mathrm{KP})}.
 \end{aligned}
 \end{equation*}
-由证明的第一部分，其他任何$\mathbf w$都不可能比这更好，因此证明了$\mathbf w_{[\gamma]}$的最优性. 这也证明$\min(\mathrm{BP})=\min(\mathrm{KP})$.
+由证明的第一部分，其他任何$\mathbf w$都不可能比这更好，因此证明了$\mathbf w_{[\gamma]}$的最优性. 这也证明$\min\hyperref[obj:4.5]{(\mathrm{BP})}=\min\hyperref[obj:1.2]{(\mathrm{KP})}$.
 \end{proof}
 
 \paragraph{Monge--Kantorovich系统与运输密度}
-刚定义的标量测度$\sigma_\gamma$称为运输密度. 它在\cite{b159}与\cite{b70,b71}中因不同目的而被引入. 在\cite{b70,b71}中，它与某些形状优化问题相联系，本书不讨论这些问题. 另一方面，\cite{b159}使用它给出了成本为$|x-y|$的Monge问题的最早一批解之一. 重要事实是，测度$\sigma=\sigma_\gamma$与Kantorovich势$u$共同解所谓的Monge--Kantorovich系统
-\begin{equation}\label{eq:4.7}
+\phantomsection\label{idx:root4-p133-transport-density}\index{T151@传输密度（transport density）|hyperpage}刚定义的标量测度$\sigma_\gamma$称为运输密度. 它在\cite{b159}与\cite{b70,b71}中因不同目的而被引入. 在\cite{b70,b71}中，它与某些形状优化问题相联系，本书不讨论这些问题. 另一方面，\cite{b159}使用它给出了成本为$|x-y|$的Monge问题的最早一批解之一. 重要事实是，测度$\sigma=\sigma_\gamma$与Kantorovich势$u$共同解所谓的Monge--Kantorovich系统
+\begin{equation}\label{eq:4.7}\index{K083@Kantorovich势（Kantorovich potentials）|hyperpage}\index{M102@Monge--Kantorovich系统（Monge-Kantorovich system）|hyperpage}
  \begin{cases}
  \nabla\cdot(\sigma\nabla u)=\mu-\nu&\text{在 }\Omega\text{ 中},\\
  |\nabla u|\leq1&\text{在 }\Omega\text{ 中},\\
@@ -232,11 +232,11 @@ $\sigma_\gamma$的质量显然为
 
 如前所述，\cite{b159}使用\eqref{eq:4.7}的解来寻找成本$|x-y|$的最优运输映射$\mathrm T$. 该映射定义为一个依赖于$\sigma$和$\nabla u$的向量场的流，恰好与\autoref{sec:4.2.3}将介绍的Dacorogna--Moser构造具有同样思想. 然而，由于$\sigma$和$\nabla u$缺少正则性，使用$p>1$时的问题$\min\{\int|\mathbf w|^p:\nabla\cdot\mathbf w=\mu-\nu\}$来逼近解为$\mathbf w=\sigma_\gamma\nabla u$的Beckmann问题$\min\{\int|\mathbf w|:\nabla\cdot\mathbf w=\mu-\nu\}$. 将在\autoref{sec:4.4.1}看到，这一与交通拥挤有关的问题由从某个$\Delta_{p'}$方程的解得到的向量场求解，并且具有一些正则性结果. 这样，Monge问题的对偶便由$p'\to\infty$时的$p'$-Laplace方程逼近.
 
-\subsubsection{曲线测度的交通强度与交通流}\label{sec:4.2.3}
+\subsubsection{曲线测度的交通强度与交通流}\label{sec:4.2.3}\index{M098@曲线上的测度（measures on curves）|hyperpage}
 
 本小节引入一些同时推广$\mathbf w_{[\gamma]}$与$\sigma_\gamma$的对象，它们有许多用途：既用于证明最优$\mathbf w$来自某个最优方案$\gamma$这一刻画，也用于“讨论”部分的建模问题. 作为副产品，还将给出Smirnov分解结果\cite{b287}的一个新证明，另见\cite{b278}.
 
-先引入一些记号. 将$\mathrm{AC}(\Omega)$定义为绝对连续曲线$\omega:[0,1]\mapsto\Omega$的集合. 本节始终假设$\Omega$紧且有非空内部. 给定$\omega\in\mathrm{AC}(\Omega)$和连续函数$\phi$，令
+\phantomsection\label{idx:root4-p134-ac-curves}\index{A008@绝对连续曲线（absolutely continuous curves）|hyperpage}先引入一些记号. 将$\mathrm{AC}(\Omega)$定义为绝对连续曲线$\omega:[0,1]\mapsto\Omega$的集合. 本节始终假设$\Omega$紧且有非空内部. 给定$\omega\in\mathrm{AC}(\Omega)$和连续函数$\phi$，令
 \begin{equation}\label{eq:4.8}
  L_\phi(\omega):=\int_0^1\phi(\omega(t))|\omega'(t)|\,\mathrm dt.
 \end{equation}
@@ -358,7 +358,7 @@ $\mathbf w_Q$和$i_Q$都在重参数化下不变，即若$\mathrm T:\mathscr C\t
 最后一条性质显然成立：事实上，可在抽取子序列后假设$\mathbf w_{Q_n}\rightharpoonup\mathbf w$对某个$\mathbf w$成立，而$i=i_Q$蕴含$\mathbf w=\mathbf w_Q$，这也蕴含整个序列收敛.
 \end{proof}
 
-\begin{sourcebox}{补充知识：Dacorogna--Moser运输}\label{box:4.3}
+\begin{sourcebox}{补充知识：Dacorogna--Moser运输}\label{box:4.3}\index{D037@Dacorogna--Moser方法（Dacorogna-Moser）|hyperpage}
 这里给出\cite{b132}中思想的一个特殊情形，这些思想首次在\cite{b159}中用于最优运输.
 
 \emph{构造.} 假设$\mathbf w:\Omega\to\mathbb R^d$是Lipschitz向量场，在$\partial\Omega$上满足$\mathbf w\cdot\mathbf n=0$，并且$\nabla\cdot\mathbf w=f_0-f_1$；其中$f_0,f_1$是正概率密度，为Lipschitz连续且有正下界. 于是可定义非自治向量场
@@ -404,7 +404,7 @@ $\mathbf w_Q$和$i_Q$都在重参数化下不变，即若$\mathrm T:\mathscr C\t
 考虑光滑紧区域$\Omega$上的两个概率$\mu,\nu\in\mathscr P(\Omega)$，以及在分布意义下满足$\nabla\cdot\mathbf w=\mu-\nu$并配有无通量边界条件的向量测度$\mathbf w\in\mathscr M^d_{\mathrm{div}}$. 则对每个将$\Omega$包含于其内部的光滑紧区域$\Omega'$，存在一族满足$\mathbf w^\varepsilon\cdot\mathbf n_{\Omega'}=0$的向量场$\mathbf w^\varepsilon\in C^\infty(\Omega')$，以及两族密度$\mu^\varepsilon,\nu^\varepsilon\in C^\infty(\Omega')$，它们有正常数下界$k_\varepsilon>0$，满足$\nabla\cdot\mathbf w^\varepsilon=\mu^\varepsilon-\nu^\varepsilon$和$\int_{\Omega'}\mu^\varepsilon=\int_{\Omega'}\nu^\varepsilon=1$，作为测度分别弱收敛至$\mathbf w,\mu,\nu$，并且满足$|\mathbf w^\varepsilon|\rightharpoonup|\mathbf w|$.
 \end{lemma}
 \begin{proof}
-先将$\mu,\nu,\mathbf w$在$\Omega$外延拓为零，再与Gauss核$\eta_\varepsilon$在整个$\mathbb R^d$中卷积，得到$\widehat{\mathbf w}^\varepsilon:=\mathbf w*\eta_\varepsilon$、$\widehat\mu^\varepsilon:=\mu*\eta_\varepsilon$、$\widehat\nu^\varepsilon:=\nu*\eta_\varepsilon$，仍满足$\nabla\cdot\widehat{\mathbf w}^\varepsilon=\widehat\mu^\varepsilon-\widehat\nu^\varepsilon$. 由于Gauss核严格正，$\widehat\mu^\varepsilon$和$\widehat\nu^\varepsilon$的密度也严格正. 这些卷积后的密度和向量场本可以满足定理要求，但还必须处理支集（它不是$\Omega'$）和边界行为.
+先将$\mu,\nu,\mathbf w$在$\Omega$外延拓为零，再与Gauss核$\eta_\varepsilon$在整个$\mathbb R^d$中卷积，得到$\widehat{\mathbf w}^\varepsilon:=\mathbf w*\eta_\varepsilon$、$\widehat\mu^\varepsilon:=\mu*\eta_\varepsilon$、$\widehat\nu^\varepsilon:=\nu*\eta_\varepsilon$，仍满足$\nabla\cdot\widehat{\mathbf w}^\varepsilon=\mu^\varepsilon-\nu^\varepsilon$. 由于Gauss核严格正，$\widehat\mu^\varepsilon$和$\widehat\nu^\varepsilon$的密度也严格正. 这些卷积后的密度和向量场本可以满足定理要求，但还必须处理支集（它不是$\Omega'$）和边界行为.
 
 令$\int_{\Omega'}\widehat\mu^\varepsilon=1-a_\varepsilon$、$\int_{\Omega'}\widehat\nu^\varepsilon=1-b_\varepsilon$. 显然，$\varepsilon\to0$时$a_\varepsilon,b_\varepsilon\to0$. 还考虑$\widehat{\mathbf w}^\varepsilon\cdot\mathbf n_{\Omega'}$：由于$d(\Omega,\partial\Omega')>0$，且$\eta_\varepsilon$在原点以外局部一致趋于零，还有$|\widehat{\mathbf w}^\varepsilon\cdot\mathbf n_{\Omega'}|\leq c_\varepsilon$，其中$c_\varepsilon\to0$.
 
@@ -446,7 +446,7 @@ $\mathbf w_Q$和$i_Q$都在重参数化下不变，即若$\mathrm T:\mathscr C\t
 \end{proof}
 
 \begin{remark}\label{obj:4.9}
-若明确考虑对$\Omega'$的依赖，还可以对收敛至$\Omega$的一列区域$\Omega'_\varepsilon$（例如关于Hausdorff拓扑收敛）得到同样的陈述. 只需适当选择它们，使令$t_\varepsilon:=d(\Omega,\partial\Omega'_\varepsilon)$后，有$\|\eta_\varepsilon\|_{L^1(B(0,t_\varepsilon)^c)}\to0$. 对Gauss核，当$t_\varepsilon^2/\varepsilon\to\infty$时就满足这一条件；取$t_\varepsilon=\varepsilon^{1/3}$即可保证.
+若明确考虑对$\Omega'$的依赖，还可以对收敛至$\Omega$的一列区域$\Omega'_\varepsilon$（例如关于Hausdorff拓扑收敛）得到同样的陈述. 只需适当选择它们，使令$t_\varepsilon:=d(\Omega,\partial\Omega'_\varepsilon)$后，有$\|\eta_\varepsilon\|_{L^\infty(B(0,t_\varepsilon)^c)}\to0$. 对Gauss核，当$t_\varepsilon^2/\varepsilon\to\infty$时就满足这一条件；取$t_\varepsilon=\varepsilon^{1/3}$即可保证.
 \end{remark}
 
 有了这些工具，现在可以证明：
@@ -469,7 +469,7 @@ $\mathbf w_Q$和$i_Q$都在重参数化下不变，即若$\mathrm T:\mathscr C\t
  &\to|\mathbf w|(\Omega')=|\mathbf w|(\Omega)
 \end{aligned}
 \end{equation*}
-表明$\int_{\mathscr C}\operatorname{Lip}(\omega)\,\mathrm dQ_\varepsilon(\omega)$有界，因此$Q_\varepsilon$紧，因为集合$\{\omega\in\mathscr C:\operatorname{Lip}(\omega)\leq L\}$紧. 所以，抽取子序列后可假设$Q_\varepsilon\rightharpoonup Q$. 测度$Q$显然集中于取值在$\Omega$内的曲线. 构造时$Q_\varepsilon$满足$(e_0)_\#Q_\varepsilon=\mu^\varepsilon$和$(e_1)_\#Q_\varepsilon=\nu^\varepsilon$，故取极限得到$(e_0)_\#Q=\mu$和$(e_1)_\#Q=\nu$. 此外，由\autoref{obj:4.7}，因为$i_{Q_\varepsilon}=|\mathbf w^\varepsilon|\rightharpoonup|\mathbf v|$且$\mathbf w_{Q_\varepsilon}\rightharpoonup\mathbf w$，得到$|\mathbf w|\geq i_Q\geq|\mathbf w_Q|$和$\|\mathbf w-\mathbf w_Q\|\leq|\mathbf w|(\Omega)-i_Q(\Omega)$. 由此
+表明$\int_{\mathscr C}\operatorname{Lip}(\omega)\,\mathrm dQ_\varepsilon(\omega)$有界，因此$Q_\varepsilon$紧，因为集合$\{\omega\in\mathscr C:\operatorname{Lip}(\omega)\leq L\}$紧. 所以，抽取子序列后可假设$Q_\varepsilon\rightharpoonup Q$. 测度$Q$显然集中于取值在$\Omega$内的曲线. 构造时$Q_\varepsilon$满足$(e_0)_\#Q_\varepsilon=\mu^\varepsilon$和$(e_1)_\#Q_\varepsilon=\nu^\varepsilon$，故取极限得到$(e_0)_\#Q=\mu$和$(e_1)_\#Q=\nu$. 此外，由\autoref{obj:4.7}，因为$i_{Q_\varepsilon}=|\mathbf w_\varepsilon|\rightharpoonup|\mathbf v|$且$\mathbf w_{Q_\varepsilon}\rightharpoonup\mathbf w$，得到$|\mathbf w|\geq i_Q\geq|\mathbf w_Q|$和$\|\mathbf w-\mathbf w_Q\|\leq|\mathbf w|(\Omega)-i_Q(\Omega)$. 由此
 \[
  \|\mathbf w-\mathbf w_Q\|+\|\mathbf w_Q\|
  \leq\|\mathbf w-\mathbf w_Q\|+i_Q(\Omega)\leq\|\mathbf w\|,
@@ -477,7 +477,7 @@ $\mathbf w_Q$和$i_Q$都在重参数化下不变，即若$\mathrm T:\mathscr C\t
 而反向不等式$\|\mathbf w\|\leq\|\mathbf w-\mathbf w_Q\|+\|\mathbf w_Q\|$总是成立.
 \end{proof}
 
-\begin{remark}\label{obj:4.11}
+\begin{remark}\label{obj:4.11}\index{C035@环（cycles）|hyperpage}
 上述陈述包含\cite{b287}中定理C的一个较弱版本，即把任意$\mathbf w$分解为一个环流$\mathbf w-\mathbf w_Q$（称所有无散度向量测度为环流）以及由路径测度诱导的流$\mathbf w_Q$，并满足$\|\mathbf w\|=\|\mathbf w-\mathbf w_Q\|+\|\mathbf w_Q\|$. 与\cite{b287}中定理的唯一区别是，后者保证可选择集中于简单曲线的$Q$，而这里未考虑这一点；另一方面，\autoref{ex:27}给出了这一问题的部分解答.
 \end{remark}
 
@@ -498,11 +498,12 @@ $\mathbf w_Q$和$i_Q$都在重参数化下不变，即若$\mathrm T:\mathscr C\t
 
 首先注意，条件$\nabla\cdot\mathbf w=\mu-\nu$在一维中比高维中强得多. 事实上，散度是Jacobian矩阵的迹，因此指定散度，只是在一个先验具有$d\times d$个自由度的矩阵上施加一个约束. 与此相反，在一维中，向量场$\mathbf w$（实际上是标量）只有一个偏导数，这完全规定了$\mathbf w$的行为. 确实，条件$\nabla\cdot\mathbf w=\mu-\nu$配以Neumann边界条件，蕴含$\mathbf w$必为$\mu-\nu$的一个原函数，并满足$\mathbf w(a)=0$；$\mu$与$\nu$质量相同还蕴含$\mathbf w(b)=0$. 注意，导数是测度这一事实给出$\mathbf w\in BV([a,b])$；可以说，当$d=1$时，$\mathscr M^d_{\mathrm{div}}=BV$.
 
-\begin{sourcebox}{知识回顾：一元有界变差函数}\label{box:4.4}
+\Needspace{8\baselineskip}
+\begin{sourcebox}{知识回顾：一元有界变差函数}\label{box:4.4}\index{B022@BV函数（BV functions）|hyperpage}
 BV函数定义为分布导数是测度的$L^1$函数. 在一维中，这会带来许多结论. 特别地，这些函数几乎处处等于在逐点意义下全变差有界的函数：对每个$f:[a,b]\to\mathbb R$，定义
 \begin{equation*}
 \begin{aligned}
- TV(f;[a,b]):=\sup\biggl\{&\sum_{i=0}^{N-1}|f(t_{i+1})-f(t_i)|:\
+ TV(f;[a,b]):=\sup\biggl\{&\sum_{i=0}^{N-1}|f(t_{i+1})-f(t_i)|:\\
       &a=t_0<t_1<t_2<\cdots<t_N=b\biggr\}.
 \end{aligned}
 \end{equation*}
@@ -533,7 +534,7 @@ BV函数定义为分布导数是测度的$L^1$函数. 在一维中，这会带�
  \item 由$\mathbf w=-u'\cdot\sigma$刻画的运输密度$\sigma$为$\sigma=|\mathbf w|$，并与$\mathbf w$有相同的可积性；它还是BV函数，因为它是BV函数与绝对值函数的复合.
 \end{itemize}
 
-\subsubsection{最优流的刻画与唯一性}\label{sec:4.2.5}
+\subsubsection[最优流的刻画与唯一性]{最优$\mathbf w$的刻画与唯一性}\label{sec:4.2.5}
 
 本小节证明两个事实：首先，\hyperref[obj:4.5]{(BP)}中的最优$\mathbf w$总来自某个最优运输方案$\gamma$；然后，若两个测度之一绝对连续，所有最优$\gamma$都会给出相同的$\mathbf w_{[\gamma]}$以及相同的$\sigma_\gamma$.
 
@@ -546,14 +547,14 @@ BV函数定义为分布导数是测度的$L^1$函数. 在一维中，这会带�
 确实，再次利用$\mathbf w$的最优性和\autoref{obj:4.10}，得到
 \begin{equation*}
 \begin{aligned}
- \min(\mathrm{BP})=|\mathbf w|(\Omega)=i_Q(\Omega)
+ \min\hyperref[obj:4.5]{(\mathrm{BP})}=|\mathbf w|(\Omega)=i_Q(\Omega)
  &=\int_{\mathscr C}L(\omega)\,\mathrm dQ(\omega)\\
  &\geq\int_{\mathscr C}|\omega(0)-\omega(1)|\,\mathrm dQ(\omega)\\
  &=\int_{\Omega\times\Omega}|x-y|\,\mathrm d\bigl((e_0,e_1)_\#Q\bigr)(x,y)\\
- &\geq\min(\mathrm{KP}).
+ &\geq\min\hyperref[obj:1.2]{(\mathrm{KP})}.
 \end{aligned}
 \end{equation*}
-等式$\min(\mathrm{BP})=\min(\mathrm{KP})$蕴含这些不等式全为等式. 特别地，$Q$必须集中在满足$L(\omega)=|\omega(0)-\omega(1)|$的曲线上，也就是线段. 同时，属于$\Pi(\mu,\nu)$的测度$(e_0,e_1)_\#Q$必须在\hyperref[obj:1.2]{(KP)}中最优. 证明完毕.
+等式$\min\hyperref[obj:4.5]{(\mathrm{BP})}=\min\hyperref[obj:1.2]{(\mathrm{KP})}$蕴含这些不等式全为等式. 特别地，$Q$必须集中在满足$L(\omega)=|\omega(0)-\omega(1)|$的曲线上，也就是线段. 同时，属于$\Pi(\mu,\nu)$的测度$(e_0,e_1)_\#Q$必须在\hyperref[obj:1.2]{(KP)}中最优. 证明完毕.
 \end{proof}
 
 下一个结果的证明主要取自\cite{b8}.

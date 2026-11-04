@@ -1,0 +1,216 @@
+% 原书物理328–335页，印刷304–311页；§8.4.2，止于8.4.3标题前.
+\subsubsection{其他梯度流偏微分方程}\label{sec:8.4.2}
+在\autoref{sec:8.3}中，我们给出了 Fokker--Planck 方程的例子，并作了详细分析. 选择这一例子的主要原因是它简单，因为它是线性方程. 因此，很容易将 $E$ 与 $\varrho$ 之间关系中的各项都传到极限. 不过，选取其他泛函，还能将许多重要方程写成 $\mathbb W_2$ 中的梯度流. 这里将介绍其中一些，而不进入证明细节. 强调一下，处理非线性项往往十分困难，需要专门的估计. 我们会讨论一些应当采用的思路. 另一方面，注意若使用\cite{b15}中的抽象理论，就不需要给出这些专门的估计：在针对一般度量空间建立了一个普遍而艰深的理论之后，\cite{b15}的第二部分解释了在 $\mathbb W_2$ 中作为梯度流得到的曲线究竟是什么，并给出了速度场 $\mathbf v$ 与泛函 $F$ 的导数之间的关系（这里使用 Wasserstein 空间中特设的次微分概念）. 这样，所需结论就自动成为一个更大理论的一部分.
+
+本小节讨论六类偏微分方程：多孔介质方程；Keller--Segel 方程；更一般的聚集模型；同时具有扩散、平流和聚集的更复杂方程；带密度约束的人群运动模型；以及平方距离 $SW_2^2$ 的流.
+
+\subsubsection*{多孔介质方程}
+\phantomsection\label{idx:i115-p304}\index{P115@多孔介质（porous media）|hyperpage}
+这个方程描述一种物质向某种材料内部的扩散，该材料的性质不同于真空，会使扩散减慢. 若考虑受势场平流作用、同时发生这种扩散的粒子，则偏微分方程为
+\[
+\partial_t\varrho-\Delta(\varrho^m)-\nabla\cdot(\varrho\nabla V)=0,
+\]
+其中指数 $m>1$. 可以形式地验证，它是能量
+\[
+F(\varrho)=\frac1{m-1}\int\varrho^m(x)\dd x+\int V(x)\varrho(x)\dd x
+\]
+的梯度流方程（当 $\varrho\notin L^m$ 时，将能量定义为 $+\infty$）. 事实上，泛函第一部分的一阶变分为 $\frac m{m-1}\varrho^{m-1}$，而且
+$\varrho\nabla(\frac m{m-1}\varrho^{m-1})=m\varrho\cdot\varrho^{m-2}\nabla\varrho=\nabla(\varrho^m)$.
+
+注意，在离散步骤 $\min_\varrho F(\varrho)+\frac{W_2^2(\varrho,\varrho_0)}{2\tau}$ 中，解 $\varrho$ 满足
+\[
+\begin{cases}
+\dfrac m{m-1}\varrho^{m-1}+V+\dfrac\varphi\tau=C&\varrho\text{-几乎处处},\\[2pt]
+\dfrac m{m-1}\varrho^{m-1}+V+\dfrac\varphi\tau\geq C&\text{在 }\{\varrho=0\}\text{ 上}.
+\end{cases}
+\]
+由此可写出 $\varrho^{m-1}=\frac{m-1}m(C-V-\varphi/\tau)_+$（见\autoref{sec:7.2.3}）. 这意味着，只要 $V$ 满足某些增长条件，当 $\varrho_0$ 具有紧支集时，$\varrho$ 也具有紧支集（见\autoref{ex:52}）. 这一事实与线性扩散模型（热方程和 Fokker--Planck 方程）通常具有的无限传播速度相反.
+
+以上分析适用于 $m>1$ 的情形. 当 $m\to1$ 时可以得到通常的 Fokker--Planck 方程，这可以如下理解：若将 $F$ 定义为
+\[
+F(\varrho)=\frac1{m-1}\int(\varrho^m(x)-\varrho(x))\dd x+\int V(x)\varrho(x)\dd x,
+\]
+则不会发生任何变化，因为质量 $\int\varrho(x)\dd x=1$ 是给定的常数. 然而，这时容易猜出极限，因为
+\[
+\lim_{m\to1}\frac{\varrho^m-\varrho}{m-1}=\varrho\log\varrho,
+\]
+\phantomsection\label{idx:i51-p305}\index{E051@熵（entropy）|hyperpage}
+这正是\autoref{sec:8.3}中使用过的熵.
+
+\phantomsection\label{idx:i60-p304}\index{F060@快速扩散（fast diffusion）|hyperpage}
+考虑 $m<1$ 的情形也很有意思：函数 $\varrho^m-\varrho$ 不再凸，而是凹的，但负系数 $1/(m-1)$ 使之成为凸函数. 遗憾的是，它在无穷远处不是超线性的，这使处理更加困难. 不过，当 $m\geq1-1/d$ 时，泛函 $F$ 仍是位移凸的. 所得到的梯度流偏微分方程称为快速扩散方程（fast diffusion equation），它在扩散速率方面具有不同于多孔介质方程、甚至与之相反的性质.
+
+从技术上看，证明这些方程的极小化运动格式的紧性并不容易，因为需要将非线性项 $\Delta(\varrho^m)$ 传到极限，这意味着必须证明 $\varrho$ 的强收敛，而非弱收敛. 主要工具是某种空间上的 $H^1$ 界，它来自以下事实：
+\begin{equation}\label{eq:8.15}
+\int_0^T\int_\Omega|\nabla(\varrho^{m-1})|^2\dd x\dd t
+\approx\int_0^T\int_\Omega\frac{|\nabla\varphi|^2}{\tau^2}\dd x\dd t
+=\int_0^T|\varrho'|(t)^2\dd t\leq C
+\end{equation}
+（但必须处理这并非完整 $H^1$ 界这一事实，而且还需要控制时间上的行为）.
+
+\subsubsection*{Keller--Segel 方程}
+\phantomsection\label{idx:i23-p305}\index{C023@趋化（chemotaxis）|hyperpage}
+数学生物学中有一个有趣的模型（最初的建模见\cite{b201,b202}）：细菌群体 $\varrho$ 随时间演化，同时受到扩散和势场平流的作用. 势由一种具有趋化吸引作用的营养物质的浓度 $u$ 给定，而这种物质由细菌自身产生. 这类现象也称为趋化（chemotaxis）. 更准确地说，细菌（在扩散的同时）沿营养更丰富的方向运动，即沿 $\nabla u$ 方向运动，而 $u$ 的分布依赖于细菌密度 $\varrho$. 最简单的模型采用线性扩散，并假设 $u$ 的分布通过条件 $-\Delta u=\varrho$ 与 $\varrho$ 联系起来，同时在 $\partial\Omega$ 上满足 Dirichlet 边界条件 $u=0$. 于是得到方程组
+\[
+\begin{cases}
+\partial_t\varrho+\alpha\nabla\cdot(\varrho\nabla u)-\Delta\varrho=0,\\
+-\Delta u=\varrho,\\
+u=0\text{ 于 }\partial\Omega,\quad\varrho(0,\cdot)=\varrho_0,
+\quad\partial_n\varrho-\alpha\varrho\partial_n u=0\text{ 于 }\partial\Omega.
+\end{cases}
+\]
+参数 $\alpha$ 表示细菌朝趋化吸引物运动的吸引强度. 通过缩放，可以不再使用概率测度 $\varrho\in\mathscr P(\Omega)$，而是取 $\alpha=1$ 并调节 $\varrho$ 的总质量（事实上，非线性只出现在 $\varrho\nabla u$ 中，它关于 $\varrho$ 是二次的）.
+
+对 $u$ 也可以考虑其他方程，例如附带 Neumann 边界条件的 $-\Delta u+u=\varrho$. 相反，为保证质量守恒，$\varrho$ 的边界条件必须是 Neumann 型的（见下一个小节\autoref{sec:8.4.3}）. 也可以在整个空间上建立这一方程组，并附加适当的无穷远衰减条件. 还应注意，当 $\Omega=\R^2$ 时，将 $u$ 定义为 Poisson 方程解的偏微分方程条件，常被以下显式公式替代：
+\begin{equation}\label{eq:8.16}
+u(x)=-\frac1{2\pi}\int_{\R^2}\log(|x-y|)\varrho(y)\dd y.
+\end{equation}
+在更高维中存在一些混淆，因为同一个公式并不适用于 Poisson 方程（对数核实际上应替换为相应的 Green 函数），于是有两种选择：或者保留 $u$ 满足 $-\Delta u=\varrho$ 这一点，或者保留它通过\eqref{eq:8.16}由 $\varrho$ 导出这一点. 我们更倾向于保留偏微分方程定义，因为它看起来更有根据.
+
+可以看到，这个方程是泛函
+\[
+F(\varrho)=\int_\Omega\varrho\log\varrho-\frac12\int_\Omega|\nabla u_\varrho|^2,
+\quad\text{其中 }u_\varrho\in H_0^1(\Omega)\text{ 满足 }-\Delta u_\varrho=\varrho
+\]
+的梯度流. 事实上，唯一不属于标准计算的，是 Dirichlet 项 $-\frac12\int|\nabla u_\varrho|^2$ 的一阶变分. 设 $\varrho_\varepsilon=\varrho+\varepsilon\chi$，并令 $u_{\varrho+\varepsilon\chi}=u_\varrho+\varepsilon u_\chi$. 则
+\[
+\begin{aligned}
+\left.\frac{\mathrm d}{\mathrm d\varepsilon}\left(-\frac12\int|\nabla u_{\varrho+\varepsilon\chi}|^2\right)\right|_{\varepsilon=0}
+&=-\int\nabla u_\varrho\cdot\nabla u_\chi\\
+&=\int u_\varrho\Delta u_\chi=-\int u_\varrho\chi.
+\end{aligned}
+\]
+有趣的是，\phantomsection\label{idx:i1-p306}\index{0001@$H^{-1}$范数（$H^{-1}$ norm）|hyperpage}
+这个 Dirichlet 项实际上（不计系数 $-1/2$）就是 $\varrho$ 的 $H^{-1}$ 范数的平方，因为 $\|u\|_{H_0^1}=\|\nabla u\|_{L^2}=\|\varrho\|_{H^{-1}}$. 我们将称它为 $H^{-1}$ 项.
+
+也可以将线性扩散换成多孔介质型非线性扩散，即将熵 $\int\varrho\log\varrho$ 换成幂型能量 $\int\varrho^m$.
+
+注意，变分问题 $\min F(\varrho)+\frac{W_2^2(\varrho,\varrho_0)}{2\tau}$ 需要一些假设才能有极小点，因为不幸的是，Dirichlet 项的符号不对. 特别地，有可能下确界为 $-\infty$，或者能量不下半连续（由于负号，$H^1$ 部分为上半连续）.
+
+采用 $m>2$ 的非线性扩散时，解的存在性相当容易得到（见\autoref{ex:53}）. 精细的泛函不等式使我们可以处理更小的指数，甚至二维线性扩散的情形，只要 $\alpha\leq8\pi$. 关于这个方程分析的细节，参见\cite{b57}及其中的参考文献. 将非线性项传到极限时，某些技术困难与多孔介质方程类似. 在\cite{b57}中，$H^{-1}$ 项用其对数核处理，并采用了专门的变量对称化技巧. 不过，注意非线性扩散的情形更容易，因为 $\varrho$ 的 $L^m$ 界会转化为 $u$ 的 $W^{2,m}$ 界，进而给出 $\nabla u$ 的强紧性.
+
+还应指出，上面的模型将 $\varrho$ 的抛物方程与 $u$ 的椭圆方程耦合，隐含地假设趋化吸引物的分布即时跟随 $\varrho$ 的分布. 更复杂的模型可以写成所谓抛物--抛物 Keller--Segel 方程，形式为
+\[
+\begin{cases}
+\partial_t\varrho+\alpha\nabla\cdot(\varrho\nabla u)-\Delta\varrho=0,\\
+\partial_tu-\Delta u=\varrho,\\
+u=0\text{ 于 }\partial\Omega,\quad\varrho(0,\cdot)=\varrho_0,
+\quad\varrho(\partial_n\varrho-\partial_n u)=0\text{ 于 }\partial\Omega,
+\end{cases}
+\]
+也可以采用具有不同边界条件的其他变体. 这个方程同样可以作为两个变量的梯度流来研究，对 $\varrho$ 使用距离 $W_2$，对 $u$ 使用 $L^2$ 距离；见\cite{b58}.
+
+\subsubsection*{聚集模型}
+\phantomsection\label{idx:i79-p307}\index{I079@相互作用能（interaction energy）|hyperpage}
+考虑更一般的情形：运动受到一个势的平流作用，而这个势是许多势的叠加，每个势由一个粒子产生. 例如，给定函数 $W:\R^d\to\R$，位于 $x$ 的粒子产生势 $W(\cdot-x)$，于是总势为 $V(y)=\int W(y-x)\dd\varrho(x)$，即 $V=W*\varrho$. 若每个粒子都遵循 $-\nabla V$，则方程为
+\[
+\partial_t\varrho-\nabla\cdot\bigl(\varrho\,((\nabla W)*\varrho)\bigr)=0,
+\]
+这里利用了 $\nabla(W*\varrho)=(\nabla W)*\varrho$. 若 $W$ 为偶函数（即 $x$ 与 $y$ 之间的相互作用和 $y$ 与 $x$ 之间的相互作用相同），它就是泛函
+\[
+F(\varrho)=\frac12\iint W(x-y)\dd\varrho(x)\dd\varrho(y)
+\]
+的梯度流.
+
+当 $W$ 为凸函数时，例如二次情形 $\iint|x-y|^2\dd\varrho(x)\dd\varrho(y)$，这会产生粒子的整体聚集行为，预期当 $t\to\infty$ 时，有 $\varrho_t\rightharpoonup\delta_{x_0}$（点 $x_0$ 依赖于初值 $\varrho_0$：在上面的二次例子中，它是 $\varrho_0$ 的重心；见\autoref{ex:51}）. 若 $W$ 不够光滑，也可能在有限时间内聚集到一个点；见\cite{b118}.
+
+显然，也可以考虑形如 $W(x,y)$ 的更一般的相互作用项. 如\autoref{sec:7}所见，一些其他能量（例如 Keller--Segel 中的 $H^{-1}$ 项）也能利用 Green 函数写成这种形式（但一般会失去核的凸性）. 注意，这些方程既是非线性的（散度内的项关于 $\varrho$ 是二次的），又是非局部的. 这种非局部聚集项很少单独出现在方程中，因为它们经常与扩散或其他项耦合. 因此，除\cite{b118}之外，这里不再提供具体参考文献. 还应指出，从技术上看，这种非线性比前面的非线性具有强得多的紧性，因为只要 $W$ 足够正则，卷积算子就将弱收敛转化为强收敛（Keller--Segel 中核的困难恰恰来自其奇异性）.
+
+\subsubsection*{扩散、平流与聚集：完整图景}
+前一段的聚集能量经常与内能及约束势能一起考虑，从而得到泛函
+\[
+\begin{aligned}
+F(\varrho)={}&\int f(\varrho(x))\dd x+\int V(x)\dd\varrho(x)\\
+&+\frac12\iint W(x-y)\dd\varrho(x)\dd\varrho(y).
+\end{aligned}
+\]
+这给出方程
+\[
+\partial_t\varrho-\nabla\cdot\bigl(\varrho\,[\nabla(f'(\varrho))+\nabla V+(\nabla W)*\varrho]\bigr)=0.
+\]
+在这类方程的数学意义中，特别强调，由于保证 $F$ 位移凸的条件已经很清楚（\autoref{sec:7.3}），这类方程能够证明更多关于稳定性和收敛到平衡态的结论. 关于该方程的物理考虑和收敛结论，特别参见\cite{b116,b117}.
+
+\subsubsection*{人群运动}
+\phantomsection\label{idx:i32-p308}\index{C032@人群运动（crowd motion）|hyperpage}
+Wasserstein 梯度流理论一个有趣的应用，是研究带密度约束的连续人群运动模型.
+
+从离散情形出发解释建模. 设有一群粒子，若单独存在，每个粒子都将遵循自己的速度 $u$（事先可以依赖于时间、位置、粒子本身等）. 但这里存在约束：这些粒子被建模为不能相互重叠的刚性圆盘；因此，实际速度不可能总是 $u$，特别是在 $u$ 使质量集中的时候. 将每个粒子的实际速度记为 $\mathbf v$，模型的主要假设是 $\mathbf v=P_{\operatorname{adm}(q)}(u)$，其中 $q$ 是粒子构型，$\operatorname{adm}(q)$ 是从构型 $q$ 出发不会（在无穷小时间内）造成重叠的速度集合，$P_{\operatorname{adm}(q)}$ 是到这一集合上的投影.
+
+最简单的例子是，每个粒子均为具有相同半径 $R$ 的圆盘，其中心位于 $q_i$. 此时，用下式定义容许构型集合 $K$：
+\[
+K:=\{q=(q_i)_i\in\Omega^N:|q_i-q_j|\geq2R\text{ 对所有 }i\neq j\}.
+\]
+于是容易看出，容许速度集合为
+\[
+\operatorname{adm}(q)=\left\{\mathbf v=(\mathbf v_i)_i:
+\begin{array}{l}
+(\mathbf v_i-\mathbf v_j)\cdot(q_i-q_j)\geq0\\
+\text{对所有满足 }|q_i-q_j|=2R\text{ 的 }(i,j)
+\end{array}\right\}.
+\]
+为了追踪 $q$ 的运动，需要求解演化方程
+\begin{equation}\label{eq:8.17}
+q'(t)=P_{\operatorname{adm}(q(t))}u(t)
+\end{equation}
+（$q(0)$ 已给定）. 从数学上看，\eqref{eq:8.17}并不简单，Maury 和 Venel 在\cite{b223,b224}中研究了它.
+
+现在考虑这一微观模型最简单的连续对应物（不声称它是离散情形的某种均匀化极限，只是在密度框架下作简单的重新表述）. 此时，粒子群体由概率密度 $\varrho\in\mathscr P(\Omega)$ 描述，\phantomsection\label{idx:i2-p309}\index{0002@$L^\infty$密度约束（$L^\infty$ density constraints）|hyperpage}
+约束成为密度约束 $\varrho\leq1$（定义集合 $K=\{\varrho\in\mathscr P(\Omega):\varrho\leq1\}$），容许速度集合由饱和区域 $\{\varrho=1\}$ 上的散度符号来描述：$\operatorname{adm}(\varrho)=\{\mathbf v:\Omega\to\R^d:\nabla\cdot\mathbf v\geq0\text{ 于 }\{\varrho=1\}\}$；考虑投影 $P$，它可以是 $L^2(\mathscr L^d)$ 中的投影，也可以是 $L^2(\varrho)$ 中的投影（这两者将是相同的，因为唯一相关的区域是 $\{\varrho=1\}$）. 最后求解方程
+\begin{equation}\label{eq:8.18}
+\partial_t\varrho_t+\nabla\cdot\bigl(\varrho_t(P_{\operatorname{adm}(\varrho_t)}u_t)\bigr)=0.
+\end{equation}
+主要困难在于，向量场 $\mathbf v=P_{\operatorname{adm}(\varrho_t)}u_t$ 既不正则（它由 $L^2$ 投影得到，事先只能期待它属于 $L^2$），也不正则地依赖于 $\varrho$（它对于 $\varrho$ 取值的细微变化十分敏感：例如，从密度1变为密度 $1-\varepsilon$，就会完全改变饱和区域，进而改变容许速度集合及到该集合的投影）.
+
+在\cite{b225}中，对 $u=-\nabla D$ 的情形（$D:\Omega\to\R$ 为给定的 Lipschitz 函数），这些困难得到克服，并通过梯度流方法证明了解的存在性（还进行了数值模拟）. 事实上，\eqref{eq:8.18}是能量
+\[
+F(\varrho)=\begin{cases}
+\displaystyle\int D\dd\varrho,&\varrho\in K,\\
++\infty,&\varrho\notin K
+\end{cases}
+\]
+在 $\mathbb W_2$ 中的梯度流.
+
+不进入这个方程研究的细节，只将上面的定义作更精确的说明. 实际上，对于仅假设属于 $L^2$ 的向量场，与其考虑其散度，不如用对偶性更好地描述 $\operatorname{adm}(\varrho)$：
+\[
+\operatorname{adm}(\varrho)=\left\{\mathbf v\in L^2(\varrho):
+\begin{array}{l}
+\displaystyle\int\mathbf v\cdot\nabla p\leq0\quad\forall p\in H^1(\Omega),\\
+p\geq0,\quad p(1-\varrho)=0
+\end{array}\right\}.
+\]
+这样，就通过下式刻画 $\mathbf v=P_{\operatorname{adm}(\varrho)}(u)$：
+\[
+u=\mathbf v+\nabla p,\qquad\mathbf v\in\operatorname{adm}(\varrho),\qquad\int\mathbf v\cdot\nabla p=0;
+\]
+\[
+p\in\operatorname{press}(\varrho):=\{p\in H^1(\Omega):p\geq0,\ p(1-\varrho)=0\};
+\]
+其中 $\operatorname{press}(\varrho)$ 是 $\operatorname{adm}(\varrho)$ 的对偶定义中所使用的检验函数 $p$ 的空间，这些函数\phantomsection\label{idx:i118-p310}\index{P118@压力（pressure）|hyperpage}
+起到影响运动的压力作用. 两个锥 $\nabla\operatorname{press}(\varrho)$（定义为 $\operatorname{press}(\varrho)$ 中元素的梯度集合）与 $\operatorname{adm}(\varrho)$ 关于 $L^2$ 内积互为对偶（即其中一个定义为与另一个所有元素的内积均非正的向量集合）. 这给出正交分解 $u_t=\mathbf v_t+\nabla p_t$，并给出\eqref{eq:8.18}的另一种表达式，即
+\begin{equation}\label{eq:8.19}
+\begin{cases}
+\partial_t\varrho_t+\nabla\cdot\bigl(\varrho_t(u_t-\nabla p_t)\bigr)=0,\\
+0\leq\varrho\leq1,\quad p\geq0,\quad p(1-\varrho)=0.
+\end{cases}
+\end{equation}
+更多细节见\cite{b225,b226,b265}. 特别地，\cite{b225}解释了如何在取极限时处理非线性. 可以看到两种非线性来源：$\varrho\nabla p$ 这一项容易处理，因为它实际上等于 $\nabla p$（由 $p=0$ 在 $\{\varrho\neq1\}$ 上成立）；另一方面，需要处理等式 $p(1-\varrho)=0$ 并将它传到极限. 具体做法是从 $\int_0^T\int_\Omega|\nabla p|^2$ 的界得到 $p$ 的强紧性，而这一界可以类似于\eqref{eq:8.15}得到.
+
+\phantomsection\label{idx:i140-p310}\index{S140@切片Wasserstein距离（Sliced Wasserstein distance）|hyperpage}
+\subsubsection*{切片 Wasserstein 距离}
+\autoref{sec:2.5.2}中已经提到 M. Bernot 的思想，即让每个粒子沿按以下方式得到的向量场 $\mathbf v$ 运动：给定两个测度 $\varrho,\nu\in\mathscr P(\R^d)$，通过映射 $\pi_e:\R^d\to\R$、$\pi_e(x)=x\cdot e$，将它们投影到任意一维方向 $e\in\mathbb S^{d-1}$ 上；将两个像测度 $(\pi_e)_\#\varrho$ 与 $(\pi_e)_\#\nu$ 之间的单调最优运输记为 $\mathrm T_e:\R\to\R$. 然后定义 $\mathbf v_e(x):=(\mathrm T_e(\pi_e(x))-\pi_e(x))e$，以及
+\[
+\mathbf v(x)=\fint_{\mathbb S^{d-1}}\mathbf v_e(x)\dd\mathscr H^{d-1}(e),
+\]
+其中 $\mathscr H^{d-1}$ 是球面上的均匀测度.
+
+为了数值求解，Bernot 提出了以时间步长 $\tau>0$ 迭代一个构造，但也存在自然的连续对应物：对每个绝对连续测度 $\varrho\in\mathscr P(\R^d)$，直接定义上面的向量场 $\mathbf v_{(\varrho)}$（要求绝对连续只是为了避免投影中出现原子）. 然后求解方程
+\[
+\partial_t\varrho_t+\nabla\cdot(\varrho_t\mathbf v_{(\varrho_t)})=0.
+\]
+这个方程恰好具有梯度流结构：事实上，它是泛函
+\[
+F(\varrho):=SW_2^2(\varrho,\nu)
+\]
+在 $\mathbb W_2$ 中（即关于距离 $W_2$）的梯度流.
+
+\cite{b65}证明了这个方程解的存在性及相应估计，而 $\mathbf v_{(\varrho)}$ 的非线性相当容易处理. 另一方面，许多自然而有用的问题仍然未解决：当 $t\to\infty$ 时，是否有 $\varrho_t\rightharpoonup\nu$? 能否定义向量场 $\mathbf v_{(\varrho_t)}$ 的流（至少在对初值作正则性假设的条件下），这个流在 $t\to\infty$ 时的极限是什么? 基本想法是，它应当是 $\varrho_0$ 与 $\nu$ 之间的一个运输映射，而且即使不是最优运输映射，至少也是一个“好”的映射. 在离散情形下（$\varrho_0$ 与 $\nu$ 都是有限个相等的 Dirac 质量），已经对此进行了检验，得到了令人满意的数值结果；我们在\autoref{sec:2.5.2}中曾作简要介绍.

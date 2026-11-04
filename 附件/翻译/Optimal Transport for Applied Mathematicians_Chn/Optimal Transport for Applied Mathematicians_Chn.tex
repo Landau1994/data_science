@@ -54,7 +54,9 @@
 \newaliascnt{problem}{theorem}
 \newtheorem{problem}[problem]{问题}
 \aliascntresetthe{problem}
+\theoremstyle{definition}
 \newtheorem{exercise}{习题}
+\theoremstyle{plain}
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 
@@ -258,7 +260,7 @@
 \providecommand{\subsubsectionautorefname}{节}
 \renewcommand{\subsubsectionautorefname}{节}
 \renewcommand{\refname}{参考文献}
-\hypersetup{pdftitle={应用数学家的最优运输：前置内容与第1章中文译稿},pdfauthor={Filippo Santambrogio},bookmarksnumbered=true}
+\hypersetup{pdftitle={应用数学家的最优运输：中文全译稿},pdfauthor={Filippo Santambrogio},bookmarksnumbered=true}
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\spt}{\operatorname{spt}}
 \newcommand{\Lip}{\operatorname{Lip}}
@@ -269,6 +271,27 @@
 \newcommand{\N}{\mathbb N}
 \newcommand{\dd}{\,\mathrm d}
 \newcommand{\restr}{\mathbin{\vrule height 1.4ex depth -.1ex width .07ex\vrule height .07ex depth -.0ex width .7ex}}
+\newenvironment{sourcehint}[1]{\par\medskip\phantomsection\label{hint:#1}\noindent\textbf{\hyperref[ex:#1]{习题~#1}的提示.}\ }{\par}
+
+% 原书索引由逐条核实的正文锚点动态生成，保留原英文排序与层级.
+\usepackage{multicol,makeidx}
+\makeindex
+\makeatletter
+\renewenvironment{theindex}{%
+  \clearpage\phantomsection\section*{索引}\label{sec:index}%
+  \addcontentsline{toc}{section}{索引}%
+  \thispagestyle{plain}%
+  \parindent\z@\parskip\z@\@plus.3\p@%
+  \columnsep24\p@\columnseprule\z@%
+  \let\item\@idxitem%
+  \noindent\small\textit{编排说明：保留原书英文条目顺序及层级；页码指本译稿，点击可跳转至相应正文.}\par\medskip
+  \begin{multicols}{2}%
+  \small
+}{\end{multicols}}
+\makeatother
+\let\SourceTheBibliography\thebibliography
+\renewcommand{\thebibliography}[1]{\SourceTheBibliography{#1}\phantomsection\label{sec:references}\addcontentsline{toc}{section}{参考文献}}
+
 \begin{document}
 \hypersetup{pageanchor=false}
 \input{frontmatter/00-title.tex}
@@ -280,8 +303,9 @@
 \clearpage\tableofcontents\clearpage
 \input{frontmatter/00-source-contents.tex}
 \input{frontmatter/00-notation.tex}
-\clearpage\pagenumbering{arabic}\setcounter{footnote}{0}
-\section{原问题与对偶问题}\label{sec:1}
+\clearpage\pagenumbering{arabic}
+\setcounter{footnote}{0}
+\section[原问题与对偶问题]{原问题与对偶问题}\label{sec:1}
 \input{sections-tex/01-01.tex}
 \input{sections-tex/01-02.tex}
 \input{sections-tex/01-03.tex}
@@ -289,8 +313,52 @@
 \input{sections-tex/01-05.tex}
 \input{sections-tex/01-06.tex}
 \input{sections-tex/01-07.tex}
-\clearpage\phantomsection\addcontentsline{toc}{section}{参考文献}
-\nocite{*}
-\bibliographystyle{plain}
-\bibliography{bib/references}
+\setcounter{footnote}{0}
+\section[一维问题]{一维问题}\label{sec:2}
+\input{sections-tex/02-01.tex}
+\input{sections-tex/02-02.tex}
+\input{sections-tex/02-03.tex}
+\input{sections-tex/02-04.tex}
+\input{sections-tex/02-05.tex}
+\setcounter{footnote}{0}
+\section[L1与L∞理论]{$L^1$与$L^\infty$理论}\label{sec:3}
+\input{sections-tex/03-01.tex}
+\input{sections-tex/03-02.tex}
+\input{sections-tex/03-03.tex}
+\setcounter{footnote}{0}
+\section[最小流、散度约束与运输密度]{最小流、散度约束与运输密度}\label{sec:4}
+\input{sections-tex/04-01.tex}
+\input{sections-tex/04-02.tex}
+\input{sections-tex/04-03.tex}
+\input{sections-tex/04-04.tex}
+\setcounter{footnote}{0}
+\section[Wasserstein距离与Wasserstein空间中的曲线]{Wasserstein距离与Wasserstein空间中的曲线}\label{sec:5}
+\input{sections-tex/05-01.tex}
+\input{sections-tex/05-02.tex}
+\input{sections-tex/05-03.tex}
+\input{sections-tex/05-04.tex}
+\input{sections-tex/05-05.tex}
+\setcounter{footnote}{0}
+\section[Benamou--Brenier及其他连续数值方法]{Benamou--Brenier及其他连续数值方法}\label{sec:6}
+\input{sections-tex/06-01.tex}
+\input{sections-tex/06-02.tex}
+\input{sections-tex/06-03.tex}
+\input{sections-tex/06-04.tex}
+\setcounter{footnote}{0}
+\section[概率测度空间上的泛函]{概率测度空间上的泛函}\label{sec:7}
+\input{sections-tex/07-00.tex}
+\input{sections-tex/07-01.tex}
+\input{sections-tex/07-02.tex}
+\input{sections-tex/07-03.tex}
+\input{sections-tex/07-04.tex}
+\setcounter{footnote}{0}
+\section[梯度流]{梯度流}\label{sec:8}
+\input{sections-tex/08-01.tex}
+\input{sections-tex/08-02.tex}
+\input{sections-tex/08-03.tex}
+\input{sections-tex/08-04.tex}
+\input{backmatter/09-exercises.tex}
+\input{backmatter/09-hints.tex}
+\clearpage\nocite{*}\bibliographystyle{plain}\bibliography{bib/references}
+\input{backmatter/10-index.tex}
 \end{document}

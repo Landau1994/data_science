@@ -1,7 +1,7 @@
 % 原书印刷79--85页，PDF物理106--112页，完整章末.
 \subsection{讨论}\label{sec:2.5}
 
-\subsubsection{直方图均衡化}\label{sec:2.5.1}
+\subsubsection{直方图均衡化}\label{sec:2.5.1}\index{I077@图像处理（image processing）|hyperpage}
 
 图像处理中遇到单调运输映射的一个十分典型的问题是\emph{直方图均衡化}（histogram equalization）. 问题背景很容易说明：取一张黑白数字图像，考虑所有可能的灰度级；这些灰度级编号为$0$至$255$；对每个$i=0,\ldots,255$，统计恰好具有该灰度级的像素数，并绘制直方图. 在某些情形下，我们希望将给定图像变成另一张仍表示同一主体、却具有不同直方图的图像. 为什么？典型例子如下：有两张图像A和B，它们应当表示同一物体在不同时刻的情形，只有细微变化（某些东西移动了）；想要比较它们，但B碰巧比A暗得多（这意味着B的直方图比A的更集中于图的右侧）. 因而在比较之前，通常希望将B变成新图像B$'$，使B$'$的明暗水平与A可比，也就是使B$'$的直方图等于A的直方图. 类似地，也可以考虑A与B表示同一物体的两个部分，需要将两张图像拼合的情形，但两张局部图像可能从不同角度拍摄，光照也不同.
 
@@ -26,7 +26,7 @@ $(\mathrm T(x)-\mathrm T(y))\cdot(x-y)\ge0$. 另一方面，它的计算代价�
 
 \begin{figure}[htbp]
 \centering\includegraphics[width=\linewidth]{assets/ch02-fig-2-4.pdf}
-\caption{第一列：不同光照下的露天市场拱廊与一条墙上有涂鸦的西方狭窄街道. 第二列：两张图像分别采用另一张的颜色. 第三列：它们的色度直方图（采用CIE-lab表示）. 迁移分别独立地作用于一维亮度特征与二维色度特征. 图中只显示色度直方图. 图片由G.~Peyré惠予提供.}\label{fig:2.4}
+\caption{第一列：不同光照下的集市拱廊与一条墙上有涂鸦的西方狭窄街道. 第二列：两张图像分别采用另一张的颜色. 第三列：它们的色度直方图（采用CIE-lab表示）. 迁移分别独立地作用于一维亮度特征与二维色度特征. 图中只显示色度直方图. 图片由G.~Peyré惠予提供.}\label{fig:2.4}
 \end{figure}
 
 \subsubsection{由一维构造得到高效单调映射}\label{sec:2.5.2}
@@ -44,7 +44,7 @@ $\mathrm T_n(x)=(\mathrm T_n^1(x_1),\ldots,\mathrm T_n^d(x_d))$.
 
 然而，这种收敛虽在经验中被观察到，\cite{b252}却只在$\nu$为Gauss测度、且基$B_n$为在标准正交基集合上均匀分布的独立同分布随机变量时证明了它. 修订后更一般的证明还可参阅\cite{b65}第5章.
 
-\begin{sourcebox}{相关知识：Radon变换与X射线变换}\label{box:2.4}
+\begin{sourcebox}{相关知识：Radon变换与X射线变换}\label{box:2.4}\index{R126@Radon变换（Radon transform）|hyperpage}
 \begin{definition*}
 给定$\mathbb R^d$上的测度$\mu$，将$\mu$的\emph{Radon变换}$R\mu$定义为以$e\in\mathbb S^{d-1}$为参数的测度族$(\mu_e)$，其中$\mu_e=(\pi_e)_\#\mu$，$\pi_e(x):=x\cdot e$. 当$\mu$绝对连续时，这些测度也绝对连续；通过$R\mu(e,t)=f_e(t)$与$\mu_e=f_e(t)\,dt$，可将$R\mu$定义为$\mathbb S^{d-1}\times\mathbb R$上的函数. 在$d>2$维，可以考虑到超平面而非直线的投影（注意，投影到所有$d-1$维超平面，意味着考虑测度或其密度在任意一维直线上的积分）. 这种变换称为\emph{X射线变换}（X-ray transform），但$d=2$时Radon变换与X射线变换相同. 更多细节和应用例如见\cite{b192}.
 \end{definition*}
@@ -59,6 +59,7 @@ $\mathrm T_n(x)=(\mathrm T_n^1(x_1),\ldots,\mathrm T_n^d(x_d))$.
 Radon变换与X射线变换是断层成像等应用中十分知名的对象. 医学图像中的计算机断层扫描设备正是基于X射线变换的求逆.
 \end{sourcebox}
 
+\phantomsection\label{idx:i140-p82}\index{S140@切片Wasserstein距离（Sliced Wasserstein distance）|hyperpage}
 关于构造类似运输映射的另一种有趣想法来自M.~Bernot. 它的许多特点与\cite{b252}的方法相同.
 
 考虑两个测度$\mu,\nu\in\mathscr P(\mathbb R^d)$，将它们投影到任意一维方向. 对每个$e\in\mathbb S^{d-1}$（$\mathbb R^d$的单位球面），取由$\pi_e(x)=x\cdot e$给出的映射$\pi_e:\mathbb R^d\to\mathbb R$，考虑像测度$(\pi_e)_\#\mu$与$(\pi_e)_\#\nu$. 它们仍为实直线上的测度，将它们之间的单调最优运输记为$\mathrm T_e:\mathbb R\to\mathbb R$. 想法是，就方向$e$而言，$\mathbb R^d$中每个点$x$都应位移一个向量
@@ -72,12 +73,12 @@ S(x)=\fint_{\mathbb S^{d-1}}S_e(x)\,d\mathscr H^{d-1}(e),
 
 \begin{figure}[htbp]
 \centering\includegraphics[width=\linewidth]{assets/ch02-fig-2-5.pdf}
-\caption{环带与鸭子上有限个点之间的最优运输. 颜色表示从环带上的点到鸭子上的点的指派. 中图为一维切片指派；右图为二次成本的最优映射. 两种结果非常相似（但能找到少数颜色不同的点，表示指派略有不同）. 图片经许可取自\cite{b256}.}\label{fig:2.5}
+\caption{环带与鸭子上有限个点之间的最优运输. 颜色表示从环带上的点到鸭子上的点的指派. 中图为一维切片指派；右图为二次成本的最优映射. 两种结果非常相似（但能找到少数颜色不同的点，表示指派略有不同）. 图片经许可取自\cite{b256}.}\label{fig:2.5}\index{A011@分配问题（assignment problem）|hyperpage}
 \end{figure}
 
 此外，\autoref{sec:5.5}将看到，这种想法还可以在概率测度集合上构造一种有趣的距离（将逐个方向定义的距离取平均：它比相应的多维距离容易计算得多）. 在\autoref{sec:8.4}还将说明，上述迭代算法确实对应于一种梯度流演化.
 
-\subsubsection{通过Knothe或Brenier映射证明等周不等式}\label{sec:2.5.3}
+\subsubsection{通过Knothe或Brenier映射证明等周不等式}\label{sec:2.5.3}\index{I081@等周不等式（isoperimetric inequality）|hyperpage}\index{K086@Knothe映射（Knothe map）|hyperpage}
 
 本章最后一个讨论小节回顾最优运输最引人注目的应用之一，即它在几何不等式中的作用. 这里将看到，既可使用最优（Brenier）映射，也可使用Knothe映射来证明等周不等式.
 
@@ -96,14 +97,14 @@ S(x)=\fint_{\mathbb S^{d-1}}S_e(x)\,d\mathscr H^{d-1}(e),
 \det(D\mathrm T)=\frac{|B|}{|E|}=1
 \]
 （行列式上不取绝对值）. 因此可以写成
-\begin{equation}\label{eq:2.8}
+\begin{equation}\label{eq:2.8}\index{D039@Jacobi行列式（determinant of the Jacobian）|hyperpage}
 \omega_d=|B|=|E|=\int_E(\det(D\mathrm T))^{1/d}
 \le\frac1d\int_E\nabla\cdot\mathrm T
 =\frac1d\int_{\partial E}\mathrm T\cdot\mathbf n
 \le\frac1d\operatorname{Per}(E),
 \end{equation}
-其中的不等式分别来自对$D\mathrm T$的特征值使用算术--几何平均不等式
-$\frac1d\sum_i\lambda_i\ge(\lambda_1\cdots\lambda_d)^{1/d}$（给出行列式与迹之间的不等式，迹即$\mathrm T$的散度），以及$\mathrm T$取值于$B$这一事实，从而$\mathrm T\cdot\mathbf n\le1$. 这就证明了$\operatorname{Per}(E)\ge d\omega_d=\operatorname{Per}(B)$.
+其中两步分别对$D\mathrm T$的特征值应用算术--几何平均不等式
+$\frac1d\sum_i\lambda_i\ge(\lambda_1\cdots\lambda_d)^{1/d}$（给出行列式与迹之间的不等式，迹即$\mathrm T$的散度），以及使用$\mathrm T$取值于$B$这一事实，从而$\mathrm T\cdot\mathbf n\le1$. 这就证明了$\operatorname{Per}(E)\ge d\omega_d=\operatorname{Per}(B)$.
 
 \begin{center}
 \includegraphics[width=.62\linewidth]{assets/ch02-isoperimetric.pdf}
