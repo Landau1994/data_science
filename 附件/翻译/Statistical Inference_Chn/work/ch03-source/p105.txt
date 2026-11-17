@@ -1,0 +1,47 @@
+74                          COMMON FAMILIES OF DISTRIBUTIONS
+particular sequence                   of n trials with exactly y successes has probability py(1 −p)n−y of occurring.                   n
+Since there are   y  such sequences (the number of orderings of y ones and n−y zeros), we have
+
+                                n
+                 P(Y = y|n, p) =  y  py(1−p)n−y,   y = 0,1,2,...,n,
+
+and Y is called a binomial(n, p) random variable.
+   The random variable Y can be alternatively, and equivalently, defined in the following way: In
+a sequence of n identical, independent Bernoulli trials, each with success probability p, define the
+random variables X1,...,Xn by
+
+                               1    with probability p,
+                               Xi =
+                               0    with probability 1−p.
+The random variable
+                                                      n
+                                Y =                   ∑ Xi
+                                                   i=1
+has the binomial(n, p) distribution.
+   The fact that ∑ny=0 P(Y = y) = 1 follows from the following general theorem.
+Theorem 3.2.2 (Binomial Theorem)  For any real numbers x and y and integer n ≥0,
+                                                    n  n
+                                                                                                 (3.2.4)                            (x+y)n = ∑      xiyn−i.                                                  i=0   i
+
+Proof: Write
+                        (x+y)n = (x+y)(x+y)·····(x+y),
+and consider how the right-hand side would be calculated. From each factor (x + y) we choose
+either an x or y, and multiply together the n choices. For each i = 0,1,...,n, the number of such
+terms in which x appears exactly i times is  ni   . Therefore, this term is of the form  ni  xiyn−i and
+the result follows.                                          2
+     If we take x = p and y = 1−p in (3.2.4), we get
+                                                       n  n
+                      1 =        =                       (p+(1−p))n   i=0∑    i  pi(1−p)n−i,
+
+and we see that each term in the sum is a binomial probability. As another special case, take x = y = 1
+in Theorem 3.2.2 and get the identity
+                                                     n  n
+                                                                                 .                                       2n = ∑                                                  i=0   i
+   The mean and variance of the binomial distribution have already been derived in Examples
+2.2.3 and 2.3.5, so we will not repeat the derivations here. For completeness, we state them. If
+X ∼binomial(n, p) then
+                      EX = np,  VarX = np(1−p).
+   The mgf of the binomial distribution was calculated in Example 2.3.9. It is
+                              MX(t) = [pet +(1−p)]n.
+Example 3.2.3 (Dice probabilities)  Suppose we are interested in finding the probability of ob-
+taining at least one 6 in four rolls of a fair die. This experiment can be modeled as a sequence of

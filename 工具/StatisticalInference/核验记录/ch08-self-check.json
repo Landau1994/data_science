@@ -1,0 +1,322 @@
+{
+  "created": "2026-11-13",
+  "scipy_version": "1.11.4",
+  "note_count": 58,
+  "ordered_exercises": [
+    "8.1",
+    "8.2",
+    "8.3",
+    "8.4",
+    "8.5",
+    "8.6",
+    "8.7",
+    "8.8",
+    "8.9",
+    "8.10",
+    "8.11",
+    "8.12",
+    "8.13",
+    "8.14",
+    "8.15",
+    "8.16",
+    "8.17",
+    "8.18",
+    "8.19",
+    "8.20",
+    "8.21",
+    "8.22",
+    "8.23",
+    "8.24",
+    "8.25",
+    "8.26",
+    "8.27",
+    "8.28",
+    "8.29",
+    "8.30",
+    "8.31",
+    "8.32",
+    "8.33",
+    "8.34",
+    "8.35",
+    "8.36",
+    "8.37",
+    "8.38",
+    "8.39",
+    "8.40",
+    "8.41",
+    "8.42",
+    "8.43",
+    "8.44",
+    "8.45",
+    "8.46",
+    "8.47",
+    "8.48",
+    "8.49",
+    "8.50",
+    "8.51",
+    "8.52",
+    "8.53",
+    "8.54",
+    "8.55",
+    "8.56",
+    "8.57",
+    "8.58"
+  ],
+  "missing": [],
+  "duplicates": 0,
+  "structural_errors": [],
+  "broken_links": [],
+  "obsidian_render_tested": false,
+  "8.31_exact_designs": [
+    {
+      "n": 1,
+      "reject_if_S_greater_than": 3,
+      "boundary_reject_probability": 0.5057935777834421,
+      "size": 0.05,
+      "power_at_lambda_2": 0.23414549564622872
+    },
+    {
+      "n": 2,
+      "reject_if_S_greater_than": 5,
+      "boundary_reject_probability": 0.9264876475595587,
+      "size": 0.05,
+      "power_at_lambda_2": 0.3596735655035571
+    },
+    {
+      "n": 3,
+      "reject_if_S_greater_than": 6,
+      "boundary_reject_probability": 0.3271505412066326,
+      "size": 0.05,
+      "power_at_lambda_2": 0.44624516511156476
+    },
+    {
+      "n": 4,
+      "reject_if_S_greater_than": 8,
+      "boundary_reject_probability": 0.9619210987921628,
+      "size": 0.05,
+      "power_at_lambda_2": 0.5417238887529138
+    },
+    {
+      "n": 5,
+      "reject_if_S_greater_than": 9,
+      "boundary_reject_probability": 0.5010796460104464,
+      "size": 0.05,
+      "power_at_lambda_2": 0.6047603779396479
+    },
+    {
+      "n": 6,
+      "reject_if_S_greater_than": 10,
+      "boundary_reject_probability": 0.17865674959972364,
+      "size": 0.05,
+      "power_at_lambda_2": 0.6715004658189572
+    },
+    {
+      "n": 7,
+      "reject_if_S_greater_than": 12,
+      "boundary_reject_probability": 0.8728788518206754,
+      "size": 0.05,
+      "power_at_lambda_2": 0.7274490055167676
+    },
+    {
+      "n": 8,
+      "reject_if_S_greater_than": 13,
+      "boundary_reject_probability": 0.5341380955701917,
+      "size": 0.05,
+      "power_at_lambda_2": 0.7689622453155386
+    },
+    {
+      "n": 9,
+      "reject_if_S_greater_than": 14,
+      "boundary_reject_probability": 0.2635115356797108,
+      "size": 0.05,
+      "power_at_lambda_2": 0.8091772684989477
+    },
+    {
+      "n": 10,
+      "reject_if_S_greater_than": 15,
+      "boundary_reject_probability": 0.03628072382538475,
+      "size": 0.05,
+      "power_at_lambda_2": 0.8453607231511406
+    },
+    {
+      "n": 11,
+      "reject_if_S_greater_than": 17,
+      "boundary_reject_probability": 0.7503836335284415,
+      "size": 0.05,
+      "power_at_lambda_2": 0.8699911776327884
+    },
+    {
+      "n": 12,
+      "reject_if_S_greater_than": 18,
+      "boundary_reject_probability": 0.49250901512278383,
+      "size": 0.05,
+      "power_at_lambda_2": 0.8919891593018414
+    },
+    {
+      "n": 13,
+      "reject_if_S_greater_than": 19,
+      "boundary_reject_probability": 0.26988594009647526,
+      "size": 0.05,
+      "power_at_lambda_2": 0.911867208397101
+    }
+  ],
+  "8.35_finite_MLR_grid": [
+    {
+      "nu": 1,
+      "delta_pair": [
+        -2,
+        0
+      ],
+      "t_range": [
+        -10,
+        10
+      ],
+      "points": 801,
+      "minimum_log_ratio_increment": 3.3680773775301986e-05
+    },
+    {
+      "nu": 1,
+      "delta_pair": [
+        0,
+        2
+      ],
+      "t_range": [
+        -10,
+        10
+      ],
+      "points": 801,
+      "minimum_log_ratio_increment": 3.3680773775301986e-05
+    },
+    {
+      "nu": 1,
+      "delta_pair": [
+        -1,
+        1
+      ],
+      "t_range": [
+        -10,
+        10
+      ],
+      "points": 801,
+      "minimum_log_ratio_increment": 6.623381153580965e-05
+    },
+    {
+      "nu": 5,
+      "delta_pair": [
+        -2,
+        0
+      ],
+      "t_range": [
+        -10,
+        10
+      ],
+      "points": 801,
+      "minimum_log_ratio_increment": 0.00037407058595206877
+    },
+    {
+      "nu": 5,
+      "delta_pair": [
+        0,
+        2
+      ],
+      "t_range": [
+        -10,
+        10
+      ],
+      "points": 801,
+      "minimum_log_ratio_increment": 0.00037407058595206877
+    },
+    {
+      "nu": 5,
+      "delta_pair": [
+        -1,
+        1
+      ],
+      "t_range": [
+        -10,
+        10
+      ],
+      "points": 801,
+      "minimum_log_ratio_increment": 0.0005595285913475578
+    },
+    {
+      "nu": 20,
+      "delta_pair": [
+        -2,
+        0
+      ],
+      "t_range": [
+        -10,
+        10
+      ],
+      "points": 801,
+      "minimum_log_ratio_increment": 0.0028367430919793435
+    },
+    {
+      "nu": 20,
+      "delta_pair": [
+        0,
+        2
+      ],
+      "t_range": [
+        -10,
+        10
+      ],
+      "points": 801,
+      "minimum_log_ratio_increment": 0.002836742122859448
+    },
+    {
+      "nu": 20,
+      "delta_pair": [
+        -1,
+        1
+      ],
+      "t_range": [
+        -10,
+        10
+      ],
+      "points": 801,
+      "minimum_log_ratio_increment": 0.003473122067882528
+    }
+  ],
+  "8.46_finite_boundary_examples": {
+    "n": 10,
+    "theta_interval": [
+      0,
+      1
+    ],
+    "endpoint_theta": 1,
+    "alpha": 0.05,
+    "a": [
+      {
+        "sigma": 1,
+        "reject_probability": 0.02500064794465613
+      },
+      {
+        "sigma": 10,
+        "reject_probability": 0.037384336358001084
+      },
+      {
+        "sigma": 100,
+        "reject_probability": 0.04838175373867659
+      }
+    ],
+    "b_k_t_right_025": [
+      {
+        "sigma": 1,
+        "reject_probability": 0.29317560653004265
+      },
+      {
+        "sigma": 0.1,
+        "reject_probability": 1.0000000000000009
+      },
+      {
+        "sigma": 0.01,
+        "reject_probability": 1.0000000000000009
+      }
+    ],
+    "scope": "仅列明参数有限积分核验，渐近与完整size结论由笔记证明"
+  },
+  "figure_count": 8,
+  "figure_compile_errors": []
+}

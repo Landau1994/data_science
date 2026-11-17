@@ -1,0 +1,53 @@
+{
+  "chapter": 2,
+  "notes": 40,
+  "range": [
+    "2.1",
+    "2.40"
+  ],
+  "local_ids": [
+    "P110",
+    "P149"
+  ],
+  "lettered_subparts": 68,
+  "source_pages_visually_checked": [
+    56,
+    70,
+    71,
+    73,
+    74,
+    75,
+    79,
+    84,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100
+  ],
+  "checks": {
+    "metadata": "passed",
+    "bilingual_subpart_order": "passed",
+    "callout": "passed",
+    "dollars_braces_environments": "passed",
+    "tex_residue": "none",
+    "existing_concept_and_source_links": "passed",
+    "new_figure_assets": "root-is-preparing"
+  },
+  "source_findings": [
+    "2.7的A0为空遗漏零概率端点，解答修正分割",
+    "2.10原提示的y0+epsilon有边界缺口，给完整可数支持证明",
+    "2.15任意变量的期望运算需存在条件",
+    "2.25偶密度不保证MGF零邻域存在",
+    "2.26对称中位数可不唯一",
+    "2.28偏度峰度需矩有限及方差正",
+    "2.29(c)原质量不归一化，明确修正后求方差",
+    "2.36正t全发散，非正t有限",
+    "2.40原Beta积分式要求整数0<=x<n"
+  ],
+  "learning_status": "all-not-started",
+  "render_boundary": "未做Obsidian界面渲染"
+}

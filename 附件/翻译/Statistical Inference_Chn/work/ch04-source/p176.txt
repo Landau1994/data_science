@@ -1,0 +1,46 @@
+MULTIVARIATE DISTRIBUTIONS                                              145
+    All the conditional distributions of Y given X = x and of X given Y = y are also normal dis-
+tributions. Using the joint and marginal pdfs given above, it is straightforward to verify that the
+conditional distribution of Y given X = x is
+
+
+                                                         Y                         n(µY +ρ(σY/σX)(x−µX),σ2                                               (1−ρ2)).
+
+                                                       Y   As ρ converges to 1 or −1, the conditional variance σ2                                          (1−ρ2) converges to 0. Thus, the condi-
+tional distribution of Y given X = x becomes more concentrated about the point µY +ρ(σY/σX)(x−µX), and the joint probability distribution of (X,Y) becomes more concentrated about the line
+y = µY + ρ(σY/σX)(x −µX). This illustrates again the point made earlier that a correlation near
+1 or −1 means that there is a line y = ax + b about which the values of (X,Y) cluster with highprobability.
+   Note one important fact: All of the normal marginal and conditional pdfs are derived from the
+starting point of bivariate normality. The derivation does not go in the opposite direction. That is,
+marginal normality does not imply joint normality. See Exercise 4.47 for an illustration of this.
+
+4.6  Multivariate Distributions
+At the beginning of this chapter, we discussed observing more than two random variables in an
+experiment. In the previous sections our discussions have concentrated on a bivariate random vector
+(X,Y). In this section we discuss a multivariate random vector (X1,...,Xn). In the example at the
+beginning of this chapter, temperature, height, weight, and blood pressure were observed on an
+individual. In this example, n = 4 and the observed random vector is (X1,X2,X3,X4) where X1
+is temperature, X2 is height, etc. The concepts from the earlier sections, including marginal and
+conditional distributions, generalize from the bivariate to the multivariate setting. We introduce
+some of these generalizations in this section.
+A note on notation: We will use boldface letters to denote multiple variates. Thus, we write X to
+denote the random variables X1,...,Xn, and x to denote the sample x1,...,xn.
+   The random vector X = (X1,...,Xn) has a sample space that is a subset of ℜn. If (X1,...,Xn)
+is a discrete random vector (the sample space is countable), then the joint pmf of (X1,...,Xn) is the
+function defined by f(x) = f(x1,...,xn) = P(X1 = x1,...,Xn = xn) for each (x1,...,xn) ∈ℜn. Then
+for any A ⊂ℜn,                           P(X   = ∑ f(x).                            ∈A)                                              (4.6.1)
+                                               x∈A
+If (X1,...,Xn) is a continuous random vector, the joint pdf of (X1,...,Xn) is a function f(x1,...,xn)
+that satisfies
+            P(X ∈A) =    ··· A f(x)dx =    ··· A f(x1,...,xn)dx1 ··· dxn.            (4.6.2)
+These integrals are n-fold integrals with limits of integration set so that the integration is over all
+points x ∈A.   Let g(x) = g(x1,...,xn) be a real-valued function defined on the sample space of X. Then g(X)
+is a random variable and the expected value of g(X) is
+
+                      ∞     ∞
+             Eg(X) =                      and  Eg(X) = ∑ g(x) f(x)                        −∞··· −∞g(x)f(x)dx                 x∈ℜn                     (4.6.3)
+in the continuous and discrete cases, respectively. These and other definitions are analogous to the
+bivariate definitions except that now the integrals or sums are over the appropriate subset of ℜn
+rather than ℜ2.
+   The marginal pdf or pmf of any subset of the coordinates of (X1,...,Xn) can be computed by
+integrating or summing the joint pdf or pmf over all possible values of the other coordinates. Thus,

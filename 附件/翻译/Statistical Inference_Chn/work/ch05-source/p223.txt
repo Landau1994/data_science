@@ -1,0 +1,40 @@
+192                                    PROPERTIES OF A RANDOM SAMPLE
+Example 5.5.11 (Maximum of uniforms)     If  X1,X2,...  are  iid  uniform(0,1), and  X(n) =
+max1≤i≤n Xi, let us examine if (and to where) X(n) converges in distribution.
+   As n →∞, we expect X(n) to get close to 1 and, as X(n) must necessarily be less than 1 we havefor any ε > 0
+                    P(|X(n) −1| ≥ε) =  P(X(n) ≥1+ε)+P(X(n) ≤1−ε)
+                     =  0+P(X(n) ≤1−ε).
+Next using the fact that we have an iid sample, we can write
+                     P(X(n) ≤1−ε) = P(Xi ≤1−ε,i = 1,...n) = (1−ε)n,
+which goes to 0. So we have proved that X(n) converges to 1 in probability. However, if we take
+ε = t/n, we then have
+                             P(X(n) ≤1−t/n) = (1−t/n)n →e−t,
+which, upon rearranging, yields
+                            P(n(1−X(n)) ≤t) →1−e−t,
+that is, the random variable n(1−X(n)) converges in distribution to an exponential(1) random vari-
+able.                                                                          ∥
+   Note that although we talk of a sequence of random variables converging in distribution, it is
+really the cdfs that converge, not the random variables. In this very fundamental way convergence in
+distribution is quite different from convergence in probability or convergence almost surely. How-
+ever, it is implied by the other types of convergence.
+Theorem 5.5.12  If the sequence of random variables, X1,X2,..., converges in probability to a ran-
+dom variable X, the sequence also converges in distribution to X.
+   See Exercise 5.40 for a proof. Note also that, from Section 5.5.2, convergence in distribution is
+also implied by almost sure convergence.
+    In a special case, Theorem 5.5.12 has a converse that turns out to be useful. See Example 10.1.13
+for an illustration and Exercise 5.41 for a proof.
+Theorem 5.5.13 The sequence of random variables, X1,X2,..., converges in probability to a con-
+stant µ if and only if the sequence also converges in distribution to µ. That is, the statement
+                          P(|Xn −µ| > ε) →0 for every ε > 0
+is equivalent to
+                                         0    if x < µ,
+                           P(Xn ≤x) →  1    if x > µ.
+   The sample mean is one statistic whose large-sample behavior is quite important. In particular,
+we want to investigate its limiting distribution. This is summarized in one of the most startling
+theorems in statistics, the Central Limit Theorem (CLT).
+Theorem 5.5.14 (Central Limit Theorem)  Let X1,X2,... be a sequence of iid random variables
+whose mgfs exist in a neighborhood of 0 (that is, MXi(t) exists for |t| < h, for some positive h).Let EXi = µ and VarXi = σ2 > 0. (Both µ and σ2 are finite since the mgf exists.) Define ¯Xn =
+(1/n)∑ni=1 Xi. Let Gn(x) denote the cdf of √n(¯Xn         Then, for any x,       x < ∞,                                  −µ)/σ.        −∞<
+                                                           x   1                              lim    =          e−y2/2 dy,
+                                         2π                          n→∞Gn(x)   −∞ √
+that is, √n(¯Xn        has a limiting standard normal distribution.         −µ)/σ

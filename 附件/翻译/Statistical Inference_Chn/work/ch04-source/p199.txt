@@ -1,0 +1,15 @@
+168                                      MULTIPLE RANDOM VARIABLES
+         Proschan and Presnell (1998) tell the story of a statistics exam that had the question, “If
+     X and Y are independent standard normals, what is the conditional distribution of Y given
+        that Y = X?” Different students interpreted the condition Y = X in the following ways:
+        (1) Z1 = 0, where Z1 = Y −X;
+        (2) Z2 = 1, where Z2 = Y/X;
+        (3) Z3 = 1, where Z3 = I(Y = X).
+      Each condition is a correct interpretation of the condition Y = X, and each leads to a different
+       conditional distribution (Exercise 4.60).
+         This is the Borel Paradox, and arises because different (correct) interpretations of the
+        probability zero conditioning sets result in different conditional expectations. How can we
+       avoid the paradox? One way is to avoid conditioning on sets of probability zero. That is,
+       only compute E(Y|X ∈B), where B is a set with P(X ∈B) > 0. So to compute something
+        like E(Y|X = x), take a sequence Bn ↓x, and define E(Y|X = x) = limn→∞E(Y|X ∈Bn). We
+     now avoid the paradox, as the different answers for E(Y|X = x) will arise from different       sequences, so there should be no surprises (Exercise 4.61).

@@ -1,0 +1,51 @@
+CONTINUOUS DISTRIBUTIONS                                                 87
+a much better approximation. In general, the normal approximation with the continuity correction
+is far superior to the approximation without the continuity correction.
+  We also make the correction on the lower end. If X ∼binomial(n, p), and Y ∼n(np,np(1−p)),then we approximate
+
+                         P(X ≤x) ≈  P(Y ≤x+1/2),
+                         P(X ≥x) ≈  P(Y ≥x−1/2).                         ∥
+
+
+Beta Distribution
+
+The beta family of distributions is a continuous family on (0,1) indexed by two parameters. The
+beta(α,β) pdf is
+
+                      1
+                           < x < 1,  α > 0,  β > 0,           (3.3.16)          f(x|α,β) = B(α,β)xα−1(1−x)β−1,  0
+
+where B(α,β) denotes the beta function,
+
+                                                  1
+                         B(α,β) =                                                 0 xα−1(1−x)β−1 dx.
+The beta function is related to the gamma function through the following identity:
+
+                                      Γ(α)Γ(β)
+                             B(α,β) =                 .                               (3.3.17)
+                                     Γ(α +β)
+
+Equation (3.3.17) is very useful in dealing with the beta function, allowing us to take advantage of
+the properties of the gamma function. In fact, we will never deal directly with the beta function, but
+rather will use (3.3.17) for all of our evaluations.
+   The beta distribution is one of the few common “named” distributions that give probability 1 to
+a finite interval, here taken to be (0,1). As such, the beta is often used to model proportions, which
+naturally lie between 0 and 1. We will see illustrations of this in Chapter 4.
+    Calculation of moments of the beta distribution is quite easy, due to the particular form of the
+pdf. For n > −α we have
+                                 1       1                   EXn =                             B(α,β)  0 xnxα−1(1−x)β−1 dx
+                                 1       1
+                 =                             B(α,β)  0 x(α+n)−1(1−x)β−1 dx.
+
+We now recognize the integrand as the kernel of a beta(α +n,β) pdf, hence
+
+                          B(α +n,β)   Γ(α +n)Γ(α +β)                    EXn =       =                                         (3.3.18)                             B(α,β)    Γ(α +β +n)Γ(α).
+
+Using (3.3.3) and (3.3.18) with n = 1 and n = 2, we calculate the mean and variance of the beta(α,β)
+distribution as
+                    α                   αβ
+                                and  VarX =               EX =
+                   α +β                                           (α +β)2(α +β +1).
+   As the parameters α and β vary, the beta distribution takes on many shapes, as shown in Figure
+3.3.3. The pdf can be strictly increasing (α > 1, β = 1), strictly decreasing (α = 1, β > 1), U-
+shaped (α < 1, β < 1), or unimodal (α > 1, β > 1). The case α = β yields a pdf symmetric about

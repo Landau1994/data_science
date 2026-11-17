@@ -1,0 +1,44 @@
+174                                    PROPERTIES OF A RANDOM SAMPLE
+Since the Xis are identically distributed, the second equality is true because Eg(Xi) is the same for
+all i. Note that the independence of X1,...,Xn is not needed for (5.2.1) to hold. Indeed, (5.2.1) is
+true for any collection of n identically distributed random variables.
+   To prove (5.2.2), note that
+
+                                                                         2                       n                     n               n
+                 =  E                                                                                (definition of variance)            Var        ∑ g(Xi)                ∑     ∑ g(Xi)                     i=1                   i=1 g(Xi)−E  i=1
+                                                                   2
+                                             n                            expectation property and                 =  E                                   .                ∑                                     (g(Xi)−Eg(Xi))           rearrangement of terms                                          i=1
+
+                                           = 1,...,n, andIn this last expression there are n2 terms. First, there are n terms (g(Xi)−Eg(Xi))2, ifor each, we have
+
+                        =  Varg(Xi)                 (definition of variance)                   E(g(Xi)−Eg(Xi))2                        =  Varg(X1).               (identically distributed)
+
+The remaining n(n−1) terms are all of the form g(Xi)−Eg(Xi)  g(Xj)−Eg(Xj)  , with  i̸ = j. Foreach term,
+                E  g(Xi)−Eg(Xi)  g(Xj)−Eg(Xj)                                                                                        definition of
+              =  Cov(g(Xi),g(Xj))                                 covariance
+                                                                        independence              =   0.                                                                Theorem 4.5.5
+
+Thus, we obtain Equation (5.2.2).                                  2
+Theorem 5.2.6  Let X1,...,Xn be a random sample from a population with mean µ and variance
+σ2 < ∞. Then
+  a. E¯X = µ,
+          σ2  b. Var ¯X =      ,
+            n
+  c. ES2 = σ2.
+Proof: To prove (a), let g(Xi) = Xi/n, so Eg(Xi) = µ/n. Then, by Lemma 5.2.5,
+
+                            1  n       1     n       1
+                       =                               =    = µ.                E¯X = E  ∑ Xi                    ∑ Xi                            n i=1     nE  i=1      nnEX1
+
+Similarly for (b), we have
+
+                          1  n       1        n       1         σ2
+                      =   Var                               =   nVarX1 =      .               Var ¯X = Var  ∑ Xi                     ∑ Xi                          n i=1       n2      i=1       n2          n
+
+For the sample variance, using Theorem 5.2.4, we have
+
+                1     n                   1
+                      =       nEX21       ¯X2     ES2 = E    ∑ X2i     ¯X2                          i=1  −n                −nE          n−1               n−1
+                                        1                σ2
+                      =        n(σ2 + µ2)−n   n + µ2  = σ2,                            n−1
+establishing part (c) and proving the theorem.                            2

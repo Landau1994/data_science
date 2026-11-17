@@ -1,0 +1,43 @@
+JOINT AND MARGINAL DISTRIBUTIONS                                       119
+   The marginal probability density functions of X and Y are also defined as in the discrete case
+with integrals replacing sums. The marginal pdfs may be used to compute probabilities or expecta-
+tions that involve only X or Y. Specifically, the marginal pdfs of X and Y are given by
+
+                                ∞
+                           fX(x) =   −∞f(x,y)dy, −∞< x < ∞,
+                                ∞
+                            fY(y) =   −∞f(x,y)dx,  −∞< y < ∞.                      (4.1.2)
+Any function f(x,y) satisfying f(x,y) ≥0 for all (x,y) ∈ℜ2 and
+                                 ∞  ∞
+                              1 =
+                               −∞ −∞f(x,y)dxdy
+is the joint pdf of some continuous bivariate random vector (X,Y). All of these concepts regarding
+joint pdfs are illustrated in the following two examples.
+Example 4.1.11 (Calculating joint probabilities–I)  Define a joint pdf by
+
+                                   6xy2    0 < x < 1 and 0 < y < 1                          f(x,y) =
+                               0         otherwise.
+
+(Henceforth, it will be understood that f(x,y) = 0 for (x,y) values not specifically mentioned in the
+definition.) First, we might check that f(x,y) is indeed a joint pdf. That f(x,y) ≥0 for all (x,y)in the defined range is fairly obvious. To compute the integral of f(x,y) over the whole plane, note
+that, since f(x,y) is 0 except on the unit square, the integral over the plane is the same as the integral
+over the square. Thus, we have
+
+                ∞  ∞                        1   1                 1                                                                                   1                      =         6xy2 dxdy =    3x2y2  dy                                                                                   0                                                    0                                                       0                 0              −∞ −∞f(x,y)dxdy                                                     1                                                                   1                      =      3y2 dy = y3 = 1.                                                                   0                                                    0
+Now, consider calculating a probability such as P(X +Y ≥1). Letting A = {(x,y) : x + y ≥1},
+we can re-express this as P((X,Y) ∈A). From Definition 4.1.10, to calculate the probability weintegrate the joint pdf over the set A. But the joint pdf is 0 except on the unit square. So integrating
+over A is the same as integrating over only that part of A that is in the unit square. The set A is a
+half-plane in the northeast part of the plane and the part of A in the unit square is the triangular
+region bounded by the lines x = 1, y = 1, and x+y = 1. We can write
+
+                 A =  {(x,y) : x+y ≥1,0 < x < 1,0 < y < 1}
+               =  {(x,y) : x ≥1−y,0 < x < 1,0 < y < 1}
+               =  {(x,y) : 1−y ≤x < 1,0 < y < 1}.
+This gives us the limits of integration we need to calculate the probability. We have
+
+                                                               1   1            9
+                                      = 10.              P(X +Y ≥1) =  A   f(x,y)dxdy =  0  1−y6xy2 dxdy
+Using (4.1.2), we can calculate the marginal pdf of X or Y. For example, to calculate fX(x), we note
+that for x ≥1 or x ≤0, f(x,y) = 0 for all values of y. Thus, for x ≥1 or x ≤0,
+                                   ∞
+                                  fX(x) = −∞f(x,y)dy = 0.

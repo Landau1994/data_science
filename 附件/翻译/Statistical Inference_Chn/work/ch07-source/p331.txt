@@ -1,0 +1,45 @@
+300                                                 POINT ESTIMATION
+        further conditions. The following theorem, due to Wu (1983), guarantees convergence to a
+       stationary point, which may be a local maximum or saddlepoint.
+     Theorem 7.5.2  If the expected complete-data log likelihood E [logL(θ|y,x)|θ ′,y] is contin-      uous in both θ and θ ′, then all limit points of an EM sequence   ˆθ    are stationary points                                                         {  (r)}
+        of L(θ|y), and L(ˆθ (r)|y) converges monotonically to L( ˆθ|y) for some stationary point ˆθ.
+       In an exponential family computations become simplified because the log likelihood will be
+        linear in the missing data. are somewhat simplified because we can write
+          E logL(θ|y,x)|θ ′,y  =  Eθ′ [log(h(y,X)  e∑ηi(θ)Ti−B(θ)  |y
+                    =  Eθ′ [logh(y,X)]+∑ηi(θ)Eθ′ [Ti|y]−B(θ).
+       Thus, calculating the complete-data MLE only involves the simpler expectation Eθ′ [Ti|y].       Good overviews of the EM algorithm are provided by Little and Rubin (1987), Tanner
+       (1996), and Sheaffer (1997); see also Lehmann and Casella (1998, Section 6.4). McLachlan
+      and Krishnan (1997) provide a book-length treatment of EM.
+ 7.5.5 Other Likelihoods
+       In this chapter we have used the method of maximum likelihood, and seen that it not only
+       provides us with a method for finding estimators but also brings along a large-sample theory
+        that is quite useful for inference.
+         Likelihood has many modifications. Some are used to deal with nuisance parameters (such
+       as profile likelihood); others that are used when a more robust specification is desired (such
+       as quasi likelihood); and others are useful when the data are censored (such as partial like-
+        lihood).
+         There are many other variations, and they all can provide some improvement over the
+        plain likelihood that we have described here. Entries to this wealth of likelihoods can be
+      found through the review article of Hinkley (1980) or the volume of review articles edited
+      by Hinkley, Reid, and Snell (1991).
+ 7.5.6 Other Bayes Analyses
+        1. Robust Bayes Analysis  The fact that Bayes rules may be quite sensitive to the (subjec-
+            tive) choice of a prior distribution is a cause of concern for many Bayesian statisticians.
+        The paper of Berger (1984) introduced the idea of a robust Bayes analysis. This is a
+         Bayes analysis in which estimators are sought that have good properties for a range of
+           prior distributions. That is, we look for an estimator δ ∗whose performance is robust in
+            that it is not sensitive to which prior π, in a class of priors, is the correct prior. Robust
+         Bayes estimators can also have good frequentist performance, making them rather at-
+            tractive procedures. The review papers by Berger (1990, 1994) and Wasserman (1994)
+          provide an entry to this topic.
+        2. Empirical Bayes Analysis  In a standard Bayesian analysis, there are usually parame-
+            ters in the prior distribution that are to be specified by the experimenter. For example,
+          consider the specification
+                                  X|θ ∼  n(θ,1),
+                                      θ|τ2 ∼  n(0,τ2).
+        The Bayesian experimenter would specify a prior value for τ2 and a Bayesian analysis
+          can be done. However, as the marginal distribution of X is n(0,τ2 +1), it contains infor-
+          mation about τ and can be used to estimate τ. This idea of estimation of prior parameters
+          from the marginal distribution is what distinguishes empirical Bayes analysis. Empirical
+         Bayes methods are useful in constructing improved procedures, as illustrated in Morris
+          (1983) and Casella and Hwang (1987). Gianola and Fernando (1986) have successfully

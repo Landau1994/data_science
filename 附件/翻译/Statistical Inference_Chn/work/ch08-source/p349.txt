@@ -1,0 +1,39 @@
+318                                             HYPOTHESIS TESTING
+   By an analogous argument, it can be shown that under the conditions of Theorem 8.3.17, the test
+that rejects H0 : θ ≥θ0 in favor of H1 : θ < θ0 if and only if T < t0 is a UMP level α = Pθ0(T < t0)test.
+                                                                                                    1 : θ <Example 8.3.18 (Continuation of Example 8.3.15)  Consider testing H′0 : θ ≥θ0 versus H′θ0 using the test that rejects H′0 if
+                           X <                                        +θ0.                              −σzα√n
+As ¯X is sufficient and its distribution has an MLR (Exercise 8.25), it follows from Theorem 8.3.17
+that the test is a UMP level α test in this problem.
+   As the power function of this test,
+
+                                       +θ0   ,                          β(θ) = Pθ  X <                                 −σzα√n
+
+is a decreasing function of θ (since θ is a location parameter in the distribution of X), the value of
+α is given by supθ≥θ0 β(θ) = β(θ0) = α.                                             ∥
+   Although most experimenters would choose to use a UMP level α test if they knew of one,
+unfortunately, for many problems there is no UMP level α test. That is, no UMP test exists because
+the class of level α tests is so large that no one test dominates all the others in terms of power. In
+such cases, a common method of continuing the search for a good test is to consider some subset
+of the class of level α tests and attempt to find a UMP test in this subset. This tactic should be
+reminiscent of what we did in Chapter 7, when we restricted attention to unbiased point estimators
+in order to investigate optimality. We illustrate how restricting attention to the subset consisting of
+unbiased tests can result in finding a best test.
+    First we consider an example that illustrates a typical situation in which a UMP level α test does
+not exist.
+Example 8.3.19 (Nonexistence of UMP test)  Let X1,...,Xn be iid n(θ,σ2),σ2 known. Consider
+testing H0 : θ = θ0 versus H1 : θ̸ = θ0. For a specified value of α, a level α test in this problem isany test that satisfies
+                                         Pθ0(reject H0) ≤α.                                   (8.3.6)
+Consider an alternative parameter point θ1 < θ0. The analysis in Example 8.3.18 shows that, among
+all tests that satisfy (8.3.6), the test that rejects H0 if X <      + θ0 has the highest possible                                      −σzα/√npower at θ1. Call this Test 1. Furthermore, by part (b) (necessity) of the Neyman–Pearson Lemma,
+any other level α test that has as high a power as Test 1 at θ1 must have the same rejection region
+as Test 1 except possibly for a set A satisfying  A f(x|θi)dx = 0. Thus, if a UMP level α test existsfor this problem, it must be Test 1 because no other test has as high a power as Test 1 at θ1.
+  Now consider Test 2, which rejects H0 if X > σzα/√n + θ0. Test 2 is also a level α test. Let
+βi(θ) denote the power function of Test i. For any θ2 > θ0,
+                                      σzα
+                       β2(θ2) =   Pθ2 X > √n +θ0
+                              X             θ0                  =   Pθ2   −θ2 > zα +  −θ2                             σ/√n      σ/√n
+                                                           Z                  >  P(Z > zα)                           ∼n(0,1),
+                                        > since θ0 −θ2 < 0
+                  =  P(Z < −zα)
+                              X              θ0                  again, > since                                −θ2 <                                            −θ2                  >   Pθ2  σ/√n                                         −zα + σ/√n                                                                           θ0 −θ2 < 0.

@@ -1,0 +1,169 @@
+\subsection{二元变换}\label{sec:4.3}
+\autoref{sec:2.1} 讨论了求随机变量的函数的分布的方法. 本节将这些思想推广到二元随机向量.
+
+设 $(X,Y)$ 为概率分布已知的二元随机向量. 考虑由 $U=g_1(X,Y)$ 和 $V=g_2(X,Y)$ 定义的新二元随机向量 $(U,V)$，其中 $g_1(x,y)$ 和 $g_2(x,y)$ 为给定函数. 若 $B$ 是 $\mathbb R^2$ 的任意子集，则 $(U,V)\in B$ 当且仅当 $(X,Y)\in A$，其中 $A=\{(x,y):(g_1(x,y),g_2(x,y))\in B\}$. 因此，$P((U,V)\in B)=P((X,Y)\in A)$，$(U,V)$ 的概率分布完全由 $(X,Y)$ 的概率分布确定.
+
+若 $(X,Y)$ 是离散二元随机向量，其联合 pmf 仅在一个可数集合上为正. 将这个集合记为 $\mathscr A$. 定义 $\mathscr B=\{(u,v):\text{存在 }(x,y)\in\mathscr A,\ u=g_1(x,y)\text{ 且 }v=g_2(x,y)\}$. 则 $\mathscr B$ 是离散随机向量 $(U,V)$ 的可能取值组成的可数集合. 对任意 $(u,v)\in\mathscr B$，定义 $A_{uv}=\{(x,y)\in\mathscr A:g_1(x,y)=u\text{ 且 }g_2(x,y)=v\}$，则 $(U,V)$ 的联合 pmf 可由 $(X,Y)$ 的联合 pmf 计算：
+\begin{equation}\label{eq:4.3.1}
+f_{U,V}(u,v)=P(U=u,V=v)=P((X,Y)\in A_{uv})=\sum_{(x,y)\in A_{uv}}f_{X,Y}(x,y).
+\end{equation}
+\sourcepageanchor{160}
+
+\begin{example}[Poisson 变量之和的分布]\label{ex:4.3.1}
+设 $X$ 和 $Y$ 是相互独立的 Poisson 随机变量，参数分别为 $\theta$ 和 $\lambda$. 因此，$(X,Y)$ 的联合 pmf 为
+$$f_{X,Y}(x,y)=\frac{\theta^xe^{-\theta}}{x!}\frac{\lambda^ye^{-\lambda}}{y!},\qquad x=0,1,2,\ldots,\ y=0,1,2,\ldots.$$
+集合 $\mathscr A=\{(x,y):x=0,1,2,\ldots\text{ 且 }y=0,1,2,\ldots\}$. 现在定义 $U=X+Y$ 和 $V=Y$，即 $g_1(x,y)=x+y$、$g_2(x,y)=y$. 下面描述所有可能 $(u,v)$ 值组成的集合 $\mathscr B$. $v$ 的可能值为非负整数，因为 $v=y$，两者的可能取值集合相同. 给定 $v$ 后，由于 $x$ 是非负整数，$u=x+y=x+v$ 必须是大于或等于 $v$ 的整数. 因此，所有可能 $(u,v)$ 值的集合为 $\mathscr B=\{(u,v):v=0,1,2,\ldots\text{ 且 }u=v,v+1,v+2,\ldots\}$. 对任意 $(u,v)\in\mathscr B$，唯一满足 $x+y=u$、$y=v$ 的取值是 $x=u-v$、$y=v$. 所以本例中 $A_{uv}$ 总是只包含单点 $(u-v,v)$. 根据\eqref{eq:4.3.1}，得到
+$$f_{U,V}(u,v)=f_{X,Y}(u-v,v)=\frac{\theta^{u-v}e^{-\theta}}{(u-v)!}\frac{\lambda^ve^{-\lambda}}{v!},\quad
+\begin{matrix}v=0,1,2,\ldots,\\u=v,v+1,v+2,\ldots.\end{matrix}$$
+本例中求 $U$ 的边缘 pmf 很有意思. 对固定的非负整数 $u$，$f_{U,V}(u,v)>0$ 仅在 $v=0,1,\ldots,u$ 时成立，这给出了求边缘 pmf 时对 $v$ 的求和范围. 得到
+$$
+\begin{aligned}
+f_U(u)&=\sum_{v=0}^u\frac{\theta^{u-v}e^{-\theta}}{(u-v)!}\frac{\lambda^ve^{-\lambda}}{v!}\\
+&=e^{-(\theta+\lambda)}\sum_{v=0}^u\frac{\theta^{u-v}}{(u-v)!}\frac{\lambda^v}{v!},\qquad u=0,1,2,\ldots.
+\end{aligned}
+$$
+将每项乘除以 $u!$，再利用二项式定理，可以化简为
+$$f_U(u)=\frac{e^{-(\theta+\lambda)}}{u!}\sum_{v=0}^u\binom uv\lambda^v\theta^{u-v}
+=\frac{e^{-(\theta+\lambda)}}{u!}(\theta+\lambda)^u,\quad u=0,1,2,\ldots.$$
+这是参数为 $\theta+\lambda$ 的 Poisson 随机变量的 pmf. 此结论很重要，值得列为定理.
+\end{example}
+\begin{theorem}\label{thm:4.3.2}\index{SI0379@和}
+若 $X\sim\operatorname{Poisson}(\theta)$，$Y\sim\operatorname{Poisson}(\lambda)$，且 $X$ 与 $Y$ 独立，则 $X+Y\sim\operatorname{Poisson}(\theta+\lambda)$.
+\end{theorem}
+
+若 $(X,Y)$ 是联合 pdf 为 $f_{X,Y}(x,y)$ 的连续随机向量，则可用类似\eqref{eq:2.1.8} 的方式，通过 $f_{X,Y}(x,y)$ 表示 $(U,V)$ 的联合 pdf. 与前面一样，令 $\mathscr A=\{(x,y):f_{X,Y}(x,y)>0\}$，$\mathscr B=\{(u,v):\text{存在 }(x,y)\in\mathscr A,\ u=g_1(x,y)\text{ 且 }v=g_2(x,y)\}$. 联合 pdf $f_{U,V}(u,v)$ 在 $\mathscr B$ 上为正. 在此结论最简单的版本中，假设 $u=g_1(x,y)$、$v=g_2(x,y)$ 定义了从 $\mathscr A$ 到 $\mathscr B$ 的一一变换. 由 $\mathscr B$ 的定义，该变换是满射. 我们假定，对每个 $(u,v)\in\mathscr B$，只有一个 $(x,y)\in\mathscr A$ 满足 $(u,v)=(g_1(x,y),g_2(x,y))$. 对这样的一一满射，可以解方程 $u=g_1(x,y)$、$v=g_2(x,y)$，用 $u,v$ 表示 $x,y$. 将逆变换记为 $x=h_1(u,v)$、$y=h_2(u,v)$. 在单变量情形中由导数发挥的作用，现在由称为变换的 Jacobian（雅可比行列式）的量来发挥. 这是一个关于 $(u,v)$ 的函数，记为 $J$，是偏导数矩阵的行列式，定义为\index{SI0248@行列式}\semanticindexanchor{248:160}\index{SI0593@雅可比行列式}\semanticindexanchor{593:160}\index{SI0729@一一变换}\semanticindexanchor{729:160}\index{SI0730@满射变换}\semanticindexanchor{730:160}
+$$J=\begin{vmatrix}\dfrac{\partial x}{\partial u}&\dfrac{\partial x}{\partial v}\\[4pt]\dfrac{\partial y}{\partial u}&\dfrac{\partial y}{\partial v}\end{vmatrix}
+=\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}-\frac{\partial y}{\partial u}\frac{\partial x}{\partial v},$$
+\sourcepageanchor{161}
+
+其中
+$$
+\frac{\partial x}{\partial u}=\frac{\partial h_1(u,v)}{\partial u},\quad
+\frac{\partial x}{\partial v}=\frac{\partial h_1(u,v)}{\partial v},\quad
+\frac{\partial y}{\partial u}=\frac{\partial h_2(u,v)}{\partial u},\quad
+\frac{\partial y}{\partial v}=\frac{\partial h_2(u,v)}{\partial v}.
+$$
+假设 $J$ 在 $\mathscr B$ 上不恒为零. 则 $(U,V)$ 的联合 pdf 在 $\mathscr B$ 外为 0，在 $\mathscr B$ 上为
+\begin{equation}\label{eq:4.3.2}\index{SI0829@二元变换}
+f_{U,V}(u,v)=f_{X,Y}(h_1(u,v),h_2(u,v))|J|,
+\end{equation}
+其中 $|J|$ 是 $J$ 的绝对值. 使用\eqref{eq:4.3.2} 时，确定 $\mathscr B$ 并验证变换为一一变换，有时与代入公式本身同样困难. 阅读下面例子的说明时，请留意这些部分.
+\begin{example}[Beta 变量乘积的分布]\label{ex:4.3.3}\index{SI0256@乘积}
+设 $X\sim\operatorname{beta}(\alpha,\beta)$ 和 $Y\sim\operatorname{beta}(\alpha+\beta,\gamma)$ 相互独立. $(X,Y)$ 的联合 pdf 为
+$$
+\begin{aligned}
+f_{X,Y}(x,y)&=\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1}
+\frac{\Gamma(\alpha+\beta+\gamma)}{\Gamma(\alpha+\beta)\Gamma(\gamma)}y^{\alpha+\beta-1}(1-y)^{\gamma-1},\\
+&\hspace{7cm}0<x<1,\quad0<y<1.
+\end{aligned}
+$$
+考虑变换 $U=XY$、$V=X$. 因为 $V=X$，所以 $V$ 的可能取值为 $0<v<1$. 固定 $V=v$ 后，由于 $X=V=v$ 且 $Y$ 介于 0 与 1 之间，$U$ 必须介于 0 与 $v$ 之间. 因而该变换将 $\mathscr A$ 映满到 $\mathscr B=\{(u,v):0<u<v<1\}$. 对每个 $(u,v)\in\mathscr B$，由 $u=xy$、$v=x$ 可唯一解出 $x=h_1(u,v)=v$、$y=h_2(u,v)=u/v$. 注意，若将此变换视为定义在整个 $\mathbb R^2$ 上的变换，它并不是一一的，因为每个点 $(0,y)$ 都映到 $(0,0)$. 但作为仅定义在 $\mathscr A$ 上的函数，它是到 $\mathscr B$ 的一一满射. Jacobian 为
+$$J=\begin{vmatrix}\dfrac{\partial x}{\partial u}&\dfrac{\partial x}{\partial v}\\[4pt]\dfrac{\partial y}{\partial u}&\dfrac{\partial y}{\partial v}\end{vmatrix}
+=\begin{vmatrix}0&1\\[2pt]1/v&-u/v^2\end{vmatrix}=-\frac1v.$$
+于是，根据\eqref{eq:4.3.2} 得到联合 pdf
+\begin{equation}\label{eq:4.3.3}
+\begin{aligned}
+f_{U,V}(u,v)&=\frac{\Gamma(\alpha+\beta+\gamma)}{\Gamma(\alpha)\Gamma(\beta)\Gamma(\gamma)}
+v^{\alpha-1}(1-v)^{\beta-1}\left(\frac uv\right)^{\alpha+\beta-1}\left(1-\frac uv\right)^{\gamma-1}\frac1v,\\
+&\hspace{7cm}0<u<v<1.
+\end{aligned}
+\end{equation}
+$V=X$ 的边缘分布当然是 $\operatorname{beta}(\alpha,\beta)$，但 $U$ 的分布也是 Beta 分布：
+$$
+\begin{aligned}
+f_U(u)&=\int_u^1 f_{U,V}(u,v)\,dv\\
+&=\frac{\Gamma(\alpha+\beta+\gamma)}{\Gamma(\alpha)\Gamma(\beta)\Gamma(\gamma)}u^{\alpha-1}
+\int_u^1\left(\frac uv-u\right)^{\beta-1}\left(1-\frac uv\right)^{\gamma-1}\frac u{v^2}\,dv.
+\end{aligned}
+$$
+\sourcepageanchor{162}
+
+这里使用了\eqref{eq:4.3.3}，并重新排列了一些因子. 现在作一元变量替换 $y=(u/v-u)/(1-u)$，于是 $dy=-u/[v^2(1-u)]\,dv$，得到
+$$
+\begin{aligned}
+f_U(u)&=\frac{\Gamma(\alpha+\beta+\gamma)}{\Gamma(\alpha)\Gamma(\beta)\Gamma(\gamma)}u^{\alpha-1}(1-u)^{\beta+\gamma-1}
+\int_0^1 y^{\beta-1}(1-y)^{\gamma-1}\,dy\\
+&=\frac{\Gamma(\alpha+\beta+\gamma)}{\Gamma(\alpha)\Gamma(\beta)\Gamma(\gamma)}u^{\alpha-1}(1-u)^{\beta+\gamma-1}
+\frac{\Gamma(\beta)\Gamma(\gamma)}{\Gamma(\beta+\gamma)}\\
+&=\frac{\Gamma(\alpha+\beta+\gamma)}{\Gamma(\alpha)\Gamma(\beta+\gamma)}u^{\alpha-1}(1-u)^{\beta+\gamma-1},\qquad0<u<1.
+\end{aligned}
+$$
+第二个等号利用了被积函数是 Beta pdf 的核，并使用了\hyperref[eq:3.3.17]{式 (3.2.17)}.\footnote{译注：原文式号 (3.2.17) 不存在；按所用的 Beta--Gamma 恒等式，应指\eqref{eq:3.3.17}.} 因此，$U$ 的边缘分布是 $\operatorname{beta}(\alpha,\beta+\gamma)$.
+\end{example}
+\begin{example}[正态变量的和与差]\label{ex:4.3.4}\index{SI0369@和}
+设 $X$ 和 $Y$ 为独立的标准正态随机变量. 考虑变换 $U=X+Y$、$V=X-Y$. 沿用上面的记号，$U=g_1(X,Y)$，其中 $g_1(x,y)=x+y$；$V=g_2(X,Y)$，其中 $g_2(x,y)=x-y$. $X,Y$ 的联合 pdf 为 $f_{X,Y}(x,y)=(2\pi)^{-1}\exp(-x^2/2)\exp(-y^2/2)$，$-\infty<x<\infty$，$-\infty<y<\infty$. 因而 $\mathscr A=\mathbb R^2$. 要确定使 $f_{U,V}(u,v)$ 为正的集合 $\mathscr B$，必须求出当 $(x,y)$ 遍及 $\mathscr A=\mathbb R^2$ 时，
+\begin{equation}\label{eq:4.3.4}
+u=x+y,\qquad v=x-y
+\end{equation}
+能取到的全部值. 然而，可以将 $u$ 和 $v$ 分别取为任意实数，再由\eqref{eq:4.3.4} 唯一解出
+\begin{equation}\label{eq:4.3.5}
+x=h_1(u,v)=\frac{u+v}{2},\qquad y=h_2(u,v)=\frac{u-v}{2}.
+\end{equation}
+这说明两件事. 第一，对任何 $(u,v)\in\mathbb R^2$，都存在由\eqref{eq:4.3.5} 定义的 $(x,y)\in\mathscr A$，使 $u=x+y$、$v=x-y$；因此全部可能 $(u,v)$ 的集合 $\mathscr B$ 就是 $\mathbb R^2$. 第二，由于\eqref{eq:4.3.5} 的解唯一，所考虑的变换是一一的. 只有其中给出的 $(x,y)$ 才能产生 $u=x+y$ 和 $v=x-y$. 根据\eqref{eq:4.3.5} 很容易计算 $x,y$ 的偏导数，得到
+$$J=\begin{vmatrix}\dfrac{\partial x}{\partial u}&\dfrac{\partial x}{\partial v}\\[4pt]\dfrac{\partial y}{\partial u}&\dfrac{\partial y}{\partial v}\end{vmatrix}
+=\begin{vmatrix}1/2&1/2\\1/2&-1/2\end{vmatrix}=-\frac12.$$
+将\eqref{eq:4.3.5} 中 $x,y$ 的表达式代入 $f_{X,Y}(x,y)$，并利用 $|J|=1/2$，由\eqref{eq:4.3.2} 得到
+$$f_{U,V}(u,v)=f_{X,Y}(h_1(u,v),h_2(u,v))|J|=\frac1{2\pi}e^{-((u+v)/2)^2/2}e^{-((u-v)/2)^2/2}\frac12,$$
+其中 $-\infty<u<\infty$，$-\infty<v<\infty$. 展开指数中的平方，可见含 $uv$ 的项相互抵消. 化简并重新排列后得到
+$$f_{U,V}(u,v)=\left(\frac1{\sqrt{2\pi}\sqrt2}e^{-u^2/4}\right)\left(\frac1{\sqrt{2\pi}\sqrt2}e^{-v^2/4}\right).$$
+联合 pdf 分解成了只含 $u$ 的函数与只含 $v$ 的函数之积. 由\autoref{lem:4.2.7}，$U$ 与 $V$ 独立. 由\autoref{thm:4.2.14}，$U=X+Y$ 的边缘分布是 $n(0,2)$. 同理，可用\autoref{thm:4.2.12} 求得 $V$ 的边缘分布也是 $n(0,2)$. 独立正态随机变量的和与差仍为独立正态随机变量，这一重要事实不依赖于 $X,Y$ 的均值，只要求 $\operatorname{Var}X=\operatorname{Var}Y$. 这一结论留作\autoref{exercise:4.27}. \autoref{thm:4.2.12} 和\autoref{thm:4.2.14} 给出了 $U,V$ 的边缘分布；但要确定二者独立，则需要这里更细致的分析.
+\end{example}
+\sourcepageanchor{163}
+
+在\autoref{ex:4.3.4} 中，我们发现 $U$ 与 $V$ 独立. 对由原变量 $X,Y$ 定义的新变量 $U,V$，还有一种简单得多却十分重要的独立情形，见下述定理.
+\begin{theorem}\label{thm:4.3.5}\index{SI0554@随机变量}
+设 $X$ 和 $Y$ 为独立随机变量，$g(x)$ 仅为 $x$ 的函数，$h(y)$ 仅为 $y$ 的函数. 则随机变量 $U=g(X)$ 和 $V=h(Y)$ 相互独立.
+\end{theorem}
+\begin{proof}
+在假设 $U$ 和 $V$ 为连续随机变量的条件下证明. 对任意 $u\in\mathbb R$ 和 $v\in\mathbb R$，定义
+$$A_u=\{x:g(x)\le u\},\qquad B_v=\{y:h(y)\le v\}.$$
+则 $(U,V)$ 的联合 cdf 为
+$$
+\begin{aligned}
+F_{U,V}(u,v)&=P(U\le u,V\le v)&&\text{（cdf 的定义）}\\
+&=P(X\in A_u,Y\in B_v)&&\text{（$U,V$ 的定义）}\\
+&=P(X\in A_u)P(Y\in B_v).&&\text{（\autoref{thm:4.2.10}）}
+\end{aligned}
+$$
+$(U,V)$ 的联合 pdf 为
+$$
+\begin{aligned}
+f_{U,V}(u,v)&=\frac{\partial^2}{\partial u\partial v}F_{U,V}(u,v)&&\text{（\eqref{eq:4.1.3}）}\\
+&=\left(\frac d{du}P(X\in A_u)\right)\left(\frac d{dv}P(Y\in B_v)\right).
+\end{aligned}
+$$
+正如记号所表明的，第一个因子只依赖 $u$，第二个只依赖 $v$. 所以由\autoref{lem:4.2.7}，$U$ 和 $V$ 独立.
+\end{proof}
+
+有时只关心一个函数，例如 $U=g_1(X,Y)$. 这时仍可利用上述方法求 $U$ 的分布. 如果能够选择另一个方便的函数 $V=g_2(X,Y)$，使从 $(X,Y)$ 到 $(U,V)$ 的变换在 $\mathscr A$ 上为一一变换，就能用\eqref{eq:4.3.2} 求出 $(U,V)$ 的联合 pdf，再由它求出 $U$ 的边缘 pdf. 在前面的例子中，我们也许只对 $U=XY$ 感兴趣. 可以选择 $V=X$，因为这样得到的变换在 $\mathscr A$ 上是一一的，然后像例中那样求出 $U$ 的边缘 pdf. 其他选择，如 $V=Y$，也同样可行（见\autoref{exercise:4.23}）.\footnote{译注：此段的 $U=XY$ 对应\autoref{ex:4.3.3}，并非紧接在前的\autoref{ex:4.3.4}；原文泛称“前面的例子”.}
+
+当然，在许多情形中，所关心的变换并不是一一的. 正如\autoref{thm:2.1.8} 将一元方法推广到多对一函数，这里也可作同样推广. 仍令 $\mathscr A=\{(x,y):f_{X,Y}(x,y)>0\}$. 假设 $A_0,A_1,\ldots,A_k$ 是 $\mathscr A$ 的一个划分，满足以下性质. 集合 $A_0$ 可以为空，并满足 $P((X,Y)\in A_0)=0$. 对每个 $i=1,2,\ldots,k$，变换 $U=g_1(X,Y)$、$V=g_2(X,Y)$ 从 $A_i$ 一一映满到 $\mathscr B$. 那么，对每个 $i$，都可以求出从 $\mathscr B$ 到 $A_i$ 的逆函数. 记第 $i$ 个逆变换为 $x=h_{1i}(u,v)$、$y=h_{2i}(u,v)$. 对 $(u,v)\in\mathscr B$，该逆变换给出唯一的 $(x,y)\in A_i$，使 $(u,v)=(g_1(x,y),g_2(x,y))$. 以 $J_i$ 表示根据第 $i$ 个逆变换计算的 Jacobian. 假设这些 Jacobian 在 $\mathscr B$ 上都不恒为零，则联合 pdf $f_{U,V}$ 可表示为
+\begin{equation}\label{eq:4.3.6}
+f_{U,V}(u,v)=\sum_{i=1}^k f_{X,Y}(h_{1i}(u,v),h_{2i}(u,v))|J_i|.
+\end{equation}
+\begin{example}[正态变量之比的分布]\label{ex:4.3.6}\index{SI0279@与正态的关系}\index{SI0363@比值}\index{SI0365@与柯西的关系}
+设 $X$ 和 $Y$ 为独立的 $n(0,1)$ 随机变量. 考虑变换 $U=X/Y$ 和 $V=|Y|$. （若 $Y=0$，可将 $(U,V)$ 任意定义，例如取为 $(1,1)$，因为 $P(Y=0)=0$.）这一变换不是一一的，因为 $(x,y)$ 和 $(-x,-y)$ 都映到同一个 $(u,v)$.
+\sourcepageanchor{164}
+
+但若只考虑 $y$ 的正值或只考虑负值，则变换是一一的. 用上面的记号，令
+$$A_1=\{(x,y):y>0\},\quad A_2=\{(x,y):y<0\},\quad A_0=\{(x,y):y=0\}.$$
+$A_0,A_1,A_2$ 构成 $\mathscr A=\mathbb R^2$ 的划分，且 $P((X,Y)\in A_0)=P(Y=0)=0$. 对 $A_1$ 或 $A_2$，若 $(x,y)\in A_i$，则 $v=|y|>0$；固定 $v=|y|$ 后，由于 $x$ 可取任意实数，$u=x/y$ 也可取任意实数. 因此，$\mathscr B=\{(u,v):v>0\}$ 是 $A_1$ 和 $A_2$ 在该变换下共同的像. 此外，从 $\mathscr B$ 到 $A_1$ 及从 $\mathscr B$ 到 $A_2$ 的逆变换分别为 $x=h_{11}(u,v)=uv$、$y=h_{21}(u,v)=v$，以及 $x=h_{12}(u,v)=-uv$、$y=h_{22}(u,v)=-v$. 注意，第一个逆变换给出正的 $y$，第二个给出负的 $y$. 两个逆变换的 Jacobian 为 $J_1=J_2=v$. 利用
+$$f_{X,Y}(x,y)=\frac1{2\pi}e^{-x^2/2}e^{-y^2/2},$$
+由\eqref{eq:4.3.6} 得到
+$$
+\begin{aligned}
+f_{U,V}(u,v)&=\frac1{2\pi}e^{-(uv)^2/2}e^{-v^2/2}|v|+\frac1{2\pi}e^{-(-uv)^2/2}e^{-(-v)^2/2}|v|\\
+&=\frac v\pi e^{-(u^2+1)v^2/2},\qquad-\infty<u<\infty,\quad0<v<\infty.
+\end{aligned}
+$$
+由此可求 $U$ 的边缘 pdf：
+$$
+\begin{aligned}
+f_U(u)&=\int_0^\infty\frac v\pi e^{-(u^2+1)v^2/2}\,dv\\
+&=\frac1{2\pi}\int_0^\infty e^{-(u^2+1)z/2}\,dz&&\text{（换元 $z=v^2$）}\\
+&=\frac1{2\pi}\frac2{u^2+1}&&\left(\begin{gathered}\text{被积函数是指数 pdf 的核，}\\\beta=2/(u^2+1)\end{gathered}\right)\\
+&=\frac1{\pi(u^2+1)},\qquad-\infty<u<\infty.
+\end{aligned}
+$$
+所以，两个独立标准正态随机变量之比为 Cauchy 随机变量. 关于正态与 Cauchy 随机变量的更多关系，见\autoref{exercise:4.28}.
+\end{example}

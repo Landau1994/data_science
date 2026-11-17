@@ -1,0 +1,74 @@
+\subsubsection{并交检验与交并检验的大小}\label{sec:8.3.3}
+由于构造方式简单，并交检验（UIT）与交并检验（IUT）的大小，常可用其他一些检验的大小给出上界. 当希望得到水平 $\alpha$ 的检验、却难以求出 UIT 或 IUT 的大小时，这类界很有用.
+\sourcepageanchor{351}
+本节讨论这些界，并给出界可达到的例子，即检验的大小恰好等于所给界.
+
+先考虑并交检验. 回顾，此时检验的原假设形如 $H_0:\theta\in\Theta_0$，其中 $\Theta_0=\bigcap_{\gamma\in\Gamma}\Theta_\gamma$. 具体地，设 $\lambda_\gamma(\boldsymbol x)$ 是检验 $H_{0\gamma}:\theta\in\Theta_\gamma$ 对 $H_{1\gamma}:\theta\in\Theta_\gamma^c$ 的似然比统计量，$\lambda(\boldsymbol x)$ 是检验 $H_0:\theta\in\Theta_0$ 对 $H_1:\theta\in\Theta_0^c$ 的似然比统计量. 则总体似然比检验与基于 $\lambda_\gamma(\boldsymbol x)$ 的并交检验有如下关系.
+\begin{theorem}\label{thm:8.3.21}\index{SI0524@水平}
+考虑检验 $H_0:\theta\in\Theta_0$ 对 $H_1:\theta\in\Theta_0^c$，其中 $\Theta_0=\bigcap_{\gamma\in\Gamma}\Theta_\gamma$，$\lambda_\gamma(\boldsymbol x)$ 如上段定义. 令 $T(\boldsymbol x)=\inf_{\gamma\in\Gamma}\lambda_\gamma(\boldsymbol x)$，构造拒绝域为
+$$\{\boldsymbol x:\lambda_\gamma(\boldsymbol x)<c\text{ 对某个 }\gamma\in\Gamma\}
+=\{\boldsymbol x:T(\boldsymbol x)<c\}$$
+的并交检验. 再考虑拒绝域为 $\{\boldsymbol x:\lambda(\boldsymbol x)<c\}$ 的通常似然比检验. 则
+\begin{enumerate}
+\item\phantomsection\label{itm:thm:8.3.21:a} 对每个 $\boldsymbol x$，$T(\boldsymbol x)\ge\lambda(\boldsymbol x)$；
+\item\phantomsection\label{itm:thm:8.3.21:b} 若 $\beta_T(\theta)$ 和 $\beta_\lambda(\theta)$ 分别为基于 $T$ 与 $\lambda$ 的检验的功效函数，则对每个 $\theta\in\Theta$，$\beta_T(\theta)\le\beta_\lambda(\theta)$；
+\item\phantomsection\label{itm:thm:8.3.21:c} 若似然比检验的水平为 $\alpha$，则并交检验的水平也为 $\alpha$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+由于对任意 $\gamma$，$\Theta_0=\bigcap_{\gamma\in\Gamma}\Theta_\gamma\subset\Theta_\gamma$，由\autoref{def:8.2.1}可见，对任意 $\boldsymbol x$，
+$$\lambda_\gamma(\boldsymbol x)\ge\lambda(\boldsymbol x),\qquad\text{对每个 }\gamma\in\Gamma,$$
+因为单独的 $\lambda_\gamma$ 的最大化范围更大. 所以 $T(\boldsymbol x)=\inf_{\gamma\in\Gamma}\lambda_\gamma(\boldsymbol x)\ge\lambda(\boldsymbol x)$，证明了\hyperref[itm:thm:8.3.21:a]{(a)}. 由\hyperref[itm:thm:8.3.21:a]{(a)}，$\{\boldsymbol x:T(\boldsymbol x)<c\}\subset\{\boldsymbol x:\lambda(\boldsymbol x)<c\}$，故
+$$\beta_T(\theta)=P_\theta(T(\boldsymbol X)<c)\le P_\theta(\lambda(\boldsymbol X)<c)=\beta_\lambda(\theta),$$
+证明了\hyperref[itm:thm:8.3.21:b]{(b)}. 因\hyperref[itm:thm:8.3.21:b]{(b)}对每个 $\theta$ 都成立，$\sup_{\theta\in\Theta_0}\beta_T(\theta)\le\sup_{\theta\in\Theta_0}\beta_\lambda(\theta)\le\alpha$，所以\hyperref[itm:thm:8.3.21:c]{(c)}成立.
+\end{proof}
+\begin{example}[一种等价性]\label{ex:8.3.22}
+在某些情形下，\autoref{thm:8.3.21}中的 $T(\boldsymbol x)=\lambda(\boldsymbol x)$，由单独似然比检验构成的并交检验，与总体似然比检验相同. \autoref{ex:8.2.8}就是这种情况：由两个单侧 $t$ 检验构成的并交检验，等价于双侧似然比检验.
+\end{example}
+既然\autoref{thm:8.3.21}中似然比检验的功效处处不低于并交检验，可能会问为什么还要使用并交检验. 一个原因是，对每个 $\theta\in\Theta_0$，并交检验的第一类错误概率更小. 此外，若 $H_0$ 被拒绝，我们可能希望查看各个 $H_{0\gamma}$ 的单独检验，以了解原因. 至今尚未讨论关于单独 $H_{0\gamma}$ 的推断；采用这种推断程序之前，必须考察其错误概率. 但显然，逐个查看 $H_{0\gamma}$，有可能比只查看总体似然比检验获得更多信息.
+
+现在研究交并检验的大小. 交并检验大小的一个简单界，与构造它所用的各个单独检验的大小有关. 回顾，此时原假设可写成并集，即检验
+$$H_0:\theta\in\Theta_0\quad\text{对}\quad H_1:\theta\in\Theta_0^c,\qquad
+\Theta_0=\bigcup_{\gamma\in\Gamma}\Theta_\gamma.$$
+交并检验的拒绝域形如 $R=\bigcap_{\gamma\in\Gamma}R_\gamma$，其中 $R_\gamma$ 是检验 $H_{0\gamma}:\theta\in\Theta_\gamma$ 的拒绝域.
+\begin{theorem}\label{thm:8.3.23}\index{SI0496@水平}
+设拒绝域为 $R_\gamma$ 的 $H_{0\gamma}$ 检验的大小为 $\alpha_\gamma$. 则拒绝域为 $R=\bigcap_{\gamma\in\Gamma}R_\gamma$ 的交并检验，是水平 $\alpha=\sup_{\gamma\in\Gamma}\alpha_\gamma$ 的检验.
+\end{theorem}
+\begin{proof}
+取 $\theta\in\Theta_0$，则对某个 $\gamma$ 有 $\theta\in\Theta_\gamma$，并且
+$$P_\theta(\boldsymbol X\in R)\le P_\theta(\boldsymbol X\in R_\gamma)\le\alpha_\gamma\le\alpha.$$
+由于 $\theta\in\Theta_0$ 任意，交并检验的水平为 $\alpha$.
+\end{proof}
+\sourcepageanchor{352}
+通常，单独拒绝域 $R_\gamma$ 被选成对所有 $\gamma$ 都有 $\alpha_\gamma=\alpha$. 此时\autoref{thm:8.3.23}说明，所得交并检验的水平为 $\alpha$.
+
+给出交并检验大小上界的\autoref{thm:8.3.23}，比给出并交检验大小上界的\autoref{thm:8.3.21}更有用一些. 后者只适用于由似然比检验构造的并交检验，前者则适用于任意交并检验.
+
+\autoref{thm:8.3.21}的界是似然比检验的大小，在复杂问题中可能难以计算. 但在\autoref{thm:8.3.23}中，求上界并不必使用似然比检验：任何大小 $\alpha_\gamma$ 已知的 $H_{0\gamma}$ 检验都可使用，交并检验大小的上界便用这些已知的 $\alpha_\gamma$，$\gamma\in\Gamma$ 表示.
+
+\autoref{thm:8.3.23}的交并检验水平为 $\alpha$，但其大小可能远小于 $\alpha$，即检验可能很保守. 下列定理给出大小恰为 $\alpha$、因而检验不过于保守的条件.
+\begin{theorem}\label{thm:8.3.24}
+考虑检验 $H_0:\theta\in\bigcup_{j=1}^k\Theta_j$，其中 $k$ 为有限正整数. 对每个 $j=1,\ldots,k$，设 $R_j$ 为 $H_{0j}$ 的某水平 $\alpha$ 检验的拒绝域. 假设对某个 $i=1,\ldots,k$，存在参数点列 $\theta_l\in\Theta_i$，$l=1,2,\ldots$，满足
+\begin{enumerate}[label=\roman*.]
+\item\phantomsection\label{itm:thm:8.3.24:i} $\lim_{l\to\infty}P_{\theta_l}(\boldsymbol X\in R_i)=\alpha$；
+\item\phantomsection\label{itm:thm:8.3.24:ii} 对每个 $j=1,\ldots,k$，$j\ne i$，$\lim_{l\to\infty}P_{\theta_l}(\boldsymbol X\in R_j)=1$.
+\end{enumerate}
+则拒绝域为 $R=\bigcap_{j=1}^kR_j$ 的交并检验，大小为 $\alpha$.
+\end{theorem}
+\begin{proof}
+由\autoref{thm:8.3.23}，$R$ 是水平 $\alpha$ 的检验，即
+\begin{equation}\label{eq:8.3.7}\sup_{\theta\in\Theta_0}P_\theta(\boldsymbol X\in R)\le\alpha.\end{equation}
+但由于所有参数点 $\theta_l$ 都满足 $\theta_l\in\Theta_i\subset\Theta_0$，
+$$\begin{aligned}
+\sup_{\theta\in\Theta_0}P_\theta(\boldsymbol X\in R)&\ge\lim_{l\to\infty}P_{\theta_l}(\boldsymbol X\in R)\\
+&=\lim_{l\to\infty}P_{\theta_l}\left(\boldsymbol X\in\bigcap_{j=1}^kR_j\right)\\
+&\ge\lim_{l\to\infty}\left[\sum_{j=1}^kP_{\theta_l}(\boldsymbol X\in R_j)-(k-1)\right]&&\text{（Bonferroni 不等式）}\\
+&=(k-1)+\alpha-(k-1)&&\text{（由\hyperref[itm:thm:8.3.24:i]{(i)}与\hyperref[itm:thm:8.3.24:ii]{(ii)}）}\\
+&=\alpha.
+\end{aligned}$$
+结合\eqref{eq:8.3.7}，可知检验的大小恰为 $\alpha$.
+\end{proof}
+\begin{example}[交并检验]\label{ex:8.3.25}\index{SI0495@伯努利}\index{SI0497@正态}
+在\autoref{ex:8.2.9}中，令 $n=m=58$，$t=1.672$，$b=57$. 则各个单独检验的大小均约为 $\alpha=.05$. 所以，由\autoref{thm:8.3.23}，交并检验是水平 $\alpha=.05$ 的检验，即产品实际上不合格却被判为合格的概率不超过 $.05$. 事实上，这个检验的大小为 $\alpha=.05$. 为说明这一点，考虑参数点列 $\theta_l=(\theta_{1l},\theta_2)$，其中 $l\to\infty$ 时 $\theta_{1l}\to\infty$，$\theta_2=.95$. 因 $\theta_2\le.95$，所有这些点都在 $\Theta_0$ 中. 而且 $\theta_{1l}\to\infty$ 时 $P_{\theta_l}(\boldsymbol X\in R_1)\to1$；因为 $\theta_2=.95$，对所有 $l$，$P_{\theta_l}(\boldsymbol X\in R_2)=.05$. 所以由\autoref{thm:8.3.24}，交并检验的大小为 $\alpha$.\footnote{译注：本例最初已说明大小为近似值，后面的“恰为”及“不超过”不能按精确的 $.05$ 理解. 对给定 $m=58,b=57$，第二项检验在 $58$ 次均成功时拒绝，其边界概率为 $.95^{58}\approx.05105>.05$；沿原文所选参数列，交并拒绝概率也趋于这一数值，故所给检验并非严格的水平 $.05$ 检验. 原参数和结论均保留，数值近似的影响在此说明.}
+\end{example}
+注意，\autoref{ex:8.3.25}只利用 $X_1,\ldots,X_n$ 与 $Y_1,\ldots,Y_m$ 的边缘分布求出检验大小. 这一点非常重要，直接关系到交并检验的实用性，因为联合分布往往难以获知，即使知道也往往难以处理. 例如，若 $X_i,Y_i$ 来自同一块织物的测量，二者可能有关联；要计算某个特定参数值下交并检验的精确功效，就必须建立并使用这种关联的模型.

@@ -1,0 +1,47 @@
+EXERCISES                                                                  247
+
+6.28 Prove Theorem  6.6.5. Hint:  First establish  that the minimal sufficiency of T(X) in the family
+     { f0(x), f1(x),..., fk(x)} follows from Theorem 6.2.13. Then argue that any statistic that is sufficient      in F must be a function of T(x).
+6.29 The concept of minimal sufficiency can be extended beyond parametric families of distributions. Show
+       that if X1,X2,...,Xn are a random sample from a density  f which is unknown, then the order statistics
+      are minimal sufficient.
+      Hint: Use Theorem 6.6.5 taking the family {f0(x), f1(x),..., fk(x)} to be logistic densities.
+                                              < x < ∞.6.30 Let X1,...,Xn be a random sample from the pdf f(x|µ) = e−(x−µ), where −∞< µ
+       (a) Show that X(1) = mini Xi is a complete sufficient statistic.
+      (b) Use Basu’s Theorem to show that X(1) and S2 are independent.
+6.31 Boos and Hughes-Oliver (1998) detail a number of instances where application of Basu’s Theorem can
+      simplify calculations. Here are a few.
+       (a) Let X1,X2,...,Xn be iid n(µ,σ2), where σ2 is known.
+             (i) Show that ¯X is complete sufficient for µ, and S2 is ancillary. Hence by Basu’s Theorem ¯X and S2
+             are independent.
+            (ii) Show that this independence carries over even if σ2 is unknown, as knowledge of σ2 has no
+             bearing on the distributions. (Compare this proof to the more involved Theorem 5.3.1(a).)
+      (b) A Monte Carlo swindle is a technique for improving variance estimates. Suppose that X1,X2,...,Xn
+          are iid N(µ,σ2), and that we want to compute the variance of the median, M.
+             (i) Show that Var(M) = Var(M −¯X)+Var(¯X); thus, we only have to simulate the Var(M −¯X) piece             of Var(M) (since we know that Var( ¯X) = σ2/n).
+            (ii) Show that the swindle estimate is more precise by showing that the asymptotic variance of M is
+            approximately 2[Var(M)]2/(N −1) and that of M −¯X is approximately 2[Var(M −¯X)]2/(N −1),           where N is the number of Monte Carlo samples.
+       (c) (i)  If X/Y and Y are independent random variables, show that
+                                   X   k   E(Xk)
+                                 E    =           .
+                                       Y      E(Y k)
+            (ii) Use this result, and Basu’s Theorem, to show that if X1,X2,...,Xn are iid gamma(α,β), where α
+                is known, then
+                                                                   E(X(i))
+                               =                            E   X(i) ∑ Xi                        ∑ Xi                                                                                                  i                  i   E(∑i Xi).
+6.32 Prove the Likelihood Principle Corollary. That is, assuming both the Formal Sufficiency Principle and
+      the Conditionality Principle, prove that if E = (X,θ,{ f(x|θ)}) is an experiment then Ev(E,x) should
+     depend on E and x only through L(θ|x).
+6.33  Fill in the gaps in the proof of Theorem 6.3.6, Birnbaum’s Theorem
+       (a) Define g(t|θ) = g(( j,xj)|θ) = f ∗(( j,x j)|θ) and
+                                C   if (j,x j) = (2,x∗2)                                    h( j,xj) =
+                                           1   otherwise.
+       Show that T( j,xj) is a sufficient statistic in the E∗experiment by verifying that
+                         g(T( j,x j)|θ)h( j,xj) = g((j,x j)|θ)(1) = f ∗((j,x j)|θ),
+           for all (j,xj).
+      (b) As T is sufficient, show that the Formal Sufficiency Principle implies (6.3.4). Also the Conditionality
+          Principle implies (6.3.5), and hence deduce the Formal Likelihood Principle.
+       (c) To prove the converse, first let one experiment be the E∗experiment and the other E j and deduce that
+         Ev(E∗,(j,x j)) = Ev(Ej,x j), the Conditionality Principle. Then, if T(X) is sufficient and T(x) =
+         T(y), show that the likelihoods are proportional and then use the Formal Likelihood Principle, to
+         deduce Ev(E,x) = Ev(E,y), the Formal Sufficiency Principle.

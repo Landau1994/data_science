@@ -1,0 +1,43 @@
+DISCRETE DISTRIBUTIONS                                                    77
+    Calculation of Poisson probabilities can be done rapidly by noting the following recursion rela-
+tion:
+                             λ
+                     P(X = x) =  P(X =         x = 1,2,....                      (3.2.6)                                     x      x−1),
+This relation is easily proved by writing out the pmf of the Poisson. Similar relations hold for other
+discrete distributions. For example, if Y ∼binomial(n, p), then
+                                           p                      P(Y = y) = (n−y+1)      =                              (3.2.7)
+                                         y                                 1−pP(Y   y−1).
+   The recursion relations (3.2.6) and (3.2.7) can be used to establish the Poisson approximation
+to the binomial, which we have already seen in Section 2.3, where the approximation was justified
+using mgfs. Set λ = np and, if p is small, we can write
+                 n−y+1  p = np−p(y−1)                               y             ≈λy                       1−p     y−py
+since, for small p, the terms p(y−1) and py can be ignored. Therefore, to this level of approxima-tion, (3.2.7) becomes
+                                   λ
+                            P(Y = y) =  P(Y =                                      (3.2.8)                                           y      y−1),
+which is the Poisson recursion relation. Therefore, to complete the approximation, we only need
+establish that P(X = 0) ≈P(Y = 0), since all other probabilities will follow from (3.2.8). Now
+                                                                n              n
+                    P(Y = 0) = (1−p)n = 1−npn  = 1−λn
+upon setting np = λ. Recall from Section 2.3 that for fixed λ,limn→∞(1 −(λ/n))n = e−λ, so forlarge n we have the approximation
+                                                      n
+                      P(Y = 0) =          = P(X = 0),                       1−λn   ≈e−λ
+
+completing the Poisson approximation to the binomial.
+   The approximation is valid when n is large and p is small, which is exactly when it is most
+useful, freeing us from calculation of binomial coefficients and powers for large n.
+Example 3.2.5 (Poisson approximation)  A typesetter, on the average, makes one error in every
+500 words typeset. A typical page contains 300 words. What is the probability that there will be no
+more than two errors in five pages?
+     If we assume that setting a word is a Bernoulli trial with success probability p = 5001  (notice
+that we are labeling an error as a “success”) and that he trials are independent, then X = number of
+errors in five pages (1,500 words) is binomial 1,500, 5001    . Thus,
+           P(no more than two errors) =  P(X ≤2)
+                                                     2   1,500     1    x  499  1,500−x
+                      =                   ∑                                             x=0    x     500    500
+                      =  .4230,
+
+which  is a  fairly cumbersome calculation.  If we use the Poisson approximation with λ =
+      = 3, we have1,500  5001
+                                                   32
+                               = .4232.                      P(X ≤2) ≈e−3 1+3+ 2
+                                                                              ∥

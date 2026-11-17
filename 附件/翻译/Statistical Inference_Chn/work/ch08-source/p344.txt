@@ -1,0 +1,40 @@
+METHODS OF EVALUATING TESTS                                            313
+that some compromises may be made. We will see some examples, especially in conjunction with
+union–intersection and intersection–union tests.
+   Experimenters commonly specify the level of the test they wish to use, with typical choices being
+α = .01, .05, and .10. Be aware that, in fixing the level of the test, the experimenter is controlling
+only the Type I Error probabilities, not the Type II Error. If this approach is taken, the experimenter
+should specify the null and alternative hypotheses so that it is most important to control the Type
+I Error probability. For example, suppose an experimenter expects an experiment to give support
+to a particular hypothesis, but she does not wish to make the assertion unless the data really do
+give convincing support. The test can be set up so that the alternative hypothesis is the one that
+she expects the data to support, and hopes to prove. (The alternative hypothesis is sometimes called
+the research hypothesis in this context.) By using a level α test with small α, the experimenter is
+guarding against saying the data support the research hypothesis when it is false.
+   The methods of Section 8.2 usually yield test statistics and general forms for rejection regions.
+However, they do not generally lead to one specific test. For example, an LRT (Definition 8.2.1) is
+one that rejects H0 if λ(X) ≤c, but c was unspecified, so not one but an entire class of LRTs isdefined, one for each value of c. The restriction to size α tests may now lead to the choice of one
+out of the class of tests.
+Example 8.3.7 (Size of LRT)   In general, a size α LRT is constructed by choosing c such that
+supθ∈Θ0 Pθ(λ(X) ≤c) = α. How that c is determined depends on the particular problem. For ex-ample, in Example 8.2.2 Θ0 consists of the single point θ = θ0 and √n(X                     if θ = θ0.                                                     −θ0) ∼n(0,1)So the test
+                                    reject H0 if X −θ0 ≥zα/2/√n,
+where zα/2 satisfies P(Z ≥zα/2) = α/2 with Z ∼n(0,1), is the size α LRT. Specifically, this
+corresponds to choosing c = exp(−z2α/2/2), but this is not an important point.   For the problem described in Example 8.2.3, finding a size α LRT is complicated by the fact
+that the null hypothesis H0 : θ ≤θ0 consists of more than one point. The LRT rejects H0 if X(1) ≥c,
+where c is chosen so that this is a size α test. But if c = (−logα)/n+θ0, then
+                               = α.                                   Pθ0  X(1) ≥c = e−n(c−θ0)
+Since θ is a location parameter for X(1),
+                       Pθ  X(1) ≥c ≤Pθ0  X(1) ≥c    for any θ ≤θ0.
+Thus,
+                     sup β(θ) = sup Pθ(X(1) ≥c) = Pθ0(X(1) ≥c) = α                     θ∈Θ0        θ≤θ0
+and this c yields the size α LRT.                                                    ∥
+A note on notation:  In the above example we used the notation zα/2 to denote the point having
+probability α/2 to the right of it for a standard normal pdf. We will use this notation in general, not
+just for the normal, but for other distributions as well (defining what we need to for clarity’s sake).
+For example, the point zα satisfies P(Z > zα) = α, where Z ∼n(0,1); tn−1,α/2 satisfies P(Tn−1 >
+                                                                                                     p is atn−1,α/2) = α/2, where Tn−1 ∼tn−1; and χ2p,1−α satisfies P(χ2                                                                    p > χ2p,1−α) = 1 −α, where χ2
+chi squared random variable with p degrees of freedom. Points like zα/2,zα,tn−1,α/2, and χ2p,1−αare known as cutoff points.
+Example 8.3.8 (Size of union-intersection test)    The problem of finding a size α union–
+intersection test in Example 8.2.8 involves finding constants tL and tU such that
+
+                       X            X                      sup Pθ   −µ0        or   −µ0    = α.                               S2/n ≥tL        S2/n ≤tU                      θ∈Θ0

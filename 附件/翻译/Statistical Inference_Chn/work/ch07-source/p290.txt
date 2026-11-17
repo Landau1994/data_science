@@ -1,0 +1,37 @@
+METHODS OF FINDING ESTIMATORS                                          259
+each case we get the same answer. If we let η = τ(θ), then the inverse function τ−1(η) = θ is well
+defined and the likelihood function of τ(θ), written as a function of η, is given by
+
+                                           n
+                        L∗(η|x) = ∏i=1 f(xi|τ−1(η)) = L(τ−1(η)|x)
+
+and
+                       sup                              = sup                         η L∗(η|x) = supη L(τ−1(η)|x)                                                                 θ  L(θ|x).
+Thus, the maximum of L∗(η|x) is attained at η = τ(θ) = τ(ˆθ), showing that the MLE of τ(θ) isτ(ˆθ).
+    In many cases, this simple version of the invariance of MLEs is not useful because many of
+the functions we are interested in are not one-to-one. For example, to estimate θ 2, the square of a
+normal mean, the mapping θ →θ 2 is not one-to-one. Thus, we need a more general theorem and,in fact, a more general definition of the likelihood function of τ(θ).
+     If τ(θ) is not one-to-one, then for a given value η there may be more than one value of θ that
+satisfy τ(θ) = η. In such cases, the correspondence between the maximization over η and that over
+θ can break down. For example, if ˆθ is the MLE of θ, there may be another value of θ, say θ0, for
+which τ( ˆθ) = τ(θ0). We need to avoid such difficulties.
+  We proceed by defining for τ(θ) the induced likelihood function L∗, given by
+                               L∗(η|x) =   sup   L(θ|x).                              (7.2.5)                                               {θ:τ(θ)=η}
+The value ˆη which maximizes L∗(η|x) will be called the MLE of η = τ(θ), and it can be seen from(7.2.5) that the maxima of L∗and L coincide.
+Theorem 7.2.10 (Invariance property of MLEs)    If ˆθ is the MLE of θ, then for any function
+τ(θ), the MLE of τ(θ) is τ( ˆθ).
+Proof: Let ˆη denote the value that maximizes L∗(η|x). We must show that L∗( ˆη|x) = L∗[τ( ˆθ)|x].Now, as stated above, the maxima of L and L∗coincide, so we have
+                            L∗(ˆη|x) =  supη    sup   L(θ|x)               (definition of L∗)                                                    {θ:τ(θ)=η}
+                      =  sup                                                  θ L(θ|x)
+                      =  L(ˆθ|x),                             (definition of ˆθ)
+
+where the second equality follows because the iterated maximization is equal to the unconditional
+maximization over θ, which is attained at ˆθ. Furthermore,
+                          L(ˆθ|x)                     =   sup{θ:τ(θ)=τ(ˆθ)}L(θ|x)                   (ˆθ is the MLE)
+                     =  L∗[τ( ˆθ)|x].                          (definition of L∗)
+
+Hence, the string of equalities shows that L∗(ˆη|x) = L∗(τ( ˆθ)|x), and that τ(ˆθ) is the MLE of τ(θ).2
+   Using this theorem, we now see that the MLE of θ 2, the square of a normal mean, is ¯X2. We
+can also apply Theorem 7.2.10 to more complicated functions to see that, for example, the MLE of
+  p(1−p), where p is a binomial probability, is given by   ˆp(1−ˆp).   Before leaving the subject of finding maximum likelihood estimators, there are a few more
+points to be mentioned.

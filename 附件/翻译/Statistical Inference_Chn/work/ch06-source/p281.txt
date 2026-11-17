@@ -1,0 +1,49 @@
+250                                       PRINCIPLES OF DATA REDUCTION
+6.6   Miscellanea
+
+ 6.6.1 The Converse of Basu’s Theorem
+     An interesting statistical fact is that the converse of Basu’s Theorem is false. That is, if
+      T(X) is independent of every ancillary statistic, it does not necessarily follow that T(X) is a
+       complete, minimal sufficient statistic. A particularly nice treatment of the topic is given by
+      Lehmann (1981). He makes the point that one reason that the converse fails is that ancillarity
+         is a property of the entire distribution of a statistic, whereas completeness is a property
+       dealing only with expectations. Consider the following modification of the definition of
+        ancillarity.
+       Definition 6.6.1  A statistic V(X) is called first-order ancillary if EθV(X) is independent
+       of θ.
+      Lehmann then proves the following theorem, which is somewhat of a converse to Basu’s
+      Theorem.
+     Theorem 6.6.2  Let T be a statistic with VarT < ∞. A necessary and sufficient condition
+        for T to be complete is that every bounded first-order ancillary V is uncorrelated (for all θ)
+       with every bounded real-valued function of T.
+
+      Lehmann also notes that a type of converse is also obtainable if, instead of modifying the
+        definition of ancillarity, the definition of completeness is modified.
+ 6.6.2 Confusion About Ancillarity One of the problems with the concept of ancillarity is that
+        there are many different definitions of ancillarity, and different properties are given in these
+        definitions. As was seen in this chapter, ancillarity is confusing enough with one definition –
+       with five or six the situation becomes hopeless.
+       As told by Buehler (1982), the concept of ancillarity goes back to Sir Ronald Fisher
+       (1925), “who left a characteristic trail of intriguing concepts but no definition.” Buehler goes
+      on to tell of at least three definitions of ancillarity, crediting, among others, Basu (1959) and
+     Cox and Hinkley (1974). Buehler gives eight properties of ancillary statistics, and lists 25
+       examples.
+        However, it is worth the effort to understand the difficult topic of ancillarity, as it can
+       play an important role in inference. Brown (1990) shows how ancillarity affects inference
+        in regression, and Reid (1995) reviews the role of ancillarity (and other conditioning) in
+        inference. The review article of Lehmann and Scholz (1992) provides a good entry to the
+        topic.
+ 6.6.3 More on Sufficiency
+        Sufficiency and Likelihood
+      There is a striking similarity between the statement of Theorem 6.2.13 and the Likelihood
+        Principle. Both relate to the ratio L(θ|x)/L(θ|y), one to describe a minimal sufficient statis-          tic, and the other to describe the Likelihood Principle. In fact, these theorems can be com-
+       bined, with a bit of care, into the fact that a statistic T(x) is a minimal sufficient statistic if,
+      and only if, it is a one-to-one function of L(θ|x) (where two sample points that satisfy (6.3.1)       are said to have the same likelihood function). Example 6.3.3 and Exercise 6.9 illustrate this
+        point.
+        Sufficiency and Necessity
+     We may ask, “If there are sufficient statistics, why aren’t there necessary statistics?” In fact,
+        there are. According to Dynkin (1951), we have the following definition.
+       Definition 6.6.3 A statistic is said to be necessary if it can be written as a function of every
+        sufficient statistic.
+      Comparing the definition of a necessary statistic and the definition of a minimal sufficient
+         statistic, it should come as no surprise that we have the following theorem.

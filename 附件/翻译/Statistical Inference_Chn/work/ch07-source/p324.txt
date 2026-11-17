@@ -1,0 +1,41 @@
+EXERCISES                                                                  293
+
+       (c) Ross (1996) suggests that Rao-Blackwellization can improve the estimate in part (b). Show that for
+         any j
+                                                  1     m
+                          E[h(θ∗j )|θ1,θ2,...,θm] = ∑mi=1        i=1∑ h(θi)L(θi|x)                                                            L(θi|x)
+         has the same mean and smaller variance than the estimator in part (b).
+7.33 In Example 7.3.5, the MSE of the Bayes estimator, ˆpB, of a success probability was calculated (the
+      estimator was derived in Example 7.2.14). Show that the choice α = β =  n/4 yields a constant MSE
+      for ˆpB.
+7.34 Let X1,...,Xn be a random sample from a binomial(n, p). We want to find equivariant point estimators
+      of p using the group described in Example 6.4.1.
+       (a) Find the class of estimators that are equivariant with respect to this group.
+      (b) Within the class of Bayes estimators of Example 7.2.14, find the estimators that are equivariant with
+          respect to this group.
+       (c) From the equivariant Bayes estimators of part (b), find the one with the smallest MSE.
+7.35 The Pitman Estimator of Location (see Lehmann and Casella (1998, Section 3.1) or the original paper
+     by Pitman (1939)) is given by
+                                                         i=1 f(xi −t)dt ,                                 dP(X) =                                     ∞−∞t∞ ∏n
+                                                         i=1 f(xi −t)dt                                 −∞∏n
+     where we observe a random sample X1,...,Xn from f(x −θ). Pitman showed that this estimator is the      location-equivariant estimator with smallest mean squared error (that is, it minimizes (7.3.3)). The goals
+      of this exercise are more modest.
+       (a) Show that dP(X) is invariant with respect to the location group of Example 7.3.6.
+      (b) Show that if f(x−θ) is n(θ,1), then dP(X) =1 ¯X.              1                           + 2), then dP(X) = 2(X(1) +X(n)).       (c) Show that if f(x−θ) is uniform(θ −12,θ
+7.36 The Pitman Estimator of Scale is given by
+
+                                                   0                                    ∞ tn+r−1 ∏ni=1 f(txi)dt                                    drP(X) =  ∞                                ,                                                   0 tn+2r−1 ∏ni=1 f(txi)dt
+     where we observe a random sample X1,...,Xn from σ1 f(x/σ). Pitman showed that this estimator is the
+      scale-equivariant estimator of σr with smallest scaled mean squared error (that is, it minimizes E(d −     σr)2/σ2r).
+       (a) Show that drP(X) is equivariant with respect to the scale group, that is, it satisfies
+                                      drP(cx1,...,cxn) = crdrP(x1,...,xn),
+
+           for any constant c > 0.
+      (b) Find the Pitman scale-equivariant estimator for σ2 if X1,...,Xn are iid n(0,σ2).
+       (c) Find the Pitman scale-equivariant estimator for β if X1,...,Xn are iid exponential(β).
+      (d) Find the Pitman scale-equivariant estimator for θ if X1,...,Xn are iid uniform(0,θ).
+7.37 Let X1,...,Xn be a random sample from a population with pdf
+
+                                      1
+                                   f(x|θ) = 2θ ,  −θ < x < θ,  θ > 0.
+      Find, if one exists, a best unbiased estimator of θ.

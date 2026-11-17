@@ -1,0 +1,189 @@
+\subsection{不等式与恒等式}\label{sec:3.6}
+统计理论中确实充满了不等式与恒等式，多到有整本著作专门讨论这个主题. \hyperref[bib:source214]{Marshall和Olkin（1979）}的重要著作包含许多使用主序（majorization）概念的不等式. 较早的\hyperref[bib:source158]{Hardy、Littlewood和Polya（1952）}的著作则是经典不等式的汇编. 本节及\autoref{sec:4.7}将混合讨论一些新旧结果，让读者了解这些结果的类型. 本节专门讨论源于概率问题的恒等式与不等式，而\autoref{sec:4.7}中的结果更多依赖数与函数的基本性质.
+
+\subsubsection{概率不等式}\label{sec:3.6.1}
+最著名且可能最有用的概率不等式是Chebyshev不等式. 它的用处来自广泛的适用性. 与许多重要结果一样，它的证明几乎是平凡的.
+
+\begin{theorem}[Chebyshev不等式]\label{thm:3.6.1}\index{SI0565@切比雪夫}
+设$X$为随机变量，$g(x)$为非负函数. 则对任意$r>0$，
+$$P(g(X)\ge r)\le\frac{Eg(X)}r.$$
+\end{theorem}
+\begin{proof}
+\begin{align*}
+Eg(X)&=\int_{-\infty}^\infty g(x)f_X(x)\,dx\\
+&\ge\int_{\{x:g(x)\ge r\}}g(x)f_X(x)\,dx\qquad(g\text{非负})\\
+&\ge r\int_{\{x:g(x)\ge r\}}f_X(x)\,dx\\
+&=rP(g(X)\ge r).\qquad(\text{定义})
+\end{align*}
+重新整理即得所需不等式.
+\end{proof}
+\sourcepageanchor{132}
+
+\begin{example}[说明Chebyshev不等式]\label{ex:3.6.2}
+Chebyshev不等式最广泛的用途涉及均值和方差. 令$g(x)=(x-\mu)^2/\sigma^2$，其中$\mu=EX$，$\sigma^2=\operatorname{Var}X$. 为方便起见，写$r=t^2$. 则
+$$P\left(\frac{(X-\mu)^2}{\sigma^2}\ge t^2\right)\le\frac1{t^2}E\frac{(X-\mu)^2}{\sigma^2}=\frac1{t^2}.$$
+作一些显然的代数运算，得到不等式
+$$P(|X-\mu|\ge t\sigma)\le\frac1{t^2}$$
+及其对应形式
+$$P(|X-\mu|<t\sigma)\ge1-\frac1{t^2},$$
+这给出了用$\sigma$表示的偏差$|X-\mu|$的通用界. 例如，取$t=2$，得到
+$$P(|X-\mu|\ge2\sigma)\le\frac1{2^2}=.25,$$
+所以，一个随机变量位于其均值的$2\sigma$范围以内的机会至少有75\%（无论$X$的分布如何）.
+\end{example}
+Chebyshev不等式虽然适用范围广，但必然是保守的. （例如见\autoref{exercise:3.46}和\hyperref[sec:3.8.2]{杂录3.8.2}.）特别地，对某些特定分布，常常可以得到更紧的界.
+
+\begin{example}[一个正态概率不等式]\label{ex:3.6.3}\index{SI0576@正态}
+若$Z$服从标准正态分布，则
+\begin{equation}\label{eq:3.6.1}
+P(|Z|\ge t)\le\sqrt{\frac2\pi}\frac{e^{-t^2/2}}t,\qquad\text{对所有 }t>0.
+\end{equation}
+将它与Chebyshev不等式比较. 当$t=2$时，Chebyshev给出$P(|Z|\ge t)\le.25$，而$\sqrt{2/\pi}e^{-2}/2=.054$，改进非常大.
+
+为证明\eqref{eq:3.6.1}，写成
+\begin{align*}
+P(Z\ge t)&=\frac1{\sqrt{2\pi}}\int_t^\infty e^{-x^2/2}\,dx\\
+&\le\frac1{\sqrt{2\pi}}\int_t^\infty\frac xt e^{-x^2/2}\,dx\qquad(\text{当 }x>t\text{ 时，}x/t>1)\\
+&=\frac1{\sqrt{2\pi}}\frac{e^{-t^2/2}}t,
+\end{align*}
+再用$P(|Z|\ge t)=2P(Z\ge t)$即可. 可用类似方法建立$P(|Z|\ge t)$的下界\mbox{（见\autoref{exercise:3.47}）.}
+\end{example}
+还有许多其他概率不等式，几乎所有这些不等式的思想都与Chebyshev不等式相似. 例如，将看到（\autoref{exercise:3.45}）
+$$P(X\ge a)\le e^{-at}M_X(t),$$
+但这个不等式当然要求矩母函数存在.\footnote{译注：这一上尾界取$t>0$；该条件在\autoref{exercise:3.45}中明确给出.} 还有一些比Chebyshev不等式更紧、但需要更多假设的不等式（详见\hyperref[sec:3.8.2]{杂录3.8.2}）.
+\sourcepageanchor{133}
+
+\subsubsection{恒等式}\label{sec:3.6.2}
+本节介绍若干恒等式，它们不仅有助于建立定理，也可简化数值计算. 有一整类恒等式可视为“递推关系”，其中一些我们已见过. 回顾，若$X$服从Poisson$(\lambda)$，则
+\begin{equation}\label{eq:3.6.2}\index{SI0375@递推关系}
+P(X=x+1)=\frac\lambda{x+1}P(X=x),
+\end{equation}
+于是可以从$P(X=0)=e^{-\lambda}$出发，递推计算Poisson概率. 几乎所有离散分布都有类似\eqref{eq:3.6.2}的关系（见\autoref{exercise:3.48}）. 有时，对连续分布也存在形式略有不同的关系.
+
+\begin{theorem}\label{thm:3.6.4}\index{SI0310@递推关系}
+设$X_{\alpha,\beta}$为Gamma$(\alpha,\beta)$随机变量，pdf为$f(x\mid\alpha,\beta)$，其中$\alpha>1$. 则对任意常数$a$和$b$，
+\begin{equation}\label{eq:3.6.3}
+P(a<X_{\alpha,\beta}<b)=\beta\bigl(f(a\mid\alpha,\beta)-f(b\mid\alpha,\beta)\bigr)+P(a<X_{\alpha-1,\beta}<b).
+\end{equation}
+\end{theorem}
+\begin{proof}
+由定义，
+\begin{align*}
+P(a<X_{\alpha,\beta}<b)&=\frac1{\Gamma(\alpha)\beta^\alpha}\int_a^b x^{\alpha-1}e^{-x/\beta}\,dx\\
+&=\frac1{\Gamma(\alpha)\beta^\alpha}\left[\left.-x^{\alpha-1}\beta e^{-x/\beta}\right|_a^b+\int_a^b(\alpha-1)x^{\alpha-2}\beta e^{-x/\beta}\,dx\right],
+\end{align*}
+这里作了分部积分，其中$u=x^{\alpha-1}$，$dv=e^{-x/\beta}\,dx$. 继续计算，得到
+$$P(a<X_{\alpha,\beta}<b)=\beta\bigl(f(a\mid\alpha,\beta)-f(b\mid\alpha,\beta)\bigr)+\frac{\alpha-1}{\Gamma(\alpha)\beta^{\alpha-1}}\int_a^b x^{\alpha-2}e^{-x/\beta}\,dx.$$
+利用$\Gamma(\alpha)=(\alpha-1)\Gamma(\alpha-1)$，可见最后一项为$P(a<X_{\alpha-1,\beta}<b)$.
+\end{proof}
+若$\alpha$为整数，反复使用\eqref{eq:3.6.3}，最终会得到可以解析计算的积分（当$\alpha=1$时，即指数分布）. 因而可以方便地计算这些Gamma概率.
+
+有一整类恒等式依赖于分部积分. 其中第一个归功于Charles Stein，他在研究多元正态均值的估计时使用了这一恒等式（\hyperref[bib:source303]{Stein 1973}、\hyperref[bib:source304]{1981}）.
+
+\begin{lemma}[Stein引理]\label{lem:3.6.5}\index{SI0541@分部积分}\index{SI0984@Stein引理}
+设$X\sim\operatorname n(\theta,\sigma^2)$，$g$为满足$E|g'(X)|<\infty$的可微函数. 则
+$$E[g(X)(X-\theta)]=\sigma^2Eg'(X).$$
+\end{lemma}
+\begin{proof}
+左边为
+$$E[g(X)(X-\theta)]=\frac1{\sqrt{2\pi}\sigma}\int_{-\infty}^\infty g(x)(x-\theta)e^{-(x-\theta)^2/(2\sigma^2)}\,dx.$$
+令$u=g(x)$、$dv=(x-\theta)e^{-(x-\theta)^2/(2\sigma^2)}\,dx$，分部积分得到
+$$E[g(X)(X-\theta)]=\frac1{\sqrt{2\pi}\sigma}\left[\left.-\sigma^2g(x)e^{-(x-\theta)^2/(2\sigma^2)}\right|_{-\infty}^\infty+\sigma^2\int_{-\infty}^\infty g'(x)e^{-(x-\theta)^2/(2\sigma^2)}\,dx\right].$$
+对$g'$的条件足以保证第一项为0，右边剩下的就是$\sigma^2Eg'(X)$.
+\end{proof}
+\sourcepageanchor{134}
+
+\begin{example}[高阶正态矩]\label{ex:3.6.6}
+Stein引理使高阶矩的计算十分容易. 例如，若$X\sim\operatorname n(\theta,\sigma^2)$，则
+\begin{align*}
+EX^3&=EX^2(X-\theta+\theta)\\
+&=EX^2(X-\theta)+\theta EX^2\\
+&=2\sigma^2EX+\theta EX^2\qquad(g(x)=x^2,\ g'(x)=2x)\\
+&=2\sigma^2\theta+\theta(\sigma^2+\theta^2)\\
+&=3\theta\sigma^2+\theta^3.
+\end{align*}
+\end{example}
+许多分布都有类似的分部积分恒等式（见\autoref{exercise:3.49}及\hyperref[bib:source172]{Hudson（1978）}）. 也可以利用特定分布的性质得到有用的恒等式，如下一个定理所示.
+
+\begin{theorem}\label{thm:3.6.7}\index{SI0532@卡方}
+设$\chi_p^2$表示具有$p$个自由度的卡方随机变量. 对任意函数$h(x)$，只要期望存在，就有
+\begin{equation}\label{eq:3.6.4}
+Eh(\chi_p^2)=pE\left(\frac{h(\chi_{p+2}^2)}{\chi_{p+2}^2}\right).
+\end{equation}
+\end{theorem}
+\begin{proof}
+“只要期望存在”这个说法，是避免详细列出$h$所需条件的一种省事做法. 一般而言，合理的函数都会满足\eqref{eq:3.6.4}. 我们有
+\begin{align*}
+Eh(\chi_p^2)&=\frac1{\Gamma(p/2)2^{p/2}}\int_0^\infty h(x)x^{(p/2)-1}e^{-x/2}\,dx\\
+&=\frac1{\Gamma(p/2)2^{p/2}}\int_0^\infty\left(\frac{h(x)}x\right)x^{((p+2)/2)-1}e^{-x/2}\,dx,
+\end{align*}
+这里把被积函数乘以$x/x$. 现在写成
+$$\Gamma\left(\frac p2\right)2^{p/2}=\frac{\Gamma((p+2)/2)2^{(p+2)/2}}p,$$
+所以
+\begin{align*}
+Eh(\chi_p^2)&=\frac p{\Gamma((p+2)/2)2^{(p+2)/2}}\int_0^\infty\left(\frac{h(x)}x\right)x^{((p+2)/2)-1}e^{-x/2}\,dx\\
+&=pE\left(\frac{h(\chi_{p+2}^2)}{\chi_{p+2}^2}\right).
+\end{align*}
+\end{proof}
+利用\eqref{eq:3.6.4}，一些矩的计算非常容易. 例如，$\chi_p^2$的均值为
+$$E\chi_p^2=pE\left(\frac{\chi_{p+2}^2}{\chi_{p+2}^2}\right)=pE(1)=p,$$
+二阶矩为
+\begin{align*}
+E(\chi_p^2)^2&=pE\left(\frac{(\chi_{p+2}^2)^2}{\chi_{p+2}^2}\right)=pE(\chi_{p+2}^2)\\
+&=p(p+2).
+\end{align*}
+所以$\operatorname{Var}\chi_p^2=p(p+2)-p^2=2p$.
+
+最后，用前述恒等式的几个离散对应结果结束本节. \autoref{thm:3.6.8}中两个恒等式的一般版本归功于\hyperref[bib:source174]{Hwang（1982）}.
+\sourcepageanchor{135}
+
+\begin{theorem}[Hwang]\label{thm:3.6.8}\index{SI0473@Hwang引理}
+设函数$g(x)$满足$-\infty<Eg(X)<\infty$且$-\infty<g(-1)<\infty$. 则
+\begin{enumerate}[label=\alph*.]
+\item\phantomsection\label{itm:thm:3.6.8:a} 若$X\sim\operatorname{Poisson}(\lambda)$，
+\begin{equation}\label{eq:3.6.5}\index{SI0544@泊松}
+E(\lambda g(X))=E(Xg(X-1)).
+\end{equation}
+\item\phantomsection\label{itm:thm:3.6.8:b} 若$X\sim\text{负二项}(r,p)$，\footnote{译注：当$r=1$且$X=0$时，\eqref{eq:3.6.6}右边分式为$0/0$，而该事件有正概率. 为使恒等式包括几何分布这一情形，应将该点的整个求和项约定为0；或者把此式先限制于$r>1$. 原文未注明这一边界约定.}
+\begin{equation}\label{eq:3.6.6}\index{SI0543@负二项}
+E((1-p)g(X))=E\left(\frac X{r+X-1}g(X-1)\right).
+\end{equation}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+这里只证明\hyperref[itm:thm:3.6.8:a]{(a)}，把\hyperref[itm:thm:3.6.8:b]{(b)}留给\autoref{exercise:3.50}. 有
+\begin{align*}
+E(\lambda g(X))&=\sum_{x=0}^\infty\lambda g(x)\frac{e^{-\lambda}\lambda^x}{x!}\\
+&=\sum_{x=0}^\infty g(x)\frac{e^{-\lambda}\lambda^{x+1}}{x!}\frac{x+1}{x+1}\\
+&=\sum_{x=0}^\infty(x+1)g(x)\frac{e^{-\lambda}\lambda^{x+1}}{(x+1)!}.
+\end{align*}
+现在变换求和指标，令$y=x+1$. 当$x$从0变到$\infty$时，$y$从1变到$\infty$. 因此，
+\begin{align*}
+E(\lambda g(X))&=\sum_{y=1}^\infty yg(y-1)\frac{e^{-\lambda}\lambda^y}{y!}\\
+&=\sum_{y=0}^\infty yg(y-1)\frac{e^{-\lambda}\lambda^y}{y!}\qquad(\text{增加的项为0})\\
+&=E(Xg(X-1)),
+\end{align*}
+因为最后这个和是一个Poisson$(\lambda)$期望.
+\end{proof}
+\hyperref[bib:source174]{Hwang（1982）}以类似Stein的方式使用这个恒等式，证明了有关多元估计量的结果. 这个恒等式还有其他用途，特别是在矩的计算方面.
+
+\begin{example}[高阶Poisson矩]\label{ex:3.6.9}
+对$X\sim\operatorname{Poisson}(\lambda)$，取$g(x)=x^2$，利用\eqref{eq:3.6.5}：
+\begin{align*}
+E(\lambda X^2)&=E(X(X-1)^2)\\
+&=E(X^3-2X^2+X).
+\end{align*}
+因此，Poisson$(\lambda)$的三阶矩为
+\begin{align*}
+EX^3&=\lambda EX^2+2EX^2-EX\\
+&=\lambda(\lambda+\lambda^2)+2(\lambda+\lambda^2)-\lambda\\
+&=\lambda^3+3\lambda^2+\lambda.
+\end{align*}
+对于负二项分布，在\eqref{eq:3.6.6}中取$g(x)=r+x$，就可计算均值：
+$$E((1-p)(r+X))=E\left(\frac X{r+X-1}(r+X-1)\right)=EX,$$
+所以整理得到
+$$(EX)((1-p)-1)=-r(1-p),$$
+即
+$$EX=\frac{r(1-p)}p.$$
+其他矩可类似计算.
+\end{example}

@@ -1,0 +1,45 @@
+CONTINUOUS DISTRIBUTIONS                                                 81
+3.3  Continuous Distributions
+In this section we will discuss some of the more common families of continuous distributions, those
+with well-known names. The distributions mentioned here by no means constitute all of the distri-
+butions used in statistics. Indeed, as was seen in Section 1.6, any nonnegative, integrable function
+can be transformed into a pdf.
+
+Uniform Distribution
+
+The continuous uniform distribution is defined by spreading mass uniformly over an interval [a,b].
+Its pdf is given by
+                                       1                                                                       if x                     =             ∈[a,b],                            (3.3.1)                                f(x|a,b)   b−a0     otherwise.
+It is easy to check that  ab f(x)dx = 1. We also have
+                                              b  x     b+a
+                    EX =          dx =
+                                             a b−a     2  2                                              b                     VarX =     x−b+a2   dx = (b−a)2 .
+                                             a                            b−a          12
+Gamma Distribution
+The gamma family of distributions is a flexible family of distributions on [0,∞), and can be derived
+by the construction discussed in Section 1.6. If α is a positive constant, the integral
+                                  ∞
+                                          tα−1e−t dt
+                                               0
+is finite. If α is a positive integer, the integral can be expressed in closed form, otherwise it cannot.
+In either case its value defines the gamma function,
+                                     ∞
+                             Γ(α) =    tα−1e−t dt.                                 (3.3.2)
+                                                   0
+   The gamma function satisfies many useful relationships, in particular
+
+                          Γ(α +1) = αΓ(α),  α > 0,                              (3.3.3)
+
+which can be verified through integration by parts. Combining (3.3.3) with the easily verified fact
+that Γ(1) = 1, we have for any integer n > 0,
+                                   Γ(n) = (n−1)!.                                    (3.3.4)
+                                     = √π.)(Another useful special case, which will be seen in (3.3.15), is that Γ( 12)
+   Expressions (3.3.3) and (3.3.4) give recursion relations that ease the problems of calculating
+values of the gamma function. The recursion relation allows us to calculate any value of the gamma
+function from knowing only the values of Γ(c), 0 < c ≤1.   Since the integrand in (3.3.2) is positive, it immediately follows that
+                                       tα−1e−t                                     f(t) =             ,  0 < t < ∞                              (3.3.5)
+                                 Γ(α)
+is a pdf. The full gamma family, however, has two parameters, and can be derived by changing
+variables to get the pdf of the random variable X = βT in (3.3.5), where β is a positive constant.
+Upon doing this, we get the gamma(α,β) family,
+                           1              =        xα−1e−x/β,  0 < x < ∞,  α > 0,  β > 0.           (3.3.6)                               α               f(x|α,β)   Γ(α)β

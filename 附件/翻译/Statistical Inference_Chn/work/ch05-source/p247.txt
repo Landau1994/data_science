@@ -1,0 +1,47 @@
+216                                    PROPERTIES OF A RANDOM SAMPLE
+5.58 Suppose that U1,U2,...,Un are iid uniform(0,1) random variables, and let Sn = ∑ni=1Ui. Define the
+     random variable N by
+                            N = min{k : Sk > 1}
+       (a) Show that P(Sk ≤t) = tk/k!.
+      (b) Show that P(N = n) = P(Sn−1 < 1) −P(Sn < 1) and, surprisingly, that E(N) = e, the base of the          natural logarithms.
+       (c) Use the result of part (b) to calculate the value of e by simulation.
+      (d) How large should n be so that you are 95% confident that you have the first four digits of e correct?
+      (Russell 1991, who attributes the problem to Gnedenko 1978, describes such a simulation experiment.)
+5.59 Prove that the algorithm of Example 5.6.7 generates a beta(a,b) random variable.
+5.60 Generalize the algorithm of Example 5.6.7 to apply to any continuous pdf on [0,1], that is, for an ar-
+      bitrary bounded pdf f(x) on [a,b], define c = maxa≤x≤b f(x). Let X and Y be independent, with X ∼
+     uniform(a,b) and Y ∼uniform(0,c). Let d be a number greater than b, and define a new random variable
+                                  X    if Y < f(X)
+                     W =                             .
+                                         d   if Y ≥f(X)
+       (a) Show that P(W ≤w)    w                =  a f(t)dt/[c(b−a)], for a ≤w ≤b.
+      (b) Using part (a), explain how a random variable with pdf f(x) can be generated. (Hint:  Use a geo-
+          metric argument; a picture will help.)
+5.61  (a) Suppose it is desired to generate Y ∼beta(a,b), where a and b are not integers. Show that using
+       V ∼beta([a],[b]) will result in a finite value of M = supy fY (y)/ fV (y) .
+      (b) Suppose it is desired to generate Y ∼gamma(a,b), where a and b are not integers. Show that using
+       V ∼gamma([a],b) will result in a finite value of M = supy fY (y)/fV (y) .
+       (c) Show that, in each of parts (a) and (b), if V had parameter [a]+1 then M would be infinite.
+      (d) In each of parts (a) and (b) find optimal values for the parameters of V in the sense of minimizing
+        E(N) (see (5.6.12)).
+      (Recall that [a] = greatest integer ≤a.)
+5.62 Find the values of M so that an accept/reject algorithm can generate Y ∼n(0,1) using U ∼uniform(0,1)     and
+       (a) V ∼Cauchy.
+      (b) V ∼Double Exponential.
+       (c) Compare the algorithms. Which one do you recommend?
+5.63 For generating Y ∼n(0,1) using an accept/reject algorithm, we could generate U ∼uniform, V ∼
+      exponential(λ), and attach a random sign to V (± each with equal probability). What value of λ will      optimize this algorithm?
+5.64 A technique similar to Accept-Reject is importance sampling, which is quite useful for calculating
+      features of a distribution. Suppose that X ∼f, but the pdf 1 f  is difficultf(Yi)    to simulate from. Generate      Y1,Y2,...,Y m, iid from g, and, for any function h, calculate m ∑mi=1 g(Yi) h(Yi). We assume that the sup-
+      ports of f and g are the same, and Varh(X) < ∞.
+
+                      = Eh(X).       (a) Show that E m1 ∑mi=1 g(Yi)f(Yi) h(Yi)
+      (b) Show that m1 ∑mi=1 g(Yi)f(Yi) h(Yi) →Eh(X) in probability.
+       (c) Although the estimator of part (a) has the correct expectation, in practice the estimator
+
+                               m       f(Yi)/g(Yi)
+                 ∑                       h(Yi)                                           i=1  ∑mj=1 f(Yj)/g(Yj)
+
+            is preferred. Show that this estimator converges in probability to Eh(X). Moreover, show that if h is
+          constant, this estimator is superior to the one in part (a). (Casella and Robert 1996 further explore
+          the properties of this estimator.)

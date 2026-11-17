@@ -1,0 +1,33 @@
+METHODS OF FINDING ESTIMATORS                                          265
+    In general, we can move in either direction, from the complete-data problem to the incomplete
+data problem, or the reverse. If Y = (Y1,Y2 ...,Yn) is the incomplete data, and X = (X1,X2 ...,Xm) is
+the augmented data, making (Y,X) the complete data, the densities g(·|θ) of Y and f(·|θ) of (Y,X)have the relationship
+                                 g(y|θ) =   f(y,x|θ)dx.                              (7.2.14)
+     If we turn these into likelihoods, L(θ|y) = g(y|θ) is the incomplete-data likelihood, and
+L(θ|y,x) = f(y,x|θ) is the complete-data likelihood. If L(θ|y) is difficult to work with, it willsometimes be the case that the complete-data likelihood will be easier to work with.
+Example 7.2.18 (Continuation of Example 7.2.17)  The incomplete-data likelihood is obtained
+from (7.2.11) by summing over x1. This gives
+
+                                                        n  e−βτi(βτi)yi     n  e−τi(τi)xi
+     L(β,τ1,τ2,...,τn|y1,(x2,y2),...,(xn,yn)) = ∏i=1      yi!   ∏i=2     xi!        ,     (7.2.15)
+
+and (y1,(x2,y2),...,(xn,yn)) is the incomplete data. This is the likelihood that we need to maximize.
+Differentiation leads to the MLE equations
+                                ∑ni=1 yi                                                 ˆβ =
+                                ∑ni=1 ˆτi
+                                 y1 =    ˆτ1 ˆβ                                             (7.2.16)
+                          x j +yj =    ˆτ j(ˆβ +1),     j = 2,3,...,n,
+which we now solve with the EM algorithm.                                           ∥
+   The EM algorithm allows us to maximize L(θ|y) by only working with L(θ|y,x) and the con-ditional pdf or pmf of X given y and θ, defined by
+           =           =       and     = f(y,x|θ) .           (7.2.17)         L(θ|y,x)   f(y,x|θ),  L(θ|y)   g(y|θ),     k(x|θ,y)                                                                g(y|θ)
+Rearrangement of the last equation in (7.2.17) gives the identity
+                         logL(θ|y) = logL(θ|y,x)−logk(x|θ,y).                     (7.2.18)
+As x is missing data, and hence not observed, we replace the right side of (7.2.18) with its expecta-
+tion under k(x|θ ′,y), creating the new identity
+                 logL(θ|y) = E logL(θ|y,X)|θ ′,y −E logk(X|θ,y)|θ ′,y  .           (7.2.19)
+  Now we start the algorithm: From an initial value θ (0) we create a sequence θ (r) according to
+
+                                                                                                                  .           (7.2.20)               θ (r+1) = the value that maximizes E logL(θ|y,X)|θ (r),y
+The “E-step” of the algorithm calculates the expected log likelihood, and the “M-step” finds its
+maximum. Before we look into why this algorithm actually converges to the MLE, let us return to
+our example.

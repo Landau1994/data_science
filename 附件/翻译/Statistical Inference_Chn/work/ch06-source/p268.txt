@@ -1,0 +1,42 @@
+THE LIKELIHOOD PRINCIPLE                                                 237
+   The Likelihood Principle specifies how the likelihood function should be used as a data reduc-
+tion device.
+LIKELIHOOD PRINCIPLE: If x and y are two sample points such that L(θ|x) is proportional to
+L(θ|y), that is, there exists a constant C(x,y) such that
+                            L(θ|x) = C(x,y)L(θ|y)   for all θ,                          (6.3.1)
+then the conclusions drawn from x and y should be identical.
+   Note that the constant C(x,y) in (6.3.1) may be different for different (x,y) pairs but C(x,y)
+does not depend on θ.
+    In the special case of C(x,y) = 1, the Likelihood Principle states that if two sample points result
+in the same likelihood function then they contain the same information about θ. But the Likelihood
+Principle goes further. It states that even if two sample points only have proportional likelihoods
+then they contain equivalent information about θ. The rationale is this: The likelihood function is
+used to compare the plausibility of various parameter values, and, if L(θ2|x) = 2L(θ1|x) then, in
+some sense, θ2 is twice as plausible as θ1. If (6.3.1) is also true then L(θ2|y) = 2L(θ1|y). Thus,whether we observe x or y we conclude that θ2 is twice as plausible as θ1.
+  We carefully used the word “plausible” rather than “probable” in the preceding paragraph be-
+cause we often think of θ as a fixed (albeit unknown) value. Furthermore, although f(x|θ), as a
+function of x, is a pdf, there is no guarantee that L(θ|x), as a function of θ, is a pdf.   One form of inference, called fiducial inference, sometimes interprets likelihoods as probabili-
+ties for θ. That is, L(θ|x) is multiplied by M(x)    ∞                         = ( −∞L(θ|x)dθ)−1 (the integral is replaced by a
+sum if the parameter space is countable) and then M(x)L(θ|x) is interpreted as a pdf for θ (provided,
+of course, that M(x) is finite!). Clearly, L(θ|x) and L(θ|y) satisfying (6.3.1) will yield the same pdfsince the constant C(x,y) will simply be absorbed into the normalizing constant. Most statisticians
+do not subscribe to the fiducial theory of inference but it has a long history, dating back to the work
+of Fisher (1930) on what was called inverse probability (an application of the probability integral
+transform). For now, we will for history’s sake compute one fiducial distribution.
+Example 6.3.3 (Normal fiducial distribution)  Let X1,...,Xn be iid n(µ,σ2), σ2 known. Using
+expression (6.2.4) for L(µ|x), we note first that (6.3.1) is satisfied if and only if x = y, in which case
+                                         n                      n
+                C(x,y) = exp  ∑ (xi      ∑ (yi                  −i=1  −x)2/(2σ2)+ i=1  −y)2/(2σ2)   .
+Thus, the Likelihood Principle states that the same conclusion about µ should be drawn for any
+two sample points satisfying x = y. To compute the fiducial pdf for µ, we see that if we define
+M(x) = nn/2 exp ∑ni=1(xi −x)2/(2σ2)  then M(x)L(µ|x) (as a function of µ) is a n(x,σ2/n) pdf.This is the fiducial distribution of µ and a fiducialist can make the following probability calculation
+regarding µ.
+   The parameter µ has a n(x,σ2/n) distribution. Hence, (µ              has a n(0,1) distribu-                                             −x)/(σ/√n)tion. Thus, we have
+                                 µ                      .95 =  P     <   −¯x < 1.96                              −1.96  σ/√n
+               =  P(−1.96σ/√n < µ −¯x < 1.96σ/√n)
+               =                           < µ < ¯x+1.96σ/√n).                          P(¯x−1.96σ/√n
+This algebra is similar to earlier calculations but the interpretation is quite different. Here x is a
+fixed, known number, the observed data value, and µ is the variable with the normal probability
+distribution.                                                                     ∥
+  We will discuss other, more common, uses of the likelihood function in later chapters when
+we discuss specific methods of inference. But now we consider an argument that shows that the
+Likelihood Principle is a necessary consequence of two other fundamental principles.

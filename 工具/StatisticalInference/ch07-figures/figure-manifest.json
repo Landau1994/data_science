@@ -1,0 +1,33 @@
+{
+  "7.63": {
+    "tex": "工具/StatisticalInference/ch07-figures/exercise-7-63.tex",
+    "pdf": "附件/习题图/DS011/习题7.63-正态先验风险比较.pdf",
+    "png": "附件/习题图/DS011/习题7.63-正态先验风险比较.png",
+    "construction": "independent-PGFPlots",
+    "sha256_png": "83aa4f0c73ab9fd4357c8556c03fcbb6843676a1e51462973735b240642cbbe1"
+  },
+  "7.65": {
+    "tex": "工具/StatisticalInference/ch07-figures/exercise-7-65.tex",
+    "pdf": "附件/习题图/DS011/习题7.65-LINEX损失曲线.pdf",
+    "png": "附件/习题图/DS011/习题7.65-LINEX损失曲线.png",
+    "construction": "independent-PGFPlots",
+    "sha256_png": "78c28b7c320944b72bcad813798f695c071e77ebcaefb4f098eaca1a0eddf272"
+  },
+  "analytic_checks": {
+    "7.63_intersections": [
+      -1.5442199922988256,
+      1.5442199922988256
+    ],
+    "7.63_at_zero": [
+      0.25,
+      0.8264462809917356
+    ],
+    "7.65_unique_minimum": 0,
+    "7.65_parameters": [
+      0.2,
+      0.5,
+      1
+    ],
+    "scope": "公式与实际渲染核对；不以绘图区间外推替代解析推导。"
+  }
+}

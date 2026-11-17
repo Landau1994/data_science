@@ -1,0 +1,39 @@
+CONVERGENCE CONCEPTS                                                   197
+We can now approximate the variance of g(T) by
+              Varθ g(T) ≈  Eθ  [g(T)−g(θ)]2                (using 5.5.8)
+                                                    k                   2
+                        Eθ  ∑i=1g′i(θ)(Ti               ≈                  −θi)          (using 5.5.7)          (5.5.9)
+                                          k
+               =             ∑ [g′i(θ)]2Varθ Ti +2∑ g′i(θ)g′j(θ)Covθ(Ti,Tj),
+                                   i=1                   i> j
+where the last equality comes from expanding the square and using the definition of variance and
+covariance (similar to Exercise 4.44). Approximation (5.5.9) is very useful because it gives us a
+variance formula for a general function, using only simple variances and covariances. Here are two
+examples.
+Example 5.5.22 (Continuation of Example 5.5.19)   Recall that we are interested in the proper-
+ties of     ˆp  as an estimate of  p  where p is a binomial success probability. In our above notation,        1−ˆp    p             1−p,1take g(p) =     so g′(p) =      and
+           1−p             (1−p)2
+                                    ˆp                        1      2              p            Var                                  ˆp) =          p(1−p) =               ,                         ≈[g′(p)]2Var(                  n               1−ˆp                  (1−p)2            n(1−p)3
+giving us an approximation for the variance of our estimator.                              ∥
+Example 5.5.23 (Approximate mean and variance)  Suppose X is a random variable with EµX =
+µ̸ = 0. If we want to estimate a function g(µ), a first-order approximation would give us
+                            g(X) = g(µ)+g′(µ)(X −µ).
+If we use g(X) as an estimator of g(µ), we can say that approximately
+                           Eµg(X) ≈  g(µ),                             Varµ g(X)       [g′(µ)]2Varµ X.                        ≈
+For a specific example, take g(µ) = 1/µ. We estimate 1/µ with 1/X, and we can say
+                                1        1
+                          Eµ                       ,                          X   ≈  µ
+                                1          1   4
+                             Varµ                 VarµX.                          X   ≈   µ
+                                                                              ∥
+   Using these Taylor series approximations for the mean and variance, we get the following useful
+generalization of the Central Limit Theorem, known as the Delta Method.
+Theorem 5.5.24 (Delta Method)  Let Yn be a sequence of random variables that satisfies √n(Yn                                                  −
+θ) →n(0,σ2) in distribution. For a given function g and a specific value of θ, suppose that g′(θ)exists and is not zero. Then
+
+                                                               in distribution.               (5.5.10)                   √n[g(Yn)−g(θ)] →n(0,σ2[g′(θ)]2)
+Proof: The Taylor expansion of g(Yn) around Yn = θ is
+                         g(Yn) = g(θ)+g′(θ)(Yn −θ)+ Remainder                    (5.5.11)
+where the remainder →0 as Yn →θ. Since Yn →θ in probability it follows that the remainder →0in probability. By applying Slutsky’s Theorem (Theorem 5.5.17) to
+                         = g′(θ)√n(Yn                         √n[g(Yn)−g(θ)]                                       −θ)
+the result now follows. See Exercise 5.43 for details.                        2

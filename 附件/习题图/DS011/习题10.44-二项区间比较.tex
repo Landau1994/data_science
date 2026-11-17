@@ -1,0 +1,26 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,pgfplots}
+\setCJKmainfont{SimSun}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+\begin{document}\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 2,horizontal sep=2cm,vertical sep=1.8cm},width=8.5cm,height=6cm,xlabel={$p$},xmin=0,xmax=1,unbounded coords=jump,title style={font=\small},legend style={font=\scriptsize,at={(.5,.02)},anchor=south},scaled y ticks=false,yticklabel style={/pgf/number format/fixed,/pgf/number format/precision=2}]
+\nextgroupplot[title={95\%名义；$n=12$},ylabel={覆盖概率},ymin=.8,ymax=1.005]
+\addplot[black,solid] table[x=p,y=coverage] {10.44-12-Wilson.dat};\addlegendentry{Wilson}
+\addplot[black,dashed] table[x=p,y=coverage] {10.44-12-CC.dat};\addlegendentry{连续性校正score}
+\addplot[gray,thick,dotted] table[x=p,y=coverage] {10.44-12-AC.dat};\addlegendentry{加二成功二失败}
+\addplot[black,thin,domain=0:1] {.95};
+\nextgroupplot[title={95\%名义；$n=12$},ylabel={期望长度},ymin=0]
+\addplot[black,solid] table[x=p,y=length] {10.44-12-Wilson.dat};\addlegendentry{Wilson}
+\addplot[black,dashed] table[x=p,y=length] {10.44-12-CC.dat};\addlegendentry{连续性校正score}
+\addplot[gray,thick,dotted] table[x=p,y=length] {10.44-12-AC.dat};\addlegendentry{加二成功二失败}
+\nextgroupplot[title={95\%名义；$n=100$},ylabel={覆盖概率},ymin=.8,ymax=1.005]
+\addplot[black,solid] table[x=p,y=coverage] {10.44-100-Wilson.dat};\addlegendentry{Wilson}
+\addplot[black,dashed] table[x=p,y=coverage] {10.44-100-CC.dat};\addlegendentry{连续性校正score}
+\addplot[gray,thick,dotted] table[x=p,y=coverage] {10.44-100-AC.dat};\addlegendentry{加二成功二失败}
+\addplot[black,thin,domain=0:1] {.95};
+\nextgroupplot[title={95\%名义；$n=100$},ylabel={期望长度},ymin=0]
+\addplot[black,solid] table[x=p,y=length] {10.44-100-Wilson.dat};\addlegendentry{Wilson}
+\addplot[black,dashed] table[x=p,y=length] {10.44-100-CC.dat};\addlegendentry{连续性校正score}
+\addplot[gray,thick,dotted] table[x=p,y=length] {10.44-100-AC.dat};\addlegendentry{加二成功二失败}
+\end{groupplot}\end{tikzpicture}\end{document}

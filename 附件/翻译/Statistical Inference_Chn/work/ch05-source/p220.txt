@@ -1,0 +1,56 @@
+CONVERGENCE CONCEPTS                                                   189
+
+                      v
+
+
+
+                  a
+
+
+                                                                            r
+                                                          v = a –
+                                                           2
+
+
+
+                   a/2
+
+
+                                                                           r
+                                                             v =
+                                                          2
+
+
+                                                                                                         r
+                0                                                        a
+
+                      Figure 5.4.1 Region on which fR,V (r,v) > 0 for Example 5.4.7
+
+
+5.5.1  Convergence in Probability
+
+This type of convergence is one of the weaker types and, hence, is usually quite easy to verify.
+Definition 5.5.1 A sequence of random variables, X1,X2,..., converges in probability to a random
+variable X if, for every ε > 0,
+           n→∞P(|Xnlim    −X| ≥ε) = 0,   or, equivalently,  n→∞P(|Xnlim    −X| < ε) = 1.
+
+
+   The X1,X2,... in Definition 5.5.1 (and the other definitions in this section) are typically not
+independent and identically distributed random variables, as in a random sample. The distribution
+of Xn changes as the subscript changes, and the convergence concepts discussed in this section
+describe different ways in which the distribution of Xn converges to some limiting distribution as
+the subscript becomes large.
+    Frequently, statisticians are concerned with situations in which the limiting random variable is
+a constant and the random variables in the sequence are sample means (of some sort). The most
+famous result of this type is the following.
+Theorem 5.5.2 (Weak Law of Large Numbers)   Let X1,X2,... be iid random variables with
+EXi = µ and VarXi = σ2 < ∞. Define ¯Xn = (1/n)∑ni=1 Xi. Then, for every ε > 0,
+
+                           < ε) = 1,                             n→∞P(|lim     ¯Xn −µ|
+that is, ¯Xn converges in probability to µ.
+Proof: The proof is quite simple, being a straightforward application of Chebychev’s Inequality.
+We have, for every ε > 0,
+
+                                                                         ¯Xn         Var ¯X   σ2                      ¯Xn      = P((¯Xn               −µ)2 =    =       .              P(|  −µ| ≥ε)      −µ)2 ≥ε2) ≤E(  ε2         ε2     nε2
+
+                                                    2Hence, P(|¯Xn −µ|          < ε) = 1−P(|¯Xn −µ| ≥ε) ≥1−σ2/(nε2) →1, as n →∞.

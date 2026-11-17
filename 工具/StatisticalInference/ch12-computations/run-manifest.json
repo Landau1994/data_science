@@ -1,0 +1,24 @@
+{
+  "created": "2026-11-13",
+  "recorded_at_utc": "2026-11-13T07:12:25.268875+00:00",
+  "command": "python -X utf8 calc_ch12.py",
+  "python": "3.10.6 (tags/v3.10.6:9c7b4bd, Aug  1 2022, 21:53:49) [MSC v.1932 64 bit (AMD64)]",
+  "numpy": "1.26.2",
+  "scipy": "1.11.4",
+  "seed": 20261113,
+  "B": 2000,
+  "files": {
+    "calc_ch12.py": {
+      "bytes": 7399,
+      "sha256": "a360b60d14097015a68711b00151be2379831c90e441d5c6c9de435aa9058991"
+    },
+    "ch12-computations.json": {
+      "bytes": 8974,
+      "sha256": "6b7de2ecb05b71b0374c4aed13ff830a9e20e78c6d34680bb08dcf5b81d92e91"
+    },
+    "ch12-bootstrap-replicates.csv": {
+      "bytes": 1010582,
+      "sha256": "e3626da4cd729482f3b5716cedbfd8e7912cc41cee6df9915fc5f1696567235b"
+    }
+  }
+}

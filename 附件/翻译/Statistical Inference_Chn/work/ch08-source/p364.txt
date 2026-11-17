@@ -1,0 +1,49 @@
+EXERCISES                                                                  333
+
+       (a) Show that
+                                                S2X    S2Y
+                                          n + m                                                            2       2           ,     (approximately)                                  σ X   σY ∼χ2νν
+                                          n + m
+        where ν can be estimated with
+                                                                   S2X    S2Y   2
+                                                          n + m
+                                                                                                     .                                                                       ˆν =
+                                                       S 4X         S Y4
+                              +
+                                                     n2(n−1)   m2(m−1)
+      (b) Argue that the distribution of T ′ can be approximated by a t distribution with ˆν degrees of freedom.
+       (c) Re-examine the data from Exercise 8.41 using the approximate t test of this exercise, that is, test if
+          the mean age of the core is the same as the mean age of the periphery using the T ′ statistic.
+      (d)  Is there any statistical evidence that the variance of the data from the core may be different from the
+          variance of the data from the periphery? (Recall Example 5.4.1.)
+8.43 Sprott and Farewell (1993) note that in the two sample t-test, a valid t-statistic can be derived as long
+      as the ratio of variances is known. Let X1,X2,...Xn1 be a sample from a N(µ1,σ2) and Y1,Y2,...Yn2 a
+     sample from a n(µ2,ρ2σ2), where ρ2 is known. Show that
+                                                (¯X −¯Y)−(µ1 −µ2)
+                                          1                                                                                           Y /rho2                                               ρ2    n1(n1−1)s2X+n2(n2−1)s2                      +
+                                                n1    n2           n1+n2−2
+                                                                                                n2s2Y
+      has Student’s t distribution with n1 + n2 −2 degrees of freedom and ρ2n1s2X has an F distribution with
+      n1 −1 and n2 −1 degrees of freedom.
+        Sprott and Farewell also note that the t-statistic is maximized at ρ2 = n1 √n1−1s2X , and they suggest                                                                                                  n2         Y                                                                               √n2−1s2
+      plotting the statistic for plausible values of ρ2, possibly those in a confidence interval.
+8.44 Verify that Test 3 in Example 8.3.20 is an unbiased level-α test.
+8.45 Let X1,...,Xn be a random sample from a n(θ,σ2) population. Consider testing
+                           H0 : θ ≤θ0     versus    H1 : θ > θ0.
+      Let Xm denote the sample mean of the first m observations, X1,...,Xm, for m = 1,...,n. If σ2 is known,
+     show that for each m = 1,···,n, the test that rejects H0 when
+                             Xm > θ0 +zα  σ2/m
+
+       is an unbiased size α test. Graph the power function for each of these tests if n = 4.
+8.46 Let X1,...,Xn be a random sample from a n(θ,σ2) population. Consider testing
+                     H0 : θ1 ≤θ ≤θ2     versus    H1 : θ < θ1 or θ > θ2.
+       (a) Show that the test,
+
+                         reject H0 if X > θ2 +tn−1,α/2  S2/n  or  X < θ1 −tn−1,α/2  S2/n,
+            is not a size α test.
+      (b) Show that, for an appropriately chosen constant k, a size α test is given by
+
+                                              reject H0 if |X −θ| > k  S2/n,
+        where θ = (θ1 +θ2)/2.
+       (c) Show that the tests in parts (a) and (b) are unbiased of their size. (Assume that the noncentral t
+           distribution has an MLR.)

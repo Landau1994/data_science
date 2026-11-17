@@ -1,0 +1,45 @@
+METHODS OF FINDING ESTIMATORS                                          255
+which gives us a constraint on the ais but gives us no information on how to estimate ν. To do this
+we must match second moments, and we need
+
+                                                2             2                                            k                                          χ2ν      2                     E                       = E     =  +1.              ∑ aiYi                                     i=1           ν      ν
+   Applying the method of moments, we drop the first expectation and solve for ν, yielding
+                                         2
+                                                            ˆν =
+                                     (∑ki=1 aiYi)2                                     −1.
+   Thus, straightforward application of the method of moments yields an estimator of ν, but one
+that can be negative. We might suppose that Satterthwaite was aghast at this possibility, for this is
+not the estimator he proposed. Working much harder, he customized the method of moments in the
+following way. Write
+
+                                       2                                    2
+                E       =  Var     +                      ∑aiYi           ∑aiYi    E∑aiYi
+                                                           2  Var(∑aiYi)                    =                +1                                 E∑aiYi                                                  (E∑aiYi)2
+                                         Var(∑aiYi)                    =         +1  .                  (E ΣaiYi = 1)
+                                       (E∑aiYi)2
+
+Now equate second moments to obtain
+                                       2(E∑aiYi)2                               ν =                   .
+                                         Var(∑aiYi)
+Finally, use the fact that Y1, ..., Yk are independent chi squared random variables to write
+
+                         =                            Var                             ∑aiYi                               ∑a2i VarYi
+                                                    a2i (EYi)2                         =                                                                                               .          (VarYi = 2(EYi)2/ri)                         2∑                                                                                 ri
+
+Substituting this expression for the variance, and removing the expectations, we obtain Satterth-
+waite’s estimator
+                                            (∑aiYi)2                                                                 ˆν =              .
+                                                            a2i   2                           ∑ ri Yi
+   This approximation is quite good, and is still widely used today. Notice that Satterthwaite suc-
+ceeded in obtaining an estimator that is always positive, thus alleviating the obvious problems with
+the straightforward method of moments estimator.                                      ∥
+
+7.2.2  Maximum Likelihood Estimators
+
+The method of maximum likelihood is, by far, the most popular technique for deriving estimators.
+Recall that if X1, ..., Xn are an iid sample from a population with pdf or pmf f(x|θ1,...,θk), thelikelihood function is defined by
+
+                                                                n
+                                                              i=1                                                                f(xi|θ1,...,θk).                  L(θ|x) = L(θ1,...,θk|x1,...,xn) = ∏                                   (7.2.3)
+Definition 7.2.4  For each sample point x, let ˆθ(x) be a parameter value at which L(θ|x) attainsits maximum as a function of θ, with x held fixed. A maximum likelihood estimator (MLE) of the
+parameter θ based on a sample X is ˆθ(X).

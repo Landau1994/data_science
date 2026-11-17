@@ -1,0 +1,45 @@
+64                              TRANSFORMATIONS AND EXPECTATIONS
+
+
+
+
+
+                                                                                   (d, y)
+
+
+
+
+
+                                  x
+
+
+                                                             d
+
+2.13 Consider a sequence of independent coin flips, each of which has probability p of being Heads. Define
+      a random variable X as the length of the run (of either Heads or Tails) started by the first trial. (For
+     example, X = 3 if either TTTH or HHHT is observed.) Find the distribution of X, and find EX.
+2.14  (a) Let X be a continuous, nonnegative random variable [f(x) = 0 for x < 0]. Show that
+                                       ∞
+                           EX =                                                       0  [1−FX(x)]dx,
+
+        where FX(x) is the cdf of X.
+      (b) Let X be a discrete random variable whose range is the nonnegative integers. Show that
+
+                                       ∞
+                            EX =                     ∑ (1−FX(k)),                                               k=0
+        where FX(k) = P(X ≤k). Compare this with part (a).
+2.15 Betteley (1977) provides an interesting addition law for expectations. Let X and Y be any two random
+      variables and define
+                     X ∧Y = min(X,Y)   and  X ∨Y = max(X,Y).
+     Analogous to the probability law P(A∪B) = P(A)+P(B)−P(A∩B), show that
+                             E(X ∨Y) = EX +EY −E(X ∧Y).
+      (Hint: Establish that X +Y = (X ∨Y)+(X ∧Y).)
+2.16 Use the result of Exercise 2.14 to find the mean duration of certain telephone calls, where we assume that
+      the duration, T, of a particular call can be described probabilistically by P(T > t) = ae−λt +(1−a)e−µt,     where a, λ, and µ are constants, 0 < a < 1, λ > 0, µ > 0.
+                 a distribution is                                a value m such2.17 A median of                                                                      2 and P(X ≥m) ≥12. (If X is continuous,                                                      that P(X ≤m) ≥1             m                        ∞                                               1                       m f(x)dx = 2.) Find the median of the following distributions.   m satisfies −∞f(x)dx =
+                                                1
+       (a)  f(x) = 3x2,  0 < x < 1          (b) f(x) = π(1+x2), −∞< x < ∞
+2.18 Show that if X is a continuous random variable, then
+
+                                  min     =                                              a E|X −a|  E|X −m|,
+     where m is the median of X (see Exercise 2.17).

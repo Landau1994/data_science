@@ -1,0 +1,383 @@
+EXERCISES                                                                                                   31
+    From a purely mathematical viewpoint, any nonnegative function with a finite positive integral
+(or sum) can be turned into a pdf or pmf. For example, if h(x) is any nonnegative function that is
+positive on a set A, 0 elsewhere, and
+                                            
+                                                     h(x) dx = K < ∞
+                                             {x∈A}
+
+for some constant K > 0, then the function fX (x) = h(x)/K is a pdf of a random variable X taking
+values in A.
+     Actually, the relationship (1.6.3) does not always hold because FX (x) may be continuous but not
+differentiable. In fact, there exist continuous random variables for which the integral relationship
+does not exist for any fX (x). These cases are rather pathological and we will ignore them. Thus, in
+this text, we will assume that (1.6.3) holds for any continuous random variable. In more advanced
+texts (for example, Billingsley 1995, Section 31) a random variable is called absolutely continuous
+if (1.6.3) holds.
+
+
+1.7   Exercises
+ 1.1 For each of the following experiments, describe the sample space.
+      (a) Toss a coin four times.
+      (b) Count the number of insect-damaged leaves on a plant.
+      (c) Measure the lifetime (in hours) of a particular brand of light bulb.
+      (d) Record the weights of ten-day-old rats.
+      (e) Observe the proportion of defectives in a shipment of electronic components.
+ 1.2 Verify the following identities.
+      (a) A\B = A\(A ∩ B) = A ∩ Bc
+      (b) B = (B ∩ A) ∪ (B ∩ Ac )
+      (c) B\A = B ∩ Ac
+      (d) A ∪ B = A ∪ (B ∩ Ac )
+ 1.3 Finish the proof of Theorem 1.1.4. For any events A, B, and C defined on a sample space S, show that
+      (a) A ∪ B = B ∪ A and A ∩ B = B ∩ A.                                                   (Commutativity)
+      (b) A ∪ (B ∪C) = (A ∪ B) ∪C and A ∩ (B ∩C) = (A ∩ B) ∩C.                                 (Associativity)
+      (c) (A ∪ B)c = Ac ∩ Bc and (A ∩ B)c = Ac ∪ Bc .                                     (DeMorgan’s Laws)
+ 1.4 For events A and B, find formulas for the probabilities of the following events in terms of the quantities
+     P(A), P(B), and P(A ∩ B).
+      (a) either A or B or both
+      (b) either A or B but not both
+      (c) at least one of A or B
+      (d) at most one of A or B
+ 1.5 Approximately one-third of all human twins are identical (one-egg) and two-thirds are fraternal (two-
+     egg) twins. Identical twins are necessarily the same sex, with male and female being equally likely.
+     Among fraternal twins, approximately one-fourth are both female, one-fourth are both male, and half are
+     one male and one female. Finally, among all U.S. births, approximately 1 in 90 is a twin birth. Define
+     the following events:
+
+                                A       =   {a U.S. birth results in twin females}
+                                B       =   {a U.S. birth results in identical twins}
+                                C       =   {a U.S. birth results in twins}
+
+      (a) State, in words, the event A ∩ B ∩C.
+      (b) Find P(A ∩ B ∩C).
+32                                                                                  PROBABILITY THEORY
+ 1.6 Two pennies, one with P(head) = u and one with P(head) = w, are to be tossed together independently.
+     Define
+
+                                            p0    =    P(0 heads occur),
+                                            p1    =    P(1 head occurs),
+                                            p2    =    P(2 heads occur).
+
+      Can u and w be chosen such that p0 = p1 = p2 ? Prove your answer.
+ 1.7 Refer to the dart game of Example 1.2.7. Suppose we do not assume that the probability of hitting the
+     dart board is 1, but rather is proportional to the area of the dart board. Assume that the dart board is
+     mounted on a wall that is hit with probability 1, and the wall has area A.
+     (a) Using the fact that the probability of hitting a region is proportional to area, construct a probability
+         function for P(scoring i points), i = 0, . . . , 5. (No points are scored if the dart board is not hit.)
+     (b) Show that the conditional probability distribution P(scoring i points|board is hit) is exactly the prob-
+         ability distribution of Example 1.2.7.
+ 1.8 Again refer to the game of darts explained in Example 1.2.7.
+     (a) Derive the general formula for the probability of scoring i points.
+     (b) Show that P(scoring i points) is a decreasing function of i, that is, as the points increase, the proba-
+         bility of scoring them decreases.
+     (c) Show that P(scoring i points) is a probability function according to the Kolmogorov Axioms.
+ 1.9 Prove the general version of DeMorgan’s Laws. Let {Aα: α ∈ Γ} be a (possibly uncountable) collection
+     of sets. Prove that
+      (a) (∪α Aα )c = ∩α Acα .                        (b) (∩α Aα )c = ∪α Acα .
+1.10 Formulate and prove a version of DeMorgan’s Laws that applies to a finite collection of sets A1 , . . . , An .
+1.11 Let S be a sample space.
+     (a) Show that the collection B = {0,/ S} is a sigma algebra.
+     (b) Let B = {all subsets of S, including S itself}. Show that B is a sigma algebra.
+     (c) Show that the intersection of two sigma algebras is a sigma algebra.
+1.12 It was noted in Section 1.2.1 that statisticians who follow the De Finetti school do not accept the Axiom
+     of Countable Additivity, instead adhering to the Axiom of Finite Additivity.
+     (a) Show that the Axiom of Countable Additivity implies Finite Additivity.
+     (b) Although, by itself, the Axiom of Finite Additivity does not imply Countable Additivity, suppose we
+         supplement it with the following. Let A1 ⊃ A2 ⊃ · · · ⊃ An ⊃ · · · be an infinite sequence of nested sets
+         whose limit is the empty set, which we denote by An ↓ 0. / Consider the following:
+
+                                 Axiom of Continuity:        If An ↓ 0/ then P(An ) → 0.
+
+          Prove that the Axiom of Continuity together with the Axiom of Finite Additivity imply Countable
+          Additivity.
+1.13 If P(A) = 13 and P(Bc ) = 14 , can A and B be disjoint? Explain.
+1.14 Suppose that a sample space S has n elements. Prove that the number of subsets that can be formed from
+     the elements of S is 2n .
+1.15 Finish the proof of Theorem 1.2.14. Use the result established for k = 2 as the basis of an induction
+     argument.
+1.16 How many different sets of initials can be formed if every person has one surname and
+      (a) exactly two given names?                (b) either one or two given names?
+      (c) either one or two or three given names?
+      (Answers: (a) 263 (b) 263 + 262 (c) 264 + 263 + 262 )
+EXERCISES                                                                                                       33
+1.17 In the game of dominoes, each piece is marked with two numbers. The pieces are symmetrical so that the
+     number pair is not ordered (so, for example, (2, 6) = (6, 2)). How many different pieces can be formed
+     using the numbers 1, 2, . . . , n?
+     (Answer: n(n + 1)/2)
+1.18 If n balls are placed at random into n cells, find the probability that exactly one cell remains empty.
+                
+     (Answer: n2 n!/nn )
+1.19 If a multivariate function has continuous partial derivatives, the order in which the derivatives are calcu-
+     lated does not matter. Thus, for example, the function f (x, y) of two variables has equal third partials
+
+                                           ∂3                ∂3
+                                                f (x, y) =         f (x, y).
+                                          ∂x ∂y
+                                            2              ∂ y∂ x2
+     (a) How many fourth partial derivatives does a function of three variables have?
+                                                       
+     (b) Prove that a function of n variables has n+r−1
+                                                    r     rth partial derivatives.
+
+1.20 My telephone rings 12 times each week, the calls being randomly distributed among the seven days.
+     What is the probability that I get at least one call each day?
+     (Answer: .2285)
+1.21 A closet contains n pairs of shoes. If 2r shoes are chosen at random (2r < n), what is the probability that
+     there will be no matching pair in the sample?
+                 n  2r 2n
+     (Answer: 2r     2 / 2r )
+1.22 (a) In a draft lottery containing the 366 days of the year (including February 29), what is the probability
+         that the first 180 days drawn (without replacement) are evenly distributed among the 12 months?
+     (b) What is the probability that the first 30 days drawn contain none from September?
+                                        366
+     (Answers: (a) .167 × 10−8 (b) 336  30 / 30 )
+1.23 Two people each toss a fair coin n times. Find the probability that they will score the same number of
+     heads.
+              n 2n
+     (Answer: 14    n )
+1.24 Two players, A and B, alternately and independently flip a coin and the first player to obtain a head wins.
+     Assume player A flips first.
+     (a) If the coin is fair, what is the probability that A wins?
+     (b) Suppose that P(head) = p, not necessarily 12 . What is the probability that A wins?
+     (c) Show that for all p, 0 < p < 1, P(A wins) > 12 . (Hint: Try to write P(A wins) in terms of the events
+         E1 , E2 , . . . , where Ei = {head first appears on ith toss})
+                               p
+     (Answers: (a) 2/3 (b) 1−(1−p) 2)
+
+1.25 The Smiths have two children. At least one of them is a boy. What is the probability that both children
+     are boys? (See Gardner (1961) for a complete discussion of this problem.)
+1.26 A fair die is cast until a 6 appears. What is the probability that it must be cast more than five times?
+1.27 Verify the following identities for n ≥ 2.
+                                                                n
+     (a) ∑nk=0 (−1)k nk = 0                         (b) ∑nk=1 k    k    = n2n−1
+                         
+     (c) ∑nk=1 (−1)k+1 k nk = 0
+1.28 A way of approximating large factorials is through the use of Stirling’s Formula:
+                                                  √
+                                           n! ≈ 2πnn+(1/2) e−n ,
+
+     a complete derivation of which is difficult. Instead, prove the easier fact
+                                                    n!
+                                          lim                = a constant.
+                                          n→∞ nn+(1/2) e−n
+34                                                                                              PROBABILITY THEORY
+      (Hint: Feller (1968) proceeds by using the monotonicity of the logarithm to establish that
+                                 k                             k+1
+                                          log x dx < log k <           log x dx,   k = 1, . . . , n,
+                                 k−1                           k
+
+      and hence                              n                          n+1
+                                                  log x dx < log n! <           log x dx.
+                                             0                           1
+      Now compare log n! to the average of the two integrals. See Exercise 5.35 for another derivation.)
+1.29 (a) For the situation of Example 1.2.20, enumerate the ordered samples that make up the unordered
+         samples {4, 4, 12, 12} and {2, 9, 9, 12}.
+     (b) Suppose that we had a collection of six numbers {1, 2, 7, 8, 14, 20}. What is the probability of draw-
+         ing, with replacement, the unordered sample {2, 7, 7, 8, 14, 14}?
+     (c) Verify that an unordered sample of size k, from m different numbers repeated k1 , k2 , . . . , km times,
+                     k!
+         has                      ordered components, where k1 + k2 + · · · + km = k.
+              k1 !k2 ! · · · km !
+     (d) Use the result of the previous part to establish the identity
+                                                                                             
+                                                                        k!               k+m−1
+                                                   ∑                                 =          .
+                                  1  k ,k ,...,k :k +k +···+k =k k1 !k2 ! · · · km !
+                                      2      m    1   2    m
+                                                                                           k
+
+1.30 For the collection of six numbers, {1, 2, 7, 8, 14, 20}, draw a histogram of the distribution of all possible
+     sample averages calculated from samples drawn with replacement.
+1.31 For the situation of Example 1.2.20, the average of the original set of numbers {2, 4, 9, 12} is 29
+                                                                                                       4 , and has
+     the highest probability.
+     (a) Prove that, in general, sampling with replacement from the set {x1 , x2 , . . . , xn }, the outcome with
+         average (x1 + x2 + · · · + xn )/n is the most likely, having probability nn!n .
+                                                                          √
+     (b) Use Stirling’s Formula (Exercise 1.28) to show that n!/nn ≈ 2nπ/en (Hall 1992, Appendix I).
+     (c) Show that the probability that a particular xi is missing from an outcome is (1 − 1n )n → e−1 as n → ∞.
+1.32 An employer is about to hire one new employee from a group of N candidates, whose future potential
+     can be rated on a scale from 1 to N. The employer proceeds according to the following rules:
+       i. Each candidate is seen in succession (in random order) and a decision is made whether to hire the
+          candidate.
+      ii. Having rejected m − 1 candidates (m > 1), the employer can hire the mth candidate only if the mth
+          candidate is better than the previous m − 1.
+      Suppose a candidate is hired on the ith trial. What is the probability that the best candidate was hired?
+1.33 Suppose that 5% of men and .25% of women are color-blind. A person is chosen at random and that
+     person is color-blind. What is the probability that the person is male? (Assume males and females to be
+     in equal numbers.)
+1.34 Two litters of a particular rodent species have been born, one litter with two brown-haired and one gray-
+     haired rodents (litter 1), and the other litter with three brown-haired and two gray-haired rodents (litter
+     2). We select a litter at random, and then select an offspring at random from the selected litter.
+     (a) What is the probability that the animal chosen is brown-haired?
+     (b) Given that a brown-haired offspring was selected, what is the probability that the sampling was from
+         litter 1?
+1.35 Prove that if P(·) is a legitimate probability function and B is a set with P(B) > 0, then P(·|B) also
+     satisfies Kolmogorov’s Axioms.
+1.36 If the probability of hitting a target is 15 , and ten shots are fired independently, what is the probability of
+     the target being hit at least twice? What is the conditional probability that the target is hit at least twice,
+     given that it is hit at least once?
+EXERCISES                                                                                                            35
+1.37 Here we will look at some variations of Example 1.3.4.
+      (a) In the warden’s calculation of Example 1.3.4 it was assumed that if A were to be pardoned, then with
+          equal probability the warden would tell A that either B or C would die. However, this need not be
+          the case. The warden can assign probabilities γ and 1 − γ to these events, as shown here:
+
+                            Prisoner pardoned       Warden tells A
+                                     A                   B dies            with probability γ
+                                     A                   C dies            with probability 1 − γ
+                                     B                   C dies
+                                     C                   B dies
+
+          Calculate P(A|W ) as a function of γ. For what values of γ is P(A|W ) less than, equal to, or greater
+          than 13 ?
+      (b) Suppose again that γ = 12 , as in the example. After the warden tells A that B will die, A thinks for a
+          while and realizes that his original calculation was false. However, A then gets a bright idea. A asks
+          the warden if he can swap fates with C. The warden, thinking that no information has been passed,
+          agrees to this. Prove that A’s reasoning is now correct and that his probability of survival has jumped
+          to 23 !
+      A similar, but somewhat more complicated, problem, the “Monty Hall problem” is discussed by Selvin
+      (1975). The problem in this guise gained a fair amount of notariaty when it appeared in a Sunday mag-
+      azine (vos Savant 1990) along with a correct answer but with questionable explanation. The ensuing
+      debate even was reported on the front page of the Sunday New York Times (Tierney 1991). A complete
+      and somewhat amusing treatment is given by Morgan et al. (1991) (see also the response by vos Savant
+      1991). Chun (1999) pretty much exhausts the problem with a very thorough analysis.
+1.38 Prove each of the following statements. (Assume that any conditioning event has positive probability.)
+      (a) If P(B) = 1 then P(A|B) = P(A) for any A.
+      (b) If A ⊂ B then P(B|A) = 1 and P(A|B) = P(A)/P(B).
+      (c) If A and B are mutually exclusive, then
+                                                                     P(A)
+                                                P(A|A ∪ B) =                  .
+                                                                  P(A) + P(B)
+
+      (d) P(A ∩ B ∩C) = P(A|B ∩C)P(B|C)P(C).
+1.39 A pair of events A and B cannot be simultaneously mutually exclusive and independent. Prove that if
+     P(A) > 0 and P(B) > 0, then
+     (a) if A and B are mutually exclusive they cannot be independent.
+     (b) if A and B are independent they cannot be mutually exclusive.
+1.40 Finish the proof of Theorem 1.3.9 by proving parts (b) and (c).
+1.41 As in Example 1.3.6, consider telegraph signals “dot” and “dash” sent in the proportion 3:4, where
+     erratic transmissions cause a dot to become a dash with probability 14 , and a dash to become a dot with
+     probability 13 .
+      (a) If a dash is received, what is the probability that a dash has been sent?
+      (b) Assuming independence between signals, if the message dot–dot was received, what is the probabil-
+          ity distribution of the four possible messages that could have been sent?
+1.42 The inclusion-exclusion identity of Miscellanea 1.8.1 gets its name from the fact that it is proved by
+     the method of inclusion and exclusion (Feller 1968, Section IV.1). Here we go into the details. The
+     probability P(∪ni=1 Ai ) is the sum of the probabilities of all the sample points that are contained in at least
+     one of the Ai s. The method of inclusion and exclusion is a recipe for counting these points.
+      (a) If Ek denotes the set of all sample points that are contained in exactly k of the events A1 , A2 , . . . , An ,
+          show that P(∪ni=1 Ai ) = ∑ni=1 P(Ei ).
+      (b) Suppose that x ∈ E1 . Show that P(x ∈ E1 ) = ∑ni=1 P(x ∈ Ai ).
+36                                                                                    PROBABILITY THEORY
+     (c) Suppose that x ∈ Ek , where without loss of generality we can assume that x ∈ A1 , A2 , . . . , Ak and
+         x∈/ A , A , . . . , An . Show that P(x ∈ Ek ) appears k times in the sum P1 , 2k times in the sum P2 ,
+         k k+1 k+2
+          3 times in the sum P3 , etc.
+     (d) Show that                                              
+                                             k      k               k
+                                       k−       +       −+...±          = 1.
+                                             2      3               k
+         (See Problem 1.27.)
+     (e) Show that (a) − (c) imply ∑ni=1 P(Ei ) = P1 − P2 = . . . ± Pn , establishing the inclusion-exclusion
+         identity.
+1.43 For the inclusion-exclusion identity of Miscellanea 1.8.1:
+     (a) Derive both Boole’s and Bonferroni’s inequality from the inclusion-exclusion identity.
+     (b) Show that the Pi satisfy Pi ≥ Pj if i ≥ j, and that the sequence of bounds in Miscellanea 1.8.1
+         improves as the number of terms increases.
+     (c) Typically as the number of terms in the bound increases, the bound becomes more useful. However,
+         Schwager (1984) cautions that there are some cases where there is not much improvement, in partic-
+         ular if the Ai s are highly correlated. Examine what happens to the sequence of bounds in the extreme
+         case when Ai = A for every i. (See Worsley (1982) and the correspondence between Worsley (1985)
+         and Schwager (1985).)
+1.44 Standardized tests provide an interesting application of probability theory. Suppose first that a test con-
+     sists of 20 multiple-choice questions, each with four possible answers. If the student guesses on each
+     question, then the taking of the exam can be modeled as a sequence of 20 independent events. Find the
+     probability that the student gets at least ten questions correct, given that he is guessing.
+1.45 Show that the induced probability function defined in (1.4.1) defines a legitimate probability function in
+     that it satisfies the Kolmogorov Axioms.
+1.46 Seven balls are distributed randomly into seven cells. Let Xi = the number of cells containing exactly i
+     balls. What is the probability distribution of X3 ? (That is, find P(X3 = x) for every possible x.)
+1.47 Prove that the following functions are cdfs.
+                                                                     −1
+     (a) 12 + π1 tan−1 (x), x ∈ (−∞, ∞)             (b) (1 + e−x )        , x ∈ (−∞, ∞)
+             −x
+     (c)   e−e , x ∈ (−∞, ∞)                        (d) 1 − e−x , x ∈ (0, ∞)
+     (e) the function defined in (1.5.6)
+1.48 Prove the necessity part of Theorem 1.5.3.
+1.49 A cdf FX is stochastically greater than a cdf FY if FX (t) ≤ FY (t) for all t and FX (t) < FY (t) for some t.
+     Prove that if X ∼ FX and Y ∼ FY , then
+
+                                          P(X > t) ≥ P(Y > t) for every t
+
+     and
+                                          P(X > t) > P(Y > t) for some t,
+     that is, X tends to be bigger than Y .
+1.50 Verify formula (1.5.4), the formula for the partial sum of the geometric series.
+1.51 An appliance store receives a shipment of 30 microwave ovens, five of which are (unknown to the man-
+     ager) defective. The store manager selects four ovens at random, without replacement, and tests to see if
+     they are defective. Let X = number of defective ovens found. Calculate the pmf and cdf of X and plot
+     the cdf.
+1.52 Let X be a continuous random variable with pdf f (x) and cdf F(x). For a fixed number x0 , define the
+     function                             
+                                            f (x)/[1 − F(x0 )] x ≥ x0
+                                  g(x) =
+                                            0                  x < x0 .
+     Prove that g(x) is a pdf. (Assume that F(x0 ) < 1.)
+MISCELLANEA                                                                                                   37
+1.53 A certain river floods every year. Suppose that the low-water mark is set at 1 and the high-water mark Y
+     has distribution function
+                                                             1
+                                   FY (y) = P(Y ≤ y) = 1 − 2 , 1 ≤ y < ∞.
+                                                            y
+      (a) Verify that FY (y) is a cdf.
+      (b) Find fY (y), the pdf of Y .
+                                                                                           1
+      (c) If the low-water mark is reset at zero and we use a unit of measurement which is 10 of that given
+          previously, the high-water mark becomes Z = 10(Y − 1). Find FZ (z).
+1.54 For each of the following, determine the value of c that makes f (x) a pdf.
+      (a) f (x) = c sin x, 0 < x < π/2         (b) f (x) = ce−|x| , −∞ < x < ∞
+1.55 An electronic device has a lifetime denoted by T . The device has value V = 5 if it fails before time t = 3;
+     otherwise, it has value V = 2T . Find the cdf of V , if T has pdf
+                                                            1 −t/(1.5)
+                                               fT (t) =        e       ,   t > 0.
+                                                           1.5
+
+
+1.8   Miscellanea
+ 1.8.1 Bonferroni and Beyond
+       The Bonferroni bound of (1.2.10), or Boole’s Inequality (Theorem 1.2.11), provides simple
+       bounds on the probability of an intersection or union. These bounds can be made more and
+       more precise with the following expansion.
+         For sets A1 , A2 , . . . An , we create a new set of nested intersections as follows. Let
+                                                       n
+                                         P1    =      ∑ P(Ai )
+                                                      i=1
+                                                            n
+                                         P2    =           ∑     P(Ai ∩ A j )
+                                                      1≤i< j≤n
+                                                          n
+                                         P3    =            ∑      P(Ai ∩ A j ∩ Ak )
+                                                      1≤i< j<k≤n
+                                               ..
+                                                .
+                                         Pn    =      P(A1 ∩ A2 ∩ . . . ∩ An ).
+
+        Then the inclusion-exclusion identity says that
+
+                            P(A1 ∪ A2 ∪ . . . ∪ An ) = P1 − P2 + P3 − P4 + . . . ± Pn .
+
+        Moreover, the Pi are ordered in that Pi ≥ Pj if i ≤ j, and we have the sequence of upper and
+        lower bounds
+
+                                          P1     ≥     P(∪ni=1 Ai ) ≥ P1 − P2
+                            P1 − P2 + P3         ≥     P(∪ni=1 Ai ) ≥ P1 − P2 + P3 − P4
+                                                 ..
+                                                  .
+
+        See Problems 1.42 and 1.43 for details.
+           These bounds become increasingly tighter as the number of terms increases, and
+        provide a refinement of the original Bonferroni bounds. Applications of these bounds
+        include approximating probabilities of runs (Karlin and Ost 1988) and multiple comparisons
+        procedures (Naiman and Wynn 1992).
+

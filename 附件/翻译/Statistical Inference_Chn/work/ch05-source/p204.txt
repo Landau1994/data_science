@@ -1,0 +1,51 @@
+SUMS OF RANDOM VARIABLES FROM A RANDOM SAMPLE                     173
+Definition 5.2.3  The sample variance is the statistic defined by
+
+                                    1    n                                  S2 =                   ∑ (Xi −¯X)2.                                                   i=1                         n−1
+The sample standard deviation is the statistic defined by S = √S2.
+
+   As is commonly done, we have suppressed the functional notation in the above definitions of
+these statistics. That is, we have written S rather than S(X1,...,Xn). The dependence of the statistic
+on the sample is understood. As before, we will denote observed values of statistics with lowercase
+letters. So ¯x, s2, and s denote observed values of ¯X, S2, and S.
+   The sample mean is certainly familiar to all. The sample variance and standard deviation are
+measures of variability in the sample that are related to the population variance and standard devia-
+tion in ways that we shall see below. We begin by deriving some properties of the sample mean and
+variance. In particular, the relationship for the sample variance given in Theorem 5.2.4 is related to
+(2.3.1), a similar relationship for the population variance.
+Theorem 5.2.4  Let x1,...,xn be any numbers and ¯x = (x1 +···+xn)/n. Then
+  a. mina ∑ni=1(xi −a)2            = ∑ni=1(xi −¯x)2
+  b. (n−1)s2 = ∑ni=1(xi −¯x)2                = ∑ni=1 x2i −n¯x2
+Proof: To prove part (a), add and subtract ¯x to get
+
+                    n                   n
+                =              ∑ (xi       ∑ (xi −a)2                             −¯x+ ¯x−a)2                  i=1                                     i=1
+                                        n                n                     n
+                =                           +2                    ∑ (xi              ∑ (xi −¯x)2                            ∑ (¯x−a)2                                     i=1                                                     i=1                                              −¯x)(¯x−a)+ i=1
+                                        n              n
+                =                        +                                                                                (cross term is zero)              ∑ (xi −¯x)2                   ∑ (¯x−a)2.                                     i=1                                                    i=1
+
+It is now clear that the right-hand side is minimized at a = ¯x. (Notice the similarity to Example 2.2.6
+and Exercise 4.13.)
+   To prove part (b), take a = 0 in the above.                            2
+
+   The expression in Theorem 5.2.4(b) is useful both computationally and theoretically because it
+allows us to express s2 in terms of sums that are easy to handle.
+  We will begin our study of sampling distributions by considering the expected values of some
+statistics. The following result is quite useful.
+Lemma 5.2.5  Let X1,...,Xn be a random sample from a population and let g(x) be a function such
+that Eg(X1) and Varg(X1) exist. Then
+
+                                            n
+                       E                          = n(Eg(X1))                              (5.2.1)               ∑ g(Xi)
+                                         i=1
+
+and
+                                           n
+                            Var                          = n(Varg(X1)).                           (5.2.2)               ∑ g(Xi)
+                                        i=1
+Proof: To prove (5.2.1), note that
+
+                                    n              n
+                      =                   E                             = n(Eg(X1)).             ∑ g(Xi)                  ∑ Eg(Xi)
+                                  i=1           i=1

@@ -1,0 +1,48 @@
+SUMS OF RANDOM VARIABLES FROM A RANDOM SAMPLE                     175
+   The relationships (a) and (c) in Theorem 5.2.6, relationships between a statistic and a population
+parameter, are examples of unbiased statistics. These are discussed in Chapter 7. The statistic ¯X is
+an unbiased estimator of µ and S2 is an unbiased estimator of σ2. The use of n−1 in the definitionof S2 may have seemed unintuitive. Now we see that, with this definition, ES2 = σ2. If S2 were
+defined as the usual average of the squared deviations with n rather than n−1 in the denominator,then ES2 would be n−1n σ2 and S2 would not be an unbiased estimator of σ2.
+  We now discuss in more detail the sampling distribution of ¯X. The methods from Sections 4.3
+and 4.6 can be used to derive this sampling distribution from the population distribution. But be-
+cause of the special probabilistic structure of a random sample (iid random variables), the resulting
+sampling distribution of ¯X is simply expressed.
+    First we note some simple relationships. Since ¯X = 1n(X1 +  + Xn), if f(y) is the pdf of Y =                                                                         ···                                       ¯X (x) = n f(nx) is the pdf of ¯X (see Exercise 5.5). Thus, a result about the pdf(X1 +···+Xn), then fof Y is easily transformed into a result about the pdf of ¯X. A similar relationship holds for mgfs:
+
+                                                             ¯X          M¯X (t) = Eet = Eet(X1+···+Xn)/n = Ee(t/n)Y = MY(t/n).
+
+Since X1,...,Xn are identically distributed, MXi(t) is the same function for each i. Thus, by Theo-
+rem 4.6.7, we have the following.
+Theorem 5.2.7  Let X1,...,Xn be a random sample from a population with mgf MX(t). Then the
+mgf of the sample mean is
+                   M¯X (t) = [MX(t/n)]n.
+
+
+   Of course, Theorem 5.2.7 is useful only if the expression for M¯X (t) is a familiar mgf. Cases
+when this is true are somewhat limited, but the following example illustrates that, when this method
+works, it provides a very slick derivation of the sampling distribution of ¯X.
+Example 5.2.8 (Distribution of the mean)   Let X1,...,Xn be a random sample from a n(µ,σ2)
+population. Then the mgf of the sample mean is
+
+                                                            n                                                       t   σ2(t/n)2
+        M¯X (t) =   exp  µ +                               n      2
+                                                          t   σ2(t/n)2                (σ2/n)t2
+             =  exp  n  µ +         =exp  µt +                 .
+                                n      2                    2
+
+Thus, ¯X has a n(µ,σ2/n) distribution.
+   Another simple example is given by a gamma(α,β) random sample (see Example 4.6.8). Here,
+we can also easily derive the distribution of the sample mean. The mgf of the sample mean is
+
+                                           α  n                 nα                                 1                 1
+           M¯X (t) =           =                          ,
+                           1−β(t/n)        1−(β/n)t
+which we recognize as the mgf of a gamma(nα,β/n), the distribution of ¯X.                                                                              ∥
+     If Theorem 5.2.7 is not applicable, either because the resulting mgf of ¯X is unrecognizable or
+the population mgf does not exist, then the transformation method of Sections 4.3 and 4.6 might be
+used to find the pdf of Y = (X1 +···+Xn) and ¯X. In such cases, the following convolution formulais useful.
+Theorem 5.2.9   If X and Y are independent continuous random variables with pdfs fX(x) and
+fY(y), then the pdf of Z = X +Y is
+
+                                 ∞
+                                  fZ(z) = −∞fX(w) fY(z−w)dw.                            (5.2.3)

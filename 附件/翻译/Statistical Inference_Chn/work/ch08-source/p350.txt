@@ -1,0 +1,52 @@
+METHODS OF EVALUATING TESTS                                            319
+
+
+
+              1
+
+
+
+
+                                      b1(q)                             b2(q)
+
+
+
+
+
+                                                                         b3(q)
+
+
+
+
+              0                                                                 q
+                                                      q0                         q2
+                               q0 – 2s/÷n                           q0 + 2s/√n
+
+Figure 8.3.3 Power functions for three tests in Example 8.3.19. β3(θ) is the power function of an unbiased
+level α = .05 test.
+
+
+                                       +θ0                   =   Pθ2 X <                                 −σzα√n
+                   =   β1(θ2).
+Thus Test 1 is not a UMP level α test because Test 2 has a higher power than Test 1 at θ2. Earlier
+we showed that if there were a UMP level α test, it would have to be Test 1. Therefore, no UMP
+level α test exists in this problem.                                                   ∥
+   Example 8.3.19 illustrates again the usefulness of the Neyman–Pearson Lemma. Previously, the
+sufficiency part of the Lemma was used to construct UMP level α tests, but to show the nonexistence
+of a UMP level α test, the necessity part of the Lemma is used.
+Example 8.3.20 (Unbiased test) When no UMP level α test exists within the class of all tests, we
+might try to find a UMP level α test within the class of unbiased tests. The power function, β3(θ),
+of Test 3, which rejects H0 : θ = θ0 in favor of H1 : θ̸ = θ0 if and only if
+                 X > σzα/2/√n+θ0 or X < −σzα/2/√n+θ0,
+as well as β1(θ) and β2(θ) from Example 8.3.19, is shown in Figure 8.3.3. Test 3 is actually a UMP
+unbiased level α test, that is, it is UMP in the class of unbiased tests.
+   Note that although Test 1 and Test 2 have slightly higher powers than Test 3 for some parameter
+points, Test 3 has much higher power than Test 1 and Test 2 at other parameter points. For example,
+β3(θ2) is near one whereas β1(θ2) is near zero. If the interest is in rejecting H0 for both large and
+small values of θ, Figure 8.3.3 shows that Test 3 is better overall than either Test 1 or Test 2.    ∥
+
+8.3.3   Sizes of Union–Intersection and Intersection–Union Tests
+
+Because of the simple way in which they are constructed, the sizes of union–intersection (UIT) and
+intersection–union (IUT) tests can often be bounded above by the sizes of some other tests. Such
+bounds are useful if a level α test is wanted, but the size of the UIT or IUT is too difficult to evaluate.

@@ -1,0 +1,42 @@
+326                                             HYPOTHESIS TESTING
+   The 0–1 loss judges only whether a decision is right or wrong. It may be the case that some
+wrong decisions are more serious than others and the loss function should reflect this. When testing
+H0 : θ ≥θ0 versus H1 : θ < θ0, it is a Type I Error to reject H0 if θ is slightly bigger than θ0, but itmay not be a very serious mistake. The adverse consequences of rejecting H0 may be much worse
+if θ is much larger than θ0. A loss function that reflects this is
+
+                0       θ                              c(θ         θ  L(θ,a0) =            ≥θ0     and    L(θ,a1) =     −θ0)2     ≥θ0   (8.3.13)              b(θ0        θ < θ0                          0       θ < θ0          −θ)                    
+where b and c are positive constants. For example, if an experimenter is testing whether a drug low-
+ers cholesterol level, H0 and H1 might be set up like this with θ0 = standard acceptable cholesterol
+level. Since a high cholesterol level is associated with heart disease, the consequences of rejecting
+H0 when θ is large are quite serious. A loss function like (8.3.13) reflects such a consequence. A
+similar type of loss function is advocated by Vardeman (1987).
+   Even for a general loss function like (8.3.13), the risk function and the power function are closely
+related. For any fixed value of θ, the loss is either L(θ,a0) or L(θ,a1). Thus, the expected loss is
+
+              R(θ,δ) =  L(θ,a0)Pθ(δ(X) = a0)+L(θ,a1)Pθ(δ(X) = a1)
+              =  L(θ,a0)(1−β(θ))+L(θ,a1)β(θ).                       (8.3.14)
+The power function of a test is always important when evaluating a hypothesis test. But in a decision
+theoretic analysis, the weights given by the loss function are also important.
+
+8.4  Exercises
+  8.1 In 1,000 tosses of a coin, 560 heads and 440 tails appear. Is it reasonable to assume that the coin is fair?
+      Justify your answer.
+  8.2 In a given city, it is assumed that the number of automobile accidents in a given year follows a Poisson
+       distribution. In past years, the average number of accidents per year was 15, and this year it was 10. Is it
+       justified to claim that the accident rate has dropped?
+  8.3 Here, the LRT alluded to in Example 8.2.9 will be derived. Suppose that we observe m iid Bernoulli(θ)
+     random variables, denoted by Y1,...,Ym. Show that the LRT of H0 : θ ≤θ0 versus H1 : θ > θ0 will reject     H0 if ∑mi=1Yi > b.
+  8.4 Prove the assertion made in the text after Definition 8.2.1. If f(x|θ) is the pmf of a discrete random vari-      able, then the numerator of λ(x), the LRT statistic, is the maximum probability of the observed sample
+     when the maximum is computed over parameters in the null hypothesis. Furthermore, the denominator
+      of λ(x) is the maximum probability of the observed sample over all possible parameters.
+  8.5 A random sample, X1,...,Xn, is drawn from a Pareto population with pdf
+                                  θνθ
+                               f(x|θ,ν) = xθ+1 I[ν,∞)(x),  θ > 0,  ν > 0.
+       (a) Find the MLEs of θ and ν.
+      (b) Show that the LRT of
+                    H0 : θ = 1, ν unknown     versus    H1 : θ̸ = 1, ν unknown,
+         has critical region of the form {x: T(x) ≤c1 or T(x) ≥c2}, where 0 < c1 < c2 and
+                                                              n
+                             ∏ Xi                                  T = log   i=1   
+                                               (min Xi)n
+                                                                                                               i                                                                                                                     .

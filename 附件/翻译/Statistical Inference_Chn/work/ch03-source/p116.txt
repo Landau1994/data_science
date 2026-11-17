@@ -1,0 +1,48 @@
+CONTINUOUS DISTRIBUTIONS                                                 85
+The integration variables are just dummy variables, so changing their names is allowed. Now, we
+convert to polar coordinates. Define
+
+                                                 t = rcosθ   and   u = rsinθ.
+
+Then t2 +u2 = r2 and dt du = rdθ dr and the limits of integration become 0 < r < ∞, 0 < θ < π/2
+(the upper limit on θ is π/2 because t and u are restricted to be positive). We now have
+
+                   ∞  ∞                   ∞   π/2
+                                e−(t2+u2)/2 dt du =            re−r2/2 dθ dr
+                          0   0                            0   0
+                                       π  ∞                         =        re−r2/2dr
+                                           2  0
+                                       π
+                         =                0                                           2  −e−r2/2|∞                                       π
+                         =       ,
+                                           2
+which establishes (3.3.14).
+   This integral is closely related to the gamma function; in fact, by making the substitution w = 12z2
+in (3.3.14), we see that this integral is essentially Γ( 12). If we are careful to get the constants correct,
+we will see that (3.3.14) implies
+
+                             1      ∞                     Γ   =   w−1/2e−wdw = √π.                        (3.3.15)
+                             2       0
+
+   The normal distribution is somewhat special in the sense that its two parameters, µ (the mean)
+and σ2 (the variance), provide us with complete information about the exact shape and location
+of the distribution. This property, that the distribution is determined by µ and σ2, is not unique to
+the normal pdf, but is shared by a family of pdfs called location–scale families, to be discussed in
+Section 3.5.
+    Straightforward calculus shows that the normal pdf (3.3.13) has its maximum at x = µ and
+inflection points (where the curve changes from concave to convex) at µ ± σ. Furthermore, theprobability content within 1, 2, or 3 standard deviations of the mean is
+                        P(|X −µ| ≤σ) =  P(|Z| ≤1) = .6826
+                       P(|X −µ| ≤2σ) =  P(|Z| ≤2) = .9544
+                       P(|X −µ| ≤3σ) =  P(|Z| ≤3) = .9974,
+where X ∼n(µ,σ2), Z ∼n(0,1), and the numerical values can be obtained from many computerpackages or from tables. Often, two-digit values reported are .68, .95, and .99, respectively. Al-
+though these do not represent the rounded values, they are the values commonly used. Figure 3.3.1
+shows the normal pdf along with these key features.
+   Among the many uses of the normal distribution, an important one is its use as an approxima-
+tion to other distributions (which is partially justified by the Central Limit Theorem). For example,
+if X ∼binomial(n, p), then EX = np and VarX = np(1 −p), and under suitable conditions, thedistribution of X can be approximated with that of a normal random variable with mean µ = np
+and variance σ2 = np(1 −p). The “suitable conditions” are that n should be large and p shouldnot be extreme (near 0 or 1). We want n large so that there are enough (discrete) values of X to
+make an approximation by a continuous distribution reasonable, and p should be “in the middle”
+so the binomial is nearly symmetric, as is the normal. As with most approximations there are no
+absolute rules, and each application should be checked to decide whether the approximation is good
+enough for its intended use. A conservative rule to follow is that the approximation will be good if
+min(np,n(1−p)) ≥5.

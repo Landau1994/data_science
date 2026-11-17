@@ -1,0 +1,45 @@
+MISCELLANEA                                                              217
+
+5.65 A variation of the importance sampling algorithm of Exercise 5.64 can actually produce an ap-
+     proximate sample from  f. Again let X ∼f and generate Y1,Y2,...,Y m, iid from g. Calculate qi =      [f(Yi)/g(Yi)]/[∑mj=1 f(Yj)/g(Yj)]. Then generate random variables X∗from the discrete distribution on
+      Y1,Y2,...,Y m where P(X∗= Yk) = qk. Show that X∗1 ,X∗2 ,...,X∗r is approximately a random sample from
+        f.
+      Hint: Show that P(X∗≤x) = ∑m                                       i=1 qiI(Yi ≤x); let m →∞and use the WLLN in the numerator and      denominator.
+      This algorithm is called the Sampling/Importance Resampling (SIR) algorithm by Rubin (1988), and is
+      referred to as the weighted bootstrap by Smith and Gelfand (1992).
+5.66  If X1,...,Xn are iid n(µ,σ2), we have seen that the distribution of the sample mean ¯X is n(µ,σ2/n). If
+    we are interested in using a more robust estimator of location, such as the median (5.4.1), it becomes a
+     more difficult task to derive its distribution.
+       (a) Show that m is the median the Xis if and only if (m−µ)/σ is the median of (Xi −µ)/σ. Thus, we         only need consider the distribution of the median from a n(0,1) sample.
+      (b) For a sample of size n = 15 from a n(0,1), simulate the distribution of the median m.
+       (c) Compare the distribution in part (b) to the asymptotic distribution of the median √n(m                                                            −µ) ∼         n[0,1/4 f 2(0)], where f is the pdf. Is n = 15 large enough for the asymptotics to be valid?
+5.67 In many instances the Metropolis algorithm is the algorithm of choice because either (i) there are no
+     obvious candidate densities that satisfy the Accept/Reject supremum condition, or (ii) the supremum
+      condition is difficult to verify, or (iii) laziness leads us to substitute computing power for brain power.
+        For each of the following situations show how to implement a Metropolis algorithm to generate a
+     sample of size 100 from the specified distribution.
+
+             σ       (a) X ∼1              f[(x−µ)/σ], f = Student’s t with ν degrees of freedom, ν, µ, and σ known.
+      (b) X ∼lognormal(µ,σ2), µ, σ2 known.
+       (c) X ∼Weibull(α,β), α, β known.
+5.68  If we use the Metropolis algorithm rather than the Accept/Reject algorithm we are freed from verifying
+      the supremum condition of the Accept/Reject algorithm. Of course, we give up the property of getting
+     random variables with exactly the distribution we want, and must settle for an approximation.
+       (a) Show how to use the Metropolis algorithm to generate a random variable with an approximate Stu-
+          dent’s t distribution with ν degrees of freedom, starting from n(0,1) random variables.
+      (b) Show how to use the Accept/Reject algorithm to generate a random variable with a Student’s t
+           distribution with ν degrees of freedom, starting from Cauchy random variables.
+       (c) Show how to use transformations to generate directly a random variable with a Student’s t distribu-
+           tion with ν degrees of freedom.
+      (d) For ν = 2,10,25 compare the methods by generating a sample of size 100. Which method do you
+          prefer? Why?
+     [Mengersen and Tweedie 1995 show that the convergence of the Metropolis Algorithm is much faster if
+      the supremum condition is satisfied, that is, if sup f/g <≤M < ∞, where f is the target density and g is      the candidate density.]
+5.69 Show that the pdf fY (y) is a stable point of the Metropolis algorithm. That is, if Zi ∼fY (y), then Zi+1 ∼       fY (y).
+
+5.8  Miscellanea
+
+ 5.8.1 More on the Central Limit Theorem
+       For the case of a sequence of iid random variables, necessary and sufficient conditions for
+       convergence to normality are known, with probably the most famous result due to Lindeberg
+      and Feller. The following special case is due to L´evy. Let X1,X2,... be an iid sequence with

@@ -1,0 +1,44 @@
+\sourcepageanchor{406}
+\subsection{杂录}\label{sec:9.5}
+\subsubsection{置信程序}\label{sec:9.5.1}\index{SI0180@置信程序（另见置信集；置信区间）}
+通过定义一种称为置信程序（confidence procedure）的对象，可以在形式上联系置信集与检验（\hyperref[bib:source183]{Joshi 1969）}. 若$X\sim f(x\mid\theta)$，其中$x\in\mathcal X$且$\theta\in\Theta$，则置信程序是笛卡尔积空间$\mathcal X\times\Theta$中的集合. 对集合$\boldsymbol C\in\mathcal X\times\Theta$，定义为\footnote{译注：原文将作为集合的$\boldsymbol C$写成$\boldsymbol C\in\mathcal X\times\Theta$；按上下文应为$\boldsymbol C\subseteq\mathcal X\times\Theta$. 原记号保留.}
+$$\{(x,\theta):(x,\theta)\in\boldsymbol C\}.$$
+
+由置信程序，固定其中一个变量即可定义两个切片，或称截面. 固定$x$，定义$\theta$截面或置信集为
+$$C(x)=\{\theta:(x,\theta)\in\boldsymbol C\}.$$
+固定$\theta$，定义$x$截面或接受域为
+$$A(\theta)=\{x:(x,\theta)\in\boldsymbol C\}.$$
+虽然这种展开需要在积空间$\mathcal X\times\Theta$中工作（这也是我们这里不采用它的一个原因），但它确实提供了一种更直接的方式来观察检验与集合的关系. \autoref{fig:9.2.1}展示了正态情形中的这种对应关系.
+\subsubsection{离散分布中的置信区间}\label{sec:9.5.2}
+为离散分布的参数构造最优（或至少有所改进的）置信区间有很长的历史，\autoref{ex:9.2.11}已有所说明，其中考察了\hyperref[bib:source305]{Sterne（1954）}对\hyperref[bib:source79]{Clopper和Pearson（1934）}区间的修改. 当然，Sterne构造存在困难，但基本思想是正确的；\hyperref[bib:source88]{Crow（1956）}以及\hyperref[bib:source40]{Blyth和Still（1983）}修改了Sterne构造，后者产生了最短的一组精确区间. \hyperref[bib:source64]{Casella（1986）}给出了寻找一类最短二项置信区间的算法.
+
+泊松区间研究（通常也包括其他离散分布）的历史类似. \hyperref[bib:source133]{Garwood（1936）}的构造恰好是将Clopper--Pearson论证用于二项分布，\hyperref[bib:source89]{Crow和Gardner（1959）}对这些区间作了改进. \hyperref[bib:source69]{Casella和Robert（1989）}找出了一类最短泊松区间.\footnote{译注：本段讨论泊松区间，但原文称Garwood的构造将论证“用于二项分布”；结合\autoref{ex:9.2.15}，这里可能应为“用于泊松分布”. 原文保留.}
+
+\hyperref[bib:source39]{Blyth（1986）}给出了二项参数的非常精确的近似区间；\hyperref[bib:source196]{Leemis和Trivedi（1996）}比较了正态近似与泊松近似；\hyperref[bib:source3]{Agresti和Coull（1998）}认为，要求离散区间的覆盖率始终高于名义水平可能过于严格. \hyperref[bib:source37]{Blaker（2000）}为二项、泊松及其他离散分布构造了改进区间，并具有嵌套性质：若$\alpha<\alpha'$，则$1-\alpha$区间包含相应的$1-\alpha'$区间.
+\subsubsection{Fieller定理}\label{sec:9.5.3}\index{SI0153@Fieller}\index{SI0169@均值之比}\index{SI0445@Fieller定理}
+Fieller定理（\hyperref[bib:source121]{Fieller 1954）}用巧妙的论证，得到正态均值比的精确置信集.
+
+给定来自参数为$(\mu_X,\allowbreak\mu_Y,\allowbreak\sigma_X^2,\allowbreak\sigma_Y^2,\allowbreak\rho)$的二元正态分布的随机样本$(X_1,Y_1),\allowbreak\ldots,\allowbreak(X_n,Y_n)$，可按如下方式构造$\theta=\mu_Y/\mu_X$的置信集. 对$i=1,\ldots,n$，定义$Z_{\theta i}=Y_i-\theta X_i$以及$\bar Z_\theta=\bar Y-\theta\bar X$. 可证明$\bar Z_\theta$为正态随机变量，均值为$0$，方差为
+$$V_\theta=\frac1n(\sigma_Y^2-2\theta\rho\sigma_Y\sigma_X+\theta^2\sigma_X^2).$$
+可用$\hat V_\theta$估计$V_\theta$，其中
+$$\hat V_\theta=\frac1{n(n-1)}\sum_{i=1}^n(Z_{\theta i}-\bar Z_\theta)^2=\frac1{n-1}(S_Y^2-2\theta S_{YX}+\theta^2S_X^2),$$
+\sourcepageanchor{407}
+这里
+$$S_Y^2=\frac1n\sum_{i=1}^n(Y_i-\bar Y)^2,\quad S_X^2=\frac1n\sum_{i=1}^n(X_i-\bar X)^2,\quad S_{YX}=\frac1n\sum_{i=1}^n(Y_i-\bar Y)(X_i-\bar X).$$
+此外，还可证明$E\hat V_\theta=V_\theta$，$\hat V_\theta$与$\bar Z_\theta$独立，且$(n-1)\hat V_\theta/V_\theta\sim\chi^2_{n-1}$. 因此，$\bar Z_\theta/\sqrt{\hat V_\theta}\sim t_{n-1}$，集合
+$$\left\{\theta:\frac{\bar z_\theta^2}{\hat v_\theta}\le t^2_{n-1,\alpha/2}\right\}$$
+定义了均值比$\theta$的$1-\alpha$置信集. 此集合定义了关于$\theta$的抛物线，其根给出置信集的端点. 用原变量写出该集合，得到
+$$\left\{\theta:\left(\bar x^2-\frac{t^2_{n-1,\alpha/2}}{n-1}S_x^2\right)\theta^2-2\left(\bar x\bar y-\frac{t^2_{n-1,\alpha/2}}{n-1}S_{yx}\right)\theta+\left(\bar y^2-\frac{t^2_{n-1,\alpha/2}}{n-1}S_y^2\right)\le0\right\}.$$
+此集合有一个有趣特点：取决于抛物线的根，它可以是一个区间、一个区间的补集，或整条实数轴（参见\autoref{exercise:9.15}）. 此外，要保持$1-\alpha$的置信程度，该区间必须以正概率为无穷区间. 基于自助法的替代方法见\hyperref[bib:source175]{Hwang（1995）}；另一种置信方法见Tsao和Hwang（\hyperref[bib:source316]{1998}，\hyperref[bib:source317]{1999}）.
+\subsubsection{其他区间呢？}\label{sec:9.5.4}
+\hyperref[bib:source321]{Vardeman（1992）}提出本条杂录标题中的问题，主张主流统计学应花更多时间研究双侧置信区间以外的区间. 特别地，他列出：（a）单侧区间；（b）无分布区间；（c）预测区间；（d）容忍区间.
+
+我们已经见过单侧区间；无分布区间（distribution-free interval）是指其概率保证对基础cdf只需很少假设（或无需假设）就成立的区间（参见\autoref{exercise:9.58}）. 另外两种区间的定义，连同通常的置信区间，提供了一个推断层级，后者逐一比前者更严格.
+
+若$X_1,X_2,\ldots,X_n$独立同分布于cdf为$F(x\mid\theta)$的总体，且$C(\boldsymbol x)=[l(\boldsymbol x),u(\boldsymbol x)]$为区间，则对给定的$1-\alpha$，它是
+\begin{enumerate}[label=\roman*.]
+\item 置信区间，若$P_\theta[l(\boldsymbol X)\le\theta\le u(\boldsymbol X)]\ge1-\alpha$；
+\item 预测区间（prediction interval），若$P_\theta[l(\boldsymbol X)\le X_{n+1}\le u(\boldsymbol X)]\ge1-\alpha$；
+\item 容忍区间（tolerance interval），若对于指定的$p$，$P_\theta[F(u(\boldsymbol X)\mid\theta)-F(l(\boldsymbol X)\mid\theta)\ge p]\ge1-\alpha$.
+\end{enumerate}
+所以，置信区间覆盖一个均值，预测区间覆盖一个新的随机变量，而容忍区间覆盖总体的某个比例. 因而，它们分别给出不同推断，应根据具体问题选择恰当的一种.

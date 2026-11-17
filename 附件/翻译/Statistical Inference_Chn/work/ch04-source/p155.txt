@@ -1,0 +1,42 @@
+124                                      MULTIPLE RANDOM VARIABLES
+Thus, given X = x, Y has an exponential distribution where x is the location parameter in the distri-
+bution of Y and β = 1 is the scale parameter. The conditional distribution of Y is different for every
+value of x. It then follows that
+                                    ∞
+                               = 1+x.                        E(Y|X = x) =  x  ye−(y−x) dy
+   The variance of the probability distribution described by f(y|x) is called the conditional vari-
+ance of Y given X = x. Using the notation Var(Y|x) for this, we have, using the ordinary definitionof variance,
+                                                                                               .                              Var(Y|x) = E(Y 2|x)−(E(Y|x))2
+Applying this definition to our example, we obtain
+                           ∞               ∞              2
+                                     = 1.                    Var(Y|x) =  x  y2e−(y−x) dy−    x  ye−(y−x) dy
+In this case the conditional variance of Y given X = x is the same for all values of x. In other
+situations, however, it may be different for different values of x. This conditional variance might be
+compared to the unconditional variance of Y. The marginal distribution of Y is gamma(2,1), which
+has VarY = 2. Given the knowledge that X = x, the variability in Y is considerably reduced.     ∥
+  A physical situation for which the model in Example 4.2.4 might be used is this. Suppose we
+have two light bulbs. The lengths of time each will burn are random variables denoted by X and Z.
+The lifelengths X and Z are independent and both have pdf e−x, x > 0. The first bulb will be turned
+on. As soon as it burns out, the second bulb will be turned on. Now consider observing X, the time
+when the first bulb burns out, and Y = X +Z, the time when the second bulb burns out. Given that
+X = x is when the first burned out and the second is started, Y = Z +x. This is like Example 3.5.3.
+The value x is acting as a location parameter and the pdf of Y, in this case the conditional pdf of Y
+given X = x, is f(y|x) = fZ(y−x) = e−(y−x),y > x.   The conditional distribution of Y given X = x is possibly a different probability distribution for
+each value of x. Thus, we really have a family of probability distributions for Y, one for each x.
+When we wish to describe this entire family, we will use the phrase “the distribution of Y|X.” If,for example, X is a positive integer-valued random variable and the conditional distribution of Y
+given X = x is binomial(x, p), then we might say the distribution of Y|X is binomial(X, p) or write
+Y|X ∼binomial(X, p). Whenever we use the symbolY|X or have a random variable as the parameterof a probability distribution, we are describing the family of conditional probability distributions.
+Joint pdfs or pmfs are sometimes defined by specifying the conditional f(y|x) and the marginal
+ fX(x). Then the definition yields f(x,y) = f(y|x)fX(x). These types of models are discussed morein Section 4.4.
+   Notice also that E(g(Y)|x) is a function of x. That is, for each value of x, E(g(Y)|x) is a real
+number obtained by computing the appropriate integral or sum. Thus, E(g(Y)|X) is a random vari-
+able whose value depends on the value of X. If X = x, the value of the random variable E(g(Y)|X)
+is E(g(Y)|x). Thus, in Example 4.2.4, we can write E(Y|X) = 1+X.    In all the previous examples, the conditional distribution of Y given X = x was different for
+different values of x. In some situations, the knowledge that X = x does not give us any more infor-
+mation about Y than what we already had. This important relationship between X and Y is called
+independence. Just as with independent events in Chapter 1, it is more convenient to define indepen-
+dence in a symmetric fashion and then derive conditional properties like those we just mentioned.
+This we now do.
+Definition 4.2.5  Let (X,Y) be a bivariate random vector with joint pdf or pmf f(x,y), and marginal
+pdfs or pmfs fX(x) and fY(y). Then X and Y are called independent random variables if, for every
+x ∈ℜand y ∈ℜ,                                      f(x,y) = fX(x) fY(y).                                  (4.2.1)

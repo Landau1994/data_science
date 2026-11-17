@@ -1,0 +1,41 @@
+130                                      MULTIPLE RANDOM VARIABLES
+where
+
+       ∂x   ∂h1(u,v)   ∂x   ∂h1(u,v)   ∂y   ∂h2(u,v)        ∂y   ∂h2(u,v)       =               ,   =               ,   =               ,  and   =               .
+       ∂u     ∂u     ∂v     ∂v     ∂u     ∂u          ∂v     ∂v
+
+We assume that J is not identically zero on B. Then the joint pdf of (U,V) is 0 outside the set B
+and on the set B is given by
+
+                             fU,V(u,v) = fX,Y(h1(u,v), h2(u,v))|J|,                        (4.3.2)
+where |J| is the absolute value of J. When using (4.3.2), it is sometimes just as difficult to determinethe set B and verify that the transformation is one-to-one as it is to substitute into formula (4.3.2).
+Note these parts of the explanations in the following examples.
+Example 4.3.3 (Distribution of the product of beta variables)   Let X ∼beta(α,β) and Y ∼beta(α +β,γ) be independent random variables. The joint pdf of (X,Y) is
+
+                  Γ(α +β)             Γ(α +β +γ)
+           fX,Y(x,y) = Γ(α)Γ(β)xα−1(1−x)β−1 Γ(α +β)Γ(γ)yα+β−1(1−y)γ−1,
+                                                0 < x < 1,  0 < y < 1.
+
+Consider the transformation U = XY and V = X. The set of possible values for V is 0 < v < 1 since
+V = X. For a fixed value of V = v, U must be between 0 and v since X = V = v and Y is between
+0 and 1. Thus, this transformation maps the set A onto the set B = {(u,v) : 0 < u < v < 1}. For
+any (u,v) ∈B, the equations u = xy and v = x can be uniquely solved for x = h1(u,v) = v and y =h2(u,v) = u/v. Note that if considered as a transformation defined on all of ℜ2, this transformation
+is not one-to-one. Any point (0,y) is mapped into the point (0,0). But as a function defined only on
+A , it is a one-to-one transformation onto B. The Jacobian is given by
+
+                            ∂x  ∂x
+                                        0    1                          ∂u  ∂v                            J =      =      =                            ∂y  ∂y        1v       −1v.                            −uv2
+                          ∂u  ∂v
+
+Thus, from (4.3.2) we obtain the joint pdf as
+
+                   Γ(α +β +γ)               u α+β−1        γ−1 1            fU,V(u,v) = Γ(α)Γ(β)Γ(γ)vα−1(1−v)β−1  v      1−uv     v,
+                                                      0 < u < v < 1.          (4.3.3)
+
+The marginal distribution of V = X is, of course, a beta(α,β) distribution. But the distribution of U
+is also a beta distribution:
+
+                               1
+             fU(u) =      fU,V(u,v)dv
+                              u
+                     Γ(α +β +γ)         1  u     β−1        γ−1  u            =  Γ(α)Γ(β)Γ(γ)uα−1   u  v −u    1−uv       v2  dv.

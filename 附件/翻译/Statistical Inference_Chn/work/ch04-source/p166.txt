@@ -1,0 +1,41 @@
+HIERARCHICAL MODELS AND MIXTURE DISTRIBUTIONS                       135
+   Note that equation (4.4.1) contains an abuse of notation, since we have used the “E” to stand for
+different expectations in the same equation. The “E” in the left-hand side of (4.4.1) is expectation
+with respect to the marginal distribution of X. The first “E” in the right-hand side of (4.4.1) is ex-
+pectation with respect to the marginal distribution of Y, while the second one stands for expectation
+with respect to the conditional distribution of X|Y. However, there is really no cause for confusionbecause these interpretations are the only ones that the symbol “E” can take!
+  We can now easily compute the expected number of survivors in Example 4.4.1. From Theorem
+4.4.3 we have
+                         EX =  E(E(X|Y))
+                       =  E(pY)              (since X|Y ∼binomial(Y, p))
+                       =  pλ.                      (since Y ∼Poisson(λ))
+
+   The term mixture distribution in the title of this section refers to a distribution arising from a
+hierarchical structure. Although there is no standardized definition for this term, we will use the
+following definition, which seems to be a popular one.
+Definition 4.4.4  A random variable X is said to have a mixture distribution if the distribution of
+X depends on a quantity that also has a distribution.
+   Thus, in Example 4.4.1 the Poisson(λ p) distribution is a mixture distribution since it is the result
+of combining a binomial(Y, p) with Y ∼Poisson(λ). In general, we can say that hierarchical modelslead to mixture distributions.
+   There is nothing to stop the hierarchy at two stages, but it should be easy to see that any more
+complicated hierarchy can be treated as a two-stage hierarchy theoretically. There may be advan-
+tages, however, in modeling a phenomenon as a multistage hierarchy. It may be easier to understand.
+Example 4.4.5 (Generalization of Example 4.4.1)  Consider a generalization of Example 4.4.1,
+where instead of one mother insect there are a large number of mothers and one mother is chosen at
+random. We are still interested in knowing the average number of survivors, but it is no longer clear
+that the number of eggs laid follows the same Poisson distribution for each mother. The following
+three-stage hierarchy may be more appropriate. Let X = number of survivors in a litter; then
+                             X|Y ∼  binomial(Y, p),
+                          Y|Λ ∼  Poisson(Λ),
+                      Λ ∼  exponential(β),
+where the last stage of the hierarchy accounts for the variability across different mothers.
+   The mean of X can easily be calculated as
+                         EX =  E(E(X|Y))                       =  E(pY)                                  (as before)
+                       =  E(E(pY|Λ))                       =  E(pΛ)
+                       =  pβ,                    (exponential expectation)
+
+completing the calculation.                                                        ∥
+    In this example we have used a slightly different type of model than before in that two of
+the random variables are discrete and one is continuous. Using these models should present no
+problems. We can define a joint density, f(x,y,λ); conditional densities, f(x|y), f(x|y,λ), etc.;and marginal densities, f(x), f(x,y), etc.; as before. Simply understand that, when probabilities or
+expectations are calculated, discrete variables are summed and continuous variables are integrated.

@@ -1,0 +1,407 @@
+\subsection{习题}\label{sec:11.4}
+\begin{exercise}\label{exercise:11.1}\index{SI0054@数据变换}
+ANOVA中的方差稳定变换（variance-stabilizing transformation）以下述近似方式稳定方差. 设$Y$的均值为$\theta$，方差为$v(\theta)$.
+\sourcepageanchor{487}
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.1.a} 用类似\autoref{sec:10.1.3}的论证，说明单项Taylor级数近似给出$g(y)$的方差为
+$$\operatorname{Var}(g(Y))=\left[\frac d{d\theta}g(\theta)\right]^2v(\theta).$$
+\item\label{item:11.1.b} 证明$g^*(Y)$的近似方差与$\theta$无关，其中$g^*(y)=\int[1/\sqrt{v(y)}]\,dy$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.2}
+验证下列变换在\autoref{exercise:11.1}的意义下近似稳定方差.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.2.a} $Y\sim\operatorname{Poisson}$，$g^*(y)=\sqrt y$.
+\item\label{item:11.2.b} $Y\sim\operatorname{binomial}(n,p)$，$g^*(y)=\sin^{-1}(\sqrt{y/n})$.
+\item\label{item:11.2.c} $Y$的方差为$v(\theta)=K\theta^2$，其中$K$为常数，$g^*(y)=\log y$.
+\end{enumerate}
+（方差稳定变换的存在条件至少可追溯至\hyperref[bib:source90]{Curtiss，1943}；\hyperref[bib:source7]{Bar-Lev和Enis，1988}、1990，给出了改进.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.3}
+Box--Cox幂变换族（\hyperref[bib:source44]{Box和Cox，1964）}定义为
+$$g_\lambda^*(y)=\begin{cases}(y^\lambda-1)/\lambda,&\lambda\ne0,\\\log y,&\lambda=0,\end{cases}$$
+其中$\lambda$为自由参数.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.3.a} 证明，对每个$y$，$g_\lambda^*(y)$关于$\lambda$连续. 特别地，证明
+$$\lim_{\lambda\to0}(y^\lambda-1)/\lambda=\log y.$$
+\item\label{item:11.3.b} 求函数$v(\theta)$，即由$g_\lambda^*(y)$稳定的$Y$的近似方差. （注意$v(\theta)$很可能还依赖$\lambda$.）
+\end{enumerate}
+变换后数据的分析，特别是Box--Cox幂变换，在统计文献中曾引起一些争论. 见\hyperref[bib:source31]{Bickel和Doksum（1981）}、\hyperref[bib:source45]{Box和Cox（1982）}，以及\hyperref[bib:source168]{Hinkley和Runger（1984）}.
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.4}
+一种极著名且有用的方差稳定变换是Fisher的$z$变换，在\autoref{exercise:10.17}已遇到. 这里再考察一些细节. 假设$(X,Y)$服从二元正态分布，相关系数为$\rho$，样本相关系数为$r$.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.4.a} 从\hyperref[item:10.17.d]{习题10.17(d)}出发，用Delta方法证明
+$$\frac12\left[\log\left(\frac{1+r}{1-r}\right)-\log\left(\frac{1+\rho}{1-\rho}\right)\right]$$
+近似正态，均值为0，方差为$1/n$.
+\item\label{item:11.4.b} Fisher实际上使用了稍精确的展开（\hyperref[bib:source309]{Stuart和Ord，1987}，第16.33节），证明\hyperref[item:11.4.a]{(a)}中的量近似正态，且
+$$\text{均值}=\frac\rho{2(n-1)},\qquad\text{方差}=\frac1{n-1}+\frac{4-\rho^2}{2(n-1)^2}.$$
+证明，对较小的$\rho$和中等的$n$，可将此均值、方差近似为0和$1/(n-3)$，这就是Fisher $z$变换最常用的形式.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.5}
+假设按照\eqref{eq:11.2.2}的过参数化单因素ANOVA模型观测随机变量$Y_{ij}$. 给出两组不同的参数，使$Y_{ij}$具有完全相同的分布，从而说明：若不对参数施加某种限制，该模型不可识别.
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.6}
+在单因素ANOVA假设下：
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.6.a}\index{SI0049@充分统计量}\index{SI1001@方差分析} 证明统计量组$(\bar Y_{1\cdot},\bar Y_{2\cdot},\ldots,\bar Y_{k\cdot},S_p^2)$对$(\theta_1,\theta_2,\ldots,\theta_k,\sigma^2)$充分.
+\item\label{item:11.6.b} 证明$S_p^2=\frac1{N-k}\sum_{i=1}^k(n_i-1)S_i^2$与每个$\bar Y_{i\cdot}$独立，$i=1,\ldots,k$. （见\autoref{lem:5.3.3}.）
+\item\label{item:11.6.c} 若$\sigma^2$已知，说明ANOVA数据如何等价于\hyperref[sec:11.5.6]{杂录11.5.6}中的典范形式.
+\end{enumerate}
+\end{exercise}
+
+\sourcepageanchor{488}
+\begin{exercise}\label{exercise:11.7}
+证明
+$$\frac1{\sigma^2}\sum_{i=1}^kn_i\bigl((\bar Y_{i\cdot}-\bar{\bar Y})-(\theta_i-\bar\theta)\bigr)^2\sim\chi^2_{k-1},$$
+从而完成\autoref{thm:11.2.8}的证明.
+
+（提示：定义$\bar U_i=\bar Y_{i\cdot}-\theta_i$，$i=1,\ldots,k$. 证明$\bar U_i$独立服从$\mathrm n(0,\sigma^2/n_i)$. 再调整\autoref{lem:5.3.2}的归纳论证，证明$\sum n_i(\bar U_i-\bar{\bar U})^2/\sigma^2\sim\chi^2_{k-1}$，其中$\bar{\bar U}=\sum n_i\bar U_i/\sum n_i$.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.8}
+证明：在单因素ANOVA假设下，对任意常数组$\boldsymbol a=(a_1,\ldots,a_k)$，量$\sum a_i\bar Y_{i\cdot}$服从均值为$\sum a_i\theta_i$、方差为$\sigma^2\sum a_i^2/n_i$的正态分布. （见\autoref{cor:4.6.10}.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.9}
+利用类似推导\eqref{eq:11.2.7}的$t$检验的论证，说明如何对下列假设构造$t$检验：
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.9.a} $H_0:\sum a_i\theta_i=\delta$对$H_1:\sum a_i\theta_i\ne\delta$.
+\item\label{item:11.9.b} $H_0:\sum a_i\theta_i\le\delta$对$H_1:\sum a_i\theta_i>\delta$，其中$\delta$为指定常数.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.10}
+假设有一个五处理的单因素ANOVA. 处理均值记为$\theta_1,\ldots,\theta_5$，其中$\theta_1$为对照，$\theta_2,\ldots,\theta_5$为备选新处理，并假设每个处理取相同数量的观测. 考虑由下列向量定义的四个对比$\sum a_i\theta_i$：
+$$\begin{aligned}
+\boldsymbol a_1&=(1,-\tfrac14,-\tfrac14,-\tfrac14,-\tfrac14),\\
+\boldsymbol a_2&=(0,1,-\tfrac13,-\tfrac13,-\tfrac13),\\
+\boldsymbol a_3&=(0,0,1,-\tfrac12,-\tfrac12),\\
+\boldsymbol a_4&=(0,0,0,1,-1).
+\end{aligned}$$
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.10.a} 说明使用这些对比进行四个$t$检验，其结果可以对$\theta_1,\ldots,\theta_5$的排序得出结论. 可能得到哪些结论？
+\item\label{item:11.10.b} 证明由\hyperref[item:11.10.a]{(a)}中的四个$\boldsymbol a_i$形成的任意两个对比$\sum a_i\bar Y_{i\cdot}$互不相关. （回顾它们称为正交对比.）
+\item\label{item:11.10.c} 对\autoref{ex:11.2.3}的肥料实验，预先安排了以下对比：
+$$\begin{aligned}
+\boldsymbol a_1&=(-1,1,0,0,0),\\
+\boldsymbol a_2&=(0,-1,\tfrac12,\tfrac12,0),\\
+\boldsymbol a_3&=(0,0,1,-1,0),\\
+\boldsymbol a_4&=(0,-1,0,0,1,).
+\end{aligned}$$
+证明这些对比并不正交. 在肥料实验的背景下解释这些对比，说明它们是一组合理的对比.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.11}
+对任意常数组$\boldsymbol a=(a_1,\ldots,a_k)$和$\boldsymbol b=(b_1,\ldots,b_k)$，证明在单因素ANOVA假设下
+$$\operatorname{Cov}\left(\sum a_i\bar Y_{i\cdot},\sum b_i\bar Y_{i\cdot}\right)
+=\sigma^2\sum\frac{a_ib_i}{n_i}.$$
+因此，单因素ANOVA中，若$\sum a_ib_i/n_i=0$，则对比互不相关（正交）.
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.12}\index{SI0037@与t检验的关系}\index{SI0052@与F检验的关系}
+假设单因素ANOVA中每个处理的观测数相同，即$n_i=n$，$i=1,\ldots,k$. 此时$F$检验可看成平均的$t$检验.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.12.a} 证明，$H_0:\theta_i=\theta_{i'}$对$H_1:\theta_i\ne\theta_{i'}$的$t$检验可以基于统计量
+$$t_{ii'}^2=\frac{(\bar Y_{i\cdot}-\bar Y_{i'\cdot})^2}{S_p^2(2/n)}.$$
+\item\label{item:11.12.b} 证明
+$$\frac1{k(k-1)}\sum_{i,i'}t_{ii'}^2=F,$$
+其中$F$为通常的ANOVA $F$统计量. （提示：见\hyperref[item:5.8.a]{习题5.8(a)}.）（由George McCabe提供，他从John Tukey处获知此结果.）
+\end{enumerate}
+\end{exercise}
+
+\sourcepageanchor{489}
+\begin{exercise}\label{exercise:11.13}\index{SI0041@似然比检验}\index{SI0631@方差分析}
+在单因素ANOVA假设下，证明$H_0:\theta_1=\theta_2=\cdots=\theta_k$的似然比检验就是\eqref{eq:11.2.14}的$F$检验.
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.14}\index{SI0047@Scheffé方法}\index{SI0681@二次函数的最大值}\index{SI0956@方差分析}
+Scheff\'e同时区间方法实际上适用于所有线性组合，不仅适用于对比. 证明：在单因素ANOVA假设下，若$M=\sqrt{kF_{k,N-k,\alpha}}$（注意分子自由度的改变），则下列不等式对所有$\boldsymbol a=(a_1,\ldots,a_k)$同时成立的概率为$1-\alpha$：
+$$\begin{aligned}
+\sum_{i=1}^ka_i\bar Y_{i\cdot}-M\sqrt{S_p^2\sum_{i=1}^k\frac{a_i^2}{n_i}}
+&\le\sum_{i=1}^ka_i\theta_i\\
+&\le\sum_{i=1}^ka_i\bar Y_{i\cdot}+M\sqrt{S_p^2\sum_{i=1}^k\frac{a_i^2}{n_i}}.
+\end{aligned}$$
+（最容易的做法可能是，仿照\autoref{lem:11.2.7}先证明：若$v_1,\ldots,v_k$为常数，$c_1,\ldots,c_k$为正常数，则
+$$\max_{\boldsymbol a}\left\{\frac{(\sum_{i=1}^ka_iv_i)^2}{\sum_{i=1}^ka_i^2/c_i}\right\}=\sum_{i=1}^kc_iv_i^2.$$
+然后调整\autoref{thm:11.2.10}的证明，建立所需结果.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.15}\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.15.a} 证明，对$t$分布和$F$分布，以及任意$\nu,\alpha,k$，
+$$t_{\nu,\alpha/2}\le\sqrt{(k-1)F_{k-1,\nu,\alpha}}.$$
+（回顾$t$与$F$的关系. 固定$\nu$时，$kF_{k,\nu}$的分布随$k$随机递增，该不等式是其推论，但实际上是一个较弱的陈述. 见\autoref{exercise:5.19}.）
+\item\label{item:11.15.b} 解释上述不等式如何说明，同时Scheff\'e区间总比单个对比区间宽.
+\item\label{item:11.15.c} 证明，由上述不等式还可得到Scheff\'e检验的功效低于$t$检验.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.16}
+\autoref{thm:11.2.5}表明ANOVA原假设等价于所有对比为零. 也可将ANOVA原假设写成另一组假设的交.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.16.a} 证明假设
+$$H_0:\theta_1=\theta_2=\cdots=\theta_k\quad\text{对}\quad H_1:\theta_i\ne\theta_j\text{，对某些 }i,j$$
+与假设
+$$H_0:\theta_i-\theta_j=0\text{，对所有 }i,j\quad\text{对}\quad H_1:\theta_i-\theta_j\ne0\text{，对某些 }i,j$$
+等价.
+\item\label{item:11.16.b} 把ANOVA检验的$H_0,H_1$表示为集合
+$$\Theta_{ij}=\{\boldsymbol\theta=(\theta_1,\ldots,\theta_k):\theta_i-\theta_j=0\}$$
+的并与交. 描述如何利用这些表达式，构造ANOVA原假设的另一种不同的并交检验. （见\hyperref[sec:11.5.2]{杂录11.5.2}.）
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.17}\index{SI0717@受保护的最小显著差}
+一种称为受保护LSD（Protected Least Significant Difference，受保护的最小显著差）的多重比较程序如下进行：若ANOVA $F$检验在水平$\alpha$拒绝$H_0$，则对每对均值$\theta_i,\theta_{i'}$，在
+$$\frac{|\bar Y_{i\cdot}-\bar Y_{i'\cdot}|}{\sqrt{S_p^2(1/n_i+1/n_{i'})}}>t_{\alpha/2,N-k}$$
+时判定均值不同.\footnote{译注：原题$t$分位数的下标次序与本书通常记号相反，按通常记号应为$t_{N-k,\alpha/2}$. 原式保留.} 注意，每个$t$检验都在与ANOVA $F$检验相同的$\alpha$水平进行. 这里使用全实验$\alpha$水平（experimentwise $\alpha$），其中
+$$\text{全实验 }\alpha=P\left(\text{至少作出一个错误的差异断言}\mid\text{所有均值相等}\right).$$
+\sourcepageanchor{490}
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.17.a} 证明，无论实验中有多少均值，受保护LSD所作的同时推断都处于水平$\alpha$.
+\item\label{item:11.17.b}\index{SI0715@逐次比较错误率}\index{SI0716@整体试验错误率} 普通（或不受保护的）LSD不论ANOVA $F$检验结果如何，都直接进行水平$\alpha$的各个$t$检验. 证明，普通LSD的全实验错误率可能大于$\alpha$. （不受保护LSD确实维持了每次比较的错误率$\alpha$.）
+\item\label{item:11.17.c} 对\autoref{ex:11.2.1}的鱼类毒素数据进行LSD程序. 结论是什么？
+\end{enumerate}
+\end{exercise}
+
+\needspace{6\baselineskip}
+\begin{exercise}\label{exercise:11.18}\index{SI0033@数据窥探}
+为说明“数据窥探”，即检验由数据启发的假设，通常不是良好做法：
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.18.a} 证明，对任意随机变量$Y$和常数$a,b$，若$a>b$且$P(Y>b)<1$，则$P(Y>a\mid Y>b)>P(Y>a)$.\footnote{译注：原题还需$P(Y>b)>0$以定义条件概率，且严格不等号需$P(Y>a)>0$；否则可能取等. 原条件与结论保留.}
+\item\label{item:11.18.b} 令$Y$为检验统计量，$a$为临界点，把\hyperref[item:11.18.a]{(a)}的不等式用于由数据启发的假设检验的大小.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.19}
+设$X_i\sim\operatorname{gamma}(\lambda_i,1)$相互独立，$i=1,\ldots,n$. 定义$Y_i=X_{i+1}/(\sum_{j=1}^iX_j)$，$i=1,\ldots,n-1$，以及$Y_n=\sum_{i=1}^nX_i$.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.19.a} 求$Y_i$，$i=1,\ldots,n$，的联合分布和边缘分布.
+\item\label{item:11.19.b} 将结果与ANOVA中常用的分布联系起来.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.20}
+证明：若单因素ANOVA原假设成立，则
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.20.a} $\sum n_i(\bar Y_{i\cdot}-\bar{\bar Y})^2/(k-1)$是$\sigma^2$的无偏估计量.
+\item\label{item:11.20.b} 说明如何用\autoref{ex:5.3.5}的方法推导ANOVA $F$检验.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.21}\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.21.a} 计算下列数据的完整ANOVA表，说明ANOVA中的平方和分解. 为确定饲料质量，对雄性断奶大鼠喂食不同蛋白质水平的饲料. 将15只大鼠分别随机分配至三种饲料之一，记录其体重增加量，单位为克.
+\begin{center}
+\begin{tabular}{rrr}
+\toprule\multicolumn{3}{c}{饲料蛋白质水平}\\
+低&中&高\\\midrule
+3.89&8.54&20.39\\3.87&9.32&24.22\\3.26&8.76&30.91\\2.70&9.30&22.78\\3.82&10.45&26.33\\\bottomrule
+\end{tabular}
+\end{center}
+\item\label{item:11.21.b} 完成\autoref{thm:11.2.11}的证明，以解析方式验证ANOVA平方和分解.
+\item\label{item:11.21.c} 用\hyperref[item:11.21.a]{(a)}的数据说明\hyperref[item:11.12.b]{习题11.12(b)}中$t$统计量与$F$统计量的关系.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.22}\index{SI0035@均方的期望}
+计算单因素ANOVA表中MSB与MSW的期望. （这些期望正式称为期望均方，expected mean squares，可用于帮助确定复杂ANOVA中的$F$检验. 有算法可计算期望均方，算法细节例如可见\hyperref[bib:source190]{Kirk，1982}.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.23}
+对\hyperref[sec:11.5.3]{杂录11.5.3}的模型：
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.23.a} 证明$Y_{ij}$的均值、方差为$EY_{ij}=\mu+\tau_i$和$\operatorname{Var}Y_{ij}=\sigma_B^2+\sigma^2$.
+\item\label{item:11.23.b} 若$\sum a_i=0$，证明$\sum a_i\bar Y_{i\cdot}$的无条件方差为
+$$\operatorname{Var}\left(\sum a_i\bar Y_{i\cdot}\right)=\frac1r(\sigma^2+\sigma_B^2)(1-\rho)\sum a_i^2,$$
+其中$\rho$为组内相关系数.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.24}
+\hyperref[sec:11.5.6]{杂录11.5.6}的Stein估计量形式，可以通过\hyperref[bib:source111]{Efron和Morris（1972）}给出的经验贝叶斯论证得到一定解释，该论证在数据分析中相当有用. \hyperref[bib:source301]{Stein（1956）}可能已经知道这样的论证，但未提及. 设$X_i\sim\mathrm n(\theta_i,1)$，$i=1,\ldots,p$，且$\theta_i$独立同分布于$\mathrm n(0,\tau^2)$.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.24.a} 证明$X_i$的边缘分布独立同为$\mathrm n(0,\tau^2+1)$，从而$\sum X_i^2/(\tau^2+1)\sim\chi^2_p$.
+\sourcepageanchor{491}
+\item\label{item:11.24.b} 利用边缘分布，证明若$p\ge3$，则
+$$E\left(1-\frac{p-2}{\sum_{j=1}^pX_j^2}\right)=\frac{\tau^2}{\tau^2+1}.$$
+因此，\hyperref[sec:11.5.6]{杂录11.5.6}的Stein估计量是贝叶斯估计量$\delta_\pi^i(\boldsymbol X)=[\tau^2/(\tau^2+1)]X_i$的经验贝叶斯版本.
+\item\label{item:11.24.c} 证明：若$Y\sim\chi^2_p$且$p<3$，则$E(1/Y)=\infty$，从而说明$p<3$时该论证失效.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.25}\index{SI0613@正规方程}\index{SI0726@正规方程}
+\autoref{sec:11.3.1}通过两阶段最小化求出了$\alpha,\beta$的最小二乘估计. 这个最小化也可用偏导数进行.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.25.a} 计算$\partial\mathrm{RSS}/\partial c$和$\partial\mathrm{RSS}/\partial d$，并令其为零. 证明所得两个方程可写成
+$$nc+\left(\sum_{i=1}^nx_i\right)d=\sum_{i=1}^ny_i,
+\qquad
+\left(\sum_{i=1}^nx_i\right)c+\left(\sum_{i=1}^nx_i^2\right)d=\sum_{i=1}^nx_iy_i.$$
+（这些方程称为该最小化问题的正规方程，normal equations.）
+\item\label{item:11.25.b} 证明$c=a$和$d=b$是正规方程的解.
+\item\label{item:11.25.c} 检查二阶偏导数条件，验证$c=a,d=b$这一点确实使RSS最小.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.26}
+假设$n$为偶数. 预测变量的值$x_1,\ldots,x_n$都必须在区间$[e,f]$中选取. 证明，使$S_{xx}$最大的选择，是令一半$x_i$等于$e$，另一半等于$f$. （这是\autoref{sec:11.3.2}中提到的使$\operatorname{Var}b$最小的选择.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.27}
+观测$(x_i,Y_i)$，$i=1,\ldots,n$，服从模型$Y_i=\alpha+\beta x_i+\varepsilon_i$，其中$E\varepsilon_i=0$、$\operatorname{Var}\varepsilon_i=\sigma^2$，且$i\ne j$时$\operatorname{Cov}(\varepsilon_i,\varepsilon_j)=0$. 求$\alpha$的最优线性无偏估计量.
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.28}
+证明，在简单线性回归的条件正态模型中，$\sigma^2$的MLE为
+$$\hat\sigma^2=\frac1n\sum_{i=1}^n(y_i-\hat\alpha-\hat\beta x_i)^2.$$
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.29}
+考虑\autoref{sec:11.3.4}中由$\hat\varepsilon_i=Y_i-\hat\alpha-\hat\beta x_i$定义的残差$\hat\varepsilon_1,\ldots,\hat\varepsilon_n$.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.29.a} 证明$E\hat\varepsilon_i=0$.
+\item\label{item:11.29.b} 验证
+$$\begin{aligned}
+\operatorname{Var}\hat\varepsilon_i
+={}&\operatorname{Var}Y_i+\operatorname{Var}\hat\alpha+x_i^2\operatorname{Var}\hat\beta
+-2\operatorname{Cov}(Y_i,\hat\alpha)\\
+&-2x_i\operatorname{Cov}(Y_i,\hat\beta)+2x_i\operatorname{Cov}(\hat\alpha,\hat\beta).
+\end{aligned}$$
+\item\label{item:11.29.c} 用\autoref{lem:11.3.2}证明
+$$\operatorname{Cov}(Y_i,\hat\alpha)=\sigma^2\left(\frac1n+\frac{(x_i-\bar x)\bar x}{S_{xx}}\right)
+\quad\text{且}\quad\operatorname{Cov}(Y_i,\hat\beta)=\sigma^2\frac{x_i-\bar x}{S_{xx}},$$
+并用它们验证\eqref{eq:11.3.28}.\footnote{译注：第一个协方差式中的加号应为减号，由$\hat\alpha=\sum_i[1/n-(x_i-\bar x)\bar x/S_{xx}]Y_i$可直接核对. 原题照录.}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.30}
+补全\autoref{thm:11.3.3}证明中略去的关于$\hat\alpha$分布的细节.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.30.a} 证明估计量$\hat\alpha=\bar y-\hat\beta\bar x$可表示为$\hat\alpha=\sum_{i=1}^nc_iY_i$，其中
+$$c_i=\frac1n-\frac{(x_i-\bar x)\bar x}{S_{xx}}.$$
+\item\label{item:11.30.b} 验证
+$$E\hat\alpha=\alpha\quad\text{且}\quad\operatorname{Var}\hat\alpha=\sigma^2\left[\frac1{nS_{xx}}\sum_{i=1}^nx_i^2\right].$$
+\item\label{item:11.30.c} 验证
+$$\operatorname{Cov}(\hat\alpha,\hat\beta)=-\frac{\sigma^2\bar x}{S_{xx}}.$$
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.31}
+验证\autoref{thm:11.3.3}中的断言：$\hat\varepsilon_i$与$\hat\alpha,\hat\beta$互不相关. （证明$\hat\varepsilon_i=\sum e_jY_j$，其中$e_j$由\eqref{eq:11.3.30}给出. 再利用$\hat\alpha=\sum c_jY_j$和$\hat\beta=\sum d_jY_j$，验证$\sum e_jc_j=\sum e_jd_j=0$，并应用\autoref{lem:11.3.2}.）
+\end{exercise}
+
+\sourcepageanchor{492}
+\begin{exercise}\label{exercise:11.32}
+按照模型
+$$Y_i=\alpha+\beta x_i+\varepsilon_i$$
+取得观测$(x_i,Y_i)$，$i=1,\ldots,n$，其中$x_1,\ldots,x_n$为固定常数，$\varepsilon_1,\ldots,\varepsilon_n$独立同分布于$\mathrm n(0,\sigma^2)$. 将模型重新参数化为
+$$Y_i=\alpha'+\beta'(x_i-\bar x)+\varepsilon_i.$$
+设$\hat\alpha,\hat\beta$分别为$\alpha,\beta$的MLE，$\hat\alpha',\hat\beta'$分别为$\alpha',\beta'$的MLE.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.32.a} 证明$\hat\beta'=\hat\beta$.
+\item\label{item:11.32.b} 证明$\hat\alpha'\ne\hat\alpha$. 事实上，证明$\hat\alpha'=\bar Y$. 求$\hat\alpha'$的分布.\footnote{译注：原题不等号应理解为两个估计量一般不同；若$\bar x=0$，二者相同，个别样本也可能取相同值. 原文保留.}
+\item\label{item:11.32.c} 证明$\hat\alpha',\hat\beta'$互不相关，从而在正态性下独立.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.33}
+从参数为$(\mu_X,\mu_Y,\sigma_X^2,\sigma_Y^2,\rho)$的二元正态总体取得观测$(X_i,Y_i)$，$i=1,\ldots,n$，拟合模型$Y_i=\alpha+\beta x_i+\varepsilon_i$.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.33.a} 说明假设$H_0:\beta=0$成立当且仅当假设$H_0:\rho=0$成立. （见\eqref{eq:11.3.25}.）
+\item\label{item:11.33.b} 用代数方法证明
+$$\frac{\hat\beta}{S/\sqrt{S_{xx}}}=\sqrt{n-2}\frac r{\sqrt{1-r^2}},$$
+其中$r$为样本相关系数，也是$\rho$的MLE.
+\item\label{item:11.33.c} 说明如何只给定$r^2$和$n$，使用自由度为$n-2$的Student $t$分布检验$H_0:\rho=0$（见\eqref{eq:11.3.33}）. （Fisher利用方差稳定变换推导了$\rho$的近似置信区间，见\autoref{exercise:11.4}.）
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.34}\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.34.a} 计算下列数据的回归ANOVA表，说明简单线性回归的平方和分解. 父母常希望预测孩子成年后的身高. 以下数据来自一项可能受到Galton分析启发的研究，是其中的一部分.
+\begin{center}
+\begin{tabular}{lrrrrrrrr}
+\toprule 两岁身高（英寸）（$x$）&39&30&32&34&35&36&36&30\\\midrule
+成年身高（英寸）（$y$）&71&63&63&67&68&68&70&64\\\bottomrule
+\end{tabular}
+\end{center}
+\item\label{item:11.34.b} 验证\eqref{eq:11.3.36}，从解析上建立简单线性回归的平方和分解.
+\item\label{item:11.34.c} 证明回归平方和的两个表达式确实相等，即
+$$\sum_{i=1}^n(\hat y_i-\bar y)^2=\frac{S_{xy}^2}{S_{xx}}.$$
+\item\label{item:11.34.d} 证明决定系数
+$$r^2=\frac{\sum_{i=1}^n(\hat y_i-\bar y)^2}{\sum_{i=1}^n(y_i-\bar y)^2}$$
+既可以推导为$n$对$(y_1,x_1),\allowbreak\ldots,\allowbreak(y_n,x_n)$的样本相关系数平方，也可以推导为$n$对$(y_1,\hat y_1),\allowbreak\ldots,\allowbreak(y_n,\hat y_n)$的样本相关系数平方.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.35}
+观测$Y_1,\ldots,Y_n$由关系$Y_i=\theta x_i^2+\varepsilon_i$描述，其中$x_1,\ldots,x_n$为固定常数，$\varepsilon_1,\ldots,\varepsilon_n$独立同分布于$\mathrm n(0,\sigma^2)$.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.35.a} 求$\theta$的最小二乘估计量.
+\item\label{item:11.35.b} 求$\theta$的MLE.
+\item\label{item:11.35.c} 求$\theta$的最优无偏估计量.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.36}
+按照模型$Y_i=\alpha+\beta x_i+\varepsilon_i$观测$Y_1,\ldots,Y_n$，其中$x_1,\ldots,x_n$为固定常数，$\varepsilon_1,\ldots,\varepsilon_n$独立同分布于$\mathrm n(0,\sigma^2)$. 设$\hat\alpha,\hat\beta$为$\alpha,\beta$的MLE.
+\sourcepageanchor{493}
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.36.a} 假设$x_1,\ldots,x_n$是独立同分布随机变量$X_1,\ldots,X_n$的观测值，其分布为$\mathrm n(\mu_X,\sigma_X^2)$. 证明，对$X,Y$的联合分布取期望时，仍有$E\hat\alpha=\alpha$和$E\hat\beta=\beta$.
+\item\label{item:11.36.b} \hyperref[item:11.36.a]{(a)}的现象不能推广到协方差. 利用$X,Y$的联合分布，计算$\hat\alpha,\hat\beta$的无条件协方差.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.37}
+观测随机变量$Y_1,\ldots,Y_n$，它们相互独立，各服从方差为$\sigma^2$的正态分布. 此外，$EY_i=\beta x_i$，其中$\beta$为未知参数，$x_1,\ldots,x_n$为不全为零的固定常数.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.37.a} 求$\beta$的MLE，并计算其均值和方差.
+\item\label{item:11.37.b} 计算$\beta$的无偏估计量方差的Cram\'er--Rao下界.
+\item\label{item:11.37.c} 求$\beta$的最优无偏估计量.
+\item\label{item:11.37.d} 若可将$x_1,\ldots,x_n$放在给定非退化闭区间$[A,B]$内任意位置，应如何放置？说明理由.
+\item\label{item:11.37.e}\index{SI0682@最大概率估计量}\index{SI0897@最大概率估计量} 对给定正数$r$，$\beta$关于$r$的最大概率估计量（maximum probability estimator）是使积分
+$$\int_{D-r}^{D+r}f(y_1,\ldots,y_n\mid\beta)\,d\beta$$
+最大的$D$值，其中$f(y_1,\ldots,y_n\mid\beta)$是$Y_1,\ldots,Y_n$的联合pdf. 求此估计量.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.38}
+一位生态学家取得数据$(x_i,Y_i)$，$i=1,\ldots,n$，其中$x_i$为区域面积，$Y_i$为该区域的苔藓植株数. 用模型$Y_i\sim\operatorname{Poisson}(\theta x_i)$描述数据，各$Y_i$独立.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.38.a} 证明$\theta$的最小二乘估计量为$\sum x_iY_i/\sum x_i^2$. 证明它的方差为$\theta\sum x_i^3/(\sum x_i^2)^2$，并计算其偏倚.
+\item\label{item:11.38.b} 证明$\theta$的MLE为$\sum Y_i/\sum x_i$，方差为$\theta/\sum x_i$. 计算其偏倚.
+\item\label{item:11.38.c} 求$\theta$的最优无偏估计量，并证明其方差达到Cram\'er--Rao下界.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.39}
+验证\eqref{eq:11.3.42}的同时置信区间具有所声称的覆盖概率.
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.40}\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.40.a}\index{SI0681@二次函数的最大值} 证明：若$a,b,c,d$为常数，$c>0,d>0$，则\footnote{译注：若$a=0,b\ne0$，右端仅为$t\to\pm\infty$时的上确界，不在有限$t$处达到；将max改为sup可覆盖此情形. 原题照录.}
+$$\max_t\frac{(a+bt)^2}{c+dt^2}=\frac{a^2}c+\frac{b^2}d.$$
+\item\label{item:11.40.b} 用\hyperref[item:11.40.a]{(a)}验证\eqref{eq:11.3.44}，从而补全\autoref{thm:11.3.6}中的空缺.
+\item\label{item:11.40.c} 用\hyperref[item:11.40.a]{(a)}，根据\eqref{eq:11.3.41}的预测区间求一个Scheff\'e型同时带. 即仿照\autoref{thm:11.3.6}重新表示预测区间，证明
+$$\max_t\frac{\bigl((\bar Y-\mu_{\bar Y})+(\hat\beta-\beta)t\bigr)^2}{S^2[1+1/n+t^2/S_{xx}]}
+=\frac{\dfrac n{n+1}(\bar Y-\mu_{\bar Y})^2+S_{xx}(\hat\beta-\beta)^2}{S^2}.$$
+\item\label{item:11.40.d} 最大值的分布不容易写出，但可以近似. 像\autoref{ex:7.2.3}那样使用矩匹配，近似这个统计量.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:11.41}
+注意\autoref{ex:12.4.2}的讨论中，Potoroo数据有一个观测含缺失值. 假设第24只动物观测到$\mathrm O_2=16.3$.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:11.41.a} 写出观测数据的对数似然函数，以及完整数据对数似然函数的期望.
+\item\label{item:11.41.b} 描述求MLE的EM算法的E步和M步.
+\item\label{item:11.41.c} 用全部24个观测求MLE.
+\item\label{item:11.41.d} 实际上，第24只动物未观测到$\mathrm O_2$，而是观测到$\mathrm{CO}_2=4.2$，$\mathrm O_2$缺失. 对此情形建立EM算法并求MLE. （这个问题困难得多，因为现在必须对$x$取期望，这意味着必须用二元正态分布表述回归问题.）
+\end{enumerate}
+\end{exercise}

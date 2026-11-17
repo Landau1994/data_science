@@ -1,0 +1,43 @@
+122                                      MULTIPLE RANDOM VARIABLES
+   Since we have called f(y|x) a pmf, we should verify that this function of y does indeed define a
+pmf for a random variable. First, f(y|x) ≥0 for every y since f(x,y) ≥0 and fX(x) > 0. Second,
+                                  ∑y f(x,y)    fX(x)
+                     =      =    = 1.            ∑                                       y  f(y|x)     fX(x)      fX(x)
+Thus, f(y|x) is indeed a pmf and can be used in the usual way to compute probabilities involving Ygiven the knowledge that X = x occurred.
+Example 4.2.2 (Calculating conditional probabilities)  Define the joint pmf of (X,Y) by
+                     f(0,10) = f(0,20) = 18,2    f(1,10)                3                               = f(1,30) = 18,
+                            f(1,20) = 18,4    and   f(2,30)    4                                = 18.
+We can use Definition 4.2.1 to compute the conditional pmf of Y given X for each of the possible
+values of X, x = 0,1,2. First, the marginal pmf of X is
+
+                                                 4
+                        fX(0) =  f(0,10)+ f(0,20) =
+                                                18
+                                                         10
+                        fX(1) =  f(1,10)+ f(1,20)+ f(1,30) =
+                                                         18
+                                        4
+                        fX(2) =   f(2,30) = 18.
+For x = 0, f(0,y) is positive only for y = 10 and y = 20. Thus, f(y|0) is positive only for y = 10 andy = 20, and
+                                           f(0,10)    182    1                      =      =  =                                                                4                              f(10|0)        fX(0)      18    2,
+                                           f(0,20)   1
+                              f(20|0) =    fX(0) = 2.
+
+That is, given the knowledge that X = 0, the conditional probability distribution for Y is the discrete
+                                 = 10 and y = 20.distribution that assigns probability 12 to each of the two points y
+   For x = 1, f(y|1) is positive for y = 10, 20, and 30, and
+                                                                3    3                                                               18                      =      =  =                                                               10                               f(10|1)       f(30|1)        10                                                               18
+                                                    4    4                                                   18                      =   =                                                   10                               f(20|1)           10;                                                   18
+
+and for x = 2,
+
+                                                          4
+                                                          18                         =   = 1.                                                          4                                    f(30|2)                                                          18
+The latter result reflects a fact that is also apparent from the joint pmf. If we know that X = 2, then
+we know that Y must be 30.
+   Other conditional probabilities can be computed using these conditional pmfs. For example,
+
+
+                                                                              10                        P(Y > 10|X                                 7                      = 1) = f(20|1)+ f(30|1)1 =
+                      or        P(Y > 10|X = 0) = f(20|0) = 2.
+                                                                              ∥

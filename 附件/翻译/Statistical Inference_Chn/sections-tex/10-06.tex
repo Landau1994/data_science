@@ -1,0 +1,97 @@
+\subsection{杂录}\label{sec:10.6}
+\sourcepageanchor{448}
+\subsubsection{超有效性}\label{sec:10.6.1}\index{SI1014@超效率}
+虽然\autoref{thm:7.3.9}的Cramér--Rao下界确实是方差的下界，但\autoref{def:10.1.11}与\autoref{thm:10.1.6}中关于渐近方差的下界可以被突破. Hodges给出了一个胜过\autoref{def:10.1.11}下界的估计量例子（见\hyperref[bib:source194]{LeCam，1953）}.
+
+若$X_1,\ldots,X_n$独立同分布于$\mathrm n(\theta,1)$，$\theta$的无偏估计量的Cramér--Rao下界为$v(\theta)=1/n$. 估计量
+$$d_n=\begin{cases}\bar X,&|\bar X|\geq1/n^{1/4},\\a\bar X,&|\bar X|<1/n^{1/4},\end{cases}$$
+满足
+$$\sqrt n(d_n-\theta)\longrightarrow\mathrm n[0,v(\theta)]\quad\text{依分布},$$
+其中$\theta\ne0$时$v(\theta)=1$，$\theta=0$时$v(\theta)=a^2$. 若$a<1$，则不等式\eqref{eq:7.2.5}在$\theta=0$处被违反.\footnote{译注：要保证$a^2<1$，需$|a|<1$，或事先限定$0\leq a<1$；原文仅写$a<1$. 此段所引\autoref{thm:10.1.6}应核对为\autoref{thm:10.1.12}，所引不等式(7.2.5)也需核对. 原文均保留.}
+
+像$d_n$这样的估计量称为超有效估计量（superefficient estimator）. 虽然可以在一定一般性下构造它们，但它们更像理论上的奇特现象，而非实际关注的对象. 原因是，使方差低于下界的$\theta$值构成零概率集合，即Lebesgue测度为零的集合. 不过，超有效估计量的存在提醒我们，在建立估计量性质时，始终应仔细检查假设（在一般情况下也要谨慎！）.
+
+\subsubsection{适当的正则条件}\label{sec:10.6.2}\index{SI0912@正则条件}
+“在适当的正则条件下”这句话有些被滥用，因为只要假设足够多，大概就能证明想要的任何结论. 不过，“正则条件”通常十分技术性、相当乏味，而且大多数合理问题中通常都满足. 但它们不可避免，我们应该处理它们. 为完整起见，给出一组足以严格建立\autoref{thm:10.1.6}与\autoref{thm:10.1.12}的正则条件. 这些不是最一般的条件，但对许多应用已经足够一般（一个显著例外是MLE位于参数空间边界的情况）. 预先提醒，以下内容不适合畏难者；跳过也不会对理解造成太大损失.
+
+这些条件主要涉及密度的可微性，以及交换微分与积分的能力（如\autoref{thm:7.3.9}的条件）. 更多细节与更一般的讨论，见\hyperref[bib:source311]{Stuart、Ord和Arnold（1999}，第18章）、\hyperref[bib:source120]{Ferguson（1996}，第4部分），或\hyperref[bib:source200]{Lehmann和Casella（1998}，第6.3节）.
+
+以下四个假设足以证明\autoref{thm:10.1.6}，即MLE的相合性：
+\begin{enumerate}[label=(A\arabic*)]
+\item\label{item:10.6.A1} 观测$X_1,X_2,\ldots,X_n$，其中$X_i\sim f(x\mid\theta)$独立同分布.
+\item\label{item:10.6.A2} 观测密度$f(x\mid\theta)$彼此不同，即若$\theta\ne\theta'$，则$f(x\mid\theta)\ne f(x\mid\theta')$.
+\item\label{item:10.6.A3} 密度$f(x\mid\theta)$具有共同支撑集，且$f(x\mid\theta)$关于$\theta$可微.
+\item\label{item:10.6.A4} 参数空间$\Omega$包含开集$\omega$，真实参数值$\theta_0$是其内点.
+\end{enumerate}
+以下两个假设与\hyperref[item:10.6.A1]{(A1)}至\hyperref[item:10.6.A4]{(A4)}一起，足以证明\autoref{thm:10.1.12}，即MLE的渐近正态性与有效性.
+\begin{enumerate}[label=(A\arabic*),start=5]
+\item\label{item:10.6.A5} 对每个$x\in\mathcal X$，密度$f(x\mid\theta)$关于$\theta$三次可微，三阶导数关于$\theta$连续，且$\int f(x\mid\theta)\,dx$可在积分号下对$\theta$求导三次.
+\sourcepageanchor{449}
+\item\label{item:10.6.A6} 对任意$\theta_0\in\Omega$，存在正数$c$与函数$M(x)$（二者均可依赖$\theta_0$），使
+$$\left|\frac{\partial^3}{\partial\theta^3}\log f(x\mid\theta)\right|\leq M(x)\quad\text{对所有$x\in\mathcal X$、$\theta_0-c<\theta<\theta_0+c$},$$
+且$E_{\theta_0}[M(X)]<\infty$.
+\end{enumerate}
+
+\subsubsection{再论自助法}\label{sec:10.6.3}
+\paragraph{理论}
+自助法背后的理论相当精深，以Edgeworth展开（Edgeworth expansions）为基础. 它们是在正态分布附近对分布函数进行的展开，其精神类似泰勒级数展开. 例如，若$X_1,X_2,\ldots,X_n$独立同分布，密度为$f$，均值和方差分别为$\mu$与$\sigma^2$，则$\sqrt n(\bar X-\mu)/\sigma$的cdf的一个Edgeworth展开为（\hyperref[bib:source154]{Hall，1992}，式2.17）
+$$P\left(\frac{\sqrt n(\bar X-\mu)}\sigma\leq w\right)=\Phi(w)+\phi(w)\left[-\frac1{6\sqrt n}\kappa(w^2-1)+O\left(\frac1n\right)\right],$$
+其中$\Phi$与$\phi$分别为标准正态分布函数与密度函数，$\kappa=E(X_1-\mu)^3$为偏度.\footnote{译注：对于此标准化后的展开，偏度通常应为$E[(X_1-\mu)^3]/\sigma^3$；原文定义缺少$\sigma^3$，除非另有$\sigma=1$的约定. 保留原式.} 展开的第一项是“通常”的正态近似；增加项数会提高展开的准确性.
+
+自助法令人惊讶之处在于，在某些情形下，它会自动使展开的第二项正确（从而达到“二阶”准确性）. 并非所有情形都如此，但对枢轴量进行自助法就是其中一种. \hyperref[bib:source154]{Hall（1992）}全面讨论了自助法的Edgeworth理论，另见\hyperref[bib:source288]{Shao和Tu（1995）}.
+
+\paragraph{实践}
+我们仅用自助法计算过标准误，它还有许多用途，其中最流行的可能是构造置信区间. 此外，还有针对不同情形发展的许多自助法变体. 特别是，处理相依数据较为微妙. 关于自助法诸多用途及更多内容的入门介绍，见\hyperref[bib:source114]{Efron和Tibshirani（1993）}.
+
+\paragraph{局限}
+自助法或许是近年统计方法学中最重要的单项发展，但它也有局限，也有人持批评态度. 超出独立同分布抽样与枢轴量的情形，自助法就不那么自动化了，但仍可能极有用. 对这些问题的有趣讨论，见\hyperref[bib:source203]{LePage和Billard（1992）}或\hyperref[bib:source336]{Young（1994）}.
+
+\subsubsection{影响函数}\label{sec:10.6.4}\index{SI0580@影响函数}
+影响函数（influence function）是一种考虑分布性质的灾难性事件度量，也用于衡量异常观测的影响. 影响函数可以解释为导数，这还带来一些有趣的结果.
+
+统计量的影响函数实际上用其总体对应量计算. 例如，样本均值的影响函数使用总体均值计算，因为它试图度量扰动总体的影响. 类似地，样本中位数的影响函数使用总体中位数计算. 为一致地处理这个思想，可以把估计量看成作用于cdf $F$或其样本对应量——经验cdf $F_n$（\autoref{def:1.5.1}）——的函数. 这种以其他函数为自变量的函数，称为泛函（functionals）.\index{SI0447@泛函}\semanticindexanchor{447:449}
+
+\sourcepageanchor{450}
+注意，对样本$X_1,X_2,\ldots,X_n$，知道样本等价于知道经验cdf $F_n$，因为$F_n$在每个$X_i$处跳跃$1/n$. 因此统计量$T=T(X_1,X_2,\ldots,X_n)$可等价写成$T(F_n)$，其总体对应量便可记为$T(F)$.
+
+\begin{definition}\label{def:10.6.1}
+对来自cdf为$F$的总体的样本$X_1,X_2,\ldots,X_n$，统计量$T=T(F_n)$在点$x$处的影响函数为
+$$IF(T,x)=\lim_{\delta\to0}\frac1\delta[T(F_\delta)-T(F)],$$
+其中，当
+$$X\sim\begin{cases}F,&\text{概率为$1-\delta$},\\x,&\text{概率为$\delta$},\end{cases}$$
+时，记$X\sim F_\delta$；即$F_\delta$是$F$与点$x$的混合.
+\end{definition}
+
+\begin{example}[均值与中位数的影响函数]\label{ex:10.6.2}\index{SI0798@影响函数}
+假设总体具有连续cdf $F$与pdf $f$. 令$\mu$为总体均值，$\bar X$为样本均值，$T(\cdot)$为计算总体均值的泛函. 因此$T(F_n)=\bar X$，$T(F)=\mu$，且
+$$T(F_\delta)=(1-\delta)\mu+\delta x,$$
+所以$IF(\bar X,x)=x-\mu$；随着$x$增大，它对$\bar X$的影响越来越大.
+
+对中位数$M$，有（\autoref{exercise:10.27}）
+$$IF(M,x)=\begin{cases}\dfrac1{2f(m)},&x>m,\\-\dfrac1{2f(m)},&\text{其他}.\end{cases}$$
+因此，与均值不同，中位数的影响函数有界.\index{SI0803@影响函数}\semanticindexanchor{803:450}
+\end{example}
+
+为什么有界影响函数很重要？为回答这个问题，考察$M$估计量的影响函数，均值与中位数都是其特例.
+
+令$\hat\theta_M$为方程$\sum_i\psi(x_i-\theta)=0$的$M$估计量解，其中$X_1,X_2,\ldots,X_n$独立同分布，cdf为$F$. 在\autoref{sec:10.2.2}中看到，$\hat\theta_M$是满足$E_{\theta_0}\psi(X-\theta_0)=0$的$\theta_0$的相合估计量. $\hat\theta_M$的影响函数为\footnote{译注：若$\psi'$表示对函数自变量求导，则下面分母应为正的$E_{\theta_0}\psi'(X-\theta_0)$；取$\psi(u)=u$时，原式给出$-(x-\theta_0)$，与本节均值影响函数相反. 原文还写下标$E_0$，此处保留. 影响函数平方及后面的渐近方差不受整体符号影响.}
+$$IF(\hat\theta_M,x)=\frac{\psi(x-\theta_0)}{-\int\psi'(t-\theta_0)f(t)\,dt}
+=\frac{\psi(x-\theta_0)}{-E_0(\psi'(X-\theta_0))}.$$
+现在回顾\eqref{eq:10.2.6}，可见影响函数平方的期望给出\index{SI0070@与影响函数的关系}\semanticindexanchor{70:450}\index{SI0581@与渐近方差的关系}\semanticindexanchor{581:450}$\hat\theta_M$的渐近方差，即
+$$\sqrt n(\hat\theta_M-\theta_0)\longrightarrow\mathrm n\bigl(0,E_{\theta_0}[IF(\hat\theta_M,X)]^2\bigr)\quad\text{依分布}.$$
+因此，影响函数与渐近方差直接相关.
+
+\subsubsection{自助法区间}\label{sec:10.6.5}
+在\autoref{sec:10.1.4}中看到，自助法是一种简单、通用的技术，可求任意统计量的标准误. 计算这些标准误时，实际上构造了统计量的一个分布，即自助分布（bootstrap distribution\mbox{）.} 自然会问：是否有一种简单、通用的方法，利用自助分布作置信陈述？自助法确实能够构造很好的置信区间，可惜它在计算标准误时具有的应用简便性，并未延续到置信区间中.
+
+\sourcepageanchor{451}
+使用自助分布百分位数，或对$t$统计量（枢轴量）进行自助法的方法，似乎可能具有普遍适用性. 然而，\hyperref[bib:source114]{Efron和Tibshirani（1993}，第13.4节）指出，“这两种区间一般都表现不好”. \hyperref[bib:source154]{Hall（1992}，第3章）更倾向于$t$统计量方法，并指出对枢轴量进行自助法通常是更优的技术.
+
+百分位数区间和百分位数$t$区间，仅仅是自助法置信区间庞大发展的一角，其中许多方法表现优秀. 但无法用一个简单配方概括这些程序：不同问题需要不同技术.
+
+\subsubsection{稳健区间}\label{sec:10.6.6}
+虽然在\autoref{sec:10.2}中较详细讨论了点估计量的稳健性，但除\autoref{ex:10.3.7}与\autoref{ex:10.4.8}外，对稳健检验与置信区间并未给出很多细节. 这并非对主题重要性的评价，更多是篇幅所限.
+
+考察点估计量的稳健性质时，主要关心基础假设发生小幅或大幅偏离后的表现. 同样的关切延续到检验与区间，期望稳健点估计量能够导出稳健检验与区间. 特别地，希望稳健检验在基础模型的一系列偏离下保持功效，希望稳健区间保持覆盖概率. 以下事实支持这种联系（见\hyperref[bib:source299]{Staudte和Sheather，1990}，第5.3.3节）：检验的功效函数可以与其所基于的点估计量的影响函数联系起来. 当然，这立即意味着相关区间估计的覆盖性质也可与影响函数联系起来.
+
+\hyperref[bib:source41]{Boos（1992）}通过估计方程与得分检验，对稳健检验作了很好的介绍. \hyperref[bib:source299]{Staudte和Sheather（1990）}以及\hyperref[bib:source165]{Hettmansberger和McKean（1998）}的著作也是优秀来源，\hyperref[bib:source171]{Huber（1981）}这本现已成为经典的著作亦然.

@@ -1,0 +1,43 @@
+SAMPLING FROM THE NORMAL DISTRIBUTION                                181
+   This lemma shows that, if we start with independent normal random variables, covariance and
+independence are equivalent for linear functions of these random variables. Thus, we can check
+independence for normal variables by merely checking the covariance term, a much simpler calcu-
+lation. There is nothing magic about this, it just follows from the form of the normal pdf. Further-
+more, part (b) allows us to infer overall independence of normal vectors by just checking pairwise
+independence, a property that does not hold for general random variables.
+  We can use Lemma 5.3.3 to provide an alternate proof of the independence of ¯X and S2 in
+normal sampling. Since we can write S2 as a function of n−1 deviations (X2 −¯X,...,Xn −¯X), wemust show that these random variables are uncorrelated with ¯X. The normality assumption, together
+with Lemma 5.3.3, will then allow us to conclude independence.
+   As an illustration of the application of Lemma 5.3.3, write
+                                                     n   1
+                                                   ¯X = ∑       Xi,                                                  i=1  n
+                                                     n
+                              Xj −¯X =   i=1∑   δij −1n   Xi,
+where δij = 1 if i = j and δi j = 0 otherwise. It is then easy to show that
+                                                    n   1
+                    Cov( ¯X,Xj   = ∑          δij                              −¯X)   i=1  n    −1n = 0,
+showing that ¯X and Xj −¯X are independent (as long as the Xis have the same variance).
+
+5.3.2  The Derived Distributions: Student’s t and Snedecor’s F
+
+The distributions derived in Section 5.3.1 are, in a sense, the first step in a statistical analysis that
+assumes normality. In particular, in most practical cases the variance, σ2, is unknown. Thus, to get
+any idea of the variability of ¯X (as an estimate of µ), it is necessary to estimate this variance. This
+topic was first addressed by W. S. Gosset (who published under the pseudonym of Student) in the
+early 1900s. The landmark work of Student resulted in Student’s t distribution or, more simply, the
+t distribution.
+     If X1,...,Xn are a random sample from a n(µ,σ2), we know that the quantity
+                                                             ¯X −µ                                          (5.3.3)                             σ/√n
+is distributed as a n(0,1) random variable. If we knew the value of σ, and we measured ¯X, then
+we could use (5.3.3) as a basis for inference about µ, since µ would then be the only unknown
+quantity. Most of the time, however, σ is unknown. Student did the obvious thing – he looked at the
+distribution of
+                                                            ¯X −µ ,                                         (5.3.4)                                S/√n
+a quantity that could be used as a basis for inference about µ when σ was unknown.
+   The distribution of (5.3.4) is easy to derive, provided that we first notice a few simplifying
+maneuvers. Multiply (5.3.4) by σ/σ and rearrange slightly to obtain
+                                               ¯X −µ = (¯X −µ)/(σ/√n) .                              (5.3.5)                        S/√n        S2/σ2
+The numerator of (5.3.5) is a n(0,1) random variable, and the denominator is   χ2n−1/(n−1), in-
+dependent of the numerator. Thus, the distribution of (5.3.4) can be found by solving the simplified
+problem of finding the distribution of U/  V/p, where U is n(0,1), V is χ2p, and U and V are
+independent. This gives us Student’s t distribution.

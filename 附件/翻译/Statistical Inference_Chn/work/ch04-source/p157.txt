@@ -1,0 +1,51 @@
+126                                      MULTIPLE RANDOM VARIABLES
+Furthermore, the marginal pdfs are given by
+
+                 ∞                            ∞
+           fX(x) = −∞g(x)h(y)dy = g(x)d and fY(y) = −∞g(x)h(y)dx = h(y)c.          (4.2.3)
+Thus, using (4.2.2) and (4.2.3), we have
+
+                         f(x,y) = g(x)h(y) = g(x)h(y)cd = fX(x)fY(y),
+
+showing that X and Y are independent. Replacing integrals with sums proves the lemma for discrete
+random vectors.                                           2
+                                         > 0 and y > 0 is aExample 4.2.8 (Checking independence–II)   f(x,y) = 384x2y4e−y−(x/2),1               x
+joint pdf. If we define
+
+                     x2e−x/2     x > 0                    y4e−y/384     y > 0            g(x) =                      and     h(y) =                                    ,
+                  0          x ≤0                   0             y ≤0
+then f(x,y) = g(x)h(y), for all x ∈ℜand all y ∈ℜ. By Lemma 4.2.7, we conclude that X and Y are
+independent random variables. We do not have to compute marginal pdfs.                   ∥
+     If X and Y are independent random variables, then from (4.2.1) it is clear that f(x,y) > 0 on
+the set {(x,y) : x ∈A and y ∈B} where A = {x : fX(x) > 0} and B = {y : fY(y) > 0}. A set of this
+form is called a cross-product and is usually denoted by A×B. Membership in a cross-product canbe checked by considering the x and y values separately. If f(x,y) is a joint pdf or pmf and the set
+where f(x,y) > 0 is not a cross-product, then the random variables X and Y with joint pdf or pmf
+f(x,y) are not independent. In Example 4.2.4, the set 0 < x < y < ∞is not a cross-product. To check
+membership in this set we must not only check that 0 < x < ∞and 0 < y < ∞but also x < y. Thus,
+the random variables in Example 4.2.4 are not independent. Example 4.2.2 gives an example of a
+joint pmf which is positive on a set which is not a cross-product.
+Example 4.2.9 (Joint probability model)  As an example of using independence to define a joint
+probability model, consider this situation. A student from an elementary school in Kansas City is
+randomly selected and X = the number of living parents of the student is recorded. Suppose the
+marginal distribution of X is
+
+                       fX(0) = .01,   fX(1) = .09,  and   fX(2) = .90.
+
+A retiree from Sun City is randomly selected and Y = the number of living parents of the retiree is
+recorded. Suppose the marginal distribution of Y is
+
+                        fY(0) = .70,   fY(1) = .25,  and   fY(2) = .05.
+
+It seems reasonable to assume that these two random variables are independent. Knowledge of the
+number of parents of the student tells us nothing about the number of parents of the retiree. The
+only joint distribution of X and Y that reflects this independence is the one defined by (4.2.1). Thus,
+for example,
+
+              f(0,0) = fX(0)fY(0) = .0070   and   f(0,1) = fX(0) fY(1) = .0025.
+
+This joint distribution can be used to calculate quantities such as
+
+              P(X = Y) =  f(0,0)+ f(1,1)+ f(2,2)
+                =  (.01)(.70)+(.09)(.25)+(.90)(.05) = .0745.
+
+                                                                              ∥

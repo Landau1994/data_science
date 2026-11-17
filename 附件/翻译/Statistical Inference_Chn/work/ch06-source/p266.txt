@@ -1,0 +1,52 @@
+THE SUFFICIENCY PRINCIPLE                                                235
+Example 6.2.26 (Using Basu’s Theorem–I)  Let X1,...,Xn be iid exponential observations with
+parameter θ. Consider computing the expected value of
+
+                                           Xn
+                               g(X) =                    .
+                                       X1 +···+Xn
+We first note that the exponential distributions form a scale parameter family and thus, by Example
+6.2.19, g(X) is an ancillary statistic. The exponential distributions also form an exponential family
+with t(x) = x and so, by Theorem 6.2.25,
+
+                                                        n
+                               T(X) = ∑ Xi
+                                                     i=1
+
+is a complete statistic and, by Theorem 6.2.10, T(X) is a sufficient statistic. (As noted below, we
+need not verify that T(X) is minimal although it could easily be verified using Theorem 6.2.13.)
+Hence, by Basu’s Theorem, T(X) and g(X) are independent. Thus, we have
+
+              θ = EθXn = EθT(X)g(X) = (EθT(X))(Eθg(X)) = nθEθg(X).
+Hence, for any θ,Eθg(X) = n−1.                                                    ∥
+Example 6.2.27 (Using Basu’s Theorem–II)  As another example of the use of Basu’s Theorem,
+we consider the independence of X and S2, the sample mean and variance, when sampling from
+a n(µ,σ2) population. We have, of course, already shown that these statistics are independent in
+Theorem 5.3.1, but we will illustrate the use of Basu’s Theorem in this important context. First
+consider σ2 fixed and let µ vary, −∞< µ < ∞. By Example 6.2.4, X is a sufficient statistic for
+µ. Theorem 6.2.25 may be used to deduce that the family of n(µ,σ2/n) distributions, −∞< µ <∞,σ2/n known, is a complete family. Since this is the distribution of X, X is a complete statistic.
+Now consider S2. An argument similar to those used in Examples 6.2.18 and 6.2.19 could be used
+to show that in any location parameter family (remember σ2 is fixed, µ is the location parameter),
+S2 is an ancillary statistic. Or, for this normal model, we can use Theorem 5.3.1 to see that the
+distribution of S2 depends on the fixed quantity σ2 but not on the parameter µ. Either way, S2 is
+ancillary and so, by Basu’s Theorem, S2 is independent of the complete sufficient statistic X. For
+any µ and the fixed σ2, X and S2 are independent. But since σ2 was arbitrary, we have that the
+sample mean and variance are independent for any choice of µ and σ2. Note that neither X nor S2
+is ancillary in this model when both µ and σ2 are unknown. Yet, by this argument, we are still able
+to use Basu’s Theorem to deduce independence. This kind of argument is sometimes useful, but the
+fact remains that it is often harder to show that a statistic is complete than it is to show that two
+statistics are independent.                                                          ∥
+     It should be noted that the “minimality” of the sufficient statistic was not used in the proof of
+Basu’s Theorem. Indeed, the theorem is true with this word omitted, because a fundamental property
+of a complete statistic is that it is minimal.
+Theorem 6.2.28    If a minimal sufficient statistic exists, then any complete statistic is also a mini-
+mal sufficient statistic.
+
+   So even though the word “minimal” is redundant in the statement of Basu’s Theorem, it was
+stated in this way as a reminder that the statistic T(X) in the theorem is a minimal sufficient statistic.
+(More about the relationship between complete statistics and minimal sufficient statistics can be
+found in Lehmann and Scheff´e 1950 and Schervish 1995, Section 2.1.)
+   Basu’s Theorem gives one relationship between sufficient statistics and ancillary statistics using
+the concept of complete statistics. There are other possible definitions of ancillarity and complete-
+ness. Some relationships between sufficiency and ancillarity for these definitions are discussed by
+Lehmann (1981).

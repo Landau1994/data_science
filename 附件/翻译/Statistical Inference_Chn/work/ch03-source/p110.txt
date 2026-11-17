@@ -1,0 +1,42 @@
+DISCRETE DISTRIBUTIONS                                                    79
+Now write z = y−1, and the sum becomes
+                     ∞     r +z
+            EY =      r          ∑                         z=0      z    pr(1−p)z+1
+                           ∞   (r                        summand is negative           =  r(1−p)     +1)+z−1              ∑                                                 z       pr+1(1−p)z         binomial pmf                        p   z=0
+           =  r(1−p) .
+                        p
+
+Since the sum is over all values of a negative binomial(r +1, p) distribution, it equals 1. A similar
+calculation will show
+                                VarY = r(1−p) .
+                                           p2
+   There is an interesting, and sometimes useful, reparameterization of the negative binomial dis-
+tribution in terms of its mean. If we define the parameter µ = r(1−p)/p, then EY = µ and a littlealgebra will show
+                                           1                                VarY = µ +  µ2.
+                                                       r
+The variance is a quadratic function of the mean. This relationship can be useful in both data analysis
+and theoretical considerations (Morris 1982).
+   The negative binomial family of distributions includes the Poisson distribution as a limiting
+case. If r →∞and p →1 such that r(1−p) →λ,0 < λ < ∞, then
+                           EY =  r(1−p)                                         p  →λ,
+                            VarY =  r(1−p)                                               p2  →λ,
+which agree with the Poisson mean and variance. To demonstrate that the negative binomial(r, p) →Poisson(λ), we can show that all of the probabilities converge. The fact that the mgfs converge leads
+us to expect this (see Exercise 3.15).
+Example 3.2.6 (Inverse binomial sampling)  A technique known as inverse binomial sampling
+is useful in sampling biological populations. If the proportion of individuals possessing a certain
+characteristic is p and we sample until we see r such individuals, then the number of individuals
+sampled is a negative binomial random variable.
+   For example, suppose that in a population of fruit flies we are interested in the proportion having
+vestigial wings and decide to sample until we have found 100 such flies. The probability that we
+will have to examine at least N flies is (using (3.2.9))
+
+                               ∞
+                 P(X    =     x−1                ∑                ≥N)      x=N   99   p100(1−p)x−100
+                                    N−1                  =        x−1                  ∑                       1− x=100   99   p100(1−p)x−100.
+
+For given p and N, we can evaluate this expression to determine how many fruit flies we are likely
+to look at. (Although the evaluation is cumbersome, the use of a recursion relation will speed things
+up.)                                                                           ∥
+   Example 3.2.6 shows that the negative binomial distribution can, like the Poisson, be used to
+model phenomena in which we are waiting for an occurrence. In the negative binomial case we are
+waiting for a specified number of successes.

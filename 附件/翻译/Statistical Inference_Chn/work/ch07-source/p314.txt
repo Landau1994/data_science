@@ -1,0 +1,42 @@
+METHODS OF EVALUATING ESTIMATORS                                      283
+This risk function for squared error loss clearly indicates that a good estimator should have both a
+small variance and a small bias. A decision theoretic analysis would judge how well an estimator
+succeeded in simultaneously minimizing these two quantities.
+     It would be an atypical decision theoretic analysis in which the set D of allowable estimators was
+restricted to the set of unbiased estimators, as was done in Section 7.3.2. Then, minimizing the risk
+would just be minimizing the variance. A decision theoretic analysis would be more comprehensive
+in that both the variance and bias are in the risk and will be considered simultaneously. An estimator
+would be judged good if it had a small, but probably nonzero, bias combined with a small variance.
+Example 7.3.25 (Binomial risk functions)  In Example 7.3.5 we considered X1,...,Xn, a random
+sample from a Bernoulli( p) population. We considered two estimators,
+
+                       ∑ni=1Xi +  n/4               1  n                               ˆpB =                  and   X = ∑ Xi.                    n+√n                   n i=1
+
+The risk functions for these two estimators, for n = 4 and n = 400, are graphed in Figure 7.3.1
+and the comparisons of these risk functions are as stated in Example 7.3.5. On the basis of risk
+comparison, the estimator ˆpB would be preferred for small n and the estimator X would be preferred
+for large n.                                                                     ∥
+Example 7.3.26 (Risk of normal variance)  Let X1,...,Xn be a random sample from a n(µ,σ2)
+population. Consider estimating σ2 using squared error loss. We will consider estimators of the
+form δb(X) = bS2 where S2 is the sample variance and b can be any nonnegative constant. Recall
+that ES2 = σ2 and, for a normal sample, VarS2 = 2σ4/(n−1). Using (7.3.17), we can compute therisk function for δb as
+                      R((µ,σ2),δb) =  VarbS2 + EbS2 −σ2 2 2
+                      =  b2VarS2 + bES2 −σ2                                      b22σ4
+                      =                                      +(b−1)2σ4               (using VarS2)                            n−1                                            2b2
+                      =                                     +(b−1)2 σ4.                             n−1
+The risk function for δb does not depend on µ and is a quadratic function of σ2. This quadratic
+function is of the form cb(σ2)2 where cb is a positive constant. To compare two risk functions, and
+hence the worth of two estimators, note that if cb < cb′ then
+
+                               =                   R((µ,σ2),δb) = cb(σ2)2 < cb′(σ2)2                                                       R((µ,σ2),δb′)
+for all values of (µ,σ2). Thus δb would be a better estimator than δb′. The value of b that gives the
+overall minimum value of
+                                       2b2
+                                      cb =     +(b−1)2                               (7.3.18)                          n−1
+yields the best estimator δb in this class. Standard calculus methods show that b = (n−1)/(n+1)is the minimizing value. Thus, at every value of (µ,σ2), the estimator
+
+                                         1                                            ˜S2 = n−1  =                         n+1S2  n+1 ∑(Xi −X)2
+has the smallest risk among all estimators of the form bS2. For n = 5, the risk functions for this
+estimator and two other estimators in this class are shown in Figure 7.3.2. The other estimators are
+S2, the unbiased estimator, and ˆσ2 = n−1n  S2, the MLE of σ2. It is clear that the risk function for ˜S2
+is smallest everywhere.                                                            ∥

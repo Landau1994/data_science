@@ -1,0 +1,69 @@
+% 原书印刷22–24页，PDF物理53–55页.
+\subsection{随机变量}\label{sec:1.4}
+在许多试验中，处理一个概括性变量比处理原来的概率结构容易.例如，在民意调查中，我们可能决定询问50个人是否赞同某个议题.若用“1”记录赞同，用“0”记录不赞同，则这个试验的样本空间有$2^{50}$个元素，每个元素都是由1和0组成的长度为50的有序串.我们应当能把它缩减到合理的规模！也许我们关心的唯一数量，就是50人中赞同的人数（等价地，不赞同的人数）.如果定义变量$X=\text{50次记录中1的个数}$，就抓住了问题的实质.注意，$X$的样本空间为整数集合$\{0,1,2,\ldots,50\}$，它比原样本空间容易处理得多.
+
+定义量$X$，就定义了从原样本空间到一个新样本空间的映射（函数）；这个新空间通常是实数的某个集合.一般地，有如下定义.
+
+\sourcepageanchor{54}
+
+\begin{definition}\label{def:1.4.1}\index{SI0864@随机变量}
+随机变量（random variable）是从样本空间$S$到实数集的函数.
+\end{definition}
+
+\begin{example}[随机变量]\label{ex:1.4.2}
+在一些试验中，随机变量被隐含地使用.下面列举若干例子.
+\begin{center}
+随机变量的例子\par\smallskip
+\begin{tabular}{p{.40\linewidth}p{.47\linewidth}}\hline
+试验&随机变量\\\hline
+投掷两枚骰子&$X=\text{点数之和}$\\
+抛一枚硬币25次&$X=\text{25次中正面的次数}$\\
+对玉米植株施用不同量的肥料&$X=\text{每英亩产量}$\\\hline
+\end{tabular}
+\end{center}
+\end{example}
+
+在定义随机变量时，我们也定义了一个新的样本空间（随机变量的值域）.现在必须正式检查，定义在原样本空间上的概率函数，能否用于这个随机变量.
+
+设样本空间
+$$S=\{s_1,\ldots,s_n\}$$
+上有概率函数$P$，并定义随机变量$X$，其值域为$\mathscr X=\{x_1,\ldots,x_m\}$.可按下述方式在$\mathscr X$上定义概率函数$P_X$：观察到$X=x_i$，当且仅当随机试验的结果是满足$X(s_j)=x_i$的某个$s_j\in S$.因此，
+\begin{equation}\label{eq:1.4.1}\index{SI0598@诱导概率}\index{SI0845@诱导}
+P_X(X=x_i)=P(\{s_j\in S:X(s_j)=x_i\}).
+\end{equation}
+注意，式\eqref{eq:1.4.1}左边的函数$P_X$是$\mathscr X$上的诱导概率函数，它用原来的函数$P$定义.式\eqref{eq:1.4.1}正式给随机变量$X$定义了概率函数$P_X$.当然，还需验证$P_X$满足Kolmogorov公理，不过这并不困难（见习题\ref{exercise:1.45}）.由于\eqref{eq:1.4.1}中的等价关系，今后将简写为$P(X=x_i)$，而不写$P_X(X=x_i)$.
+
+\emph{记号说明：}随机变量始终用大写字母表示，而变量的实现值（或其值域中的值）用相应的小写字母表示.因此，随机变量$X$可以取值$x$.
+
+\begin{example}[抛硬币三次——II]\label{ex:1.4.3}
+再次考虑例\ref{ex:1.3.13}中抛公平硬币三次的试验.定义随机变量$X$为三次投掷中正面的次数.每个样本点对应的$X$值完整列举如下：\footnote{译注：原表第六、七列重复写成HTH、THH，却令$X=1$；按正面次数，这两列应为THT、TTH.原表保留，下文事件集合使用的是正确的三个单正面结果.}
+\begin{center}\begin{tabular}{c|cccccccc}\hline
+$s$&HHH&HHT&HTH&THH&HTT&HTH&THH&TTT\\\hline
+$X(s)$&3&2&2&2&1&1&1&0\\\hline
+\end{tabular}\end{center}
+随机变量$X$的值域为$\mathscr X=\{0,1,2,3\}$.假设$S$中的八个点各有概率$\frac18$，则对上表简单计数可得，$\mathscr X$上的诱导概率函数为
+\begin{center}\begin{tabular}{c|cccc}
+$x$&0&1&2&3\\\hline
+$P_X(X=x)$&$\frac18$&$\frac38$&$\frac38$&$\frac18$\\\hline
+\end{tabular}\end{center}
+例如，$P_X(X=1)=P(\{\mathrm{HTT,THT,TTH}\})=\frac38$.
+\end{example}
+% 原表第六、七列确为HTH、THH；不在译文中静默替换.见核验说明.
+
+
+\sourcepageanchor{55}
+
+\begin{example}[随机变量的分布]\label{ex:1.4.4}
+即使不能像例\ref{ex:1.4.3}那样完整列举，也可能确定$P_X$.如本节开头所述，令$S$为50个0和1组成的$2^{50}$个串，$X=\text{1的个数}$，$\mathscr X=\{0,1,2,\ldots,50\}$.假设这$2^{50}$个串等可能.在原样本空间中，数出含27个1的所有串，就能求得$X=27$的概率.由于每个串等可能，
+$$P_X(X=27)=\frac{\text{含27个1的串的个数}}{\text{串的总数}}=\frac{\binom{50}{27}}{2^{50}}.$$
+一般地，对任意$i\in\mathscr X$，
+$$P_X(X=i)=\frac{\binom{50}{i}}{2^{50}}.$$
+\end{example}
+
+前面的例子中，$S$与$\mathscr X$都有限，$P_X$的定义很直接.$\mathscr X$可数时也是如此.若$\mathscr X$不可数，则用类似\eqref{eq:1.4.1}的方式定义诱导概率函数$P_X$.\index{SI0598@诱导概率}\semanticindexanchor{598:55}对任意集合$A\subset\mathscr X$，
+\begin{equation}\label{eq:1.4.2}
+P_X(X\in A)=P(\{s\in S:X(s)\in A\}).
+\end{equation}
+这确实定义了一个合法的概率函数，可以验证它满足Kolmogorov公理.（精确地说，我们只对$\mathscr X$的子集所构成的某个$\sigma$代数，利用\eqref{eq:1.4.2}定义概率.不过，这里不讨论这些技术细节.）
+
+% 用户授权疑误脚注：2026-11-04

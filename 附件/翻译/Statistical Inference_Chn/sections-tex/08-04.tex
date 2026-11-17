@@ -1,0 +1,189 @@
+\subsection{习题}\label{sec:8.4}
+\setcounter{exercise}{0}
+\begin{exercise}\label{exercise:8.1}
+抛掷一枚硬币 $1000$ 次，出现 $560$ 次正面、$440$ 次反面. 假定这枚硬币公平是否合理？说明理由.
+\end{exercise}
+\begin{exercise}\label{exercise:8.2}
+假设某城市一年内的汽车事故数服从泊松分布. 以往每年平均事故数为 $15$，今年为 $10$. 据此声称事故率下降，是否有充分依据？
+\end{exercise}
+\begin{exercise}\label{exercise:8.3}
+本题推导\autoref{ex:8.2.9}中提到的似然比检验. 假设观测到 $m$ 个独立同分布的 $\operatorname{Bernoulli}(\theta)$ 随机变量 $Y_1,\ldots,Y_m$. 证明，检验 $H_0:\theta\le\theta_0$ 对 $H_1:\theta>\theta_0$ 的似然比检验，在 $\sum_{i=1}^mY_i>b$ 时拒绝 $H_0$.
+\end{exercise}
+\begin{exercise}\label{exercise:8.4}
+证明\autoref{def:8.2.1}后正文的断言：若 $f(\boldsymbol x\mid\theta)$ 是离散随机变量的概率质量函数，则似然比检验统计量 $\lambda(\boldsymbol x)$ 的分子，是在原假设参数范围内计算的已观察样本的最大概率；其分母则是已观察样本在所有可能参数上的最大概率.
+\end{exercise}
+\begin{exercise}\label{exercise:8.5}\index{SI0641@帕累托}
+随机样本 $X_1,\ldots,X_n$ 来自 Pareto 总体，其密度为
+$$f(x\mid\theta,\nu)=\frac{\theta\nu^\theta}{x^{\theta+1}}I_{[\nu,\infty)}(x),\qquad\theta>0,\quad\nu>0.$$
+\begin{enumerate}
+\item 求 $\theta$ 与 $\nu$ 的最大似然估计量.
+\item 证明，检验
+$$H_0:\theta=1,\ \nu\text{ 未知}\quad\text{对}\quad H_1:\theta\ne1,\ \nu\text{ 未知}$$
+的似然比检验具有形如 $\{\boldsymbol x:T(\boldsymbol x)\le c_1\text{ 或 }T(\boldsymbol x)\ge c_2\}$ 的临界域，其中 $0<c_1<c_2$，且
+$$T=\log\left[\frac{\prod_{i=1}^nX_i}{(\min_iX_i)^n}\right].$$
+\sourcepageanchor{358}
+\item 证明，在 $H_0$ 下，$2T$ 服从卡方分布，并求自由度. （提示：给定 $\min_iX_i$，求 $n-1$ 个非平凡项 $X_i/(\min_iX_i)$ 的联合分布. 将这 $n-1$ 项合并，并注意到给定 $\min_iX_i$ 后 $T$ 的分布不依赖 $\min_iX_i$，因而也就是 $T$ 的无条件分布.）
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.6}\index{SI0634@指数}
+设有两个独立随机样本：$X_1,\ldots,X_n$ 来自 $\operatorname{exponential}(\theta)$，$Y_1,\ldots,Y_m$ 来自 $\operatorname{exponential}(\mu)$.
+\begin{enumerate}
+\item\phantomsection\label{itm:exercise:8.6:a} 求 $H_0:\theta=\mu$ 对 $H_1:\theta\ne\mu$ 的似然比检验.
+\item 证明，\hyperref[itm:exercise:8.6:a]{(a)} 中的检验可以基于统计量
+$$T=\frac{\sum X_i}{\sum X_i+\sum Y_i}.$$
+\item 求 $H_0$ 为真时 $T$ 的分布.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.7}
+我们已经看到似然比检验在处理干扰参数问题时的用处. 现在考察另外一些干扰参数问题.
+\begin{enumerate}
+\item 基于来自密度为 $f(x\mid\theta,\lambda)=\lambda^{-1}e^{-(x-\theta)/\lambda}I_{(\theta,\infty)}(x)$ 的总体的样本 $X_1,\ldots,X_n$，求
+$$H_0:\theta\le0\quad\text{对}\quad H_1:\theta>0$$
+的似然比检验，其中 $\theta,\lambda$ 都未知.
+\item 前面已看到指数密度是伽马密度的特例. 沿另一方向推广，指数密度也是 $\operatorname{Weibull}(\gamma,\beta)$ 的特例：当 $\gamma=1$ 时，Weibull 密度退化为指数密度. Weibull 密度在系统可靠性建模中非常重要. 设 $X_1,\ldots,X_n$ 是来自 Weibull 总体的随机样本，$\gamma,\beta$ 均未知. 求 $H_0:\gamma=1$ 对 $H_1:\gamma\ne1$ 的似然比检验.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.8}
+正态族的一种特殊情况是均值与方差相联系的 $\mathrm n(\theta,a\theta)$ 族. 若希望不论 $\theta$ 的值为何，都检验这种关系，就再次遇到干扰参数问题.
+\begin{enumerate}
+\item\phantomsection\label{itm:exercise:8.8:a} 基于来自 $\mathrm n(\theta,a\theta)$ 族的样本 $X_1,\ldots,X_n$，求 $H_0:a=1$ 对 $H_1:a\ne1$ 的似然比检验，其中 $\theta$ 未知.
+\item\phantomsection\label{itm:exercise:8.8:b} 对相关的 $\mathrm n(\theta,a\theta^2)$ 族也可提出类似问题. 即若 $X_1,\ldots,X_n$ 独立同分布于 $\mathrm n(\theta,a\theta^2)$，$\theta$ 未知，求 $H_0:a=1$ 对 $H_1:a\ne1$ 的似然比检验.\footnote{译注：原题未明示参数空间. 使用普通正态密度时，\hyperref[itm:exercise:8.8:a]{(a)} 至少须有 $a\theta>0$，\hyperref[itm:exercise:8.8:b]{(b)} 须有 $a>0$、$\theta\ne0$；是否还限定 $a,\theta$ 各自为正，会影响约束最大化的范围. 此处保留原题，不能默把零方差纳入同一密度公式.}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.9}
+\hyperref[bib:source300]{Stefanski (1996)} 用基于似然比检验的证明建立了算术—几何—调和平均不等式（见\autoref{ex:4.7.8}与\hyperref[sec:4.9.2]{杂录~4.9.2}\mbox{）.} 设 $Y_1,Y_2,\ldots,Y_n$ 相互独立，密度为 $\lambda_i e^{-\lambda_i y_i}$；希望检验 $H_0:\lambda_1=\lambda_2=\cdots=\lambda_n$ 对 $H_1:$ 各 $\lambda_i$ 不全相等.
+\begin{enumerate}
+\item 证明，似然比检验统计量为 $(\bar Y)^{-n}/(\prod_iY_i)^{-1}$，并由此推出算术—几何平均不等式.
+\item 作变换 $X_i=1/Y_i$，证明基于 $X_1,X_2,\ldots,X_n$ 的似然比检验统计量为
+$$\frac{[n/\sum_i(1/X_i)]^n}{\prod_iX_i},$$
+并由此推出几何—调和平均不等式.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.10}
+设 $X_1,\ldots,X_n$ 独立同分布于 $\operatorname{Poisson}(\lambda)$，$\lambda$ 服从泊松分布的共轭族 $\operatorname{gamma}(\alpha,\beta)$. \autoref{exercise:7.24}已求出 $\lambda$ 的后验分布，包括后验均值和方差. 现考虑 $H_0:\lambda\le\lambda_0$ 对 $H_1:\lambda>\lambda_0$ 的贝叶斯检验.
+\begin{enumerate}
+\item 求 $H_0,H_1$ 的后验概率表达式.
+\item 若 $\alpha=5/2$、$\beta=2$，先验分布为自由度 $5$ 的卡方分布. 说明如何利用卡方表进行贝叶斯检验.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.11}
+\autoref{exercise:7.23}使用 $\sigma^2$ 的共轭先验（参数为 $\alpha,\beta$ 的逆伽马密度），求出了给定大小为 $n$ 的样本的样本方差 $S^2$ 后，正态总体方差 $\sigma^2$ 的后验分布. 现要根据观测到的 $S^2$，对假设 $H_0:\sigma\le1$ 与 $H_1:\sigma>1$ 作出决定.
+\begin{enumerate}
+\item\phantomsection\label{itm:exercise:8.11:a} 求样本空间中满足 $P(\sigma\le1\mid s^2)>P(\sigma>1\mid s^2)$ 的区域，即贝叶斯检验判定 $\sigma\le1$ 的区域.
+\item 将\hyperref[itm:exercise:8.11:a]{(a)} 的区域与似然比检验的接受域比较. 是否存在先验参数的选择，使两区域一致？
+\end{enumerate}
+\end{exercise}
+\sourcepageanchor{359}
+\begin{exercise}\label{exercise:8.12}
+对来自均值为 $\mu$、已知方差为 $\sigma^2$ 的正态总体、大小分别为 $n=1,4,16,64,100$ 的样本，画出下列检验的功效函数. 取 $\alpha=.05$.
+\begin{enumerate}
+\item $H_0:\mu\le0$ 对 $H_1:\mu>0$.
+\item $H_0:\mu=0$ 对 $H_1:\mu\ne0$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.13}
+设 $X_1,X_2$ 独立同分布于 $\operatorname{uniform}(\theta,\theta+1)$. 对检验 $H_0:\theta=0$ 对 $H_1:\theta>0$，有两个候选检验：
+$$\begin{aligned}\phi_1(X_1):&\quad X_1>.95\text{ 时拒绝 }H_0,\\
+\phi_2(X_1,X_2):&\quad X_1+X_2>C\text{ 时拒绝 }H_0.\end{aligned}$$
+\begin{enumerate}
+\item 求 $C$，使 $\phi_2$ 与 $\phi_1$ 大小相同.
+\item 计算各检验的功效函数，并画出标注清楚的图像.
+\item 证明或否证：$\phi_2$ 比 $\phi_1$ 功效更高.
+\item 说明如何得到与 $\phi_2$ 大小相同、但功效更高的检验.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.14}
+对 $\operatorname{Bernoulli}(p)$ 随机变量的随机样本 $X_1,\ldots,X_n$，希望检验
+$$H_0:p=.49\quad\text{对}\quad H_1:p=.51.$$
+利用中心极限定理，近似确定使两类错误概率都约为 $.01$ 所需的样本量. 采用在 $\sum_{i=1}^nX_i$ 较大时拒绝 $H_0$ 的检验函数.
+\end{exercise}
+\begin{exercise}\label{exercise:8.15}
+证明，对来自 $\mathrm n(0,\sigma^2)$ 总体的随机样本 $X_1,\ldots,X_n$，检验 $H_0:\sigma=\sigma_0$ 对 $H_1:\sigma=\sigma_1$（$\sigma_0<\sigma_1$）的最强检验为
+$$\phi\left(\sum X_i^2\right)=\begin{cases}1,&\sum X_i^2>c,\\0,&\sum X_i^2\le c.\end{cases}$$
+给定第一类错误的大小 $\alpha$，说明如何明确确定 $c$.
+\end{exercise}
+\begin{exercise}\label{exercise:8.16}\index{SI0483@滥用}
+对 $\alpha$ 水平的一种明显滥用，是在看过数据之后才选择它，并使选择强制导致拒绝（或接受）原假设. 为了解这种做法真正的第一类和第二类错误概率，计算以下两个平凡检验的大小与功效：
+\begin{enumerate}
+\item 无论取得什么数据，总拒绝 $H_0$（相当于选择 $\alpha$ 水平以强制拒绝 $H_0$\mbox{）.}
+\item 无论取得什么数据，总接受 $H_0$（相当于选择 $\alpha$ 水平以强制接受 $H_0$\mbox{）.}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.17}\index{SI0633@贝塔}
+设 $X_1,\ldots,X_n$ 独立同分布于 $\operatorname{beta}(\mu,1)$，$Y_1,\ldots,Y_m$ 独立同分布于 $\operatorname{beta}(\theta,1)$，且 $X$ 样本与 $Y$ 样本独立.
+\begin{enumerate}
+\item\phantomsection\label{itm:exercise:8.17:a} 求 $H_0:\theta=\mu$ 对 $H_1:\theta\ne\mu$ 的一个似然比检验.
+\item 证明，\hyperref[itm:exercise:8.17:a]{(a)} 中的检验可以基于统计量
+$$T=\frac{\sum\log X_i}{\sum\log X_i+\sum\log Y_i}.$$
+\item 求 $H_0$ 为真时 $T$ 的分布，再说明如何得到大小 $\alpha=.10$ 的检验.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.18}
+设 $X_1,\ldots,X_n$ 是来自 $\mathrm n(\theta,\sigma^2)$ 总体的随机样本，$\sigma^2$ 已知. 检验 $H_0:\theta=\theta_0$ 对 $H_1:\theta\ne\theta_0$ 的似然比检验，在 $|\bar X-\theta_0|/(\sigma/\sqrt n)>c$ 时拒绝 $H_0$.
+\begin{enumerate}
+\item 用标准正态概率表示该检验的功效函数.
+\item 实验者希望第一类错误概率为 $.05$，并在 $\theta=\theta_0+\sigma$ 处使第二类错误概率至多为 $.25$. 求能达到要求的 $n,c$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.19}
+随机变量 $X$ 的密度为 $f(x)=e^{-x}$，$x>0$. 观察随机变量 $Y=X^\theta$ 一次，需构造 $H_0:\theta=1$ 对 $H_1:\theta=2$ 的检验. 求水平 $\alpha=.10$ 的一致最强检验，并计算第二类错误概率.
+\end{exercise}
+\sourcepageanchor{360}
+\begin{exercise}\label{exercise:8.20}
+随机变量 $X$ 在 $H_0$ 与 $H_1$ 下的概率质量函数如下：
+\begin{center}\begin{tabular}{c|rrrrrrr}\toprule
+$x$&1&2&3&4&5&6&7\\\midrule
+$f(x\mid H_0)$&.01&.01&.01&.01&.01&.01&.94\\
+$f(x\mid H_1)$&.06&.05&.04&.03&.02&.01&.79\\\bottomrule
+\end{tabular}\end{center}
+利用 Neyman–Pearson 引理，求检验 $H_0$ 对 $H_1$ 的大小 $\alpha=.04$ 的最强检验，并计算其第二类错误概率.
+\end{exercise}
+\begin{exercise}\label{exercise:8.21}
+\autoref{thm:8.3.12}（Neyman–Pearson 引理）的证明指出，对连续随机变量给出的证明很容易适配到离散情形. 补出细节，即证明离散随机变量的 Neyman–Pearson 引理. 假定给定的 $\alpha$ 水平可达到.
+\end{exercise}
+\begin{exercise}\label{exercise:8.22}
+设 $X_1,\ldots,X_{10}$ 独立同分布于 $\operatorname{Bernoulli}(p)$.
+\begin{enumerate}
+\item\phantomsection\label{itm:exercise:8.22:a} 求检验 $H_0:p=1/2$ 对 $H_1:p=1/4$ 的大小 $\alpha=.0547$ 的最强检验，并求其功效.\footnote{译注：在非随机化检验下，原题 $.0547$ 应理解为舍入值；常用下尾拒绝域的大小为 $56/1024=.0546875$. 若坚持十进制 $.0547$ 为精确大小，则必须另考虑随机化；原数值保留.}
+\item 对检验 $H_0:p\le1/2$ 对 $H_1:p>1/2$，求在 $\sum_{i=1}^{10}X_i\ge6$ 时拒绝 $H_0$ 的检验的大小，并画出功效函数.
+\item 对哪些 $\alpha$ 水平，\hyperref[itm:exercise:8.22:a]{(a)} 中的假设存在一致最强检验？
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.23}
+设 $X$ 是来自密度为 $\operatorname{beta}(\theta,1)$ 的总体的一次观测.
+\begin{enumerate}
+\item 对检验 $H_0:\theta\le1$ 对 $H_1:\theta>1$，求在 $X>1/2$ 时拒绝 $H_0$ 的检验的大小，并画出功效函数.
+\item 求 $H_0:\theta=1$ 对 $H_1:\theta=2$ 的水平 $\alpha$ 最强检验.
+\item 是否存在 $H_0:\theta\le1$ 对 $H_1:\theta>1$ 的一致最强检验？若存在，求出；否则证明不存在.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.24}\index{SI0637@Neyman–Pearson引理}\index{SI0723@似然比检验}
+求简单 $H_0$ 对简单 $H_1$ 的似然比检验. 它是否等价于由 Neyman–Pearson 引理得到的检验？（\hyperref[bib:source296]{Solomon (1975)} 对这一关系有较详细讨论.）
+\end{exercise}
+\begin{exercise}\label{exercise:8.25}\index{SI0701@二项}\index{SI0706@正态}\index{SI0707@泊松}
+证明下列各族均具有单调似然比：
+\begin{enumerate}
+\item $\sigma^2$ 已知的 $\mathrm n(\theta,\sigma^2)$ 族；
+\item $\operatorname{Poisson}(\theta)$ 族；
+\item $n$ 已知的 $\operatorname{binomial}(n,\theta)$ 族.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.26}\index{SI0708@随机序}\index{SI0993@单调似然比}\leavevmode
+\begin{enumerate}
+\item\phantomsection\label{itm:exercise:8.26:a} 证明，若密度族 $\{f(x\mid\theta):\theta\in\Theta\}$ 具有单调似然比，则相应的累积分布函数族关于 $\theta$ 随机递增（stochastically increasing\mbox{）.} （见\autoref{sec:8.5}的杂录.）\footnote{译注：同\autoref{thm:8.3.17}，此结论要求 $\theta_2>\theta_1$ 时 $f(x\mid\theta_2)/f(x\mid\theta_1)$ 关于 $x$ 非减；原定义允许的非增方向不能推出所写的随机递增结论.}
+\item 证明\hyperref[itm:exercise:8.26:a]{(a)} 的逆命题不成立：给出一个关于 $\theta$ 随机递增、但相应密度族没有单调似然比的累积分布函数族.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.27}\index{SI0703@指数族}
+设 $g(t\mid\theta)=h(t)c(\theta)e^{w(\theta)t}$ 是随机变量 $T$ 的单参数指数族. 证明，若 $w(\theta)$ 是 $\theta$ 的增函数，则此族具有单调似然比. 给出三个这类分布族的例子.
+\end{exercise}
+\begin{exercise}\label{exercise:8.28}\index{SI0704@逻辑}
+设 $f(x\mid\theta)$ 是 logistic 位置密度
+$$f(x\mid\theta)=\frac{e^{x-\theta}}{(1+e^{x-\theta})^2},\qquad-\infty<x<\infty,\quad-\infty<\theta<\infty.$$
+\begin{enumerate}
+\item 证明此族具有单调似然比.
+\item\phantomsection\label{itm:exercise:8.28:b} 基于一次观测 $X$，求 $H_0:\theta=0$ 对 $H_1:\theta=1$ 的大小 $\alpha$ 最强检验. 当 $\alpha=.2$ 时，求第二类错误的大小.
+\item 证明\hyperref[itm:exercise:8.28:b]{(b)} 中的检验是 $H_0:\theta\le0$ 对 $H_1:\theta>0$ 的大小 $\alpha$ 一致最强检验. 对 logistic 位置族的一致最强检验，一般可以说些什么？
+\end{enumerate}
+\end{exercise}
+\input{sections-tex/08-04-b.tex}

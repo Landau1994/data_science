@@ -1,0 +1,42 @@
+EXPECTED VALUES                                                           45
+interval. Even in this case, though, the probability equality holds, since P(X ≤x) = P(X ≤x1) for
+any x ∈[x1,x2]. The flat cdf denotes a region of 0 probability (P(x1 < X ≤x) = FX(x)−FX(x1) = 0).                                                    2
+
+   One application of Theorem 2.1.10 is in the generation of random samples from a particular
+distribution. If it is required to generate an observation X from a population with cdf FX, we need
+only generate a uniform random number U, between 0 and 1, and solve for x in the equation FX(x) =
+u. (For many distributions there are other methods of generating observations that take less computer
+time, but this method is still useful because of its general applicability.)
+
+2.2  Expected Values
+The expected value, or expectation, of a random variable is merely its average value, where we speak
+of “average” value as one that is weighted according to the probability distribution. The expected
+value of a distribution can be thought of as a measure of center, as we think of averages as being
+middle values. By weighting the values of the random variable according to the probability distri-
+bution, we hope to obtain a number that summarizes a typical or expected value of an observation
+of the random variable.
+Definition 2.2.1  The expected value or mean of a random variable g(X), denoted by Eg(X), is
+         Eg(X) =   −∞g(x)∞      fX(x)dx                                 if X is continuous
+                  ∑x∈X g(x) fX(x) = ∑x∈X g(x)P(X = x)   if X is discrete,
+provided that the integral or sum exists. If E|g(X)| = ∞, we say that Eg(X) does not exist. (Ross(1988) refers this as the “law of the unconscious statistician.” We do not find this amusing.)
+
+Example 2.2.2 (Exponential mean)  Suppose X has an exponential(λ) distribution, that is, it has
+pdf given by
+                              1
+                             < ∞,  λ > 0.                           fX(x) =                                     e−x/λ,    0 ≤x                           λ
+Then EX is given by
+
+                                 ∞ 1                  EX  =        xe−x/λ dx
+                                              0  λ
+                                       ∞    ∞
+                   =   −xe−x/λ 0 +  0  e−x/λ dx          (integration by parts)
+                                 ∞
+                   =      e−x/λ dx =  λ.                                              0                                           ∥
+
+Example 2.2.3 (Binomial mean)   If X has a binomial distribution, its pmf is given by
+                               n
+                  P(X = x) =                      x = 0,1,...,n                                   x  px(1−p)n−x,
+where n is a positive integer, 0 ≤p ≤1, and for every fixed pair n and p the pmf sums to 1. Theexpected value of a binomial random variable is given by
+
+                               n    n                     n    n
+             EX =    x          =    x           ∑         ∑                          x=0    x  px(1−p)n−x   x=1    x  px(1−p)n−x

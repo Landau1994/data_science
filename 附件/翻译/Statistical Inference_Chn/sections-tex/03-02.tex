@@ -1,0 +1,342 @@
+\subsection{离散分布}\label{sec:3.2}
+如果随机变量 $X$ 的取值范围，也就是样本空间，是可数的，就称 $X$ 具有离散分布（discrete distribution）. 在大多数情形中，随机变量的结果取整数值.
+
+\paragraph{离散均匀分布.}
+如果随机变量 $X$ 满足
+\begin{equation}\label{eq:3.2.1}\index{SI0287@离散均匀}
+P(X=x\mid N)=\frac1N,\qquad x=1,2,\ldots,N,
+\end{equation}
+其中 $N$ 为给定整数，就称 $X$ 具有离散均匀分布（discrete uniform distribution）$\operatorname{uniform}(1,N)$. 这个分布把相等的概率质量赋给每个结果 $1,2,\ldots,N$.
+
+关于记号的说明：我们几乎总是处理参数分布，而这时分布依赖参数的值. 为强调这一点并明确参数，我们把参数写在概率质量函数中，并在前面加上“$\mid$”（给定）. 这一约定也用于累积分布函数、概率密度函数、期望以及其他需要明确参数的地方. 在不会产生混淆时，可以略去参数，以免记号过于繁杂.
+
+\sourcepageanchor{102}
+为计算 $X$ 的均值和方差，回顾下列恒等式（可用归纳法证明）：
+$$\sum_{i=1}^k i=\frac{k(k+1)}2,\qquad
+\sum_{i=1}^k i^2=\frac{k(k+1)(2k+1)}6.$$
+于是
+$$\mathrm EX=\sum_{x=1}^N xP(X=x\mid N)=\sum_{x=1}^N x\frac1N=\frac{N+1}2,$$
+并且
+$$\mathrm EX^2=\sum_{x=1}^N x^2\frac1N=\frac{(N+1)(2N+1)}6,$$
+所以
+$$\begin{aligned}
+\operatorname{Var}X&=\mathrm EX^2-(\mathrm EX)^2\\
+&=\frac{(N+1)(2N+1)}6-\left(\frac{N+1}2\right)^2\\
+&=\frac{(N+1)(N-1)}{12}.
+\end{aligned}$$
+这个分布可以推广到样本空间为任意连续整数范围 $N_0,N_0+1,\ldots,N_1$ 的情形，其概率质量函数为 $P(X=x\mid N_0,N_1)=1/(N_1-N_0+1)$.
+
+\paragraph{超几何分布.}
+超几何分布（hypergeometric distribution）在有限总体抽样中有许多应用，借助经典的瓮模型例子最容易理解它.
+
+设一个大瓮内有 $N$ 个球，除其中 $M$ 个为红色、$N-M$ 个为绿色外，各方面都完全相同. 我们蒙上眼睛，伸手随机取出 $K$ 个球（一次取出全部 $K$ 个球，属于无放回抽样）. 恰有 $x$ 个红球的概率是多少？
+
+如\autoref{sec:1.2.3}所讨论的，从 $N$ 个球中抽取大小为 $K$ 的样本，共有 $\binom NK$ 种. 要求其中 $x$ 个为红球，有 $\binom Mx$ 种选法，余下用 $K-x$ 个绿球补足样本，有 $\binom{N-M}{K-x}$ 种选法. 因此，若用 $X$ 表示大小为 $K$ 的样本中的红球数，$X$ 就具有下列超几何分布：
+\begin{equation}\label{eq:3.2.2}\index{SI0323@超几何}
+P(X=x\mid N,M,K)=\frac{\binom Mx\binom{N-M}{K-x}}{\binom NK},\qquad x=0,1,\ldots,K.
+\end{equation}
+注意，\eqref{eq:3.2.2}中还暗含了关于 $X$ 取值范围的附加假设. 形如 $\binom nr$ 的二项系数只在 $n\ge r$ 时作了定义，因此 $X$ 的取值范围还受到下列一对不等式的限制：
+$$M\ge x,\qquad N-M\ge K-x,$$
+合并起来就是
+$$M-(N-K)\le x\le M.$$
+许多情况下，$K$ 相比于 $M,N$ 很小，所以 $0\le x\le K$ 会包含在上述范围内，因而是适用的. 超几何概率函数的公式通常相当难处理. 实际上，甚至验证
+$$\sum_{x=0}^K P(X=x)=\sum_{x=0}^K\frac{\binom Mx\binom{N-M}{K-x}}{\binom NK}=1$$
+也并非易事.
+\sourcepageanchor{103}
+超几何分布说明，从统计学角度看，处理有限总体（有限的 $N$）是一项困难的任务.
+
+超几何分布的均值为
+$$\mathrm EX=\sum_{x=0}^K x\frac{\binom Mx\binom{N-M}{K-x}}{\binom NK}
+=\sum_{x=1}^K x\frac{\binom Mx\binom{N-M}{K-x}}{\binom NK},\qquad\text{（$x=0$ 的项为零）}.$$
+为计算这个表达式，使用已经在\autoref{sec:2.3}中遇到的恒等式\index{SI0531@二项式系数}\semanticindexanchor{531:103}
+$$x\binom Mx=M\binom{M-1}{x-1},\qquad
+\binom NK=\frac NK\binom{N-1}{K-1},$$
+得到
+$$\mathrm EX=\sum_{x=1}^K\frac{M\binom{M-1}{x-1}\binom{N-M}{K-x}}{\frac NK\binom{N-1}{K-1}}
+=\frac{KM}N\sum_{x=1}^K\frac{\binom{M-1}{x-1}\binom{N-M}{K-x}}{\binom{N-1}{K-1}}.$$
+现在可以认出，上面第二个和是另一个超几何分布的概率之和，其参数为 $N-1,M-1,K-1$. 令 $y=x-1$，就能清楚地看出这一点：
+$$\begin{aligned}
+\sum_{x=1}^K\frac{\binom{M-1}{x-1}\binom{N-M}{K-x}}{\binom{N-1}{K-1}}
+&=\sum_{y=0}^{K-1}\frac{\binom{M-1}y\binom{(N-1)-(M-1)}{K-1-y}}{\binom{N-1}{K-1}}\\
+&=\sum_{y=0}^{K-1}P(Y=y\mid N-1,M-1,K-1)=1,
+\end{aligned}$$
+其中 $Y$ 是参数为 $N-1,M-1,K-1$ 的超几何随机变量. 因此，对于超几何分布，
+$$\mathrm EX=\frac{KM}N.$$
+类似但更长的计算可以得到
+$$\operatorname{Var}X=\frac{KM}N\left(\frac{(N-M)(N-K)}{N(N-1)}\right).$$
+注意这里计算 $\mathrm EX$ 时所用的变换：把求和变成参数不同的另一个超几何分布，认出这一事实后，就能够求出级数之和.
+
+\begin{example}[验收抽样]\label{ex:3.2.1}\index{SI0003@超几何}
+本例说明超几何分布在验收抽样（acceptance sampling）中的应用. 设某零售商按批购买货物，每件产品或为合格品，或为次品. 令
+$$\begin{aligned}
+N&=\text{一批中的产品数},\\
+M&=\text{一批中的次品数}.
+\end{aligned}$$
+便可计算大小为 $K$ 的样本含有 $x$ 件次品的概率. 具体地，假设运来一批 $25$ 个机械零件，只有通过公差检验的零件才被视为合格.
+\sourcepageanchor{104}
+我们抽取 $10$ 个零件，发现没有次品（全部在公差范围内）. 如果这批 $25$ 个零件中有 $6$ 个次品，这一事件的概率是多少？应用参数为 $N=25,M=6,K=10$ 的超几何分布，得到
+$$P(X=0)=\frac{\binom60\binom{19}{10}}{\binom{25}{10}}=.028,$$
+这表明，如果该批货物中有 $6$ 个（或更多！）次品，我们观察到的事件就相当不可能发生.
+\end{example}
+
+\paragraph{二项分布.}\index{SI0261@二项}\semanticindexanchor{261:104}
+二项分布是一种十分有用的离散分布，其基础是 Bernoulli 试验（Bernoulli trial）的思想. Bernoulli 试验以概率论奠基人之一 James Bernoulli 命名，是恰有两个可能结果的试验. 如果随机变量 $X$ 满足\index{SI0088@伯努利试验（见分布：伯努利）}\semanticindexanchor{88:104}
+\begin{equation}\label{eq:3.2.3}\index{SI0252@伯努利}
+X=\begin{cases}1,&\text{概率为 }p,\\0,&\text{概率为 }1-p,\end{cases}
+\qquad0\le p\le1,
+\end{equation}
+就称它具有 $\operatorname{Bernoulli}(p)$ 分布. 通常把 $X=1$ 称为“成功”，$p$ 称为成功概率；把 $X=0$ 称为“失败”. 容易看出，$\operatorname{Bernoulli}(p)$ 随机变量的均值与方差为
+$$\begin{aligned}
+\mathrm EX&=1p+0(1-p)=p,\\
+\operatorname{Var}X&=(1-p)^2p+(0-p)^2(1-p)=p(1-p).
+\end{aligned}$$
+许多试验都可以建模为一列 Bernoulli 试验，最简单的是反复抛硬币：$p$ 为正面朝上的概率，正面朝上时 $X=1$. 其他例子包括赌博游戏（例如轮盘中，出现红色时令 $X=1$，所以 $p$ 为红色出现的概率）、选举民意调查（候选人 A 获得一票时 $X=1$）以及疾病发病情况（$p$ 为随机选取的一人受到感染的概率）.
+
+若进行 $n$ 次相同的 Bernoulli 试验，定义事件
+$$A_i=\{\text{第 $i$ 次试验中 $X=1$}\},\qquad i=1,2,\ldots,n.$$
+若假定 $A_1,\ldots,A_n$ 为一组相互独立的事件（抛硬币便是如此），就容易推导出 $n$ 次试验中成功总次数的分布. 定义随机变量
+$$Y=\text{$n$ 次试验中的成功总次数}.$$
+事件 $\{Y=y\}$ 发生，当且仅当 $A_1,\ldots,A_n$ 中恰有 $y$ 个发生，而其余 $n-y$ 个不发生. $n$ 次 Bernoulli 试验的某个特定结果（发生与不发生的一种特定排列）可能是 $A_1\cap A_2\cap A_3^c\cap\cdots\cap A_{n-1}\cap A_n^c$. 它发生的概率为
+$$\begin{aligned}
+P(A_1\cap A_2\cap A_3^c\cap\cdots\cap A_{n-1}\cap A_n^c)
+&=pp(1-p)\cdots p(1-p)\\
+&=p^y(1-p)^{n-y},
+\end{aligned}$$
+这里用到了 $A_i$ 的独立性. 注意，这个计算并不依赖于发生的是哪 $y$ 个 $A_i$，只依赖于有某一组 $y$ 个事件发生. 而且，无论发生的是哪一组 $y$ 个 $A_i$，事件 $\{Y=y\}$ 都发生. 综上，
+\sourcepageanchor{105}
+$n$ 次试验中恰有 $y$ 次成功的某个特定序列，发生概率为 $p^y(1-p)^{n-y}$. 因为这样的序列有 $\binom ny$ 个（即 $y$ 个 $1$ 与 $n-y$ 个 $0$ 的排列数），所以
+$$P(Y=y\mid n,p)=\binom ny p^y(1-p)^{n-y},\qquad y=0,1,2,\ldots,n,$$
+而 $Y$ 称为 $\operatorname{binomial}(n,p)$ 随机变量.
+
+也可以用另一种等价方式定义 $Y$：在 $n$ 次相同且相互独立、每次成功概率为 $p$ 的 Bernoulli 试验中，定义随机变量 $X_1,\ldots,X_n$ 为
+$$X_i=\begin{cases}1,&\text{概率为 }p,\\0,&\text{概率为 }1-p.\end{cases}$$
+随机变量
+$$Y=\sum_{i=1}^nX_i$$
+就具有 $\operatorname{binomial}(n,p)$ 分布.
+
+$\sum_{y=0}^nP(Y=y)=1$ 这一事实来自下列一般定理.
+\begin{theorem}[二项式定理]\label{thm:3.2.2}\index{SI0092@二项式定理}
+对任意实数 $x,y$ 和整数 $n\ge0$，
+\begin{equation}\label{eq:3.2.4}
+(x+y)^n=\sum_{i=0}^n\binom ni x^iy^{n-i}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+写成
+$$(x+y)^n=(x+y)(x+y)\cdots(x+y),$$
+并考虑右端如何计算. 从每个因子 $(x+y)$ 中选取 $x$ 或 $y$，再把 $n$ 次选取的结果相乘. 对每个 $i=0,1,\ldots,n$，其中 $x$ 恰好出现 $i$ 次的项数为 $\binom ni$. 因而该项的形式为 $\binom ni x^iy^{n-i}$，结果得证.
+\end{proof}
+在\eqref{eq:3.2.4}中取 $x=p$、$y=1-p$，得到
+$$1=(p+(1-p))^n=\sum_{i=0}^n\binom ni p^i(1-p)^{n-i},$$
+可见和中的每一项都是一个二项概率. 另一个特殊情形是在\autoref{thm:3.2.2}中取 $x=y=1$，得到恒等式
+$$2^n=\sum_{i=0}^n\binom ni.$$
+二项分布的均值与方差已经在\autoref{ex:2.2.3}和\autoref{ex:2.3.5}中推导过，这里不再重复推导. 为了完整起见，列出结果：若 $X\sim\operatorname{binomial}(n,p)$，则
+$$\mathrm EX=np,\qquad\operatorname{Var}X=np(1-p).$$
+二项分布的矩母函数已经在\autoref{ex:2.3.9}中算出，即
+$$M_X(t)=[pe^t+(1-p)]^n.$$
+
+\begin{example}[掷骰子的概率]\label{ex:3.2.3}\index{SI0686@德梅雷骰子问题}
+假设我们要计算掷一枚公平骰子四次至少出现一次 $6$ 点的概率. 这个试验可以建模为一列
+\sourcepageanchor{106}
+四次 Bernoulli 试验，成功概率为 $p=\frac16=P(\text{骰子出现 $6$ 点})$. 定义随机变量
+$$X=\text{四次投掷中出现 $6$ 点的总次数}.$$
+则 $X\sim\operatorname{binomial}(4,\frac16)$，并且
+$$\begin{aligned}
+P(\text{至少一次 $6$ 点})&=P(X>0)=1-P(X=0)\\
+&=1-\binom40\left(\frac16\right)^0\left(\frac56\right)^4\\
+&=1-\left(\frac56\right)^4\\
+&=.518.
+\end{aligned}$$
+现在考虑另一种游戏：掷一对骰子 $24$ 次，求至少一次同时出现两个 $6$ 点的概率. 同样可以用成功概率为 $p$ 的二项分布建模，其中
+$$p=P(\text{掷出两个 $6$ 点})=\frac1{36}.$$
+所以，若 $Y$ 为 $24$ 次投掷中出现双 $6$ 点的次数，则 $Y\sim\operatorname{binomial}(24,\frac1{36})$，且
+$$\begin{aligned}
+P(\text{至少一次双 $6$ 点})&=P(Y>0)\\
+&=1-P(Y=0)\\
+&=1-\binom{24}0\left(\frac1{36}\right)^0\left(\frac{35}{36}\right)^{24}\\
+&=1-\left(\frac{35}{36}\right)^{24}\\
+&=.491.
+\end{aligned}$$
+这项计算最初由 Pascal 在十八世纪应赌徒 de M\'er\'e 的请求完成，后者原以为两个事件的概率相同.\footnote{译注：原文写作“十八世纪”，但 Pascal 活跃于十七世纪；此处年代疑误，正文保留原文.}（他在第二种赌局中开始输钱以后，才开始相信自己错了.）
+\end{example}
+
+\paragraph{泊松分布.}
+泊松分布是一种应用广泛的离散分布，可以为许多不同类型的试验建立模型. 例如，如果要对等待某个事件发生的现象建模（如等公共汽车，或在银行等待顾客到达），那么在给定时间区间内发生的次数，有时可用泊松分布建模. 泊松分布的一个基本假设是：对较短的时间区间，一次到达的概率与等待时间的长度成正比. 这使它成为前述情形的合理模型. 例如，等待越久，越可能有顾客进入银行，这一假设是有道理的. 更正式的处理见\autoref{sec:3.8}.
+
+另一个应用领域是空间分布. 例如，可用泊松分布对一个区域中的炸弹落点分布，或湖中鱼的分布建模.
+
+泊松分布只有一个参数 $\lambda$，有时称为强度参数（intensity parameter）. 如果取非负整数值的随机变量 $X$ 满足
+\begin{equation}\label{eq:3.2.5}\index{SI0371@泊松}
+P(X=x\mid\lambda)=\frac{e^{-\lambda}\lambda^x}{x!},\qquad x=0,1,\ldots,
+\end{equation}
+就称它具有 $\operatorname{Poisson}(\lambda)$ 分布.
+\sourcepageanchor{107}
+
+为说明$\sum_{x=0}^\infty P(X=x\mid\lambda)=1$，回顾$e^y$的Taylor级数展开
+$$e^y=\sum_{i=0}^\infty\frac{y^i}{i!}.$$
+因此，
+$$\sum_{x=0}^\infty P(X=x\mid\lambda)=e^{-\lambda}\sum_{x=0}^\infty\frac{\lambda^x}{x!}=e^{-\lambda}e^\lambda=1.$$
+容易看出，$X$的均值为
+\begin{align*}
+EX&=\sum_{x=0}^\infty x\frac{e^{-\lambda}\lambda^x}{x!}
+=\sum_{x=1}^\infty x\frac{e^{-\lambda}\lambda^x}{x!}\\
+&=\lambda e^{-\lambda}\sum_{x=1}^\infty\frac{\lambda^{x-1}}{(x-1)!}
+=\lambda e^{-\lambda}\sum_{y=0}^\infty\frac{\lambda^y}{y!}\qquad(\text{令 }y=x-1)\\
+&=\lambda.
+\end{align*}
+类似计算可得
+$$\operatorname{Var}X=\lambda,$$
+所以参数$\lambda$同时是Poisson分布的均值和方差.
+
+同样利用$e^y$的Taylor级数，也可直接算出矩母函数：
+$$M_X(t)=e^{\lambda(e^t-1)}.$$
+（见\autoref{exercise:2.33}和\autoref{ex:2.3.13}.）
+
+\begin{example}[等待时间]\label{ex:3.2.4}
+作为等待事件发生的一个应用例子，考虑一位平均每三分钟处理五通电话的接线员. 下一分钟没有电话的概率是多少？至少有两通电话的概率是多少？
+
+若令$X=$一分钟内的电话数，则$X$具有Poisson分布，且$EX=\lambda=5/3$. 因而
+\begin{align*}
+P(\text{下一分钟没有电话})&=P(X=0)
+=\frac{e^{-5/3}(5/3)^0}{0!}\\
+&=e^{-5/3}=.189;\\
+P(\text{下一分钟至少两通电话})&=P(X\ge2)
+=1-P(X=0)-P(X=1)\\
+&=1-.189-\frac{e^{-5/3}(5/3)^1}{1!}=.496.
+\end{align*}
+\end{example}
+\sourcepageanchor{108}
+
+利用以下递推关系，可以迅速计算Poisson概率：
+\begin{equation}\label{eq:3.2.6}\index{SI0375@递推关系}
+P(X=x)=\frac{\lambda}{x}P(X=x-1),\qquad x=1,2,\ldots.
+\end{equation}
+把Poisson分布的pmf写出来，就容易证明这个关系. 其他离散分布也有类似关系. 例如，若$Y\sim\operatorname{binomial}(n,p)$，则
+\begin{equation}\label{eq:3.2.7}\index{SI0267@递推关系}
+P(Y=y)=\frac{n-y+1}{y}\frac{p}{1-p}P(Y=y-1).
+\end{equation}
+递推关系\eqref{eq:3.2.6}和\eqref{eq:3.2.7}可用来建立二项分布的Poisson近似. 我们已在\autoref{sec:2.3}见过这种近似，当时使用矩母函数加以说明. 令$\lambda=np$，当$p$很小时，可写成
+$$\frac{n-y+1}{y}\frac{p}{1-p}=\frac{np-p(y-1)}{y-py}\approx\frac{\lambda}{y},$$
+因为$p$很小时，$p(y-1)$与$py$两项可以忽略. 因此，在这一近似精度下，\eqref{eq:3.2.7}成为
+\begin{equation}\label{eq:3.2.8}\index{SI0060@以泊松近似二项}
+P(Y=y)=\frac{\lambda}{y}P(Y=y-1),
+\end{equation}
+即Poisson递推关系. 因而只须再证明$P(X=0)\approx P(Y=0)$就完成了这个近似，因为其他概率都由\eqref{eq:3.2.8}得到. 现在令$np=\lambda$，则
+$$P(Y=0)=(1-p)^n=\left(1-\frac{np}{n}\right)^n=\left(1-\frac{\lambda}{n}\right)^n.$$
+回顾\autoref{sec:2.3}，固定$\lambda$时，$\lim_{n\to\infty}(1-(\lambda/n))^n=e^{-\lambda}$，故$n$很大时有近似
+$$P(Y=0)=\left(1-\frac{\lambda}{n}\right)^n\approx e^{-\lambda}=P(X=0),$$
+从而完成了二项分布的Poisson近似.
+
+这一近似在$n$很大而$p$很小时有效，此时它也恰好最有用，使我们免于计算$n$很大时的二项系数及幂.
+
+\begin{example}[Poisson近似]\label{ex:3.2.5}
+一位排字工平均每排500个词出现一个错误. 一般每页有300个词. 五页中不超过两个错误的概率是多少？
+
+若假定排一个词是成功概率$p=1/500$的Bernoulli试验（注意我们把出错称为“成功”），且各次试验独立，则$X=$五页（1500个词）中的错误数服从$\operatorname{binomial}(1500,1/500)$分布. 因此，
+\begin{align*}
+P(\text{不超过两个错误})&=P(X\le2)\\
+&=\sum_{x=0}^2\binom{1500}{x}\left(\frac1{500}\right)^x\left(\frac{499}{500}\right)^{1500-x}\\
+&=.4230,
+\end{align*}
+这个计算相当繁琐. 若使用$\lambda=1500(1/500)=3$的Poisson近似，则
+$$P(X\le2)\approx e^{-3}\left(1+3+\frac{3^2}{2}\right)=.4232.$$
+\end{example}
+\sourcepageanchor{109}
+
+\paragraph{负二项分布.}
+二项分布计算固定次数Bernoulli试验中的成功次数. 假设我们转而计算获得固定次数成功所需的Bernoulli试验次数. 后一种表述就导出了负二项分布（negative binomial distribution）.
+
+在一列独立的Bernoulli$(p)$试验中，令随机变量$X$表示第$r$次成功发生时的试验序号，其中$r$为固定整数. 则
+\begin{equation}\label{eq:3.2.9}
+P(X=x\mid r,p)=\binom{x-1}{r-1}p^r(1-p)^{x-r},\qquad x=r,r+1,\ldots,
+\end{equation}
+称$X$具有负二项$(r,p)$分布.
+
+由二项分布可迅速推得\eqref{eq:3.2.9}. 事件$\{X=x\}$发生，当且仅当前$x-1$次试验中恰有$r-1$次成功，并且第$x$次试验成功. 在$x-1$次试验中有$r-1$次成功的概率为二项概率$\binom{x-1}{r-1}p^{r-1}(1-p)^{x-r}$，而第$x$次试验成功的概率为$p$. 把这两个概率相乘就得到\eqref{eq:3.2.9}.
+
+负二项分布有时也用随机变量$Y=$第$r$次成功之前的失败次数来定义. 由于$Y=X-r$，这种表述在统计上与前面用$X=$第$r$次成功发生时的试验序号给出的表述等价. 利用$Y$与$X$的关系，负二项分布的另一种形式为
+\begin{equation}\label{eq:3.2.10}\index{SI0351@负二项}
+P(Y=y)=\binom{r+y-1}{y}p^r(1-p)^y,\qquad y=0,1,\ldots.
+\end{equation}
+除非另有说明，今后提到负二项$(r,p)$分布时，我们都使用这个pmf.
+
+负二项分布因以下关系而得名：
+$$\binom{r+y-1}{y}=(-1)^y\binom{-r}{y}=(-1)^y\frac{(-r)(-r-1)(-r-2)\cdots(-r-y+1)}{(y)(y-1)(y-2)\cdots(2)(1)},$$
+这实际上就是负整数二项系数的定义式［完整论述见\hyperref[bib:source118]{Feller（1968）}］. 代入\eqref{eq:3.2.10}得
+$$P(Y=y)=(-1)^y\binom{-r}{y}p^r(1-p)^y,$$
+它与二项分布具有惊人的相似性.
+
+$\sum_{y=0}^\infty P(Y=y)=1$这一事实不容易直接验证，但可由二项式定理中包含负指数的推广得到. 这里不再深入讨论. \hyperref[bib:source118]{Feller（1968）}对二项系数有极好的论述.
+
+用类似于二项分布的技巧，可以计算$Y$的均值与方差：
+\begin{align*}
+EY&=\sum_{y=0}^\infty y\binom{r+y-1}{y}p^r(1-p)^y\\
+&=\sum_{y=1}^\infty\frac{(r+y-1)!}{(y-1)!(r-1)!}p^r(1-p)^y\\
+&=\sum_{y=1}^\infty r\binom{r+y-1}{y-1}p^r(1-p)^y.
+\end{align*}
+\sourcepageanchor{110}
+
+现在令$z=y-1$，上述和变为
+\begin{align*}
+EY&=\sum_{z=0}^\infty r\binom{r+z}{z}p^r(1-p)^{z+1}\\
+&=\frac{r(1-p)}p\sum_{z=0}^\infty\binom{(r+1)+z-1}{z}p^{r+1}(1-p)^z\quad(\text{求和项为负二项pmf})\\
+&=\frac{r(1-p)}p.
+\end{align*}
+由于此和遍历负二项$(r+1,p)$分布的全部取值，所以它等于1. 类似计算给出
+$$\operatorname{Var}Y=\frac{r(1-p)}{p^2}.$$
+用均值对负二项分布重新参数化，是一种有趣且有时很有用的做法. 若定义参数$\mu=r(1-p)/p$，则$EY=\mu$，且稍作代数运算便可得到\index{SI0352@二次方差}\semanticindexanchor{352:110}\index{SI1067@均值的二次函数}\semanticindexanchor{1067:110}
+$$\operatorname{Var}Y=\mu+\frac1r\mu^2.$$
+方差是均值的二次函数. 这种关系在数据分析和理论研究中都有用（\hyperref[bib:source224]{Morris 1982）}.
+
+负二项分布族以Poisson分布为其极限情形. 若$r\to\infty$且$p\to1$，使得$r(1-p)\to\lambda$，其中$0<\lambda<\infty$，则\index{SI0356@与泊松的关系}\semanticindexanchor{356:110}\index{SI0378@与负二项的关系}\semanticindexanchor{378:110}
+\begin{align*}
+EY&=\frac{r(1-p)}p\to\lambda,\\
+\operatorname{Var}Y&=\frac{r(1-p)}{p^2}\to\lambda,
+\end{align*}
+这与Poisson分布的均值和方差一致. 要说明负二项$(r,p)\to\operatorname{Poisson}(\lambda)$，可以证明所有概率都收敛. 矩母函数收敛这一事实使我们预期会有这样的结果（见\autoref{exercise:3.15}）.
+
+\begin{example}[逆二项抽样]\label{ex:3.2.6}\index{SI0592@逆二项抽样}
+一种称为逆二项抽样（inverse binomial sampling）的技术，在生物总体的抽样中很有用. 若具有某一特征的个体比例为$p$，且我们持续抽样直到见到$r$个这样的个体，则抽取的个体总数就是一个负二项随机变量.
+
+例如，假设我们关心果蝇总体中残翅个体所占的比例，决定持续抽样，直到找到100只这样的果蝇为止. 必须检查至少$N$只果蝇的概率为（利用\eqref{eq:3.2.9}）
+\begin{align*}
+P(X\ge N)&=\sum_{x=N}^\infty\binom{x-1}{99}p^{100}(1-p)^{x-100}\\
+&=1-\sum_{x=100}^{N-1}\binom{x-1}{99}p^{100}(1-p)^{x-100}.
+\end{align*}
+给定$p$和$N$，就可计算这个表达式，确定我们很可能需要观察多少只果蝇. （虽然计算繁琐，但使用递推关系可以加快计算.）
+\end{example}
+\autoref{ex:3.2.6}表明，与Poisson分布一样，负二项分布也可用来对等待某事件发生的现象建模. 在负二项情形，我们等待的是指定次数的成功.
+\sourcepageanchor{111}
+
+\paragraph{几何分布.}\index{SI0318@几何}\semanticindexanchor{318:111}
+几何分布（geometric distribution）是最简单的等待时间分布，也是负二项分布的特例. 在\eqref{eq:3.2.9}中令$r=1$，得到
+$$P(X=x\mid p)=p(1-p)^{x-1},\qquad x=1,2,\ldots,$$
+这就定义了成功概率为$p$的几何随机变量$X$的pmf. $X$可以解释为首次成功发生时的试验序号，所以我们是在“等待一次成功”. $\sum_{x=1}^\infty P(X=x)=1$由几何级数的性质得到. 对满足$|a|<1$的任何数$a$，有
+$$\sum_{x=1}^\infty a^{x-1}=\frac1{1-a},$$
+我们已在\autoref{ex:1.5.4}中遇到这个公式.
+
+令$X=Y+1$，利用负二项分布的公式就可算出$X$的均值和方差：
+$$EX=EY+1=\frac1p\qquad\text{及}\qquad\operatorname{Var}X=\frac{1-p}{p^2}.$$
+几何分布具有一个有趣的性质，称为“无记忆性”（memoryless property）. 对整数$s>t$，有
+\begin{equation}\label{eq:3.2.11}\index{SI0320@无记忆性}
+P(X>s\mid X>t)=P(X>s-t);
+\end{equation}
+也就是说，几何分布“忘记”已经发生的事情. 已经观察到$t$次失败后，再发生$s-t$次失败的概率，与从序列开始就观察到$s-t$次失败的概率相同. 换言之，出现连续一段失败的概率只取决于这段的长度，而不取决于它的位置.
+
+为证明\eqref{eq:3.2.11}，先注意到，对任何整数$n$，
+\begin{equation}\label{eq:3.2.12}
+\begin{aligned}
+P(X>n)&=P(n\text{次试验中没有成功})\\
+&=(1-p)^n,
+\end{aligned}
+\end{equation}
+因此
+\begin{align*}
+P(X>s\mid X>t)&=\frac{P(X>s\text{ 且 }X>t)}{P(X>t)}\\
+&=\frac{P(X>s)}{P(X>t)}=(1-p)^{s-t}=P(X>s-t).
+\end{align*}
+\begin{example}[失效时间]\label{ex:3.2.7}
+几何分布有时用来对元件的“寿命”或“失效前的时间”建模. 例如，若一个灯泡在任一天失效的概率为$.001$，那么它至少持续30天的概率为
+$$P(X>30)=\sum_{x=31}^\infty .001(1-.001)^{x-1}=(.999)^{30}=.970.$$
+\end{example}
+几何分布的无记忆性描述了一种很特殊的“不老化”性质. 它表明，几何分布不适用于对预期失效概率随时间增加的寿命建模. 还有其他分布可用于对不同类型的老化建模，例如见\hyperref[bib:source9]{Barlow和Proschan（1975）}.

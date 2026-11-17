@@ -1,0 +1,53 @@
+CONTINUOUS DISTRIBUTIONS                                                 83
+   There are a number of important special cases of the gamma distribution. If we set α = p/2,
+where p is an integer, and β = 2, then the gamma pdf becomes
+
+                                1
+                                  < x < ∞,                 (3.3.10)                        f(x|p) = Γ(p/2)2p/2 x(p/2)−1e−x/2,  0
+
+which is the chi squared pdf with p degrees of freedom. The mean, variance, and mgf of the chi
+squared distribution can all be calculated by using the previously derived gamma formulas.
+   The chi squared distribution plays an important role in statistical inference, especially when
+sampling from a normal distribution. This topic will be dealt with in detail in Chapter 5.
+   Another important special case of the gamma distribution is obtained when we set α = 1. We
+then have
+                                   1
+                             < x < ∞,                          (3.3.11)                               f(x|β) = β e−x/β,  0
+the exponential pdf with scale parameter β. Its mean and variance were calculated in Examples
+2.2.2 and 2.3.3.
+   The exponential distribution can be used to model lifetimes, analogous to the use of the geo-
+metric distribution in the discrete case. In fact, the exponential distribution shares the “memory-
+less” property of the geometric. If X ∼exponential(β), that is, with pdf given by (3.3.11), then for
+s > t ≥0,
+                         P(X > s|X > t) = P(X > s−t),
+since
+                                       P(X > s,X > t)
+                      P(X > s|X > t) =     P(X > t)
+                                       P(X > s)
+                         =                                         ( since s > t))
+                                       P(X > t)
+                                         ∞                                                             1 e−x/β dx                                                                           s                                                       β
+                         =   ∞ 1                                                                                                         t  β e−x/β dx
+                                                   e−s/β
+                         =
+                                                    e−t/β
+                         =   e−(s−t)/β
+                         =  P(X > s−t).
+   Another distribution related to both the exponential and the gamma families is the Weibull dis-
+tribution. If X ∼exponential(β) then Y = X1/γ has a Weibull(γ,β) distribution
+                                 γ
+                                        0 < y < ∞,   γ > 0,  β > 0.            (3.3.12)                   fY(y|γ,β) = β yγ−1e−yγ/β,
+
+Clearly, we could have started with the Weibull and then derived the exponential as a special case
+(γ = 1). This is a matter of taste. The Weibull distribution plays an extremely important role in the
+analysis of failure time data [see Kalbfleisch and Prentice (1980) for a comprehensive treatment of
+this topic]. The Weibull, in particular, is very useful for modeling hazard functions [see Exercises
+3.25 and 3.26].
+
+Normal Distribution
+
+The normal distribution (sometimes called the Gaussian distribution) plays a central role in a large
+body of statistics. There are three main reasons for this. First, the normal distribution, and distri-
+butions associated with it, are very tractable analytically (although this may not seem so at first
+glance). Second, the normal distribution has the familiar bell shape, whose symmetry makes it an
+appealing choice for many population models. Although there are many other distributions that are

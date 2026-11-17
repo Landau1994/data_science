@@ -1,0 +1,47 @@
+DIFFERENTIATING UNDER AN INTEGRAL SIGN                                 59
+We then have
+
+             ∂    xne−x/λ
+          ∂λ     λ         ≤g(x,λ)     for all λ ′ such that λ ′ −λ ≤δ0.
+                          λ=λ ′
+                                     < ∞as long as λ −δ0 > 0,Since the exponential distribution has all of its moments, −∞g(x,λ)dx∞
+so the interchange of integration and differentiation is justified.                            ∥
+   The property illustrated for the exponential distribution holds for a large class of densities, which
+will be dealt with in Section 3.4.
+   Notice that (2.4.6) gives us a recursion relation for the moments of the exponential distribution,
+
+                                                            2 d                         EXn+1 = λEXn +λ    EXn,                            (2.4.7)
+                                         dλ
+
+making the calculation of the (n + 1)st moment relatively easy. This type of relationship exists for
+other distributions. In particular, if X has a normal distribution with mean µ and variance 1, so it
+has pdf f(x) = (1/√2π)e−(x−µ)2/2, then
+
+                          EXn+1 = µEXn     EXn.                      −ddµ
+
+  We illustrate one more interchange of differentiation and integration, one involving the moment
+generating function.
+Example 2.4.6 (Interchanging integration and differentiation–II)  Again let X have a normal
+distribution with mean µ and variance 1, and consider the mgf of X,
+
+                                      1    ∞
+                                                                dx.                      MX(t) = EetX = √ 2π  −∞etxe−(x−µ)2/2
+In Section 2.3 it was stated that we can calculate moments by differentiation of MX(t), and differ-
+entiation under the integral sign was justified:
+
+                       d         d         ∂
+                         MX(t) =   EetX = E    etX = E(XetX).                      (2.4.8)                            dt          dt          ∂t
+We can apply the results of this section to justify the operations in (2.4.8). Notice that when applying
+either Theorem 2.4.3 or Corollary 2.4.4 here, we identify t with the variable θ in Theorem 2.4.3.
+The parameter µ is treated as a constant.
+   From Corollary 2.4.4, we must find a function g(x,t), with finite integral, that satisfies
+
+                ∂                      etxe−(x−µ)2/2                for all t′ such that  t′                      (2.4.9)                 ∂t               ≤g(x,t)                −t ≤δ0.                                              t=t′
+Doing the obvious, we have
+
+                 ∂
+                       etxe−(x−µ)2/2 =   xetxe−(x−µ)2/2  ≤|x|etxe−(x−µ)2/2.                  ∂t
+     It is easiest to define our function g(x,t) separately for x ≥0 and x < 0. We take
+                                                                                 if x < 0                           g(x,t) =   |x|e(t−δ0)xe−(x−µ)2/2
+                                        |x|e(t+δ0)xe−(x−µ)2/2   if x ≥0.
+It is clear that this function satisfies (2.4.9); it remains to check that its integral is finite.

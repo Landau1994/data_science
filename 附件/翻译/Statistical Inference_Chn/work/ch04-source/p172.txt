@@ -1,0 +1,43 @@
+COVARIANCE AND CORRELATION                                            141
+Theorem 4.5.7  For any random variables X and Y,
+  a. −1 ≤ρXY ≤1.
+  b. |ρXY| = 1 if and only if there exist numbers a̸ = 0 and b such that P(Y = aX +b) = 1. If ρXY = 1
+   then a > 0, and if ρXY = −1 then a < 0.
+Proof: Consider the function h(t) defined by
+
+                                                                                                .                                h(t) = E((X −µX)t +(Y −µY))2
+Expanding this expression, we obtain
+                  h(t) =  t2E(X −µX)2 +2tE(X −µX)(Y −µY)+E(Y −µY)2             =  t2σ2X +2tCov(X,Y)+σ2Y .
+
+This quadratic function of t is greater than or equal to 0 for all values of t, since it is the expected
+value of a nonnegative random variable. Thus, this quadratic function can have at most one real root
+and thus must have a nonpositive discriminant. That is,
+
+
+                                                        Y                             (2Cov(X,Y))2 −4σ2Xσ2                                        ≤0.
+This is equivalent to
+                       −σXσY ≤Cov(X,Y) ≤σXσY.
+Dividing by σXσY yields
+                           = ρXY ≤1.                      −1 ≤Cov(X,Y)σXσY
+Also, |ρXY| = 1 if and only if the discriminant is equal to 0. That is, |ρXY| = 1 if and only if h(t)
+has a single root. But since ((X −µX)t +(Y −µY))2 ≥0, the expected value h(t) = E((X −µX)t +
+(Y −µY))2 = 0 if and only if
+                              = 0 = 1.                    P [(X −µX)t +(Y −µY)]2
+This is equivalent to
+                          P((X −µX)t +(Y −µY) = 0) = 1.
+This is P(Y = aX + b) = 1 with a = −t and b = µXt + µY where t is the root of h(t). Using the
+quadratic formula, we see that this root is t = −Cov(X,Y)/σ2X. Thus, a = −t has the same sign asρXY, proving the final assertion.                                   2
+
+    In Section 4.7 we will prove a theorem called the Cauchy–Schwarz Inequality. This theorem
+has as a direct consequence that ρXY is bounded between −1 and 1 and we will see that, with thisinequality, the preceding proof can be shortened.
+     If there is a line y = ax+b, with a̸ = 0, such that the values of (X,Y) have a high probability of
+being near this line, then the correlation between X and Y will be near 1 or −1. But if no such lineexists, the correlation will be near zero. This is an intuitive notion of the linear relationship that is
+being measured by correlation. This idea will be illustrated further in the next two examples.
+Example 4.5.8 (Correlation–II)  This example is similar to Example 4.5.4 but we develop it dif-
+ferently to illustrate other model building and computational techniques. Let X have a uniform(0,1)
+distribution and Z have a uniform(0, 10)1   distribution. Suppose X and Z are independent. Let
+Y = X + Z and consider the random vector (X,Y). The joint distribution of (X,Y) can be derived
+from the joint distribution of (X,Z) using the techniques of Section 4.3. The joint pdf of (X,Y) is
+
+                                                       1
+                           f(x,y) = 10,  0 < x < 1,  x < y < x+ 10.

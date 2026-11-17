@@ -1,0 +1,46 @@
+CONTINUOUS DISTRIBUTIONS                                                 89
+
+
+                                                  Normal
+
+
+
+
+
+                                                               Cauchy
+
+                                                                                            x
+               –4     –3     –2     –1     0      1      2      3      4
+
+                        Figure 3.3.5 Standard normal density and Cauchy density
+
+
+As we have already seen in Chapter 2, the mean of the Cauchy distribution does not exist, that is,
+
+                                ∞ 1                   =               |x|    dx = ∞.                        (3.3.20)                           E|X|      π                              −∞  1+(x−θ)2
+It is easy to see that (3.3.19) defines a proper pdf for all θ. Recall that  dtd arctan(t) = (1 +t2)−1,
+hence
+                    ∞ 1     1          1
+                                    dx =
+                     π                                     π arctan(x−θ)|∞−∞= 1,                   −∞  1+(x−θ)2
+since arctan(±∞) = ±π/2.
+   Since E|X| = ∞, it follows that no moments of the Cauchy distribution exist or, in other words,all absolute moments equal ∞. In particular, the mgf does not exist.
+   The parameter θ in (3.3.19) does measure the center of the distribution; it is the median. If X
+has    a Cauchy distribution with parameter θ, then from Exercise 3.37 it follows that P(X ≥θ) =12, showing that θ is the median of the distribution. Figure 3.3.5 shows a Cauchy(0) distribution
+together with a n(0,1), where we see the similarity in shape, but the much thicker tails of the
+Cauchy.
+   The Cauchy distribution plays a special role in the theory of statistics. It represents an extreme
+case against which conjectures can be tested. But do not make the mistake of considering the Cauchy
+distribution to be only a pathological case, for it has a way of turning up when you least expect it.
+For example, it is common practice for experimenters to calculate ratios of observations, that is,
+ratios of random variables. (In measuring growth, it is common to combine weight and height into
+one measurement weight-for-height, that is, weight/height.) A surprising fact is that the ratio of
+two standard normals has a Cauchy distribution (see Example 4.3.6). Taking ratios can lead to ill-
+behaved distributions.
+
+Lognormal Distribution
+If X is a random variable whose logarithm is normally distributed (that is, logX ∼n(µ,σ2)), thenX has a lognormal distribution. The pdf of X can be obtained by straightforward transformation of
+the normal pdf using Theorem 2.1.5, yielding
+
+                  1   1
+                                       0 < x < ∞, −∞< µ < ∞,  σ > 0,     (3.3.21)     f(x|µ,σ2)         = √ 2πσ xe−(logx−µ)2/(2σ2),

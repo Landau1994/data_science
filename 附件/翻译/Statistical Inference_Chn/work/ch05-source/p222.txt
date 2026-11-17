@@ -1,0 +1,47 @@
+CONVERGENCE CONCEPTS                                                   191
+Example 5.5.7 (Almost sure convergence)   Let the sample space S be the closed interval [0,1]
+with the uniform probability distribution. Define random variables Xn(s) = s + sn and X(s) = s.
+For every s ∈[0,1), sn →0 as n →∞and Xn(s) →s = X(s). However, Xn(1) = 2 for every nso Xn(1) does not converge to 1 = X(1). But since the convergence occurs on the set [0,1) and
+P([0,1)) = 1,Xn converges to X almost surely.                                         ∥
+Example 5.5.8 (Convergence in probability, not almost surely)   In this example we describe a
+sequence that converges in probability, but not almost surely. Again, let the sample space S be the
+closed interval [0,1] with the uniform probability distribution. Define the sequence X1,X2,... as
+follows:
+
+
+                                                                        1                                                                                                      1               X1(s) = s+I[0,1](s),  X2(s) = s+I[0,                                                                        2 ](s),  X4(s) = s+I[0,                                                                                                      3 ](s),
+
+                                                                      1                                                                                                    1                                    X3(s) = s+I[                                                                      2 ,1](s),  X5(s) = s+I[                                                                                                    3 , 23 ](s),
+
+                                                                                                    2                                                         X6(s) = s+I[                                                                                                    3 ,1](s),
+etc. Let X(s) = s. It is straightforward to see that Xn converges to X in probability. As n →∞,P(|Xn−
+X| ≥ε) is equal to the probability of an interval of s values whose length is going to 0. However, Xn
+does not converge to X almost surely. Indeed, there is no value of s ∈S for which Xn(s) →s = X(s).For every s, the value Xn(s) alternates between the values s and s+1 infinitely often. For example,
+if s = 38,X1(s)     3             3           3           3             3           3        = 1 8,X2(s) = 1 8,X3(s) = 8,X4(s) = 8,X5(s) = 1 8,X6(s) = 8, etc. No pointwise
+convergence occurs for this sequence.                                                ∥
+   As might be guessed, convergence almost surely, being the stronger criterion, implies conver-
+gence in probability. The converse is, of course, false, as Example 5.5.8 shows. However, if a se-
+quence converges in probability, it is possible to find a subsequence that converges almost surely.
+(Resnick 1999, Section 6.3, has a thorough treatment of the connections between the two types of
+convergence.)
+   Again, statisticians are often concerned with convergence to a constant. We now state, with-
+out proof, the stronger analogue of the WLLN, the Strong Law of Large Numbers (SLLN). See
+Miscellanea 5.8.4 for an outline of a proof.
+Theorem 5.5.9 (Strong Law of Large Numbers)    Let X1,X2,... be iid random variables with
+EXi = µ and VarXi = σ2 < ∞, and define ¯Xn = (1/n)∑ni=1 Xi. Then, for every ε > 0,
+                              P( lim ¯Xn −µ|                                 n→∞|    < ε) = 1,
+that is, ¯Xn converges almost surely to µ.
+   For both the weak and strong laws of large numbers we had the assumption of a finite variance.
+Although such an assumption is true (and desirable) in most applications, it is, in fact, a stronger
+assumption than is needed. Both the weak and strong laws hold without this assumption. The only
+moment condition needed is that E|Xi| < ∞(see Resnick 1999, Chapter 7, or Billingsley 1995,Section 22).
+
+5.5.3  Convergence in Distribution
+
+We have already encountered the idea of convergence in distribution in Chapter 2. Remember the
+properties of moment generating functions (mgfs) and how their convergence implies convergence
+in distribution (Theorem 2.3.12).
+Definition 5.5.10 A sequence of random variables, X1,X2,..., converges in distribution to a ran-
+dom variable X if
+                                 n→∞FXn(x)lim    = FX(x),
+at all points x where FX(x) is continuous.

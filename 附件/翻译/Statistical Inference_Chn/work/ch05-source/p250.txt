@@ -1,0 +1,43 @@
+MISCELLANEA                                                              219
+ 5.8.4 More on the Strong Law
+     As mentioned, the Strong Law of Large Numbers, Theorem 5.5.9, can be proved under the
+        less restrictive condition that the random variables only have a finite mean (see, for example,
+       Resnick 1999, Chapter 7, or Billingsley 1995, Section 22). However, under the assumptions
+       of the existence of an mgf, Koopmans (1993) has presented a proof that only uses calculus.
+        The type of convergence asserted in the SLLN is the convergence that we are most fa-
+        miliar with; it is pointwise convergence of the sequence of random variables ¯Xn to their
+     common mean µ. As we saw in Example 5.5.8, this is a stronger form of convergence than
+       convergence in probability, the convergence of the weak law.
+        The conclusion of the SLLN is that
+                               P( lim ¯Xn −µ|                                  n→∞|    < ε) = 1,
+        that is, with probability 1, the limit of the sequence of {¯Xn} is µ. Alternatively, the set where       the sequence diverges has probability 0. For the sequence to diverge, there must exist δ > 0
+                              > δ. The set of all ¯Xk that satisfy this is a       such that for every n there is a k > n with |¯Xk −µ|       divergent sequence, and is represented by the set
+
+                                       n=1                                            k=n                            Aδ = ∩∞                               ∪∞                                                     {|                                                                      ¯Xk −µ|                                > δ}.
+     We can get an upper bound on P(Aδ) by dropping the intersection term, and then the proba-
+         bility of the set where the sequence {¯Xn} diverges is bounded above by
+              P(Aδ)                      ¯Xk   >              ≤  P(∪∞∞  k=n{|  −µ|  δ})
+            ∑       ¯Xk              ≤  k=n P({|  −µ| > δ})        (Boole’s Inequality, Theorem 1.2.11)
+                         ∞
+                         2             ∑ ck,              ≤    k=n     0 < c < 1,
+      where Exercise 5.38(d) can be used to establish the last inequality. We then note that we are
+      summing the geometric series, and it follows from (1.5.4) that
+                                ∞         cn
+                        P(Aδ)  ∑ ck                    ≤2 k=n  = 2   →0 as n →∞,                               1−c
+       and, hence, the set where the sequence {¯Xn} diverges has probability zero and the SLLN is        established.
+ 5.8.5 Markov Chain Monte Carlo
+      Methods that are collectively known as Markov Chain Monte Carlo (MCMC) methods are
+       used in the generation of random variables, and have proved extremely useful for doing com-
+        plicated calculations, most notably, calculations involving integrations and maximizations.
+      The Metropolis algorithm (see Section 5.6) is an example of an MCMC method.
+       As the name suggests, these methods are based on Markov Chains, a probabilistic struc-
+        ture that we haven’t explored (see Chung 1974 or Ross 1988 for an introduction). The se-
+      quence of random variables X1,X2,... is a Markov chain if
+                         P(Xk+1 ∈A|X1,...,Xk) = P(Xk+1 ∈A|Xk);
+        that is, the distribution of the present random variable depends, at most, on the immediate
+       past random variable. Note that this is a generalization of independence.
+        The Ergodic Theorem, which is a generalization of the Law of Large Numbers, says that
+          if the Markov Chain X1,X2,... satisfies some regularity conditions (which are often satisfied
+        in statistical problems) then
+                            1  n
+                                                      as n               ∑ h(Xi)                            n i=1    →Eh(X)   →∞,

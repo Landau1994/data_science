@@ -1,0 +1,46 @@
+256                                                 POINT ESTIMATION
+   Notice that, by its construction, the range of the MLE coincides with the range of the parameter.
+Also, we use the abbreviation MLE to stand for maximum likelihood estimate, when we are talking
+of the realized value of the estimator.
+    Intuitively, the MLE is a reasonable choice for an estimator. The MLE is the parameter point for
+which the observed sample is most likely. In general, the MLE is a good point estimator, possessing
+some of the optimality properties discussed later.
+   There are two inherent drawbacks associated with the general problem of finding the maximum
+of a function, and hence of maximum likelihood estimation. The first problem is that of actually
+finding the global maximum and verifying that, indeed, a global maximum has been found. In
+many cases this problem reduces to a simple differential calculus exercise but, sometimes even for
+common densities, difficulties do arise. The second problem is that of numerical sensitivity. That is,
+how sensitive is the estimate to small changes in the data? (Strictly speaking, this is a mathematical
+rather than statistical problem associated with any maximization procedure. Since an MLE is found
+through a maximization procedure, however, it is a problem that we must deal with.) Unfortunately,
+it is sometimes the case that a slightly different sample will produce a vastly different MLE, making
+its use suspect. We consider first the problem of finding MLEs.
+     If the likelihood function is differentiable (in θi), possible candidates for the MLE are the values
+of (θ1,...,θk) that solve
+                             ∂
+                               ∂θi L(θ|x) = 0,    i = 1,...,k.                             (7.2.4)
+   Note that the solutions to (7.2.4) are only possible candidates for the MLE since the first deriva-
+tive being zero is only a necessary condition for a maximum, not a sufficient condition. Furthermore,
+the zeros of the first derivative only locate extreme points in the interior of the domain of a function.
+If the extrema occur on the boundary the first derivative may not be zero. Thus, the boundary must
+be checked separately for extrema.
+    Points at which the first derivatives are zero may be local or global minima, local or global
+maxima, or inflection points. Our job is to find a global maximum.
+Example 7.2.5 (Normal likelihood)  Let X1,...,Xn be iid n(θ,1), and let L(θ|x) denote the like-lihood function. Then
+                               n    1                   1
+                           =                                                                   e(−1/2)Σni=1(xi−θ)2.
+                                                    (2π)n/2                L(θ|x) = ∏i=1 (2π)1/2 e−(1/2)(xi−θ)2
+The equation (d/dθ)L(θ|x) = 0 reduces to
+                                              n
+                           = 0,                ∑ (xi −θ)                                           i=1
+
+which has the solution ˆθ = ¯x. Hence,  ¯x is a candidate for the MLE. To verify that  ¯x is, in fact,
+a global maximum of the likelihood function, we can use the following argument. First note that
+                    = 0, hence ¯x is the only zero of the first derivative. Second,ˆθ = ¯x is the only solution to ∑(xi −θ)verify that
+                                   d2
+                             < 0.                             dθ 2 L(θ|x)|θ=¯x
+Thus, ¯x is the only extreme point in the interior and it is a maximum. To finally verify that ¯x is a
+global maximum, we must check the boundaries, ±∞. By taking limits it is easy to establish that                  = ¯x is a global maximum and hence ¯X is the MLE. (Actually,the likelihood is zero at ±∞. So ˆθ
+we can be a bit more clever and avoid checking ±∞. Since we established that ¯x is a unique interior
+extremum, and is a maximum, there can be no maximum at ±∞. If there were, then there would
+have to be an interior minimum, which contradicts uniqueness.)                           ∥

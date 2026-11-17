@@ -1,0 +1,42 @@
+232                                       PRINCIPLES OF DATA REDUCTION
+  We have already discussed a situation in which an ancillary statistic is not independent of a
+minimal sufficient statistic. Recall Example 6.2.15 in which X1,...,Xn were iid observations from
+a uniform(θ,θ + 1) distribution. At the end of Section 6.2.2, we noted that the statistic (X(n) −
+X(1),(X(n) +X(1))/2) is a minimal sufficient statistic and in Example 6.2.17 we showed that X(n) −X(1) is an ancillary statistic. Thus, in this case, the ancillary statistic is an important component of
+the minimal sufficient statistic. Certainly, the ancillary statistic and the minimal sufficient statistic
+are not independent.
+   To emphasize the point that an ancillary statistic can sometimes give important information for
+inferences about θ, we give another example.
+Example 6.2.20 (Ancillary precision)  Let X1 and X2 be iid observations from the discrete distri-
+bution that satisfies
+                                                           1
+                   Pθ(X = θ) = Pθ(X = θ +1) = Pθ(X = θ +2) = 3,
+where θ, the unknown parameter, is any integer. Let X(1) ≤X(2) be the order statistics for the sample.
+It can be shown with an argument similar to that in Example 6.2.15 that (R,M), where R = X(2) −X(1) and M = (X(1) + X(2))/2, is a minimal sufficient statistic. Since this is a location parameter
+family, by Example 6.2.17, R is an ancillary statistic. To see how R might give information about θ,
+even though it is ancillary, consider a sample point (r,m), where m is an integer. First considering
+only m, for this sample point to have positive probability, θ must be one of three values. Either
+θ = m or θ = m −1 or θ = m −2. With only the information that M = m, all three θ values arepossible values. But now suppose we get the additional information that R = 2. Then it must be the
+case that X(1) = m −1 and X(2) = m + 1. With this additional information, the only possible value
+for θ is θ = m −1. Thus, the knowledge of the value of the ancillary statistic R has increased ourknowledge about θ. Of course, the knowledge of R alone would give us no information about θ.
+(The idea that an ancillary statistic gives information about the precision of an estimate of θ is not
+new. See Cox (1971) or Efron and Hinkley (1978) for more ideas.)                         ∥
+   For many important situations, however, our intuition that a minimal sufficient statistic is inde-
+pendent of any ancillary statistic is correct. A description of situations in which this occurs relies on
+the next definition.
+Definition 6.2.21  Let f(t|θ) be a family of pdfs or pmfs for a statistic T(X). The family of prob-ability distributions is called complete if Eθg(T) = 0 for all θ implies Pθ(g(T) = 0) = 1 for all θ.
+Equivalently, T(X) is called a complete statistic.
+
+   Notice that completeness is a property of a family of probability distributions, not of a par-
+ticular distribution. For example, if X has a n(0,1) distribution, then defining g(x) = x, we have
+that Eg(X) = EX = 0. But the function g(x) = x satisfies P(g(X) = 0) = P(X = 0) = 0, not
+1. However, this is a particular distribution, not a family of distributions. If X has a n(θ,1)
+distribution,−∞< θ < ∞, we shall see that no function of X, except one that is 0 with probability
+1 for all θ, satisfies Eθg(X) = 0 for all θ. Thus, the family of n(θ,1) distributions, −∞< θ < ∞, iscomplete.
+Example 6.2.22 (Binomial complete sufficient statistic)  Suppose that T has a binomial (n, p)
+distribution, 0 < p < 1. Let g be a function such that Epg(T) = 0. Then
+
+                                                 n      n
+                                                g(t)                  0 = Epg(T) = ∑                                            t=0         t  pt(1−p)n−t
+                                                          n      n     p        t
+                     =              g(t)                                 (1−p)n t=0∑          t                                      1−p

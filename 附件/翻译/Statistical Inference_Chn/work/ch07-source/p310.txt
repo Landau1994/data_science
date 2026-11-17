@@ -1,0 +1,46 @@
+METHODS OF EVALUATING ESTIMATORS                                      279
+where a is a constant, satisfies Eθφa = τ(θ), and hence is also an unbiased estimator of τ(θ). Can
+φa be better than W? The variance of φa is
+
+               Varθ φa = Varθ (W +aU) = Varθ W +2aCovθ(W,U)+a2Varθ U.
+
+Now, if for some θ = θ0,Covθ0(W,U) < 0, then we can make 2aCovθ0(W,U) +a2Varθ0 U < 0 by
+choosing a ∈(0,−2Covθ0(W,U)/Varθ0 U). Hence, φa will be better than W at θ = θ0 and W cannotbe best unbiased. A similar argument will show that if Covθ0(W,U) > 0 for any θ0, W also cannot
+be best unbiased. (See Exercise 7.53.) Thus, the relationship of W with unbiased estimators of zero
+is crucial in evaluating whether W is best unbiased. This relationship, in fact, characterizes best
+unbiasedness.
+Theorem 7.3.20  If EθW = τ(θ),W is the best unbiased estimator of τ(θ) if and only if W is un-
+correlated with all unbiased estimators of zero.
+Proof: If W is best unbiased, the above argument shows that W must satisfy Covθ(W,U) = 0 for all
+θ, for any U satisfying EθU = 0. Hence the necessity is established.
+   Suppose now that we have an unbiased estimator W that is uncorrelated with all unbiased esti-
+mators of zero. Let W ′ be any other estimator satisfying EθW ′ = EθW = τ(θ). We will show that
+W is better than W ′. Write
+                   W ′ = W +(W ′ −W),
+and calculate
+                 Varθ W ′ =  Varθ W +Varθ (W ′ −W)+2Covθ(W,W ′ −W)           (7.3.15)
+               =  Varθ W +Varθ (W ′ −W),
+where the last equality is true because W ′ −W is an unbiased estimator of zero and is uncorrelated
+with W by assumption. Since Varθ (W ′ −W) ≥0, (7.3.15) implies that Varθ W ′ ≥Varθ W. Since W ′is arbitrary, it follows that W is the best unbiased estimator of τ(θ).                2
+   Note that an unbiased estimator of zero is nothing more than random noise, that is, there is no
+information in an estimator of zero. (It makes sense that the most sensible way to estimate zero is
+with zero, not with random noise.) Therefore, if an estimator could be improved by adding random
+noise to it, the estimator probably is defective. (Alternatively, we could question the criterion used
+to evaluate the estimator, but in this case the criterion seems above suspicion.) This intuition is what
+is formalized in Theorem 7.3.20.
+   Although we now have an interesting characterization of best unbiased estimators, its usefulness
+is limited in application. It is often a difficult task to verify that an estimator is uncorrelated with all
+unbiased estimators of zero because it is usually difficult to describe all unbiased estimators of zero.
+However, it is sometimes useful in determining that an estimator is not best unbiased.
+Example 7.3.21 (Unbiased estimators of zero)  Let X be an observation from a uniform(θ,θ +
+1) distribution. Then
+                                       θ+1          1
+                         EθX =                                      xdx = θ + 2,                                              θ
+             2 is an unbiased estimator of θ, and it is easy to check that Varθ X = 12.and so X −1                                                                          1   For this pdf, unbiased estimators of zero are periodic functions with period 1. This follows from
+the fact that if h(x) satisfies
+                               θ+1
+                                   h(x)dx = 0,   for all θ,
+                                     θ
+then
+                       d   θ+1
+                   0 =                                h(x)dx = h(θ +1)−h(θ),   for all θ.                     dθ  θ

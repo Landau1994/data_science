@@ -1,0 +1,56 @@
+242                                       PRINCIPLES OF DATA REDUCTION
+
+  We will now illustrate how these two concepts of equivariance can work together to provide
+useful data reduction.
+
+Example 6.4.1 (Binomial equivariance)  Let X have a binomial distribution with sample size n
+known and success probability p unknown. Let T(x) be the estimate of p that is used when X = x is
+observed. Rather than using the number of successes, X, to make an inference about p, we could use
+the number of failures, Y = n−X. Y also has a binomial distribution with parameters (n,q = 1−p).
+Let T ∗(y) be the estimate of q that is used when Y = y is observed so that 1−T ∗(y) is the estimate
+of p when Y = y is observed. If x successes are observed then the estimate of p is T(x). But if there
+are x successes then there are n−x failures and 1−T ∗(n−x) is also an estimate of p. Measurement
+equivariance requires that these two estimates be equal, that is, T(x) = 1 −T ∗(n −x), since the
+change from X to Y is just a change in measurement scale. Furthermore, the formal structures of the
+inference problems based on X and Y are the same. X and Y both have binomial(n,θ) distributions,
+0 ≤θ ≤1. So formal invariance requires that T(z) = T ∗(z) for all z = 0,...,n. Thus, measurement
+and formal invariance together require that
+
+                          T(x) = 1−T ∗(n−x) = 1−T(n−x).                         (6.4.1)
+
+If we consider only estimators satisfying (6.4.1) then we have greatly reduced and simplified the
+set of estimators we are willing to consider. Whereas the specification of an arbitrary estimator
+requires the specification of T(0),T(1),...,T(n), the specification of an estimator satisfying (6.4.1)
+requires the specification only of T(0),T(1),...,T([n/2]), where [n/2] is the greatest integer not
+larger than n/2. The remaining values of T(x) are determined by those already specified and (6.4.1).
+For example, T(n) = 1 −T(0) and T(n −1) = 1 −T(1). This is the type of data reduction that is
+always achieved by the Equivariance Principle. The inference to be made for some sample points
+determines the inference to be made for other sample points.
+   Two estimators that are equivariant for this problem are T1(x) = x/n and T2(x) = .9(x/n) +
+.1(.5). The estimator T1(x) uses the sample proportion of successes to estimate p. T2(x) “shrinks”
+the sample proportion toward .5, an estimator which might be sensible if there is reason to think
+that p is near .5. Condition (6.4.1) is easily verified for both of these estimators and so they are
+both equivariant. An estimator that is not equivariant is T3(x) = .8(x/n) + .2(1). Condition (6.4.1)
+is not satisfied since T3(0) = .2̸ = 0 = 1 −T3(n −0). See Exercise 6.39 for more on measurement
+vs. formal invariance.                                                             ∥
+
+  A key to the equivariance argument in Example 6.4.1 and to any equivariance argument is the
+choice of the transformations. The data transformation used in Example 6.4.1 is Y = n −X. The
+transformations (changes of measurement scale) used in any application of the Equivariance Prin-
+ciple are described by a set of functions on the sample space called a group of transformations.
+
+Definition 6.4.2 A set of functions {g(x) : g ∈G } from the sample space X onto X  is called a
+group of transformations of X  if
+  (i) (Inverse)  For every g ∈G there is a g′ ∈G such that g′(g(x)) = x for all x ∈X .
+ (ii) (Composition)  For every g ∈G and g′ ∈G there exists g′′ ∈G such that g′(g(x)) = g′′(x) for
+      all x ∈X .
+(iii) (Identity)  The identity, e(x), defined by e(x) = x is an element of G .
+
+Sometimes the third requirement is stated as part of the definition of a group. But (iii) is a conse-
+quence of (i) and (ii) and need not be verified separately. (See Exercise 6.38.)
+
+Example 6.4.3 (Continuation of Example 6.4.1)  For this problem, only two transformations are
+involved so we may set G = {g1,g2}, with g1(x) = n−x and g2(x) = x. Conditions (i) and (ii) are
+easily verified. The choice of g′ = g verifies (i), that is, each element is its own inverse. For example,
+
+                           g1(g1(x)) = g1(n−x) = n−(n−x) = x.

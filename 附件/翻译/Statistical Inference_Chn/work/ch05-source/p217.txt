@@ -1,0 +1,43 @@
+186                                    PROPERTIES OF A RANDOM SAMPLE
+Proof: Fix i, and let Y be a random variable that counts the number of X1,...,Xn that are less than
+or equal to xi. For each of X1,...,Xn call the event {Xj ≤xi} a “success” and {Xj > xi} a “failure.”Then Y is the number of successes in n trials. The probability of a success is the same value, namely
+Pi = P(Xj ≤xi), for each trial, since X1,...,Xn are identically distributed. The success or failure ofthe jth trial is independent of the outcome of any other trial since Xj is independent of the other Xis.
+Thus, Y ∼binomial(n,Pi).
+                            j)              ≤xi} is equivalent to the event {Y ≥j}, that is, at least  j of the sample values   The event {X(are less than or equal to xi. Equation (5.4.2) expresses this binomial probability
+                        P X(j) ≤xi = P(Y ≥j).
+Equation (5.4.3) simply expresses the difference
+
+
+                                                                                                 j)                 P X(j) = xi = P X(j) ≤xi −P X(                                                 ≤xi−1  .
+The case i = 1 is exceptional in that P X(j) = x1 = P X( j) ≤x1  . The definition of P0 = 0 takescare of this exception in (5.4.3).                                   2
+
+     If X1,...,Xn are a random sample from a continuous population then the situation is simplified
+slightly by the fact that the probability is 0 that any two Xjs are equal, freeing us from worrying about
+ties. Thus, P X(1) < X(2) < ··· < X(n) = 1 and the sample space for  X(1),...,X(n)  is {(x1,...,xn) :
+x1 < x2 < ··· < xn}. In Theorems 5.4.4 and 5.4.6 we derive the pdf for one and the joint pdf for twoorder statistics, again using binomial arguments.
+Theorem 5.4.4  Let X(1),...,X(n) denote the order statistics of a random sample, X1,...,Xn, from
+a continuous population with cdf FX(x) and pdf fX(x). Then the pdf of X( j) is
+
+                                     n!
+                        fX(j)(x) =                                                                 (5.4.4)                               (j             fX(x)[FX(x)]j−1[1−FX(x)]n−j.                          −1)!(n−j)!
+Proof: We first find the cdf of X( j) and then differentiate it to obtain the pdf. As in Theorem 5.4.3,
+let Y be a random variable that counts the number of X1,...,Xn less than or equal to x. Then,
+defining a “success” as the event {Xj ≤x}, we see that Y ∼binomial(n,FX(x)). (Note that we canwrite Pi = FX(xi) in Theorem 5.4.3. Also, although X1,...,Xn are continuous random variables, the
+counting variable Y is discrete.) Thus,
+
+                                                  n   n
+                        FX(j)(x) = P(Y   = ∑                        ≥j)   k= j  k  [FX(x)]k[1−FX(x)]n−k,
+
+and the pdf of X( j) is
+
+                d
+       fX( j)(x) =  dxFX( j)(x)
+                      n   n
+        =        ∑       k[FX(x)]k−1               fX(x)                 k= j  k             [1−FX(x)]n−k
+                −(n−k)[FX(x)]k[1−FX(x)]n−k−1 fX(x)                           (chain rule)
+                 n
+        =            j fX(x)[FX(x)]                                j               j−1[1−FX(x)]n−j
+                          n   n
+          +         ∑                                fX(x)                   k= j+1  k  k[FX(x)]k−1[1−FX(x)]n−k
+                    n−1  n                                                   k = n term
+         ∑                                                                                                        is zero          − k=                                               j  k  (n−k)[FX(x)]k[1−FX(x)]n−k−1 fX(x)

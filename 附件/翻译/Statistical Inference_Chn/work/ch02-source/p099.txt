@@ -1,0 +1,45 @@
+68                              TRANSFORMATIONS AND EXPECTATIONS
+2.6  Miscellanea
+
+ 2.6.1 Uniqueness of Moment Sequences
+    A distribution is not necessarily determined by its moments. But if ∑∞r=1 µrrk/k! has a pos-
+         itive radius of convergence, where X ∼FX and EXr = µ′r, then the moment sequence is       unique, and hence the distribution is uniquely determined (Billingsley 1995, Section 30).
+      Convergence of this sum also implies that the moment generating function exists in an inter-
+        val, and hence the moment generating function determines the distribution.
+      A sufficient condition for the moment sequence to be unique is Carleman’s Condition
+      (Chung 1974). If X ∼FX and we denote EXr = µ′r, then the moment sequence is unique if
+                               ∞     1
+                            = +∞.                ∑                                      r=1 (µ′2r)1/(2r)
+
+       This condition is, in general, not easy to verify.
+          Feller (1971) has a very complete development of Laplace transforms, of which mgfs are
+       a special case. In particular, Feller shows (similar to Billingsley) that whenever
+                                      ∞           rtr                                            (−1)rµ′                                MX(t) = ∑                                               r=0     r!
+       converges on an interval −t0 ≤t < t0, t0 > 0, the distribution FX is uniquely determined.       Thus, when the mgf exists, the moment sequence determines the distribution FX uniquely.
+             It should be clear that using the mgf to determine the distribution is a difficult task. A
+        better method is through the use of characteristic functions, which are explained below.
+      Although characteristic functions simplify the characterization of a distribution, they neces-
+         sitate understanding complex analysis. You win some and you lose some.
+ 2.6.2 Other Generating Functions
+       In addition to the moment generating function, there are a number of other generating func-
+        tions available. In most cases, the characteristic function is the most useful of these. Except
+        for rare circumstances, the other generating functions are less useful, but there are situations
+      where they can ease calculations.
+      Cumulant generating function  For a random variable X, the cumulant generating function
+         is the function log[MX(t)]. This function can be used to generate the cumulants of X, which
+       are defined (rather circuitously) as the coefficients in the Taylor series of the cumulant gen-
+        erating function (see Exercise 2.32).
+       Factorial moment generating function  The factorial moment generating function of X is
+       defined as EtX, if the expectation exists. The name comes from the fact that this function
+         satisfies
+                             dr                           EtX  =                               dtr     t=1  E{X(X −1)···(X −r +1)},
+      where the right-hand side is a factorial moment. If X is a discrete random variable, then we
+      can write
+                             = x),                                EtX = ∑ txP(X
+                                                           x
+      and the factorial moment generating function is called the probability generating function,
+       since the coefficients of the power series give the probabilities. That is, to obtain the proba-
+         bility that X = k, calculate
+
+                              1  dk                                   EtX  = P(X = k).
+                                      k! dtk     t=1

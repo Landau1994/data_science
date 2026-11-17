@@ -1,0 +1,24 @@
+\subsection{引言}\label{sec:8.1}
+在\autoref{sec:7}中，我们研究了称为点估计的一种推断方法. 现在转向另一种推断方法——假设检验（hypothesis testing\mbox{）.} 为同时满足构造和评价假设检验的需要，本章与\autoref{sec:7}一样分为两部分. 首先定义统计假设.
+\begin{definition}\label{def:8.1.1}\index{SI0474@假设}
+假设（hypothesis）是关于总体参数的一个陈述.
+\end{definition}
+假设的定义相当宽泛，但重要的是，假设对总体作出陈述. 假设检验的目标是根据来自总体的一个样本，判断两个互补假设中哪一个为真.
+\begin{definition}\label{def:8.1.2}\index{SI0475@备择}\index{SI0477@零}
+假设检验问题中的两个互补假设称为原假设（null hypothesis）和备择假设（alternative hypothesis），分别记为 $H_0$ 和 $H_1$.
+\end{definition}
+若 $\theta$ 表示总体参数，原假设和备择假设的一般形式为 $H_0:\theta\in\Theta_0$ 和 $H_1:\theta\in\Theta_0^c$，其中 $\Theta_0$ 是参数空间的某个子集，$\Theta_0^c$ 是它的补集. 例如，若 $\theta$ 表示患者服药后血压变化的平均值，实验者可能希望检验 $H_0:\theta=0$ 对 $H_1:\theta\ne0$. 原假设说药物平均而言对血压没有影响，备择假设则说存在某种影响. 这种由 $H_0$ 表示处理无效的常见情况，产生了“零”假设这一名称. 再如，消费者可能关心某供应商产品中的次品比例. 若用 $\theta$ 表示次品比例，消费者可能希望检验 $H_0:\theta\ge\theta_0$ 对 $H_1:\theta<\theta_0$. $\theta_0$ 是可接受的最大次品比例，而 $H_0$ 表示次品比例高到不可接受. 假设涉及产品质量的问题称为验收抽样（acceptance sampling）\index{SI0002@验收抽样}\semanticindexanchor{2:333}问题.
+
+在假设检验问题中，观察样本之后，实验者必须作出以下二者之一的决定：接受 $H_0$ 为真，或者拒绝 $H_0$、判定它为假，并判定 $H_1$ 为真.
+\begin{definition}\label{def:8.1.3}\index{SI0482@假设检验}
+假设检验程序（hypothesis testing procedure）或假设检验（hypothesis test）是规定下列事项的规则：
+\begin{enumerate}[label=\roman*.]
+\item 对哪些样本值，作出接受 $H_0$ 为真的决定.
+\item 对哪些样本值，拒绝 $H_0$ 并接受 $H_1$ 为真.
+\end{enumerate}
+使 $H_0$ 被拒绝的那些样本点构成的样本空间子集，称为拒绝域（rejection region）\index{SI0506@拒绝域}\semanticindexanchor{506:333}或临界域（critical region\mbox{）.} 拒绝域的补集称为接受域（acceptance region\mbox{）.}\index{SI0484@接受域}\semanticindexanchor{484:333}
+\end{definition}
+\sourcepageanchor{334}
+在哲学层面上，有人关心“拒绝 $H_0$”与“接受 $H_1$”的区别. 前者并不暗示实验者接受什么状态，只说明由 $H_0$ 所定义的状态遭到拒绝. 同样，也可以区分“接受 $H_0$”与“不拒绝 $H_0$”. 前者暗示实验者愿意断言 $H_0$ 所指定的自然状态，后者则暗示实验者实际上并不相信 $H_0$，但缺乏拒绝它的证据. 本书大体上不讨论这些问题. 我们把假设检验视为必须在两种行动中择一的问题，这两种行动就是断言 $H_0$ 或断言 $H_1$.
+
+通常，假设检验通过一个检验统计量（test statistic）\index{SI1033@检验统计量}\semanticindexanchor{1033:334}$W(X_1,\ldots,X_n)=W(\boldsymbol X)$ 来规定；它是样本的函数. 例如，一个检验可以规定：若样本均值 $\bar X$ 大于 $3$，则拒绝 $H_0$. 这时 $W(\boldsymbol X)=\bar X$ 是检验统计量，拒绝域为 $\{(x_1,\ldots,x_n):\bar x>3\}$. \autoref{sec:8.2}讨论选择检验统计量和拒绝域的方法，\autoref{sec:8.3}介绍评价检验的准则. 与点估计量一样，构造检验的方法本身不提供任何保证；必须对所得检验作出评价，才能确定它们的价值.

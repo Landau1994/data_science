@@ -1,0 +1,51 @@
+EXERCISES                                                                  209
+
+  5.7 In Example 5.2.10, a partial fraction decomposition is needed to derive the distribution of the sum of
+     two independent Cauchy random variables. This exercise provides the details that are skipped in that
+     example.
+       (a) Find the constants A, B, C, and D that satisfy
+
+                    1           1
+                          =
+              1+(w/σ)2 1+((z−w)/τ)2
+                      Aw        B         Cw          D
+                      +
+                     1+(w/σ)2                               1+(w/σ)2 −         −                          ,                                           1+((z−w)/τ)2  1+((z−w)/τ)2
+        where A, B, C, and D may depend on z but not on w.
+      (b) Using the facts that
+
+                                   t       1                          1                            dt =  log(1+t2)+constant and          dt = arctan(t)+constant,
+               1+t2     2                      1+t2
+
+          evaluate (5.2.4) and hence verify (5.2.5).
+     (Note that the integration in part (b) is quite delicate. Since the mean of a Cauchy does not exist, the
+      integrals  ∞    Aw  dw and  ∞     Cw   dw do not exist. However, the integral of the difference
+           −∞ 1+(w/σ)2       −∞ 1+((z−w)/τ)2     does exist, which is all that is needed.)
+  5.8 Let X1,...,Xn be a random sample, where ¯X and S2 are calculated in the usual way.
+       (a) Show that
+                                         1      n   n                                     S2 =                      ∑                        ∑ (Xi −Xj)2.                                                         i=1                                                            j=1                                   2n(n−1)
+        Assume now that the Xis have a finite fourth moment, and denote θ1 = EXi,θ j = E(Xi −θ1)j, j =          2,3,4.
+                                            2 ).      (b) Show that VarS2 = 1n(θ4 −n−3n−1θ2
+       (c) Find Cov(¯X,S2) in terms of θ1,...,θ4. Under what conditions is Cov( ¯X,S2) = 0?
+  5.9 Establish the Lagrange Identity, that for any numbers a1,a2,...,an and b1,b2,...,bn,
+
+                                                             2
+                              n         n            n          n−1   n
+                               =           ∑ a2i                         ∑                           ∑ (aibj −ajbi)2.                            i=1                                      i=1               ∑ b2i −  i=1∑ aibi                                                               i=1                                                                  j=i+1
+
+     Use the identity to show that the correlation coefficient is equal to 1 if and only if all of the sample points
+       lie on a straight line (Wright 1992). Hint: Establish the identity for n = 2 then induct.
+5.10 Let X1,...,Xn be a random sample from a n(µ,σ2) population.
+       (a) Find expressions for θ1,...,θ4, as defined in Exercise 5.8, in terms of µ and σ2.
+      (b) Use the results of Exercise 5.8, together with the results of part (a), to calculate VarS2.
+       (c) Calculate VarS2 a completely different (and easier) way: Use the fact that (n−1)S2/σ2 ∼χ2n−1.
+5.11 Suppose ¯X and S2 are calculated from a random sample X1,...,Xn drawn from a population with finite
+      variance σ2. We know that ES2 = σ2. Prove that ES ≤σ, and, if σ2 > 0, then ES < σ.
+5.12 Let X1,...,Xn be a random sample from a n(0,1) population. Define
+
+                                     1  n           1  n
+                                    Y1 =                                                                               ,  Y2 =                   ∑ Xi                          ∑ |Xi|.                                     n i=1                                                   n i=1
+
+      Calculate EY1 and EY2, and establish an inequality between them.
+5.13 Let X1,...,Xn be iid n(µ,σ2). Find a function of S2, the sample variance, say g(S2), that satisfies
+     Eg(S2) = σ. (Hint:  Try g(S2) = c√ S2, where c is a constant.)

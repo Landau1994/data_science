@@ -1,0 +1,429 @@
+                                 List of Tables
+
+
+1.2.1    Numbers of arrangements                                               13
+
+4.1.1    Values of the joint pmf f (x, y)                                     115
+
+7.3.1    Three estimators for a binomial p                                    286
+7.4.2    Counts of leukemia cases                                             291
+
+8.3.1    Two types of errors in hypothesis testing                            310
+
+9.2.1    Location-scale pivots                                                346
+9.2.2    Sterne’s acceptance regions and confidence set                       349
+9.3.3    Three 90% normal confidence intervals                                357
+
+10.1.1   Bootstrap and Delta Method variances                                 387
+10.2.2   Median/mean asymptotic relative efficiencies                         391
+10.2.3   Huber estimators                                                     391
+10.2.4   Huber estimator asymptotic relative efficiencies, k = 1.5            393
+10.3.5   Poisson LRT statistic                                                396
+10.3.6   Power of robust tests                                                401
+10.4.7   Confidence coefficient for a pivotal interval                        404
+10.4.8   Confidence coefficients for intervals based on Huber’s M-estimator   407
+
+11.3.1   Data pictured in Figure 11.3.1                                       439
+11.3.2   ANOVA table for simple linear regression                             449
+
+12.3.1   Challenger data                                                      481
+12.4.2   Potoroo data                                                         485
+12.4.3   Regression M-estimator asymptotic relative efficiencies              487
+12.5.4   Age structured survival of sparrowhawks                              491
+
+
+
+
+                                             xix
+                              List of Figures
+
+
+1.2.1   Dart board for Example 1.2.7                          7
+1.2.2   Histogram of averages                                16
+1.5.1   Cdf of Example 1.5.2                                 25
+1.5.2   Geometric cdf, p = .3                                27
+1.6.1   Area under logistic curve                            30
+
+2.1.1   Transformation of Example 2.1.2                      40
+2.1.2   Increasing and nonincreasing cdfs                    44
+2.3.1   Exponential densities                                49
+2.3.2   Two pdfs with the same moments                       53
+2.3.3   Poisson approximation to the binomial                56
+
+3.3.1   Standard normal density                              86
+3.3.2   Normal approximation to the binomial                 86
+3.3.3   Beta densities                                       88
+3.3.4   Symmetric beta densities                             88
+3.3.5   Standard normal density and Cauchy density           89
+3.3.6   Lognormal and gamma pdfs                             91
+3.5.1   Location densities                                   96
+3.5.2   Exponential location densities                       98
+3.5.3   Members of the same scale family                     98
+3.5.4   Location-scale families                              99
+
+4.1.1   Integration regions - 1                             120
+4.5.1   Integration regions - 2                             142
+4.5.2   Integration regions - 3                             143
+4.7.1   Convex function                                     155
+4.7.2   Jensen’s Inequality                                 156
+
+5.4.1   Region on which fR,V (r, v) > 0 for Example 5.4.7   189
+5.6.1   Histogram of exponential pdf                        202
+5.6.2   Histogram of Poisson sample variance                204
+5.6.3   Beta distribution in Accept-Reject sampling         205
+
+7.3.1   Binomial MSE comparison                             269
+7.3.2   Risk functions for variance estimators              284
+
+8.2.1   LRT statistic                                       305
+8.3.1   Power functions for Example 8.3.2                   311
+8.3.2   Power function for Example 8.3.3                    312
+8.3.3   Power functions for three tests in Example 8.3.19   319
+8.3.4   Risk function for test in Example 8.3.31            325
+
+
+                                           xxi
+xxii                                                                          LIST OF FIGURES
+   9.2.1    Confidence interval - acceptance region relationship                          340
+   9.2.2    Acceptance region and confidence interval for Example 9.2.3.                  342
+   9.2.3    Credible and confidence intervals from Example 9.2.16.                        353
+   9.2.4    Credible probabilities and intervals from Example 9.2.16                      354
+   9.2.5    Coverage probabilities of the credible intervals from Example 9.2.16.         355
+   9.3.1    Three interval estimators from Example 9.2.16                                 363
+
+   10.1.1   Asymptotic relative efficiency for gamma mean estimators                      386
+   10.3.1   Poisson likelihood LRT                                                        396
+   10.4.1   LRT intervals for a binomial proportion                                       406
+   10.4.2   Coverage probabilities for nominal .9 binomial confidence procedures          407
+
+   11.3.1   Vertical distances that are measured by RSS                                   438
+   11.3.2   Geometric description of the BLUE                                             443
+   11.3.3   Scheffé bands, t interval, and Bonferroni intervals                          455
+
+   12.2.1   Distance minimized by orthogonal least squares                                470
+   12.2.2   Three regression lines                                                        472
+   12.2.3   Creasy–Williams F statistic                                                   478
+   12.3.1   Challenger data logistic curve                                                481
+   12.4.1   Least squares, LAD, and M-estimate fits                                       485
+                          List of Examples
+
+
+1.1.3    Example (Event operations)                            2
+1.2.2    Example (Sigma algebra–I)                             5
+1.2.3    Example (Sigma algebra–II)                            5
+1.2.5    Example (Defining probabilities–I)                    6
+1.2.7    Example (Defining probabilities–II)                   7
+1.2.10   Example (Bonferroni’s Inequality)                     9
+1.2.12   Example (Lottery–I)                                  11
+1.2.13   Example (Tournament)                                 11
+1.2.15   Example (Lottery–II)                                 11
+1.2.18   Example (Poker)                                      13
+1.2.19   Example (Sampling with replacement)                  14
+1.2.20   Example (Calculating an average)                     15
+1.3.1    Example (Four aces)                                  16
+1.3.3    Example (Continuation of Example 1.3.1)              17
+1.3.4    Example (Three prisoners)                            18
+1.3.6    Example (Coding)                                     19
+1.3.8    Example (Chevalier de Meré)                         20
+1.3.10   Example (Tossing two dice)                           21
+1.3.11   Example (Letters)                                    21
+1.3.13   Example (Three coin tosses–I)                        22
+1.4.2    Example (Random variables)                           23
+1.4.3    Example (Three coin tosses–II)                       23
+1.4.4    Example (Distribution of a random variable)          24
+1.5.2    Example (Tossing three coins)                        24
+1.5.4    Example (Tossing for a head)                         25
+1.5.5    Example (Continuous cdf)                             26
+1.5.6    Example (Cdf with jumps)                             27
+1.5.9    Example (Identically distributed random variables)   28
+1.6.2    Example (Geometric probabilities)                    28
+1.6.4    Example (Logistic probabilities)                     30
+
+2.1.1    Example (Binomial transformation)                    39
+2.1.2    Example (Uniform transformation)                     39
+2.1.4    Example (Uniform-exponential relationship–I)         41
+2.1.6    Example (Inverted gamma pdf)                         42
+2.1.7    Example (Square transformation)                      42
+2.1.9    Example (Normal-chi squared relationship)            43
+2.2.2    Example (Exponential mean)                           45
+2.2.3    Example (Binomial mean)                              45
+2.2.4    Example (Cauchy mean)                                46
+2.2.6    Example (Minimizing distance)                        47
+2.2.7    Example (Uniform-exponential relationship–II)        48
+
+                                          xxiii
+xxiv                                                                     LIST OF EXAMPLES
+   2.3.3    Example (Exponential variance)                                             49
+   2.3.5    Example (Binomial variance)                                                50
+   2.3.8    Example (Gamma mgf)                                                        51
+   2.3.9    Example (Binomial mgf)                                                     52
+   2.3.10   Example (Nonunique moments)                                                53
+   2.3.13   Example (Poisson approximation)                                            54
+   2.4.5    Example (Interchanging integration and differentiation–I)                  58
+   2.4.6    Example (Interchanging integration and differentiation–II)                 59
+   2.4.7    Example (Interchanging summation and differentiation)                      60
+   2.4.9    Example (Continuation of Exercise 2.4.7)                                   61
+
+   3.2.1    Example (Acceptance sampling)                                              72
+   3.2.3    Example (Dice probabilities)                                               74
+   3.2.4    Example (Waiting time)                                                     76
+   3.2.5    Example (Poisson approximation)                                            77
+   3.2.6    Example (Inverse binomial sampling)                                        79
+   3.2.7    Example (Failure times)                                                    80
+   3.3.1    Example (Gamma–Poisson relationship)                                       82
+   3.3.2    Example (Normal approximation)                                             86
+   3.4.1    Example (Binomial exponential family)                                      92
+   3.4.3    Example (Binomial mean and variance)                                       93
+   3.4.4    Example (Normal exponential family)                                        93
+   3.4.6    Example (Continuation of Example 3.4.4)                                    94
+   3.4.8    Example (A curved exponential family)                                      95
+   3.4.9    Example (Normal approximations)                                            95
+   3.5.3    Example (Exponential location family)                                      97
+   3.6.2    Example (Illustrating Chebychev)                                          101
+   3.6.3    Example (A normal probability inequality)                                 101
+   3.6.6    Example (Higher-order normal moments)                                     103
+   3.6.9    Example (Higher-order Poisson moments)                                    104
+
+   4.1.2    Example (Sample space for dice)                                           114
+   4.1.4    Example (Continuation of Example 4.1.2)                                   116
+   4.1.5    Example (Joint pmf for dice)                                              116
+   4.1.7    Example (Marginal pmf for dice)                                           117
+   4.1.8    Example (Dice probabilities)                                              118
+   4.1.9    Example (Same marginals, different joint pmf)                             118
+   4.1.11   Example (Calculating joint probabilities–I)                               119
+   4.1.12   Example (Calculating joint probabilities–II)                              120
+   4.2.2    Example (Calculating conditional probabilities)                           122
+   4.2.4    Example (Calculating conditional pdfs)                                    123
+   4.2.6    Example (Checking independence–I)                                         125
+   4.2.8    Example (Checking independence–II)                                        126
+   4.2.9    Example (Joint probability model)                                         126
+   4.2.11   Example (Expectations of independent variables)                           127
+   4.2.13   Example (Mgf of a sum of normal variables)                                128
+   4.3.1    Example (Distribution of the sum of Poisson variables)                    129
+   4.3.3    Example (Distribution of the product of beta variables)                   130
+   4.3.4    Example (Sum and difference of normal variables)                          131
+   4.3.6    Example (Distribution of the ratio of normal variables)                   132
+   4.4.1    Example (Binomial-Poisson hierarchy)                                      133
+   4.4.2    Example (Continuation of Example 4.4.1)                                   134
+LIST OF EXAMPLES                                                            xxv
+  4.4.5    Example (Generalization of Example 4.4.1)                        135
+  4.4.6    Example (Beta-binomial hierarchy)                                137
+  4.4.8    Example (Continuation of Example 4.4.6)                          138
+  4.5.4    Example (Correlation–I)                                          139
+  4.5.8    Example (Correlation–II)                                         141
+  4.5.9    Example (Correlation–III)                                        143
+  4.6.1    Example (Multivariate pdfs)                                      146
+  4.6.3    Example (Multivariate pmf)                                       148
+  4.6.8    Example (Mgf of a sum of gamma variables)                        150
+  4.6.13   Example (Multivariate change of variables)                       152
+  4.7.4    Example (Covariance inequality)                                  153
+  4.7.8    Example (An inequality for means)                                156
+
+  5.1.2    Example (Sample pdf–exponential)                                 170
+  5.1.3    Example (Finite population model)                                171
+  5.2.8    Example (Distribution of the mean)                               175
+  5.2.10   Example (Sum of Cauchy random variables)                         176
+  5.2.12   Example (Sum of Bernoulli random variables)                      177
+  5.3.5    Example (Variance ratio distribution)                            182
+  5.3.7    Example (Continuation of Example 5.3.5)                          183
+  5.4.5    Example (Uniform order statistic pdf)                            187
+  5.4.7    Example (Distribution of the midrange and range)                 188
+  5.5.3    Example (Consistency of S 2 )                                    190
+  5.5.5    Example (Consistency of S )                                      190
+  5.5.7    Example (Almost sure convergence)                                191
+  5.5.8    Example (Convergence in probability, not almost surely)          191
+  5.5.11   Example (Maximum of uniforms)                                    192
+  5.5.16   Example (Normal approximation to the negative binomial)          194
+  5.5.18   Example (Normal approximation with estimated variance)           195
+  5.5.19   Example (Estimating the odds)                                    195
+  5.5.22   Example (Continuation of Example 5.5.19)                         197
+  5.5.23   Example (Approximate mean and variance)                          197
+  5.5.25   Example (Continuation of Example 5.5.23)                         198
+  5.5.27   Example (Moments of a ratio estimator)                           199
+  5.6.1    Example (Exponential lifetime)                                   200
+  5.6.2    Example (Continuation of Example 5.6.1)                          200
+  5.6.3    Example (Probability Integral Transform)                         201
+  5.6.4    Example (Box-Muller, 1958)                                       202
+  5.6.5    Example (Binomial random variable generation)                    203
+  5.6.6    Example (Distribution of the Poisson variance)                   203
+  5.6.7    Example (Beta random variable generation–I)                      204
+  5.6.9    Example (Beta random variable generation–II)                     207
+
+  6.2.3    Example (Binomial sufficient statistic)                          223
+  6.2.4    Example (Normal sufficient statistic)                            224
+  6.2.5    Example (Sufficient order statistics)                            224
+  6.2.7    Example (Continuation of Example 6.2.4)                          225
+  6.2.8    Example (Uniform sufficient statistic)                           226
+  6.2.9    Example (Normal sufficient statistic, both parameters unknown)   227
+  6.2.12   Example (Two normal sufficient statistics)                       228
+  6.2.14   Example (Normal minimal sufficient statistic)                    229
+  6.2.15   Example (Uniform minimal sufficient statistic)                   229
+xxvi                                                              LIST OF EXAMPLES
+   6.2.17   Example (Uniform ancillary statistic)                              230
+   6.2.18   Example (Location family ancillary statistic)                      231
+   6.2.19   Example (Scale family ancillary statistic)                         231
+   6.2.20   Example (Ancillary precision)                                      232
+   6.2.22   Example (Binomial complete sufficient statistic)                   232
+   6.2.23   Example (Uniform complete sufficient statistic)                    233
+   6.2.26   Example (Using Basu’s Theorem–I)                                   235
+   6.2.27   Example (Using Basu’s Theorem–II)                                  235
+   6.3.2    Example (Negative binomial likelihood)                             236
+   6.3.3    Example (Normal fiducial distribution)                             237
+   6.3.4    Example (Evidence function)                                        238
+   6.3.5    Example (Binomial/negative binomial experiment)                    238
+   6.3.7    Example (Continuation of Example 6.3.5)                            240
+   6.4.1    Example (Binomial equivariance)                                    242
+   6.4.3    Example (Continuation of Example 6.4.1)                            242
+   6.4.5    Example (Conclusion of Example 6.4.1)                              243
+   6.4.6    Example (Normal location invariance)                               243
+
+   7.2.1    Example (Normal method of moments)                                 253
+   7.2.2    Example (Binomial method of moments)                               254
+   7.2.3    Example (Satterthwaite approximation)                              254
+   7.2.5    Example (Normal likelihood)                                        256
+   7.2.6    Example (Continuation of Example 7.2.5)                            257
+   7.2.7    Example (Bernoulli MLE)                                            257
+   7.2.8    Example (Restricted range MLE)                                     257
+   7.2.9    Example (Binomial MLE, unknown number of trials)                   258
+   7.2.11   Example (Normal MLEs, µ and σ unknown)                             260
+   7.2.12   Example (Continuation of Example 7.2.11)                           260
+   7.2.13   Example (Continuation of Example 7.2.2)                            261
+   7.2.14   Example (Binomial Bayes estimation)                                262
+   7.2.16   Example (Normal Bayes estimators)                                  263
+   7.2.17   Example (Multiple Poisson rates)                                   264
+   7.2.18   Example (Continuation of Example 7.2.17)                           265
+   7.2.19   Example (Conclusion of Example 7.2.17)                             266
+   7.3.3    Example (Normal MSE)                                               267
+   7.3.4    Example (Continuation of Example 7.3.3)                            268
+   7.3.5    Example (MSE of binomial Bayes estimator)                          269
+   7.3.6    Example (MSE of equivariant estimators)                            270
+   7.3.8    Example (Poisson unbiased estimation)                              271
+   7.3.12   Example (Conclusion of Example 7.3.8)                              274
+   7.3.13   Example (Unbiased estimator for the scale uniform)                 275
+   7.3.14   Example (Normal variance bound)                                    276
+   7.3.16   Example (Continuation of Example 7.3.14)                           276
+   7.3.18   Example (Conditioning on an insufficient statistic)                278
+   7.3.21   Example (Unbiased estimators of zero)                              279
+   7.3.22   Example (Continuation of Example 7.3.13)                           280
+   7.3.24   Example (Binomial best unbiased estimation)                        281
+   7.3.25   Example (Binomial risk functions)                                  283
+   7.3.26   Example (Risk of normal variance)                                  283
+   7.3.27   Example (Variance estimation using Stein’s loss)                   284
+   7.3.28   Example (Two Bayes rules)                                          285
+   7.3.29   Example (Normal Bayes estimates)                                   286
+LIST OF EXAMPLES                                                   xxvii
+  7.3.30   Example (Binomial Bayes estimates)                       286
+
+  8.2.2    Example (Normal LRT)                                     304
+  8.2.3    Example (Exponential LRT)                                304
+  8.2.5    Example (LRT and sufficiency)                            306
+  8.2.6    Example (Normal LRT with unknown variance)               306
+  8.2.7    Example (Normal Bayesian test)                           307
+  8.2.8    Example (Normal union-intersection test)                 308
+  8.2.9    Example (Acceptance sampling)                            309
+  8.3.2    Example (Binomial power function)                        310
+  8.3.3    Example (Normal power function)                          311
+  8.3.4    Example (Continuation of Example 8.3.3)                  312
+  8.3.7    Example (Size of LRT)                                    313
+  8.3.8    Example (Size of union-intersection test)                313
+  8.3.10   Example (Conclusion of Example 8.3.3)                    314
+  8.3.14   Example (UMP binomial test)                              316
+  8.3.15   Example (UMP normal test)                                317
+  8.3.18   Example (Continuation of Example 8.3.15)                 318
+  8.3.19   Example (Nonexistence of UMP test)                       318
+  8.3.20   Example (Unbiased test)                                  319
+  8.3.22   Example (An equivalence)                                 320
+  8.3.25   Example (Intersection-union test)                        321
+  8.3.28   Example (Two-sided normal p-value)                       322
+  8.3.29   Example (One-sided normal p-value)                       323
+  8.3.30   Example (Fisher’s Exact Test)                            323
+  8.3.31   Example (Risk of UMP test)                               325
+
+  9.1.2    Example (Interval estimator)                             337
+  9.1.3    Example (Continuation of Example 9.1.2)                  338
+  9.1.6    Example (Scale uniform interval estimator)               338
+  9.2.1    Example (Inverting a normal test)                        339
+  9.2.3    Example (Inverting an LRT)                               342
+  9.2.4    Example (Normal one-sided confidence bound)              343
+  9.2.5    Example (Binomial one-sided confidence bound)            344
+  9.2.7    Example (Location-scale pivots)                          345
+  9.2.8    Example (Gamma pivot)                                    346
+  9.2.9    Example (Continuation of Example 9.2.8)                  347
+  9.2.10   Example (Normal pivotal interval)                        347
+  9.2.11   Example (Shortest length binomial set)                   348
+  9.2.13   Example (Location exponential interval)                  350
+  9.2.15   Example (Poisson interval estimator)                     351
+  9.2.16   Example (Poisson credible set)                           352
+  9.2.17   Example (Poisson credible and coverage probabilities)    354
+  9.2.18   Example (Coverage of a normal credible set)              354
+  9.3.1    Example (Optimizing length)                              356
+  9.3.3    Example (Optimizing expected length)                     358
+  9.3.4    Example (Shortest pivotal interval)                      359
+  9.3.6    Example (UMA confidence bound)                           360
+  9.3.8    Example (Continuation of Example 9.3.6)                  361
+  9.3.11   Example (Poisson HPD region)                             362
+  9.3.12   Example (Normal HPD region)                              363
+  9.3.13   Example (Normal interval estimator)                      364
+xxviii                                                              LIST OF EXAMPLES
+   10.1.2                             X)
+             Example (Consistency of X̄                                          378
+   10.1.4    Example (Continuation of Example 10.1.2)                            379
+   10.1.8    Example (Limiting variances)                                        379
+   10.1.10   Example (Large sample mixture variances)                            380
+   10.1.13   Example (Asymptotic normality and consistency)                      381
+   10.1.14   Example (Approximate binomial variance)                             382
+   10.1.15   Example (Continuation of Example 10.1.14)                           383
+   10.1.17   Example (AREs of Poisson estimators)                                384
+   10.1.18   Example (Estimating a gamma mean)                                   385
+   10.1.19   Example (Bootstrapping a variance)                                  386
+   10.1.20   Example (Bootstrapping a binomial variance)                         387
+   10.1.21   Example (Conclusion of Example 10.1.20)                             387
+   10.1.22   Example (Parametric bootstrap)                                      388
+   10.2.1    Example (Robustness of the sample mean)                             389
+   10.2.3    Example (Asymptotic normality of the median)                        390
+   10.2.4    Example (AREs of the median to the mean)                            391
+   10.2.5    Example (Huber estimator)                                           391
+   10.2.6    Example (Limit distribution of the Huber estimator)                 392
+   10.2.7    Example (ARE of the Huber estimator)                                393
+   10.3.2    Example (Poisson LRT)                                               395
+   10.3.4    Example (Multinomial LRT)                                           396
+   10.3.5    Example (Large-sample binomial tests)                               398
+   10.3.6    Example (Binomial score test)                                       400
+   10.3.7    Example (Tests based on the Huber estimator)                        400
+   10.4.1    Example (Continuation of Example 10.1.14)                           402
+   10.4.2    Example (Binomial score interval)                                   403
+   10.4.3    Example (Binomial LRT interval)                                     403
+   10.4.4    Example (Approximate interval)                                      404
+   10.4.5    Example (Approximate Poisson interval)                              404
+   10.4.6    Example (More on the binomial score interval)                       405
+   10.4.7    Example (Comparison of binomial intervals)                          406
+   10.4.8    Example (Intervals based on the Huber estimator)                    406
+   10.4.9    Example (Negative binomial interval)                                408
+   10.6.2    Example (Influence functions of the mean and median)                419
+
+   11.2.1    Example (Oneway ANOVA)                                              422
+   11.2.3    Example (The ANOVA hypothesis)                                      424
+   11.2.6    Example (ANOVA contrasts)                                           427
+   11.2.9    Example (Pairwise differences)                                      431
+   11.2.12   Example (Continuation of Example 11.2.1)                            434
+   11.3.1    Example (Predicting grape crops)                                    436
+   11.3.4    Example (Continuation of Example 11.3.1)                            449
+
+   12.2.1    Example (Estimating atmospheric pressure)                           468
+   12.3.1    Example (Challenger data)                                           481
+   12.3.2    Example (Challenger data continued)                                 482
+   12.4.1    Example (Robustness of least squares estimates)                     484
+   12.4.2    Example (Catastrophic observations)                                 484
+   12.4.3    Example (Asymptotic normality of the LAD estimator)                 484
+   12.4.4    Example (Regression M-estimator)                                    487
+   12.4.5    Example (Simulation of regression AREs)                             487
+   12.6.1    Example (Unordered sampling)                                        497
+LIST OF EXAMPLES                                        xxix
+  12.6.2   Example (Univariate transformation)          498
+  12.6.3   Example (Bivariate transformations)          498
+  12.6.4   Example (Normal probability)                 499
+  12.6.5   Example (Density of a sum)                   500
+  12.6.6   Example (Fourth moment of sum of uniforms)   501
+  12.6.7   Example (ARE for a gamma mean)               501
+  12.6.8   Example (Limit of chi squared mgfs)          502
+

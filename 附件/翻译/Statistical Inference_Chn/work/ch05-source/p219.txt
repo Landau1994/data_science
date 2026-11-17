@@ -1,0 +1,40 @@
+188                                    PROPERTIES OF A RANDOM SAMPLE
+conditional distributions and distributions of other functions of the order statistics. (See Exercises
+5.27 and 5.28.)
+  We now use the joint pdf (5.4.6) to derive the distribution of some of the functions mentioned at
+the beginning of this section.
+Example 5.4.7 (Distribution of the midrange and range)    Let X1,...,Xn be iid uniform(0,a)
+and let X(1),...,X(n) denote the order statistics. The range was earlier defined as R = X(n) −X(1).The midrange, a measure of location like the sample median or the sample mean, is defined by
+V = (X(1) + X(n))/2. We will derive the joint pdf of R and V from the joint pdf of X(1) and X(n).
+From (5.4.6) we have that
+                                                  xn       n−2                        fX(1),X(n) (x1,xn) =  n(n−1)                                        a2     a −x1a
+                  =  n(n−1)(xn −x1)n−2 ,  0 < x1 < xn < a.                                              an
+Solving for X(1) and X(n), we obtain X(1) = V −R/2 and X(n) = V + R/2. The Jacobian for this
+transformation is −1. The transformation from  X(1),X(n)  to (R,V) maps {(x1,xn): 0 < x1 < xn <
+a} onto the set {(r,v): 0 < r < a,r/2 < v < a−r/2}. To see this note that obviously 0 < r < a and
+for a fixed value of r, v ranges from r/2 (corresponding to x1 = 0,xn = r) to a−r/2 (corresponding
+to x1 = a−r,xn = a). Thus, the joint pdf of (R,V) is
+                     fR,V(r,v) = n(n−1)rn−2 ,  0 < r < a,  r/2 < v <                                  an                        a−r/2.
+The marginal pdf of R is thus,
+
+                                         a−r/2                           fR(r) =        n(n−1)rn−2 dv
+                                              r/2         an
+                                                                                                 (5.4.7)
+                  =  n(n−1)rn−2(a−r) ,  0 < r < a.
+                                            an
+If a = 1, we see that r has a beta(n−1,2) distribution. Or, for arbitrary a, it is easy to deduce from(5.4.7) that R/a has a beta distribution. Note that the constant a is a scale parameter.
+   The set where fR,V(r,v) > 0 is shown in Figure 5.4.1, where we see that the range of integration
+of r depends on whether v > a/2 or v ≤a/2. Thus, the marginal pdf of V is given by
+                                     2v                  n(2v)n−1                     fV(v) =    n(n−1)rn−2 dr =               ,  0 < v                                 0       an              an        ≤a/2
+and
+                             2(a−v)                fV(v) =       n(n−1)rn−2 dr = n[2(a−v)]n−1 ,  a/2 < v                            0           an                an            ≤a.
+This pdf is symmetric about a/2 and has a peak at a/2.                                  ∥
+
+5.5  Convergence Concepts
+This section treats the somewhat fanciful idea of allowing the sample size to approach infinity and
+investigates the behavior of certain sample quantities as this happens. Although the notion of an
+infinite sample size is a theoretical artifact, it can often provide us with some useful approximations
+for the finite-sample case, since it usually happens that expressions become simplified in the limit.
+  We are mainly concerned with three types of convergence, and treat them in varying amounts of
+detail. (A full treatment of convergence is given in Billingsley 1995 or Resnick 1999, for example.)
+In particular, we want to look at the behavior of ¯Xn, the mean of n observations, as n →∞.

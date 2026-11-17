@@ -1,0 +1,250 @@
+\subsection{积分号下求导}\label{sec:2.4}
+上一节遇到了一种希望交换积分与求导次序的情况. 在理论统计学中，这种情况经常出现. 本节的目的是刻画这种运算成立的条件. 我们也将讨论交换求导与求和次序的问题.
+
+许多条件可由微积分中的标准定理得到，详细证明可在大多数微积分教材中找到，因此这里不再给出详细证明.
+
+我们首先要确立计算
+\begin{equation}\label{eq:2.4.1}
+\frac d{d\theta}\int_{a(\theta)}^{b(\theta)}f(x,\theta)\,dx
+\end{equation}
+的方法，其中对所有 $\theta$ 都有 $-\infty<a(\theta),b(\theta)<\infty$. 对\eqref{eq:2.4.1}求导的法则称为 Leibnitz 法则（Leibnitz's Rule），它是微积分基本定理和链式法则的一个应用.
+\begin{theorem}[Leibnitz 法则]\label{thm:2.4.1}\index{SI0618@Leibnitz法则}
+如果 $f(x,\theta)$、$a(\theta)$ 和 $b(\theta)$ 关于 $\theta$ 可微，则
+$$\begin{aligned}
+\frac d{d\theta}\int_{a(\theta)}^{b(\theta)}f(x,\theta)\,dx
+&=f(b(\theta),\theta)\frac d{d\theta}b(\theta)
+-f(a(\theta),\theta)\frac d{d\theta}a(\theta)\\
+&\qquad+\int_{a(\theta)}^{b(\theta)}\frac\partial{\partial\theta}f(x,\theta)\,dx.
+\end{aligned}$$
+\end{theorem}
+注意，如果 $a(\theta)$ 和 $b(\theta)$ 为常数，就得到 Leibnitz 法则的一个特殊情形：
+$$\frac d{d\theta}\int_a^b f(x,\theta)\,dx
+=\int_a^b\frac\partial{\partial\theta}f(x,\theta)\,dx.$$
+因此，一般而言，如果是在有限区间上对可微函数积分，对积分求导不会有问题. 然而，如果积分区间无穷，就可能出现问题.\footnote{译注：原文此处以及\autoref{thm:2.4.1}仅列“关于 $\theta$ 可微”，一般不足以保证交换求导与积分. 常见充分条件还要求 $f$ 及其关于 $\theta$ 的偏导在相关紧区域上连续，或满足后文的可积控制条件；正文保留原述.}
+
+注意，上式交换求导与积分时，一边是偏导数，另一边是普通导数. 形式上必须如此，因为左边只是 $\theta$ 的函数，而右边的被积函数同时依赖 $\theta$ 和 $x$.
+
+\sourcepageanchor{88}
+交换求导与积分次序是否成立，实际上就是能否交换极限与积分的问题，因为导数是一种特殊的极限. 回顾，若 $f(x,\theta)$ 可微，则
+$$\frac\partial{\partial\theta}f(x,\theta)
+=\lim_{\delta\to0}\frac{f(x,\theta+\delta)-f(x,\theta)}\delta,$$
+所以
+$$\int_{-\infty}^\infty\frac\partial{\partial\theta}f(x,\theta)\,dx
+=\int_{-\infty}^\infty\lim_{\delta\to0}\left[\frac{f(x,\theta+\delta)-f(x,\theta)}\delta\right]dx,$$
+而
+$$\frac d{d\theta}\int_{-\infty}^\infty f(x,\theta)\,dx
+=\lim_{\delta\to0}\int_{-\infty}^\infty\left[\frac{f(x,\theta+\delta)-f(x,\theta)}\delta\right]dx.$$
+因此，如果能证明可以交换极限与积分次序，就能证明可以在积分号下求导. 遗憾的是，要完全一般地处理这个问题，必须使用本书不涉及的测度论. 不过，我们可以给出一些重要结果的陈述和结论. 以下定理都是 Lebesgue 控制收敛定理（Dominated Convergence Theorem）\index{SI0616@勒贝格控制收敛定理}\semanticindexanchor{616:88}的推论（例如，见 \hyperref[bib:source267]{Rudin (1976)}）.
+
+\begin{theorem}\label{thm:2.4.2}
+设对每个 $x$，函数 $h(x,y)$ 都在 $y_0$ 处连续，并且存在函数 $g(x)$，满足
+\begin{enumerate}
+\item[(i)] 对所有 $x,y$，$|h(x,y)|\le g(x)$；
+\item[(ii)] $\int_{-\infty}^\infty g(x)\,dx<\infty$.
+\end{enumerate}
+则
+$$\lim_{y\to y_0}\int_{-\infty}^\infty h(x,y)\,dx
+=\int_{-\infty}^\infty\lim_{y\to y_0}h(x,y)\,dx.$$
+\end{theorem}
+这个定理的关键条件是存在积分有限的控制函数 $g(x)$，它保证积分的行为不会过于恶劣. 令 $h(x,y)$ 对应差商 $(f(x,\theta+\delta)-f(x,\theta))/\delta$，便可以把这个定理用于我们正在考虑的情形.
+
+\begin{theorem}\label{thm:2.4.3}
+设 $f(x,\theta)$ 在 $\theta=\theta_0$ 处可微，即对每个 $x$，
+$$\lim_{\delta\to0}\frac{f(x,\theta_0+\delta)-f(x,\theta_0)}\delta
+=\left.\frac\partial{\partial\theta}f(x,\theta)\right|_{\theta=\theta_0}$$
+存在，并且存在函数 $g(x,\theta_0)$ 和常数 $\delta_0>0$，使得
+\begin{enumerate}
+\item[(i)]\phantomsection\label{itm:thm:2.4.3:i} 对所有 $x$ 和 $|\delta|\le\delta_0$，
+$$\left|\frac{f(x,\theta_0+\delta)-f(x,\theta_0)}\delta\right|\le g(x,\theta_0);$$
+\item[(ii)]\phantomsection\label{itm:thm:2.4.3:ii} $\int_{-\infty}^\infty g(x,\theta_0)\,dx<\infty$.
+\end{enumerate}
+则
+\begin{equation}\label{eq:2.4.2}
+\left.\frac d{d\theta}\int_{-\infty}^\infty f(x,\theta)\,dx\right|_{\theta=\theta_0}
+=\int_{-\infty}^\infty\left[\left.\frac\partial{\partial\theta}f(x,\theta)\right|_{\theta=\theta_0}\right]dx.
+\end{equation}
+\end{theorem}
+条件 \hyperref[itm:thm:2.4.3:i]{(i)} 类似于所谓的 Lipschitz 条件（Lipschitz condition），这是一种对函数施加光滑性要求的条件. 这里条件 \hyperref[itm:thm:2.4.3:i]{(i)} 实际上约束了一阶导数的变化；其他光滑性约束可能用常数而不是函数 $g$ 来约束这种变化，或者约束 $f$ 的二阶导数的变化.
+
+\autoref{thm:2.4.3}的结论写起来略显繁琐，但必须认识到，尽管看起来把 $\theta$ 当作变量，定理的陈述实际上针对 $\theta$ 的一个取值.
+\sourcepageanchor{89}
+也就是说，对每个使 $f(x,\theta)$ 在该处可微且满足条件 \hyperref[itm:thm:2.4.3:i]{(i)}、\hyperref[itm:thm:2.4.3:ii]{(ii)} 的 $\theta_0$，都可以交换积分与求导次序. 通常不特别强调 $\theta$ 与 $\theta_0$ 的区别，而将\eqref{eq:2.4.2}写为
+\begin{equation}\label{eq:2.4.3}
+\frac d{d\theta}\int_{-\infty}^\infty f(x,\theta)\,dx
+=\int_{-\infty}^\infty\frac\partial{\partial\theta}f(x,\theta)\,dx.
+\end{equation}
+通常，$f(x,\theta)$ 在所有 $\theta$ 处都可微，而不仅在一个值 $\theta_0$ 处可微. 这时，可以用一个通常更容易验证的条件代替\autoref{thm:2.4.3}的条件 \hyperref[itm:thm:2.4.3:i]{(i)}. 应用中值定理，对于固定的 $x,\theta_0$ 和 $|\delta|\le\delta_0$，有
+$$\frac{f(x,\theta_0+\delta)-f(x,\theta_0)}\delta
+=\left.\frac\partial{\partial\theta}f(x,\theta)\right|_{\theta=\theta_0+\delta^*(x)},$$
+其中某个数 $\delta^*(x)$ 满足 $|\delta^*(x)|\le\delta_0$. 因此，只要找到满足条件 \hyperref[itm:thm:2.4.3:ii]{(ii)} 和下式的 $g(x,\theta)$，条件 \hyperref[itm:thm:2.4.3:i]{(i)} 就成立：
+\begin{equation}\label{eq:2.4.4}
+\left|\left.\frac\partial{\partial\theta}f(x,\theta)\right|_{\theta=\theta'}\right|
+\le g(x,\theta),\qquad\text{对所有满足 $|\theta'-\theta|\le\delta_0$ 的 $\theta'$}.
+\end{equation}
+注意，与\autoref{thm:2.4.3}一样，\eqref{eq:2.4.4}中的 $\delta_0$ 暗含地依赖于 $\theta$. 这是允许的，因为定理是逐个应用于 $\theta$ 的每个取值的. 由\eqref{eq:2.4.4}得到下列推论.
+\begin{corollary}\label{cor:2.4.4}
+设 $f(x,\theta)$ 关于 $\theta$ 可微. 若存在函数 $g(x,\theta)$ 满足\eqref{eq:2.4.4}，且 $\int_{-\infty}^\infty g(x,\theta)\,dx<\infty$，则\eqref{eq:2.4.3}成立.
+\end{corollary}
+注意，\autoref{thm:2.4.3}的条件 \hyperref[itm:thm:2.4.3:i]{(i)} 和\eqref{eq:2.4.4}都对被控制的函数施加了一致性要求；交换求导与积分之前，一般需要某种一致性.
+
+\begin{example}[交换积分与求导——I]\label{ex:2.4.5}
+设 $X$ 具有指数密度 $f(x)=(1/\lambda)e^{-x/\lambda}$，$0<x<\infty$，即服从 $\operatorname{exponential}(\lambda)$ 分布. 假设我们要对正整数 $n$ 计算
+\begin{equation}\label{eq:2.4.5}
+\frac d{d\lambda}\mathrm EX^n=\frac d{d\lambda}\int_0^\infty x^n\left(\frac1\lambda\right)e^{-x/\lambda}\,dx.
+\end{equation}
+如果可以把求导移到积分号内，就有
+\begin{equation}\label{eq:2.4.6}
+\begin{aligned}
+\frac d{d\lambda}\mathrm EX^n&=\int_0^\infty\frac\partial{\partial\lambda}x^n\left(\frac1\lambda\right)e^{-x/\lambda}\,dx\\
+&=\int_0^\infty\frac{x^n}{\lambda^2}\left(\frac x\lambda-1\right)e^{-x/\lambda}\,dx\\
+&=\frac1{\lambda^2}\mathrm EX^{n+1}-\frac1\lambda\mathrm EX^n.
+\end{aligned}
+\end{equation}
+为证明交换积分与求导的合理性，我们要控制 $x^n(1/\lambda)e^{-x/\lambda}$ 的导数. 现在有\footnote{译注：原文左端被求导的指数印为 $e^{-x\lambda}$，而本例其余各处及右端计算均使用 $e^{-x/\lambda}$；左端疑漏除号，正文保留原式.}
+$$\begin{aligned}
+\left|\frac\partial{\partial\lambda}\left(\frac{x^ne^{-x\lambda}}\lambda\right)\right|
+&=\frac{x^ne^{-x/\lambda}}{\lambda^2}\left|\frac x\lambda-1\right|\\
+&\le\frac{x^ne^{-x/\lambda}}{\lambda^2}\left(\frac x\lambda+1\right),\qquad\text{（因为 $x/\lambda>0$）}.
+\end{aligned}$$
+
+对某个满足 $0<\delta_0<\lambda$ 的常数 $\delta_0$，取
+$$g(x,\lambda)=\frac{x^ne^{-x/(\lambda+\delta_0)}}{(\lambda-\delta_0)^2}
+\left(\frac{x}{\lambda-\delta_0}+1\right).$$
+\sourcepageanchor{90}
+于是有
+$$\left|\left.\frac\partial{\partial\lambda}\left(\frac{x^ne^{-x/\lambda}}\lambda\right)\right|_{\lambda=\lambda'}\right|
+\le g(x,\lambda),\qquad\text{对所有满足 $|\lambda'-\lambda|\le\delta_0$ 的 $\lambda'$}.$$
+由于指数分布的各阶矩都存在，只要 $\lambda-\delta_0>0$，就有 $\int_{-\infty}^\infty g(x,\lambda)\,dx<\infty$，所以可以交换积分与求导.
+\end{example}
+上面用指数分布说明的性质，对一大类密度都成立，\autoref{sec:3.4}将讨论这一类密度.
+
+注意，\eqref{eq:2.4.6}给出了指数分布的矩的递推关系，
+\begin{equation}\label{eq:2.4.7}\index{SI0294@递推关系}
+\mathrm EX^{n+1}=\lambda\mathrm EX^n+\lambda^2\frac d{d\lambda}\mathrm EX^n,
+\end{equation}
+使 $(n+1)$ 阶矩的计算相对容易. 其他分布也有这种关系.\index{SI0364@递推关系}\semanticindexanchor{364:90} 特别地，如果 $X$ 具有均值为 $\mu$、方差为 $1$ 的正态分布，概率密度函数为 $f(x)=(1/\sqrt{2\pi})e^{-(x-\mu)^2/2}$，\footnote{译注：原文递推式中导数前为负号. 由 $\partial f(x;\mu)/\partial\mu=(x-\mu)f(x;\mu)$ 可得 $\frac d{d\mu}\mathrm EX^n=\mathrm EX^{n+1}-\mu\mathrm EX^n$，因此该负号应为正号；取 $n=1$ 时原式也会给出 $\mathrm EX^2=\mu^2-1$，与方差为 $1$ 矛盾.}则
+$$\mathrm EX^{n+1}=\mu\mathrm EX^n-\frac d{d\mu}\mathrm EX^n.$$
+
+
+我们再举一个交换求导与积分的例子，这次涉及矩母函数.
+\begin{example}[交换积分与求导——II]\label{ex:2.4.6}
+仍设 $X$ 具有均值为 $\mu$、方差为 $1$ 的正态分布，考虑 $X$ 的矩母函数，
+$$M_X(t)=\mathrm Ee^{tX}=\frac1{\sqrt{2\pi}}\int_{-\infty}^\infty e^{tx}e^{-(x-\mu)^2/2}\,dx.$$
+\autoref{sec:2.3}指出，可以通过对 $M_X(t)$ 求导来计算矩，且积分号下求导是成立的：
+\begin{equation}\label{eq:2.4.8}
+\frac d{dt}M_X(t)=\frac d{dt}\mathrm Ee^{tX}
+=\mathrm E\frac\partial{\partial t}e^{tX}=\mathrm E(Xe^{tX}).
+\end{equation}
+可以应用本节的结果证明\eqref{eq:2.4.8}中运算的合理性. 注意，这里无论应用\autoref{thm:2.4.3}还是\autoref{cor:2.4.4}，都是把 $t$ 对应于\autoref{thm:2.4.3}中的变量 $\theta$，而参数 $\mu$ 作为常数处理.
+
+由\autoref{cor:2.4.4}，必须找到一个积分有限的函数 $g(x,t)$，满足
+\begin{equation}\label{eq:2.4.9}
+\left|\left.\frac\partial{\partial t}e^{tx}e^{-(x-\mu)^2/2}\right|_{t=t'}\right|
+\le g(x,t),\qquad\text{对所有满足 $|t'-t|\le\delta_0$ 的 $t'$}.
+\end{equation}
+直接计算，得到
+$$\left|\frac\partial{\partial t}e^{tx}e^{-(x-\mu)^2/2}\right|
+=\left|xe^{tx}e^{-(x-\mu)^2/2}\right|
+\le|x|e^{tx}e^{-(x-\mu)^2/2}.$$
+最简单的办法是对 $x\ge0$ 和 $x<0$ 分别定义 $g(x,t)$. 取
+$$g(x,t)=\begin{cases}
+|x|e^{(t-\delta_0)x}e^{-(x-\mu)^2/2},&x<0,\\
+|x|e^{(t+\delta_0)x}e^{-(x-\mu)^2/2},&x\ge0.
+\end{cases}$$
+显然，这个函数满足\eqref{eq:2.4.9}；只需检验它的积分有限.
+\sourcepageanchor{91}
+对 $x\ge0$，有
+$$g(x,t)=xe^{-(x^2-2x(\mu+t+\delta_0)+\mu^2)/2}.$$
+现在对指数配方，即写成
+$$\begin{aligned}
+&x^2-2x(\mu+t+\delta_0)+\mu^2\\
+&\quad=x^2-2x(\mu+t+\delta_0)+(\mu+t+\delta_0)^2-(\mu+t+\delta_0)^2+\mu^2\\
+&\quad=(x-(\mu+t+\delta_0))^2+\mu^2-(\mu+t+\delta_0)^2,
+\end{aligned}$$
+因而，对 $x\ge0$，
+$$g(x,t)=xe^{-[x-(\mu+t+\delta_0)]^2/2}e^{-[\mu^2-(\mu+t+\delta_0)^2]/2}.$$
+由于这个表达式中最后一个指数因子不依赖 $x$，$\int_0^\infty g(x,t)\,dx$ 实质上是在计算均值为 $\mu+t+\delta_0$ 的正态分布的均值，只不过积分仅限于 $[0,\infty)$. 然而，正态分布的均值有限（将在\autoref{sec:3}中证明），因而这个积分有限. 对 $x<0$ 作类似推导，得到
+$$g(x,t)=|x|e^{-[x-(\mu+t-\delta_0)]^2/2}e^{-[\mu^2-(\mu+t-\delta_0)^2]/2},$$
+所以 $\int_{-\infty}^0g(x,t)\,dx<\infty$. 因此，我们找到了满足\eqref{eq:2.4.9}的可积函数，\eqref{eq:2.4.8}中的运算成立.
+\end{example}
+
+现在转向何时可以交换求导与求和的问题，这种运算对离散分布具有重要作用. 当然，我们只关心无穷和，因为有限和总可以逐项求导.
+\begin{example}[交换求和与求导]\label{ex:2.4.7}\index{SI0459@求导}
+设 $X$ 是具有几何分布（geometric distribution）的离散随机变量，
+$$P(X=x)=\theta(1-\theta)^x,\qquad x=0,1,\ldots,\quad0<\theta<1.$$
+有 $\sum_{x=0}^\infty\theta(1-\theta)^x=1$；如果下列运算成立，则
+$$\begin{aligned}
+\frac d{d\theta}\sum_{x=0}^\infty\theta(1-\theta)^x
+&=\sum_{x=0}^\infty\frac d{d\theta}\theta(1-\theta)^x\\
+&=\sum_{x=0}^\infty[(1-\theta)^x-\theta x(1-\theta)^{x-1}]\\
+&=\frac1\theta\sum_{x=0}^\infty\theta(1-\theta)^x
+-\frac1{1-\theta}\sum_{x=0}^\infty x\theta(1-\theta)^x.
+\end{aligned}$$
+因为对所有 $0<\theta<1$，$\sum_{x=0}^\infty\theta(1-\theta)^x=1$，其导数为零，所以
+\begin{equation}\label{eq:2.4.10}
+\frac1\theta\sum_{x=0}^\infty\theta(1-\theta)^x
+-\frac1{1-\theta}\sum_{x=0}^\infty x\theta(1-\theta)^x=0.
+\end{equation}
+\eqref{eq:2.4.10}中的第一个和等于 $1$，第二个和为 $\mathrm EX$，因而该式变为
+$$\frac1\theta-\frac1{1-\theta}\mathrm EX=0,$$
+或者
+$$\mathrm EX=\frac{1-\theta}\theta.$$
+实质上，我们通过求导求出了级数 $\sum_{x=0}^\infty x\theta(1-\theta)^x$ 的和.
+\end{example}
+
+\sourcepageanchor{92}
+证明可以在求和号内求导，比积分的情况更直接. 下列定理给出详细条件.
+\begin{theorem}\label{thm:2.4.8}\index{SI0585@求导与求和}
+设级数 $\sum_{x=0}^\infty h(\theta,x)$ 对实数区间 $(a,b)$ 中的所有 $\theta$ 都收敛，并且
+\begin{enumerate}
+\item[(i)] 对每个 $x$，$\frac\partial{\partial\theta}h(\theta,x)$ 关于 $\theta$ 连续；
+\item[(ii)] $\sum_{x=0}^\infty\frac\partial{\partial\theta}h(\theta,x)$ 在 $(a,b)$ 的每个有界闭子区间上一致收敛.
+\end{enumerate}
+则
+\begin{equation}\label{eq:2.4.11}
+\frac d{d\theta}\sum_{x=0}^\infty h(\theta,x)
+=\sum_{x=0}^\infty\frac\partial{\partial\theta}h(\theta,x).
+\end{equation}
+\end{theorem}
+要证明可以在求和号内求导，关键是验证一致收敛条件. 回顾，如果一个级数的部分和序列一致收敛，则该级数一致收敛. 下例将使用这一事实.
+
+\begin{example}[续\autoref{ex:2.4.7}]\label{ex:2.4.9}
+\footnote{译注：原文标题写作“Continuation of Exercise 2.4.7”，但本书习题采用两段编号，且下文承接的是\autoref{ex:2.4.7}；这里将引用目标链接到该例.}
+为应用\autoref{thm:2.4.8}，令
+$$h(\theta,x)=\theta(1-\theta)^x,$$
+以及
+$$\frac\partial{\partial\theta}h(\theta,x)=(1-\theta)^x-\theta x(1-\theta)^{x-1},$$
+并验证 $\sum_{x=0}^\infty\frac\partial{\partial\theta}h(\theta,x)$ 一致收敛. 定义
+$$S_n(\theta)=\sum_{x=0}^n[(1-\theta)^x-\theta x(1-\theta)^{x-1}].$$
+如果给定 $\varepsilon>0$，可以找到 $N$，使得
+$$n>N\ \Longrightarrow\ |S_n(\theta)-S_\infty(\theta)|<\varepsilon
+\qquad\text{对所有 $\theta\in[c,d]$},$$
+那么收敛在 $[c,d]\subset(0,1)$ 上就是一致的. 回顾几何级数的部分和\eqref{eq:1.5.3}，若 $y\ne1$，则
+$$\sum_{k=0}^n y^k=\frac{1-y^{n+1}}{1-y}.$$
+应用它，得到
+$$\begin{aligned}
+\sum_{x=0}^n(1-\theta)^x&=\frac{1-(1-\theta)^{n+1}}\theta,\\
+\sum_{x=0}^n\theta x(1-\theta)^{x-1}
+&=\theta\sum_{x=0}^n-\frac\partial{\partial\theta}(1-\theta)^x\\
+&=-\theta\frac d{d\theta}\sum_{x=0}^n(1-\theta)^x\\
+&=-\theta\frac d{d\theta}\left[\frac{1-(1-\theta)^{n+1}}\theta\right].
+\end{aligned}$$
+\sourcepageanchor{93}
+这里把导数移到有限求和号外是合理的. 计算导数，得到
+$$\sum_{x=0}^n\theta x(1-\theta)^{x-1}
+=\frac{(1-(1-\theta)^{n+1})-(n+1)\theta(1-\theta)^n}\theta,$$
+从而
+$$\begin{aligned}
+S_n(\theta)&=\frac{1-(1-\theta)^{n+1}}\theta
+-\frac{(1-(1-\theta)^{n+1})-(n+1)\theta(1-\theta)^n}\theta\\
+&=(n+1)(1-\theta)^n.
+\end{aligned}$$
+显然，对于 $0<\theta<1$，$S_\infty=\lim_{n\to\infty}S_n(\theta)=0$. 由于 $S_n(\theta)$ 连续，收敛在任意有界闭区间上都是一致的.\footnote{译注：连续函数序列逐点收敛，并不能仅凭连续性推出一致收敛. 本例的结论成立，但还需用显式上界：对 $[c,d]\subset(0,1)$，$\sup_{\theta\in[c,d]}|S_n(\theta)|\le(n+1)(1-c)^n\to0$. 原文理由在此不够充分.} 因此，导数级数一致收敛，可以交换求导与求和.
+\end{example}
+
+本节最后给出一个类似于\autoref{thm:2.4.8}的定理，但它处理的是交换求和与积分次序的情况.
+\begin{theorem}\label{thm:2.4.10}\index{SI0586@积分与求和}
+设级数 $\sum_{x=0}^\infty h(\theta,x)$ 在 $[a,b]$ 上一致收敛，并且对每个 $x$，$h(\theta,x)$ 是 $\theta$ 的连续函数. 则
+$$\int_a^b\sum_{x=0}^\infty h(\theta,x)\,d\theta
+=\sum_{x=0}^\infty\int_a^b h(\theta,x)\,d\theta.$$
+\end{theorem}

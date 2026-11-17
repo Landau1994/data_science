@@ -1,0 +1,46 @@
+ORDER STATISTICS                                                          185
+the mean while the players were discussing the median. About a dozen players with salaries over
+$2 million can raise the average salary to $433,659 while the majority of the players make less
+than $250,000, including all rookies who make $62,500. When discussing salaries, prices, or any
+variable with a few extreme values, the median gives a better indication of “typical” values than
+the mean. Other statistics which can be defined in terms of order statistics and are less sensitive to
+extreme values (such as the α-trimmed mean discussed in Exercise 10.20) are discussed in texts
+such as Tukey (1977).
+   For any number p between 0 and 1, the (100p)th sample percentile is the observation such that
+approximately np of the observations are less than this observation and n(1−p) of the observationsare greater. The 50th sample percentile (p = .5) is the sample median. For other values of p, we can
+more precisely define the sample percentiles in terms of the order statistics in the following way.
+Definition 5.4.2  The notation {b}, when appearing in a subscript, is defined to be the number b
+rounded to the nearest integer in the usual way. More precisely, if i is an integer and i −.5 ≤b <
+i+.5, then {b} = i.
+
+                                                    2n   The (100p)th sample percentile is X({np}) if 1                          < p < .5 and X(n+1−{n(1−p)}) if .5 < p < 1−12n.
+For example, if n = 12 and the 65th percentile is wanted, we note that 12 × (1 −.65) = 4.2 and
+12+1−4 = 9. Thus, the 65th percentile is X(9). There is a restriction on the range of p because thesize of the sample limits the range of sample percentiles.
+   The cases p < .5 and p > .5 are defined separately so that the sample percentiles exhibit the
+following symmetry. If the (100p)th sample percentile is the ith smallest observation then the
+(100(1 −p))th sample percentile should be the ith largest observation and the above definitionachieves this. For example, if n = 11, the 30th sample percentile is X(3) and the 70th sample per-
+centile is X(9).
+    In addition to the median, two other sample percentiles are commonly identified. These are the
+lower quartile (25th percentile) and upper quartile (75th percentile). A measure of dispersion which
+is sometimes used is the interquartile range, the distance between the lower and upper quartiles.
+   Since the order statistics are functions of the sample, probabilities concerning order statistics can
+be computed in terms of probabilities for the sample. If X1,...,Xn are iid discrete random variables,
+then the calculation of probabilities for the order statistics is mainly a counting task. These formulas
+are derived in Theorem 5.4.3. If X1,...,Xn are a random sample from a continuous population then
+convenient expressions for the pdf of one or more order statistics are derived in Theorems 5.4.4 and
+5.4.6. These can then be used to derive the distribution of functions of the order statistics.
+Theorem 5.4.3  Let X1,...,Xn be a random sample from a discrete distribution with pmf fX(xi) = pi
+where x1 < x2 < ··· are the possible values of X in ascending order. Define
+                                  P0 =  0
+                                  P1 =  p1
+                                  P2 =  p1 + p2
+                                                                                                                                                                                                       ...
+                                          Pi =  p1 + p2 +···+ pi
+                                                                                                                                                                                                       ...
+
+Let X(1),...,X(n) denote the order statistics from the sample. Then
+                                                   n   n
+                    P X( j)   = ∑     Pki                            ≤xi    k= j  k    (1−Pi)n−k                         (5.4.2)
+and
+                                       n   n
+                                                                                                                   .             (5.4.3)            P X( j) = xi = ∑      Pki                              k= j  k     (1−Pi)n−k −Pki−1(1−Pi−1)n−k

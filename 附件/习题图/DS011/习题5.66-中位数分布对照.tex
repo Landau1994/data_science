@@ -1,0 +1,14 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,pgfplots}
+\setCJKmainfont{SimSun}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[width=12cm,height=7cm,xlabel={15个标准正态观测的中位数},ylabel={密度},xmin=-1.4,xmax=1.4,ymin=0,legend style={font=\small,at={(.5,-.2)},anchor=north},title={独立模拟200,000次；精确密度与渐近近似}]
+\addplot[ybar interval,fill=gray!25,draw=gray] table[x=x,y=density] {5.66-histogram.dat};\addlegendentry{模拟密度}
+\addplot[black,thick] table[x=x,y=exact] {5.66-density.dat};\addlegendentry{精确次序统计量密度}
+\addplot[black,dashed,thick] table[x=x,y=asymptotic] {5.66-density.dat};\addlegendentry{渐近 $N(0,\pi/30)$}
+\end{axis}
+\end{tikzpicture}
+\end{document}

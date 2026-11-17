@@ -1,0 +1,48 @@
+MOMENTS AND MOMENT GENERATING FUNCTIONS                            51
+Definition 2.3.6  Let X be a random variable with cdf FX. The moment generating function (mgf)
+of X (or FX), denoted by MX(t), is
+                                  MX(t) = EetX,
+provided that the expectation exists for t in some neighborhood of 0. That is, there is an h > 0 such
+that, for all t in −h < t < h, EetX exists. If the expectation does not exist in a neighborhood of 0, wesay that the moment generating function does not exist.
+
+   More explicitly, we can write the mgf of X as
+
+                             ∞
+                   MX(t) =   −∞etx fX(x)dx       if X is continuous.
+or
+
+                         = x)       if X is discrete.                    MX(t) = ∑ etxP(X
+                                                x
+
+     It is very easy to see how the mgf generates moments. We summarize the result in the following
+theorem.
+Theorem 2.3.7   If X has mgf MX(t), then
+
+                            EXn = M(n)X  (0),
+
+where we define
+                                          dn
+                                M(n)X (0) =    MX(t)      .                                              dtn       t=0
+That is, the nth moment is equal to the nth derivative of MX(t) evaluated at t = 0.
+Proof: Assuming that we can differentiate under the integral sign (see the next section), we have
+                         d            d   ∞
+                           MX(t) =           fX(x)dx
+                               dt              dt                                             −∞etx
+                                     ∞   d
+                      =              etx  fX(x)dx
+                                   −∞   dt                                     ∞
+                      =                                          −∞(xetx)fX(x)dx
+                      =  EXetX.
+
+Thus,
+                           d
+                               = EX.                             MX(t)  = EXetX t=0                                 dt       t=0
+Proceeding in an analogous manner, we can establish that
+
+                        dn                                = EXn.              2                         MX(t)   =  EXnetX t=0                           dtn       t=0
+
+
+Example 2.3.8 (Gamma mgf)  In Example 2.1.6 we encountered a special case of the gamma pdf
+
+                         1                   f(x) =        xα−1e−x/β,  0 < x < ∞,  α > 0,  β > 0,
+                     Γ(α)β α

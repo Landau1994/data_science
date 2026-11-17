@@ -1,0 +1,47 @@
+CONDITIONAL DISTRIBUTIONS AND INDEPENDENCE                          125
+     If X and Y are independent, the conditional pdf of Y given X = x is
+                                                 f(x,y)
+                                      f(y|x) =   fX(x)                                (definition)
+                                                 fX(x) fY(y)
+                        =                                (from (4.2.1))
+                                                   fX(x)
+                        =   fY(y),
+
+                                                                            A                                                                                 f(y|x)dy =regardless of the value of x. Thus, for any A ⊂ℜand x ∈ℜ,P(Y ∈A|x) =
+ A fY(y)dy = P(Y ∈A). The knowledge that X = x gives us no additional information about Y.    Definition 4.2.5 is used in two different ways. We might start with a joint pdf or pmf and then
+check whether X and Y are independent. To do this we must verify that (4.2.1) is true for every value
+of x and y. Or we might wish to define a model in which X and Y are independent. Consideration
+of what X and Y represent might indicate that knowledge that X = x should give us no information
+about Y. In this case we could specify the marginal distributions of X and Y and then define the joint
+distribution as the product as given in (4.2.1).
+Example 4.2.6 (Checking independence–I)   Consider  the  discrete  bivariate random  vector
+(X,Y), with joint pmf given by
+                            f(10,1) = f(20,1) = f(20,2) = 10,1                                                    1                        3  .
+                        f(10,2) = f(10,3) = 5,  and   f(20,3) = 10
+The marginal pmfs are easily calculated to be
+                           1              1         3             1
+             fX(10) = fX(20) =    and   fY(1) =    fY(2) =    and fY(3) =                           2                5,        10,             2.
+The random variables X and Y are not independent because (4.2.1) is not true for every x and y. For
+example,
+                                  1   1 1
+                             f(10,3) =  =  = fX(10) fY(3).
+                                                                     5̸   2 2The relationship (4.2.1) must hold for every choice of x and y if X and Y are to be independent.
+            =               = fX(10) fY(1). That (4.2.1) holds for some values of x and y does notNote that f(10,1) = 101    1 1                             2 5
+ensure that X and Y are independent. All values must be checked.                          ∥
+   The verification that X and Y are independent by direct use of (4.2.1) would require the knowl-
+edge of fX(x) and fY(y). The following lemma makes the verification somewhat easier.
+Lemma 4.2.7 Let (X,Y) be a bivariate random vector with joint pdf or pmf f(x,y). Then X and Y
+are independent random variables if and only if there exist functions g(x) and h(y) such that, for
+every x ∈ℜand y ∈ℜ,                                       f(x,y) = g(x)h(y).
+Proof: The “only if” part is proved by defining g(x) = fX(x) and h(y) = fY(y) and using (4.2.1). To
+prove the “if” part for continuous random variables, suppose that f(x,y) = g(x)h(y). Define
+                        ∞                  ∞
+                        −∞g(x)dx = c  and   −∞h(y)dy = d,
+where the constants c and d satisfy
+                                 ∞           ∞
+                          cd =    −∞g(x)dx    −∞h(y)dy                                ∞  ∞
+                  =                                                          (4.2.2)
+                              −∞∞  −∞g(x)h(y)dxdy∞
+                  =
+                              −∞ −∞f(x,y)dxdy
+                  =   1.                                       ( f(x,y) is a joint pdf)

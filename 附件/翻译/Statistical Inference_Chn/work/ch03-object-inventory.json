@@ -1,0 +1,960 @@
+{
+  "chapter": 3,
+  "source_physical_pages": [
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144
+  ],
+  "printed_pages": [
+    70,
+    113
+  ],
+  "source_pages_visually_inspected": [
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144
+  ],
+  "translated_anchors": [
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144
+  ],
+  "anchor_missing": [],
+  "anchor_duplicates": [],
+  "numbered_objects": [
+    "ex:3.2.1",
+    "thm:3.2.2",
+    "ex:3.2.3",
+    "ex:3.2.4",
+    "ex:3.2.5",
+    "ex:3.2.6",
+    "ex:3.2.7",
+    "ex:3.3.1",
+    "ex:3.3.2",
+    "ex:3.4.1",
+    "thm:3.4.2",
+    "ex:3.4.3",
+    "ex:3.4.4",
+    "def:3.4.5",
+    "ex:3.4.6",
+    "def:3.4.7",
+    "ex:3.4.8",
+    "ex:3.4.9",
+    "thm:3.5.1",
+    "def:3.5.2",
+    "ex:3.5.3",
+    "def:3.5.4",
+    "def:3.5.5",
+    "thm:3.5.6",
+    "thm:3.5.7",
+    "thm:3.6.1",
+    "ex:3.6.2",
+    "ex:3.6.3",
+    "thm:3.6.4",
+    "lem:3.6.5",
+    "ex:3.6.6",
+    "thm:3.6.7",
+    "thm:3.6.8",
+    "ex:3.6.9",
+    "thm:3.8.1",
+    "thm:3.8.2",
+    "lem:3.8.3",
+    "thm:3.8.4",
+    "thm:3.8.5"
+  ],
+  "source_numbered_objects": [
+    {
+      "id": "ex:3.2.1",
+      "source_physical_page": 103
+    },
+    {
+      "id": "thm:3.2.2",
+      "source_physical_page": 105
+    },
+    {
+      "id": "ex:3.2.3",
+      "source_physical_page": 105
+    },
+    {
+      "id": "ex:3.2.4",
+      "source_physical_page": 107
+    },
+    {
+      "id": "ex:3.2.5",
+      "source_physical_page": 108
+    },
+    {
+      "id": "ex:3.2.6",
+      "source_physical_page": 110
+    },
+    {
+      "id": "ex:3.2.7",
+      "source_physical_page": 111
+    },
+    {
+      "id": "ex:3.3.1",
+      "source_physical_page": 113
+    },
+    {
+      "id": "ex:3.3.2",
+      "source_physical_page": 117
+    },
+    {
+      "id": "ex:3.4.1",
+      "source_physical_page": 123
+    },
+    {
+      "id": "thm:3.4.2",
+      "source_physical_page": 123
+    },
+    {
+      "id": "ex:3.4.3",
+      "source_physical_page": 124
+    },
+    {
+      "id": "ex:3.4.4",
+      "source_physical_page": 124
+    },
+    {
+      "id": "def:3.4.5",
+      "source_physical_page": 124
+    },
+    {
+      "id": "ex:3.4.6",
+      "source_physical_page": 125
+    },
+    {
+      "id": "def:3.4.7",
+      "source_physical_page": 125
+    },
+    {
+      "id": "ex:3.4.8",
+      "source_physical_page": 126
+    },
+    {
+      "id": "ex:3.4.9",
+      "source_physical_page": 126
+    },
+    {
+      "id": "thm:3.5.1",
+      "source_physical_page": 127
+    },
+    {
+      "id": "def:3.5.2",
+      "source_physical_page": 127
+    },
+    {
+      "id": "ex:3.5.3",
+      "source_physical_page": 128
+    },
+    {
+      "id": "def:3.5.4",
+      "source_physical_page": 128
+    },
+    {
+      "id": "def:3.5.5",
+      "source_physical_page": 129
+    },
+    {
+      "id": "thm:3.5.6",
+      "source_physical_page": 130
+    },
+    {
+      "id": "thm:3.5.7",
+      "source_physical_page": 131
+    },
+    {
+      "id": "thm:3.6.1",
+      "source_physical_page": 131
+    },
+    {
+      "id": "ex:3.6.2",
+      "source_physical_page": 132
+    },
+    {
+      "id": "ex:3.6.3",
+      "source_physical_page": 132
+    },
+    {
+      "id": "thm:3.6.4",
+      "source_physical_page": 133
+    },
+    {
+      "id": "lem:3.6.5",
+      "source_physical_page": 133
+    },
+    {
+      "id": "ex:3.6.6",
+      "source_physical_page": 134
+    },
+    {
+      "id": "thm:3.6.7",
+      "source_physical_page": 134
+    },
+    {
+      "id": "thm:3.6.8",
+      "source_physical_page": 135
+    },
+    {
+      "id": "ex:3.6.9",
+      "source_physical_page": 135
+    },
+    {
+      "id": "thm:3.8.1",
+      "source_physical_page": 142
+    },
+    {
+      "id": "thm:3.8.2",
+      "source_physical_page": 143
+    },
+    {
+      "id": "lem:3.8.3",
+      "source_physical_page": 143
+    },
+    {
+      "id": "thm:3.8.4",
+      "source_physical_page": 143
+    },
+    {
+      "id": "thm:3.8.5",
+      "source_physical_page": 143
+    }
+  ],
+  "source_object_order_matches": true,
+  "equation_labels": [
+    "eq:3.2.1",
+    "eq:3.2.2",
+    "eq:3.2.3",
+    "eq:3.2.4",
+    "eq:3.2.5",
+    "eq:3.2.6",
+    "eq:3.2.7",
+    "eq:3.2.8",
+    "eq:3.2.9",
+    "eq:3.2.10",
+    "eq:3.2.11",
+    "eq:3.2.12",
+    "eq:3.3.1",
+    "eq:3.3.2",
+    "eq:3.3.3",
+    "eq:3.3.4",
+    "eq:3.3.5",
+    "eq:3.3.6",
+    "eq:3.3.7",
+    "eq:3.3.8",
+    "eq:3.3.9",
+    "eq:3.3.10",
+    "eq:3.3.11",
+    "eq:3.3.12",
+    "eq:3.3.13",
+    "eq:3.3.14",
+    "eq:3.3.15",
+    "eq:3.3.16",
+    "eq:3.3.17",
+    "eq:3.3.18",
+    "eq:3.3.19",
+    "eq:3.3.20",
+    "eq:3.3.21",
+    "eq:3.3.22",
+    "eq:3.3.23",
+    "eq:3.4.1",
+    "eq:3.4.2",
+    "eq:3.4.3",
+    "eq:3.4.4",
+    "eq:3.4.5",
+    "eq:3.4.6",
+    "eq:3.4.7",
+    "eq:3.4.8",
+    "eq:3.4.9",
+    "eq:3.6.1",
+    "eq:3.6.2",
+    "eq:3.6.3",
+    "eq:3.6.4",
+    "eq:3.6.5",
+    "eq:3.6.6"
+  ],
+  "figure_labels": [
+    "fig:3.3.1",
+    "fig:3.3.2",
+    "fig:3.3.3",
+    "fig:3.3.4",
+    "fig:3.3.5",
+    "fig:3.3.6",
+    "fig:3.5.1",
+    "fig:3.5.2",
+    "fig:3.5.3",
+    "fig:3.5.4"
+  ],
+  "table_labels": [],
+  "exercises": [
+    {
+      "id": "exercise:3.1",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.2",
+      "subparts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "exercise:3.3",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.4",
+      "subparts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "exercise:3.5",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.6",
+      "subparts": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "id": "exercise:3.7",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.8",
+      "subparts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "exercise:3.9",
+      "subparts": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "id": "exercise:3.10",
+      "subparts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "exercise:3.11",
+      "subparts": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "id": "exercise:3.12",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.13",
+      "subparts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "exercise:3.14",
+      "subparts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "exercise:3.15",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.16",
+      "subparts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "exercise:3.17",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.18",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.19",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.20",
+      "subparts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "exercise:3.21",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.22",
+      "subparts": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ]
+    },
+    {
+      "id": "exercise:3.23",
+      "subparts": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "id": "exercise:3.24",
+      "subparts": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ]
+    },
+    {
+      "id": "exercise:3.25",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.26",
+      "subparts": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "id": "exercise:3.27",
+      "subparts": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ]
+    },
+    {
+      "id": "exercise:3.28",
+      "subparts": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ]
+    },
+    {
+      "id": "exercise:3.29",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.30",
+      "subparts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "exercise:3.31",
+      "subparts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "exercise:3.32",
+      "subparts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "exercise:3.33",
+      "subparts": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ]
+    },
+    {
+      "id": "exercise:3.34",
+      "subparts": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "id": "exercise:3.35",
+      "subparts": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "id": "exercise:3.36",
+      "subparts": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "id": "exercise:3.37",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.38",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.39",
+      "subparts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "exercise:3.40",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.41",
+      "subparts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "exercise:3.42",
+      "subparts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "exercise:3.43",
+      "subparts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "exercise:3.44",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.45",
+      "subparts": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "id": "exercise:3.46",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.47",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.48",
+      "subparts": []
+    },
+    {
+      "id": "exercise:3.49",
+      "subparts": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "exercise:3.50",
+      "subparts": []
+    }
+  ],
+  "lettered_subpart_count": 82,
+  "proof_count": 9,
+  "source_footnote_count": 0,
+  "translator_footnote_count": 17,
+  "preview_pages": 52,
+  "preview_visually_inspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52
+  ],
+  "duplicate_labels": [],
+  "roman_task_lists": {
+    "exercise:3.33": [
+      "i",
+      "ii",
+      "iii"
+    ],
+    "exercise:3.34": [
+      "i",
+      "ii"
+    ]
+  },
+  "compiled_number_mismatches": [],
+  "object_type_counts": {
+    "ex": 19,
+    "thm": 13,
+    "def": 5,
+    "lem": 2
+  },
+  "preview_crosschapter_unresolved": [
+    "ex:1.5.4",
+    "ex:2.2.2",
+    "ex:2.2.3",
+    "ex:2.3.13",
+    "ex:2.3.3",
+    "ex:2.3.5",
+    "ex:2.3.8",
+    "ex:2.3.9",
+    "ex:4.3.6",
+    "ex:5.5.16",
+    "exercise:1.23",
+    "exercise:1.49",
+    "exercise:11.1",
+    "exercise:11.2",
+    "exercise:2.27",
+    "exercise:2.33",
+    "exercise:7.23",
+    "lem:2.3.14",
+    "sec:1.2.3",
+    "sec:1.6",
+    "sec:2",
+    "sec:2.3",
+    "sec:4",
+    "sec:4.7",
+    "sec:5",
+    "sec:5.3",
+    "sec:6",
+    "sec:6.2.1",
+    "thm:2.1.5",
+    "thm:2.2.5",
+    "thm:2.3.4",
+    "thm:5.5.14",
+    "thm:6.2.10"
+  ],
+  "visual_status": "passed after figure paragraph-boundary and footnote-marker fixes; final 20,23,36,51 rechecked; zero detected leading ASCII punctuation in prose",
+  "source_exercise_subparts_verified": true,
+  "source_exercise_subparts_notes": "原图逐题核对50题与82个字母分问；另有3.33的i–iii及3.34的i–ii。文字层漏抓3.24(a,d)、3.43(b)，由原图补核。",
+  "proofs": [
+    "thm:3.2.2",
+    "thm:3.5.1",
+    "thm:3.5.6",
+    "thm:3.5.7",
+    "thm:3.6.1",
+    "thm:3.6.4",
+    "lem:3.6.5",
+    "thm:3.6.7",
+    "thm:3.6.8"
+  ],
+  "assets": [
+    "assets/chapter3/fig3-3-1.pdf",
+    "assets/chapter3/fig3-3-2.pdf",
+    "assets/chapter3/fig3-3-3.pdf",
+    "assets/chapter3/fig3-3-4.pdf",
+    "assets/chapter3/fig3-3-5.pdf",
+    "assets/chapter3/fig3-3-6.pdf",
+    "assets/chapter3/fig3-5-1.pdf",
+    "assets/chapter3/fig3-5-2.pdf",
+    "assets/chapter3/fig3-5-3.pdf",
+    "assets/chapter3/fig3-5-4.pdf"
+  ],
+  "preview_sha256": "60a445acdf041748862707b12af2264532d5871e8ee412819213f58516e3bd65",
+  "source_pdf_sha256": "52e6acfaceca3c7492d6436de2fe25c2b468a3fe74b47c7ecd0a5f130ace0707",
+  "source_equation_ranges": {
+    "3.2": [
+      1,
+      12
+    ],
+    "3.3": [
+      1,
+      23
+    ],
+    "3.4": [
+      1,
+      9
+    ],
+    "3.6": [
+      1,
+      6
+    ]
+  },
+  "translator_notes": [
+    {
+      "file": "sections-tex/03-02.tex",
+      "text": "原文写作“十八世纪”，但 Pascal 活跃于十七世纪；此处年代疑误，正文保留原文."
+    },
+    {
+      "file": "sections-tex/03-03.tex",
+      "text": "原文“否则不能”过于绝对；例如本页随后即指出$\\Gamma(1/2)=\\sqrt\\pi$，再由递推关系可得所有正半整数处的闭式值. 此处保留原文表述."
+    },
+    {
+      "file": "sections-tex/03-03.tex",
+      "text": "此处“各阶矩”“所有绝对矩”应按上下文理解为正整数阶矩；若允许非整数阶，则$0<q<1$时$E|X|^q$有限."
+    },
+    {
+      "file": "sections-tex/03-03.tex",
+      "text": "原文说“关于其均值反射”；就下面给出的密度而言，准确的构造是以$\\mu$为中心，将指数形状的右半支及其镜像各赋予一半质量. 普通指数分布直接关于其自身均值反射，并不会得到此式."
+    },
+    {
+      "file": "sections-tex/03-04.tex",
+      "text": "上述公式需要相应参数导数存在，并且允许把求导与积分或求和交换. 原定理未在陈述中写出这些正则性条件；其证明所用的运算须在这些条件成立处理解."
+    },
+    {
+      "file": "sections-tex/03-05.tex",
+      "text": "原文此处指向第3.2节，但随后列出的正态、Cauchy和双指数分布均在\\autoref{sec:3.3}介绍；原交叉引用疑应为第3.3节."
+    },
+    {
+      "file": "sections-tex/03-05.tex",
+      "text": "原式最右端写作$f(x)$，但由左边的自变量及本段定义，应为$f(z)$. 这里保留原式并注明."
+    },
+    {
+      "file": "sections-tex/03-06.tex",
+      "text": "这一上尾界取$t>0$；该条件在\\autoref{exercise:3.45}中明确给出."
+    },
+    {
+      "file": "sections-tex/03-06.tex",
+      "text": "当$r=1$且$X=0$时，\\eqref{eq:3.6.6}右边分式为$0/0$，而该事件有正概率. 为使恒等式包括几何分布这一情形，应将该点的整个求和项约定为0；或者把此式先限制于$r>1$. 原文未注明这一边界约定."
+    },
+    {
+      "file": "sections-tex/03-07.tex",
+      "text": "原文要求概率严格“大于”$.99$，在均值为连续参数时满足条件的集合是一个开射线，因而严格来说只有下确界而无最小值；若改为“不小于”$.99$，则存在最小值."
+    },
+    {
+      "file": "sections-tex/03-07.tex",
+      "text": "这个式子是“四包检验为可卡因且随后两包为非可卡因”的联合抽样概率. 在已经观察到前四包均为可卡因后，固定$N,M$时后两包均为非可卡因的条件概率是$\\binom M2/\\binom{N+M-4}2$. 因此，把原联合概率直接称为被告的“无罪概率”需谨慎；此处保留原题的表述."
+    },
+    {
+      "file": "sections-tex/03-07.tex",
+      "text": "定义式的分子是给定存活到$t$后在$[t,t+\\delta)$内失效的概率，故风险函数更准确地说是条件瞬时失效率；原文将其描述为“存活至略晚于$t$”的概率变化率，表述容易混淆. 极限应理解为$\\delta\\downarrow0$."
+    },
+    {
+      "file": "sections-tex/03-07.tex",
+      "text": "原式把“$f(x\\mid\\theta)=$”直接写在积分号与被积表达式之间，形式不完整. 应理解为$\\int f(x\\mid\\theta)\\,dx=\\int h(x)c(\\theta)\\exp(\\sum_iw_i(\\theta)t_i(x))\\,dx=1$. 原式照录."
+    },
+    {
+      "file": "sections-tex/03-07.tex",
+      "text": "原式方差为$e^\\theta$，而所引用的\\hyperref[exercise:3.34]{习题3.34(a)}是样本均值的近似，其方差为$\\lambda/n$. 若这里也表示同一固定样本量$n$的样本均值族，在令$\\lambda=e^\\theta$后方差应为$e^\\theta/n$；若指单个Poisson变量的正态近似，则原式可成立. 原文意图待核实."
+    },
+    {
+      "file": "sections-tex/03-08.tex",
+      "text": "这里以及后面的可达性结论，需要样本的相应假设，通常是$X_1,\\ldots,X_n$独立同分布，具有共同均值$\\mu$和方差$\\sigma^2$. 原段未明说；若只给任意随机变量，则$\\operatorname{Var}(\\bar X_n)=\\sigma^2/n$一般不成立."
+    },
+    {
+      "file": "sections-tex/03-08.tex",
+      "text": "原式第二分支的分母印为$9\\varepsilon^2$. 在$\\varepsilon=\\sqrt{8/3}\\,\\xi$处，它给出$-1/6$，不可能是一般概率上界，并且与第一分支的$1/6$不一致. 该分支疑应为$4\\xi^2/(3\\varepsilon^2)-1/3$；原式保留，需与所引Pukelsheim（1994）原论文进一步核实."
+    },
+    {
+      "file": "sections-tex/03-08.tex",
+      "text": "本段比较时需区分观测值$X$与指数表示中的充分统计量. 对数正态密度确实可按\\eqref{eq:3.4.1}写成以$\\log X$、$(\\log X)^2$为统计量的指数族；$X$本身没有正参数邻域上的矩母函数，并不否定这一点. 这里显示的$e^{\\theta x}$形式使用$x$本身作为自然统计量，较为特殊. 此外，$\\lambda(t+\\theta)/\\lambda(\\theta)$在$0$的邻域内有限，需要$\\theta$处于相应自然参数空间的内点；仅有$\\theta\\in\\mathcal N$不足以保证双侧邻域存在. 原文关于Brown定义的具体归属仍需核对所引专著."
+    }
+  ],
+  "unresolved": [
+    "本章单独构建不载入其他章，因此跨章引用保留未定义警告，待全书构建；本章内部引用均已解析。",
+    "所引作者年份文献仍以原文作者年份保留，由主代理接全书参考文献。",
+    "译注所列外部文献核实边界明确：Pukelsheim（1994）及Brown（1986）未额外查阅原文，未把推测更正写成已证实。"
+  ]
+}

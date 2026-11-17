@@ -1,0 +1,53 @@
+202                                    PROPERTIES OF A RANDOM SAMPLE
+
+                     Exponential pdf
+
+
+
+                             .4
+
+
+
+                             .2
+
+
+                             .0                                                           y
+                           0       2       4       6       8
+
+  Figure 5.6.1 Histogram of 10,000 observations from an exponential pdf with λ = 2, together with the pdf
+
+
+   The relationship between the exponential and other distributions allows the quick-generation of
+many random variables. For example, if Ui are iid uniform (0,1) random variables, then
+
+                                            ν
+                     Y =                ∑ log(Uj)     2ν                        −2 j=1     ∼χ2
+                                              a
+                                         log(Uj) ∼gamma(a,β)                        (5.6.5)                     Y =  −β j=1∑
+                            ∑aj=1 log(Uj)
+                     Y =                                           ∼beta(a,b).                              ∑a+bj=1 log(Uj)
+
+Many other variations are possible (see Exercises 5.47–5.49), but all are being driven by the
+exponential-uniform transformation.
+    Unfortunately, there are limits to this transformation. For example, we cannot use it to generate
+χ2 random variables with odd degrees of freedom. Hence, we cannot get a χ21 , which would in turn
+get us a normal(0,1) – an extremely useful variable to be able to generate. We will return to this
+problem in the next subsection.
+    Recall that the basis of Example 5.6.3, and hence the transformations in (5.6.5) was the Proba-
+bility Integral Transform which, in general, can be written as
+
+                                                                   y
+                         F−1Y  (u) = y ↔u                          =  −∞fy(t)dt.                            (5.6.6)
+Application of this formula to the exponential was particularly handy, as the integral equation had
+a simple solution (see also Exercise 5.59). However, in many cases no closed-form solution for
+(5.6.6) will exist. Thus, each random variable generation will necessitate a solution of an integral
+equation which, in practice, could be prohibitively long and complicated. This would be the case,
+for example, if (5.6.6) were used to generate a χ21.
+   When no closed-form solution for (5.6.6) exists, other options should be explored. These include
+other types of generation methods, and indirect methods. As an example of the former, consider the
+following.
+Example 5.6.4 (Box-Muller, 1958)  Generate U1 and U2, two independent uniform(0,1) random
+variables, and set
+                      R =  −2logU1 and θ = 2πU2.
+Then
+                       X = Rcosθ and Y = Rsinθ

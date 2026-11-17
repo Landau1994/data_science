@@ -1,0 +1,50 @@
+170                                    PROPERTIES OF A RANDOM SAMPLE
+where the same parameter value θ is used in each of the terms in the product. If, in a statistical
+setting, we assume that the population we are observing is a member of a specified parametric
+family but the true parameter value is unknown, then a random sample from this population has a
+joint pdf or pmf of the above form with the value of θ unknown. By considering different possible
+values of θ, we can study how a random sample would behave for different populations.
+Example 5.1.2 (Sample pdf–exponential)    Let  X1,...,Xn  be  a random  sample  from  an
+exponential(β) population. Specifically, X1,...,Xn might correspond to the times until failure (mea-
+sured in years) for n identical circuit boards that are put on test and used until they fail. The joint
+pdf of the sample is
+
+                                       n              n 1         1
+                        =                                                        e−xi/β =                                                                         e−(x1+···+xn)/β.                 ∏                                               β n                 f(x1,...,xn|β) = ∏i=1 f(xi|β)                                                   i=1 β
+
+   This pdf can be used to answer questions about the sample. For example, what is the probability
+that all the boards last more than two years? We can compute
+
+                     P(X1 > 2,...,Xn > 2)
+                            ∞    ∞  n 1
+               =       ...               ∏  e−xi/βdx1                                       2      2  i=1 β          ···dxn
+                                ∞    ∞  n 1
+                                                                                     (integrate out x1)               =  e−2/β    ∏   e−xi/β dx2   dxn                                             2  ···  2  i=2 β            ···
+                                                                                                                                                                      ...                   (integrate out the remaining xis successively)
+               =  (e−2/β)n
+               =  e−2n/β.
+
+
+If β, the average lifelength of a circuit board, is large relative to n, we see that this probability is
+near 1.
+   The previous calculation illustrates how the pdf of a random sample defined by (5.1.1) or, more
+specifically, by (5.1.2), can be used to calculate probabilities about the sample. Realize that the
+independent and identically distributed property of a random sample can also be used directly in
+such calculations. For example, the above calculation can be done like this:
+
+                           P(X1 > 2,...,Xn > 2)
+                    =  P(X1 > 2)···P(Xn > 2)               (independence)                    =  [P(X1 > 2)]n                     (identical distributions)
+                    =  (e−2/β)n                      (exponential calculation)
+                    =  e−2n/β.
+   The random sampling model in Definition 5.1.1 is sometimes called sampling from an infinite
+population. Think of obtaining the values of X1,...,Xn sequentially. First, the experiment is per-∥
+formed and X1 = x1 is observed. Then, the experiment is repeated and X2 = x2 is observed. The
+assumption of independence in random sampling implies that the probability distribution for X2 is
+unaffected by the fact that X1 = x1 was observed first. “Removing” x1 from the infinite population
+does not change the population, so X2 = x2 is still a random observation from the same population.
+   When sampling is from a finite population, Definition 5.1.1 may or may not be relevant depend-
+ing on how the data collection is done. A finite population is a finite set of numbers, {x1,...,xN}.A sample X1,...,Xn is to be drawn from this population. Four ways of drawing this sample are
+described in Section 1.2.3. We will discuss the first two.
+   Suppose a value is chosen from the population in such a way that each of the N values is equally
+likely (probability = 1/N) to be chosen. (Think of drawing numbers from a hat.) This value is
+recorded as X1 = x1. Then the process is repeated. Again, each of the N values is equally likely

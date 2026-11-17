@@ -1,0 +1,2241 @@
+
+===== PDF 283, printed 252 =====
+                                   Chapter 7
+
+               Point Estimation
+
+
+
+
+
+  What! you have solved it already?
+   Well, that would be too much to say. I have discovered a suggestive fact, that is all.
+                                                       Dr. Watson and Sherlock Holmes
+                                                               The Sign of Four
+
+7.1  Introduction
+This chapter is divided into two parts. The first part deals with methods for finding estimators, and
+the second part deals with evaluating these (and other) estimators. In general these two activities
+are intertwined. Often the methods of evaluating estimators will suggest new ones. However, for the
+time being, we will make the distinction between finding estimators and evaluating them.
+   The rationale behind point estimation is quite simple. When sampling is from a population
+described by a pdf or pmf f(x|θ), knowledge of θ yields knowledge of the entire population. Hence,it is natural to seek a method of finding a good estimator of the point θ, that is, a good point
+estimator. It is also the case that the parameter θ has a meaningful physical interpretation (as in
+the case of a population mean) so there is direct interest in obtaining a good point estimate of θ. It
+may also be the case that some function of θ, say τ(θ), is of interest. The methods described in this
+chapter can also be used to obtain estimators of τ(θ).
+   The following definition of a point estimator may seem unnecessarily vague. However, at this
+point, we want to be careful not to eliminate any candidates from consideration.
+Definition 7.1.1 A point estimator is any function W(X1,...,Xn) of a sample. That is, any statistic
+is a point estimator.
+
+   Notice that the definition makes no mention of any correspondence between the estimator and
+the parameter it is to estimate. While it might be argued that such a statement should be included
+in the definition, such a statement would restrict the available set of estimators. Also, there is no
+mention in the definition of the range of the statistic W(X1,...,Xn). While, in principle, the range of
+the statistic should coincide with that of the parameter, we will see that this is not always the case.
+   There is one distinction that must be made clear, the difference between an estimate and an
+estimator. An estimator is a function of the sample, whereas an estimate is the realized value of an
+estimator (that is, a number) that is obtained when a sample is actually taken. Notationally, when a
+sample is taken, an estimator is a function of the random variables X1,...,Xn, while an estimate is a
+function of the realized values x1,...,xn.
+    In many cases, there will be an obvious or natural candidate for a point estimator of a particular
+parameter. For example, the sample mean is a natural candidate for a point estimator of the popu-
+lation mean. However, when we leave a simple case like this, intuition may not only desert us, it
+may also lead us astray. Therefore, it is useful to have some techniques that will at least give us
+some reasonable candidates for consideration. Be advised that these techniques do not carry any
+guarantees with them. The point estimators that they yield still must be evaluated before their worth
+is established.
+
+252                                                 DOI: 10.1201/9781003456285-7
+===== PDF 284, printed 253 =====
+METHODS OF FINDING ESTIMATORS                                          253
+7.2  Methods of Finding Estimators
+In some cases it is an easy task to decide how to estimate a parameter, and often intuition alone
+can lead us to very good estimators. For example, estimating a parameter with its sample analogue
+is usually reasonable. In particular, the sample mean is a good estimate for the population mean.
+In more complicated models, ones that often arise in practice, we need a more methodical way of
+estimating parameters. In this section we detail four methods of finding estimators.
+
+
+7.2.1  Method of Moments
+
+The method of moments is, perhaps, the oldest method of finding point estimators, dating back
+at least to Karl Pearson in the late 1800s. It has the virtue of being quite simple to use and almost
+always yields some sort of estimate. In many cases, unfortunately, this method yields estimators that
+may be improved upon. However, it is a good place to start when other methods prove intractable.
+   Let X1,...,Xn be a sample from a population with pdf or pmf f(x|θ1,...,θk). Method of mo-ments estimators are found by equating the first k sample moments to the corresponding k population
+moments, and solving the resulting system of simultaneous equations. More precisely, define
+
+                                   1  n
+                                                                          ,   µ′1 = EX1                         m1 =  ∑ X1i                                   n i=1
+                                   1  n
+                                                                          ,   µ′2 = EX2                         m2 =  ∑ X2i                                   n i=1
+                                                                                                                                                                                              ...                                                       (7.2.1)
+                                   1  n
+                                                                          ,   µ′k = EXk.                          mk =  ∑ Xki                                   n i=1
+
+The population moment µ′ j will typically be a function of θ1,...,θk, say µ′j(θ1,...,θk). The method
+of moments estimator (˜θ1,..., ˜θk) of (θ1,...,θk) is obtained by solving the following system of
+equations for (θ1,...,θk) in terms of (m1,...,mk):
+
+                           m1 =  µ′1(θ1,...,θk),
+                           m2 =  µ′2(θ1,...,θk),
+                                                                                                                                                                                                                                       ...                                              (7.2.2)
+                            mk =  µ′k(θ1,...,θk).
+Example 7.2.1 (Normal method of moments)  Suppose X1,...,Xn are iid n(θ,σ2). In the pre-
+ceding notation, θ1 = θ and θ2 = σ2. We have m1 = ¯X, m2 = (1/n)∑X2i , µ′1 = θ, µ′2 = θ 2 + σ2,
+and hence we must solve
+                                    1            2                           = θ +σ2.                                             ¯X = θ,   ∑X2i                                    n
+Solving for θ and σ2 yields the method of moments estimators
+
+                                    1            1
+                              =                                   ˜θ = ¯X  and   ˜σ2 =
+                                    n                                                 n                         ∑X2i −¯X2                                              ∑(Xi −¯X)2.                  ∥
+
+
+    In this simple example, the method of moments solution coincides with our intuition, and per-
+haps gives some credence to both. The method is somewhat more helpful, however, when no obvious
+estimator suggests itself.
+===== PDF 285, printed 254 =====
+254                                                 POINT ESTIMATION
+Example 7.2.2 (Binomial method of moments)  Let X1,...,Xn be iid binomial(k, p), that is,
+
+                                      k
+                     P(Xi = x|k, p) =  x  px(1−p)k−x,   x = 0,1,...,k.
+
+   Here we assume that both k and p are unknown and we desire point estimators for both param-
+eters. (This somewhat unusual application of the binomial model has been used to estimate crime
+rates for crimes that are known to have many unreported occurrences. For such a crime, both the
+true reporting rate, p, and the total number of occurrences, k, are unknown.)
+   Equating the first two sample moments to those of the population yields the system of equations
+                                                   ¯X =  kp,
+                           1
+                      =                   ∑X2i                           n          kp(1−p)+k2p2,
+which now must be solved for k and p. After a little algebra, we obtain the method of moments
+estimators
+                                                        ¯X2                                                                 ˜k =                                 ,
+                                                     ¯X −(1/n)∑(Xi −¯X)2
+and
+                                                                  ¯X
+                                                                         ˜p =    .
+                                                                                            ˜k
+   Admittedly, these are not the best estimators for the population parameters. In particular, it is
+possible to get negative estimates of k and p, which, of course, must be positive numbers. (This
+is a case where the range of the estimator does not coincide with the range of the parameter it
+is estimating.) However, in fairness to the method of moments, note that negative estimates will
+occur only when the sample mean is smaller than the sample variance, indicating a large degree of
+variability in the data. The method of moments has, in this case, at least given us a set of candidates
+for point estimators of k and p. Although our intuition may have given us a candidate for an estimator
+of p, coming up with an estimator of k is much more difficult.                             ∥
+   The method of moments can be very useful in obtaining approximations to the distributions
+of statistics. This technique, sometimes called “moment matching,” gives us an approximation that
+is based on matching moments of distributions. In theory, the moments of the distribution of any
+statistic can be matched to those of any distribution, but, in practice, it is best to use distributions
+that are similar. The following example illustrates one of the most famous uses of this technique,
+the approximation of Satterthwaite (1946). It is still used today (see Exercise 8.42).
+Example 7.2.3 (Satterthwaite approximation)     If Yi,i = 1, ...,k, are independent χ2ri random
+variables, we have already seen (Lemma 5.3.2) that the distribution of ∑Yi is also chi squared, with
+degrees of freedom equal to ∑ri. Unfortunately, the distribution of ∑aiYi, where the ais are known
+constants, is, in general, quite difficult to obtain. It does seem reasonable, however, to assume that a
+χ2ν, for some value of ν, will provide a good approximation.
+   This is almost Satterthwaite’s problem. He was interested in approximating the denominator of
+a t statistic, and ∑aiYi represented the square of the denominator of his statistic. Hence, for given
+a1,...,ak, he wanted to find a value of ν so that
+
+                                      k
+                                                  (approximately).            ∑ aiYi     ν                               i=1   ∼χ2ν
+Since E(χ2ν/ν) = 1, to match first moments we need
+
+                                           k             k             k
+                      =                            =                    E                                 = 1,             ∑ aiYi                  ∑ aiEYi                      ∑ airi
+                                   i=1         i=1         i=1
+===== PDF 286, printed 255 =====
+METHODS OF FINDING ESTIMATORS                                          255
+which gives us a constraint on the ais but gives us no information on how to estimate ν. To do this
+we must match second moments, and we need
+
+                                                2             2                                            k                                          χ2ν      2                     E                       = E     =  +1.              ∑ aiYi                                     i=1           ν      ν
+   Applying the method of moments, we drop the first expectation and solve for ν, yielding
+                                         2
+                                                            ˆν =
+                                     (∑ki=1 aiYi)2                                     −1.
+   Thus, straightforward application of the method of moments yields an estimator of ν, but one
+that can be negative. We might suppose that Satterthwaite was aghast at this possibility, for this is
+not the estimator he proposed. Working much harder, he customized the method of moments in the
+following way. Write
+
+                                       2                                    2
+                E       =  Var     +                      ∑aiYi           ∑aiYi    E∑aiYi
+                                                           2  Var(∑aiYi)                    =                +1                                 E∑aiYi                                                  (E∑aiYi)2
+                                         Var(∑aiYi)                    =         +1  .                  (E ΣaiYi = 1)
+                                       (E∑aiYi)2
+
+Now equate second moments to obtain
+                                       2(E∑aiYi)2                               ν =                   .
+                                         Var(∑aiYi)
+Finally, use the fact that Y1, ..., Yk are independent chi squared random variables to write
+
+                         =                            Var                             ∑aiYi                               ∑a2i VarYi
+                                                    a2i (EYi)2                         =                                                                                               .          (VarYi = 2(EYi)2/ri)                         2∑                                                                                 ri
+
+Substituting this expression for the variance, and removing the expectations, we obtain Satterth-
+waite’s estimator
+                                            (∑aiYi)2                                                                 ˆν =              .
+                                                            a2i   2                           ∑ ri Yi
+   This approximation is quite good, and is still widely used today. Notice that Satterthwaite suc-
+ceeded in obtaining an estimator that is always positive, thus alleviating the obvious problems with
+the straightforward method of moments estimator.                                      ∥
+
+7.2.2  Maximum Likelihood Estimators
+
+The method of maximum likelihood is, by far, the most popular technique for deriving estimators.
+Recall that if X1, ..., Xn are an iid sample from a population with pdf or pmf f(x|θ1,...,θk), thelikelihood function is defined by
+
+                                                                n
+                                                              i=1                                                                f(xi|θ1,...,θk).                  L(θ|x) = L(θ1,...,θk|x1,...,xn) = ∏                                   (7.2.3)
+Definition 7.2.4  For each sample point x, let ˆθ(x) be a parameter value at which L(θ|x) attainsits maximum as a function of θ, with x held fixed. A maximum likelihood estimator (MLE) of the
+parameter θ based on a sample X is ˆθ(X).
+===== PDF 287, printed 256 =====
+256                                                 POINT ESTIMATION
+   Notice that, by its construction, the range of the MLE coincides with the range of the parameter.
+Also, we use the abbreviation MLE to stand for maximum likelihood estimate, when we are talking
+of the realized value of the estimator.
+    Intuitively, the MLE is a reasonable choice for an estimator. The MLE is the parameter point for
+which the observed sample is most likely. In general, the MLE is a good point estimator, possessing
+some of the optimality properties discussed later.
+   There are two inherent drawbacks associated with the general problem of finding the maximum
+of a function, and hence of maximum likelihood estimation. The first problem is that of actually
+finding the global maximum and verifying that, indeed, a global maximum has been found. In
+many cases this problem reduces to a simple differential calculus exercise but, sometimes even for
+common densities, difficulties do arise. The second problem is that of numerical sensitivity. That is,
+how sensitive is the estimate to small changes in the data? (Strictly speaking, this is a mathematical
+rather than statistical problem associated with any maximization procedure. Since an MLE is found
+through a maximization procedure, however, it is a problem that we must deal with.) Unfortunately,
+it is sometimes the case that a slightly different sample will produce a vastly different MLE, making
+its use suspect. We consider first the problem of finding MLEs.
+     If the likelihood function is differentiable (in θi), possible candidates for the MLE are the values
+of (θ1,...,θk) that solve
+                             ∂
+                               ∂θi L(θ|x) = 0,    i = 1,...,k.                             (7.2.4)
+   Note that the solutions to (7.2.4) are only possible candidates for the MLE since the first deriva-
+tive being zero is only a necessary condition for a maximum, not a sufficient condition. Furthermore,
+the zeros of the first derivative only locate extreme points in the interior of the domain of a function.
+If the extrema occur on the boundary the first derivative may not be zero. Thus, the boundary must
+be checked separately for extrema.
+    Points at which the first derivatives are zero may be local or global minima, local or global
+maxima, or inflection points. Our job is to find a global maximum.
+Example 7.2.5 (Normal likelihood)  Let X1,...,Xn be iid n(θ,1), and let L(θ|x) denote the like-lihood function. Then
+                               n    1                   1
+                           =                                                                   e(−1/2)Σni=1(xi−θ)2.
+                                                    (2π)n/2                L(θ|x) = ∏i=1 (2π)1/2 e−(1/2)(xi−θ)2
+The equation (d/dθ)L(θ|x) = 0 reduces to
+                                              n
+                           = 0,                ∑ (xi −θ)                                           i=1
+
+which has the solution ˆθ = ¯x. Hence,  ¯x is a candidate for the MLE. To verify that  ¯x is, in fact,
+a global maximum of the likelihood function, we can use the following argument. First note that
+                    = 0, hence ¯x is the only zero of the first derivative. Second,ˆθ = ¯x is the only solution to ∑(xi −θ)verify that
+                                   d2
+                             < 0.                             dθ 2 L(θ|x)|θ=¯x
+Thus, ¯x is the only extreme point in the interior and it is a maximum. To finally verify that ¯x is a
+global maximum, we must check the boundaries, ±∞. By taking limits it is easy to establish that                  = ¯x is a global maximum and hence ¯X is the MLE. (Actually,the likelihood is zero at ±∞. So ˆθ
+we can be a bit more clever and avoid checking ±∞. Since we established that ¯x is a unique interior
+extremum, and is a maximum, there can be no maximum at ±∞. If there were, then there would
+have to be an interior minimum, which contradicts uniqueness.)                           ∥
+===== PDF 288, printed 257 =====
+METHODS OF FINDING ESTIMATORS                                          257
+   Another way to find an MLE is to abandon differentiation and proceed with a direct maximiza-
+tion. This method is usually simpler algebraically, especially if the derivatives tend to get messy, but
+is sometimes harder to implement because there are no set rules to follow. One general technique
+is to find a global upper bound on the likelihood function and then establish that there is a unique
+point for which the upper bound is attained.
+Example 7.2.6 (Continuation of Example 7.2.5) Recall (Theorem 5.2.4) that for any number a,
+
+                                         n               n
+                                                              (xi −¯x)2                                      i=1              ∑ (xi −a)2 ≥ i=1∑
+
+with equality if, and only if, a = ¯x. This implies that for any θ,
+                                    e−(1/2)Σ(xi−θ)2 ≤e−(1/2)Σ(xi−¯x)2
+with equality if, and only if, θ = ¯x. Hence ¯X is the MLE.                                                                              ∥
+    In most cases, especially when differentiation is to be used, it is easier to work with the natural
+logarithm of L(θ|x),logL(θ|x) (known as the log likelihood), than it is to work with L(θ|x) directly.This is possible because the log function is strictly increasing on (0,∞), which implies that the
+extrema of L(θ|x) and logL(θ|x) coincide (see Exercise 7.3).
+Example 7.2.7 (Bernoulli MLE)  Let X1,...,Xn be iid Bernoulli(p). Then the likelihood function
+is
+                                          n
+                         L(p|x) = ∏i=1 pxi(1−p)1−xi = py(1−p)n−y
+where y = ∑xi. While this function is not all that hard to differentiate, it is much easier to differen-
+tiate the log likelihood
+                         logL( p|x) = ylog p+(n−y)log(1−p).
+If 0 < y < n, differentiating logL( p|x) and setting the result equal to zero gives the solution, ˆp = y/n.It is also straightforward to verify that y/n is the global maximum in this case. If y = 0 or y = n,
+then
+                                                                                if y = 0                         logL(   =  nlog(1−p)                                  p|x)    nlog p              if y = n.
+In either case logL( p|x) is a monotone function of p, and it is again straightforward to verify that
+ˆp = y/n in each case. Thus, we have shown that ∑Xi/n is the MLE of p.                    ∥
+    In this derivation we have assumed that the parameter space is 0 ≤p ≤1. The values p = 0 and1 must be in the parameter space in order for ˆp = y/n to be the MLE for y = 0 and n. Contrast this
+with Example 3.4.1, where we took 0 < p < 1 to satisfy the requirements of an exponential family.
+   One other point to be aware of when finding a maximum likelihood estimator is that the max-
+imization takes place only over the range of parameter values. In some cases this point plays an
+important part.
+Example 7.2.8 (Restricted range MLE)  Let X1,...,Xn be iid n(θ,1), where it is known that θ
+must be nonnegative. With no restrictions on θ, we saw that the MLE of θ is ¯X; however, if ¯X is
+negative it will be outside the range of the parameter.
+     If  ¯x is negative, it is easy to check (see Exercise 7.4) that the likelihood function L(θ|x) is                         = 0. Hence, in this case, the MLE of θ isdecreasing in θ for θ ≥0 and is maximized at ˆθ
+                             = 0 if ¯X < 0.                                             ˆθ = ¯X if ¯X ≥0  and    ˆθ
+                                                                              ∥
+===== PDF 289, printed 258 =====
+258                                                 POINT ESTIMATION
+     If L(θ|x) cannot be maximized analytically, it may be possible to use a computer and maxi-
+mize L(θ|x) numerically. In fact, this is one of the most important features of MLEs. If a model(likelihood) can be written down, then there is some hope of maximizing it numerically and, hence,
+finding MLEs of the parameters. When this is done, there is still always the question of whether
+a local or global maximum has been found. Thus, it is always important to analyze the likelihood
+function as much as possible, to find the number and nature of its local maxima, before using nu-
+meric maximization.
+Example 7.2.9 (Binomial MLE, unknown number of trials)  Let X1,...,Xn be a random sample
+from a binomial(k, p) population where p is known and k is unknown. For example, we flip a coin
+we know to be fair and observe xi heads but we do not know how many times the coin was flipped.
+The likelihood function is
+                                                n   k
+                               L(k|x, p) = ∏i=1   xi  pxi(1−p)k−xi.
+Maximizing L(k|x, p) by differentiation is difficult because of the factorials and because k must bean integer. Thus we try a different approach.
+   Of course, L(k|x, p) = 0 if k < maxi xi. Thus the MLE is an integer k ≥maxi xi that satisfies
+L(k|x, p)/L(k −1|x, p) ≥1 and L(k + 1|x, p)/L(k|x, p) < 1. We will show that there is only onesuch k. The ratio of likelihoods is
+                                    L(k|x, p) = (k(1−p))n
+                              L(k −1|x, p)  ∏ni=1(k −xi).
+Thus the condition for a maximum is
+
+                                 n                                          n
+            (k(1−p))n ≥ ∏i=1 (k −xi)  and  ((k +1)(1−p))n < ∏i=1 (k +1−xi).
+
+Dividing by kn and letting z = 1/k, we want to solve
+
+                                                       n
+                        =                            (1−p)n ∏i=1 (1−xiz)
+for 0 ≤z ≤1/maxi xi. The right-hand side is clearly a strictly decreasing function of z for z in thisrange with a value of 1 at z = 0 and a value of 0 at z = 1/maxi xi. Thus there is a unique z (call it ˆz)
+that solves the equation. The quantity 1/ˆz may not be an integer. But the integer ˆk that satisfies the
+inequalities, and is the MLE, is the largest integer less than or equal to 1/ˆz (see Exercise 7.5). Thus,
+this analysis shows that there is a unique maximum for the likelihood function and it can be found
+by numerically solving an nth-degree polynomial equality. This description of the MLE for k was
+found by Feldman and Fox (1968). See Example 7.2.13 for more about estimating k.           ∥
+  A useful property of maximum likelihood estimators is what has come to be known as the in-
+variance property of maximum likelihood estimators (not to be confused with the type of invariance
+discussed in Chapter 6). Suppose that a distribution is indexed by a parameter θ, but the interest is in
+finding an estimator for some function of θ, say τ(θ). Informally speaking, the invariance property
+of MLEs says that if ˆθ is the MLE of θ, then τ(ˆθ) is the MLE of τ(θ). For example, if θ is the mean
+of a normal distribution, the MLE of sin(θ) is sin(¯X). We present the approach of Zehna (1966),
+but see Pal and Berry (1992) for alternate approaches to MLE invariance.
+   There are, of course, some technical problems to be overcome before we can formalize this
+notion of invariance of MLEs, and they mostly focus on the function τ(θ) that we are trying to
+estimate. If the mapping θ →τ(θ) is one-to-one (that is, for each value of θ there is a unique valueof τ(θ), and vice versa), then there is no problem. In this case, it is easy to see that it makes no
+difference whether we maximize the likelihood as a function of θ or as a function of τ(θ) – in
+===== PDF 290, printed 259 =====
+METHODS OF FINDING ESTIMATORS                                          259
+each case we get the same answer. If we let η = τ(θ), then the inverse function τ−1(η) = θ is well
+defined and the likelihood function of τ(θ), written as a function of η, is given by
+
+                                           n
+                        L∗(η|x) = ∏i=1 f(xi|τ−1(η)) = L(τ−1(η)|x)
+
+and
+                       sup                              = sup                         η L∗(η|x) = supη L(τ−1(η)|x)                                                                 θ  L(θ|x).
+Thus, the maximum of L∗(η|x) is attained at η = τ(θ) = τ(ˆθ), showing that the MLE of τ(θ) isτ(ˆθ).
+    In many cases, this simple version of the invariance of MLEs is not useful because many of
+the functions we are interested in are not one-to-one. For example, to estimate θ 2, the square of a
+normal mean, the mapping θ →θ 2 is not one-to-one. Thus, we need a more general theorem and,in fact, a more general definition of the likelihood function of τ(θ).
+     If τ(θ) is not one-to-one, then for a given value η there may be more than one value of θ that
+satisfy τ(θ) = η. In such cases, the correspondence between the maximization over η and that over
+θ can break down. For example, if ˆθ is the MLE of θ, there may be another value of θ, say θ0, for
+which τ( ˆθ) = τ(θ0). We need to avoid such difficulties.
+  We proceed by defining for τ(θ) the induced likelihood function L∗, given by
+                               L∗(η|x) =   sup   L(θ|x).                              (7.2.5)                                               {θ:τ(θ)=η}
+The value ˆη which maximizes L∗(η|x) will be called the MLE of η = τ(θ), and it can be seen from(7.2.5) that the maxima of L∗and L coincide.
+Theorem 7.2.10 (Invariance property of MLEs)    If ˆθ is the MLE of θ, then for any function
+τ(θ), the MLE of τ(θ) is τ( ˆθ).
+Proof: Let ˆη denote the value that maximizes L∗(η|x). We must show that L∗( ˆη|x) = L∗[τ( ˆθ)|x].Now, as stated above, the maxima of L and L∗coincide, so we have
+                            L∗(ˆη|x) =  supη    sup   L(θ|x)               (definition of L∗)                                                    {θ:τ(θ)=η}
+                      =  sup                                                  θ L(θ|x)
+                      =  L(ˆθ|x),                             (definition of ˆθ)
+
+where the second equality follows because the iterated maximization is equal to the unconditional
+maximization over θ, which is attained at ˆθ. Furthermore,
+                          L(ˆθ|x)                     =   sup{θ:τ(θ)=τ(ˆθ)}L(θ|x)                   (ˆθ is the MLE)
+                     =  L∗[τ( ˆθ)|x].                          (definition of L∗)
+
+Hence, the string of equalities shows that L∗(ˆη|x) = L∗(τ( ˆθ)|x), and that τ(ˆθ) is the MLE of τ(θ).2
+   Using this theorem, we now see that the MLE of θ 2, the square of a normal mean, is ¯X2. We
+can also apply Theorem 7.2.10 to more complicated functions to see that, for example, the MLE of
+  p(1−p), where p is a binomial probability, is given by   ˆp(1−ˆp).   Before leaving the subject of finding maximum likelihood estimators, there are a few more
+points to be mentioned.
+===== PDF 291, printed 260 =====
+260                                                 POINT ESTIMATION
+   The invariance property of MLEs also holds in the multivariate case. There is nothing in the
+proof of Theorem 7.2.10 that precludes θ from being a vector. If the MLE of (θ1,...,θk) is
+(ˆθ1,..., ˆθk), and if τ(θ1,...,θk) is any function of the parameters, the MLE of τ(θ1,...,θk) is
+τ( ˆθ1,..., ˆθk).
+     If θ = (θ1,...,θk) is multidimensional, then the problem of finding an MLE is that of maximiz-
+ing a function of several variables. If the likelihood function is differentiable, setting the first partial
+derivatives equal to zero provides a necessary condition for an extremum in the interior. However,
+in the multidimensional case, using a second derivative condition to check for a maximum is a te-
+dious task, and other methods might be tried first. We first illustrate a technique that usually proves
+simpler, that of successive maximizations.
+Example 7.2.11 (Normal MLEs, µ and σ unknown)  Let X1,...,Xn be iid n(θ,σ2), with both θ
+and σ2 unknown. Then
+                                     1
+                    =                                                      e−(1/2)Σni=1(xi−θ)2/σ2                       L(θ,σ2|x)                                    (2πσ2)n/2
+
+and
+                                                                     n
+                 logL(θ,σ2|x) = −n2 log2π −n2 logσ2 −12 i=1∑ (xi −θ)2/σ2.
+The partial derivatives, with respect to θ and σ2, are
+                           ∂                1   n
+                          =                      ∑ (xi −θ)                      ∂θ logL(θ,σ2|x)                                       σ2 i=1
+and
+                      ∂                        1   n
+                       =                            +                        ∑ (xi −θ)2.                  ∂σ2 logL(θ,σ2|x)                   −n2σ2                                           2σ4 i=1
+Setting these  partial derivatives equal to zero and solving yields the solution  ˆθ =  ¯x, ˆσ2 =
+                                                 = ¯x,n−1 ∑ni=1(xi −¯x)2. To verify that this solution is, in fact, a global maximum, recall first that if θ̸
+then ∑(xi −θ)2 > ∑(xi −¯x)2. Hence, for any value of σ2,
+                 1                          1                             e−(1/2)Σni=1(xi−¯x)2/σ2               e−(1/2)Σni=1(xi−θ)2/σ2.           (7.2.6)               (2πσ2)n/2           ≥ (2πσ2)n/2
+
+Therefore, verifying that we have found the maximum likelihood estimators is reduced to a one-
+dimensional problem, verifying that (σ2)−n/2exp(−1                                                         2 ∑(xi −¯x)2/σ2) achieves its global maximum
+at σ2 = n−1 ∑(xi −¯x)2. This is straightforward to do using univariate calculus and, in fact, the
+estimators (¯X, n−1 ∑(Xi −¯X)2) are the MLEs.  We note that the left side of the inequality in (7.2.6) is known as the profile likelihood for σ2.
+See Miscellanea 7.5.5.                                                            ∥
+  Now consider the solution to the same problem using two-variate calculus.
+Example 7.2.12 (Continuation of Example 7.2.11)  To use two-variate calculus to verify that a
+function H(θ1,θ2) has a local maximum at (ˆθ1, ˆθ2), it must be shown that the following three con-
+ditions hold.
+a. The first-order partial derivatives are zero,
+              ∂                               ∂
+                      = 0   and               = 0.             ∂θ1 H(θ1,θ2)|θ1=ˆθ1,θ2=ˆθ2           ∂θ2 H(θ1,θ2)|θ1= ˆθ1,θ2= ˆθ2
+b. At least one second-order partial derivative is negative,
+               ∂2                            ∂2
+                      < 0  or               < 0.            ∂θ 12 H(θ1,θ2)|θ1=ˆθ1,θ2=ˆθ2        ∂θ 22 H(θ1,θ2)|θ1=ˆθ1,θ2=ˆθ2
+===== PDF 292, printed 261 =====
+METHODS OF FINDING ESTIMATORS                                          261
+c. The Jacobian of the second-order partial derivatives is positive,
+
+                                ∂2 H(θ1,θ2)       ∂2  H(θ1,θ2)                             ∂θ21               ∂θ1∂θ2
+                                ∂2  H(θ1,θ2)     ∂2 H(θ1,θ2)                             ∂θ1∂θ2              ∂θ22             θ1=ˆθ1,θ2=ˆθ2              ∂2                                              ∂2               ∂2                                                              
+       =                  H(θ1,θ2)
+            ∂θ 12                      ∂θ 22 H(θ1,θ2)−  ∂θ1∂θ2 H(θ1,θ2)        > 0.                                              θ1=ˆθ1,θ2=ˆθ2
+For the normal log likelihood, the second-order partial derivatives are                                                                                                                                2
+                      ∂2                         =  −n ,                   ∂θ 2 logL(θ,σ2|x)     σ2
+                     ∂2                     n          n
+                         =                         ∑ (xi −θ)2,                   ∂(σ2)2 logL(θ,σ2|x)                                        2σ4 −1σ6 i=1
+                     ∂2                                 n
+                         =                       ∑ (xi −θ).                ∂θ∂σ2 logL(θ,σ2|x)                        −1σ4 i=1
+
+Properties (a) and (b) are easily seen to hold, and the Jacobian is
+
+                          −n                              σ2                                               σ4 ∑ni=1(xi −θ)                                                 n −1
+                                            2σ4            −1                         σ4 ∑ni=1(xi −θ)                       −1                                                 σ6 ∑ni=1(xi −θ)2  θ=¯x,σ2=ˆσ2
+
+                                          n                     n                                                                                                                                1         n                                                                                                                                                                                                                                                                                                                                                                                                                        
+         =       +               ∑ (xi      ∑ (xi                σ6  2    σ2 i=1  −θ)2 −1σ2 i=1  −θ)2
+                                                                               θ=¯x,σ2=ˆσ2                 −n2                                          1          n2              n                                                                                                                                                                                =       +    ˆσ2   ∑ (xi                        ˆσ6  2     ˆσ2  −1ˆσ2 i=1   −¯x)2                −n2                                     1 n2
+         =     > 0.
+                        ˆσ6 2
+Thus, the calculus conditions are satisfied and we have indeed found a maximum. (Of course, to be
+really formal, we have verified that (¯x, ˆσ2) is an interior maximum. We still have to check that it
+is unique, and that there is no maximum at infinity.) The amount of calculation, even in this simple
+problem, is formidable, and things will only get worse. (Think of what we would have to do for
+three parameters.) Thus, the moral is that, while we always have to verify that we have, indeed,
+found a maximum, we should look for ways to do it other than using second derivative conditions.
+∥
+    Finally, it was mentioned earlier that, since MLEs are found by a maximization process, they are
+susceptible to the problems associated with that process, among them that of numerical instability.
+We now look at this problem in more detail.
+    Recall that the likelihood function is a function of the parameter, θ, with the data, x, held con-
+stant. However, since the data are measured with error, we might ask how small changes in the data
+might affect the MLE. That is, we calculate ˆθ based on L(θ|x), but we might inquire what value we
+would get for the MLE if we based our calculations on L(θ|x+ε), for small ε. Intuitively, this newMLE, say ˆθ1, should be close to ˆθ if ε is small. But this is not always the case.
+Example 7.2.13 (Continuation of Example 7.2.2) Olkin et al. (1981) demonstrate that the MLEs
+of k and p in binomial sampling can be highly unstable. They illustrate their case with the following
+example. Five realizations of a binomial(k, p) experiment are observed, where both k and p are
+===== PDF 293, printed 262 =====
+262                                                 POINT ESTIMATION
+unknown. The first data set is (16, 18, 22, 25, 27). (These are the observed numbers of successes
+from an unknown number of binomial trials.) For this data set, the MLE of k is ˆk = 99. If a second
+data set is (16, 18, 22, 25, 28), where the only difference is that the 27 is replaced with 28, then the
+MLE of k is ˆk = 190, demonstrating a large amount of variability.                                                                              ∥
+   Such occurrences happen when the likelihood function is very flat in the neighborhood of its
+maximum, or when there is no finite maximum. When the MLEs can be found explicitly, as will
+often be the case in our examples, this is usually not a problem. However, in many instances, such
+as in the above example, the MLE cannot be solved for explicitly, and must be found by numeric
+methods. When faced with such a problem, it is often wise to spend a little extra time investigating
+the stability of the solution.
+
+7.2.3  Bayes Estimators
+
+The Bayesian approach to statistics is fundamentally different from the classical approach that we
+have been taking. Nevertheless, some aspects of the Bayesian approach can be quite helpful to other
+statistical approaches. Before going into the methods for finding Bayes estimators, we first discuss
+the Bayesian approach to statistics.
+    In the classical approach, the parameter, θ, is thought to be an unknown, but fixed, quantity.
+A random sample X1,...,Xn is drawn from a population indexed by θ and, based on the observed
+values in the sample, knowledge about the value of θ is obtained. In the Bayesian approach, θ is
+considered to be a quantity whose variation can be described by a probability distribution (called
+the prior distribution). This is a subjective distribution, based on the experimenter’s belief, and is
+formulated before the data are seen (hence the name prior distribution). A sample is then taken from
+a population indexed by θ and the prior distribution is updated with this sample information. The
+updated prior is called the posterior distribution. This updating is done with the use of Bayes’ Rule
+(seen in Chapter 1), hence the name Bayesian statistics.
+     If we denote the prior distribution by π(θ), and the sampling distribution by f(x|θ), then theposterior distribution, the conditional distribution of θ given the sample, x, is
+                       π(θ|x) = f(x|θ)π(θ)/m(x),     ( f(x|θ)π(θ) = f(x,θ))        (7.2.7)
+where m(x) is the marginal distribution of X, that is,
+
+                             m(x) =   f(x|θ)π(θ)dθ.                               (7.2.8)
+Notice that the posterior distribution is a conditional distribution, conditional upon observing the
+sample. The posterior distribution is now used to make statements about θ, which is still considered
+a random quantity. For instance, the mean of the posterior distribution can be used as a point estimate
+of θ.
+A note on notation: When dealing with distributions on a parameter, θ, we will break our notation
+convention of using uppercase letters for random variables and lowercase letters for arguments.
+Thus, we may speak of the random quantity θ with distribution π(θ). This is more in line with
+common usage and should not cause confusion.
+Example 7.2.14 (Binomial Bayes estimation)  Let X1,...,Xn be iid Bernoulli(p). Then Y = ∑Xi
+is binomial(n, p). We assume the prior distribution on p is beta(α,β). The joint distribution of Y
+and p is
+
+                 n             Γ(α +β)                   conditional   marginal    f(y, p) =                                  ×                   y  py(1−p)n−y  Γ(α)Γ(β) pα−1(1−p)β−1                                                           f(y|p)×π(p)
+                n  Γ(α +β)
+       =                  y  Γ(α)Γ(β) py+α−1(1−p)n−y+β−1.
+===== PDF 294, printed 263 =====
+METHODS OF FINDING ESTIMATORS                                          263
+The marginal pdf of Y is
+
+                              1            n  Γ(α +β)                 f(y) =     f(y, p)dp =            Γ(y+α)Γ(n−y+β) ,           (7.2.9)
+                            0               y  Γ(α)Γ(β)   Γ(n+α +β)
+
+a distribution known as the beta–binomial (see Exercise 4.34 and Example 4.4.6). The posterior
+distribution, the distribution of p given y, is
+
+                             f(y, p)     Γ(n+α +β)
+                f(p|y) =  f(y) =                   py+α−1(1−p)n−y+β−1,                        Γ(y+α)Γ(n−y+β)
+which is beta(y + α,n −y + β). (Remember that p is the variable, y is treated as fixed.) A naturalestimate for p is the mean of the posterior distribution, which would give us as the Bayes estimator
+of p,
+                            y+α
+                                                ˆpB =                              α +β +n.
+                                                                              ∥
+   Consider how the Bayes estimate of p is formed. The prior distribution has mean α/(α + β),
+which would be our best estimate of p without having seen the data. Ignoring the prior information,
+we would probably use p = y/n as our estimate of p. The Bayes estimate of p combines all of this
+information. The manner in which this information is combined is made clear if we write ˆpB as
+                            n        y     α +β      α
+                           ˆpB =          +                                    .                    α +β +n   n    α +β +n   α +β
+
+Thus pB is a linear combination of the prior mean and the sample mean, with the weights being
+determined by α, β, and n.
+   When estimating a binomial parameter, it is not necessary to choose a prior distribution from
+the beta family. However, there was a certain advantage to choosing the beta family, not the least
+of which being that we obtained a closed-form expression for the estimator. In general, for any
+sampling distribution, there is a natural family of prior distributions, called the conjugate family.
+Definition 7.2.15   Let F denote the class of pdfs or pmfs f(x|θ) (indexed by θ). A class ∏ofprior distributions is a conjugate family for F if the posterior distribution is in the class ∏for all
+ f ∈F, all priors in ∏, and all x ∈X .
+   The beta family is conjugate for the binomial family. Thus, if we start with a beta prior, we will
+end up with a beta posterior. The updating of the prior takes the form of updating its parameters.
+Mathematically, this is very convenient, for it usually makes calculation quite easy. Whether or not
+a conjugate family is a reasonable choice for a particular problem, however, is a question to be left
+to the experimenter.
+  We end this section with one more example.
+Example 7.2.16 (Normal Bayes estimators)  Let X ∼n(θ,σ2), and suppose that the prior distri-bution on θ is n(µ,τ2). (Here we assume that σ2, µ, and τ2 are all known.) The posterior distribution
+of θ is also normal, with mean and variance given by
+
+                                            τ2       σ2
+                            E(θ|x) =   τ2 +σ2 x+ σ2 +τ2 µ,
+                                                                                            (7.2.10)
+                                      σ2τ2
+                          Var(θ|x) =  σ2 +τ2 .
+(See Exercise 7.22 for details.) Notice that the normal family is its own conjugate family. Again
+using the posterior mean we have the Bayes estimator of θ is E(θ|X).
+===== PDF 295, printed 264 =====
+264                                                 POINT ESTIMATION
+   The Bayes estimator is, again, a linear combination of the prior and sample means. Notice also
+that as τ2, the prior variance, is allowed to tend to infinity, the Bayes estimator tends toward the
+sample mean. We can interpret this as saying that, as the prior information becomes more vague,
+the Bayes estimator tends to give more weight to the sample information. On the other hand, if the
+prior information is good, so that σ2 > τ2, then more weight is given to the prior mean.        ∥
+
+7.2.4  The EM Algorithm1
+
+A last method that we will look at for finding estimators is inherently different in its approach, and
+specifically designed to find MLEs. Rather than detailing a procedure for solving for the MLE, we
+specify an algorithm that is guaranteed to converge to the MLE. This algorithm is called the EM
+(Expectation-Maximization) algorithm. It is based on the idea of replacing one difficult likelihood
+maximization with a sequence of easier maximizations whose limit is the answer to the original
+problem. It is particularly suited to “missing data” problems, as the very fact that there are missing
+data can sometimes make calculations cumbersome. However, we will see that filling in the “missing
+data” will often make the calculation go more smoothly. (We will also see that “missing data” have
+different interpretations – see, for example, Exercise 7.30.)
+    In using the EM algorithm we consider two different likelihood problems. The problem that we
+are interested in solving is the “incomplete-data” problem, and the problem that we actually solve
+is the “complete-data problem.” Depending on the situation, we can start with either problem.
+Example 7.2.17 (Multiple Poisson rates)  We observe X1,X2, ..., Xn and Y1,Y2, ..., Yn, all mu-
+tually independent, where Yi ∼Poisson(βτi) and Xi ∼Poisson(τi). This would model for instance,the incidence of a disease, Yi, where the underlying rate is a function of an overall effect β and an
+additional factor τi. For example, τi could be a measure of population density in area i, or perhaps
+health status of the population in area i. We do not see τi, but get information on it through Xi.
+   The joint pmf is therefore
+                                f((x1,y1),(x2,y2),...,(xn,yn))|β,τ1,τ2,...,τn)
+                                            n  e−βτi(βτi)yi e−τi(τi)xi
+                  =                                         .                         (7.2.11)             ∏                                          i=1      yi!          xi!
+
+The likelihood estimators, which can be found by straightforward differentiation (see Exercise 7.27),
+are
+                       ∑ni=1 yi          x j +yj                                     ˆβ =       and ˆτj =           ,     j = 1,2,...,n.                  (7.2.12)
+                       ∑ni=1 xi                ˆβ +1
+   The likelihood based on the pmf (7.2.11)  is the complete-data likelihood, and ((x1,y1),
+(x2,y2),...,(xn,yn)) is called the complete data. Missing data, which is a common occurrence,
+would make estimation more difficult. Suppose, for example, that the value of x1 was missing. We
+could also discard y1 and proceed with a sample of size n−1, but this is ignoring the information iny1. Using this information would improve our estimates.
+    Starting from the pmf (7.2.11), the pmf of the sample with x1 missing is defined naturally by
+
+                 ∞
+                                                                                            (7.2.13)         ∑ f((x1,y1),(x2,y2),...,(xn,yn))|β,τ1,τ2,...,τn)dx1.                     x1=0
+
+The likelihood based on (7.2.13) is the incomplete-data likelihood. This is the likelihood that we
+need to maximize.                                                               ∥
+
+   1This section contains material that is somewhat specialized and more advanced. It may be skipped without interrupting
+the flow of the text.
+===== PDF 296, printed 265 =====
+METHODS OF FINDING ESTIMATORS                                          265
+    In general, we can move in either direction, from the complete-data problem to the incomplete
+data problem, or the reverse. If Y = (Y1,Y2 ...,Yn) is the incomplete data, and X = (X1,X2 ...,Xm) is
+the augmented data, making (Y,X) the complete data, the densities g(·|θ) of Y and f(·|θ) of (Y,X)have the relationship
+                                 g(y|θ) =   f(y,x|θ)dx.                              (7.2.14)
+     If we turn these into likelihoods, L(θ|y) = g(y|θ) is the incomplete-data likelihood, and
+L(θ|y,x) = f(y,x|θ) is the complete-data likelihood. If L(θ|y) is difficult to work with, it willsometimes be the case that the complete-data likelihood will be easier to work with.
+Example 7.2.18 (Continuation of Example 7.2.17)  The incomplete-data likelihood is obtained
+from (7.2.11) by summing over x1. This gives
+
+                                                        n  e−βτi(βτi)yi     n  e−τi(τi)xi
+     L(β,τ1,τ2,...,τn|y1,(x2,y2),...,(xn,yn)) = ∏i=1      yi!   ∏i=2     xi!        ,     (7.2.15)
+
+and (y1,(x2,y2),...,(xn,yn)) is the incomplete data. This is the likelihood that we need to maximize.
+Differentiation leads to the MLE equations
+                                ∑ni=1 yi                                                 ˆβ =
+                                ∑ni=1 ˆτi
+                                 y1 =    ˆτ1 ˆβ                                             (7.2.16)
+                          x j +yj =    ˆτ j(ˆβ +1),     j = 2,3,...,n,
+which we now solve with the EM algorithm.                                           ∥
+   The EM algorithm allows us to maximize L(θ|y) by only working with L(θ|y,x) and the con-ditional pdf or pmf of X given y and θ, defined by
+           =           =       and     = f(y,x|θ) .           (7.2.17)         L(θ|y,x)   f(y,x|θ),  L(θ|y)   g(y|θ),     k(x|θ,y)                                                                g(y|θ)
+Rearrangement of the last equation in (7.2.17) gives the identity
+                         logL(θ|y) = logL(θ|y,x)−logk(x|θ,y).                     (7.2.18)
+As x is missing data, and hence not observed, we replace the right side of (7.2.18) with its expecta-
+tion under k(x|θ ′,y), creating the new identity
+                 logL(θ|y) = E logL(θ|y,X)|θ ′,y −E logk(X|θ,y)|θ ′,y  .           (7.2.19)
+  Now we start the algorithm: From an initial value θ (0) we create a sequence θ (r) according to
+
+                                                                                                                  .           (7.2.20)               θ (r+1) = the value that maximizes E logL(θ|y,X)|θ (r),y
+The “E-step” of the algorithm calculates the expected log likelihood, and the “M-step” finds its
+maximum. Before we look into why this algorithm actually converges to the MLE, let us return to
+our example.
+===== PDF 297, printed 266 =====
+266                                                 POINT ESTIMATION
+Example 7.2.19 (Conclusion of Example 7.2.17)  Let (x,y) = ((x1,y1),(x2,y2), ..., (xn,yn)) de-
+note the complete data and (x(−1),y) = (y1,(x2,y2), ..., (xn,yn)) denote the incomplete data. Theexpected complete-data log likelihood is
+     E[logL(β,τ1,τ2,...,τn|(x,y))|τ(r),(x(−1),y)]
+          ∞         n  e−βτi(βτi)yi e−τi(τi)xi    e−τ(r)                                                                       1  (τ(r)1  )x1    =      log     ∑  ∏                                   yi!          xi!        x1!            x1=0   i=1
+              n                                           n
+    =                                              +xi logτi −logxi!]            i=1     ∑ [−βτi +yi(logβ +logτi)−logyi!]+ i=2∑ [−τi
+            ∞                               e−τ(r)1  (τ(r)1  )x1      +      ∑ [−τ1                +x1 logτ1 −logx1!]      x1!        .                                 (7.2.21)              x1=0
+                n                                 n            ∞                e−τ(r)1  (τ(r)1  )x1    =     ∑      +yi(logβ +logτi)]+ ∑ [τixi logτi]+ ∑ [τ1x1 logτ1]      i=1 [−βτi                        i=2             x1=0                 x1!                                           
+                   n            n         ∞                1  (τ(r)1  )x1      ∑ logyi!+ ∑ logxi!+ ∑ logx1!e−τ(r)      −  i=1        2=1         x1=0            x1!                                       ,
+where in the last equality we have grouped together terms involving β and τi, and terms that do not
+involve these parameters. Since we are calculating this expected log likelihood for the purpose of
+maximizing it in β and τi, we can ignore the terms in the second set of parentheses. We thus have
+to maximize only the terms in the first set of parentheses, where we can write the last sum as
+                            ∞     e−τ(r)1  (τ(r)1  )x1                                                                        1  logτ1.               (7.2.22)              ∑ x1                             = −τ1 +τ(r)                  −τ1 +logτ1                                                x1!                                   x1=0
+   When substituting this back into (7.2.21), we see that the expected complete data likelihood is
+the same as the original complete data likelihood, with the exception that x1 is replaced by τ(r)1   .
+Thus, in the rth step the MLEs are only a minor variation of (7.2.12), and are given by
+    (r+1)     ∑ni=1 yi                         ˆτ(r)1 +y1              x j +yj                                                                                                       ,     j = 2,3,...,n.  (7.2.23)  ˆβ   =                     ,   ˆτ(r+1)1  =   (r+1)                                                                      ,   ˆτ(r+1)j  =   (r+1)             τ(r)1 +∑ni=2 xi                   ˆβ   +1                   ˆβ   +1
+This defines both the E-step (which results in the substitution of ˆτ(r)1  for x1) and the M-step (which
+results in the calculation in (7.2.23) for the MLEs at the rth iteration. The properties of the EM
+                                                          ˆalgorithm give us assurance that the sequence (β (r), ˆτ(r)1  , ˆτ(r)2  ,..., ˆτ(r)n  ) converges to the incomplete-
+data MLE as r →∞. See Exercise 7.27 for more.                                       ∥
+  We will not give a complete proof that the EM sequence {ˆθ(r)} converges to the incomplete-dataMLE, but the following key property suggests that this is true. The proof is left to Exercise 7.31.
+Theorem 7.2.20 (Monotonic EM sequence)  The sequence { ˆθ(r)} defined by (7.2.20) satisfies
+                               L( ˆθ (r+1)|y) ≥L(ˆθ (r)|y),                              (7.2.24)
+with equality holding if and only if successive iterations yield the same value of the maximized
+expected complete-data log likelihood, that is,
+
+                                                                                                                 .             E logL(ˆθ (r+1)|y,X)|ˆθ (r),y                         = E logL(ˆθ (r)|y,X)| ˆθ (r),y                                                              
+===== PDF 298, printed 267 =====
+METHODS OF EVALUATING ESTIMATORS                                      267
+7.3  Methods of Evaluating Estimators
+The methods discussed in the previous section have outlined reasonable techniques for finding point
+estimators of parameters. A difficulty that arises, however, is that since we can usually apply more
+than one of these methods in a particular situation, we are often faced with the task of choosing
+between estimators. Of course, it is possible that different methods of finding estimators will yield
+the same answer, which makes evaluation a bit easier, but, in many cases, different methods will
+lead to different estimators.
+   The general topic of evaluating statistical procedures is part of the branch of statistics known
+as decision theory, which will be treated in some detail in Section 7.3.4. However, no procedure
+should be considered until some clues about its performance have been gathered. In this section we
+will introduce some basic criteria for evaluating estimators, and examine several estimators against
+these criteria.
+
+
+7.3.1  Mean Squared Error
+
+We first investigate finite-sample measures of the quality of an estimator, beginning with its mean
+squared error.
+Definition 7.3.1  The mean squared error (MSE) of an estimatorW of a parameter θ is the function
+of θ defined by Eθ(W −θ)2.
+   Notice that the MSE measures the average squared difference between the estimator W and the
+parameter θ, a somewhat reasonable measure of performance for a point estimator. In general, any
+increasing function of the absolute distance |W −θ| would serve to measure the goodness of an
+estimator (mean absolute error, Eθ(|W −θ|) is a reasonable alternative), but MSE has at least twoadvantages over other distance measures: First, it is quite tractable analytically and, second, it has
+the interpretation
+
+                             = Varθ W +(Biasθ W)2,            (7.3.1)             Eθ(W −θ)2                = Varθ W +(EθW −θ)2
+where we define the bias of an estimator as follows.
+Definition 7.3.2  The bias of a point estimator W, of a parameter θ, is the difference between the
+expected value of W and θ. That is, Biasθ W = EθW −θ. An estimator whose bias is identically (inθ) equal to zero is called unbiased and satisfies EθW = θ for all θ.
+
+   Thus, MSE incorporates two components, one measuring the variability of the estimator (pre-
+cision), and the other measuring its bias (accuracy). An estimator that has good MSE properties
+has small combined variance and bias. To find an estimator with good MSE properties, we need to
+find estimators that control both variance and bias. Clearly, unbiased estimators do a good job of
+controlling bias.
+   For an unbiased estimator we have
+
+                          = Varθ W,                          Eθ(W −θ)2
+and so, if an estimator is unbiased, its MSE is equal to its variance.
+Example 7.3.3 (Normal MSE)   Let X1,...,Xn be iid n(µ,σ2). The statistics ¯X and S2 are both
+unbiased estimators since
+
+                   E¯X = µ,  ES2 = σ2,   for all µ and σ2.
+===== PDF 299, printed 268 =====
+268                                                 POINT ESTIMATION
+(This is true without the normality assumption; see Theorem 5.2.6.) The MSEs of these estimators
+are given by
+
+                                             σ2
+                           E(¯X −µ)2 =  Var ¯X = n  ,
+                                               2σ4                        =  VarS2 =                           E(S2 −σ2)2                                        n−1.
+The MSE of ¯X remains σ2/n even if the normality assumption is dropped. However, the above
+expression for the MSE of S2 does not remain the same if the normality assumption is relaxed (see
+Exercise 5.8).                                                                   ∥
+   Although many unbiased estimators are also reasonable from the standpoint of MSE, be aware
+that controlling bias does not guarantee that MSE is controlled. In particular, it is sometimes the
+case that a trade-off occurs between variance and bias in such a way that a small increase in bias
+can be traded for a larger decrease in variance, resulting in an improvement in MSE.
+Example 7.3.4 (Continuation of Example 7.3.3)  An alternative estimator for σ2 is the maxi-
+                         = n−1n  S2. It is straightforward to calculatemum likelihood estimator ˆσ2 = 1n ∑ni=1(Xi −¯X)2
+                      Eˆσ2 = E n−1 S2 = n−1 σ2,
+                                     n         n
+
+so ˆσ2 is a biased estimator of σ2. The variance of ˆσ2 can also be calculated as
+
+                                                              2
+                 Var ˆσ2 = Var  n−1 S2 =  n−1   VarS2 = 2(n−1)σ4 ,
+                             n           n                  n2
+
+and, hence, its MSE is given by
+
+                                                                     2
+             E(ˆσ2    = 2(n−1)σ4 + n−1 σ2     =  2n−1  σ4.                −σ2)2       n2         n   −σ2         n2
+
+We thus have
+                                             2               E(ˆσ2    =  2n−1  σ4 <        σ4 = E(S2                  −σ2)2       n2                        −σ2)2,                               n−1
+showing that ˆσ2 has smaller MSE than S2. Thus, by trading off variance for bias, the MSE is im-
+proved.                                                                        ∥
+  We hasten to point out that the above example does not imply that S2 should be abandoned as
+an estimator of σ2. The above argument shows that, on the average, ˆσ2 will be closer to σ2 than
+S2 if MSE is used as a measure. However, ˆσ2 is biased and will, on the average, underestimate σ2.
+This fact alone may make us uncomfortable about using ˆσ2 as an estimator of σ2. Furthermore, it
+can be argued that MSE, while a reasonable criterion for location parameters, is not reasonable for
+scale parameters, so the above comparison should not even be made. (One problem is that MSE
+penalizes equally for overestimation and underestimation, which is fine in the location case. In the
+scale case, however, zero is a natural lower bound, so the estimation problem is not symmetric.
+Use of MSE in this case tends to be forgiving of underestimation.) The end result of this is that no
+absolute answer is obtained but rather more information is gathered about the estimators in the hope
+that, for a particular situation, a good estimator is chosen.
+===== PDF 300, printed 269 =====
+METHODS OF EVALUATING ESTIMATORS                                      269
+    In general, since MSE is a function of the parameter, there will not be one “best” estimator.
+Often, the MSEs of two estimators will cross each other, showing that each estimator is better (with
+respect to the other) only in a portion of the parameter space. However, even this partial information
+can sometimes provide guidelines for choosing between estimators.
+Example 7.3.5 (MSE of binomial Bayes estimator)    Let X1,...,Xn be iid Bernoulli(p). The
+MSE of ¯X, as an estimator of p, is
+                          Ep(¯X    = Varp ¯X = p(1−p) .                           −p)2              n
+Let Y = ∑Xi and recall the Bayes estimator derived in Example 7.2.14, ˆpB = α+β+n.Y+α  The MSE of
+this Bayes estimator of p is
+
+                =  Varp ˆpB +(Biasp ˆpB)2             Ep( ˆpB −p)2
+                                Y +α           Y +α           2
+                =  Varp        +  Ep                           α +β +n       α +β +n −p
+                                np+α        2                =   np(1−p) +                             .                            (α +β +n)2   α +β +n −p
+
+In the absence of good prior information about p, we might try to choose α and β to make the
+MSE of ˆpB constant. The details are not too difficult to work out (see Exercise 7.33), and the choice
+α = β =  n/4 yields
+
+                     Y +  n/4                       n
+                              ˆpB = n+√n    and  E( ˆpB −p)2                               = 4(n+√n)2 .
+
+
+
+   .075          MSE(X¯ )                           .00075          MSE(X¯ )
+
+                                                                                        MSE(pˆ B)
+   .050                                            .00050
+
+
+                                     MSE(pˆ B)   .025                                                  .00025
+
+
+
+                                      p                                                  p
+     0               .5          1                     0               .5          1
+                    n = 4                                              n = 400
+
+     Figure 7.3.1 Comparison of MSE of ¯X and ˆpB for sample sizes n = 4 and n = 400 in Example 7.3.5
+
+     If we want to choose between ˆpB and ¯X on the basis of MSE, Figure 7.3.1 is helpful. For small
+n, ˆpB is the better choice (unless there is a strong belief that p is near 0 or 1). For large n, ¯X is the
+better choice (unless there is a strong belief that p is close to 12). Even though the MSE criterion
+does not show one estimator to be uniformly better than the other, useful information is provided.
+This information, combined with the knowledge of the problem at hand, can lead to choosing the
+better estimator for the situation.                                                    ∥
+===== PDF 301, printed 270 =====
+270                                                 POINT ESTIMATION
+    In certain situations, particularly in location parameter estimation, MSE can be a helpful crite-
+rion for finding the best estimator in a class of equivariant estimators (Section 6.4). For a fixed g in
+the group G , denote the function that takes θ →θ ′ by ¯g(θ), so ¯g(θ) = θ ′. Then if W(X) estimatesθ we have
+   Measurement Equivariance:  W(x) estimates θ ⇒¯g(W(x)) estimates ¯g(θ) = θ ′.
+   Formal Invariance:  W(x) estimates θ ⇒W(g(x)) estimates ¯g(θ) = θ ′.
+Putting these two requirements together gives W(g(x)) = ¯g(W(x)).
+Example 7.3.6 (MSE of equivariant estimators)  Let X1,...,Xn be iid f(x−θ). For an estimatorW(X1,...,Xn) to satisfy W(ga(x)) = ¯ga(W(x)), we must have
+
+                       W(x1,...,xn)+a = W(x1 +a,...,xn +a),                       (7.3.2)
+
+which specifies the equivariant estimators with respect to the group of transformations defined by
+G = {ga(x): −∞< a < ∞}, where ga(x1,...,xn) = (x1 +a,...,xn +a). For these estimators we have
+            Eθ(W(X1,...,Xn)−θ)2
+          = Eθ (W(X1 +a,...,Xn +a)−a−θ)2
+          = Eθ (W(X1 −θ,...,Xn −θ))2                         (a = −θ)                   ∞     ∞                             n
+                                                                     f(xi −θ)dxi          =  −∞··· −∞(W(x1 −θ,...,xn −θ))2 ∏i=1
+                   ∞     ∞                    n
+                                                      f(ui)dui.         (ui = xi −θ)         (7.3.3)          =  −∞··· −∞(W(u1,...,un))2 ∏i=1
+This last expression does not depend on θ, hence the MSEs of these equivariant estimators are
+not functions of θ. The MSE can therefore be used to order the equivariant estimators, and an
+equivariant estimator with smallest MSE can be found. In fact, this estimator is the solution to
+the mathematical problem of finding the function W that minimizes (7.3.3) subject to (7.3.2). (See
+Exercises 7.35 and 7.36.)                                                          ∥
+
+7.3.2  Best Unbiased Estimators
+
+As noted in the previous section, a comparison of estimators based on MSE considerations may not
+yield a clear favorite. Indeed, there is no one “best MSE” estimator. Many find this troublesome or
+annoying, and rather than doing MSE comparisons of candidate estimators, they would rather have
+a “recommended” one.
+   The reason that there is no one “best MSE” estimator is that the class of all estimators is too
+large a class. (For example, the estimator ˆθ = 17 cannot be beaten in MSE at θ = 17, but is a terrible
+estimator otherwise.) One way to make the problem of finding a “best” estimator tractable is to limit
+the class of estimators. A popular way of restricting the class of estimators, the one we consider in
+this section, is to consider only unbiased estimators.
+     If W1 and W2 are both unbiased estimators of a parameter θ, that is, EθW1 = EθW2 = θ, then
+their mean squared errors are equal to their variances, so we should choose the estimator with the
+smaller variance. If we can find an unbiased estimator with uniformly smallest variance – a best
+unbiased estimator – then our task is done.
+   Before proceeding we note that, although we will be dealing with unbiased estimators, the results
+here and in the next section are actually more general. Suppose that there is an estimator W ∗of θ
+with Eθ W ∗= τ(θ)̸ = θ, and we are interested in investigating the worth of W ∗. Consider the classof estimators
+                              Cτ = {W : EθW = τ(θ)}.
+===== PDF 302, printed 271 =====
+METHODS OF EVALUATING ESTIMATORS                                      271
+For any W1,W2 ∈Cτ, Biasθ W1 = Biasθ W2, so
+                  Eθ(W1 −θ)2 −Eθ(W2 −θ)2                           = Varθ W1 −Varθ W2,
+and MSE comparisons, within the class Cτ, can be based on variance alone. Thus, although we speak
+in terms of unbiased estimators, we really are comparing estimators that have the same expected
+value, τ(θ).
+   The goal of this section is to investigate a method for finding a “best” unbiased estimator, which
+we define in the following way.
+Definition 7.3.7  An estimator W ∗is a best unbiased estimator of τ(θ) if it satisfies EθW ∗= τ(θ)
+for all θ and, for any other estimator W with EθW = τ(θ), we have Varθ W ∗≤Varθ W for all θ.W ∗is also called a uniform minimum variance unbiased estimator (UMVUE) of τ(θ).
+
+   Finding a best unbiased estimator (if one exists!) is not an easy task for a variety of reasons, two
+of which are illustrated in the following example.
+Example 7.3.8 (Poisson unbiased estimation)  Let X1,...,Xn be iid Poisson(λ), and let ¯X and S2
+be the sample mean and variance, respectively. Recall that for the Poisson pmf both the mean and
+variance are equal to λ. Therefore, applying Theorem 5.2.6, we have
+
+                              Eλ ¯X = λ,   for all λ,
+
+and
+                              EλS2 = λ,   for all λ,
+so both ¯X and S2 are unbiased estimators of λ.
+   To determine the better estimator, ¯X or S2, we should now compare variances. Again from
+Theorem 5.2.6, we have Varλ ¯X = λ/n, but Varλ S2 is quite a lengthy calculation (resembling that
+in Exercise 5.10b). This is one of the first problems in finding a best unbiased estimator. Not only
+may the calculations be long and involved, but they may be for naught (as in this case), for we will
+see that Varλ ¯X ≤Varλ S2 for all λ.   Even if we can establish that ¯X is better than S2, consider the class of estimators
+                           Wa(¯X,S2) = a ¯X +(1−a)S2.
+For every constant a,EλWa(¯X, S2) = λ, so we now have infinitely many unbiased estimators of λ.
+Even if ¯X is better than S2, is it better than every Wa( ¯X,S2)? Furthermore, how can we be sure that
+there are not other, better, unbiased estimators lurking about?                             ∥
+   This example shows some of the problems that might be encountered in trying to find a best
+unbiased estimator, and perhaps that a more comprehensive approach is desirable. Suppose that, for
+estimating a parameter τ(θ) of a distribution f(x|θ), we can specify a lower bound, say B(θ), on thevariance of any unbiased estimator of τ(θ). If we can then find an unbiased estimator W ∗satisfying
+Varθ W ∗= B(θ), we have found a best unbiased estimator. This is the approach taken with the use
+of the Cram´er–Rao Lower Bound.
+Theorem 7.3.9 (Cram´er–Rao Inequality)   Let X1,...,Xn be a sample with pdf f(x|θ), and letW(X) = W(X1,...,Xn) be any estimator satisfying
+
+                              d                  ∂
+                           EθW(X) =                                                    [W(x) f(x|θ)] dx                           dθ                                 X ∂θ
+               and                                                                         (7.3.4)
+                            VarθW(X) <  ∞.
+===== PDF 303, printed 272 =====
+272                                                 POINT ESTIMATION
+Then
+                                                        d            2                                                    dθ EθW(X)
+                                                                        2                         Varθ (W(X)) ≥         ∂                         .                       (7.3.5)
+                                    Eθ    ∂θ log f(X|θ)
+Proof: The proof of this theorem is elegantly simple, and is a clever application of the Cauchy–
+Schwarz Inequality, or stated statistically, the fact that for any two random variables X and Y,
+                             [Cov(X,Y)]2 ≤(VarX)(VarY).                             (7.3.6)
+If we rearrange (7.3.6) we can get a lower bound on the variance of X,
+
+                             VarX                        .                                  ≥[Cov(X,Y)]2VarY
+The cleverness in this theorem follows from choosing X to be the estimator W(X) and Y to be the
+quantity ∂θ∂ log f(X|θ), and applying the Cauchy–Schwarz Inequality.    First note that
+         d                        ∂
+                        W(x)         EθW(X) =        dθ                             ∂θ f(x|θ)  dx                  X
+                                             ∂
+                                       ∂θ             =  Eθ W(X)   f(X|θ)       (multiply by                       (7.3.7)                                                            f(X|θ)/ f(X|θ))                                    f(X|θ)
+                                 ∂
+             =  Eθ W(X)                                         log f(X|θ)  ,              (property of logs)                            ∂θ
+which suggests a covariance between W(X) and ∂θ∂ log f(X|θ). For it to be a covariance, we need
+to subtract the product of the expected values, so we calculate Eθ  ∂θ∂ log f(X|θ)  . But if we apply
+(7.3.7) with W(x) = 1, we have
+
+                             ∂               d
+                        Eθ                         ∂θ                                     log f(X|θ) = dθ Eθ[1] = 0.                         (7.3.8)
+Therefore, Covθ(W(X), ∂θ∂ log f(X|θ)) is equal to the expectation of the product, and it followsfrom (7.3.7) and (7.3.8) that
+
+                    ∂                        ∂               d
+       Covθ  W(X),                 ∂θ                          log f(X|θ) = Eθ  W(X) ∂θ log f(X|θ) = dθ EθW(X).     (7.3.9)
+
+                = 0 we haveAlso, since Eθ( ∂θ∂ log f(X|θ))
+                         ∂                     ∂                2
+                    Varθ                     ∂θ                               log f(X|θ) = Eθ   ∂θ log f(X|θ)       .              (7.3.10)
+
+Using the Cauchy–Schwarz Inequality, together with (7.3.9) and (7.3.10), we obtain
+
+                                                        d            2                                                    dθ EθW(X)
+                                                                        2                         Varθ (W(X)) ≥         ∂                         ,
+                                    Eθ    ∂θ log f(X|θ)
+
+proving the theorem.                                         2
+===== PDF 304, printed 273 =====
+METHODS OF EVALUATING ESTIMATORS                                      273
+     If we add the assumption of independent samples then the calculation of the lower bound is
+simplified. The expectation in the denominator becomes a univariate calculation, as the following
+corollary shows.
+Corollary 7.3.10 (Cram´er–Rao Inequality, iid case)   If the assumptions of Theorem 7.3.9 are
+satisfied and, additionally, if X1,...,Xn are iid with pdf f(x|θ), then
+                                                       d EθW(X)                                                   dθ
+                          Varθ W(X) ≥                                                           2                                   nEθ    ∂θ∂ log                                                 f(X|θ)                                      2.
+Proof: We only need to show that
+
+                Eθ                   ∂θ                             log f(X|θ)   = nEθ   ∂θ log f(X|θ)       .           ∂        2   ∂        2
+Since X1,...,Xn are independent
+
+                                        ∂       n
+         Eθ      log       =  Eθ        log ∏            ∂θ    f(X|θ)                     ∂θ     i=1 f(Xi|θ)2       ∂                       2                       n                                                   ∂
+                                                    log                     (property of logs)                   =  Eθ  ∑                     i=1 ∂θ    f(Xi|θ)2                                              n            
+                   =                ∑ Eθ                                                    log f(Xi|θ)           (expand the square)                                    ∂θ                                           i=1                       ∂        2
+                                                         ∂
+                                                                                                                             .    (7.3.11)                                       Eθ                  +∑                                      ∂θ                                                      log f(Xi|θ) ∂θ log f(Xj|θ)                                                                       ∂                                                                       i̸= j
+For  i̸ = j we have
+                                    ∂
+                   Eθ                    ∂θ                               log f(Xi|θ) ∂θ log f(Xj|θ)             ∂               
+              =  Eθ                         ∂θ                                     log f(Xi|θ)  Eθ  ∂θ log f(Xj|θ)         (independence)                ∂        ∂                     =   0.                                             (from (7.3.8))
+
+
+Therefore the second sum in (7.3.11) is zero, and the first term is
+
+        n
+   ∑ Eθ            ∂θ                   log f(Xi|θ)   = nEθ   ∂θ log f(X|θ)       ,       (identical distributions)       i=1      ∂        2   ∂        2
+
+ which establishes the corollary.                                   2
+
+   Before going on we note that although the Cram´er–Rao Lower Bound is stated for continuous
+random variables, it also applies to discrete random variables. The key condition, (7.3.4), which al-
+lows interchange of integration and differentiation, undergoes the obvious modification. If f(x|θ) isa pmf, then we must be able to interchange differentiation and summation. (Of course, this assumes
+that even though f(x|θ) is a pmf and not differentiable in x, it is differentiable in θ. This is the casefor most common pmfs.)
+===== PDF 305, printed 274 =====
+274                                                 POINT ESTIMATION
+   The quantity Eθ    ∂θ∂ log f(X|θ)      is called the information number, or Fisher informationof the sample. This terminology          reflects2the fact that the information number gives a bound on the
+variance of the best unbiased estimator of θ. As the information number gets bigger and we have
+more information about θ, we have a smaller bound on the variance of the best unbiased estimator.
+    In fact, the term Information Inequality is an alternative to Cram´er–Rao Inequality, and the
+Information Inequality exists in much more general forms than is presented here. A key difference
+of the more general form is that all assumptions about the candidate estimators are removed, and
+are replaced with assumptions on the underlying density. In this form, the Information Inequality
+becomes very useful in comparing the performance of estimators. See Lehmann and Casella (1998,
+Section 2.6) for details.
+   For any differentiable function τ(θ) we now have a lower bound on the variance of any estimator
+W satisfying (7.3.4) and EθW = τ(θ). The bound depends only on τ(θ) and f(x|θ), and is a uniformlower bound on the variance. Any candidate estimator satisfying EθW = τ(θ) and attaining this
+lower bound is a best unbiased estimator of τ(θ).
+   Before looking at some examples, we present a computational result that aids in the application
+of this theorem. Its proof is left to Exercise 7.39.
+Lemma 7.3.11  If f(x|θ) satisfies
+              d                        ∂
+                 Eθ             dθ                  ∂θ                           log f(X|θ) =  ∂θ   ∂θ log f(x|θ)  f(x|θ)  dx           ∂            ∂           
+(true for an exponential family), then
+
+                  Eθ                                                                   2                                                           log f(X|θ)   .                    ∂θ                               log f(X|θ)   = −Eθ  ∂θ            ∂        2    ∂2       
+   Using the tools just developed, we return to, and settle, the Poisson example.
+Example 7.3.12 (Conclusion of Example 7.3.8)  Here τ(λ) = λ, so τ′(λ) = 1. Also, since we
+have an exponential family, using Lemma 7.3.11 gives us
+
+                ∂       n
+                       =                                                          log                                                                  2         Eλ        log ∏                                       ∂λ     f(X|λ)       ∂λ     i=1 f(Xi|λ)2     −nEλ ∂2                                        
+                                                                 X                              ∂2      e−λλ
+                       =               log                                                                  2                                  −nEλ  ∂λ     X! 
+                       =           +X logλ                                                                  2                                  −nEλ  ∂λ (−λ        −logX!)                              ∂2              
+                       =                                                                  2                                  −nEλ −Xλ                                        n     
+                       =       .
+                                    λ
+Hence for any unbiased estimator, W, of λ, we must have
+
+                                      Varλ W        .                        ≥λn
+Since Varλ ¯X = λ/n, ¯X is a best unbiased estimator of λ.                                                                              ∥
+     It is important to remember that a key assumption in the Cram´er–Rao Theorem is the ability
+to differentiate under the integral sign, which, of course, is somewhat restrictive. As we have seen,
+densities in the exponential class will satisfy the assumptions, but, in general, such assumptions
+need to be checked, or contradictions such as the following will arise.
+===== PDF 306, printed 275 =====
+METHODS OF EVALUATING ESTIMATORS                                      275
+Example 7.3.13 (Unbiased estimator for the scale uniform)   Let X1,...,Xn be  iid with pdf
+    = 1/θ,0 < x < θ. Since ∂θ log f(x|θ) = −1/θ, we havef(x|θ)                             ∂
+                                 ∂                2     1
+                                                                                               .                          Eθ                                                                      2                            ∂θ                                         log f(X|θ)   = θ
+
+The Cram´er–Rao Theorem would seem to indicate that if W is any unbiased estimator of θ,
+
+                                                           2
+                                      Varθ W          .                        ≥θn
+We would now like to find an unbiased estimator with small variance. As a first guess, consider
+the sufficient statistic Y = max(X1,...,Xn), the largest order statistic. The pdf of Y is fY(y|θ) =nyn−1/θ n, 0 < y < θ, so
+                                              θ nyn       n
+                          EθY =                                        dy = n+1θ,                                               0  θ n
+showing that n+1n Y is an unbiased estimator of θ. We next calculate
+                n+1       n+1  2
+                  Varθ      Y  =            Varθ Y                       n             n
+                          n+1  2       2     n      2                    =           EθY                                     n       − n+1θ
+                          n+1  2   n    2     n      2                    =                                     n    n+2θ − n+1θ
+                                     1
+                    =  n(n+2)θ 2,
+
+which is uniformly smaller than θ 2/n. This indicates that the Cram´er–Rao Theorem is not applicable
+to this pdf. To see that this is so, we can use Leibnitz’s Rule (Section 2.4) to calculate
+
+                  d    θ                  d    θ    1
+                dθ  0 h(x)f(x|θ)dx =  dθ  0  h(x) θ dx
+                                          h(θ)     θ     ∂   1
+                       =                            +                                                         h(x)
+                                       θ                                              ∂θ  θ    dx̸                                                               0
+                                                      θ     ∂
+                       =                                                 h(x)                                        ∂θ f(x|θ)dx,                                                        0
+unless h(θ)/θ = 0 for all θ. Hence, the Cram´er–Rao Theorem does not apply. In general, if the
+range of the pdf depends on the parameter, the theorem will not be applicable.                ∥
+  A shortcoming of this approach to finding best unbiased estimators is that, even if the Cram´er–
+Rao Theorem is applicable, there is no guarantee that the bound is sharp. That is to say, the value of
+the Cram´er–Rao Lower Bound may be strictly smaller than the variance of any unbiased estimator.
+In fact, in the usually favorable case of f(x|θ) being a one-parameter exponential family, the mostthat we can say is that there exists a parameter τ(θ) with an unbiased estimator that achieves the
+Cram´er–Rao Lower Bound. However, in other typical situations, for other parameters, the bound
+may not be attainable. These situations cause concern because, if we cannot find an estimator that
+attains the lower bound, we have to decide whether no estimator can attain it or if we must look at
+more estimators.
+===== PDF 307, printed 276 =====
+276                                                 POINT ESTIMATION
+Example 7.3.14 (Normal variance bound)  Let X1,...,Xn be iid n(µ,σ2), and consider estima-
+tion of σ2, where µ is unknown. The normal pdf satisfies the assumptions of the Cram´er–Rao
+Theorem and Lemma 7.3.11, so we have
+                 ∂2           1                      1                         log              e−(1/2)(x−µ)2/σ2 =                ∂(σ2)2     (2πσ2)1/2                2σ4 −(x−µ)2σ6
+and
+                ∂2                                 1                        log          µ,σ2  =             −µ)2 µ,σ2       −E  ∂(σ2)2    f(X|µ,σ2)         −E  2σ4 −(X σ6
+                                              1
+                           =          .
+                                           2σ4
+Thus, any unbiased estimator, W, of σ2 must satisfy
+
+
+                                                                                       .                               Var(W|µ,σ2) ≥2σ4n
+In Example 7.3.3, we saw
+                                          2σ4
+                           =                                 Var(S2|µ,σ2)                                    n−1,
+so S2 does not attain the Cram´er–Rao Lower Bound.                                    ∥
+    In the above example we are left with an incomplete answer; that is, is there a better unbiased
+estimator of σ2 than S2, or is the Cram´er–Rao Lower Bound unattainable?
+   The conditions for attainment of the Cram´er–Rao Lower Bound are actually quite simple. Recall
+that the bound follows from an application of the Cauchy–Schwarz Inequality, so conditions for
+attainment of the bound are the conditions for equality in the Cauchy–Schwarz Inequality (see
+Section 4.7). Note also that Corollary 7.3.15 is a useful tool because it implicitly gives us a way of
+finding a best unbiased estimator.
+Corollary 7.3.15 (Attainment)  Let X1,...,Xn be iid f(x|θ), where f(x|θ) satisfies the conditions
+                                                i=1                                                 f(xi|θ) denote the likelihood function. If W(X) =of the Cram´er–Rao Theorem. Let L(θ|x) = ∏nW(X1,...,Xn) is any unbiased estimator of τ(θ), then W(X) attains the Cram´er–Rao Lower Bound
+if and only if
+                                            ∂
+                        a(θ)[W(x)−τ(θ)] = ∂θ logL(θ|x),                       (7.3.12)
+for some function a(θ).
+Proof: The Cram´er–Rao Inequality, as given in (7.3.6), can be written as
+
+                                                   2
+                     ∂       n                            ∂       n
+                                                                                                                                ,                            log         Covθ  W(X),           ∏                  ∂θ                                  i=1 f(Xi|θ)   ≤VarθW(X)Varθ  ∂θ log ∏i=1 f(Xi|θ)
+
+                              = 0, and using                                                                          the results of Theoremand, recalling that EθW = τ(θ),Eθ( ∂θ∂ log∏ni=1 f(Xi|θ))                                                                                  ∂
+4.5.7, we can have equality if and only if W(x)−τ(θ) is proportional to                                                                      ∂θ log∏ni=1 f(xi|θ). Thatis exactly what is expressed in (7.3.12).                               2
+Example 7.3.16 (Continuation of Example 7.3.14)  Here we have
+                                    1
+                    =                                                      e−(1/2)Σni=1(xi−µ)2/σ2,                      L(µ,σ2|x)                                    (2πσ2)n/2
+and hence
+                     ∂                 n     n  (xi                       =         −µ)2            .                     ∑                 ∂σ2 logL(µ,σ2|x)   2σ4   i=1    n   −σ2
+===== PDF 308, printed 277 =====
+METHODS OF EVALUATING ESTIMATORS                                      277
+Thus, taking a(σ2) = n/(2σ4) shows that the best unbiased estimator of σ2 is ∑ni=1(xi −µ)2/n,
+which is calculable only if µ is known. If µ is unknown, the bound cannot be attained.         ∥
+   The theory developed in this section still leaves some questions unanswered. First, what can we
+do if f(x|θ) does notn+1satisfy the assumptions of the Cram´er–Rao Theorem? (In Example 7.3.13, westill do not know if  n Y is a best unbiased estimator.) Second, what if the bound is unattainable
+by allowable estimators, as in Example 7.3.14? There, we still do not know if S2 is a best unbiased
+estimator.
+   One way of answering these questions is to search for methods that are more widely applicable,
+and yield sharper (that is, greater) lower bounds. Much research has been done on this topic, with
+perhaps the most well-known bound being that of Chapman and Robbins (1951). Stuart, Ord, and
+Arnold (1999, Chapter 17) have a good treatment of this subject. Rather than take this approach,
+however, we will continue the study of best unbiased estimators from another view, using the con-
+cept of sufficiency.
+
+7.3.3   Sufficiency and Unbiasedness
+
+In the previous section, the concept of sufficiency was not used in our search for unbiased estimates.
+We will now see that consideration of sufficiency is a powerful tool, indeed.
+   The main theorem of this section, which relates sufficient statistics to unbiased estimates, is, as
+in the case of the Cram´er–Rao Theorem, another clever application of some well-known theorems.
+Recall from Chapter 4 that if X and Y are any two random variables then, provided the expectations
+exist, we have
+                     EX =  E[E(X|Y)],
+                                                                                            (7.3.13)
+                      VarX =  Var[E(X|Y)]+E[Var(X|Y)].
+Using these tools we can prove the following theorem.
+Theorem 7.3.17 (Rao–Blackwell) Let W be any unbiased estimator of τ(θ), and let T be a suffi-
+cient statistic for θ. Define φ(T) = E(W|T). Then Eθφ(T) = τ(θ) and Varθ φ(T) ≤Varθ W for allθ, that is, φ(T) is a uniformly better unbiased estimator of τ(θ).
+Proof: From (7.3.13) we have
+                        τ(θ) = EθW = Eθ[E(W|T)] = Eθφ(T),
+so φ(T) is unbiased for τ(θ). Also,
+                        Varθ W =  Varθ [E(W|T)]+Eθ [Var(W|T)]
+                   =  Varθ φ(T)+Eθ[Var(W|T)]
+                   ≥  Varθ φ(T).                        (Var(W|T) ≥0))
+
+   Hence φ(T) is uniformly better than W, and it only remains to show that φ(T) is indeed an
+estimator. That is, we must show that φ(T) = E(W|T) is a function of only the sample and, inparticular, is independent of θ. But it follows from the definition of sufficiency, and the fact that W
+is a function only of the sample, that the distribution of W|T is independent of θ. Hence φ(T) is auniformly better unbiased estimator of τ(θ).                            2
+    Therefore, conditioning any unbiased estimator on a sufficient statistic will result in a uniform
+improvement, so we need consider only statistics that are functions of a sufficient statistic in our
+search for best unbiased estimators.
+   The identities in (7.3.13) make no mention of sufficiency, so it might at first seem that condi-
+tioning on anything will result in an improvement. This is, in effect, true, but the problem is that the
+resulting quantity will probably depend on θ and not be an estimator.
+===== PDF 309, printed 278 =====
+278                                                 POINT ESTIMATION
+Example 7.3.18 (Conditioning on an insufficient statistic)  Let X1,X2 be iid n(θ,1). The statis-
+tic ¯X = 12(X1 +X2) has
+                                                  1
+                            Eθ ¯X = θ  and  Varθ ¯X =                                                        2.
+Consider conditioning on X1, which is not sufficient. Let φ(X1) = Eθ( ¯X|X1). It follows from (7.3.13)
+that Eθφ(X1) = θ and Varθ φ(X1) ≤Varθ ¯X, so φ(X1) is better than ¯X. However,
+                        φ(X1) =  Eθ(¯X|X1)                                  1           1
+                    =  2Eθ(X1|X1)+ 2Eθ(X2|X1)
+                                  1     1
+                    =  2X1 + 2θ,
+since Eθ(X2|X1) = EθX2 by independence. Hence, φ(X1) is not an estimator.                 ∥
+  We now know that, in looking for a best unbiased estimator of τ(θ), we need consider only
+estimators based on a sufficient statistic. The question now arises that if we have Eθφ = τ(θ), and
+φ is based on a sufficient statistic, that is, E(φ|T) = φ, how do we know that φ is best unbiased? Ofcourse, if φ attains the Cram´er–Rao Lower Bound then it is best unbiased, but if it does not, have
+we gained anything? For example, if φ ∗is another unbiased estimator of τ(θ), how does E(φ ∗|T)compare to φ? The next theorem answers this question in part, by showing that a best unbiased
+estimator is unique.
+Theorem 7.3.19  If W is a best unbiased estimator of τ(θ), then W is unique.
+Proof: Suppose W ′ is another best unbiased estimator, and consider the estimator W ∗= 12(W +W ′).
+Note that EθW ∗= τ(θ) and
+
+                              1         Varθ W ∗ =  Varθ(1 +      ′)                  2W  2W
+                    1        1         1
+           =  4Varθ W + 4Varθ W ′ + 2Covθ(W,W ′)                  (Exercise 4.44)
+                    1        1         1
+               W +   W ′ +       W)(Varθ W ′)]1/2    (Cauchy–Schwarz)           ≤  4Varθ     4Varθ      2[(Varθ
+           =  Varθ W.                                           (Varθ W = Varθ W ′)
+                                                                                            (7.3.14)
+
+But if the above inequality is strict then the best unbiasedness of W is contradicted, so we must have
+equality for all θ. Since the inequality is an application of Cauchy–Schwarz, we can have equality
+only if W ′ = a(θ)W + b(θ). Now using properties of covariance we have
+
+                   Covθ(W,W ′) =  Covθ[W,a(θ)W +b(θ)]
+                      =  Covθ[W,a(θ)W]
+                      =  a(θ)Varθ W,
+
+but Covθ(W,W ′) = Varθ W since we had equality in (7.3.14). Hence a(θ) = 1 and, since EθW ′ =
+τ(θ), we must have b(θ) = 0 and W = W ′, showing that W is unique.               2
+   To see when an unbiased estimator is best unbiased, we might ask how could we improve upon
+a given unbiased estimator? Suppose that W satisfies EθW = τ(θ), and we have another estimator,
+U, that satisfies EθU = 0 for all θ, that is, U is an unbiased estimator of zero. The estimator
+
+                                      φa = W +aU,
+===== PDF 310, printed 279 =====
+METHODS OF EVALUATING ESTIMATORS                                      279
+where a is a constant, satisfies Eθφa = τ(θ), and hence is also an unbiased estimator of τ(θ). Can
+φa be better than W? The variance of φa is
+
+               Varθ φa = Varθ (W +aU) = Varθ W +2aCovθ(W,U)+a2Varθ U.
+
+Now, if for some θ = θ0,Covθ0(W,U) < 0, then we can make 2aCovθ0(W,U) +a2Varθ0 U < 0 by
+choosing a ∈(0,−2Covθ0(W,U)/Varθ0 U). Hence, φa will be better than W at θ = θ0 and W cannotbe best unbiased. A similar argument will show that if Covθ0(W,U) > 0 for any θ0, W also cannot
+be best unbiased. (See Exercise 7.53.) Thus, the relationship of W with unbiased estimators of zero
+is crucial in evaluating whether W is best unbiased. This relationship, in fact, characterizes best
+unbiasedness.
+Theorem 7.3.20  If EθW = τ(θ),W is the best unbiased estimator of τ(θ) if and only if W is un-
+correlated with all unbiased estimators of zero.
+Proof: If W is best unbiased, the above argument shows that W must satisfy Covθ(W,U) = 0 for all
+θ, for any U satisfying EθU = 0. Hence the necessity is established.
+   Suppose now that we have an unbiased estimator W that is uncorrelated with all unbiased esti-
+mators of zero. Let W ′ be any other estimator satisfying EθW ′ = EθW = τ(θ). We will show that
+W is better than W ′. Write
+                   W ′ = W +(W ′ −W),
+and calculate
+                 Varθ W ′ =  Varθ W +Varθ (W ′ −W)+2Covθ(W,W ′ −W)           (7.3.15)
+               =  Varθ W +Varθ (W ′ −W),
+where the last equality is true because W ′ −W is an unbiased estimator of zero and is uncorrelated
+with W by assumption. Since Varθ (W ′ −W) ≥0, (7.3.15) implies that Varθ W ′ ≥Varθ W. Since W ′is arbitrary, it follows that W is the best unbiased estimator of τ(θ).                2
+   Note that an unbiased estimator of zero is nothing more than random noise, that is, there is no
+information in an estimator of zero. (It makes sense that the most sensible way to estimate zero is
+with zero, not with random noise.) Therefore, if an estimator could be improved by adding random
+noise to it, the estimator probably is defective. (Alternatively, we could question the criterion used
+to evaluate the estimator, but in this case the criterion seems above suspicion.) This intuition is what
+is formalized in Theorem 7.3.20.
+   Although we now have an interesting characterization of best unbiased estimators, its usefulness
+is limited in application. It is often a difficult task to verify that an estimator is uncorrelated with all
+unbiased estimators of zero because it is usually difficult to describe all unbiased estimators of zero.
+However, it is sometimes useful in determining that an estimator is not best unbiased.
+Example 7.3.21 (Unbiased estimators of zero)  Let X be an observation from a uniform(θ,θ +
+1) distribution. Then
+                                       θ+1          1
+                         EθX =                                      xdx = θ + 2,                                              θ
+             2 is an unbiased estimator of θ, and it is easy to check that Varθ X = 12.and so X −1                                                                          1   For this pdf, unbiased estimators of zero are periodic functions with period 1. This follows from
+the fact that if h(x) satisfies
+                               θ+1
+                                   h(x)dx = 0,   for all θ,
+                                     θ
+then
+                       d   θ+1
+                   0 =                                h(x)dx = h(θ +1)−h(θ),   for all θ.                     dθ  θ
+===== PDF 311, printed 280 =====
+280                                                 POINT ESTIMATION
+Such a function is h(x) = sin(2πx). Now
+                    Covθ(X −12,sin(2πX))               =  Covθ(X,sin(2πX))
+                              θ+1
+               =       xsin(2πx)dx
+                                    θ
+                                        θ+1    θ+1 cos(2πx)
+               =           +             dx     (integration by parts)                          −xcos(2πx)2π     θ       θ      2π
+
+               =                     ,                         −cos(2πθ)2π
+where we used cos(2π(θ +1)) = cos(2πθ) and sin(2π(θ +1)) = sin(2πθ).
+                 2 is correlated with an unbiased estimator of zero, and cannot be a best unbiased   Hence X −1
+estimator of θ. In fact, it is straightforward                                         + sin(2πX)/(2π) is                                                                                    2                                              to check that the estimator X −1                                            1
+unbiased for θ and has variance .071 < 12.                                            ∥
+   To answer the question about existence of a best unbiased estimator, what is needed is some
+characterization of all unbiased estimators of zero. Given such a characterization, we could then see
+if our candidate for best unbiased estimator is, in fact, optimal.
+    Characterizing the unbiased estimators of zero is not an easy task and requires conditions on the
+pdf (or pmf) with which we are working. Note that, thus far in this section, we have not specified
+conditions on pdfs (as were needed, for example, in the Cram´er–Rao Lower Bound). The price we
+have paid for this generality is the difficulty in verifying the existence of the best unbiased estimator.
+     If a family of pdfs or pmfs f(x|θ) has the property that there are no unbiased estimators of zero(other than zero itself), then our search would be ended, since any statistic W satisfies Covθ(W,0) =
+0. Recall that the property of completeness, defined in Definition 6.1.4, guarantees such a situation.
+Example 7.3.22 (Continuation of Example 7.3.13)  For X1,...,Xn iid uniform(0,θ), we saw that
+n+1
+  n Y is an unbiased estimator of θ, where Y = max{X1,...,Xn}. The conditions of the Cram´er–RaoTheorem are not satisfied, and we have not yet established whether this estimator is best unbiased.
+In Example 6.2.23, however, it was shown that Y is a complete sufficient statistic. This means that
+the family of pdfs of Y is complete, and there are no unbiased estimators of zero that are based on
+Y. (By sufficiency, in the form of the Rao–Blackwell Theorem, we need consider only unbiased
+estimators of zero based on Y.) Therefore, n+1n Y is uncorrelated with all unbiased estimators of zero
+(since the only one is zero itself) and thus n+1n Y is the best unbiased estimator of θ.                                                                              ∥
+     It is worthwhile to note once again that what is important is the completeness of the family of
+distributions of the sufficient statistic. Completeness of the original family is of no consequence.
+This follows from the Rao–Blackwell Theorem, which says that we can restrict attention to func-
+tions of a sufficient statistic, so all expectations will be taken with respect to its distribution.
+  We sum up the relationship between completeness and best unbiasedness in the following theo-
+rem.
+Theorem 7.3.23   Let T be a complete sufficient statistic for a parameter θ, and let φ(T) be any
+estimator based only on T. Then φ(T) is the unique best unbiased estimator of its expected value.
+
+  We close this section with an interesting and useful application of the theory developed here.
+In many situations, there will be no obvious candidate for an unbiased estimator of a function
+τ(θ), much less a candidate for best unbiased estimator. However, in the presence of completeness,
+the theory of this section tells us that if we can find any unbiased estimator, we can find the best
+unbiased estimator. If T is a complete sufficient statistic for a parameter θ, and h(X1,...,Xn) is any
+unbiased estimator of τ(θ), then φ(T) = E(h(X1,...,Xn)|T) is the best unbiased estimator of τ(θ)(see Exercise 7.56).
+===== PDF 312, printed 281 =====
+METHODS OF EVALUATING ESTIMATORS                                      281
+Example 7.3.24 (Binomial best unbiased estimation)  Let X1,...,Xn be iid binomial(k,θ). The
+problem is to estimate the probability of exactly one success from a binomial(k,θ), that is, estimate
+                          τ(θ) = Pθ(X = 1) = kθ(1−θ)k−1.
+Now ∑ni=1 Xi ∼binomial(kn,θ) is a complete sufficient statistic, but no unbiased estimator based onit is immediately evident. When in this situation, try for the simplest solution. The simple-minded
+estimator
+                                      1    if X1 = 1                                h(X1) =                                      0  otherwise
+satisfies
+                                                     k         k
+                      Eθh(X1) =                 ∑ h(x1)                                            θ x1(1−θ)k−x1                                                     x1                                         x1=0
+                   =                                 kθ(1−θ)k−1,
+and hence is an unbiased estimator of kθ(1−θ)k−1. Our theory now tells us that the estimator
+                                          n                    n
+                       = E                           φ( ∑ Xi)                      ∑ Xi                                       i=1         h(X1)| i=1
+is the best unbiased estimator of kθ(1−θ)k−1. (Notice that we do not need to actually calculate theexpectation of φ(∑ni=1 Xi); we know that it has the correct expected value by properties of iterated
+expectations.) We must, however, be able to evaluate φ. Suppose that we observe ∑ni=1 Xi = t. Then,
+                                                      n                         the expectation does                                                     Xi = t                                                                          not depend on θ                          φ(t) =  E  h(X1)| i=1∑
+                                                        n
+                  =  P  X1 = ∑ Xi                                                  1| i=1  = t                          (h is 0 or 1)
+                                  Pθ(X1 = 1,∑ni=1Xi = t)                  definition of                  =
+                                   Pθ(∑ni=1 Xi = t)               conditional probability
+                                  Pθ(X1 = 1,∑ni=2 Xi = t                      X1 = 1 is                  =                 −1)
+                                     Pθ(∑ni=1 Xi = t)                        redundant
+                                  Pθ(X1 = 1)Pθ(∑ni=2 Xi = t            X1 is independent                  =                   −1) .
+                                      Pθ(∑ni=1 Xi = t)                   of X2,...,Xn
+  Now X1 ∼binomial(k,θ), ∑n                                  i=2 Xi ∼binomial(k(n−1),θ), and ∑n                                                                         i=1 Xi ∼binomial(kn,θ). Us-ing these facts we have
+                       kθ(1−θ)k−1     k(n−1)t−1   θt−1(1−θ)k(n−1)−(t−1)                 φ(t) =
+                                                     kn
+                                                                                             t                                          θt(1−θ)kn−t
+                                   k(n−1)
+             =  k   t−1     .
+                                       kn
+                                                                    t
+Note that all of the θs cancel, as they must since ∑ni=1 Xi is sufficient. Hence, the best unbiased
+estimator of kθ(1−θ)k−1 is
+                                             n             k(n−1)
+                                                                                         .                         = k  ΣXi−1                            φ ∑ Xi                                                               kn
+                                          i=1              ΣXi
+We can assert unbiasedness without performing the difficult evaluation of Eθ[φ (∑ni=1 Xi)].                                                                              ∥
+===== PDF 313, printed 282 =====
+282                                                 POINT ESTIMATION
+7.3.4  Loss Function Optimality
+
+Our evaluations of point estimators have been based on their mean squared error performance. Mean
+squared error is a special case of a function called a loss function. The study of the performance,
+and the optimality, of estimators evaluated through loss functions is a branch of decision theory.
+    After the data X = x are observed, where X ∼f(x|θ), θ ∈Θ, a decision regarding θ is made.The set of allowable decisions is the action space, denoted by A . Often in point estimation problems
+A  is equal to Θ, the parameter space, but this will change in other problems (such as hypothesis
+testing – see Section 8.3.5).
+   The loss function in a point estimation problem reflects the fact that if an action a is close to
+θ, then the decision a is reasonable and little loss is incurred. If a is far from θ then a large loss is
+incurred. The loss function is a nonnegative function that generally increases as the distance between
+a and θ increases. If θ is real-valued, two commonly used loss functions are
+                        absolute error loss,    L(θ,a) =  |a−θ|and
+                       squared error loss,    L(θ,a) =  (a−θ)2.
+Both of these loss functions increase as the distance between θ and a increases, with minimum
+value L(θ,θ) = 0. That is, the loss is minimum if the action is correct. Squared error loss gives
+relatively more penalty for large discrepancies and absolute error loss gives relatively more penalty
+for small discrepancies. A variation of squared error loss, one that penalizes overestimation more
+than underestimation, is
+                                                                           if a < θ,                           L(θ,a) =  (a−θ)2
+                                 10(a−θ)2   if a ≥θ.
+A loss that penalizes errors in estimation more if θ is near zero than if |θ| is large, a relative squarederror loss, is
+                                 L(θ,a) = (a−θ)2 .
+                                     |θ|+1
+Notice that both of these last variations of squared error loss could have been based instead on
+absolute error loss. In general, the experimenter must consider the consequences of various errors
+in estimation for different values of θ and specify a loss function that reflects these consequences.
+    In a loss function or decision theoretic analysis, the quality of an estimator is quantified in its
+risk function, that is, for an estimator δ(x) of θ, the risk function, a function of θ, is
+
+                             R(θ,δ) = EθL(θ,δ(X)).                             (7.3.16)
+
+At a given θ, the risk function is the average loss that will be incurred if the estimator δ(x) is used.
+   Since the true value of θ is unknown, we would like to use an estimator that has a small value
+of R(θ,δ) for all values of θ. This would mean that, regardless of the true value of θ, the estimator
+will have a small expected loss. If the qualities of two different estimators, δ1 and δ2, are to be
+compared, then they will be compared by comparing their risk functions, R(θ,δ1) and R(θ,δ2). If
+R(θ,δ1) < R(θ,δ2) for all θ ∈Θ, then δ1 is the preferred estimator because δ1 performs better forall θ. More typically, the two risk functions will cross. Then the judgment as to which estimator is
+better may not be so clear-cut.
+   The risk function for an estimator δ is the expected loss, as defined in (7.3.16). For squared
+error loss, the risk function is a familiar quantity, the mean squared error (MSE) that was used in
+Section 7.3.1. There the MSE of an estimator was defined as MSE(θ) = Eθ(δ(X) −θ)2, which is
+just EθL(θ,δ(X)) = R(θ,δ) if L(θ,a) = (a−θ)2. As in (7.3.1) we have that, for squared error loss,
+                          = Varθ δ(X)+(Biasθ δ(X))2 .           (7.3.17)        R(θ,δ) = Varθ δ(X)+(Eθδ(X)−θ)2
+===== PDF 314, printed 283 =====
+METHODS OF EVALUATING ESTIMATORS                                      283
+This risk function for squared error loss clearly indicates that a good estimator should have both a
+small variance and a small bias. A decision theoretic analysis would judge how well an estimator
+succeeded in simultaneously minimizing these two quantities.
+     It would be an atypical decision theoretic analysis in which the set D of allowable estimators was
+restricted to the set of unbiased estimators, as was done in Section 7.3.2. Then, minimizing the risk
+would just be minimizing the variance. A decision theoretic analysis would be more comprehensive
+in that both the variance and bias are in the risk and will be considered simultaneously. An estimator
+would be judged good if it had a small, but probably nonzero, bias combined with a small variance.
+Example 7.3.25 (Binomial risk functions)  In Example 7.3.5 we considered X1,...,Xn, a random
+sample from a Bernoulli( p) population. We considered two estimators,
+
+                       ∑ni=1Xi +  n/4               1  n                               ˆpB =                  and   X = ∑ Xi.                    n+√n                   n i=1
+
+The risk functions for these two estimators, for n = 4 and n = 400, are graphed in Figure 7.3.1
+and the comparisons of these risk functions are as stated in Example 7.3.5. On the basis of risk
+comparison, the estimator ˆpB would be preferred for small n and the estimator X would be preferred
+for large n.                                                                     ∥
+Example 7.3.26 (Risk of normal variance)  Let X1,...,Xn be a random sample from a n(µ,σ2)
+population. Consider estimating σ2 using squared error loss. We will consider estimators of the
+form δb(X) = bS2 where S2 is the sample variance and b can be any nonnegative constant. Recall
+that ES2 = σ2 and, for a normal sample, VarS2 = 2σ4/(n−1). Using (7.3.17), we can compute therisk function for δb as
+                      R((µ,σ2),δb) =  VarbS2 + EbS2 −σ2 2 2
+                      =  b2VarS2 + bES2 −σ2                                      b22σ4
+                      =                                      +(b−1)2σ4               (using VarS2)                            n−1                                            2b2
+                      =                                     +(b−1)2 σ4.                             n−1
+The risk function for δb does not depend on µ and is a quadratic function of σ2. This quadratic
+function is of the form cb(σ2)2 where cb is a positive constant. To compare two risk functions, and
+hence the worth of two estimators, note that if cb < cb′ then
+
+                               =                   R((µ,σ2),δb) = cb(σ2)2 < cb′(σ2)2                                                       R((µ,σ2),δb′)
+for all values of (µ,σ2). Thus δb would be a better estimator than δb′. The value of b that gives the
+overall minimum value of
+                                       2b2
+                                      cb =     +(b−1)2                               (7.3.18)                          n−1
+yields the best estimator δb in this class. Standard calculus methods show that b = (n−1)/(n+1)is the minimizing value. Thus, at every value of (µ,σ2), the estimator
+
+                                         1                                            ˜S2 = n−1  =                         n+1S2  n+1 ∑(Xi −X)2
+has the smallest risk among all estimators of the form bS2. For n = 5, the risk functions for this
+estimator and two other estimators in this class are shown in Figure 7.3.2. The other estimators are
+S2, the unbiased estimator, and ˆσ2 = n−1n  S2, the MLE of σ2. It is clear that the risk function for ˜S2
+is smallest everywhere.                                                            ∥
+===== PDF 315, printed 284 =====
+284                                                 POINT ESTIMATION
+
+                    Risk
+
+
+
+                30
+                                                                   R(s2, S2)
+
+                                                                                 R(s2, sˆ2)
+
+
+                20
+
+                                                                              R(s2, S˜2)
+
+
+
+
+
+                 10
+
+
+
+
+
+                                                                         s2
+                 0            2          4          6          8
+
+               Figure 7.3.2 Risk functions for three variance estimators in Example 7.3.26.
+
+Example 7.3.27 (Variance estimation using Stein’s loss)  Again we consider estimating a popu-
+lation variance σ2 with an estimator of the form bS2. In this analysis, we can be quite general and
+assume only that X1,...,Xn is a random sample from some population with positive, finite variance
+σ2. Now we will use the loss function
+                                      a          a
+                             L(σ2,a) =                                   σ2 −1−log σ2 ,
+attributed to Stein (James and Stein 1961; see also Brown 1990a). This loss is more complicated
+than squared error loss but it has some reasonable properties. Note that if a = σ2, the loss is zero.
+Also, for any fixed value of σ2, L(σ2,a) →∞as a →0 or a →∞. That is, gross underestimationis penalized just as heavily as gross overestimation. (A criticism of squared error loss in a variance
+estimation problem is that underestimation has only a finite penalty while overestimation has an
+infinite penalty.) The loss function also arises out of the likelihood function for σ2, if this is a
+sample from a normal population, and thus ties together good decision theoretic properties with
+good likelihood properties (see Exercise 7.61).
+   For the estimator δb = bS2, the risk function is
+                                           bS2         bS2
+                        R(σ2,δb) =  E                                     σ2 −1−log σ2
+                                            S2           bS2
+                     =  bE                                    σ2 −1−Elog σ2
+                                                             S2                          S2                     =                                      .            E  = 1                                                                                       σ2                             b−logb−1−Elog σ2
+
+The quantity Elog(S2/σ2) may be a function of σ2 and other population parameters but it is not
+a function of b. Thus R(σ2,δb) is minimized in b, for all σ2, by the value of b that minimizes
+b −log b, that is, b = 1. Therefore the estimator of the form bS2 that has the smallest risk for all
+values of σ2 is δ1 = S2.                                                           ∥
+===== PDF 316, printed 285 =====
+METHODS OF EVALUATING ESTIMATORS                                      285
+  We can also use a Bayesian approach to the problem of loss function optimality, where we
+would have a prior distribution, π(θ). In a Bayesian analysis we would use this prior distribution to
+compute an average risk
+                                  R(θ,δ)π(θ)dθ,
+                              Θ
+known as the Bayes risk. Averaging the risk function gives us one number for assessing the perfor-
+mance of an estimator with respect to a given loss function. Moreover, we can attempt to find the
+estimator that yields the smallest value of the Bayes risk. Such an estimator is called the Bayes rule
+with respect to a prior π, and is often denoted δ π.
+   Finding the Bayes decision rule for a given prior π may look like a daunting task, but it turns out
+to be rather mechanical, as the following theorem indicates. (The technique of finding Bayes rules
+by the method given below works in greater generality than presented here; see Brown and Purves
+1973.)
+   For X ∼f(x|θ) and θ ∼π, the Bayes risk of a decision rule δ can be written as
+
+               R(θ,δ)π(θ)dθ =                                           L(θ,δ(x)) f(x|θ)dx  π(θ)dθ.             Θ                                Θ  X
+Now if we write f(x|θ)π(θ) = π(θ|x)m(x), where π(θ|x) is the posterior distribution of θ andm(x) is the marginal distribution of X, we can write the Bayes risk as
+
+                 R(θ,δ)π(θ)dθ =
+               Θ                        X   Θ L(θ,δ(x))π(θ|x)dθ  m(x)dx.           (7.3.19)
+
+The quantity in square brackets is the expected value of the loss function with respect to the posterior
+distribution, called the posterior expected loss. It is a function only of x, and not a function of θ.
+Thus, for each x, if we choose the action δ(x) to minimize the posterior expected loss, we will
+minimize the Bayes risk.
+   Notice that we now have a recipe for constructing a Bayes rule. For a given observation x,
+the Bayes rule should minimize the posterior expected loss. This is quite unlike any prescription we
+have had in previous sections. For example, consider the methods of finding best unbiased estimators
+discussed previously. To use Theorem 7.3.23, first we need to find a complete sufficient statistic T.
+Then we need to find a function φ(T) that is an unbiased estimator of the parameter. The Rao–
+Blackwell Theorem, Theorem 7.3.17, may be helpful if we know of some unbiased estimator of the
+parameter. But if we cannot dream up some unbiased estimator, then the method does not tell us
+how to construct one.
+   Even if the minimization of the posterior expected loss cannot be done analytically, the integral
+can be evaluated and the minimization carried out numerically. In fact, having observed X = x, we
+need to do the minimization only for this particular x. However, in some problems we can explicitly
+describe the Bayes rule.
+Example 7.3.28 (Two Bayes rules)  Consider a point estimation problem for a real-valued param-
+eter θ.
+a. For squared error loss, the posterior expected loss is
+
+                                   = x  .                          = E (θ −a)2|X                        Θ(θ −a)2π(θ|x)dθ
+  Here θ is the random variable with distribution π(θ|x). By Example 2.2.6, this expected value is
+   minimized by δ π(x) = E(θ|x). So the Bayes rule is the mean of the posterior distribution.
+b. For absolute error loss, the posterior expected loss is E(|θ −a||X = x). By applying Exercise
+   2.18, we see that this is minimized by choosing δ π(x) = median of π(θ|x).
+                                                                              ∥
+===== PDF 317, printed 286 =====
+286                                                 POINT ESTIMATION
+
+                             Table 7.3.1 Three estimators for a binomial p
+                        n = 10     prior π(p) ∼uniform(0,1)                                      Bayes      Bayes
+                                           absolute     squared
+                            y  MLE      error         error
+                         0   .0000    .0611       .0833
+                         1   .1000    .1480       .1667
+                         2   .2000    .2358       .2500
+                         3   .3000    .3238       .3333
+                         4   .4000    .4119       .4167
+                         5   .5000    .5000       .5000
+                         6   .6000    .5881       .5833
+                         7   .7000    .6762       .6667
+                         8   .8000    .7642       .7500
+                         9   .9000    .8520       .8333
+                        10   1.0000    .9389       .9137
+
+    In Section 7.2.3, the Bayes estimator we discussed was δ π(x) = E(θ|x), the posterior mean. Wenow see that this is the Bayes estimator with respect to squared error loss. If some other loss func-
+tion is deemed more appropriate than squared error loss, the Bayes estimator might be a different
+statistic.
+Example 7.3.29 (Normal Bayes estimates)  Let X1,...,Xn be a random sample from a n(θ,σ2)
+population and let π(θ) be n(µ,τ2). The values σ2, µ, and τ2 are known. In Example 7.2.16, as
+extended in Exercise 7.22, we found that the posterior distribution of θ given X = x is normal with
+
+                                          τ2          σ2/n
+                        E(θ|x) =   τ2 +(σ2/n)x+ τ2 +(σ2/n)µ
+and
+                                   τ2σ2/n
+                        Var(θ|x) =   τ2 +(σ2/n).
+For squared error loss, the Bayes estimator is δ π(x) = E(θ|x). Since the posterior distribution is
+normal, it is symmetric about its mean and the median of π(θ|x) is equal to E(θ|x). Thus, for
+absolute error loss, the Bayes estimator is also δ π(x) = E(θ|x).                           ∥
+Example 7.3.30 (Binomial Bayes estimates)  Let X1,...,Xn be iid Bernoulli(p) and let Y = ∑Xi.
+Suppose the prior on p is beta(α,β). In Example 7.2.14, we found that the posterior distribution
+depends on the sample only through the observed value of Y = y and is beta(y + α,n −y + β).            = (y+α)/(α +β +n) is the Bayes estimator of p for squared error loss.Hence, δ π(y) = E(p|y)
+   For absolute error loss, we need to find the median of π(p|y) = beta(y+α,n−y+β). In general,there is no simple expression for this median. The median is implicitly defined to be the number, m,
+that satisfies
+                 m    Γ(α +β +n)                           1
+                                      =                        0                   py+α−1(1−p)n−y+β−1dp   2.                Γ(y+α)Γ(n−y+β)
+This integral can be evaluated numerically to find (approximately) the value m that satisfies the
+equality. We have done this for n = 10 and α = β = 1, the uniform(0,1) prior. The Bayes estimator
+for absolute error loss is given in Table 7.3.1. In the table we have also listed the Bayes estimator
+for squared error loss, derived above, and the MLE, ˆp = y/n.
+   Notice in Table 7.3.1 that, unlike the MLE, neither Bayes estimator estimates p to be 0 or 1,
+even if y is 0 or n. It is typical of Bayes estimators that they would not take on extreme values in the
+===== PDF 318, printed 287 =====
+EXERCISES                                                                  287
+parameter space. No matter how large the sample size, the prior always has some influence on the
+estimator and tends to draw it away from the extreme values. In the above expression for E(p|y),
+you can see that even if y = 0 and n is large, the Bayes estimator is a positive number.          ∥
+
+7.4  Exercises
+  7.1 One observation is taken on a discrete random variable X with pmf f(x|θ), where θ ∈{1,2,3}. Find the   MLE of θ.
+
+                                     x    f(x|1)    f(x|2)    f(x|3)
+                                 0      13         41       0
+                                 1      13         41       0
+                                 2     0         14         41
+                                 3      16         41         21
+                                 4      16       0         14
+
+  7.2 Let X1,...,Xn be a random sample from a gamma(α,β) population.
+       (a) Find the MLE of β, assuming α is known.
+      (b)  If α and β are both unknown, there is no explicit formula for the MLEs of α and β, but the max-
+       imum can be found numerically. The result in part (a) can be used to reduce the problem to the
+         maximization of a univariate function. Find the MLEs for α and β for the data in Exercise 7.10(c).
+  7.3 Given a random sample X1,...,Xn from a population with pdf f(x|θ), show that maximizing the likeli-
+     hood function, L(θ|x), as a function of θ, is equivalent to maximizing logL(θ|x).
+  7.4 Prove the assertion in Example 7.2.8. That is, prove that ˆθ, given there, is the MLE when the range of θ
+       is restricted to the positive axis.
+  7.5 Consider estimating the binomial parameter k as in Example 7.2.9.
+       (a) Prove the assertion that the integer ˆk, that satisfies the inequalities and is the MLE, is the largest
+          integer less than or equal to 1/ˆz.
+      (b) Let p = 12, n = 4 and X1 = 0, X2 = 20, X3 = 1, and X4 = 19. What is ˆk?
+  7.6 Let X1,...,Xn be a random sample from the pdf
+                               < θ ≤x < ∞.                                     f(x|θ) = θx−2,  0
+       (a) What is a sufficient statistic for θ?
+      (b) Find the MLE of θ.
+       (c) Find the method of moments estimator of θ.
+  7.7 Let X1,...,Xn be iid with one of two pdfs. If θ = 0 then
+
+                                          1       if 0 < x < 1,
+                                       f(x|θ) =  0     otherwise,
+
+     while if θ = 1
+                                       1/(2√x)       if 0 < x < 1,
+                                   f(x|θ) =  0            otherwise.
+     Find the MLE of θ.
+  7.8 One observation, X, is taken from a n(0,σ2) population.
+       (a) Find an unbiased estimator of σ2.
+      (b) Find the MLE of σ.
+       (c) Discuss how the method of moments estimator of σ might be found.
+===== PDF 319, printed 288 =====
+288                                                 POINT ESTIMATION
+
+  7.9 Let X1,...,Xn be iid with pdf
+
+                                       1
+                                     f(x|θ) = θ ,  0 ≤x ≤θ,  θ > 0.
+      Estimate θ using both the method of moments and maximum likelihood. Calculate the means and vari-
+     ances of the two estimators. Which one should be preferred and why?
+7.10 The independent random variables X1,...,Xn have the common distribution
+
+                                           0               if x < 0,
+                              P(Xi ≤x|α,β) =  (x/β)α       if 0 ≤x ≤β,                                           1               if x > β,
+
+     where the parameters α and β are positive.
+       (a) Find a two-dimensional sufficient statistic for (α,β).
+      (b) Find the MLEs of α and β.
+       (c) The length (in millimeters) of cuckoos’ eggs found in hedge sparrow nests can be modeled with this
+           distribution. For the data
+
+                  22.0, 23.9, 20.9, 23.8, 25.0, 24.0, 21.7, 23.8, 22.8, 23.1, 23.1, 23.5, 23.0, 23.0,
+
+           find the maximum likelihood estimates of α and β.
+7.11 Let X1,...,Xn be iid with pdf
+
+                                    < θ < ∞.                                 f(x|θ) = θxθ−1,  0 ≤x ≤1,  0
+       (a) Find the MLE of θ, and show that its variance →0 as n →∞.
+      (b) Find the method of moments estimator of θ.
+7.12 Let X1,...,Xn be a random sample from a population with pmf
+
+                       Pθ(X = x) = θx(1−θ)1−x,   x                               = 0 or 1,  0 ≤θ ≤12.
+       (a) Find the method of moments estimator and MLE of θ.
+      (b) Find the mean squared errors of each of the estimators.
+       (c) Which estimator is preferred? Justify your choice.
+7.13 Let X1,...,Xn be a sample from a population with double exponential pdf
+
+                                1
+                                < ∞, −∞< θ < ∞.                             f(x|θ) = 2e−|x−θ|, −∞< x
+     Find the MLE of θ. [Hint:  Consider the case of even n separate from that of odd n, and find the MLE
+      in terms of the order statistics. A complete treatment of this problem is given in Norton (1984).]
+7.14 Let X and Y be independent exponential random variables, with
+
+                                1                      1
+                                         > 0.                           f(x|λ) = λ e−x/λ                                                                     , x > 0,   f(y|µ) = µ e−y/µ, y
+
+    We observe Z and W with
+
+                                                   1       if Z = X
+                        Z = min(X,Y)  and W =
+                                                   0       if Z = Y.
+
+      In Exercise 4.26 the joint distribution of Z and W was obtained. Now assume that (Zi,Wi),i = 1,...,n,
+      are n iid observations. Find the MLEs of λ and µ.
+===== PDF 320, printed 289 =====
+EXERCISES                                                                  289
+
+7.15 Let X1,X2,...,Xn be a sample from the inverse Gaussian pdf,
+                              λ    1/2
+                                                                                                                 ,   x > 0.                      f(x|µ,λ) =  2πx3     exp −λ(x−µ)2/(2µ2x)
+
+       (a) Show that the ML estimators of µ and λ are
+                                                     n
+                                                                                                        .                                                       ˆµn = ¯X and ˆλn =    1
+                                                     ∑i Xi −1¯X
+      (b) Tweedie (1957) showed that ˆµn and ˆλn are independent, ˆµn having an inverse Gaussian distribution
+         with parameters µ and nλ, and nλ/ˆλn having a χ2   distribution. Schwarz and Samantha (1991)                                                     n−1          give a proof of these facts using an induction argument.
+               (i) Show that ˆµ2 has an inverse Gaussian distribution with parameters µ and 2λ, 2λ/ˆλ2 has a χ21
+                 distribution, and they are independent.
+               (ii) Assume the result is true for n = k, and that we get a new, independent observation x. Establish
+               the induction step used by Schwarz and Samantha (1991), and transform the pdf f(x, ˆµk, ˆλk)
+                to f(x, ˆµk+1, ˆλk+1). Show that this density factors in the appropriate way, and that the result of
+             Tweedie follows.
+7.16 Berger and Casella (1992) also investigate power means, which we have seen in Exercise 4.57. Recall
+       that a power mean is defined as  1n ∑ni=1 xri  1/r. This definition can be further generalized by noting that
+      the power function xr can be replaced by any continuous, monotone function h, yielding the generalized
+     mean h−1  1n ∑ni=1 h(xi)  .
+       (a) The least squares problem mina ∑i(xi −a)2  is sometimes solved using transformed variables,
+           that  is, solving mina ∑i[h(xi) −h(a)]2. Show that the solution to this  latter problem  is a =         h−1((1/n)∑i h(xi)).
+      (b) Show that the arithmetic mean is the solution to the untransformed least squares problem, the geo-
+          metric mean is the solution to the problem transformed by h(x) = logx, and the harmonic mean is
+          the solution to the problem transformed by h(x) = 1/x.
+       (c) Show that if the least squares problem is transformed with the Box-Cox Transformation (see Exercise
+          11.3) then the solution is a generalized mean with h(x) = xλ .
+      (d) Let X1,X2,...,Xn be a sample from a lognormal(µ,σ2) population. Show that the MLE of µ is the
+         geometric mean.
+       (e) Suppose  that X1,X2,...,Xn  is a sample from a one-parameter exponential family  f(x|θ) =
+        exp{θh(x)−H(θ)}g(x), where h = H′ and h is an increasing function.
+               (i) Show that the ML estimator of θ is ˆθ = h−1((1/n)∑i h(xi)).
+               (ii) Show that two densities that satisfy h = H′ are the normal and the inverted gamma with pdf
+               f(x|θ) = θx−2 exp{−θ/x} for x > 0, and for the normal the MLE is the arithmetic mean and                for the inverted gamma it is the harmonic mean.
+7.17 The Borel Paradox (Miscellanea 4.9.3) can also arise in inference problems. Suppose that X1 and X2 are
+       iid exponential(θ) random variables.
+       (a)  If we only observe X2, show that the MLE of θ is ˆθ = X2.
+      (b) Suppose that we instead only observe Z = (X2 −1)/X1. Find the joint distribution of (X1,Z), and           integrate out X1 to get the likelihood function.
+       (c) Suppose that X2 = 1. Compare the MLEs for θ from parts (a) and (b).
+      (d) Bayesian analysis is not immune to the Borel Paradox. If π(θ) is a prior density for θ, show that the
+          posterior distributions, at X2 = 1, are different in parts (a) and (b).
+     (Communicated by L. Mark Berliner, Ohio State University.)
+===== PDF 321, printed 290 =====
+290                                                 POINT ESTIMATION
+
+7.18 Let (X1,Y1),...,(Xn,Yn) be iid bivariate normal random variables (pairs) where all five parameters are
+     unknown.
+       (a) Show that the                                                                                1                   method of moments                                           estimators for µX,µY ,σ2X, σ2Y ,ρ are ˜µX = ¯x, ˜µY = ¯y, ˜σ2X = n ∑(xi−                     1                                        1
+             ¯x)2, ˜σ2Y = n ∑(yi −¯y)2, ˜ρ =                                        n ∑(xi −¯x)(yi −¯y)/(ˆσX ˆσY ).
+      (b) Derive the MLEs of the unknown parameters and show that they are the same as the method of mo-
+         ments estimators. (One attack is to write the joint pdf as the product of a conditional and a marginal,
+           that is, write
+
+                                                                  Y                                                                                    X),                      f(x,y|µX,µY ,σ2X,σ2                                         Y ,ρ) = f(y|x,µX,µY ,σ2X,σ2                                                  ,ρ)× f(x|µX,σ2
+         and argue that the MLEs for µX and σ2X are given by ¯x and 1n ∑(xi −¯x)2. Then, turn things around
+           to get the MLEs for µY and σ2Y . Finally, work with the “partially maximized” likelihood function
+            L(¯x, ¯y, ˆσ2X, ˆσ2Y ,ρ|x,y) to get the MLE for ρ. As might be guessed, this is a difficult problem.)
+7.19 Suppose that the random variables Y1,...,Yn satisfy
+                                               Yi = βxi +εi,    i = 1,...,n,
+     where x1,...,xn are fixed constants, and ε1,...,εn are iid n(0,σ2),σ2 unknown.
+       (a) Find a two-dimensional sufficient statistic for (β,σ2).
+      (b) Find the MLE of β, and show that it is an unbiased estimator of β.
+       (c) Find the distribution of the MLE of β.
+7.20 Let Y1,...,Yn be as defined in Exercise 7.19.
+       (a) Show that ∑Yi/∑xi is an unbiased estimator of β.
+      (b) Calculate the exact variance of ∑Yi/∑xi and compare it to the variance of the MLE.
+7.21 Again, let Y1,...,Yn be as defined in Exercise 7.19.
+       (a) Show that [∑(Yi/xi)]/n is also an unbiased estimator of β.
+      (b) Calculate the exact variance of [∑(Yi/xi)]/n and compare it to the variances of the estimators in the
+          previous two exercises.
+7.22 This exercise will prove the assertions in Example 7.2.16, and more. Let X1,...,Xn be a random sample
+     from a n(θ,σ2) population, and suppose that the prior distribution on θ is n(µ,τ2). Here we assume that
+     σ2, µ, and τ2 are all known.
+       (a) Find the joint pdf of ¯X and θ.
+      (b) Show that m(¯x|σ2,µ,τ2), the marginal distribution of ¯X, is n(µ,(σ2/n)+τ2).
+       (c) Show that π(θ|¯x,σ2,µ,τ2), the posterior distribution of θ, is normal with mean and variance given        by (7.2.10).
+7.23  If S2 is the sample variance based on a sample of size n from a normal population, we know that (n −     1)S2/σ2 has a χ2   distribution. The conjugate prior for σ2 is the inverted gamma pdf, IG(α,β), given
+                    n−1     by
+                                  1      1                                     < σ2 < ∞,                       π(σ2) =      α         e−1/(βσ 2),  0                              Γ(α)β  (σ2)α+1
+     where α and β are positive constants. Show that the posterior distribution of σ2 is IG(α + n−12  ,[ (n−1)S22  +
+       1 ]−1). Find the mean of this distribution, the Bayes estimator of σ2.      β
+7.24 Let X1,...,Xn be iid Poisson(λ), and let λ have a gamma(α,β) distribution, the conjugate family for the
+      Poisson.
+       (a) Find the posterior distribution of λ.
+      (b) Calculate the posterior mean and variance.
+7.25 We examine a generalization of the hierarchical (Bayes) model considered in Example 7.2.16 and Exer-
+      cise 7.22. Suppose that we observe X1,...,Xn, where
+
+                             = 1,...,n,   independent,                                 Xi|θi  ∼   n(θi,σ2),    i
+                                    θi       n(µ,τ2),    i = 1,...,n,   independent.                    ∼
+===== PDF 322, printed 291 =====
+EXERCISES                                                                  291
+       (a) Show that the marginal distribution of Xi is n(µ,σ2 + τ2), and that, marginally, X1,...,Xn are iid.
+         (Empirical Bayes analysis would use the marginal distribution of the Xis to estimate the prior param-
+           eters µ and τ2. See Miscellanea 7.5.6.
+      (b) Show, in general, that if
+                                    Xi|θi ∼   f(x|θi),    i = 1,...,n,   independent,
+                                       θi ∼  π(θ|τ),    i = 1,...,n,   independent,
+          then marginally, X1,...,Xn are iid.
+7.26 In Example 7.2.16, we saw that the normal distribution is its own conjugate family. It is sometimes
+      the case, however, that a conjugate prior does not accurately reflect prior knowledge, and a different
+      prior is sought. Let X1,...,Xn be iid n(θ,σ2), and let θ have a double exponential distribution, that is,
+     π(θ) = e−|θ|/a/(2a),a known. Find the mean of the posterior distribution of θ.
+7.27 Refer to Exercise 7.2.17.
+       (a) Show that the likelihood estimators from the complete-data likelihood (7.2.11) are given by (7.2.12).
+      (b) Show that the limit of the EM sequence in (7.2.23) satisfies (7.2.16).
+       (c) A direct solution of the original (incomplete-data) likelihood equations is possible. Show that the
+          solution to (7.2.16) is given by
+                        ∑ni=2 yi          y1           xj +yj                                         ˆβ =            ,    , ˆτ1 =     ,    , ˆτj =            ,     j = 2,3,...,n,
+                        ∑ni=2 xi                ˆβ                 ˆβ +1
+
+         and that this is the limit of the EM sequence in (7.2.23).
+7.28 Use the model of Exercise 7.2.17 on the data in Table 7.4.2, adapted from Lange et al. (1994). These are
+     leukemia counts, and the associated population, for a number of areas in New York state.
+       (a)  Fit the Poisson model to the data of Table 7.4.2, both to the full data set and an “incomplete” data
+           set where we suppose that the first population count (x1 = 3,540 is missing).
+
+
+                                 Table 7.4.2 Counts of leukemia cases
+    Population        3,540   3,560   3,739   2,784   2,571   2,729   3,952    993    1,908
+   Number of Cases     3      4      1      1      3      1      2      0      2
+    Population         948    1,172   1,047   3,138   5,485   5,554   2,943   4,969   4,828
+   Number of Cases     0      1      3      5      4      6      2      5      4
+
+
+      (b) Suppose that instead of having an x value missing, we actually have lost a leukemia count (assume
+           that y1 = 3 is missing). Use the EM algorithm to find the MLEs in this case, and compare your
+         answers to those of part (a).
+7.29 An alternative to the model of Example 7.2.17 is the following, where we observe (Yi,Xi), i = 1,2,...,n
+     where Yi ∼Poisson(mβτi) and (X1,X2,...,Xn) ∼multinomial(m;τ), where τ = (τ1,τ2,...,τn) with    ∑ni=1 τi = 1. So here, for example, we assume that the population counts are multinomial allocations
+      rather than Poisson counts. (Treat m = ∑xi as known.)
+       (a) Show that the joint density of Y = (Y1,Y2 ...,Yn) and X = (X1,X2 ...,Xn) is
+                                                       n e−mβτi(mβτi)yi         i                          =                  m!τxi .                                  f(y,x|β,τ)   i=1∏        yi!           xi!
+
+      (b)  If the complete data are observed, show that the MLEs are given by
+                           ∑ni=1 yi             xj +yj                                               ˆβ =       and ˆτj =                  ,     j = 1,2,...,n.
+                           ∑ni=1 xi        ∑ni=1 xi +yi
+===== PDF 323, printed 292 =====
+292                                                 POINT ESTIMATION
+       (c) Suppose that x1 is missing. Use the fact that X1 ∼binomial(m,t1) to calculate the expected complete-          data log likelihood. Show that the EM sequence is given by
+                   (r+1)      ∑ni=1 yi                             xj +yj                        ˆβ   =              and ˆτ(r+1)j   =                                      ,     j = 1,2,...,n.
+                              mˆτ(r)1 +∑ni=2 xi                 mˆτ(r)1 +∑ni=2 xi +∑ni=1 yi
+
+      (d) Use this model to find the MLEs for the data of Table 7.4.2, first assuming that you have all the data,
+          then assuming that x1 = 3,540 is missing.
+7.30 The EM algorithm is useful in a variety of situations, and the definition of “missing data” can be stretched
+      to accommodate many different models. Suppose that we have a mixture density pf(x) + (1 −p)g(x),     where p is unknown. If we observe X = (X1,X2,...,Xn), the sample density is
+
+                                              n
+               ∏ [pf(xi)+(1−p)g(xi)],                                           i=1
+
+     which could be difficult to deal with. (Actually, a mixture of two is not terrible, but consider what the
+      likelihood would look like with a mixture ∑ki=1 pi fi(x), for large k.)
+     The EM solution is to augment the observed (or incomplete) data with Z = (Z1,Z2,...,Zn), where Zi
+       tells which component of the mixture Xi came from. That is,
+                                        Xi|zi = 1 ∼f(xi)   and    Xi|zi = 0 ∼g(xi),
+     and P(Zi = 1) = p.
+       (a) Show that the joint density of (X,Z) is given by ∏ni=1[p f(xi)zi][(1−p)g(xi)1−zi].
+      (b) Show that the missing data distribution, the distribution of Zi|xi, p is Bernoulli with success proba-
+            bility p f(xi)/(pf(xi)+(1−p)g(xi)).
+       (c) Calculate the expected complete-data log likelihood, and show that the EM sequence is given by
+
+                                     1  n               ˆp(r) f(xi)                                           ˆp(r+1) =                   ∑                                                                          ˆp(r)                                     n i=1                                                   f(xi)+(1−ˆp(r))g(xi).
+7.31 Prove Theorem 7.2.20.
+       (a) Show that, using (7.2.19), we can write
+
+                                                                                                                                        ,                   logL(ˆθ(r)|y)                  = E logL(ˆθ(r)|y,X)|ˆθ(r),y −E logk(X|ˆθ(r),y)|ˆθ(r),y
+          and, since ˆθ(r+1) is a maximum,  logL(ˆθ(r+1)|y,X)|ˆθ(r),y ≥E logL(ˆθ(r)|y,X)|ˆθ(r),y  . When is
+          the inequality an equality?
+      (b) Now use Jensen’s inequality to show that E logk(X|ˆθ (r+1),y)|ˆθ(r),y ≤E logk(X|ˆθ(r),y)|ˆθ(r),y  ,
+        which together with part (a) proves the theorem.
+      Hint: If f and g are densities, since log is a concave function, Jensen’s inequality (4.7.7) implies
+
+                             f(x)                    f(x)
+                      log        g(x)dx              g(x)dx = log     f(x)dx = 0.                           g(x)       ≤log     g(x)
+    By the property of logs, this in turn implies that  log[f(x)]g(x)dx ≤  log[g(x)]g(x)dx.
+7.32 The algorithm of Exercise 5.65 can be adapted to simulate (approximately) a sample from the poste-
+       rior distribution using only a sample from the prior distribution. Let X1,X2,...,Xn ∼f(x|θ), where θ
+      has prior distribution π. Generate θ1,θ2,...,θm from π, and calculate qi = L(θi/|x)∑j L(θj/|x), where
+     L(θ/|x) = ∏i f(xi|θ) is the likelihood function.
+       (a) Generate θ∗1 ,θ∗2 ,...,θ∗r , where P(θ∗= θi) = qi. Show that this is an (approximate) sample from the
+          posterior in the sense that P(θ∗≤t) converges to −∞π(θ|x)dθ.t
+      (b) Show that the estimator ∑rj=1 h(θ∗j )/r converges to E[h(θ)|x], where the expectation is with respect           to the posterior distribution.
+===== PDF 324, printed 293 =====
+EXERCISES                                                                  293
+
+       (c) Ross (1996) suggests that Rao-Blackwellization can improve the estimate in part (b). Show that for
+         any j
+                                                  1     m
+                          E[h(θ∗j )|θ1,θ2,...,θm] = ∑mi=1        i=1∑ h(θi)L(θi|x)                                                            L(θi|x)
+         has the same mean and smaller variance than the estimator in part (b).
+7.33 In Example 7.3.5, the MSE of the Bayes estimator, ˆpB, of a success probability was calculated (the
+      estimator was derived in Example 7.2.14). Show that the choice α = β =  n/4 yields a constant MSE
+      for ˆpB.
+7.34 Let X1,...,Xn be a random sample from a binomial(n, p). We want to find equivariant point estimators
+      of p using the group described in Example 6.4.1.
+       (a) Find the class of estimators that are equivariant with respect to this group.
+      (b) Within the class of Bayes estimators of Example 7.2.14, find the estimators that are equivariant with
+          respect to this group.
+       (c) From the equivariant Bayes estimators of part (b), find the one with the smallest MSE.
+7.35 The Pitman Estimator of Location (see Lehmann and Casella (1998, Section 3.1) or the original paper
+     by Pitman (1939)) is given by
+                                                         i=1 f(xi −t)dt ,                                 dP(X) =                                     ∞−∞t∞ ∏n
+                                                         i=1 f(xi −t)dt                                 −∞∏n
+     where we observe a random sample X1,...,Xn from f(x −θ). Pitman showed that this estimator is the      location-equivariant estimator with smallest mean squared error (that is, it minimizes (7.3.3)). The goals
+      of this exercise are more modest.
+       (a) Show that dP(X) is invariant with respect to the location group of Example 7.3.6.
+      (b) Show that if f(x−θ) is n(θ,1), then dP(X) =1 ¯X.              1                           + 2), then dP(X) = 2(X(1) +X(n)).       (c) Show that if f(x−θ) is uniform(θ −12,θ
+7.36 The Pitman Estimator of Scale is given by
+
+                                                   0                                    ∞ tn+r−1 ∏ni=1 f(txi)dt                                    drP(X) =  ∞                                ,                                                   0 tn+2r−1 ∏ni=1 f(txi)dt
+     where we observe a random sample X1,...,Xn from σ1 f(x/σ). Pitman showed that this estimator is the
+      scale-equivariant estimator of σr with smallest scaled mean squared error (that is, it minimizes E(d −     σr)2/σ2r).
+       (a) Show that drP(X) is equivariant with respect to the scale group, that is, it satisfies
+                                      drP(cx1,...,cxn) = crdrP(x1,...,xn),
+
+           for any constant c > 0.
+      (b) Find the Pitman scale-equivariant estimator for σ2 if X1,...,Xn are iid n(0,σ2).
+       (c) Find the Pitman scale-equivariant estimator for β if X1,...,Xn are iid exponential(β).
+      (d) Find the Pitman scale-equivariant estimator for θ if X1,...,Xn are iid uniform(0,θ).
+7.37 Let X1,...,Xn be a random sample from a population with pdf
+
+                                      1
+                                   f(x|θ) = 2θ ,  −θ < x < θ,  θ > 0.
+      Find, if one exists, a best unbiased estimator of θ.
+===== PDF 325, printed 294 =====
+294                                                 POINT ESTIMATION
+7.38 For each of the following distributions, let X1,...,Xn be a random sample. Is there a function of θ, say
+      g(θ), for which there exists an unbiased estimator whose variance attains the Cram´er–Rao Lower Bound?
+       If so, find it. If not, show why not.
+                < x < 1,  θ > 0.       (a)  f(x|θ) = θxθ−1,  0                       log(θ)
+      (b)  f(x|θ) = θ−1 θx,  0 < x < 1,  θ > 1.
+7.39 Prove Lemma 7.3.11.
+7.40 Let X1,...,Xn be iid Bernoulli(p). Show that the variance of ¯X attains the Cram´er–Rao Lower Bound,
+     and hence ¯X is the best unbiased estimator of p.
+7.41 Let X1,...,Xn be a random sample from a population with mean µ and variance σ2.
+       (a) Show that the estimator ∑ni=1 aiXi is an unbiased estimator of µ if ∑ni=1 ai = 1.
+      (b) Among all unbiased estimators of this form (called linear unbiased estimators) find the one with
+       minimum variance, and calculate the variance.
+7.42 Let W1,...,Wk be unbiased estimators of a parameter θ with VarWi = σ2i and Cov(Wi,Wj) = 0 if  i̸ = j.
+       (a) Show that, of all estimators of the form ∑aiWi where the ais are constant and Eθ(∑aiWi) = θ, the
+                        ∑Wi/σ i2                               has minimum variance.          estimator W ∗=                          ∑(1/σ i2 )
+                                   1      (b) Show that VarW ∗=                                                     2 ).                              ∑(1/σ                                                                                               i
+7.43 Exercise 7.42 established that the optimal weights are q∗i = (1/σ2i )/(∑j 1/σ2j ). A result due to Tukey
+      (see Bloch and Moses 1988) states that if W = ∑i qiWi is an estimator based on another sets of weights
+       qi ≥0, ∑i qi = 1, then               VarW      1
+                                   VarW ∗≤                                 1−λ 2
+     where λ satisfies (1 + λ)/(1 −λ) = bmax/bmin, and bmax and bmin are the largest and smallest of bi =
+      qi/q∗i .
+       (a) Prove Tukey’s inequality.
+      (b) Use the inequality to assess the performance of the usual mean ∑iWi/k as a function of σ2max/σ2min.
+7.44 Let X1,...,Xn be iid n(θ,1). Show that the best unbiased estimator of θ2 is ¯X2 −(1/n). Calculate its      variance (use Stein’s Identity from Section 3.6), and show that it is greater than the Cram´er–Rao Lower
+     Bound.
+7.45 Let X1,X2,...,Xn be iid from a distribution with mean µ and variance σ2, and let S2 be the usual unbiased
+      estimator of σ2. In Example 7.3.4 we saw that, under normality, the MLE has smaller MSE than S2. In
+       this exercise, we will explore variance estimates some more.
+       (a) Show that, for any estimator of the form aS2, where a is a constant,
+
+                              =                       MSE(aS2) = E[aS2 −σ2]2                                               a2Var(S2)+(a−1)2σ4.
+      (b) Show that
+                                           1                                       Var(S2) =   κ                    ,                                           n  −n−3                                      n−1σ4
+        where κ = E[X −µ]4 is the kurtosis. (You may have already done this in Exercise 5.8b.)
+       (c) Show that, under normality the kurtosis is 3σ4 and establish that, in this case, the estimator of the
+        form aS2 with the minimum MSE is n−1n+1S2. (Lemma 3.6.5 may be helpful.)
+      (d)  If normality is not assumed, show that MSE(aS2) is minimized at a =      n−1         , which is                                                                               (n+1)+ (κ−1)(n−1)n
+          useless as it depends on a parameter.
+       (e) Show that
+               (i) for distributions with κ > 3, the optimal a will satisfy a < n−1n+1;
+               (ii) for distributions with κ < 3, the optimal a will satisfy n−1n+1 < a < 1.
+     See Searls and Intarapanich (1990) for more details.
+===== PDF 326, printed 295 =====
+EXERCISES                                                                  295
+7.46 Let X1,X2, and X3 be a random sample of size three from a uniform(θ,2θ) distribution, where θ > 0.
+       (a) Find the method of moments estimator of θ.
+      (b) Find the MLE, ˆθ, and find a constant k such that Eθ(k ˆθ) = θ.
+       (c) Which of the two estimators can be improved by using sufficiency? How?
+      (d) Find the method of moments estimate and the MLE of θ based on the data
+
+                                                 1.29, .86, 1.33,
+
+          three observations of average berry sizes (in centimeters) of wine grapes.
+7.47 Suppose that when measuring the radius of a circle, an error is made that has a n(0,σ2) distribution.
+       If n independent measurements are made, find an unbiased estimator of the area of the circle. Is it best
+      unbiased?
+7.48 Suppose that Xi,i = 1,...,n, are iid Bernoulli(p).
+       (a) Show that the variance of the MLE of p attains the Cram´er–Rao Lower Bound.
+      (b) For n ≥4, show that the product X1X2X3X4 is an unbiased estimator of p4, and use this fact to find          the best unbiased estimator of p4.
+7.49 Let X1,...,Xn be iid exponential(λ).
+       (a) Find an unbiased estimator of λ based only on Y = min{X1,...,Xn}.
+      (b) Find a better estimator than the one in part (a). Prove that it is better.
+       (c) The following data are high-stress failure times (in hours) of Kevlar/epoxy spherical vessels used in
+         a sustained pressure environment on the space shuttle:
+
+                  50.1, 70.1, 137.0, 166.9, 170.5, 152.8, 80.5, 123.5, 112.6, 148.5, 160.0, 125.4.
+
+          Failure times are often modeled with the exponential distribution. Estimate the mean failure time
+         using the estimators from parts (a) and (b).
+7.50 Let X1,...,Xn be iid n(θ,θ2),θ > 0. For this model both ¯X and cS are unbiased estimators of θ, where
+      c = √n−1Γ((n−1)/2) .         √2Γ(n/2)
+       (a) Prove that for any number a the estimator a¯X +(1−a)(cS) is an unbiased estimator of θ.
+      (b) Find the value of a that produces the estimator with minimum variance.
+       (c) Show that (¯X,S2) is a sufficient statistic for θ but it is not a complete sufficient statistic.
+7.51 Gleser and Healy (1976) give a detailed treatment of the estimation problem in the n(θ,aθ2) family,
+     where a is a known constant (of which Exercise 7.50 is a special case). We explore a small part of their
+       results here. Again, let X1,...,Xn be iid n(θ,θ2), θ > 0, and let ¯X and cS be as in Exercise 7.46. Define
+      the class of estimators
+                      T = {T: T = a1 ¯X +a2(cS)},
+     where we do not assume that a1 +a2 = 1.
+       (a) Find the estimator T ∈T that minimizes Eθ(θ −T)2, call it T ∗.
+      (b) Show that the MSE of T ∗is smaller than the MSE of the estimator derived in Exercise 7.50b.
+       (c) Show that the MSE of T ∗+ = max{0,T ∗} is smaller than the MSE of T ∗.
+      (d) Would θ be classified as a location parameter or a scale parameter? Explain.
+7.52 Let X1,...,Xn be iid Poisson(λ), and let ¯X and S2 denote the sample mean and variance, respectively.
+    We now complete Example 7.3.8 in a different way. There we used the Cram´er–Rao Bound; now we use
+      completeness.
+       (a) Prove that ¯X is the best unbiased estimator of λ, without using the Cram´er–Rao Theorem.
+                             = ¯X, and use it to explicitly demonstrate that VarS2 >      (b) Prove the rather remarkable identity E(S2|¯X)         Var ¯X.
+       (c) Using completeness, can a general theorem be formulated for which the identity in part (b) is a
+          special case?
+===== PDF 327, printed 296 =====
+296                                                 POINT ESTIMATION
+
+7.53 Finish some of the details left out of the proof of Theorem 7.3.20. Suppose W is an unbiased estimator
+      of τ(θ), and U is an unbiased estimator of zero. Show that if, for some θ = θ0,Covθ0(W,U)̸ = 0, then   W cannot be the best unbiased estimator of τ(θ).
+7.54 For the “Problem of the Nile” (see Exercise 6.37),
+       (a) Show that T is the MLE of θ and U is ancillary, and
+                  E(T) = Γ(n+1/2)Γ(n−1/2) θ and E(T 2) = Γ(n+1)Γ(n−1) θ2.
+                                        [Γ(n)]2                             [Γ(n)]2
+      (b) Let Z1 = (n−1)/∑Xi and Z2 = ∑Yi/n. Show that are both unbiased with variances θ2/(n−2) and         θ2/n, respectively.
+       (c) Find the best unbiased estimator of the form aZ1 +(1−a)Z2, calculate its variance, and compare it           to the bias-corrected MLE.
+7.55 For each of the following pdfs, let X1,...,Xn be a sample from that distribution. In each case, find the
+      best unbiased estimator of θr. (See Guenther (1978) for a complete discussion of this problem.)
+         = θ ,  0 < x < θ, r < n.       (a)  f(x|θ)    1
+                 > θ.      (b)  f(x|θ) = e−(x−θ),   x
+       (c)  f(x|θ) = e−θe−x−e−b ,  θ < x < b,  b known.
+7.56 Prove the assertion made in the text preceding Example 7.3.24: If T is a complete sufficient statistic for
+      a parameter θ, and h(X1,...,Xn) is any unbiased estimator of τ(θ), then φ(T) = E(h(X1,...,Xn)|T) is      the best unbiased estimator of τ(θ).
+7.57 Let X1,...,Xn+1 be iid Bernoulli(p), and define the function h(p) by
+
+                                                        n
+                                    h(p) = P                     ∑ Xi                              > Xn+1|p   ,                                                     i=1
+
+      the probability that the first n observations exceed the (n+1)st.
+       (a) Show that
+                                             1       if ∑ni=1 Xi > Xn+1                               T(X1,...,Xn+1) =                                             0     otherwise
+            is an unbiased estimator of h(p).
+      (b) Find the best unbiased estimator of h(p).
+7.58 Let X be an observation from the pdf
+                              θ    |x|
+                                = −1,0,1;  0 ≤θ ≤1.                         f(x|θ) =  2    (1−θ)1−|x|,   x
+       (a) Find the MLE of θ.
+      (b) Define the estimator T(X) by
+
+                                            2       if x = 1
+                                 T(X) =
+                                            0     otherwise.
+       Show that T(X) is an unbiased estimator of θ.
+       (c) Find a better estimator than T(X) and prove that it is better.
+7.59 Let X1,...,Xn be iid n(µ,σ2). Find the best unbiased estimator of σ p, where p is a known positive
+      constant, not necessarily an integer.
+7.60 Let X1,...,Xn be iid gamma(α,β) with α known. Find the best unbiased estimator of 1/β.
+7.61 Show that the log of the likelihood function for estimating σ2, based on observing S2 ∼σ2χ2ν/ν, can be      written in the form
+                                                         s2           s2
+                         = K1                                logL(σ2|s2)                                        σ2 −K2 log σ2 +K3,
+     where K1,K2, and K3 are constants, not dependent on σ2. Relate the above log likelihood to the loss
+      function discussed in Example 7.3.27. See Anderson (1984a) for a discussion of this relationship.
+===== PDF 328, printed 297 =====
+EXERCISES                                                                  297
+7.62 Let X1,...,Xn be a random sample from a n(θ,σ2) population, σ2 known. Consider estimating θ using
+     squared error loss. Let π(θ) be a n(µ,τ2) prior distribution on θ and let δ π be the Bayes estimator of θ.
+      Verify the following formulas for the risk function and Bayes risk.
+       (a) For any constants a and b, the estimator δ(x) = aX +b has risk function
+                                       σ2                                R(θ,δ) = a2                                            n +(b−(1−a)θ)2.
+      (b) Let η = σ2/(nτ2 +σ2). The risk function for the Bayes estimator is
+                                           σ2
+                               R(θ,δ π) = (1−η)2 n +η2(θ −µ)2.
+       (c) The Bayes risk for the Bayes estimator is
+                                        B(π,δ π) = τ2η.
+7.63 Let X ∼n(µ,1). Let δ π be the Bayes estimator of µ for squared error loss. Compute and graph the risk
+      functions, R(µ,δ π), for π(µ) ∼n(0,1) and π(µ) ∼n(0,10). Comment on how the prior affects the risk      function of the Bayes estimator.
+7.64 Let X1,...,Xn                  be independent random variables, where Xi has cdf F(x|θi). Show that, for i = 1,...,n,              πi        if δi (Xi)  is a Bayes rule for estimating θi using loss L(θi,ai) and prior πi(θi), then δ π(X) =
+      (δ π1(X1),...,δ πn(Xn)) is a Bayes rule for estimating θ = (θ1,...,θn) using the loss ∑ni=1 L(θi,ai) and
+      prior π(θ) = ∏ni=1 πi(θi).
+7.65 A loss function investigated by Zellner (1986) is the LINEX (LINear–EXponential) loss, a loss function
+       that can handle asymmetries in a smooth way. The LINEX loss is given by
+                                 L(θ,a) = ec(a−θ) −c(a−θ)−1,
+     where c is a positive constant. As the constant c varies, the loss function varies from very asymmetric to
+      almost symmetric.
+       (a) For c = .2,.5, 1, plot L(θ,a) as a function of a−θ.
+                                                        =      (b)  If X ∼F(x|θ), show that the Bayes estimator of θ, using a prior π,  is given by δ π(X)
+         −1c log E(e−cθ|X).
+       (c) Let X1,...,Xn be iid n(θ,σ2), where σ2 is known, and suppose that θ has the noninformative prior
+        π(θ) = 1. Show that the Bayes estimator versus LINEX loss is given by δ B(X) = X −(cσ2/(2n)).
+      (d) Calculate the posterior expected loss for δ B(X) and X using LINEX loss.
+       (e) Calculate the posterior expected loss for δ B(X) and X using squared error loss.
+7.66 The jackknife is a general technique for reducing bias in an estimator (Quenouille 1956). A one-step
+      jackknife estimator is defined as follows. Let X1,...,Xn be a random sample, and let Tn = Tn(X1,...,Xn)
+     be some estimator of a parameter θ. In order to “jackknife” Tn we calculate the n statistics Tn(i), i =
+      1,...,n, where Tn(i) is calculated just as Tn but using the n −1 observations with Xi removed from the      sample. The jackknife estimator of θ, denoted by JK(Tn), is given by
+                                                                  n
+                                   JK(Tn) = nTn                         ∑ Tn(i).                            −n−1n   i=1
+      (In general, JK(Tn) will have a smaller bias than Tn. See Miller (1974) for a good review of the properties
+      of the jackknife.)
+     Now, to be specific, let X1,...,Xn be iid Bernoulli(θ). The object is to estimate θ2.
+       (a) Show that the MLE of θ2,(∑ni=1 Xi/n)2, is a biased estimator of θ2.
+      (b) Derive the one-step jackknife estimator based on the MLE.
+       (c) Show that the one-step jackknife estimator is an unbiased estimator of θ2. (In general, jackknifing
+         only reduces bias. In this special case, however, it removes it entirely.)
+      (d)  Is this jackknife estimator the best unbiased estimator of θ2? If so, prove it. If not, find the best
+         unbiased estimator.
+7.67 Prove Theorem 10.1.5.
+===== PDF 329, printed 298 =====
+298                                                 POINT ESTIMATION
+7.5  Miscellanea
+
+ 7.5.1 Moment Estimators and MLEs
+       In general, method of moments estimators are not functions of sufficient statistics, hence,
+       they can always be improved upon by conditioning on a sufficient statistic. In the case of
+       exponential families, however, there can be a correspondence between a modified method of
+      moments strategy and maximum likelihood estimation. This correspondence is discussed in
+        detail by Davidson and Solomon (1974), who also relate some interesting history.
+      Suppose that we have a random sample X = (X1,...,Xn) from a pdf in the exponential family
+       (see Theorem 5.2.11)
+
+                                                                    k
+                                                                                                      ,                             f(x|θ) = h(x)c(θ)exp  i=1∑ wi(θ)ti(x)
+      where the range of f(x|θ) is independent of θ. (Note that θ may be a vector.) The likelihood       function is of the form
+
+                                                                   k         n
+                                                                           ti(xj)   ,                       L(θ|x) = H(x)[c(θ)]nexp  i=1∑ wi(θ) j=1∑
+
+      and a modified method of moments would estimate wi(θ),i = 1,...,k, by ˆwi(θ), the solu-
+        tions to the k equations
+
+                                 n                 n
+                                                                                   ,    i = 1,...,k.            ∑ ti(x j)                    = Eθ ∑ ti(Xj)
+                              j=1              j=1
+
+      Davidson and Solomon, extending work of Huzurbazar (1949), show that the estimators
+        ˆwi(θ) are, in fact, the MLEs of wi(θ). If we define ηi = wi(θ),i = 1,...,k, then the MLE of
+       g(ηi) is equal to g(ˆηi) = g(ˆwi(θ)) for any one-to-one function g. Calculation of the above
+       expectations may be simplified by using the facts (Lehmann, 1986, Section 2.7) that
+
+                           ∂
+            Eθ(ti(Xj)) =          log(c(θ)),    i = 1,...,k,     j = 1,...,n;                         ∂wi(θ)
+
+                       Covθ(ti(Xj),ti′(Xj))
+                              ∂2
+             =                 log(c(θ)),    i,i′ = 1,...,k,     j = 1,...,n.
+                          ∂wi(θ)∂wi′(θ)
+ 7.5.2 Unbiased Bayes Estimates
+     As was seen in Section 7.2.3, if a Bayesian calculation is done, the mean of the posterior
+        distribution usually is taken as a point estimator. To be specific, if X has pdf f(x|θ) with      Eθ(X) = θ, and there is a prior distribution π(θ), then the posterior mean, a Bayesian point
+       estimator of θ, is given by
+
+                                  E(θ|x) =   θπ(θ|x)dθ.
+    A question that could be asked is whether E(θ|X) can be an unbiased estimator of θ, and       thus satisfy the equation
+
+                       Eθ[E(θ|X)] =      θπ(θ|x)dθ  f(x|θ)dx = θ.
+===== PDF 330, printed 299 =====
+MISCELLANEA                                                              299
+      The answer is no. That is, posterior means are never unbiased estimators. If they were, then
+       taking the expectation over the joint distribution of X and θ, we could write
+                 E[(X −θ)2]                  =  E[X2 −2Xθ +θ 2]                   (expand the square)
+                  =  E E((X2 −2Xθ +θ2   2)|θ)2              (iterate the expectation)                                            = EθX = θ)                  =  E E(X2|θ)−2θ2 +θ             (E(X|θ)
+                  =  E E(X2|θ)−θ
+                  =                            E(X2)−E(θ 2),                (properties of expectations)
+
+       doing the conditioning one way, and conditioning on X we could similarly calculate
+                        E[(X −θ)2]                      =  E E[(X2 −2Xθ +θ 2)|X]
+                                               = X                      =  E X2     +E(θ              E(θ|X)                                  −2X2      2|X)         by assumption
+                      =  E(θ 2)−E(X2).
+      Comparing the two calculations, we see that the only way that there is no contradiction is
+          if E(X2) = E(θ 2), which then implies that E(X −θ)2 = 0, so X = θ. This occurs only if      P(X = θ) = 1, an uninteresting situation, so we have argued to a contradiction. Thus, either
+       E(X|θ)̸ = θ or E(θ|X)̸ = X, showing that posterior means cannot be unbiased estimators.       Notice that we have implicitly made the assumption that E(X2) < ∞, but, in fact, this result
+       holds under more general conditions. Bickel and Mallows (1988) have a more thorough
+      development of this topic. At a more advanced level, this connection is characterized by
+       Noorbaloochi and Meeden (1983).
+ 7.5.3 The Lehmann–Scheff´e Theorem
+      The Lehmann–Scheff´e Theorem represents a major achievement in mathematical statistics,
+       tying together sufficiency, completeness, and uniqueness. The development in the text is
+      somewhat complementary to the Lehmann–Scheff´e Theorem, and thus we never stated it
+        in its classical form (which is similar to Theorem 7.3.23). In fact, the Lehmann–Scheff´e
+      Theorem is contained in Theorems 7.3.19 and 7.3.23.
+     Theorem 7.5.1 (Lehmann–Scheff´e)  Unbiased estimators based on complete sufficient
+         statistics are unique.
+       Proof: Suppose T is a complete sufficient statistic, and φ(T) is an estimator with Eθφ(T) =
+       τ(θ). From Theorem 7.3.23 we know that φ(T) is the best unbiased estimator of τ(θ), and
+      from Theorem 7.3.19, best unbiased estimators are unique.                 2
+
+         This theorem can also be proved without Theorem 7.3.3, using just the consequences of
+       completeness, and provides a slightly different route to Theorem 7.3.23.
+ 7.5.4 More on the EM Algorithm
+      The EM algorithm has its roots in work done in the 1950s (Hartley 1958), but really came
+        into statistical prominence after the seminal work of Dempster, Laird, and Rubin (1977),
+      which detailed the underlying structure of the algorithm and illustrated its use in a wide
+        variety of applications.
+       One of the strengths of the EM algorithm is that conditions for convergence to the
+       incomplete-data MLEs are known, although this topic has obtained an additional bit of folk-
+        lore. Dempster, Laird, and Rubin’s (1977) original proof of convergence had a flaw, but valid
+       convergence proofs were later given by Boyles (1983) and Wu (1983); see also Finch et al.
+       (1989).
+          In our development we stopped with Theorem 7.2.20, which guarantees that the likeli-
+      hood will increase at each iteration. However, this may not be enough to conclude that the
+       sequence   ˆθ    converges to a maximum likelihood estimator. Such a guarantee requires              {  (r)}
+===== PDF 331, printed 300 =====
+300                                                 POINT ESTIMATION
+        further conditions. The following theorem, due to Wu (1983), guarantees convergence to a
+       stationary point, which may be a local maximum or saddlepoint.
+     Theorem 7.5.2  If the expected complete-data log likelihood E [logL(θ|y,x)|θ ′,y] is contin-      uous in both θ and θ ′, then all limit points of an EM sequence   ˆθ    are stationary points                                                         {  (r)}
+        of L(θ|y), and L(ˆθ (r)|y) converges monotonically to L( ˆθ|y) for some stationary point ˆθ.
+       In an exponential family computations become simplified because the log likelihood will be
+        linear in the missing data. are somewhat simplified because we can write
+          E logL(θ|y,x)|θ ′,y  =  Eθ′ [log(h(y,X)  e∑ηi(θ)Ti−B(θ)  |y
+                    =  Eθ′ [logh(y,X)]+∑ηi(θ)Eθ′ [Ti|y]−B(θ).
+       Thus, calculating the complete-data MLE only involves the simpler expectation Eθ′ [Ti|y].       Good overviews of the EM algorithm are provided by Little and Rubin (1987), Tanner
+       (1996), and Sheaffer (1997); see also Lehmann and Casella (1998, Section 6.4). McLachlan
+      and Krishnan (1997) provide a book-length treatment of EM.
+ 7.5.5 Other Likelihoods
+       In this chapter we have used the method of maximum likelihood, and seen that it not only
+       provides us with a method for finding estimators but also brings along a large-sample theory
+        that is quite useful for inference.
+         Likelihood has many modifications. Some are used to deal with nuisance parameters (such
+       as profile likelihood); others that are used when a more robust specification is desired (such
+       as quasi likelihood); and others are useful when the data are censored (such as partial like-
+        lihood).
+         There are many other variations, and they all can provide some improvement over the
+        plain likelihood that we have described here. Entries to this wealth of likelihoods can be
+      found through the review article of Hinkley (1980) or the volume of review articles edited
+      by Hinkley, Reid, and Snell (1991).
+ 7.5.6 Other Bayes Analyses
+        1. Robust Bayes Analysis  The fact that Bayes rules may be quite sensitive to the (subjec-
+            tive) choice of a prior distribution is a cause of concern for many Bayesian statisticians.
+        The paper of Berger (1984) introduced the idea of a robust Bayes analysis. This is a
+         Bayes analysis in which estimators are sought that have good properties for a range of
+           prior distributions. That is, we look for an estimator δ ∗whose performance is robust in
+            that it is not sensitive to which prior π, in a class of priors, is the correct prior. Robust
+         Bayes estimators can also have good frequentist performance, making them rather at-
+            tractive procedures. The review papers by Berger (1990, 1994) and Wasserman (1994)
+          provide an entry to this topic.
+        2. Empirical Bayes Analysis  In a standard Bayesian analysis, there are usually parame-
+            ters in the prior distribution that are to be specified by the experimenter. For example,
+          consider the specification
+                                  X|θ ∼  n(θ,1),
+                                      θ|τ2 ∼  n(0,τ2).
+        The Bayesian experimenter would specify a prior value for τ2 and a Bayesian analysis
+          can be done. However, as the marginal distribution of X is n(0,τ2 +1), it contains infor-
+          mation about τ and can be used to estimate τ. This idea of estimation of prior parameters
+          from the marginal distribution is what distinguishes empirical Bayes analysis. Empirical
+         Bayes methods are useful in constructing improved procedures, as illustrated in Morris
+          (1983) and Casella and Hwang (1987). Gianola and Fernando (1986) have successfully
+===== PDF 332, printed 301 =====
+MISCELLANEA                                                              301
+          applied these types of methods to solve practical problems. A comprehensive treatment
+           of empirical Bayes is Carlin and Louis (1996), and less technical introductions are found
+           in Casella (1985, 1992).
+        3. Hierarchical Bayes Analysis  Another way of dealing with the specification above,
+          without giving a prior value to τ2, is with a hierarchical specification, that is, a speci-
+            fication of a second-stage prior on τ2. For example, we could use
+                        X|θ ∼  n(θ,1),
+                           θ|τ2 ∼  n(0,τ2),                             τ2      uniform(0,∞)  (improper prior).                   ∼
+             Hierarchical modeling, both Bayes and non-Bayes, is a very effective tool and usu-
+            ally gives answers that are reasonably robust to the underlying model. Their usefulness
+         was demonstrated by Lindley and Smith (1972) and, since then, their use and develop-
+         ment has been quite widespread. The seminal paper of Gelfand and Smith (1990) tied
+           hierarchical models to computing algorithms, and the applicability of Bayesian methods
+          exploded. Lehmann and Casella (1999, Section 4.5) give an introduction to the theory of
+           hierarchical Bayes, and Robert and Casella (1999) cover applications and connections to
+          computational algorithms.

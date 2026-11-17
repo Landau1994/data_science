@@ -1,0 +1,48 @@
+THE SUFFICIENCY PRINCIPLE                                                223
+and these conditional probabilities do not depend on θ. Thus, we have
+
+      Pθ(X = x) =  Pθ(X = x and T(X) = T(x))
+                                                                                   definition of
+                                                                         conditional probability           =  P(X = x|T(X) = T(x))Pθ(T(X) = T(x))
+           =  P(Y = x|T(X) = T(x))Pθ(T(X) = T(x))           =  Pθ(Y = x and T(X) = T(x))
+           =  Pθ(Y = x).
+
+To use Definition 6.2.1 to verify that a statistic T(X) is a sufficient statistic for θ, we must verify
+that for any fixed values of x and t, the conditional probability Pθ(X = x|T(X) = t) is the same for
+all values of θ. Now, this probability is 0 for all values of θ if T(x)̸ = t. So, we must verify only that
+Pθ(X = x|T(X) = T(x)) does not depend on θ. But since {X = x} is a subset of {T(X) = T(x)},
+                                      Pθ(X = x and T(X) = T(x))
+              Pθ(X = x|T(X) = T(x)) =      Pθ(T(X) = T(x))
+                                         Pθ(X = x)
+                        =
+                                        Pθ(T(X) = T(x))
+                        =    p(x|θ)
+                                            q(T(x)|θ)
+where p(x|θ) is the joint pmf of the sample X and q(t|θ) is the pmf of T(X). Thus, T(X) is asufficient statistic for θ if, and only if, for every x the above ratio of pmfs is constant as a function
+of θ. If X and T(X) have continuous distributions, then the above conditional probabilities cannot
+be interpreted in the sense of Chapter 1. But it is still appropriate to use the above criterion to
+determine if T(X) is a sufficient statistic for θ.
+Theorem 6.2.2    If p(x|θ) is the joint pdf or pmf of X, and q(t|θ) is the pdf or pmf of T(X), then
+T(X) is a sufficient statistic for θ if for every x in the sample space the ratio p(x|θ)/q(T(x)|θ) isconstant as a function of θ.
+
+  We now use Theorem 6.2.2 to verify that certain common statistics are sufficient statistics.
+Example 6.2.3 (Binomial sufficient statistic)   Let X1,...,Xn be iid Bernoulli random variables
+with parameter θ,0 < θ < 1. We will show that T(X) = X1 +···+Xn is a sufficient statistic for θ.Note that T(X) counts the number of Xis that equal 1, so T(X) has a binomial(n,θ) distribution.
+The ratio of pmfs is thus
+                              p(x|θ)  =  Πθn xi(1−θ)1−xi                 (define t = Σxi)
+                                                                                                   t                           q(T(x)|θ)         θt(1−θ)n−t
+                                      θ                                                                                                                                               xi = θ Σxi)                       =    Σxi(1−θ)Σ(1−xi)n                        (Πθ
+                                                                                                    t                                           θt(1−θ)n−t
+                       =     nθt(1−θ)n−t
+                                                                                                   t                                           θt(1−θ)n−t                                         1
+                       =     n
+                                                                                                   t
+                                          1
+                       =             .
+                                                        n
+                                                                  Σxi
+
+Since this ratio does not depend on θ, by Theorem 6.2.2, T(X) is a sufficient statistic for θ. The
+interpretation is this: The total number of ones in this Bernoulli sample contains all the information
+about θ that is in the data. Other features of the data, such as the exact value of X3, contain no
+additional information.                                                            ∥

@@ -1,0 +1,241 @@
+% 原书印刷16–22页，PDF物理47–53页；从§1.3起至§1.4前.
+\subsection{条件概率与独立性}\label{sec:1.3}
+到目前为止，我们讨论的概率都是无条件概率.我们先定义一个样本空间，再相对于该样本空间计算所有概率.不过，在许多情形中，可以依据新的信息更新样本空间.此时，我们希望能够更新概率计算，或者计算条件概率（conditional probability）.
+
+\begin{example}[四张A]\label{ex:1.3.1}
+从充分洗匀的一副扑克牌顶端发出四张牌.这四张恰好是四张A的概率是多少？可以用上一节的方法计算.由四张牌组成的不同组合共有
+$$\binom{52}{4}=270,725.$$
+其中只有一个组合由四张A组成，而且每个组合等可能，因此发到四张A的概率为$1/270,725$.
+
+也可以用如下的“更新”论证来计算这一概率.第一张牌是A的概率为$4/52$.已知第一张牌是A，第二张牌是A的概率为$3/51$（还剩三张A和51张牌）.继续这一论证，所求概率为
+$$\frac4{52}\times\frac3{51}\times\frac2{50}\times\frac1{49}=\frac1{270,725}.$$
+\end{example}
+
+在第二种解法中，每抽出一张牌，我们就更新一次样本空间；我们计算的是条件概率.
+
+\sourcepageanchor{48}
+
+\begin{definition}\label{def:1.3.2}\index{SI0122@条件概率}
+若$A$和$B$是$S$中的事件，且$P(B)>0$，则给定$B$时$A$的条件概率记为$P(A\mid B)$，定义为
+\begin{equation}\label{eq:1.3.1}
+P(A\mid B)=\frac{P(A\cap B)}{P(B)}.
+\end{equation}
+\end{definition}
+
+注意，在条件概率计算中，$B$成了样本空间：$P(B\mid B)=1$.直观地说，原来的样本空间$S$已更新为$B$，此后所有事件的发生都按它们与$B$的关系重新衡量.尤其要注意不相交集合的条件概率.设$A$与$B$不相交，则$P(A\cap B)=0$，从而$P(A\mid B)=P(B\mid A)=0$.
+
+\begin{example}[续例\ref{ex:1.3.1}]\label{ex:1.3.3}
+虽然得到四张A的概率很小，但我们来看看，已知已经得到若干张A时，条件概率会怎样变化.仍从充分洗匀的一副牌中发出四张牌，现在计算
+$$P(\text{四张牌中有四张A}\mid\text{$i$张牌中有$i$张A}),\qquad i=1,2,3.$$
+事件$\{\text{四张牌中有四张A}\}$是事件$\{\text{$i$张牌中有$i$张A}\}$的子集.因此，由条件概率的定义\eqref{eq:1.3.1}，有
+\begin{equation*}
+\begin{aligned}
+&P(\text{四张牌中有四张A}\mid\text{$i$张牌中有$i$张A})\\
+&\quad=\frac{P(\{\text{四张牌中有四张A}\}\cap\{\text{$i$张牌中有$i$张A}\})}{P(\text{$i$张牌中有$i$张A})}\\
+&\quad=\frac{P(\text{四张牌中有四张A})}{P(\text{$i$张牌中有$i$张A})}.
+\end{aligned}
+\end{equation*}
+分子已经算出，分母也可以用类似的论证计算.由$i$张牌组成的不同组合共有$\binom{52}{i}$个，且
+$$P(\text{$i$张牌中有$i$张A})=\frac{\binom4i}{\binom{52}i}.$$
+因此，条件概率为
+\begin{equation*}
+\begin{aligned}
+&P(\text{四张牌中有四张A}\mid\text{$i$张牌中有$i$张A})\\
+&\quad=\frac{\binom{52}i}{\binom{52}4\binom4i}
+=\frac{(4-i)!48!}{(52-i)!}=\frac1{\binom{52-i}{4-i}}.
+\end{aligned}
+\end{equation*}
+当$i=1,2,3$时，条件概率分别为$.00005$、$.00082$和$.02041$.
+\end{example}
+
+对任何满足$P(B)>0$的$B$，直接验证即可知道概率函数$P(\cdot\mid B)$满足Kolmogorov公理\index{SI0597@条件概率}\semanticindexanchor{597:49}（见习题\ref{exercise:1.35}）.你也许觉得$P(B)>0$这个要求是多余的：谁会想在概率为零的事件上取条件呢？有趣的是，有时这恰恰是一种特别有用的思考方式.不过，我们将把这些问题留到\hyperref[sec:4]{第4章}.
+
+条件概率有时很容易令人误判，需要仔细思考.请看下面这个经常讲述的故事.
+
+\sourcepageanchor{49}
+
+\begin{example}[三名囚犯]\label{ex:1.3.4}\index{SI1071@看守问题}
+三名囚犯A、B、C正在等候执行死刑.州长决定赦免其中一人，并随机选出要赦免的囚犯.他把选择告诉典狱长，但要求对姓名保密几天.
+
+第二天，A试图让典狱长说出谁已获赦免，典狱长拒绝了.A于是问B和C中谁将被处死.典狱长想了一会儿，随后告诉A，B将被处死.
+\begin{description}
+\item[典狱长的推理：]每名囚犯获赦免的机会都是$\frac13$.显然，B和C中至少有一人必须被处死，因此我并没有给A提供任何关于A是否会获赦免的信息.
+\item[A的推理：]已知B将被处死，获赦免的就只可能是A或C.我获赦免的机会已上升到$\frac12$.
+\end{description}
+典狱长的推理应当是正确的，不过我们来看看原因.令$A$、$B$、$C$分别表示A、B、C获赦免的事件.我们知道$P(A)=P(B)=P(C)=\frac13$.令$\mathscr W$表示典狱长说B将死去这一事件.利用\eqref{eq:1.3.1}，A可将自己获赦免的概率更新为
+$$P(A\mid\mathscr W)=\frac{P(A\cap\mathscr W)}{P(\mathscr W)}.$$
+整个情形可以归纳为下表：
+\begin{center}
+\begin{tabular}{ccc}\hline
+获赦免的囚犯&典狱长告诉A&\\\hline
+A&B将死去&\multirow{2}{*}{两种说法等概率}\\
+A&C将死去&\\
+B&C将死去&\\
+C&B将死去&\\\hline
+\end{tabular}
+\end{center}
+根据该表，可得
+\begin{equation*}\begin{aligned}
+P(\mathscr W)&=P(\text{典狱长说B将死去})\\
+&=P(\text{典狱长说B将死去且A获赦免})\\
+&\quad+P(\text{典狱长说B将死去且C获赦免})\\
+&\quad+P(\text{典狱长说B将死去且B获赦免})\\
+&=\frac16+\frac13+0=\frac12.
+\end{aligned}\end{equation*}
+因此，按典狱长的推理，
+\begin{equation}\label{eq:1.3.2}\begin{aligned}
+P(A\mid\mathscr W)&=\frac{P(A\cap\mathscr W)}{P(\mathscr W)}\\
+&=\frac{P(\text{典狱长说B将死去且A获赦免})}{P(\text{典狱长说B将死去})}
+=\frac{1/6}{1/2}=\frac13.
+\end{aligned}\end{equation}
+然而，A错误地把事件$\mathscr W$当成事件$B^c$，并计算
+$$P(A\mid B^c)=\frac{P(A\cap B^c)}{P(B^c)}=\frac{1/3}{2/3}=\frac12.$$
+可见，条件概率很容易令人误判，需要仔细解释.这个问题的其他变体见习题\ref{exercise:1.37}.
+\end{example}
+
+将\eqref{eq:1.3.1}改写，便得到计算交事件概率的一个有用形式：
+\begin{equation}\label{eq:1.3.3}\index{SI0123@乘法法则}P(A\cap B)=P(A\mid B)P(B),\end{equation}
+它实质上就是例\ref{ex:1.3.1}所用的公式.利用\eqref{eq:1.3.3}的对称性，也可写成
+\begin{equation}\label{eq:1.3.4}P(A\cap B)=P(B\mid A)P(A).\end{equation}
+面对看起来很困难的计算时，可以按\eqref{eq:1.3.3}或\eqref{eq:1.3.4}分解计算，选其中较容易的一种.进一步令这两个式子的右端相等，整理可得
+\begin{equation}\label{eq:1.3.5}P(A\mid B)=P(B\mid A)\frac{P(A)}{P(B)},\end{equation}
+这给出了“反转”条件概率的公式.式\eqref{eq:1.3.5}通常以其发现者Thomas Bayes爵士命名，称为贝叶斯公式（Bayes' Rule）［不过，参见\hyperref[bib:source306]{Stigler（1983）}］.
+
+贝叶斯公式还有比\eqref{eq:1.3.5}更一般的形式，可以用于样本空间的划分.因此，我们以下面的形式作为贝叶斯公式的定义.
+
+\sourcepageanchor{50}
+
+\begin{theorem}[贝叶斯公式]\label{thm:1.3.5}\index{SI0086@贝叶斯公式}\index{SI0753@划分}
+设$A_1,A_2,\ldots$是样本空间的一个划分，$B$为任意集合.则对每个$i=1,2,\ldots$，\footnote{译注：按本章的条件概率比值定义，须有$P(B)>0$，且使用$P(B\mid A_j)$的各项须有$P(A_j)>0$；零概率分块应剔除或另约定其贡献为0.原定理没有显写这些条件.}
+$$P(A_i\mid B)=\frac{P(B\mid A_i)P(A_i)}{\sum_{j=1}^\infty P(B\mid A_j)P(A_j)}.$$
+\end{theorem}
+
+\begin{example}[编码]\label{ex:1.3.6}
+发送编码信息时，传输过程中有时会出错.具体来说，莫尔斯电码使用“点”和“划”，已知它们出现的比例是$3:4$.这意味着，对任意一个符号，
+$$P(\text{发送点})=\frac37,\qquad P(\text{发送划})=\frac47.$$
+假设传输线路受到干扰，一个点以$\frac18$的概率被误收为划，反之亦然.如果接收到一个点，能否确定发出的就是点？利用贝叶斯公式，可写成
+$$P(\text{发送点}\mid\text{接收点})=P(\text{接收点}\mid\text{发送点})\frac{P(\text{发送点})}{P(\text{接收点})}.$$
+根据给定信息，$P(\text{发送点})=\frac37$，且$P(\text{接收点}\mid\text{发送点})=\frac78$.此外，
+\begin{equation*}\begin{aligned}
+P(\text{接收点})&=P(\text{接收点}\cap\text{发送点})+P(\text{接收点}\cap\text{发送划})\\
+&=P(\text{接收点}\mid\text{发送点})P(\text{发送点})\\
+&\quad+P(\text{接收点}\mid\text{发送划})P(\text{发送划})\\
+&=\frac78\times\frac37+\frac18\times\frac47=\frac{25}{56}.
+\end{aligned}\end{equation*}
+合并上述结果，可知正确接收到点的概率为
+$$P(\text{发送点}\mid\text{接收点})=\frac{(7/8)\times(3/7)}{25/56}=\frac{21}{25}.$$
+\end{example}
+
+有些时候，某个事件$B$的发生对另一事件$A$的概率没有影响.用符号表示，就是
+\begin{equation}\label{eq:1.3.6}P(A\mid B)=P(A).\end{equation}
+若此式成立，则由贝叶斯公式\eqref{eq:1.3.5}及\eqref{eq:1.3.6}，有
+\begin{equation}\label{eq:1.3.7}P(B\mid A)=P(A\mid B)\frac{P(B)}{P(A)}=P(A)\frac{P(B)}{P(A)}=P(B),\end{equation}
+所以$A$的发生也不影响$B$.又因$P(B\mid A)P(A)=P(A\cap B)$，故
+$$P(A\cap B)=P(A)P(B),$$
+我们以此定义统计独立性（statistical independence）.
+
+\sourcepageanchor{51}
+
+\begin{definition}\label{def:1.3.7}\index{SI0550@事件}
+若两个事件$A$、$B$满足
+\begin{equation}\label{eq:1.3.8}P(A\cap B)=P(A)P(B),\end{equation}
+则称它们统计独立.
+\end{definition}
+注意，也可以等价地用\eqref{eq:1.3.6}或\eqref{eq:1.3.7}来定义独立性（只要$P(A)>0$或\allowbreak\mbox{$P(B)>0$）.}\allowbreak 式\eqref{eq:1.3.8}的优点在于它对称地处理两个事件，也更容易推广到两个以上的事件.
+
+许多赌博游戏都提供了独立事件的模型.旋转轮盘或投掷一对骰子，都形成独立事件的序列.
+\begin{example}[德梅雷骑士]\label{ex:1.3.8}\index{SI0686@德梅雷骰子问题}
+本章开头介绍的赌徒德梅雷骑士，特别感兴趣的是投掷一枚骰子四次至少出现一次6的事件.有
+\begin{equation*}\begin{aligned}
+P(\text{四次中至少一次为6})&=1-P(\text{四次都没有6})\\
+&=1-\prod_{i=1}^4 P(\text{第$i$次没有6}),
+\end{aligned}\end{equation*}
+最后一个等号来自各次投掷的独立性.每次没有投出6的概率为$\frac56$，所以
+$$P(\text{四次中至少一次为6})=1-\left(\frac56\right)^4=.518.$$
+\end{example}
+
+$A$与$B$独立还蕴含其补集之间的独立性.事实上，有如下定理.
+\begin{theorem}\label{thm:1.3.9}\index{SI0552@性质}
+若$A$和$B$是独立事件，则以下各对也独立：
+\begin{enumerate}[label=\alph*.]
+\item\label{item:1.3.9a}$A$和$B^c$；
+\item\label{item:1.3.9b}$A^c$和$B$；
+\item\label{item:1.3.9c}$A^c$和$B^c$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+只证明\hyperref[item:1.3.9a]{(a)}，其余留作习题\ref{exercise:1.40}.要证明\hyperref[item:1.3.9a]{(a)}，必须说明$P(A\cap B^c)=P(A)P(B^c)$.由定理\ref{thm:1.2.9}\hyperref[itm:thm:1.2.9:a]{(a)}，
+\begin{equation*}\begin{aligned}
+P(A\cap B^c)&=P(A)-P(A\cap B)\\
+&=P(A)-P(A)P(B)&&\text{（$A$与$B$独立）}\\
+&=P(A)(1-P(B))\\
+&=P(A)P(B^c).
+\end{aligned}\end{equation*}
+\end{proof}
+
+两个以上事件的独立性可以用类似\eqref{eq:1.3.8}的方式定义，不过必须谨慎.例如，或许会认为只要$P(A\cap B\cap C)=P(A)P(B)P(C)$，就可以说$A$、$B$、$C$独立.然而，这并不是正确的条件.
+
+\sourcepageanchor{52}
+
+\begin{example}[投掷两枚骰子]\label{ex:1.3.10}
+考虑投掷两枚骰子的试验.其样本空间为
+$$S=\{(1,1),(1,2),\ldots,(1,6),(2,1),\ldots,(2,6),\ldots,(6,1),\ldots,(6,6)\},$$
+即$S$由数$1$到$6$组成的36个有序对构成.定义事件
+\begin{equation*}\begin{aligned}
+A&=\{\text{出现相同点数}\}=\{(1,1),(2,2),(3,3),(4,4),(5,5),(6,6)\},\\
+B&=\{\text{点数之和在7和10之间}\},\\
+C&=\{\text{点数之和为2、7或8}\}.
+\end{aligned}\end{equation*}
+在36个可能结果中计数，即可算出各概率.有
+$$P(A)=\frac16,\qquad P(B)=\frac12,\qquad P(C)=\frac13.$$
+此外，
+\begin{equation*}\begin{aligned}
+P(A\cap B\cap C)&=P(\text{点数之和为8，且两枚都是4})\\
+&=\frac1{36}=\frac16\times\frac12\times\frac13=P(A)P(B)P(C).
+\end{aligned}\end{equation*}
+但是
+$$P(B\cap C)=P(\text{点数之和等于7或8})=\frac{11}{36}\ne P(B)P(C).$$
+同样，可以证明$P(A\cap B)\ne P(A)P(B)$.因此，要求$P(A\cap B\cap C)=P(A)P(B)P(C)$，还不足以保证两两独立.
+\end{example}
+
+鉴于前例，第二次尝试可能是：若所有事件对都独立，就定义$A$、$B$、$C$独立.可惜，这个条件仍然不行.
+\begin{example}[字母]\label{ex:1.3.11}
+令样本空间$S$由字母a、b、c的$3!$种排列，再加上每个字母重复三次所得的三个三元组组成.即
+$$S=\left\{\begin{array}{ccc}\mathrm{aaa}&\mathrm{bbb}&\mathrm{ccc}\\\mathrm{abc}&\mathrm{bca}&\mathrm{cba}\\\mathrm{acb}&\mathrm{bac}&\mathrm{cab}\end{array}\right\}.$$
+并令$S$中每个元素的概率都是$\frac19$.定义
+$$A_i=\{\text{三元组的第$i$个位置是a}\}.$$
+简单计数即得
+$$P(A_i)=\frac13,\qquad i=1,2,3,$$
+以及
+$$P(A_1\cap A_2)=P(A_1\cap A_3)=P(A_2\cap A_3)=\frac19,$$
+所以这些$A_i$两两独立.但是
+$$P(A_1\cap A_2\cap A_3)=\frac19\ne P(A_1)P(A_2)P(A_3),$$
+故这些$A_i$并不满足所需的概率条件.
+\end{example}
+
+前两个例子说明，一组事件的同时独立或相互独立需要一个很强的定义.下面的定义是可行的.
+
+\sourcepageanchor{53}
+
+\begin{definition}\label{def:1.3.12}\index{SI0551@相互}
+事件族$A_1,\ldots,A_n$称为相互独立（mutually independent），如果对任意子族$A_{i_1},\ldots,A_{i_k}$都有
+$$P\left(\bigcap_{j=1}^k A_{i_j}\right)=\prod_{j=1}^k P(A_{i_j}).$$
+\end{definition}
+
+\begin{example}[抛硬币三次——I]\label{ex:1.3.13}
+考虑抛一枚硬币三次的试验.一个样本点必须说明每次投掷的结果.例如，HHT可以表示先观察到两次正面，再观察到一次反面.本试验的样本空间有八个点，即
+$$\{\mathrm{HHH,HHT,HTH,THH,TTH,THT,HTT,TTT}\}.$$
+令$H_i$（$i=1,2,3$）表示第$i$次为正面的事件.例如，
+\begin{equation}\label{eq:1.3.9}H_1=\{\mathrm{HHH,HHT,HTH,HTT}\}.\end{equation}
+若给每个样本点赋予概率$\frac18$，则利用\eqref{eq:1.3.9}这样的枚举，可以看出$P(H_1)=P(H_2)=P(H_3)=\frac12$.这意味着硬币是公平的，每次落地时正反面的概率相同.
+
+在这个概率模型中，事件$H_1,H_2,H_3$也相互独立.为验证这一点，注意
+$$P(H_1\cap H_2\cap H_3)=P(\{\mathrm{HHH}\})=\frac18=\frac12\cdot\frac12\cdot\frac12=P(H_1)P(H_2)P(H_3).$$
+为验证定义\ref{def:1.3.12}的条件，还必须检查每一对.例如，
+$$P(H_1\cap H_2)=P(\{\mathrm{HHH,HHT}\})=\frac28=\frac12\cdot\frac12=P(H_1)P(H_2).$$
+另外两对也满足这一等式.因此，$H_1,H_2,H_3$相互独立，也就是说，任一次出现正面对其他各次投掷都没有影响.
+
+可以验证，给每个样本点赋予概率$\frac18$，是唯一使$P(H_1)=P(H_2)=P(H_3)=\frac12$且$H_1,H_2,H_3$相互独立的概率模型.
+\end{example}
+
+% 用户授权疑误脚注：2026-11-04

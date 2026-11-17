@@ -1,0 +1,44 @@
+EXERCISES                                                                  289
+
+7.15 Let X1,X2,...,Xn be a sample from the inverse Gaussian pdf,
+                              λ    1/2
+                                                                                                                 ,   x > 0.                      f(x|µ,λ) =  2πx3     exp −λ(x−µ)2/(2µ2x)
+
+       (a) Show that the ML estimators of µ and λ are
+                                                     n
+                                                                                                        .                                                       ˆµn = ¯X and ˆλn =    1
+                                                     ∑i Xi −1¯X
+      (b) Tweedie (1957) showed that ˆµn and ˆλn are independent, ˆµn having an inverse Gaussian distribution
+         with parameters µ and nλ, and nλ/ˆλn having a χ2   distribution. Schwarz and Samantha (1991)                                                     n−1          give a proof of these facts using an induction argument.
+               (i) Show that ˆµ2 has an inverse Gaussian distribution with parameters µ and 2λ, 2λ/ˆλ2 has a χ21
+                 distribution, and they are independent.
+               (ii) Assume the result is true for n = k, and that we get a new, independent observation x. Establish
+               the induction step used by Schwarz and Samantha (1991), and transform the pdf f(x, ˆµk, ˆλk)
+                to f(x, ˆµk+1, ˆλk+1). Show that this density factors in the appropriate way, and that the result of
+             Tweedie follows.
+7.16 Berger and Casella (1992) also investigate power means, which we have seen in Exercise 4.57. Recall
+       that a power mean is defined as  1n ∑ni=1 xri  1/r. This definition can be further generalized by noting that
+      the power function xr can be replaced by any continuous, monotone function h, yielding the generalized
+     mean h−1  1n ∑ni=1 h(xi)  .
+       (a) The least squares problem mina ∑i(xi −a)2  is sometimes solved using transformed variables,
+           that  is, solving mina ∑i[h(xi) −h(a)]2. Show that the solution to this  latter problem  is a =         h−1((1/n)∑i h(xi)).
+      (b) Show that the arithmetic mean is the solution to the untransformed least squares problem, the geo-
+          metric mean is the solution to the problem transformed by h(x) = logx, and the harmonic mean is
+          the solution to the problem transformed by h(x) = 1/x.
+       (c) Show that if the least squares problem is transformed with the Box-Cox Transformation (see Exercise
+          11.3) then the solution is a generalized mean with h(x) = xλ .
+      (d) Let X1,X2,...,Xn be a sample from a lognormal(µ,σ2) population. Show that the MLE of µ is the
+         geometric mean.
+       (e) Suppose  that X1,X2,...,Xn  is a sample from a one-parameter exponential family  f(x|θ) =
+        exp{θh(x)−H(θ)}g(x), where h = H′ and h is an increasing function.
+               (i) Show that the ML estimator of θ is ˆθ = h−1((1/n)∑i h(xi)).
+               (ii) Show that two densities that satisfy h = H′ are the normal and the inverted gamma with pdf
+               f(x|θ) = θx−2 exp{−θ/x} for x > 0, and for the normal the MLE is the arithmetic mean and                for the inverted gamma it is the harmonic mean.
+7.17 The Borel Paradox (Miscellanea 4.9.3) can also arise in inference problems. Suppose that X1 and X2 are
+       iid exponential(θ) random variables.
+       (a)  If we only observe X2, show that the MLE of θ is ˆθ = X2.
+      (b) Suppose that we instead only observe Z = (X2 −1)/X1. Find the joint distribution of (X1,Z), and           integrate out X1 to get the likelihood function.
+       (c) Suppose that X2 = 1. Compare the MLEs for θ from parts (a) and (b).
+      (d) Bayesian analysis is not immune to the Borel Paradox. If π(θ) is a prior density for θ, show that the
+          posterior distributions, at X2 = 1, are different in parts (a) and (b).
+     (Communicated by L. Mark Berliner, Ohio State University.)

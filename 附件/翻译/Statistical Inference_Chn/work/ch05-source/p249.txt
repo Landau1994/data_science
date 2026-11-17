@@ -1,0 +1,44 @@
+218                                    PROPERTIES OF A RANDOM SAMPLE
+      EXi = µ < ∞, and let Vn = ∑ni=1 Xi. The sequence Vn will converge to a n(0,1) random
+        variable (when suitably normalized) if, and only if,
+
+                            > t)                             lim      t2P(|X1 −µ|              0.
+                         t→∞ E (X1 −µ)2I[−t,t](X1 −µ)                                =      Note that the condition is a variance condition. While it does not quite require that the
+       variances be finite, it does require that they be “almost” finite. This is an important point in
+       the convergence to normality – normality comes from summing up small disturbances.
+         Other types of central limit theorems abound – in particular, ones aimed at relaxing the
+       independence assumption. While this assumption cannot be done away with, it can be made
+        less restrictive (see Billingsley 1995, Section 27, or Resnick 1999, Chapter 8).
+ 5.8.2 The Bias of S2
+      Most of the calculations that we have done in this chapter have assumed that the observations
+       are independent, and calculations of some expectations have relied on this fact. H. A. David
+       (1985) pointed out that, if the observations are dependent, then S2 may be a biased estimate
+       of σ2. That is, it may not happen that ES2 = σ2. However, the range of the possible bias
+         is easily calculated. If X1,...,Xn are random variables (not necessarily independent) with
+      mean µ and variance σ2, then
+
+                                         n
+                = E              (n−1)ES2               ∑ (Xi −µ)2 −n(                                  = nσ2 −nVar X.                                    X −µ)2                    i=1
+
+      Var ¯X can vary, according to the amount and type of dependence, from 0 (if all of the vari-
+       ables are constant) to σ2 (if all of the variables are copies of X1). Substituting these values
+        in the above equation, we get the range of ES2 under dependence as
+                                           n
+                                 0 ≤ES2 ≤ n−1σ2.
+ 5.8.3 Chebychev’s Inequality Revisited
+       In Section 3.6 we looked at Chebychev’s Inequality (see also Miscellanea 3.8.2), and in
+      Example 3.6.2 we saw a particularly useful form. That form still requires knowledge of the
+      mean and variance of a random variable and in some cases we might be interested in bounds
+       using estimated values for the mean and variance.
+            If X1,...,Xn is a random sample from a population with mean µ and variance σ2, Cheby-
+       chev’s Inequality says
+                                 P(|X −µ| ≥kσ) ≤1k2 .
+     Saw et al. (1984) showed that if we substitute X for µ and S2 for σ2, we obtain
+
+                                       1       n(n+1)k2
+                 P |X −X| ≥kS ≤ n+1g                                ,                              n−1+(n+1)k2                                      
+      where
+                              ν            if ν is even
+                              g(t) =  ν            if ν is odd and t < a ,                                               ν            if ν is odd and t > a                                        −1
+      and                                            n+1                  ν = largest integer <         ,  a = (n+1)(n+1−ν) .
+                                                                     t       1+ν(n+1−ν)

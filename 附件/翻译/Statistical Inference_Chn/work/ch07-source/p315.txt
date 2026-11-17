@@ -1,0 +1,55 @@
+284                                                 POINT ESTIMATION
+
+                    Risk
+
+
+
+                30
+                                                                   R(s2, S2)
+
+                                                                                 R(s2, sˆ2)
+
+
+                20
+
+                                                                              R(s2, S˜2)
+
+
+
+
+
+                 10
+
+
+
+
+
+                                                                         s2
+                 0            2          4          6          8
+
+               Figure 7.3.2 Risk functions for three variance estimators in Example 7.3.26.
+
+Example 7.3.27 (Variance estimation using Stein’s loss)  Again we consider estimating a popu-
+lation variance σ2 with an estimator of the form bS2. In this analysis, we can be quite general and
+assume only that X1,...,Xn is a random sample from some population with positive, finite variance
+σ2. Now we will use the loss function
+                                      a          a
+                             L(σ2,a) =                                   σ2 −1−log σ2 ,
+attributed to Stein (James and Stein 1961; see also Brown 1990a). This loss is more complicated
+than squared error loss but it has some reasonable properties. Note that if a = σ2, the loss is zero.
+Also, for any fixed value of σ2, L(σ2,a) →∞as a →0 or a →∞. That is, gross underestimationis penalized just as heavily as gross overestimation. (A criticism of squared error loss in a variance
+estimation problem is that underestimation has only a finite penalty while overestimation has an
+infinite penalty.) The loss function also arises out of the likelihood function for σ2, if this is a
+sample from a normal population, and thus ties together good decision theoretic properties with
+good likelihood properties (see Exercise 7.61).
+   For the estimator δb = bS2, the risk function is
+                                           bS2         bS2
+                        R(σ2,δb) =  E                                     σ2 −1−log σ2
+                                            S2           bS2
+                     =  bE                                    σ2 −1−Elog σ2
+                                                             S2                          S2                     =                                      .            E  = 1                                                                                       σ2                             b−logb−1−Elog σ2
+
+The quantity Elog(S2/σ2) may be a function of σ2 and other population parameters but it is not
+a function of b. Thus R(σ2,δb) is minimized in b, for all σ2, by the value of b that minimizes
+b −log b, that is, b = 1. Therefore the estimator of the form bS2 that has the smallest risk for all
+values of σ2 is δ1 = S2.                                                           ∥

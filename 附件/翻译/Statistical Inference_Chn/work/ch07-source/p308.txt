@@ -1,0 +1,44 @@
+METHODS OF EVALUATING ESTIMATORS                                      277
+Thus, taking a(σ2) = n/(2σ4) shows that the best unbiased estimator of σ2 is ∑ni=1(xi −µ)2/n,
+which is calculable only if µ is known. If µ is unknown, the bound cannot be attained.         ∥
+   The theory developed in this section still leaves some questions unanswered. First, what can we
+do if f(x|θ) does notn+1satisfy the assumptions of the Cram´er–Rao Theorem? (In Example 7.3.13, westill do not know if  n Y is a best unbiased estimator.) Second, what if the bound is unattainable
+by allowable estimators, as in Example 7.3.14? There, we still do not know if S2 is a best unbiased
+estimator.
+   One way of answering these questions is to search for methods that are more widely applicable,
+and yield sharper (that is, greater) lower bounds. Much research has been done on this topic, with
+perhaps the most well-known bound being that of Chapman and Robbins (1951). Stuart, Ord, and
+Arnold (1999, Chapter 17) have a good treatment of this subject. Rather than take this approach,
+however, we will continue the study of best unbiased estimators from another view, using the con-
+cept of sufficiency.
+
+7.3.3   Sufficiency and Unbiasedness
+
+In the previous section, the concept of sufficiency was not used in our search for unbiased estimates.
+We will now see that consideration of sufficiency is a powerful tool, indeed.
+   The main theorem of this section, which relates sufficient statistics to unbiased estimates, is, as
+in the case of the Cram´er–Rao Theorem, another clever application of some well-known theorems.
+Recall from Chapter 4 that if X and Y are any two random variables then, provided the expectations
+exist, we have
+                     EX =  E[E(X|Y)],
+                                                                                            (7.3.13)
+                      VarX =  Var[E(X|Y)]+E[Var(X|Y)].
+Using these tools we can prove the following theorem.
+Theorem 7.3.17 (Rao–Blackwell) Let W be any unbiased estimator of τ(θ), and let T be a suffi-
+cient statistic for θ. Define φ(T) = E(W|T). Then Eθφ(T) = τ(θ) and Varθ φ(T) ≤Varθ W for allθ, that is, φ(T) is a uniformly better unbiased estimator of τ(θ).
+Proof: From (7.3.13) we have
+                        τ(θ) = EθW = Eθ[E(W|T)] = Eθφ(T),
+so φ(T) is unbiased for τ(θ). Also,
+                        Varθ W =  Varθ [E(W|T)]+Eθ [Var(W|T)]
+                   =  Varθ φ(T)+Eθ[Var(W|T)]
+                   ≥  Varθ φ(T).                        (Var(W|T) ≥0))
+
+   Hence φ(T) is uniformly better than W, and it only remains to show that φ(T) is indeed an
+estimator. That is, we must show that φ(T) = E(W|T) is a function of only the sample and, inparticular, is independent of θ. But it follows from the definition of sufficiency, and the fact that W
+is a function only of the sample, that the distribution of W|T is independent of θ. Hence φ(T) is auniformly better unbiased estimator of τ(θ).                            2
+    Therefore, conditioning any unbiased estimator on a sufficient statistic will result in a uniform
+improvement, so we need consider only statistics that are functions of a sufficient statistic in our
+search for best unbiased estimators.
+   The identities in (7.3.13) make no mention of sufficiency, so it might at first seem that condi-
+tioning on anything will result in an improvement. This is, in effect, true, but the problem is that the
+resulting quantity will probably depend on θ and not be an estimator.

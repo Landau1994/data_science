@@ -1,0 +1,41 @@
+272                                                 POINT ESTIMATION
+Then
+                                                        d            2                                                    dθ EθW(X)
+                                                                        2                         Varθ (W(X)) ≥         ∂                         .                       (7.3.5)
+                                    Eθ    ∂θ log f(X|θ)
+Proof: The proof of this theorem is elegantly simple, and is a clever application of the Cauchy–
+Schwarz Inequality, or stated statistically, the fact that for any two random variables X and Y,
+                             [Cov(X,Y)]2 ≤(VarX)(VarY).                             (7.3.6)
+If we rearrange (7.3.6) we can get a lower bound on the variance of X,
+
+                             VarX                        .                                  ≥[Cov(X,Y)]2VarY
+The cleverness in this theorem follows from choosing X to be the estimator W(X) and Y to be the
+quantity ∂θ∂ log f(X|θ), and applying the Cauchy–Schwarz Inequality.    First note that
+         d                        ∂
+                        W(x)         EθW(X) =        dθ                             ∂θ f(x|θ)  dx                  X
+                                             ∂
+                                       ∂θ             =  Eθ W(X)   f(X|θ)       (multiply by                       (7.3.7)                                                            f(X|θ)/ f(X|θ))                                    f(X|θ)
+                                 ∂
+             =  Eθ W(X)                                         log f(X|θ)  ,              (property of logs)                            ∂θ
+which suggests a covariance between W(X) and ∂θ∂ log f(X|θ). For it to be a covariance, we need
+to subtract the product of the expected values, so we calculate Eθ  ∂θ∂ log f(X|θ)  . But if we apply
+(7.3.7) with W(x) = 1, we have
+
+                             ∂               d
+                        Eθ                         ∂θ                                     log f(X|θ) = dθ Eθ[1] = 0.                         (7.3.8)
+Therefore, Covθ(W(X), ∂θ∂ log f(X|θ)) is equal to the expectation of the product, and it followsfrom (7.3.7) and (7.3.8) that
+
+                    ∂                        ∂               d
+       Covθ  W(X),                 ∂θ                          log f(X|θ) = Eθ  W(X) ∂θ log f(X|θ) = dθ EθW(X).     (7.3.9)
+
+                = 0 we haveAlso, since Eθ( ∂θ∂ log f(X|θ))
+                         ∂                     ∂                2
+                    Varθ                     ∂θ                               log f(X|θ) = Eθ   ∂θ log f(X|θ)       .              (7.3.10)
+
+Using the Cauchy–Schwarz Inequality, together with (7.3.9) and (7.3.10), we obtain
+
+                                                        d            2                                                    dθ EθW(X)
+                                                                        2                         Varθ (W(X)) ≥         ∂                         ,
+                                    Eθ    ∂θ log f(X|θ)
+
+proving the theorem.                                         2

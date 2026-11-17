@@ -1,0 +1,35 @@
+METHODS OF EVALUATING TESTS                                            315
+Theorem 8.3.12 (Neyman–Pearson Lemma)  Consider testing H0 : θ = θ0 versus H1 : θ = θ1,
+where the pdf or pmf corresponding to θi is f(x|θi),i = 0,1, using a test with rejection region R thatsatisfies
+                                x ∈R  if  f(x|θ1) > k f(x|θ0)
+                      and                                                                (8.3.1)
+                               x ∈Rc  if  f(x|θ1) < k f(x|θ0),
+for some k ≥0, and
+                          α = Pθ0(X ∈R).                                    (8.3.2)
+Then
+a. (Sufficiency)  Any test that satisfies (8.3.1) and (8.3.2) is a UMP level α test.
+b. (Necessity)   If there exists a test satisfying (8.3.1) and (8.3.2) with k > 0 then every UMP level α
+   test is a size α test (satisfies (8.3.2)) and every UMP level α test satisfies (8.3.1) except perhaps
+  on a set A satisfying Pθ0(X ∈A) = Pθ1(X ∈A) = 0.
+Proof: We will prove the theorem for the case that f(x|θ0) and f(x|θ1) are pdfs of continuous ran-dom variables. The proof for discrete random variables can be accomplished by replacing integrals
+with sums. (See Exercise 8.21.)
+   Note  first that any test satisfying (8.3.2) is a size α and, hence, a level α  test because
+supθ∈Θ0 Pθ(X ∈R) = Pθ0(X ∈R) = α, since Θ0 has only one point.
+   To ease notation, we define a test function, a function on the sample space that is one if x ∈R and
+zero if x ∈Rc. That is, it is the indicator function of the rejection region. Let φ(x) be the test functionof a test satisfying (8.3.1) and (8.3.2). Let φ ′(x) be the test function of any other level α test, and let
+β(θ) and β ′(θ) be the power functions corresponding to the tests φ and φ ′, respectively. Because
+0 ≤φ ′(x) ≤1, (8.3.1) implies that (φ(x)−φ ′(x))(f(x|θ1)−k f(x|θ0)) ≥0 for every x (since φ = 1
+if f(x|θ1) > k f(x|θ0) and φ = 0 if f(x|θ1) < k f(x|θ0)). Thus,
+                    0 ≤    [φ(x)−φ ′(x)][f(x|θ1)−k f(x|θ0)]dx
+               =  β(θ1)−β ′(θ1)−k(β(θ0)−β ′(θ0)).                       (8.3.3)
+   Statement (a) is proved by noting that, since φ ′  is a level α  test and φ  is a size α  test,
+β(θ0)−β ′(θ0) = α −β ′(θ0) ≥0. Thus (8.3.3) and k ≥0 imply that
+                0 ≤β(θ1)−β ′(θ1)−k(β(θ0)−β ′(θ0)) ≤β(θ1)−β ′(θ1),
+showing that β(θ1) ≥β ′(θ1), and hence φ has greater power than φ ′. Since φ ′ was an arbitrary levelα test and θ1 is the only point in Θc0,φ is a UMP level α test.
+   To prove statement (b), let φ ′ now be the test function for any UMP level α test. By part (a),
+φ, the test satisfying (8.3.1) and (8.3.2), is also a UMP level α test, thus β(θ1) = β ′(θ1). This fact,
+(8.3.3), and k > 0 imply
+                     α −β ′(θ0) = β(θ0)−β ′(θ0) ≤0.
+Now, since φ ′  is a level α  test, β ′(θ0) ≤α. Thus β ′(θ0) = α, that  is, φ ′  is a size α  test,and this also implies that (8.3.3)  is an equality in this case. But the nonnegative integrand
+(φ(x)−φ ′(x))( f(x|θ1)−k f(x|θ0)) will have a zero integral only if φ ′ satisfies (8.3.1), except per-
+haps on a set A with  A f(x|θi)dx = 0. This implies that the last assertion in statement (b) is true.                                                    2

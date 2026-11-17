@@ -1,0 +1,42 @@
+222                                       PRINCIPLES OF DATA REDUCTION
+of the sufficient statistic, does not contain any more information about θ. These considerations lead
+to the data reduction technique known as the Sufficiency Principle.
+SUFFICIENCY PRINCIPLE: If T(X) is a sufficient statistic for θ then any inference about θ should
+depend on the sample X only through the value T(X). That is, if x and y are two sample points such
+that T(x) = T(y), then the inference about θ should be the same whether X = x or X = y is observed.
+
+    In this section we investigate some aspects of sufficient statistics and the Sufficiency Principle.
+
+
+6.2.1   Sufficient Statistics
+
+A sufficient statistic is formally defined in the following way.
+
+Definition 6.2.1 A statistic T(X) is a sufficient statistic for θ if the conditional distribution of the
+sample X given the value of T(X) does not depend on θ.
+
+     If T(X) has a continuous distribution, then Pθ(T(X) = t) = 0 for all values of t. A more so-
+phisticated notion of conditional probability than that introduced in Chapter 1 is needed to fully
+understand Definition 6.2.1 in this case. A discussion of this can be found in more advanced texts
+such as Lehmann (1986). We will do our calculations in the discrete case and will point out analo-
+gous results that are true in the continuous case.
+   To understand Definition 6.2.1, let t be a possible value of T(X), that is, a value such that
+Pθ(T(X) = t) > 0. We wish to consider the conditional probability Pθ(X = x|T(X) = t). If x is a
+sample point such that T(x)̸ = t, then clearly Pθ(X = x|T(X) = t) = 0. Thus, we are interested in
+P(X = x|T(X) = T(x)). By the definition, if T(X) is a sufficient statistic this conditional probabilityis the same for all values of θ so we have omitted the subscript.
+  A sufficient statistic captures all the information about θ in this sense. Consider Experimenter
+1, who observes X = x and, of course, can compute T(X) = T(x). To make an inference about θ
+he can use the information that X = x and T(X) = T(x). Now consider Experimenter 2, who is
+not told the value of X but only that T(X) = T(x). Experimenter 2 knows P(X = y|T(X) = T(x)),
+a probability distribution on AT(x) = {y : T(y) = T(x)}, because this can be computed from themodel without knowledge of the true value of θ. Thus, Experimenter 2 can use this distribution and
+a randomization device, such as a random number table, to generate an observation Y satisfying
+P(Y = y|T(X) = T(x)) = P(X = y|T(X) = T(x)). It turns out that, for each value of θ, X and Yhave the same unconditional probability distribution, as we shall see below. So Experimenter 1, who
+knows X, and Experimenter 2, who knows Y, have equivalent information about θ. But surely the
+use of the random number table to generate Y has not added to Experimenter 2’s knowledge of θ.
+All his knowledge about θ is contained in the knowledge that T(X) = T(x). So Experimenter 2,
+who knows only T(X) = T(x), has just as much information about θ as does Experimenter 1, who
+knows the entire sample X = x.
+   To complete the above argument, we need to show that X and Y have the same unconditional
+distribution, that is, Pθ(X = x) = Pθ(Y = x) for all x and θ. Note that the events {X = x} and
+{Y = x} are both subsets of the event {T(X) = T(x)}. Also recall that
+                 P(X = x|T(X) = T(x)) = P(Y = x|T(X) = T(x))

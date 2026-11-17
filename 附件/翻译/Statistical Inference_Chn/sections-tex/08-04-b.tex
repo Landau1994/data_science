@@ -1,0 +1,289 @@
+\sourcepageanchor{361}
+\begin{exercise}\label{exercise:8.29}\index{SI0702@柯西}
+设 $X$ 是来自 $\operatorname{Cauchy}(\theta)$ 分布的一次观测.
+\begin{enumerate}
+\item 证明此族没有单调似然比.
+\item\phantomsection\label{itm:exercise:8.29:b} 证明检验
+$$\phi(x)=\begin{cases}1,&1<x<3,\\0,&\text{其他}\end{cases}$$
+是检验 $H_0:\theta=0$ 对 $H_1:\theta=1$ 时、其自身大小下的最强检验. 计算第一类与第二类错误概率.
+\item 证明或否证：\hyperref[itm:exercise:8.29:b]{(b)} 的检验是 $H_0:\theta\le0$ 对 $H_1:\theta>0$ 的一致最强检验. 对 Cauchy 位置族的一致最强检验，一般可以说些什么？
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.30}
+设 $f(x\mid\theta)$ 是 Cauchy 尺度密度
+$$f(x\mid\theta)=\frac\theta\pi\frac1{\theta^2+x^2},\qquad-\infty<x<\infty,\quad\theta>0.$$
+\begin{enumerate}
+\item 证明此族没有单调似然比.
+\item 若 $X$ 是来自 $f(x\mid\theta)$ 的一次观测，证明 $|X|$ 对 $\theta$ 充分，且 $|X|$ 的分布确实具有单调似然比.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.31}
+设 $X_1,\ldots,X_n$ 独立同分布于 $\operatorname{Poisson}(\lambda)$.
+\begin{enumerate}
+\item 求 $H_0:\lambda\le\lambda_0$ 对 $H_1:\lambda>\lambda_0$ 的一个一致最强检验.
+\item 考虑具体情形 $H_0:\lambda\le1$ 对 $H_1:\lambda>1$. 利用中心极限定理确定样本量 $n$，使一致最强检验满足 $P(\text{拒绝 }H_0\mid\lambda=1)=.05$ 和 $P(\text{拒绝 }H_0\mid\lambda=2)=.9$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.32}
+设 $X_1,\ldots,X_n$ 独立同分布于 $\mathrm n(\theta,1)$，$\theta_0$ 为 $\theta$ 的指定值.
+\begin{enumerate}
+\item 求 $H_0:\theta\ge\theta_0$ 对 $H_1:\theta<\theta_0$ 的大小 $\alpha$ 一致最强检验.
+\item 证明不存在 $H_0:\theta=\theta_0$ 对 $H_1:\theta\ne\theta_0$ 的大小 $\alpha$ 一致最强检验.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.33}\index{SI0519@均匀}
+设 $X_1,\ldots,X_n$ 是来自 $\operatorname{uniform}(\theta,\theta+1)$ 的随机样本. 检验 $H_0:\theta=0$ 对 $H_1:\theta>0$，采用规则
+$$\text{若 }Y_n\ge1\text{ 或 }Y_1\ge k,\quad\text{则拒绝 }H_0,$$
+其中 $k$ 为常数，$Y_1=\min\{X_1,\ldots,X_n\}$，$Y_n=\max\{X_1,\ldots,X_n\}$.
+\begin{enumerate}
+\item\phantomsection\label{itm:exercise:8.33:a} 确定 $k$，使检验的大小为 $\alpha$.
+\item 求\hyperref[itm:exercise:8.33:a]{(a)} 中检验的功效函数表达式.
+\item 证明该检验是大小 $\alpha$ 的一致最强检验.
+\item 求 $n,k$，使水平 $.10$ 的一致最强检验在 $\theta>1$ 时功效至少为 $.8$.\footnote{译注：原题确实写 $\theta>1$. 在此范围，样本最大值以概率 $1$ 大于 $1$，故给定检验的功效已为 $1$；若原意是某个小于 $1$ 的正偏移量，则需要另一条件，不能据题面自行补写.}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.34}\index{SI0652@随机序}\index{SI0992@位置尺度族}
+在以下两种情形中，证明对任意数 $c$，若 $\theta_1\le\theta_2$，则
+$$P_{\theta_1}(T>c)\le P_{\theta_2}(T>c).$$
+\begin{enumerate}
+\item $\theta$ 是随机变量 $T$ 分布中的位置参数.
+\item\phantomsection\label{itm:exercise:8.34:b} $T$ 的密度族 $\{g(t\mid\theta):\theta\in\Theta\}$ 具有单调似然比.\footnote{译注：\hyperref[itm:exercise:8.34:b]{(b)} 需取似然比非减的方向，参见\autoref{exercise:8.26}与\autoref{thm:8.3.17}的译注；原定义包含非增方向，不能不加区分地推出本题不等式.}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.35}\index{SI0382@非中心}\index{SI0705@非中心t}
+\autoref{sec:5.3.2}推导的通常 $t$ 分布，也称为中心 $t$ 分布（central $t$ distribution\mbox{）.} 它可看成形如 $T=\mathrm n(0,1)/\sqrt{\chi_\nu^2/\nu}$ 的随机变量的密度，其中正态变量与卡方变量独立. 一种推广是非中心 $t$ 分布（noncentral $t$），形式为 $T'=\mathrm n(\mu,1)/\sqrt{\chi_\nu^2/\nu}$，正态与卡方变量独立，且允许 $\mu\ne0$. （我们已在\eqref{eq:4.4.3}见过非中心卡方密度.）正式地，若 $X\sim\mathrm n(\mu,1)$，$Y\sim\chi_\nu^2$ 且独立于 $X$，则 $T'=X/\sqrt{Y/\nu}$ 服从自由度为 $\nu$、非中心参数为 $\delta=\sqrt{\mu^2}$ 的非中心 $t$ 分布.\footnote{译注：对有符号的非中心 $t$ 随机变量，此参数通常应为 $\delta=\mu$，而非 $\sqrt{\mu^2}=|\mu|$. $\mu$ 与 $-\mu$ 的分布互为镜像，一般不相同；原式丢失符号，只有限制 $\mu\ge0$ 才一致. 下述密度级数也含奇次 $\delta t$ 项，体现了这种有符号依赖.}
+\begin{enumerate}
+\item 计算 $T'$ 的均值和方差.
+\item 证明 $T'$ 的密度为
+$$f_{T'}(t\mid\delta)=\frac{e^{-\delta^2/2}}{\Gamma(\frac12)\Gamma(\frac\nu2)\sqrt\nu}
+\sum_{k=0}^\infty\frac{(2/\nu)^{k/2}(\delta t)^k}{k!}
+\frac{\Gamma((\nu+k+1)/2)}{(1+t^2/\nu)^{(\nu+k+1)/2}}.$$
+证明，当 $\delta=0$ 时，它退化为中心 $t$ 密度.
+\item 证明 $T'$ 的密度关于其非中心参数具有单调似然比.
+\end{enumerate}
+\end{exercise}
+\sourcepageanchor{362}
+\begin{exercise}\label{exercise:8.36}
+我们有来自 $\operatorname{beta}(1,\theta)$ 总体的一次观测.
+\begin{enumerate}
+\item 检验 $H_0:\theta_1\le\theta\le\theta_2$ 对 $H_1:\theta<\theta_1\text{ 或 }\theta>\theta_2$，其中 $\theta_1=1$、$\theta_2=2$. 某检验满足 $\mathrm E_{\theta_1}\phi=.5$ 与 $\mathrm E_{\theta_2}\phi=.3$. 求一个同样好的检验，并说明它为何同样好.
+\item 对检验 $H_0:\theta=\theta_1$ 对 $H_1:\theta\ne\theta_1$，其中 $\theta_1=1$，求一个双侧检验（不同于 $\phi\equiv.1$），满足
+$$\mathrm E_{\theta_1}\phi=.1,\qquad\left.\frac d{d\theta}\mathrm E_\theta(\phi)\right|_{\theta=\theta_1}=0.$$
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.37}\index{SI0517@正态}\index{SI0638@正态}\index{SI1027@无偏}
+设 $X_1,\ldots,X_n$ 是来自 $\mathrm n(\theta,\sigma^2)$ 总体的随机样本. 考虑检验
+$$H_0:\theta\le\theta_0\quad\text{对}\quad H_1:\theta>\theta_0.$$
+\begin{enumerate}
+\item\phantomsection\label{itm:exercise:8.37:a} 若 $\sigma^2$ 已知，证明在
+$$\bar X>\theta_0+z_\alpha\sqrt{\sigma^2/n}$$
+时拒绝 $H_0$ 的检验，大小为 $\alpha$. 证明它可由似然比检验导出.
+\item 证明\hyperref[itm:exercise:8.37:a]{(a)} 中的检验是一致最强检验.
+\item 若 $\sigma^2$ 未知，证明在
+$$\bar X>\theta_0+t_{n-1,\alpha}\sqrt{S^2/n}$$
+时拒绝 $H_0$ 的检验，大小为 $\alpha$. 证明它可由似然比检验导出.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.38}
+设 $X_1,\ldots,X_n$ 独立同分布于 $\mathrm n(\theta,\sigma^2)$，$\theta_0$ 为 $\theta$ 的指定值，$\sigma^2$ 未知. 希望检验
+$$H_0:\theta=\theta_0\quad\text{对}\quad H_1:\theta\ne\theta_0.$$
+\begin{enumerate}
+\item\phantomsection\label{itm:exercise:8.38:a} 证明在
+$$|\bar X-\theta_0|>t_{n-1,\alpha/2}\sqrt{S^2/n}$$
+时拒绝 $H_0$ 的检验，大小为 $\alpha$.
+\item 证明\hyperref[itm:exercise:8.38:a]{(a)} 中的检验可由似然比检验导出.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.39}\index{SI1022@配对}
+设 $(X_1,Y_1),\ldots,(X_n,Y_n)$ 是来自参数为 $\mu_X,\mu_Y,\sigma_X^2,\sigma_Y^2,\rho$ 的二元正态分布的随机样本. 希望检验
+$$H_0:\mu_X=\mu_Y\quad\text{对}\quad H_1:\mu_X\ne\mu_Y.$$
+\begin{enumerate}
+\item 证明 $W_i=X_i-Y_i$ 独立同分布于 $\mathrm n(\mu_W,\sigma_W^2)$.
+\item 证明可用统计量
+$$T_W=\frac{\bar W}{\sqrt{S_W^2/n}}$$
+检验上述假设，其中 $\bar W=n^{-1}\sum_{i=1}^nW_i$，$S_W^2=(n-1)^{-1}\sum_{i=1}^n(W_i-\bar W)^2$. 进一步证明，在 $H_0$ 下，$T_W$ 服从自由度为 $n-1$ 的 Student $t$ 分布. （这个检验称为配对样本 $t$ 检验（paired-sample $t$ test\mbox{）.}）
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.40}\index{SI1020@配对}
+设 $(X_1,Y_1),\ldots,(X_n,Y_n)$ 是来自参数为 $\mu_X,\mu_Y,\sigma_X^2,\sigma_Y^2,\rho$ 的二元正态分布的随机样本.
+\begin{enumerate}
+\item\phantomsection\label{itm:exercise:8.40:a} 推导
+$$H_0:\mu_X=\mu_Y\quad\text{对}\quad H_1:\mu_X\ne\mu_Y$$
+的似然比检验，其中 $\sigma_X^2,\sigma_Y^2,\rho$ 未指定且未知.
+\item 证明\hyperref[itm:exercise:8.40:a]{(a)} 的检验等价于\autoref{exercise:8.39}的配对 $t$ 检验.
+
+（提示：可以直接最大化二元似然，但运算相当繁杂. 补全下面论证的空缺，可以得到更简洁的证明.）
+
+作变换 $u=x-y$、$v=x+y$. 设 $f(x,y)$ 为二元正态密度，写成
+$$f(x,y)=g(v\mid u)h(u),$$
+\sourcepageanchor{363}
+其中 $g(v\mid u)$ 是给定 $U$ 后 $V$ 的条件密度，$h(u)$ 为 $U$ 的边缘密度. 说明：(1) 似然可等价地因子分解；(2) 涉及 $g(v\mid u)$ 的部分，无论均值是否受约束，都有相同最大值. 因此这一部分可以忽略（它会约掉），似然比检验只基于 $h(u)$. 而 $h(u)$ 是均值为 $\mu_X-\mu_Y$ 的正态密度，所以所得似然比检验就是\autoref{exercise:8.38}推导的通常单样本 $t$ 检验.\footnote{译注：作为原坐标 $(x,y)$ 的密度，严格的变换公式有雅可比因子 $|\partial(u,v)/\partial(x,y)|=2$，故应为 $f_{X,Y}(x,y)=2g(v\mid u)h(u)$. 原文省略的常数与参数无关，会在似然比中相消，因而不影响所述检验.}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.41}\index{SI0640@双样本}\index{SI1024@双样本}\index{SI1025@双侧}
+设 $X_1,\ldots,X_n$ 是来自 $\mathrm n(\mu_X,\sigma_X^2)$ 的随机样本，$Y_1,\ldots,Y_m$ 是来自 $\mathrm n(\mu_Y,\sigma_Y^2)$ 的独立随机样本. 希望在 $\sigma_X^2=\sigma_Y^2=\sigma^2$ 的假设下检验
+$$H_0:\mu_X=\mu_Y\quad\text{对}\quad H_1:\mu_X\ne\mu_Y.$$
+\begin{enumerate}
+\item 推导似然比检验，并证明它可基于统计量
+$$T=\frac{\bar X-\bar Y}{\sqrt{S_p^2(1/n+1/m)}},$$
+其中
+$$S_p^2=\frac1{n+m-2}\left(\sum_{i=1}^n(X_i-\bar X)^2+\sum_{i=1}^m(Y_i-\bar Y)^2\right).$$
+（$S_p^2$ 有时称为合并方差估计（pooled variance estimate），\autoref{sec:11.2}将广泛使用这种估计.）
+\item 证明，在 $H_0$ 下，$T\sim t_{n+m-2}$. （这个检验称为双样本 $t$ 检验（two-sample $t$ test\mbox{）.}）
+\item 从某座拜占庭教堂的核心和外围取得木材样本，测定年代得到以下数据：
+\begin{center}\begin{tabular}{rr@{\qquad}rr}\toprule
+\multicolumn{2}{c}{核心}&\multicolumn{2}{c}{外围}\\\cmidrule{1-2}\cmidrule{3-4}
+1294&1251&1284&1274\\
+1279&1248&1272&1264\\
+1274&1240&1256&1256\\
+1264&1232&1254&1250\\
+1263&1220&1242&\\
+1254&1218&&\\
+1251&1210&&\\\bottomrule
+\end{tabular}\end{center}
+用双样本 $t$ 检验判断核心的平均年代是否与外围相同.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.42}\index{SI0087@Behrens–Fisher问题}\index{SI0952@Satterthwaite近似}\index{SI1018@近似}
+\autoref{exercise:8.41}的方差相等假设并非总能成立. 若不成立，统计量不再服从 $t$ 分布，计算合并方差估计是否明智也值得怀疑. （方差不等时对均值作推断，一般相当困难，称为 Behrens–Fisher 问题.）自然可尝试如下双样本 $t$ 检验的修正：不假定 $\sigma_X^2=\sigma_Y^2$，使用统计量
+$$T'=\frac{\bar X-\bar Y}{\sqrt{S_X^2/n+S_Y^2/m}}$$
+检验 $H_0:\mu_X=\mu_Y$ 对 $H_1:\mu_X\ne\mu_Y$，其中
+$$S_X^2=\frac1{n-1}\sum_{i=1}^n(X_i-\bar X)^2,\qquad
+S_Y^2=\frac1{m-1}\sum_{i=1}^m(Y_i-\bar Y)^2.$$
+$T'$ 的精确分布不好处理，但可以用 Satterthwaite 近似（\autoref{ex:7.2.3}）来近似其分布.
+\sourcepageanchor{364}
+\begin{enumerate}
+\item 证明近似地有
+$$\frac{S_X^2/n+S_Y^2/m}{\sigma_X^2/n+\sigma_Y^2/m}\sim\frac{\chi_\nu^2}{\nu},$$
+其中 $\nu$ 可由下式估计：
+$$\hat\nu=\frac{(S_X^2/n+S_Y^2/m)^2}{S_X^4/[n^2(n-1)]+S_Y^4/[m^2(m-1)]}.$$
+\item 说明 $T'$ 的分布可用自由度为 $\hat\nu$ 的 $t$ 分布近似.
+\item 用本题的近似 $t$ 检验重新考察\autoref{exercise:8.41}的数据，即用 $T'$ 检验核心的平均年代是否与外围相同.
+\item 是否有统计证据表明核心数据的方差可能不同于外围数据的方差？（回顾\hyperref[ex:5.3.5]{例~5.4.1}\footnote{译注：原文确为“例 5.4.1”，但本书该编号对应的是次序统计量的\autoref{def:5.4.1}，并无此编号的例. 这里所需的正态样本方差比及其 $F$ 分布见\autoref{ex:5.3.5}、\autoref{def:5.3.6}和\autoref{ex:5.3.7}. 正文保留原印编号，链接导向相关的方差比示例.}.）
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.43}
+\hyperref[bib:source298]{Sprott and Farewell (1993)} 指出，在双样本 $t$ 检验中，只要方差比已知，就能导出有效的 $t$ 统计量. 设 $X_1,X_2,\ldots,X_{n_1}$ 是来自 $\mathrm N(\mu_1,\sigma^2)$ 的样本，$Y_1,Y_2,\ldots,Y_{n_2}$ 是来自 $\mathrm n(\mu_2,\rho^2\sigma^2)$ 的样本，$\rho^2$ 已知. 证明
+$$\frac{(\bar X-\bar Y)-(\mu_1-\mu_2)}{
+\sqrt{\frac1{n_1}+\frac{\rho^2}{n_2}}\,
+\sqrt{\frac{n_1(n_1-1)s_X^2+n_2(n_2-1)s_Y^2/\mathrm{rho}^2}{n_1+n_2-2}}}$$
+服从自由度为 $n_1+n_2-2$ 的 Student $t$ 分布，且 $n_2s_Y^2/(\rho^2n_1s_X^2)$ 服从自由度为 $n_1-1$ 与 $n_2-1$ 的 $F$ 分布.
+
+Sprott 和 Farewell 还指出，$t$ 统计量在
+$$\rho^2=\frac{n_1\sqrt{n_1-1}\,s_X^2}{n_2\sqrt{n_2-1}\,s_Y^2}$$
+处取最大值，并建议对 $\rho^2$ 的合理取值（例如某个置信区间内的值）作出该统计量的图像.\footnote{译注：原式确实印有字母串“rho”，且本题未另外定义 $s_X^2,s_Y^2$. 若沿用通常的样本方差定义，$t$ 式合并方差中的额外因子 $n_1,n_2$ 应去掉，标准化方差比应为 $s_Y^2/(\rho^2s_X^2)$，其分子、分母自由度依次应为 $n_2-1,n_1-1$. 即使把 $s_X^2,s_Y^2$ 另释为样本均值的方差估计，原文所列 $F$ 自由度次序仍不符. 最后关于 $\rho^2$ 的极值公式也应另行推导核对；有符号 $t$ 的“最大”还取决于分子的符号. 这里保留原公式，避免静默采用不明方差约定.}
+\end{exercise}
+\begin{exercise}\label{exercise:8.44}
+验证\autoref{ex:8.3.20}的检验3是无偏的水平 $\alpha$ 检验.
+\end{exercise}
+\begin{exercise}\label{exercise:8.45}
+设 $X_1,\ldots,X_n$ 是来自 $\mathrm n(\theta,\sigma^2)$ 总体的随机样本. 考虑检验
+$$H_0:\theta\le\theta_0\quad\text{对}\quad H_1:\theta>\theta_0.$$
+对 $m=1,\ldots,n$，用 $\bar X_m$ 表示前 $m$ 个观测 $X_1,\ldots,X_m$ 的样本均值. 若 $\sigma^2$ 已知，证明对每个 $m=1,\ldots,n$，在
+$$\bar X_m>\theta_0+z_\alpha\sqrt{\sigma^2/m}$$
+时拒绝 $H_0$ 的检验是无偏的大小 $\alpha$ 检验. 当 $n=4$ 时，画出这些检验各自的功效函数.
+\end{exercise}
+\begin{exercise}\label{exercise:8.46}
+设 $X_1,\ldots,X_n$ 是来自 $\mathrm n(\theta,\sigma^2)$ 总体的随机样本. 考虑检验
+$$H_0:\theta_1\le\theta\le\theta_2\quad\text{对}\quad H_1:\theta<\theta_1\text{ 或 }\theta>\theta_2.$$
+\begin{enumerate}
+\item\phantomsection\label{itm:exercise:8.46:a} 证明检验
+$$\text{若 }\bar X>\theta_2+t_{n-1,\alpha/2}\sqrt{S^2/n}\quad\text{或}\quad
+\bar X<\theta_1-t_{n-1,\alpha/2}\sqrt{S^2/n},\quad\text{则拒绝 }H_0,$$
+不是大小 $\alpha$ 的检验.
+\item\phantomsection\label{itm:exercise:8.46:b} 证明，对恰当选择的常数 $k$，大小 $\alpha$ 的检验为
+$$\text{若 }|\bar X-\bar\theta|>k\sqrt{S^2/n},\quad\text{则拒绝 }H_0,$$
+其中 $\bar\theta=(\theta_1+\theta_2)/2$.
+\item\phantomsection\label{itm:exercise:8.46:c} 证明\hyperref[itm:exercise:8.46:a]{(a)} 与\hyperref[itm:exercise:8.46:b]{(b)} 中的检验，就各自的大小而言都是无偏的.\footnote{译注：原题对干扰参数 $\sigma$ 的处理未说清楚，按通常在完整原假设参数空间 $(\theta,\sigma)$ 上取上确界的“大小”定义，题面存在问题. 若 $\theta_1<\theta_2$、$n\ge2$、$0<\alpha<1$，\hyperref[itm:exercise:8.46:a]{(a)} 的拒绝概率不超过 $\alpha$，而 $\sigma\to\infty$ 时趋于 $\alpha$，故大小恰为 $\alpha$；\hyperref[itm:exercise:8.46:b]{(b)} 对任意有限固定 $k>0$，取 $\theta=\theta_2$、$\sigma\downarrow0$，则拒绝概率趋于 $1$，故大小为 $1$. \hyperref[itm:exercise:8.46:c]{(c)} 的无偏性也不能在这一完整参数空间中直接成立：对 \hyperref[itm:exercise:8.46:a]{(a)}，在固定有限 $\sigma$ 下，原假设端点及其附近的某些备择点功效仍小于实际大小 $\alpha$；对 \hyperref[itm:exercise:8.46:b]{(b)} 的 $k>0$，有限参数值下功效小于实际大小 $1$. 若 $k\le0$，\hyperref[itm:exercise:8.46:b]{(b)} 是以概率 $1$ 拒绝的平凡检验，也不能给出所要求的大小 $\alpha$. 若作者意指固定 $\sigma$、仅对 $\theta$ 作比较，则需另外明确这一条件范围，并允许临界常数依赖该固定 $\sigma$；这里保留原题.} （假定非中心 $t$ 分布具有单调似然比.）
+\end{enumerate}
+
+\end{exercise}
+\sourcepageanchor{365}
+\begin{exercise}\label{exercise:8.47}\index{SI0490@生物等效性}
+考虑\autoref{exercise:8.41}中的两个方差相等、相互独立的正态样本. 检验 $H_0:\mu_X-\mu_Y\le-\delta\text{ 或 }\mu_X-\mu_Y\ge\delta$ 对 $H_1:-\delta<\mu_X-\mu_Y<\delta$，其中 $\delta$ 为指定正常数. （这称为等效性检验（equivalence testing）问题.）
+\begin{enumerate}
+\item\phantomsection\label{itm:exercise:8.47:a} 证明，$H_0^-:\mu_X-\mu_Y\le-\delta$ 对 $H_1^-:\mu_X-\mu_Y>-\delta$ 的大小 $\alpha$ 似然比检验，在
+$$T^-=\frac{\bar X-\bar Y-(-\delta)}{\sqrt{S_p^2(1/n+1/m)}}\ge t_{n+m-2,\alpha}$$
+时拒绝 $H_0^-$.
+\item\phantomsection\label{itm:exercise:8.47:b} 求 $H_0^+:\mu_X-\mu_Y\ge\delta$ 对 $H_1^+:\mu_X-\mu_Y<\delta$ 的大小 $\alpha$ 似然比检验.
+\item\phantomsection\label{itm:exercise:8.47:c} 说明如何把\hyperref[itm:exercise:8.47:a]{(a)}、\hyperref[itm:exercise:8.47:b]{(b)} 的检验组合成 $H_0$ 对 $H_1$ 的水平 $\alpha$ 检验.
+\item 证明\hyperref[itm:exercise:8.47:c]{(c)} 的检验大小为 $\alpha$. （提示：考虑 $\sigma\to0$.）
+\end{enumerate}
+这种程序有时称为两个单侧检验程序（two one-sided tests procedure），由 \hyperref[bib:source278]{Schuirmann (1987)} 为生物等效性检验问题推导（另见 Westlake 1972\mbox{）.} 亦可参见 \hyperref[bib:source27]{Berger and Hsu (1996)} 的综述，以及给出相应置信区间的\autoref{exercise:9.33}.
+\end{exercise}
+\begin{exercise}\label{exercise:8.48}
+证明\autoref{ex:8.3.30}的断言：给定 $S$ 后 $S_1$ 的条件分布为超几何分布.
+\end{exercise}
+\begin{exercise}\label{exercise:8.49}
+在以下各情形中，计算已观察数据的 $p$ 值.
+\begin{enumerate}
+\item 检验 $H_0:\theta\le1/2$ 对 $H_1:\theta>1/2$，在 $10$ 次伯努利试验中观察到 $7$ 次成功.
+\item 检验 $H_0:\lambda\le1$ 对 $H_1:\lambda>1$，观测到 $X=3$，其中 $X\sim\operatorname{Poisson}(\lambda)$.
+\item 检验 $H_0:\lambda\le1$ 对 $H_1:\lambda>1$，观测到 $X_1=3,X_2=5,X_3=1$，其中 $X_i\sim\operatorname{Poisson}(\lambda)$，相互独立.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.50}
+设 $X_1,\ldots,X_n$ 独立同分布于 $\mathrm n(\theta,\sigma^2)$，$\sigma^2$ 已知，$\theta$ 服从双指数分布，即 $\pi(\theta)=e^{-|\theta|/a}/(2a)$，$a$ 已知. 检验 $H_0:\theta\le0$ 对 $H_1:\theta>0$ 的贝叶斯检验，在 $H_1$ 的后验概率较大时支持 $H_1$.
+\begin{enumerate}
+\item 对给定常数 $K$，计算 $\theta>K$ 的后验概率，即 $P(\theta>K\mid x_1,\ldots,x_n,a)$.
+\item\phantomsection\label{itm:exercise:8.50:b} 求 $\lim_{a\to\infty}P(\theta>K\mid x_1,\ldots,x_n,a)$ 的表达式.
+\item 将\hyperref[itm:exercise:8.50:b]{(b)} 的答案与经典假设检验对应的 $p$ 值比较.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.51}
+这里给出 $p$ 值的另一种常见解释. 考虑检验 $H_0$ 对 $H_1$，设 $W(\boldsymbol X)$ 为检验统计量. 假设对每个 $0\le\alpha\le1$，都能选择临界值 $c_\alpha$，使 $\{\boldsymbol x:W(\boldsymbol x)\ge c_\alpha\}$ 为 $H_0$ 的某大小 $\alpha$ 检验的拒绝域. 利用这一检验族，证明\eqref{eq:8.3.9}定义的通常 $p$ 值 $p(\boldsymbol x)$，是在已观察数据 $\boldsymbol x$ 后能够拒绝 $H_0$ 的最小 $\alpha$ 水平.
+\end{exercise}
+\begin{exercise}\label{exercise:8.52}
+考虑检验 $H_0:\theta\in\bigcup_{j=1}^k\Theta_j$. 对每个 $j=1,\ldots,k$，设 $p_j(\boldsymbol x)$ 是检验 $H_{0j}:\theta\in\Theta_j$ 的有效 $p$ 值. 令 $p(\boldsymbol x)=\max_{1\le j\le k}p_j(\boldsymbol x)$.
+\begin{enumerate}
+\item 证明 $p(\boldsymbol X)$ 是检验 $H_0$ 的有效 $p$ 值.
+\item 证明 $p(\boldsymbol X)$ 定义的水平 $\alpha$ 检验，等同于由各 $p_j(\boldsymbol x)$ 所对应的单独检验构造的水平 $\alpha$ 交并检验.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.53}\index{SI0489@p值}
+\autoref{ex:8.2.7}给出了单侧贝叶斯假设检验的例子. 现在考虑类似情形，但使用双侧检验. 希望检验
+$$H_0:\theta=0\quad\text{对}\quad H_1:\theta\ne0,$$
+观察来自 $\mathrm n(\theta,\sigma^2)$ 总体的随机样本 $X_1,\ldots,X_n$，$\sigma^2$ 已知. 此时常用的一类先验是 $\theta=0$ 处的点质量与分散在 $H_1$ 上的密度的混合. 典型选择为 $P(\theta=0)=1/2$，当 $\theta\ne0$ 时，取先验分布为 $\frac12\mathrm n(0,\tau^2)$，$\tau^2$ 已知.\footnote{译注：原文“当 $\theta\ne0$ 时”之后仍写 $\tfrac12\mathrm n(0,\tau^2)$，若将其理解为条件分布，则总质量只有 $1/2$，不是概率分布. 应区分：无条件先验的连续部分密度权重为 $1/2$；给定非零分支后的条件分布则是完整的 $\mathrm n(0,\tau^2)$. 此处保留原写法，并按题意明确混合权重的含义.}
+\begin{enumerate}
+\item 证明上述先验正常，即 $P(-\infty<\theta<\infty)=1$.
+\item 计算 $H_0$ 为真的后验概率 $P(\theta=0\mid x_1,\ldots,x_n)$.
+\item 求对应于给定 $\bar x$ 值的 $p$ 值表达式.
+\item 当 $\sigma^2=\tau^2=1$ 时，在一段 $\bar x$ 取值范围上比较 $P(\theta=0\mid x_1,\ldots,x_n)$ 与 $p$ 值. 特别地，
+\sourcepageanchor{366}
+\begin{enumerate}[label=\roman*.]
+\item 对 $n=9$，把 $p$ 值和后验概率作为 $\bar x$ 的函数作图，证明在 $\bar x$ 适度偏大时，贝叶斯概率大于 $p$ 值.
+\item 取 $\alpha=.05$，令 $\bar x=Z_{\alpha/2}/\sqrt n$，使所有 $n$ 下的 $p$ 值都固定为 $\alpha$. 证明当 $n\to\infty$ 时，在 $\bar x=Z_{\alpha/2}/\sqrt n$ 处的后验概率趋于 $1$. 这就是 Lindley 悖论（Lindley's Paradox\mbox{）.}
+\end{enumerate}
+注意，$P(\theta=0\mid x_1,\ldots,x_n)$ 的小值是反对 $H_0$ 的证据，因此这个量在意义上类似于 $p$ 值. \hyperref[bib:source204]{Lindley (1957)} 指出了这两个量可能差别很大，\hyperref[bib:source21]{Berger and Sellke (1987)} 也考察了这一事实（见\autoref{sec:8.5}的杂录\mbox{）.}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.54}
+\hyperref[bib:source66]{Casella and Berger (1987)} 指出，在单侧问题中，$p$ 值与贝叶斯后验概率的差异没有那么显著；杂录中也提到了这一点. 设 $X_1,\ldots,X_n$ 是来自 $\mathrm n(\theta,\sigma^2)$ 总体的随机样本，需检验
+$$H_0:\theta\le0\quad\text{对}\quad H_1:\theta>0.$$
+$\theta$ 的先验分布为 $\mathrm n(0,\tau^2)$，$\tau^2$ 已知. 它对两个假设是对称的，即 $P(\theta\le0)=P(\theta>0)=1/2$.
+\begin{enumerate}
+\item\phantomsection\label{itm:exercise:8.54:a} 计算 $H_0$ 为真的后验概率 $P(\theta\le0\mid x_1,\ldots,x_n)$.
+\item\phantomsection\label{itm:exercise:8.54:b} 使用 $\bar X$ 较大时拒绝的检验，求对应于给定 $\bar x$ 值的 $p$ 值表达式.
+\item 在 $\sigma^2=\tau^2=1$ 的特殊情形，对 $\bar x>0$ 比较 $P(\theta\le0\mid x_1,\ldots,x_n)$ 与 $p$ 值，证明贝叶斯概率总大于 $p$ 值.
+\item 利用\hyperref[itm:exercise:8.54:a]{(a)}、\hyperref[itm:exercise:8.54:b]{(b)} 所得表达式，证明
+$$\lim_{\tau^2\to\infty}P(\theta\le0\mid x_1,\ldots,x_n)=p\text{ 值},$$
+而双侧问题不会出现这个等式.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.55}
+设 $X\sim\mathrm n(\theta,1)$，考虑检验 $H_0:\theta\ge\theta_0$ 对 $H_1:\theta<\theta_0$. 使用损失函数\eqref{eq:8.3.13}，研究分别取 $\alpha=.1,.3,.5$、在 $X<-z_\alpha+\theta_0$ 时拒绝 $H_0$ 的三个检验.
+\begin{enumerate}
+\item\phantomsection\label{itm:exercise:8.55:a} 对 $b=c=1$，画图比较它们的风险函数.
+\item\phantomsection\label{itm:exercise:8.55:b} 对 $b=3,c=1$，画图比较它们的风险函数.
+\item 画出三个检验的功效函数，并与\hyperref[itm:exercise:8.55:a]{(a)}、\hyperref[itm:exercise:8.55:b]{(b)} 的风险函数比较.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:8.56}
+设 $X\sim\operatorname{binomial}(5,p)$，在 $0$–$1$ 损失下考虑检验 $H_0:p\le1/3$ 对 $H_1:p>1/3$. 画图比较以下两个检验的风险函数：检验 I 在 $X=0$ 或 $1$ 时拒绝 $H_0$；检验 II 在 $X=4$ 或 $5$ 时拒绝 $H_0$.
+\end{exercise}
+\begin{exercise}\label{exercise:8.57}
+设 $X\sim\mathrm n(\mu,1)$，在 $0$–$1$ 损失下考虑检验 $H_0:\mu\le0$ 对 $H_1:\mu>0$. 设 $\delta_c$ 为在 $X>c$ 时拒绝 $H_0$ 的检验. 对本问题的每个检验，类 $\{\delta_c:-\infty\le c\le\infty\}$ 中都存在一个 $\delta_c$，其风险函数关于 $\mu$ 一致更小. 设 $\delta$ 为在 $1<X<2$ 时拒绝 $H_0$ 的检验. 求一个优于 $\delta$ 的 $\delta_c$. （可以证明其优越性，也可以画出 $\delta$ 与 $\delta_c$ 的风险函数，并仔细说明为什么所提出的检验应当更好.）
+\end{exercise}
+\begin{exercise}\label{exercise:8.58}\index{SI0500@极小极大}
+考虑\autoref{ex:8.3.31}的假设检验问题和损失函数，令 $\sigma=n=1$. 考虑在 $X<-z_\alpha+\theta_0$ 时拒绝 $H_0$ 的检验. 求使风险函数最大值最小的 $\alpha$，即得到极小极大检验（minimax test）的 $\alpha$.
+\end{exercise}

@@ -1,0 +1,47 @@
+262                                                 POINT ESTIMATION
+unknown. The first data set is (16, 18, 22, 25, 27). (These are the observed numbers of successes
+from an unknown number of binomial trials.) For this data set, the MLE of k is ˆk = 99. If a second
+data set is (16, 18, 22, 25, 28), where the only difference is that the 27 is replaced with 28, then the
+MLE of k is ˆk = 190, demonstrating a large amount of variability.                                                                              ∥
+   Such occurrences happen when the likelihood function is very flat in the neighborhood of its
+maximum, or when there is no finite maximum. When the MLEs can be found explicitly, as will
+often be the case in our examples, this is usually not a problem. However, in many instances, such
+as in the above example, the MLE cannot be solved for explicitly, and must be found by numeric
+methods. When faced with such a problem, it is often wise to spend a little extra time investigating
+the stability of the solution.
+
+7.2.3  Bayes Estimators
+
+The Bayesian approach to statistics is fundamentally different from the classical approach that we
+have been taking. Nevertheless, some aspects of the Bayesian approach can be quite helpful to other
+statistical approaches. Before going into the methods for finding Bayes estimators, we first discuss
+the Bayesian approach to statistics.
+    In the classical approach, the parameter, θ, is thought to be an unknown, but fixed, quantity.
+A random sample X1,...,Xn is drawn from a population indexed by θ and, based on the observed
+values in the sample, knowledge about the value of θ is obtained. In the Bayesian approach, θ is
+considered to be a quantity whose variation can be described by a probability distribution (called
+the prior distribution). This is a subjective distribution, based on the experimenter’s belief, and is
+formulated before the data are seen (hence the name prior distribution). A sample is then taken from
+a population indexed by θ and the prior distribution is updated with this sample information. The
+updated prior is called the posterior distribution. This updating is done with the use of Bayes’ Rule
+(seen in Chapter 1), hence the name Bayesian statistics.
+     If we denote the prior distribution by π(θ), and the sampling distribution by f(x|θ), then theposterior distribution, the conditional distribution of θ given the sample, x, is
+                       π(θ|x) = f(x|θ)π(θ)/m(x),     ( f(x|θ)π(θ) = f(x,θ))        (7.2.7)
+where m(x) is the marginal distribution of X, that is,
+
+                             m(x) =   f(x|θ)π(θ)dθ.                               (7.2.8)
+Notice that the posterior distribution is a conditional distribution, conditional upon observing the
+sample. The posterior distribution is now used to make statements about θ, which is still considered
+a random quantity. For instance, the mean of the posterior distribution can be used as a point estimate
+of θ.
+A note on notation: When dealing with distributions on a parameter, θ, we will break our notation
+convention of using uppercase letters for random variables and lowercase letters for arguments.
+Thus, we may speak of the random quantity θ with distribution π(θ). This is more in line with
+common usage and should not cause confusion.
+Example 7.2.14 (Binomial Bayes estimation)  Let X1,...,Xn be iid Bernoulli(p). Then Y = ∑Xi
+is binomial(n, p). We assume the prior distribution on p is beta(α,β). The joint distribution of Y
+and p is
+
+                 n             Γ(α +β)                   conditional   marginal    f(y, p) =                                  ×                   y  py(1−p)n−y  Γ(α)Γ(β) pα−1(1−p)β−1                                                           f(y|p)×π(p)
+                n  Γ(α +β)
+       =                  y  Γ(α)Γ(β) py+α−1(1−p)n−y+β−1.

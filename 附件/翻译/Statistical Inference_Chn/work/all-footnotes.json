@@ -1,0 +1,1754 @@
+[
+  {
+    "file": "frontmatter\\00-publication.tex",
+    "line": 76,
+    "kind": "translator",
+    "text": "译注：原编目写Roger W.，本书扉页及版权正文写Roger L.，此处保留原编目姓名."
+  },
+  {
+    "file": "frontmatter\\00-preface-second.tex",
+    "line": 8,
+    "kind": "translator",
+    "text": "译注：原文指向第5.5节；本版目录中“随机样本的生成”实际列于第5.6节.原引用保留."
+  },
+  {
+    "file": "frontmatter\\00-figures.tex",
+    "line": 11,
+    "kind": "translator",
+    "text": "译注：原图目录写“increasing and nonincreasing cdfs”，这里照译；累积分布函数应为非递减函数."
+  },
+  {
+    "file": "frontmatter\\00-example-list.tex",
+    "line": 57,
+    "kind": "translator",
+    "text": "译注：原例目录写“Exercise 2.4.7”，但2.4.7是例的编号，原目录用词保留."
+  },
+  {
+    "file": "sections-tex\\01-02.tex",
+    "line": 371,
+    "kind": "translator",
+    "text": "译注：原图注明写总体$\\{2,4,4,9\\}$，正文及直方图对应的却是$\\{2,4,9,12\\}$；下方保留原图注."
+  },
+  {
+    "file": "sections-tex\\01-02.tex",
+    "line": 380,
+    "kind": "translator",
+    "text": "译注：原文使用等号；精确值为$0.0703125$，$.07$只是近似值."
+  },
+  {
+    "file": "sections-tex\\01-03.tex",
+    "line": 109,
+    "kind": "translator",
+    "text": "译注：按本章的条件概率比值定义，须有$P(B)>0$，且使用$P(B\\mid A_j)$的各项须有$P(A_j)>0$；零概率分块应剔除或另约定其贡献为0.原定理没有显写这些条件."
+  },
+  {
+    "file": "sections-tex\\01-04.tex",
+    "line": 39,
+    "kind": "translator",
+    "text": "译注：原表第六、七列重复写成HTH、THH，却令$X=1$；按正面次数，这两列应为THT、TTH.原表保留，下文事件集合使用的是正确的三个单正面结果."
+  },
+  {
+    "file": "sections-tex\\01-07.tex",
+    "line": 258,
+    "kind": "translator",
+    "text": "译注：以下等式原样保留.若$k_1,\\ldots,k_m$遍历非负整数且和为$k$，多项式定理给出左端为$m^k$；右端组合数是这类重数配置的个数，并非多项系数之和."
+  },
+  {
+    "file": "sections-tex\\01-07.tex",
+    "line": 267,
+    "kind": "translator",
+    "text": "译注：原题未给样本容量，因此不能唯一确定该分布；需要先补充样本容量."
+  },
+  {
+    "file": "sections-tex\\01-07.tex",
+    "line": 274,
+    "kind": "translator",
+    "text": "译注：该值是每个原数恰出现一次的无序样本的概率，不能一般地直接当作样本均值的概率.例如从$\\{0,1,2\\}$有放回抽取3次，均值1还可由$\\{1,1,1\\}$产生，概率为$7/27$而非$6/27$."
+  },
+  {
+    "file": "sections-tex\\01-07.tex",
+    "line": 286,
+    "kind": "translator",
+    "text": "译注：规则\\hyperref[itm:exercise:1.32:ii]{(ii)}只给出了允许聘用的必要条件，未完全规定何时停止及聘用.若需要唯一的条件概率，还须明确决策机制；译文未替原题补写."
+  },
+  {
+    "file": "sections-tex\\01-07.tex",
+    "line": 377,
+    "kind": "translator",
+    "text": "译注：原式在$\\binom k3$后排成“$-+\\cdots$”，保留该排印；意图应为继续交替加减."
+  },
+  {
+    "file": "sections-tex\\01-07.tex",
+    "line": 378,
+    "kind": "translator",
+    "text": "译注：原题在$P_1-P_2$后写等号；标准容斥和应为$P_1-P_2+P_3-\\cdots+(-1)^{n+1}P_n$."
+  },
+  {
+    "file": "sections-tex\\01-07.tex",
+    "line": 389,
+    "kind": "translator",
+    "text": "译注：原题的不等号方向与杂录相反，且这些交集概率和一般不具单调性.例如4个事件都等于$A$时，$P_1=4P(A)$、$P_2=6P(A)$；更高阶又会下降.另见杂录处译注."
+  },
+  {
+    "file": "sections-tex\\01-07.tex",
+    "line": 412,
+    "kind": "translator",
+    "text": "译注：要作为整个实数轴上的cdf，还须在$x\\le0$时取0；原题只写出了正半轴上的形式."
+  },
+  {
+    "file": "sections-tex\\01-07.tex",
+    "line": 461,
+    "kind": "translator",
+    "text": "译注：原题只给$y\\ge1$上的表达式；在全实数轴上定义cdf时，需在$y<1$处取0."
+  },
+  {
+    "file": "sections-tex\\01-08.tex",
+    "line": 20,
+    "kind": "translator",
+    "text": "译注：这里关于$P_i$单调的断言一般不成立.例如4个相同事件给出$P_1=4P(A)<6P(A)=P_2$（若$P(A)>0$）.以下Bonferroni上下界本身成立，但不同截断阶数的界不必单调变紧."
+  },
+  {
+    "file": "sections-tex\\01-08.tex",
+    "line": 30,
+    "kind": "translator",
+    "text": "译注：此一般性断言需要附加条件.例如6个事件都等于$A$时，一阶上界是$6P(A)$，三阶上界却是$(6-15+20)P(A)=11P(A)$，反而更松."
+  },
+  {
+    "file": "sections-tex\\02-02.tex",
+    "line": 89,
+    "kind": "translator",
+    "text": "译注：原文最后一行写作 $b\\mathrm Eg_2(x)$，按定理陈述和前面的积分，应为 $b\\mathrm Eg_2(X)$；此处保留原文大小写."
+  },
+  {
+    "file": "sections-tex\\02-04.tex",
+    "line": 23,
+    "kind": "translator",
+    "text": "译注：原文此处以及\\autoref{thm:2.4.1}仅列“关于 $\\theta$ 可微”，一般不足以保证交换求导与积分. 常见充分条件还要求 $f$ 及其关于 $\\theta$ 的偏导在相关紧区域上连续，或满足后文的可积控制条件；正文保留原述."
+  },
+  {
+    "file": "sections-tex\\02-04.tex",
+    "line": 103,
+    "kind": "translator",
+    "text": "译注：原文左端被求导的指数印为 $e^{-x\\lambda}$，而本例其余各处及右端计算均使用 $e^{-x/\\lambda}$；左端疑漏除号，正文保留原式."
+  },
+  {
+    "file": "sections-tex\\02-04.tex",
+    "line": 125,
+    "kind": "translator",
+    "text": "译注：原文递推式中导数前为负号. 由 $\\partial f(x;\\mu)/\\partial\\mu=(x-\\mu)f(x;\\mu)$ 可得 $\\frac d{d\\mu}\\mathrm EX^n=\\mathrm EX^{n+1}-\\mu\\mathrm EX^n$，因此该负号应为正号；取 $n=1$ 时原式也会给出 $\\mathrm EX^2=\\mu^2-1$，与方差为 $1$ 矛盾."
+  },
+  {
+    "file": "sections-tex\\02-04.tex",
+    "line": 212,
+    "kind": "translator",
+    "text": "译注：原文标题写作“Continuation of Exercise 2.4.7”，但本书习题采用两段编号，且下文承接的是\\autoref{ex:2.4.7}；这里将引用目标链接到该例."
+  },
+  {
+    "file": "sections-tex\\02-04.tex",
+    "line": 242,
+    "kind": "translator",
+    "text": "译注：连续函数序列逐点收敛，并不能仅凭连续性推出一致收敛. 本例的结论成立，但还需用显式上界：对 $[c,d]\\subset(0,1)$，$\\sup_{\\theta\\in[c,d]}|S_n(\\theta)|\\le(n+1)(1-c)^n\\to0$. 原文理由在此不够充分."
+  },
+  {
+    "file": "sections-tex\\02-05.tex",
+    "line": 212,
+    "kind": "translator",
+    "text": "译注：原文左端写作 $P(y=y)$，随机变量通常应大写为 $Y$. 原式前因子 $a(y+a)$ 也有疑误：例如 $n=a=b=1$ 时，两项质量为 $1/2$ 与 $2$，和不为 $1$. 将该因子改为 $a/(y+a)$，才得到通常的贝塔二项质量函数；此外通常要求 $a,b>0$. 此处保留原式与原假设."
+  },
+  {
+    "file": "sections-tex\\02-06.tex",
+    "line": 4,
+    "kind": "translator",
+    "text": "译注：原文级数印为 $\\sum_{r=1}^\\infty\\mu^r r^k/k!$，求和指标、幂指数与后面的矩记号不一致，也未给出作为幂级数变量的量. 从上下文看，可能意指矩母函数的幂级数 $\\sum_{r=0}^\\infty\\mu'_r t^r/r!$；此处保留原式，具体排印修正待核实."
+  },
+  {
+    "file": "sections-tex\\02-06.tex",
+    "line": 12,
+    "kind": "translator",
+    "text": "译注：本书定义 $M_X(t)=\\mathrm Ee^{tX}$，其泰勒系数应为 $\\mu'_r/r!$；原式含 $(-1)^r$，对应的是 $\\mathrm Ee^{-tX}=M_X(-t)$ 的展开. 这不影响所述唯一性思路，但记号与前文定义不一致."
+  },
+  {
+    "file": "sections-tex\\02-06.tex",
+    "line": 20,
+    "kind": "translator",
+    "text": "译注：通常第 $r$ 阶累积量定义为 $\\log M_X(t)$ 在 $0$ 处的 $r$ 阶导数；它是以 $t^r/r!$ 为基底时的系数，而不是普通 $t^r$ 项的系数. 原文“泰勒级数中的系数”省略了这一阶乘约定."
+  },
+  {
+    "file": "sections-tex\\02-06.tex",
+    "line": 28,
+    "kind": "translator",
+    "text": "译注：原文最后一式在 $t=1$ 处求值，应为在 $t=0$ 处求值才能抽取 $t^k$ 的系数. 这里的普通概率母函数通常还要求 $X$ 取非负整数值；任意离散取值不一定形成关于 $t$ 的普通幂级数."
+  },
+  {
+    "file": "sections-tex\\02-06.tex",
+    "line": 43,
+    "kind": "translator",
+    "text": "译注：原文把条件写成仅在 $0$ 的某个邻域内收敛；一般特征函数不一定解析，仅有局部相同不足以确定分布，因此该条件一般不够. 通常的连续性定理要求对所有实数 $t$ 收敛，并要求极限函数在 $0$ 处连续（此处若已假设极限为特征函数，连续性自动满足）. 原文结论中的大写 $X$ 也应为自变量 $x$，这里一并保留原述."
+  },
+  {
+    "file": "sections-tex\\03-02.tex",
+    "line": 160,
+    "kind": "translator",
+    "text": "译注：原文写作“十八世纪”，但 Pascal 活跃于十七世纪；此处年代疑误，正文保留原文."
+  },
+  {
+    "file": "sections-tex\\03-03.tex",
+    "line": 19,
+    "kind": "translator",
+    "text": "译注：原文“否则不能”过于绝对；例如本页随后即指出$\\Gamma(1/2)=\\sqrt\\pi$，再由递推关系可得所有正半整数处的闭式值. 此处保留原文表述."
+  },
+  {
+    "file": "sections-tex\\03-03.tex",
+    "line": 267,
+    "kind": "translator",
+    "text": "译注：此处“各阶矩”“所有绝对矩”应按上下文理解为正整数阶矩；若允许非整数阶，则$0<q<1$时$E|X|^q$有限."
+  },
+  {
+    "file": "sections-tex\\03-03.tex",
+    "line": 290,
+    "kind": "translator",
+    "text": "译注：原文说“关于其均值反射”；就下面给出的密度而言，准确的构造是以$\\mu$为中心，将指数形状的右半支及其镜像各赋予一半质量. 普通指数分布直接关于其自身均值反射，并不会得到此式."
+  },
+  {
+    "file": "sections-tex\\03-04.tex",
+    "line": 34,
+    "kind": "translator",
+    "text": "译注：上述公式需要相应参数导数存在，并且允许把求导与积分或求和交换. 原定理未在陈述中写出这些正则性条件；其证明所用的运算须在这些条件成立处理解."
+  },
+  {
+    "file": "sections-tex\\03-05.tex",
+    "line": 30,
+    "kind": "translator",
+    "text": "译注：原文此处指向\\hyperref[sec:3.2]{第3.2节}，但随后列出的正态、Cauchy和双指数分布均在\\autoref{sec:3.3}介绍；原交叉引用疑应为\\hyperref[sec:3.3]{第3.3节}."
+  },
+  {
+    "file": "sections-tex\\03-05.tex",
+    "line": 102,
+    "kind": "translator",
+    "text": "译注：原式最右端写作$f(x)$，但由左边的自变量及本段定义，应为$f(z)$. 这里保留原式并注明."
+  },
+  {
+    "file": "sections-tex\\03-06.tex",
+    "line": 52,
+    "kind": "translator",
+    "text": "译注：这一上尾界取$t>0$；该条件在\\autoref{exercise:3.45}中明确给出."
+  },
+  {
+    "file": "sections-tex\\03-06.tex",
+    "line": 146,
+    "kind": "translator",
+    "text": "译注：当$r=1$且$X=0$时，\\eqref{eq:3.6.6}右边分式为$0/0$，而该事件有正概率. 为使恒等式包括几何分布这一情形，应将该点的整个求和项约定为0；或者把此式先限制于$r>1$. 原文未注明这一边界约定."
+  },
+  {
+    "file": "sections-tex\\03-07.tex",
+    "line": 36,
+    "kind": "translator",
+    "text": "译注：原文要求概率严格“大于”$.99$，在均值为连续参数时满足条件的集合是一个开射线，因而严格来说只有下确界而无最小值；若改为“不小于”$.99$，则存在最小值."
+  },
+  {
+    "file": "sections-tex\\03-07.tex",
+    "line": 62,
+    "kind": "translator",
+    "text": "译注：这个式子是“四包检验为可卡因且随后两包为非可卡因”的联合抽样概率. 在已经观察到前四包均为可卡因后，固定$N,M$时后两包均为非可卡因的条件概率是$\\binom M2/\\binom{N+M-4}2$. 因此，把原联合概率直接称为被告的“无罪概率”需谨慎；此处保留原题的表述."
+  },
+  {
+    "file": "sections-tex\\03-07.tex",
+    "line": 172,
+    "kind": "translator",
+    "text": "译注：定义式的分子是给定存活到$t$后在$[t,t+\\delta)$内失效的概率，故风险函数更准确地说是条件瞬时失效率；原文将其描述为“存活至略晚于$t$”的概率变化率，表述容易混淆. 极限应理解为$\\delta\\downarrow0$."
+  },
+  {
+    "file": "sections-tex\\03-07.tex",
+    "line": 221,
+    "kind": "translator",
+    "text": "译注：原式把“$f(x\\mid\\theta)=$”直接写在积分号与被积表达式之间，形式不完整. 应理解为$\\int f(x\\mid\\theta)\\,dx=\\int h(x)c(\\theta)\\exp(\\sum_iw_i(\\theta)t_i(x))\\,dx=1$. 原式照录."
+  },
+  {
+    "file": "sections-tex\\03-07.tex",
+    "line": 264,
+    "kind": "translator",
+    "text": "译注：原式方差为$e^\\theta$，而所引用的\\hyperref[exercise:3.34]{习题3.34(a)}是样本均值的近似，其方差为$\\lambda/n$. 若这里也表示同一固定样本量$n$的样本均值族，在令$\\lambda=e^\\theta$后方差应为$e^\\theta/n$；若指单个Poisson变量的正态近似，则原式可成立. 原文意图待核实."
+  },
+  {
+    "file": "sections-tex\\03-08.tex",
+    "line": 23,
+    "kind": "translator",
+    "text": "译注：这里以及后面的可达性结论，需要样本的相应假设，通常是$X_1,\\ldots,X_n$独立同分布，具有共同均值$\\mu$和方差$\\sigma^2$. 原段未明说；若只给任意随机变量，则$\\operatorname{Var}(\\bar X_n)=\\sigma^2/n$一般不成立."
+  },
+  {
+    "file": "sections-tex\\03-08.tex",
+    "line": 56,
+    "kind": "translator",
+    "text": "译注：原式第二分支的分母印为$9\\varepsilon^2$. 在$\\varepsilon=\\sqrt{8/3}\\,\\xi$处，它给出$-1/6$，不可能是一般概率上界，并且与第一分支的$1/6$不一致. 该分支疑应为$4\\xi^2/(3\\varepsilon^2)-1/3$；原式保留，需与所引\\hyperref[bib:source248]{Pukelsheim（1994）}原论文进一步核实."
+  },
+  {
+    "file": "sections-tex\\03-08.tex",
+    "line": 77,
+    "kind": "translator",
+    "text": "译注：本段比较时需区分观测值$X$与指数表示中的充分统计量. 对数正态密度确实可按\\eqref{eq:3.4.1}写成以$\\log X$、$(\\log X)^2$为统计量的指数族；$X$本身没有正参数邻域上的矩母函数，并不否定这一点. 这里显示的$e^{\\theta x}$形式使用$x$本身作为自然统计量，较为特殊. 此外，$\\lambda(t+\\theta)/\\lambda(\\theta)$在$0$的邻域内有限，需要$\\theta$处于相应自然参数空间的内点；仅有$\\theta\\in\\mathcal N$不足以保证双侧邻域存在. 原文关于Brown定义的具体归属仍需核对所引专著."
+  },
+  {
+    "file": "sections-tex\\04-01.tex",
+    "line": 170,
+    "kind": "translator",
+    "text": "译注：下列等式的 $A$ 沿用原文记号，实际指原先半平面 $A$ 与单位正方形的交集."
+  },
+  {
+    "file": "sections-tex\\04-02.tex",
+    "line": 114,
+    "kind": "translator",
+    "text": "译注：依本节条件密度的定义，上述比值及由它得到的结论限于 $f_X(x)>0$ 的 $x$；原文“任意 $x\\in\\mathbb R$”应作此限制."
+  },
+  {
+    "file": "sections-tex\\04-03.tex",
+    "line": 91,
+    "kind": "translator",
+    "text": "译注：原文式号 (3.2.17) 不存在；按所用的 Beta--Gamma 恒等式，应指\\eqref{eq:3.3.17}."
+  },
+  {
+    "file": "sections-tex\\04-03.tex",
+    "line": 138,
+    "kind": "translator",
+    "text": "译注：此段的 $U=XY$ 对应\\autoref{ex:4.3.3}，并非紧接在前的\\autoref{ex:4.3.4}；原文泛称“前面的例子”."
+  },
+  {
+    "file": "sections-tex\\04-04.tex",
+    "line": 100,
+    "kind": "translator",
+    "text": "译注：原文引用 (3.1.10)，对应公式实际编号为\\eqref{eq:3.2.10}."
+  },
+  {
+    "file": "sections-tex\\04-04.tex",
+    "line": 115,
+    "kind": "translator",
+    "text": "译注：此处原文引用 (3.2.10)，中心卡方密度实际见\\eqref{eq:3.3.10}；\\eqref{eq:3.2.10} 是负二项 pmf."
+  },
+  {
+    "file": "sections-tex\\04-04.tex",
+    "line": 124,
+    "kind": "translator",
+    "text": "译注：原文第一行写为 $X\\mid P\\sim\\operatorname{binomial}(P)$，并带有未使用的 $i=1,\\ldots,n$. 由紧随其后的 $E(X\\mid P)=nP$ 及\\autoref{ex:4.4.8} 可知，意指 $X\\mid P\\sim\\operatorname{binomial}(n,P)$. 此处保留原式."
+  },
+  {
+    "file": "sections-tex\\04-04.tex",
+    "line": 155,
+    "kind": "translator",
+    "text": "译注：下式第三行第一个因子后多出的一个右括号为原文排印错误；正确配对为 $(E(X\\mid Y)-EX)(E(X\\mid Y)-E(X\\mid Y))$."
+  },
+  {
+    "file": "sections-tex\\04-04.tex",
+    "line": 177,
+    "kind": "translator",
+    "text": "译注：原文下面的积分前漏写因子 $n$；左端与下一行均包含 $n$，故应在 $\\Gamma(\\alpha+\\beta)/(\\Gamma(\\alpha)\\Gamma(\\beta))$ 前乘以 $n$. 此处保留原式."
+  },
+  {
+    "file": "sections-tex\\04-05.tex",
+    "line": 57,
+    "kind": "translator",
+    "text": "译注：原文“关于 0 对称”应指基准密度 $f(t)$；$X$ 的密度 $f(x-\\theta)$ 是关于 $\\theta$ 对称. 此外，断言不独立还需 $0<P(|X-\\theta|<2)<1$，否则 $Y$ 为常数."
+  },
+  {
+    "file": "sections-tex\\04-05.tex",
+    "line": 191,
+    "kind": "translator",
+    "text": "译注：按\\autoref{sec:4.3} 的行列式次序，$\\partial(x,y)/\\partial(s,t)=-\\sigma_X\\sigma_Y/t$，原文漏了负号；下文取绝对值，故计算不受影响. 逆变换在 $t=0$ 处无定义，但对应 $X=\\mu_X$ 为零概率事件，可在换元时略去."
+  },
+  {
+    "file": "sections-tex\\04-06.tex",
+    "line": 58,
+    "kind": "translator",
+    "text": "译注：第二项即 $\\frac34x_2^2$ 的积分应为 $(3/4)(1/2)(9/64)(1)(1/2)=27/1024$，原文写为 $7/1024$. 因而下面所求总概率应为 $171/1024$，而非原文的 $151/1024$. 此处保留原数值."
+  },
+  {
+    "file": "sections-tex\\04-06.tex",
+    "line": 118,
+    "kind": "translator",
+    "text": "译注：原文取值上界 $n$ 应为试验次数 $m$；$n$ 是类别数."
+  },
+  {
+    "file": "sections-tex\\04-06.tex",
+    "line": 139,
+    "kind": "translator",
+    "text": "译注：此处除以 $1-p_n$ 的推导要求 $p_n<1$，条件分布还要求 $P(X_n=x_n)>0$. 当 $p_n=1$ 时，$X_n=m$、其余坐标恒为 0，应单独按退化分布处理."
+  },
+  {
+    "file": "sections-tex\\04-06.tex",
+    "line": 141,
+    "kind": "translator",
+    "text": "译注：原文期望式中应减去均值 $mp_i,mp_j$，而非 $p_i,p_j$；即 $\\operatorname{Cov}(X_i,X_j)=E[(X_i-mp_i)(X_j-mp_j)]=-mp_ip_j$，$i\\ne j$. 当某个格概率为 0 时协方差为 0，故“都为负”在允许边界概率的定义下应为“都非正”."
+  },
+  {
+    "file": "sections-tex\\04-06.tex",
+    "line": 241,
+    "kind": "translator",
+    "text": "译注：原文下面化简后的指数写为 $-2\\mu_3$；按上一行的变量替换应为 $-2u_3$，原文未定义 $\\mu_3$. 此处保留原式."
+  },
+  {
+    "file": "sections-tex\\04-07.tex",
+    "line": 72,
+    "kind": "translator",
+    "text": "译注：推导前写的 $r<p$ 是多余限制；若坚持该限制，令 $s=pr$ 只直接覆盖 $s>r^2$. 实际上对任意 $r>0$、$p>1$ 都可作上述替换，因此取 $p=s/r>1$ 即得到所述范围."
+  },
+  {
+    "file": "sections-tex\\04-07.tex",
+    "line": 94,
+    "kind": "translator",
+    "text": "译注：此证明中的有限共轭指数 $q$ 要求 $p>1$；$p=1$ 直接由三角不等式取期望得到. 除法还需所除期望有限且非零；零的情形直接成立，有限性可由 $|X+Y|^p\\le2^{p-1}(|X|^p+|Y|^p)$ 保证，右端矩无穷的情形作扩展实数解释."
+  },
+  {
+    "file": "sections-tex\\04-07.tex",
+    "line": 100,
+    "kind": "translator",
+    "text": "译注：若 $a_i,b_i$ 是任意实数，右端应为 $\\sum|a_i|^p$ 与 $\\sum|b_i|^q$；原式缺少绝对值，只在非负等适当限制下可照写. 此处保留原式."
+  },
+  {
+    "file": "sections-tex\\04-07.tex",
+    "line": 155,
+    "kind": "translator",
+    "text": "译注：若若干 $a_i$ 相同，严格说应在指标 $i\\in\\{1,\\ldots,n\\}$ 上均匀抽取，再令 $X=a_i$；重复取值的概率须合并. 原文逐值写 $P(X=a_i)=1/n$ 默认了取值不同，所给均值不等式对重复取值仍成立."
+  },
+  {
+    "file": "sections-tex\\04-08.tex",
+    "line": 51,
+    "kind": "translator",
+    "text": "译注：这里的阈值把 $\\lambda$ 当作指数分布的速率参数，而本书通常以 $\\operatorname{exponential}(\\beta)$ 的参数表示尺度；若仅对原文条件作尺度换写，阈值为 $2\\lambda\\log2$；不过，连续先验还遗漏了换元因子，修正后的速率参数阈值为 $4\\log2/\\lambda$. 详见\\hyperref[misc:4.9.1]{杂录 4.9.1} 的连续先验译注."
+  },
+  {
+    "file": "sections-tex\\04-08.tex",
+    "line": 52,
+    "kind": "translator",
+    "text": "译注：原文条件式混用了随机值记号 $x$ 与固定金额 $m$；应分别理解为在 $x=m$ 与 $x=2m$ 时的另一信封金额. 保留信封的期望应记为 $E(X)=3m/2$，交换的为 $E(Y)=3m/2$."
+  },
+  {
+    "file": "sections-tex\\04-08.tex",
+    "line": 105,
+    "kind": "translator",
+    "text": "译注：这里的变量离散，原文 pdf 应为 pmf."
+  },
+  {
+    "file": "sections-tex\\04-08.tex",
+    "line": 177,
+    "kind": "translator",
+    "text": "译注：\\hyperref[itm:exercise:4.29:b]{(b)} 一般需要补充 $R$ 与 $\\theta$ 独立；只指定均匀角度的边缘分布并不能保证该结论. 例如令 $R=1+\\varepsilon\\cos2\\theta$，$0<\\varepsilon<1$，则 $E[R^2\\cos^2\\theta]=1/2+\\varepsilon/2+\\varepsilon^2/4$，而 $E[R^2\\sin^22\\theta]=1/2+\\varepsilon^2/8$，二阶矩不同. \\hyperref[itm:exercise:4.29:a]{(a)} 中 $R$ 消去，无须此额外条件."
+  },
+  {
+    "file": "sections-tex\\04-08.tex",
+    "line": 203,
+    "kind": "translator",
+    "text": "译注：这里“同一”若指完全相同参数的分布，原文有误. 三层模型给出 $Y\\mid\\Lambda\\sim\\operatorname{Poisson}(p\\Lambda)$，其边缘分布相当于 \\hyperref[itm:exercise:4.32:a]{(a)} 中把尺度 $\\beta$ 换为 $p\\beta$；两者属于同一负二项分布族，但一般并不同分布."
+  },
+  {
+    "file": "sections-tex\\04-08.tex",
+    "line": 261,
+    "kind": "translator",
+    "text": "译注：这里 $C=(1+P)/2$ 是支撑在 $(1/2,1)$ 上的缩放平移 Beta 变量，通常不是\\autoref{exercise:4.34} 所用的 $(0,1)$ 上 Beta 混合. 因而题述一般不能直接得到通常的 Beta--二项分布；其 pmf 应由 $\\binom nk E[C^k(1-C)^{n-k}]$ 求得. 原文是否将这一推广也称为 Beta--二项分布，需核实 Morrison 原文."
+  },
+  {
+    "file": "sections-tex\\04-08.tex",
+    "line": 273,
+    "kind": "translator",
+    "text": "译注：\\hyperref[itm:exercise:4.38:a]{(a)}、\\hyperref[itm:exercise:4.38:b]{(b)} 所给普通密度公式实际要求 $0<r<1$；$r=1$ 时 $\\Gamma(1-r)$ 无定义. 边界 $r=1$ 对应在 $\\nu=\\lambda$ 处的单位点质量，即一个指数分布，而非此普通密度."
+  },
+  {
+    "file": "sections-tex\\04-08.tex",
+    "line": 276,
+    "kind": "translator",
+    "text": "译注：Gamma 密度的对数导数为 $(r-1)/x-1/\\lambda$，只在 $0<x<\\lambda(r-1)$ 时为正，而非所有 $x>0$；在该非空区间取得矛盾已足够."
+  },
+  {
+    "file": "sections-tex\\04-08.tex",
+    "line": 280,
+    "kind": "translator",
+    "text": "译注：这里需 $i\\ne j$，条件分布公式还需 $p_j<1$ 及 $P(X_j=x_j)>0$；$i=j$ 时协方差应为方差 $mp_i(1-p_i)$."
+  },
+  {
+    "file": "sections-tex\\04-08.tex",
+    "line": 298,
+    "kind": "translator",
+    "text": "译注：这里“不相关”应理解为在期望存在时协方差为 0；常数的标准差为 0，按\\autoref{def:4.5.2} 定义的相关系数并不存在."
+  },
+  {
+    "file": "sections-tex\\04-08.tex",
+    "line": 334,
+    "kind": "translator",
+    "text": "译注：普通二元 pdf 要求 $|\\rho|<1$（且两个方差为正）. \\hyperref[itm:exercise:4.46:b]{(b)} 允许的 $\\rho=\\pm1$ 给出集中在直线上的退化联合分布，不具有\\autoref{def:4.5.10} 的二维密度."
+  },
+  {
+    "file": "sections-tex\\04-09.tex",
+    "line": 11,
+    "kind": "translator",
+    "text": "译注：若 $\\pi$ 为离散 pmf，下面的权重形式可成立；若像原文所说是连续 pdf，则 $X=2M$ 的密度须含换元因子 $1/2$. 此时两个后验概率应分别为 $2\\pi(x)/(2\\pi(x)+\\pi(x/2))$ 与 $\\pi(x/2)/(2\\pi(x)+\\pi(x/2))$. 相应交换条件应为 $\\pi(x/2)<4\\pi(x)$；若 $\\pi(m)=\\lambda e^{-\\lambda m}$，阈值为 $x<4\\log2/\\lambda$；若以尺度 $\\lambda$ 参数化，则为 $x<4\\lambda\\log2$. 原式及后面的原结论照录."
+  },
+  {
+    "file": "sections-tex\\04-09.tex",
+    "line": 19,
+    "kind": "translator",
+    "text": "译注：这里应将第一式的 $x$ 理解为 $m$、第二式的 $x$ 理解为 $2m$；不混用记号时，两式为 $P(Y=2m\\mid X=m)=1$、$P(Y=m\\mid X=2m)=1$."
+  },
+  {
+    "file": "sections-tex\\04-09.tex",
+    "line": 28,
+    "kind": "translator",
+    "text": "译注：当允许 $x_i=0$ 时，负幂以及 $r=0$ 的原式不能直接按普通实数运算使用，需以极限作延拓. 若统一假定 $x_i>0$，则除 $r=0$ 按所述极限定义外，上述公式可直接使用."
+  },
+  {
+    "file": "sections-tex\\04-09.tex",
+    "line": 33,
+    "kind": "translator",
+    "text": "译注：原文最后的 $X$ 应为 $Y$. 完整定义还要求 $E(Y\\mid\\mathscr G)$ 对 $\\mathscr G$ 可测；在 $Y$ 可积时，其在每个 $G\\in\\mathscr G$ 上的积分等于 $Y$ 在 $G$ 上的积分."
+  },
+  {
+    "file": "sections-tex\\04-09.tex",
+    "line": 44,
+    "kind": "translator",
+    "text": "译注：固定条件 $\\sigma$ 代数时，条件期望在几乎处处意义下唯一；只在零测集上可改动. 特别是 \\hyperref[itm:borel:3]{(3)} 中 $P(Z_3=1)=0$，通常的离散条件概率比值无法定义该条件分布，其在这一零概率取值处的版本可任意指定，不能仅凭事件本身得到唯一的第三个分布."
+  },
+  {
+    "file": "sections-tex\\04-09.tex",
+    "line": 46,
+    "kind": "translator",
+    "text": "译注：此极限法还需明确集合列、每项条件概率为正，以及极限存在；任意递减集合列并不自动保证存在或给出同一极限. 因而该方法是在说明具体的逼近机制，而非为一切零概率条件给出唯一、无条件适用的定义."
+  },
+  {
+    "file": "sections-tex\\05-03.tex",
+    "line": 198,
+    "kind": "translator",
+    "text": "译注：原文由期望接近1直接写出随机比值接近1，这只是启发式表述.仅令$m$增大而固定$n$，分子的随机波动一般不会消失；要论证该比值集中在1附近，还需控制两个样本方差的波动，例如同时增大两组样本容量."
+  },
+  {
+    "file": "sections-tex\\05-05.tex",
+    "line": 141,
+    "kind": "translator",
+    "text": "译注：此处原文写$t<\\sqrt n\\sigma h$，按前文矩母函数存在的双侧邻域，应理解为$|t|<\\sqrt n\\sigma h$.原式保留；对固定$t$取充分大的$n$，证明仍适用."
+  },
+  {
+    "file": "sections-tex\\05-05.tex",
+    "line": 290,
+    "kind": "translator",
+    "text": "译注：原文最后一式省去了余项，直接写成等式.严谨论证须说明乘以$\\sqrt n$后的余项依概率趋于0；仅有未缩放余项趋于0还不够.可微性给出余项为$(Y_n-\\theta)o(1)$，结合$\\sqrt n(Y_n-\\theta)$依分布收敛，便可完成这一步."
+  },
+  {
+    "file": "sections-tex\\05-05.tex",
+    "line": 296,
+    "kind": "translator",
+    "text": "译注：原文这一式若指$1/\\bar X$本身的方差，右端应再除以$n$；所写右端对应于上式经$\\sqrt n$缩放后的渐近方差估计.随后标准化公式与后者一致."
+  },
+  {
+    "file": "sections-tex\\05-05.tex",
+    "line": 335,
+    "kind": "translator",
+    "text": "译注：原文此处写$\\bar X$与$Y$；按本例设定和前面的公式，应为$X$与$Y$."
+  },
+  {
+    "file": "sections-tex\\05-05.tex",
+    "line": 337,
+    "kind": "translator",
+    "text": "译注：原文均值定义漏写因子$1/n$；样本均值应为$\\bar X_i=n^{-1}\\sum_{k=1}^nX_{ik}$."
+  },
+  {
+    "file": "sections-tex\\05-05.tex",
+    "line": 337,
+    "kind": "translator",
+    "text": "译注：原文这一式写成等式，且导数在$\\boldsymbol x$处取值.作为在$\\boldsymbol\\mu$处的一阶Taylor近似，应把等号理解为近似，并在$\\boldsymbol\\mu$处计算导数，或显式保留相应余项."
+  },
+  {
+    "file": "sections-tex\\05-05.tex",
+    "line": 345,
+    "kind": "translator",
+    "text": "译注：原文左端写$\\bar X_s$，但这里的向量维数是$p$，应为$\\bar X_p$."
+  },
+  {
+    "file": "sections-tex\\05-06.tex",
+    "line": 116,
+    "kind": "translator",
+    "text": "译注：此处原文的1,000个、容量5的设定，与图及后文实际使用的5,000个、容量13的设定不一致.图题和后续计算均按原文保留."
+  },
+  {
+    "file": "sections-tex\\05-06.tex",
+    "line": 131,
+    "kind": "translator",
+    "text": "译注：原文为“Something is fishy in the Hudson—the Poisson has failed.”英语fishy兼有“鱼腥的”与“可疑的”之意；Poisson与法语“鱼”poisson同形."
+  },
+  {
+    "file": "sections-tex\\05-06.tex",
+    "line": 216,
+    "kind": "translator",
+    "text": "译注：原文此处为“latter algorithm”，但按前面的试验次数比较，应指当前使用beta候选的前一算法.随后关于每次生成成本的提醒仍然成立."
+  },
+  {
+    "file": "sections-tex\\05-07.tex",
+    "line": 69,
+    "kind": "translator",
+    "text": "译注：原文写相关系数“等于1”.一般直线上的点可能具有负斜率，正确的共线刻画应是相关系数绝对值为1，并要求两组样本方差非零；等于$+1$还须正斜率."
+  },
+  {
+    "file": "sections-tex\\05-07.tex",
+    "line": 262,
+    "kind": "translator",
+    "text": "译注：所引例子使用$X_i$，原题这里写成$Y_i$；应指该例的$X_i$序列."
+  },
+  {
+    "file": "sections-tex\\05-07.tex",
+    "line": 275,
+    "kind": "translator",
+    "text": "译注：右端原文写$x\\ge\\mu$，但依分布收敛到常数只要求在$x\\ne\\mu$的连续点成立；应将第二行条件改为$x>\\mu$，与所引定理一致."
+  },
+  {
+    "file": "sections-tex\\05-07.tex",
+    "line": 350,
+    "kind": "translator",
+    "text": "译注：原题的pdf漏掉归一化因子$1/\\pi$，cdf也漏掉缩放和加性常数.标准Cauchy的pdf应为$1/[\\pi(1+y^2)]$，cdf为$1/2+\\arctan(y)/\\pi$."
+  },
+  {
+    "file": "sections-tex\\05-07.tex",
+    "line": 366,
+    "kind": "translator",
+    "text": "译注：这一公式需要$0\\le t\\le1$；原题未写适用范围.后续使用$t=1$，在该范围内."
+  },
+  {
+    "file": "sections-tex\\05-07.tex",
+    "line": 388,
+    "kind": "translator",
+    "text": "译注：候选beta、gamma分布的形状参数必须为正；因此\\hyperref[itm:exercise:5.61:a]{(a)}需$[a],[b]\\ge1$，\\hyperref[itm:exercise:5.61:b]{(b)}需$[a]\\ge1$.原题未明说这些条件；参数在$(0,1)$时，直接向下取整会得到无效的零形状参数."
+  },
+  {
+    "file": "sections-tex\\05-07.tex",
+    "line": 441,
+    "kind": "translator",
+    "text": "译注：正文此处引1995年，原书书后同名论文条目[218]列1996年；这里分别保留两处年份，链接至该条目."
+  },
+  {
+    "file": "sections-tex\\05-07.tex",
+    "line": 441,
+    "kind": "translator",
+    "text": "译注：原文此处连写“$<\\!\\le$”；结合前文上确界条件，可理解为$\\sup f/g\\le M<\\infty$."
+  },
+  {
+    "file": "sections-tex\\05-08.tex",
+    "line": 14,
+    "kind": "translator",
+    "text": "译注：若固定$\\sigma^2>0$，所有$X_i$为常数不符合其方差均为$\\sigma^2$的假设.方差下界0可由使样本和恒定的负相关构造实现，例如$n=2$时$X_2=2\\mu-X_1$；原文的括号说明应作此区分."
+  },
+  {
+    "file": "sections-tex\\05-08.tex",
+    "line": 58,
+    "kind": "translator",
+    "text": "译注：正文此处引1993年，原书书后同名著作条目[312]列1996年；这里分别保留两处年份，链接至该条目."
+  },
+  {
+    "file": "sections-tex\\06-02.tex",
+    "line": 81,
+    "kind": "translator",
+    "text": "译注：此处原文首项写$x_{(i)}$；按次序统计量的排列，应为$x_{(1)}$."
+  },
+  {
+    "file": "sections-tex\\06-02.tex",
+    "line": 83,
+    "kind": "translator",
+    "text": "译注：原文此处Cauchy密度分母漏写$1+$；标准位置Cauchy密度应为$1/[\\pi(1+(x-\\theta)^2)]$.原式保留."
+  },
+  {
+    "file": "sections-tex\\06-02.tex",
+    "line": 89,
+    "kind": "original",
+    "text": "不过，按Halmos和Savage的说法，他们的定理“可以改写成一种在精神上更接近先前关于充分性概念研究的形式”.这里的研究指\\hyperref[bib:source233]{Neyman（1935）}的工作.（威斯康星大学密尔沃基分校的J. Beder教授指出了这一点.）"
+  },
+  {
+    "file": "sections-tex\\06-02.tex",
+    "line": 245,
+    "kind": "translator",
+    "text": "译注：原文引用式(5.5.7)，该式属于Delta方法；这里应参见次序统计量联合密度\\eqref{eq:5.4.6}及\\autoref{ex:5.4.7}."
+  },
+  {
+    "file": "sections-tex\\06-02.tex",
+    "line": 357,
+    "kind": "translator",
+    "text": "译注：本定理的开集条件严格说应加在自然参数$(w(\\theta_1),\\ldots,w(\\theta_k))$的取值集合上；若$w$退化，单凭原参数空间$\\Theta$含开集不足以保证结论.原表述保留；通常的满秩指数族形式满足相应自然参数条件."
+  },
+  {
+    "file": "sections-tex\\06-02.tex",
+    "line": 377,
+    "kind": "translator",
+    "text": "译注：原文这里遗漏“充分”条件.正确结论应针对“完备充分统计量”；例如常数统计量是完备的，却一般不充分，因而不能仅由完备性推出最小充分性.前一句及后面的解释应结合本节充分统计量的语境理解."
+  },
+  {
+    "file": "sections-tex\\06-03.tex",
+    "line": 44,
+    "kind": "translator",
+    "text": "译注：原文此处归一化因子写$n^{n/2}$，与\\eqref{eq:6.2.4}不符.按该式积分，指数项之前的因子应为$\\sqrt n(2\\pi\\sigma^2)^{(n-1)/2}$，这样乘积才积分为1."
+  },
+  {
+    "file": "sections-tex\\06-04.tex",
+    "line": 2,
+    "kind": "original",
+    "text": "与许多其他教材（\\hyperref[bib:source276]{Schervish 1995}；\\hyperref[bib:source200]{Lehmann和Casella 1998}；\\hyperref[bib:source311]{Stuart、Ord和Arnold 1999）}一样，我们区分等变性（equivariance）和不变性（invariance）：前者指数据变换时估计值按规定方式变化，后者指数据变换时估计值保持不变."
+  },
+  {
+    "file": "sections-tex\\06-05.tex",
+    "line": 30,
+    "kind": "translator",
+    "text": "译注：后半句对任意给定位置密度并不成立；例如已知方差的正态位置族可约简到样本均值.若$f$本身未知、考虑整个相应非参数族，则需明确这一额外范围.原题保留，参见\\autoref{exercise:6.29}."
+  },
+  {
+    "file": "sections-tex\\06-05.tex",
+    "line": 162,
+    "kind": "translator",
+    "text": "译注：原文$T$的分母写$\\sum_i1/X_i-1/\\bar X$；与后述独立性和卡方分布相符的常见统计量应为$T=n/(\\sum_i1/X_i-n/\\bar X)$.原式保留.另外“充分且完备”应理解为二者组成的联合统计量."
+  },
+  {
+    "file": "sections-tex\\06-05.tex",
+    "line": 167,
+    "kind": "translator",
+    "text": "译注：原书正文将第一作者姓氏拼作Chhikara，书后对应条目[74]作Chikkara；两处拼写分别保留，链接至该条目."
+  },
+  {
+    "file": "sections-tex\\06-05.tex",
+    "line": 173,
+    "kind": "translator",
+    "text": "译注：最后一句的函数方向在原文中颠倒了.最小充分性要求$T$是任一充分统计量的函数；先把在$\\mathcal F$中充分的统计量限制到上述有限子族，再应用该子族中$T$的最小充分性，即得所需方向."
+  },
+  {
+    "file": "sections-tex\\06-05.tex",
+    "line": 198,
+    "kind": "translator",
+    "text": "译注：原文这里说“$M$的渐近方差”和“$M-\\bar X$的渐近方差”，但随模拟次数$N$减小的量应指用$N$次模拟所得的相应\\emph{方差估计量}的方差.所给近似式还采用了被模拟统计量近似正态的条件；对一般分布，样本方差的渐近方差涉及四阶中心矩."
+  },
+  {
+    "file": "sections-tex\\06-05.tex",
+    "line": 216,
+    "kind": "translator",
+    "text": "译注：原文连等式中间一项在$(j,\\boldsymbol x_j)=(2,\\boldsymbol x_2^*)$处一般不成立；此处应为$g((1,\\boldsymbol x_1^*)\\mid\\theta)C$.由证明中的比例关系，它仍等于最右端的$f^*((2,\\boldsymbol x_2^*)\\mid\\theta)$，因此所需因子分解成立."
+  },
+  {
+    "file": "sections-tex\\06-06.tex",
+    "line": 10,
+    "kind": "translator",
+    "text": "译注：按本书的完备性定义，单独的完备性并不足以推出这里的结论，原述似缺少充分性等限定. 例如，取单个观测$X\\sim\\operatorname{uniform}(\\theta,\\theta+1)$，$0<\\theta<1$；$T=\\lfloor X\\rfloor$服从完备的Bernoulli$(\\theta)$族，而$V=X-\\lfloor X\\rfloor\\sim\\operatorname{uniform}(0,1)$为有界辅助统计量，但$\\operatorname{Cov}_\\theta(T,V)=-\\theta(1-\\theta)/2\\ne0$. 正文保留原述；此反例为译者独立核验，精确修订条件仍需对照所引原始论文."
+  },
+  {
+    "file": "sections-tex\\07-02.tex",
+    "line": 159,
+    "kind": "translator",
+    "text": "译注：原文的“唯一”须留意并列最大值：当$1/\\widehat z=m$为整数时，$L(m)=L(m-1)$，二者均为MLE；文中的严格第二不等式选取了其中较大的一个.例如$n=1$、$x_1=1$、$p=1/2$时，$k=1,2$并列.此外，若所有$x_i=0$，这里的$1/\\max_ix_i$未定义，须另外处理边界情形."
+  },
+  {
+    "file": "sections-tex\\07-02.tex",
+    "line": 220,
+    "kind": "translator",
+    "text": "译注：这里及下一例的内部极大值计算要求$\\sum(x_i-\\bar x)^2>0$.若全部观测相同（特别是$n=1$），在通常参数空间$\\sigma^2>0$上似然随$\\sigma^2\\downarrow0$无界，最大值并不取得；不能把零方差直接当作该参数空间内的MLE."
+  },
+  {
+    "file": "sections-tex\\07-02.tex",
+    "line": 233,
+    "kind": "translator",
+    "text": "译注：这里原文把二阶偏导数矩阵的行列式称为Jacobian；通常术语是Hessian矩阵的行列式，它也可看作梯度映射的Jacobian行列式.原称谓保留."
+  },
+  {
+    "file": "sections-tex\\07-02.tex",
+    "line": 326,
+    "kind": "original",
+    "text": "本小节的内容较为专门，也更深入.略去本小节不会影响正文的连贯性."
+  },
+  {
+    "file": "sections-tex\\07-02.tex",
+    "line": 326,
+    "kind": "translator",
+    "text": "译注：一般EM算法保证的是观测数据似然的非递减性；这本身不保证参数序列收敛，更不保证收敛到全局MLE.收敛及全局最优性需要附加条件，并可能依赖初值.本节原文的保证性表述保留；参见后面\\autoref{thm:7.2.20}所实际陈述的单调性质."
+  },
+  {
+    "file": "sections-tex\\07-02.tex",
+    "line": 347,
+    "kind": "translator",
+    "text": "译注：原文离散求和末尾多出$dx_1$，应删去该微分符号；此处按原式保留.原式中条件竖线前还多了一个右括号，译文仅配平函数括号."
+  },
+  {
+    "file": "sections-tex\\07-02.tex",
+    "line": 403,
+    "kind": "translator",
+    "text": "译注：原文\\eqref{eq:7.2.21}最后一次分组中，$[\\tau_ix_i\\log\\tau_i]$和$[\\tau_1x_1\\log\\tau_1]$应分别为$[-\\tau_i+x_i\\log\\tau_i]$和$[-\\tau_1+x_1\\log\\tau_1]$；第二组括号的求和下标$2=1$应为$i=2$.这些原文误排保留，紧随的\\eqref{eq:7.2.22}实际采用了正确的$-\\tau_1+x_1\\log\\tau_1$项."
+  },
+  {
+    "file": "sections-tex\\07-02.tex",
+    "line": 436,
+    "kind": "translator",
+    "text": "译注：一般情况下，这里“当且仅当”的充分方向还需缺失数据条件分布相同.由\\eqref{eq:7.2.19}，观测对数似然的增量等于下面期望差加上$D_{\\mathrm{KL}}(k(\\cdot\\mid\\widehat\\theta^{(r)},\\boldsymbol y)\\Vert k(\\cdot\\mid\\widehat\\theta^{(r+1)},\\boldsymbol y))$.两项均非负，故观测似然相等要求二者都为零；仅期望差为零一般不够."
+  },
+  {
+    "file": "sections-tex\\07-03.tex",
+    "line": 156,
+    "kind": "translator",
+    "text": "译注：这一步还要求微分与积分的交换对$W\\equiv1$成立，而定理原述仅对所考察的$W$列出\\eqref{eq:7.3.4}.通常的正则性条件还保证此项交换、共同支撑以及所用信息量为正且有限；应用定理时须一并检查，不能仅凭某个$W$的交换条件推出得分期望为零."
+  },
+  {
+    "file": "sections-tex\\07-03.tex",
+    "line": 350,
+    "kind": "translator",
+    "text": "译注：这里的唯一性是在每个参数对应分布下几乎处处相等的意义下，且证明使用有限方差.证明末由协方差推出$a(\\theta)=1$时默认方差为正；若方差为零，两估计量均几乎处处等于同一均值，唯一性可直接得到."
+  },
+  {
+    "file": "sections-tex\\07-03.tex",
+    "line": 419,
+    "kind": "translator",
+    "text": "译注：原文给出的方差$.071$并非对所有$\\theta$成立.由上面的协方差和$\\operatorname{Var}(\\sin(2\\pi X))=1/2$，该估计量的方差为$1/12+1/(8\\pi^2)-\\cos(2\\pi\\theta)/(2\\pi^2)$，随$\\theta$变化，并不一致小于$1/12$.不过，在某些参数值处可改进，已足以说明$X-1/2$不是最佳无偏估计量."
+  },
+  {
+    "file": "sections-tex\\07-03.tex",
+    "line": 425,
+    "kind": "translator",
+    "text": "译注：原文此处引用“定义6.1.4”，本版对应的完备性定义实际为\\autoref{def:6.2.21}.保留原显示编号，并将链接指向实际定义."
+  },
+  {
+    "file": "sections-tex\\07-03.tex",
+    "line": 543,
+    "kind": "translator",
+    "text": "译注：要作这里有限风险的比较，还需$S^2>0$几乎处处及相应对数期望有限；仅总体方差正且有限不足以保证这些条件.例如离散总体可能使$P(S^2=0)>0$，此时所有正$b$的Stein风险均为无穷，不能据该计算得到有意义的严格优劣比较."
+  },
+  {
+    "file": "sections-tex\\07-03.tex",
+    "line": 594,
+    "kind": "translator",
+    "text": "译注：原表最后一项为$.9137$，按$(y+1)/(n+2)=11/12$计算，应为$.9167$.原数值保留."
+  },
+  {
+    "file": "sections-tex\\07-04.tex",
+    "line": 112,
+    "kind": "translator",
+    "text": "译注：原式分母中$1/\\bar X$前漏了$n$；对数似然求导给出$\\widehat\\lambda_n=n/(\\sum_i1/X_i-n/\\bar X)$.与\\autoref{exercise:6.27}为同一处公式疑误，原式保留."
+  },
+  {
+    "file": "sections-tex\\07-04.tex",
+    "line": 114,
+    "kind": "translator",
+    "text": "译注：此处原文写 Samantha，书末对应文献作者为 Samanta；保留原拼写，链接指向该条文献."
+  },
+  {
+    "file": "sections-tex\\07-04.tex",
+    "line": 127,
+    "kind": "translator",
+    "text": "译注：按本书通常的对数正态参数约定，$\\log X\\sim n(\\mu,\\sigma^2)$，则$\\mu$的MLE是$(1/n)\\sum\\log X_i$，几何平均是$e^\\mu$的MLE.原文把二者混同，原题保留."
+  },
+  {
+    "file": "sections-tex\\07-04.tex",
+    "line": 192,
+    "kind": "translator",
+    "text": "译注：对样本均值$\\bar X$应用\\eqref{eq:7.2.10}时，应将该式的$x$换为$\\bar x$，$\\sigma^2$换为$\\sigma^2/n$；原题未明说此替换."
+  },
+  {
+    "file": "sections-tex\\07-04.tex",
+    "line": 231,
+    "kind": "translator",
+    "text": "译注：原文“习题7.2.17”应指\\autoref{ex:7.2.17}；下一题的同一引用也如此.保留原显示称谓，链接指向该例."
+  },
+  {
+    "file": "sections-tex\\07-04.tex",
+    "line": 269,
+    "kind": "translator",
+    "text": "译注：本题原文有几处需辨明：\\hyperref[itm:exercise:7.29:a]{(a)}中的多项系数$m!$只能出现一次，\\hyperref[itm:exercise:7.29:b]{(b)}分母应理解为$\\sum_i(x_i+y_i)$.在\\hyperref[itm:exercise:7.29:c]{(c)}中，若$m$确已知且其余$x_i$全部观测到，则$x_1=m-\\sum_{i=2}^nx_i$已经确定，不能用边缘分布的均值$m\\tau_1^{(r)}$代替条件均值；所给EM迭代一般不适用于原述观测模型.此外，原文$t_1$应为$\\tau_1$，且$j=1$的更新分子仍含缺失的$x_1$.原题保留."
+  },
+  {
+    "file": "sections-tex\\07-04.tex",
+    "line": 286,
+    "kind": "translator",
+    "text": "译注：原式把$p$和$1-p$漏在幂之外.正确联合密度应为$\\prod_i[pf(x_i)]^{z_i}[(1-p)g(x_i)]^{1-z_i}$；原式保留."
+  },
+  {
+    "file": "sections-tex\\07-04.tex",
+    "line": 302,
+    "kind": "translator",
+    "text": "译注：原文下面不等式左端漏了期望算子$E$，应与右端一样在方括号外加$E$.关于定理中等号的充分条件，另见\\autoref{thm:7.2.20}处的译注."
+  },
+  {
+    "file": "sections-tex\\07-04.tex",
+    "line": 324,
+    "kind": "translator",
+    "text": "译注：原文$q_i$把归一化写成了乘法，并在似然的条件竖线前多出斜线.为使概率和为1，应为$q_i=L(\\theta_i\\mid\\boldsymbol x)/\\sum_jL(\\theta_j\\mid\\boldsymbol x)$.原记号保留."
+  },
+  {
+    "file": "sections-tex\\07-04.tex",
+    "line": 350,
+    "kind": "translator",
+    "text": "译注：原文此处用“invariant”（不变），实际应为“equivariant”（等变）：平移样本$a$会使估计值也增加$a$.原词保留."
+  },
+  {
+    "file": "sections-tex\\07-04.tex",
+    "line": 423,
+    "kind": "translator",
+    "text": "译注：原题混用了四阶中心矩与标准化峰度，并且\\hyperref[itm:exercise:7.45:d]{(d)}式的常数有误.若按\\hyperref[itm:exercise:7.45:b]{(b)}定义$\\kappa=E(X-\\mu)^4$，由\\hyperref[itm:exercise:7.45:a]{(a)}\\hyperref[itm:exercise:7.45:b]{(b)}直接求导得$a=(n-1)/[n+1+(\\kappa/\\sigma^4-3)(n-1)/n]$；\\hyperref[itm:exercise:7.45:e]{(e)}中与3比较的也应是$\\kappa/\\sigma^4$.原公式与原符号保留."
+  },
+  {
+    "file": "sections-tex\\07-04.tex",
+    "line": 476,
+    "kind": "translator",
+    "text": "译注：原文此处写“习题7.46”，实际应为\\autoref{exercise:7.50}.原显示编号保留，链接指向实际定义."
+  },
+  {
+    "file": "sections-tex\\07-05.tex",
+    "line": 12,
+    "kind": "translator",
+    "text": "译注：按本段所写的密度形式，规范化因子为$c(\\boldsymbol\\theta)$而非其倒数，下面两个导数式右侧都应带负号.例如泊松族$c(\\lambda)=e^{-\\lambda}$、$w(\\lambda)=\\log\\lambda$，则$\\partial\\log c/\\partial w=-\\lambda$，不能等于$E(X)=\\lambda$.原式保留."
+  },
+  {
+    "file": "sections-tex\\07-05.tex",
+    "line": 26,
+    "kind": "translator",
+    "text": "译注：本段结论须在存在适当先验及相应可积性条件下理解，且排除参数可由数据完全确定的退化情形；不能推广到非正常先验，例如正态位置模型的平坦非正常先验给出无偏后验均值$\\bar X$.此外，下方第二组计算直接假设$E(\\theta\\mid X)=X$，这不等同于上一段的$E_\\theta[E(\\theta\\mid X)]=\\theta$.要论证一般情形，可令$T=E(\\theta\\mid X)$；若$E_\\theta T=\\theta$且相关二阶矩有限，则$E(T^2)=E(T\\theta)=E(\\theta^2)$，故$E[(T-\\theta)^2]=0$.原文推导保留."
+  },
+  {
+    "file": "sections-tex\\07-05.tex",
+    "line": 50,
+    "kind": "translator",
+    "text": "译注：原文写“定理7.3.3”，本章该编号对应的是例，而非定理，疑为引用编号误植.此外，上述唯一性指对同一待估函数、在各参数下几乎处处相等；若两个基于$T$的估计量均无偏，则它们之差的期望恒为零，由完备性立即得到这一结论."
+  },
+  {
+    "file": "sections-tex\\07-05.tex",
+    "line": 63,
+    "kind": "translator",
+    "text": "译注：原文前两句有重复且第二句缺主语，译文保留其内容.按指数族的一般形式，对数似然实际是关于充分统计量$T_i$线性的，不必关于原始缺失数据线性；下面第二行的$E_{\\boldsymbol\\theta'}[\\log h(\\boldsymbol y,\\boldsymbol X)]$似漏写条件$\\mid\\boldsymbol y$."
+  },
+  {
+    "file": "sections-tex\\07-05.tex",
+    "line": 69,
+    "kind": "translator",
+    "text": "译注：原文作者写 Sheaffer；书末与此处主题、年份相符的书目为 Schafer（1997）的《Analysis of Incomplete Multivariate Data》. 保留原拼写，并链接至该书目."
+  },
+  {
+    "file": "sections-tex\\07-05.tex",
+    "line": 80,
+    "kind": "translator",
+    "text": "译注：原文在此写 Wasserman（1994），书末对应稳健贝叶斯综述列为1992年；保留原年份，链接至该条文献."
+  },
+  {
+    "file": "sections-tex\\07-05.tex",
+    "line": 86,
+    "kind": "translator",
+    "text": "译注：这里的$\\operatorname{uniform}(0,\\infty)$只是对$\\tau^2$取常数密度的非正常先验记号，不是概率分布.而且对于本例单个观测$X$，积分掉$\\theta$后，$\\tau^2$的后验核为$(1+\\tau^2)^{-1/2}\\exp\\{-x^2/[2(1+\\tau^2)]\\}$，其在无穷远处的积分发散，因此这一具体层次设定不能产生正常后验.原例保留."
+  },
+  {
+    "file": "sections-tex\\07-05.tex",
+    "line": 88,
+    "kind": "translator",
+    "text": "译注：此处原文写1999年，书末该书第二版列为1998年；原年份保留."
+  },
+  {
+    "file": "sections-tex\\08-02.tex",
+    "line": 52,
+    "kind": "translator",
+    "text": "译注：这一拒绝域的改写适用于 $0<c<1$. 若取定义允许的端点 $c=1$，由 $\\lambda\\le1$ 应拒绝全部样本，而所写集合仅含 $x_{(1)}\\ge\\theta_0$ 的样本；$c=0$ 时则无有限样本被拒绝，涉及 $\\log0$ 的表达式应作极限理解."
+  },
+  {
+    "file": "sections-tex\\08-02.tex",
+    "line": 82,
+    "kind": "translator",
+    "text": "译注：原文在最大化范围中写 $\\sigma^2\\ge0$，但所用普通正态密度要求 $\\sigma^2>0$. $\\sigma^2=0$ 对应退化分布，不能直接代入该密度；正文保留原范围."
+  },
+  {
+    "file": "sections-tex\\08-03-1.tex",
+    "line": 65,
+    "kind": "translator",
+    "text": "译注：这里的正态分位数和概率均经过舍入，原文用等号表示近似值. 实际上 $P(Z>1.28)\\approx.10027$，略大于 $.1$；若要求严格不超过 $.1$，应取 $c=z_{.1}\\approx1.28155$，此时取 $n=5$ 仍满足第二类错误的要求."
+  },
+  {
+    "file": "sections-tex\\08-03-2.tex",
+    "line": 83,
+    "kind": "translator",
+    "text": "译注：按所写公式，分母 $2(\\theta_1-\\theta_0)<0$，故右端实际上随 $k$ 增大而从 $+\\infty$ 减至 $-\\infty$. 原文方向颠倒，但右端能遍历所有实数及后续检验结论不受影响."
+  },
+  {
+    "file": "sections-tex\\08-03-2.tex",
+    "line": 93,
+    "kind": "translator",
+    "text": "译注：本定理和下述证明实际需要似然比关于 $t$ 非减，而前面的定义同时允许非增. 若似然比非增，拒绝域方向应相应反转；例如 $X\\sim\\mathrm n(\\theta,1)$ 而 $T=-X$ 时，似然比关于 $T$ 非增，$P_\\theta(T>t_0)$ 随 $\\theta$ 下降，不能直接套用本述. 正文保留原假设."
+  },
+  {
+    "file": "sections-tex\\08-03-2.tex",
+    "line": 101,
+    "kind": "translator",
+    "text": "译注：这里的 $\\mathscr T$ 按原文意思应读作 $t>t_0$ 且两个密度至少一个为正. 此外，“$\\Longleftrightarrow$”及右端严格“$>$”一般不成立：离散分布可能在最小拒绝点达到该下确界，非严格单调的比值也可能有平台. 证明只需核验 Neyman–Pearson 的两个严格不等式所规定的方向，并在比值等于临界值处采用所需的拒绝规则；还应在同一自变量 $t=T$ 下读该式."
+  },
+  {
+    "file": "sections-tex\\08-03-2.tex",
+    "line": 105,
+    "kind": "translator",
+    "text": "译注：此处原文写 $\\beta(\\theta_0)\\le\\alpha$，依上下文正在描述其他检验，宜为 $\\beta^*(\\theta_0)\\le\\alpha$；保留原记号."
+  },
+  {
+    "file": "sections-tex\\08-03-2.tex",
+    "line": 145,
+    "kind": "translator",
+    "text": "译注：这里的不存在性结论针对非平凡水平 $0<\\alpha<1$，也是上述有限正态临界点论证的适用范围. 端点 $\\alpha=0$ 或 $1$ 有相应的平凡一致最强检验."
+  },
+  {
+    "file": "sections-tex\\08-03-3.tex",
+    "line": 72,
+    "kind": "translator",
+    "text": "译注：本例最初已说明大小为近似值，后面的“恰为”及“不超过”不能按精确的 $.05$ 理解. 对给定 $m=58,b=57$，第二项检验在 $58$ 次均成功时拒绝，其边界概率为 $.95^{58}\\approx.05105>.05$；沿原文所选参数列，交并拒绝概率也趋于这一数值，故所给检验并非严格的水平 $.05$ 检验. 原参数和结论均保留，数值近似的影响在此说明."
+  },
+  {
+    "file": "sections-tex\\08-03-5.tex",
+    "line": 40,
+    "kind": "translator",
+    "text": "译注：本例原文开头用 $\\mu$ 表示正态均值，随后检验与功效公式改用 $\\theta$；应理解为同一均值参数，原记号保留."
+  },
+  {
+    "file": "sections-tex\\08-04.tex",
+    "line": 50,
+    "kind": "translator",
+    "text": "译注：原题未明示参数空间. 使用普通正态密度时，\\hyperref[itm:exercise:8.8:a]{(a)} 至少须有 $a\\theta>0$，\\hyperref[itm:exercise:8.8:b]{(b)} 须有 $a>0$、$\\theta\\ne0$；是否还限定 $a,\\theta$ 各自为正，会影响约束最大化的范围. 此处保留原题，不能默把零方差纳入同一密度公式."
+  },
+  {
+    "file": "sections-tex\\08-04.tex",
+    "line": 147,
+    "kind": "translator",
+    "text": "译注：在非随机化检验下，原题 $.0547$ 应理解为舍入值；常用下尾拒绝域的大小为 $56/1024=.0546875$. 若坚持十进制 $.0547$ 为精确大小，则必须另考虑随机化；原数值保留."
+  },
+  {
+    "file": "sections-tex\\08-04.tex",
+    "line": 173,
+    "kind": "translator",
+    "text": "译注：同\\autoref{thm:8.3.17}，此结论要求 $\\theta_2>\\theta_1$ 时 $f(x\\mid\\theta_2)/f(x\\mid\\theta_1)$ 关于 $x$ 非减；原定义允许的非增方向不能推出所写的随机递增结论."
+  },
+  {
+    "file": "sections-tex\\08-04-b.tex",
+    "line": 42,
+    "kind": "translator",
+    "text": "译注：原题确实写 $\\theta>1$. 在此范围，样本最大值以概率 $1$ 大于 $1$，故给定检验的功效已为 $1$；若原意是某个小于 $1$ 的正偏移量，则需要另一条件，不能据题面自行补写."
+  },
+  {
+    "file": "sections-tex\\08-04-b.tex",
+    "line": 50,
+    "kind": "translator",
+    "text": "译注：\\hyperref[itm:exercise:8.34:b]{(b)} 需取似然比非减的方向，参见\\autoref{exercise:8.26}与\\autoref{thm:8.3.17}的译注；原定义包含非增方向，不能不加区分地推出本题不等式."
+  },
+  {
+    "file": "sections-tex\\08-04-b.tex",
+    "line": 54,
+    "kind": "translator",
+    "text": "译注：对有符号的非中心 $t$ 随机变量，此参数通常应为 $\\delta=\\mu$，而非 $\\sqrt{\\mu^2}=|\\mu|$. $\\mu$ 与 $-\\mu$ 的分布互为镜像，一般不相同；原式丢失符号，只有限制 $\\mu\\ge0$ 才一致. 下述密度级数也含奇次 $\\delta t$ 项，体现了这种有符号依赖."
+  },
+  {
+    "file": "sections-tex\\08-04-b.tex",
+    "line": 120,
+    "kind": "translator",
+    "text": "译注：作为原坐标 $(x,y)$ 的密度，严格的变换公式有雅可比因子 $|\\partial(u,v)/\\partial(x,y)|=2$，故应为 $f_{X,Y}(x,y)=2g(v\\mid u)h(u)$. 原文省略的常数与参数无关，会在似然比中相消，因而不影响所述检验."
+  },
+  {
+    "file": "sections-tex\\08-04-b.tex",
+    "line": 162,
+    "kind": "translator",
+    "text": "译注：原文确为“例 5.4.1”，但本书该编号对应的是次序统计量的\\autoref{def:5.4.1}，并无此编号的例. 这里所需的正态样本方差比及其 $F$ 分布见\\autoref{ex:5.3.5}、\\autoref{def:5.3.6}和\\autoref{ex:5.3.7}. 正文保留原印编号，链接导向相关的方差比示例."
+  },
+  {
+    "file": "sections-tex\\08-04-b.tex",
+    "line": 174,
+    "kind": "translator",
+    "text": "译注：原式确实印有字母串“rho”，且本题未另外定义 $s_X^2,s_Y^2$. 若沿用通常的样本方差定义，$t$ 式合并方差中的额外因子 $n_1,n_2$ 应去掉，标准化方差比应为 $s_Y^2/(\\rho^2s_X^2)$，其分子、分母自由度依次应为 $n_2-1,n_1-1$. 即使把 $s_X^2,s_Y^2$ 另释为样本均值的方差估计，原文所列 $F$ 自由度次序仍不符. 最后关于 $\\rho^2$ 的极值公式也应另行推导核对；有符号 $t$ 的“最大”还取决于分子的符号. 这里保留原公式，避免静默采用不明方差约定."
+  },
+  {
+    "file": "sections-tex\\08-04-b.tex",
+    "line": 197,
+    "kind": "translator",
+    "text": "译注：原题对干扰参数 $\\sigma$ 的处理未说清楚，按通常在完整原假设参数空间 $(\\theta,\\sigma)$ 上取上确界的“大小”定义，题面存在问题. 若 $\\theta_1<\\theta_2$、$n\\ge2$、$0<\\alpha<1$，\\hyperref[itm:exercise:8.46:a]{(a)} 的拒绝概率不超过 $\\alpha$，而 $\\sigma\\to\\infty$ 时趋于 $\\alpha$，故大小恰为 $\\alpha$；\\hyperref[itm:exercise:8.46:b]{(b)} 对任意有限固定 $k>0$，取 $\\theta=\\theta_2$、$\\sigma\\downarrow0$，则拒绝概率趋于 $1$，故大小为 $1$. \\hyperref[itm:exercise:8.46:c]{(c)} 的无偏性也不能在这一完整参数空间中直接成立：对 \\hyperref[itm:exercise:8.46:a]{(a)}，在固定有限 $\\sigma$ 下，原假设端点及其附近的某些备择点功效仍小于实际大小 $\\alpha$；对 \\hyperref[itm:exercise:8.46:b]{(b)} 的 $k>0$，有限参数值下功效小于实际大小 $1$. 若 $k\\le0$，\\hyperref[itm:exercise:8.46:b]{(b)} 是以概率 $1$ 拒绝的平凡检验，也不能给出所要求的大小 $\\alpha$. 若作者意指固定 $\\sigma$、仅对 $\\theta$ 作比较，则需另外明确这一条件范围，并允许临界常数依赖该固定 $\\sigma$；这里保留原题."
+  },
+  {
+    "file": "sections-tex\\08-04-b.tex",
+    "line": 246,
+    "kind": "translator",
+    "text": "译注：原文“当 $\\theta\\ne0$ 时”之后仍写 $\\tfrac12\\mathrm n(0,\\tau^2)$，若将其理解为条件分布，则总质量只有 $1/2$，不是概率分布. 应区分：无条件先验的连续部分密度权重为 $1/2$；给定非零分支后的条件分布则是完整的 $\\mathrm n(0,\\tau^2)$. 此处保留原写法，并按题意明确混合权重的含义."
+  },
+  {
+    "file": "sections-tex\\08-05.tex",
+    "line": 8,
+    "kind": "translator",
+    "text": "译注：此处原文把比值与其倒数混淆. 在只含 $\\theta_0,\\theta_1$ 的简单对简单模型中，按\\autoref{def:8.2.1}，$\\lambda=f_0/\\max(f_0,f_1)$；当 $\\lambda<1$ 时，$f_1/f_0=1/\\lambda$，并非 $\\lambda$. 后面的后验优势比公式使用 $f_1/f_0$ 是正确的."
+  },
+  {
+    "file": "sections-tex\\08-05.tex",
+    "line": 20,
+    "kind": "translator",
+    "text": "译注：原式可能大于 $1$，而\\autoref{def:8.3.26}要求 $p$ 值在 $[0,1]$ 内. 为与该定义严格一致，通常取 $\\min\\{1,p_C(\\boldsymbol x)\\}$；这一截断不改变 $0\\le\\alpha<1$ 时的拒绝事件. 原公式保留."
+  },
+  {
+    "file": "sections-tex\\09-02.tex",
+    "line": 2,
+    "kind": "translator",
+    "text": "译注：原文写“五个小节”和“随后四个小节”，但本节实际只有四个小节，其中前三个讨论频率学派方法，第四个讨论贝叶斯区间. 此处保留原文措辞."
+  },
+  {
+    "file": "sections-tex\\09-02.tex",
+    "line": 115,
+    "kind": "translator",
+    "text": "译注：上面“接受$H_0$”的似然比不等号原文为$\\le$. 按\\autoref{def:8.2.1}以及紧接的置信区域\\eqref{eq:9.2.7}，此处应为$\\ge$；这里保留原式."
+  },
+  {
+    "file": "sections-tex\\09-02.tex",
+    "line": 367,
+    "kind": "translator",
+    "text": "译注：本证明原文的两个集合均使用“$\\le\\alpha_1$且$\\le\\alpha_2$”，与排除两侧尾部并构造中央置信集的论证方向不符；应考虑相反方向的不等式，并审慎处理端点. 两个蕴含式的右端原文均为$\\alpha/2$，但定理未假设$\\alpha_1=\\alpha_2$，一般应分别为$\\alpha_1,\\alpha_2$. 原文还将$\\overline F_T(T\\mid\\theta)$的定义右侧写为含$t$的式子. 此处均保留原式."
+  },
+  {
+    "file": "sections-tex\\09-02.tex",
+    "line": 449,
+    "kind": "translator",
+    "text": "译注：原文中的例外条件“除非$b=1/n$”可能有误. 对固定的有限$b>0$，后验均值约为$\\sum x_i/(n+1/b)$，而置信区间端点约为$\\sum x_i/n$，二者的差为$\\sum x_i$的量级，超过后验标准差的平方根量级；因此$b=1/n$似乎也不能构成例外. 原文保留，供对照\\autoref{exercise:9.30}核实."
+  },
+  {
+    "file": "sections-tex\\09-03.tex",
+    "line": 179,
+    "kind": "translator",
+    "text": "译注：一般而言，仅要求被积函数处处有限不足以保证交换积分次序；这里的被积函数非负，交换可由Tonelli定理得到（容许积分为无穷）. 原文表述保留."
+  },
+  {
+    "file": "sections-tex\\09-03.tex",
+    "line": 190,
+    "kind": "translator",
+    "text": "译注：原文以上两处后验积分的微分均写作$d\\boldsymbol x$；积分区域是参数集合，因此应为$d\\theta$. 此处保留原式."
+  },
+  {
+    "file": "sections-tex\\09-03.tex",
+    "line": 201,
+    "kind": "translator",
+    "text": "译注：原文在两个端点密度$\\pi(\\lambda_L\\mid\\sum x)$和$\\pi(\\lambda_U\\mid\\sum x)$之间漏印关系符号；由HPD区域的等高端点条件，此处应为等号. 原式保留."
+  },
+  {
+    "file": "sections-tex\\09-04.tex",
+    "line": 135,
+    "kind": "translator",
+    "text": "译注：本分题沿用了\\autoref{thm:9.2.14}证明中的不等号疑误；要构造中央置信集，应排除下尾或上尾概率过小的参数值，原文两个“$\\le$”的方向与此不符. 原式保留."
+  },
+  {
+    "file": "sections-tex\\09-04.tex",
+    "line": 195,
+    "kind": "translator",
+    "text": "译注：原式的$F$分布上侧概率写为$\\alpha/2$；由$t_{n-1,\\alpha/2}^2=F_{1,n-1,\\alpha}$，通常的$1-\\alpha$双侧$t$区间平方后应使用$F_{1,n-1,\\alpha}$. 原式保留."
+  },
+  {
+    "file": "sections-tex\\09-04.tex",
+    "line": 220,
+    "kind": "translator",
+    "text": "译注：本分题的mgf所对应随机变量原文写为$\\chi_Y^2$，而题首和后续公式均为$\\chi_{2Y}^2$；由给定mgf，其自由度下标应为$2Y$. 原文保留."
+  },
+  {
+    "file": "sections-tex\\09-04.tex",
+    "line": 332,
+    "kind": "translator",
+    "text": "译注：原文的卡方上侧概率下标$.7$与数值$251.046$不符；$251.046$约为$\\chi^2_{240}$的上侧$.3$临界点. 本题关于$30\\%$ UMA区间的说明以及前述临界点公式因此需一并核查，原式保留."
+  },
+  {
+    "file": "sections-tex\\09-04.tex",
+    "line": 368,
+    "kind": "translator",
+    "text": "译注：原文“否则总是拒绝$H_0$”若按字面理解，会使检验对全部样本都拒绝. 结合所给水平计算，合理意图应是：当$\\sigma=1$时使用所列阈值，而当$\\sigma=10$时总是拒绝. 此处保留原文表述."
+  },
+  {
+    "file": "sections-tex\\09-04.tex",
+    "line": 446,
+    "kind": "translator",
+    "text": "译注：原式完全不含$p$，因此不能对任意指定的总体比例$p$成立. 一般容忍区间的宽度需要依赖$p$；此处疑有漏项或遗漏对$p$的限定，保留原式待核实."
+  },
+  {
+    "file": "sections-tex\\09-04.tex",
+    "line": 456,
+    "kind": "translator",
+    "text": "译注：所列精确系数通常以总体分布连续、样本无并列为前提；题干未明示这一条件. 对含原子的分布，相关覆盖率可能更高，不能直接视为逐分布成立的等式. 原题保留."
+  },
+  {
+    "file": "sections-tex\\09-05.tex",
+    "line": 4,
+    "kind": "translator",
+    "text": "译注：原文将作为集合的$\\boldsymbol C$写成$\\boldsymbol C\\in\\mathcal X\\times\\Theta$；按上下文应为$\\boldsymbol C\\subseteq\\mathcal X\\times\\Theta$. 原记号保留."
+  },
+  {
+    "file": "sections-tex\\09-05.tex",
+    "line": 15,
+    "kind": "translator",
+    "text": "译注：本段讨论泊松区间，但原文称Garwood的构造将论证“用于二项分布”；结合\\autoref{ex:9.2.15}，这里可能应为“用于泊松分布”. 原文保留."
+  },
+  {
+    "file": "sections-tex\\10-01.tex",
+    "line": 99,
+    "kind": "translator",
+    "text": "译注：原文系数为$\\sqrt n$；由$\\operatorname{Var}\\bar X_n=\\sigma^2/n$可知，欲得到$\\sigma^2$，此处应为$n$，而非$\\sqrt n$. 原式保留."
+  },
+  {
+    "file": "sections-tex\\10-01.tex",
+    "line": 155,
+    "kind": "translator",
+    "text": "译注：原文称“似然函数的零点”；按接下来的计算，应为对数似然函数的一阶导数的零点，即似然方程的根. 原文保留."
+  },
+  {
+    "file": "sections-tex\\10-01.tex",
+    "line": 168,
+    "kind": "translator",
+    "text": "译注：这里$l$已定义为全样本对数似然，故其得分平方的期望为$n$倍的单个观测信息量. 要与下式及$1/v(\\theta_0)$一致，定义中应使用单个观测的对数密度导数，或将$E\\{[l'(\\theta_0\\mid\\boldsymbol X)]^2\\}$除以$n$. 原文还将$v$的自变量写成$\\theta$，此处照录."
+  },
+  {
+    "file": "sections-tex\\10-01.tex",
+    "line": 191,
+    "kind": "translator",
+    "text": "译注：这里及本小节后文多次把渐近有效性归于\\autoref{thm:10.1.6}；该定理只陈述相合性，渐近有效性在\\autoref{thm:10.1.12}中陈述. 保留原书所引编号，后续同类引用不再逐一注释."
+  },
+  {
+    "file": "sections-tex\\10-01.tex",
+    "line": 220,
+    "kind": "translator",
+    "text": "译注：下面二阶导数的第二项原文分子为$n(1-p)$；对上式求导应为$n(1-\\hat p)$. 随后的$p=\\hat p$代入式是相符的. 此处保留原式."
+  },
+  {
+    "file": "sections-tex\\10-01.tex",
+    "line": 230,
+    "kind": "translator",
+    "text": "译注：原文称“习题5.5.22”，实际对应\\autoref{ex:5.5.22}. 原称呼保留，链接指向对应例."
+  },
+  {
+    "file": "sections-tex\\10-01.tex",
+    "line": 303,
+    "kind": "translator",
+    "text": "译注：此处ARE公式与\\autoref{def:10.1.16}及随后“大于1”的说法互有不一致. 按定义，$\\operatorname{ARE}(\\bar X,\\hat\\mu)$应为MLE渐近方差除以$\\bar X$的渐近方差；若以单个观测信息量$I(\\mu)$表示，应为$1/[I(\\mu)\\beta\\mu]\\leq1$. 原文公式使用全样本信息量作分子，图中又显示其倒数方向的效率损失. 保留原公式、文字与原图，待对照作者勘误核实."
+  },
+  {
+    "file": "sections-tex\\10-01.tex",
+    "line": 311,
+    "kind": "original",
+    "text": "易读的入门介绍见\\hyperref[bib:source199]{Lehmann（1999}，第6.5节）."
+  },
+  {
+    "file": "sections-tex\\10-01.tex",
+    "line": 355,
+    "kind": "translator",
+    "text": "译注：表中“真实值”与所述$n=24$二项模型不符. 按该模型对$Y=0,\\ldots,24$逐项求和，$\\operatorname{Var}[(Y/24)(1-Y/24)]$在$p=1/4,1/2,2/3$时约为$.001911,.000208,.001109$，并非表中的$.00484,.00531,.00519$. 原表及其比较结论保留；此核算仅针对表述的这三个参数值."
+  },
+  {
+    "file": "sections-tex\\10-01.tex",
+    "line": 368,
+    "kind": "translator",
+    "text": "译注：原文数值为$1.33\\times10^{13}$，但$24^{24}\\approx1.33\\times10^{33}$. 保留原值；两者均支持这里无法枚举全部样本的结论."
+  },
+  {
+    "file": "sections-tex\\10-01.tex",
+    "line": 383,
+    "kind": "translator",
+    "text": "译注：这里把以$s^2=4.82$代入的方差估计称为MLE；一般正态模型的方差MLE为$(n-1)s^2/n$，故该称呼与通常MLE定义不符. 原书数值与称呼均保留."
+  },
+  {
+    "file": "sections-tex\\10-02.tex",
+    "line": 28,
+    "kind": "translator",
+    "text": "译注：原文先说污染分布的均值为$\\mu$，随后却使用未定义的$\\theta$；若意指污染均值为$\\theta$，独立样本均值的混合方差最后一项还应除以$n$. 此处原文与原式均保留."
+  },
+  {
+    "file": "sections-tex\\10-02.tex",
+    "line": 44,
+    "kind": "translator",
+    "text": "译注：\\autoref{def:10.2.2}的第一个极限在$b=0$时要求最大观测趋于无穷而统计量仍有限，与这里样本均值的说法在有限样本边界上不相容. 需明确崩溃比例的上确界或渐近约定，并限制$\\varepsilon$以保证次序下标有效；原定义和结论照录，待核实."
+  },
+  {
+    "file": "sections-tex\\10-02.tex",
+    "line": 115,
+    "kind": "translator",
+    "text": "译注：本段原文写$\\phi$，但此前定义的是$\\psi$；所引\\autoref{thm:10.1.6}应核对为\\autoref{thm:10.1.12}. 此外，对$\\psi(x_i-\\theta)$关于$\\theta$展开，一阶项前应为负号；原文以下展开及整理后的负号均保留. 最后的方差因分母平方而不受此符号问题影响."
+  },
+  {
+    "file": "sections-tex\\10-02.tex",
+    "line": 142,
+    "kind": "translator",
+    "text": "译注：按\\eqref{eq:10.2.7}直接积分，下一式第一项应为正号，左右尾的系数应分别为$-k$与$k$；原文的负号及$\\pm2k$与该定义不符. 对称性仍使两种写法均为零，原式保留."
+  },
+  {
+    "file": "sections-tex\\10-02.tex",
+    "line": 182,
+    "kind": "translator",
+    "text": "译注：原文把$\\psi'(x-\\theta)$等同于$\\partial\\psi(x-\\theta)/\\partial\\theta$；若撇号是对函数自变量求导，二者相差负号. 原式保留；下一页的乘积求导恒等式则显式处理了该负号."
+  },
+  {
+    "file": "sections-tex\\10-02.tex",
+    "line": 203,
+    "kind": "translator",
+    "text": "译注：原文此句将MLE渐近方差写为信息量；正确的通常形式是其倒数$1/E_\\theta[l'(\\theta\\mid X)]^2$. 接下来的ARE公式与倒数形式一致. 原句保留."
+  },
+  {
+    "file": "sections-tex\\10-02.tex",
+    "line": 209,
+    "kind": "translator",
+    "text": "译注：原书正文将第一作者姓氏拼作Hettmansberger，书后对应条目[165]作Hettmansperger；正文拼写保留，链接至该条目."
+  },
+  {
+    "file": "sections-tex\\10-03.tex",
+    "line": 27,
+    "kind": "translator",
+    "text": "译注：原文下式把平方差除以$-l''$；由上面的泰勒展开应为$-l''(\\hat\\theta\\mid\\boldsymbol x)(\\theta_0-\\hat\\theta)^2$，或除以观测信息量的倒数. 分子原文还写$\\theta$而非$\\theta_0$. 原式及随后“分母”一词保留."
+  },
+  {
+    "file": "sections-tex\\10-03.tex",
+    "line": 112,
+    "kind": "translator",
+    "text": "译注：原文括号内写$\\sigma_n=\\operatorname{Var}W_n$，与前文$\\sigma_n^2$为方差的定义不符；应为$\\sigma_n^2=\\operatorname{Var}W_n$. 原文保留."
+  },
+  {
+    "file": "sections-tex\\10-03.tex",
+    "line": 181,
+    "kind": "translator",
+    "text": "译注：下面分母原文为“1减去区间内比例”的平方；由\\eqref{eq:10.3.7}应是区间内比例本身的平方，或将指标改为区间外. 原式保留."
+  },
+  {
+    "file": "sections-tex\\10-04.tex",
+    "line": 9,
+    "kind": "translator",
+    "text": "译注：原文引用公式(7.4.1)，但与下式直接对应的是\\eqref{eq:10.1.7}. 保留原引用，待对照作者勘误核实."
+  },
+  {
+    "file": "sections-tex\\10-05.tex",
+    "line": 37,
+    "kind": "translator",
+    "text": "译注：此处需限制$\\delta$相对$|\\mu|$的大小；若区间包含$\\mu$，则$\\bar X_n$落在其中的概率反而趋于1. 原题条件照录，待核实所指样本空间及$\\delta$约定."
+  },
+  {
+    "file": "sections-tex\\10-05.tex",
+    "line": 55,
+    "kind": "translator",
+    "text": "译注：原题引\\autoref{thm:10.1.6}，但\\eqref{eq:10.1.6}位于\\autoref{thm:10.1.12}的证明中. 下列导数应在$\\theta=\\theta_0$处求值，原题未显式写出该代入."
+  },
+  {
+    "file": "sections-tex\\10-05.tex",
+    "line": 79,
+    "kind": "translator",
+    "text": "译注：直接讨论$p(1-p)$估计量的是\\autoref{ex:10.1.15}，原题所引\\autoref{ex:10.1.14}保留."
+  },
+  {
+    "file": "sections-tex\\10-05.tex",
+    "line": 133,
+    "kind": "translator",
+    "text": "译注：\\hyperref[itm:exercise:10.16:a]{(a)}的$.00007$对应一阶Delta近似，而非题干所列二阶形式；\\hyperref[itm:exercise:10.16:b]{(b)}的$.00529$也与$n=24,p=11/24$下对二项概率逐项求和所得方差（约$.000271$）不符. 原题数值保留，须核查原书的数值计算或统计量表述."
+  },
+  {
+    "file": "sections-tex\\10-05.tex",
+    "line": 142,
+    "kind": "translator",
+    "text": "译注：原表第三对数据写$(5.58,2.81)$，第二行第一对写$(580.3.07)$，均照录；可能分别为$(558,2.81)$与$(580,3.07)$，需与数据来源核实. \\hyperref[itm:exercise:10.17:c]{(c)}原文写GRE，但本题分析的是GPA；亦照录."
+  },
+  {
+    "file": "sections-tex\\10-05.tex",
+    "line": 168,
+    "kind": "translator",
+    "text": "译注：原题称“习题10.2.1”，对应正文实际为\\autoref{ex:10.2.1}. 提示第一项条件位置原文如上，按全方差公式应为$E[\\operatorname{Var}(X_i\\mid Y)]$. 此处保留原文."
+  },
+  {
+    "file": "sections-tex\\10-05.tex",
+    "line": 172,
+    "kind": "translator",
+    "text": "译注：原题“习题10.2.1”应指\\autoref{ex:10.2.1}. \\hyperref[item:10.19.b]{(b)}方差式中括号内的加号与协方差求和不符，通常应为$n-(1-\\rho^n)/(1-\\rho)$；\\hyperref[itm:exercise:10.19:c]{(c)}还需初始变量处于平稳分布，且与后续创新独立，才能得出所列相关式. 原题均保留."
+  },
+  {
+    "file": "sections-tex\\10-05.tex",
+    "line": 245,
+    "kind": "translator",
+    "text": "译注：按函数自变量求导的撇号约定，右侧关于$\\theta_0$的导数应带负号；这与\\autoref{sec:10.2.2}的符号疑误相同. 原式保留."
+  },
+  {
+    "file": "sections-tex\\10-05.tex",
+    "line": 250,
+    "kind": "translator",
+    "text": "译注：\\hyperref[itm:exercise:10.27:b]{(b)}中的中位数分段式未单列中位数恰等于污染点$x$的中间情形；原式照录，待核实端点约定."
+  },
+  {
+    "file": "sections-tex\\10-05.tex",
+    "line": 278,
+    "kind": "translator",
+    "text": "译注：所列逻辑斯蒂密度的位置得分与$\\tanh(x/2)$成比例，而非$\\tanh(x)$. 此处原式保留."
+  },
+  {
+    "file": "sections-tex\\10-05.tex",
+    "line": 377,
+    "kind": "translator",
+    "text": "译注：原题除以观测信息量的平方根，与\\autoref{thm:10.3.1}证明中的同一疑误相连；通常应乘以该平方根，或除以其倒数. 原式保留."
+  },
+  {
+    "file": "sections-tex\\10-06.tex",
+    "line": 10,
+    "kind": "translator",
+    "text": "译注：要保证$a^2<1$，需$|a|<1$，或事先限定$0\\leq a<1$；原文仅写$a<1$. 此段所引\\autoref{thm:10.1.6}应核对为\\autoref{thm:10.1.12}，所引不等式(7.2.5)也需核对. 原文均保留."
+  },
+  {
+    "file": "sections-tex\\10-06.tex",
+    "line": 39,
+    "kind": "translator",
+    "text": "译注：对于此标准化后的展开，偏度通常应为$E[(X_1-\\mu)^3]/\\sigma^3$；原文定义缺少$\\sigma^3$，除非另有$\\sigma=1$的约定. 保留原式."
+  },
+  {
+    "file": "sections-tex\\10-06.tex",
+    "line": 77,
+    "kind": "translator",
+    "text": "译注：若$\\psi'$表示对函数自变量求导，则下面分母应为正的$E_{\\theta_0}\\psi'(X-\\theta_0)$；取$\\psi(u)=u$时，原式给出$-(x-\\theta_0)$，与本节均值影响函数相反. 原文还写下标$E_0$，此处保留. 影响函数平方及后面的渐近方差不受整体符号影响."
+  },
+  {
+    "file": "sections-tex\\11-02.tex",
+    "line": 297,
+    "kind": "translator",
+    "text": "译注：分母要求$\\boldsymbol a\\ne\\boldsymbol0$，原集合未排除零向量. 所列取等向量还需$v_i$不全相同；若全相同，则对每个非零对比向量商均为0，而所列向量本身为零. 原文保留."
+  },
+  {
+    "file": "sections-tex\\11-02.tex",
+    "line": 327,
+    "kind": "translator",
+    "text": "译注：原式第二个等号把$K/|K|$省去了；当$K<0$时须补一个负号. 后续最终比较的是平方，取等结论不受影响."
+  },
+  {
+    "file": "sections-tex\\11-02.tex",
+    "line": 361,
+    "kind": "translator",
+    "text": "译注：原文写引理11.2.1，此处实际应为\\autoref{lem:11.2.7}；11.2.1是例. 保留原显示编号."
+  },
+  {
+    "file": "sections-tex\\11-02.tex",
+    "line": 470,
+    "kind": "translator",
+    "text": "译注：原书下一式各分子排作$\\sum_i a_i^{(l)}\\bar Y_{i\\cdot}^{\\,2}$，与前文对比平方和定义不一致；按定义应是$(\\sum_i a_i^{(l)}\\bar Y_{i\\cdot})^2$. 此处照录原式. 紧接着关于\\eqref{eq:11.2.18}左、右端卡方分布的说明，实际指这条平方和分解式，并须在相应对比均值为零时取中心卡方分布."
+  },
+  {
+    "file": "sections-tex\\11-03.tex",
+    "line": 187,
+    "kind": "translator",
+    "text": "译注：原文此处再次写引理11.2.1，实际使用的是\\autoref{lem:11.2.7}. 保留原显示编号."
+  },
+  {
+    "file": "sections-tex\\11-03.tex",
+    "line": 238,
+    "kind": "translator",
+    "text": "译注：原文写第12.2.1节，但这里回顾的是\\autoref{sec:11.3.1}的最小二乘推导. 保留原显示节号."
+  },
+  {
+    "file": "sections-tex\\11-03.tex",
+    "line": 324,
+    "kind": "translator",
+    "text": "译注：原文此句写“$\\sigma^2$中的偏倚”，实际计算的是估计量$\\hat\\sigma^2$的偏倚."
+  },
+  {
+    "file": "sections-tex\\11-03.tex",
+    "line": 366,
+    "kind": "translator",
+    "text": "译注：原书协方差式中漏排等号；应读作$\\operatorname{Cov}(\\hat\\alpha,\\hat\\beta)=-\\sigma^2\\bar x/S_{xx}$. 此处保留原式."
+  },
+  {
+    "file": "sections-tex\\11-03.tex",
+    "line": 383,
+    "kind": "translator",
+    "text": "译注：原式求和指标是$j$，但最后的随机变量写成$Y_i$；由残差定义应为$Y_j$. 原式照录."
+  },
+  {
+    "file": "sections-tex\\11-03.tex",
+    "line": 396,
+    "kind": "translator",
+    "text": "译注：此句遗漏除以$\\sigma^2$的标准化. 下述系数除已列条件外，还应取为与$(x_1,\\ldots,x_n)$正交且各列单位长度，使对应线性组合均值为0、方差为$\\sigma^2$；原文明确略去细节，所列内容照录."
+  },
+  {
+    "file": "sections-tex\\11-03.tex",
+    "line": 625,
+    "kind": "translator",
+    "text": "译注：原书这里的$F$下标漏了临界概率$\\alpha$；应与定理陈述一致，为$\\sqrt{2F_{2,n-2,\\alpha}}$. 原式保留."
+  },
+  {
+    "file": "sections-tex\\11-03.tex",
+    "line": 632,
+    "kind": "translator",
+    "text": "译注：比较两种区间的实际临界宽度时，右端应为$\\sqrt{2F_{2,n-2,\\alpha}}$；原书此处漏了平方根. 保留原式."
+  },
+  {
+    "file": "sections-tex\\11-04.tex",
+    "line": 164,
+    "kind": "translator",
+    "text": "译注：原题$t$分位数的下标次序与本书通常记号相反，按通常记号应为$t_{N-k,\\alpha/2}$. 原式保留."
+  },
+  {
+    "file": "sections-tex\\11-04.tex",
+    "line": 178,
+    "kind": "translator",
+    "text": "译注：原题还需$P(Y>b)>0$以定义条件概率，且严格不等号需$P(Y>a)>0$；否则可能取等. 原条件与结论保留."
+  },
+  {
+    "file": "sections-tex\\11-04.tex",
+    "line": 280,
+    "kind": "translator",
+    "text": "译注：第一个协方差式中的加号应为减号，由$\\hat\\alpha=\\sum_i[1/n-(x_i-\\bar x)\\bar x/S_{xx}]Y_i$可直接核对. 原题照录."
+  },
+  {
+    "file": "sections-tex\\11-04.tex",
+    "line": 309,
+    "kind": "translator",
+    "text": "译注：原题不等号应理解为两个估计量一般不同；若$\\bar x=0$，二者相同，个别样本也可能取相同值. 原文保留."
+  },
+  {
+    "file": "sections-tex\\11-04.tex",
+    "line": 389,
+    "kind": "translator",
+    "text": "译注：若$a=0,b\\ne0$，右端仅为$t\\to\\pm\\infty$时的上确界，不在有限$t$处达到；将max改为sup可覆盖此情形. 原题照录."
+  },
+  {
+    "file": "sections-tex\\12-01.tex",
+    "line": 8,
+    "kind": "translator",
+    "text": "译注：原文这里写“Section 11.3”，按本章内容应为\\autoref{sec:12.4}. 原编号保留."
+  },
+  {
+    "file": "sections-tex\\12-02.tex",
+    "line": 110,
+    "kind": "translator",
+    "text": "译注：原文将同一式号11.3.6重复两次；平方和见\\eqref{eq:11.3.6}，乘积和见\\eqref{eq:11.3.7}. 原重复保留."
+  },
+  {
+    "file": "sections-tex\\12-02.tex",
+    "line": 118,
+    "kind": "translator",
+    "text": "译注：原文引用习题12.20，但该题讨论逻辑回归；这里对应\\autoref{exercise:12.2}. 原编号保留."
+  },
+  {
+    "file": "sections-tex\\12-02.tex",
+    "line": 202,
+    "kind": "translator",
+    "text": "译注：原文此处将$\\hat\\xi_i$写成拟合响应. 根据前一页对$\\xi_i$的最大化，实际应为$[x_i+\\lambda\\hat\\beta(y_i-\\hat\\alpha)]/(1+\\lambda\\hat\\beta^2)$. 原式保留."
+  },
+  {
+    "file": "sections-tex\\12-02.tex",
+    "line": 204,
+    "kind": "translator",
+    "text": "译注：此处讨论估计量的相合性，原文$\\sigma_\\delta^2$应指$\\hat\\sigma_\\delta^2$，下式也如此表明. 原符号保留."
+  },
+  {
+    "file": "sections-tex\\12-02.tex",
+    "line": 273,
+    "kind": "translator",
+    "text": "译注：结合下式除以$\\sqrt n$的标准误，这里的$\\sigma_\\beta^2$应理解为$\\sqrt n(\\hat\\beta-\\beta)$的渐近方差，而非$\\hat\\beta$本身的有限样本方差. 原表述保留."
+  },
+  {
+    "file": "sections-tex\\12-02.tex",
+    "line": 286,
+    "kind": "translator",
+    "text": "译注：结合下文可由两个有限区间组成的情形，这里应理解为置信集不能始终具有有限长度，而非每个样本得到的集合都长为无穷. 原表述保留."
+  },
+  {
+    "file": "sections-tex\\12-02.tex",
+    "line": 288,
+    "kind": "translator",
+    "text": "译注：原式第二行分母最后一项为$-\\beta^2S_{xx}$；展开第一行第二个平方和可知应为$+\\beta^2S_{xx}$. 原式保留."
+  },
+  {
+    "file": "sections-tex\\12-03.tex",
+    "line": 84,
+    "kind": "translator",
+    "text": "译注：这里实际应解\\eqref{eq:12.3.7}、\\eqref{eq:12.3.8}；原引用照录."
+  },
+  {
+    "file": "sections-tex\\12-03.tex",
+    "line": 107,
+    "kind": "translator",
+    "text": "译注：原式第一项使用$x_i$而乘积下标为$j$，按定义应为$x_j$；还省略了不依赖参数的二项系数，故应理解为与似然成比例. 原式保留."
+  },
+  {
+    "file": "sections-tex\\12-03.tex",
+    "line": 156,
+    "kind": "translator",
+    "text": "译注：括号中第二项按对数似然比定义应为$\\log L(\\hat\\alpha_0,0\\mid\\boldsymbol y^*)$，原文漏log，照录."
+  },
+  {
+    "file": "sections-tex\\12-03.tex",
+    "line": 158,
+    "kind": "translator",
+    "text": "译注：右边估计的是共同成功概率$p$，而截距满足$\\alpha_0=\\log(p/(1-p))$，所以应对所给比例取logit. 原式保留."
+  },
+  {
+    "file": "sections-tex\\12-04.tex",
+    "line": 42,
+    "kind": "translator",
+    "text": "译注：回归LAD的崩溃值不能一般地照搬中位数的50\\%；若允许污染预测变量$x$，单个高杠杆点也可使LAD斜率失控. 上述数值须有额外污染范围和设计条件，原文未列明，照录."
+  },
+  {
+    "file": "sections-tex\\12-04.tex",
+    "line": 79,
+    "kind": "translator",
+    "text": "译注：原文$\\psi=\\rho'$与随后含$x_i$的式子并非同一变量下的导数；后式实际是目标函数对$\\beta$的负导数所对应的加权符号函数，并在残差为零处不可微. 原表述保留."
+  },
+  {
+    "file": "sections-tex\\12-04.tex",
+    "line": 95,
+    "kind": "translator",
+    "text": "译注：这些均值、方差应在真实参数$\\beta$处计算，并需误差中位数为零等条件；原文此处写估计量$\\hat\\beta_L$，下一式又写$\\hat\\beta$，与\\eqref{eq:12.4.2}分子的$\\beta$不一致. 原符号均保留."
+  },
+  {
+    "file": "sections-tex\\12-04.tex",
+    "line": 110,
+    "kind": "translator",
+    "text": "译注：按上文$\\psi$的符号约定，对两个概率求导后均应带负号，故\\eqref{eq:12.4.4}最后一行及此近似右端应为负；最终方差使用平方，不受这一符号影响. 原式保留."
+  },
+  {
+    "file": "sections-tex\\12-04.tex",
+    "line": 121,
+    "kind": "translator",
+    "text": "译注：这里的最小二乘极限方差及ARE采用误差方差为1的标准化；一般误差方差$\\sigma^2$下，应分别为$\\sigma^2/\\sigma_x^2$与$4\\sigma^2f(0)^2$. 原式未明示此标准化，照录."
+  },
+  {
+    "file": "sections-tex\\12-04.tex",
+    "line": 146,
+    "kind": "translator",
+    "text": "译注：双指数分布与Laplace分布通常是同一分布；原文列举与表中“正态、Logistic、双指数”不一致，可能将Logistic误写为Laplace. 原文照录."
+  },
+  {
+    "file": "sections-tex\\12-05.tex",
+    "line": 30,
+    "kind": "translator",
+    "text": "译注：所给$D_\\lambda$为加权距离的平方，一般不满足三角不等式；例如同一直线上间距为1的三点有$4>1+1$. 对$D_\\lambda$取平方根才得到度量. 第\\hyperref[item:12.3.b.iii]{(iii)}项原称“reflexive”，实际为对称性. 原题保留."
+  },
+  {
+    "file": "sections-tex\\12-05.tex",
+    "line": 102,
+    "kind": "translator",
+    "text": "译注：后一等式比较的是两模型中的测量误差方差$\\sigma_\\delta^2$估计；结构模型的无条件$\\operatorname{Var}X_i=\\sigma_\\delta^2+\\sigma_\\xi^2$，故前一式的方差名称易造成混淆. 原题保留."
+  },
+  {
+    "file": "sections-tex\\12-05.tex",
+    "line": 161,
+    "kind": "translator",
+    "text": "译注：原题左边漏一个右括号，应为$f_i/[F_i(1-F_i)]=1$. 原式保留."
+  },
+  {
+    "file": "sections-tex\\12-05.tex",
+    "line": 174,
+    "kind": "translator",
+    "text": "译注：按\\autoref{sec:12.3.1}的定义，连接函数应为$\\Phi^{-1}$；$\\Phi$是逆连接函数. 原文名称保留."
+  },
+  {
+    "file": "sections-tex\\12-05.tex",
+    "line": 226,
+    "kind": "translator",
+    "text": "译注：原文称“Exercise 10.2.1”，本书习题没有这一编号；所指应为\\autoref{ex:10.2.1}. 原称呼保留."
+  },
+  {
+    "file": "sections-tex\\12-05.tex",
+    "line": 250,
+    "kind": "translator",
+    "text": "译注：原正文写 Misera，书末对应文献写 Mizera；本段 Ellis 文献的书末条目没有列出年份. 保留原正文和书目各自的写法."
+  },
+  {
+    "file": "sections-tex\\12-05.tex",
+    "line": 256,
+    "kind": "translator",
+    "text": "译注：有界性只保证这些平均值有界，不保证其收敛；(ii)还需平方均值存在极限等条件. 可由长短交替的0、1区块构造均值不收敛的有界序列. 原题照录."
+  },
+  {
+    "file": "sections-tex\\12-05.tex",
+    "line": 267,
+    "kind": "translator",
+    "text": "译注：本题重复\\autoref{ex:12.4.3}中的符号疑点：\\hyperref[item:12.27.a]{(a)}的$\\hat\\beta$应核为真实参数$\\beta$；按所给$\\psi$定义，\\hyperref[item:12.27.b]{(b)}导数右端应带负号. 原题保留，依据见该例译注."
+  },
+  {
+    "file": "sections-tex\\12-05.tex",
+    "line": 286,
+    "kind": "translator",
+    "text": "译注：双指数分布与Laplace分布通常同义；此处可能沿袭\\autoref{ex:12.4.5}中的名称疑误，是否原拟指Logistic分布尚待核实. 原题照录."
+  },
+  {
+    "file": "sections-tex\\12-05.tex",
+    "line": 295,
+    "kind": "translator",
+    "text": "译注：原题(c)自我引用；按自助法步骤，应重复\\hyperref[item:12.31.b]{(b)}. 原引用保留."
+  },
+  {
+    "file": "sections-tex\\12-06.tex",
+    "line": 3,
+    "kind": "translator",
+    "text": "译注：原图将含随机误差的等式左边写为条件期望；由\\eqref{eq:12.2.5}、\\eqref{eq:12.2.6}，这里应直接为$Y_i,X_i$，或在保留期望时去掉误差项. 原表达式保留."
+  },
+  {
+    "file": "sections-tex\\12-06.tex",
+    "line": 53,
+    "kind": "translator",
+    "text": "译注：原正文作者姓氏写为Hettmansberger，而本书书目相应条目写为Hettmansperger. 原正文拼法保留."
+  },
+  {
+    "file": "backmatter\\01-computer-algebra.tex",
+    "line": 18,
+    "kind": "translator",
+    "text": "译注：原文等式照录，但$\\binom{13}{7}=1716$，与所列$27,132$不一致."
+  },
+  {
+    "file": "backmatter\\01-computer-algebra.tex",
+    "line": 52,
+    "kind": "translator",
+    "text": "译注：代码中的反斜线以及最后一个复根的符号、$y$的幂次均按原页保留.最后一项一般不满足$x^3=y$；本例后续仅使用第一个实根$x=y^{1/3}$.本译稿没有执行或修补这些历史代码."
+  },
+  {
+    "file": "backmatter\\01-computer-algebra.tex",
+    "line": 78,
+    "kind": "translator",
+    "text": "译注：原代码对$v$从0积到$\\infty$，只覆盖其支持的一半，因此所列Out[5]是完整边缘密度的一半.若求$u=X+Y$的密度，需对$v$从$-\\infty$积到$\\infty$."
+  },
+  {
+    "file": "backmatter\\01-computer-algebra.tex",
+    "line": 90,
+    "kind": "translator",
+    "text": "译注：由变换$u=xy,v=x$及$0<x,y<1$，联合支持应为$0<u<v<1$；原代码的积分写成$v\\in(0,1)$，没有显式编码这一支持限制.原输出中还存在括号不配对，以下均照录，不将其当作已核验的可执行代码."
+  },
+  {
+    "file": "backmatter\\01-computer-algebra-b.tex",
+    "line": 13,
+    "kind": "translator",
+    "text": "译注：原页中$f$的代码括号不配对，分母写为$2\\pi$；所列Out[3]也没有给出通常的$N(0,2)$密度$e^{-z^2/4}/(2\\sqrt\\pi)$.这里保留原代码和输出，不据其报告实际运行结果."
+  },
+  {
+    "file": "backmatter\\01-computer-algebra-b.tex",
+    "line": 28,
+    "kind": "translator",
+    "text": "译注：下面原代码的PDF函数少了一个右方括号；规范的函数调用应为\\texttt{PDF[StudentTDistribution[5], x]}.原排印保留."
+  },
+  {
+    "file": "backmatter\\01-computer-algebra-b.tex",
+    "line": 64,
+    "kind": "translator",
+    "text": "译注：此处原小标题为“Chapter 7”，但正文引用的是第10章的例与图，以下保留原小标题."
+  },
+  {
+    "file": "backmatter\\01-computer-algebra-b.tex",
+    "line": 101,
+    "kind": "translator",
+    "text": "译注：此处Out[3]中外部的$2^{n/2}$因子和中间项的正指数均与卡方矩母函数不符，原页照录.满足条件时应为$(1-2t)^{-n/2}$；下面作者定义M[t\\_]时使用了这个正确形式."
+  },
+  {
+    "file": "backmatter\\02-distributions.tex",
+    "line": 25,
+    "kind": "translator",
+    "text": "译注：原表允许$p=0$，但在上述正整数支持上，此时总质量为0；作为通常的几何概率分布须有$0<p\\le1$.下面的无记忆等式还需$s\\ge t$为相应整数且条件事件概率为正."
+  },
+  {
+    "file": "backmatter\\02-distributions.tex",
+    "line": 37,
+    "kind": "translator",
+    "text": "译注：原表只写$N,M,K\\ge0$，通常还要求它们为整数、$M,K\\le N$；所列方差公式在$N=1$等退化情形须另作解释."
+  },
+  {
+    "file": "backmatter\\02-distributions.tex",
+    "line": 40,
+    "kind": "translator",
+    "text": "译注：原表对$p$的端点约定有与几何分布相同的问题；通常取$r>0$、$0<p\\le1$，按失败次数解释时$r$为正整数."
+  },
+  {
+    "file": "backmatter\\02-distributions.tex",
+    "line": 62,
+    "kind": "translator",
+    "text": "译注：自由度为 $1$ 的通常 $t$ 分布和所写比值 $X/Y$ 对应的是标准柯西分布，即 $\\theta=0,\\sigma=1$. 表中一般的 $(\\theta,\\sigma)$ 分布须作位置尺度变换 $\\theta+\\sigma X/Y$."
+  },
+  {
+    "file": "backmatter\\02-distributions.tex",
+    "line": 138,
+    "kind": "translator",
+    "text": "译注：此处密度需$a<b$；矩母函数在$t=0$处按连续延拓取1.原表未显写这两项约定."
+  },
+  {
+    "file": "backmatter\\02-distributions.tex",
+    "line": 145,
+    "kind": "translator",
+    "text": "译注：原页的矩公式漏印了伽马函数符号；对非负整数$n$应为$EX^n=\\beta^{n/\\gamma}\\Gamma(1+n/\\gamma)$，这也与上方的一阶矩公式一致."
+  },
+  {
+    "file": "backmatter\\04-index.tex",
+    "line": 3,
+    "kind": "translator",
+    "text": "译注：原索引的“$t$ 检验／一致最强／无偏”（原印刷331页）与“置信区间／一致最准确／正态”（原印刷372页）分类比所引内容的实际陈述更宽. 此处分别定位到\\autoref{exercise:8.37}、\\autoref{exercise:9.47}的相关讨论，保留原分类，不据索引额外断言其结论. “每次比较错误率”原指印刷458页，明确定义实际在下一页的\\hyperref[item:11.17.b]{习题11.17(b)}；“回归／残差”的明确公式同样在原索引所指页的下一页. 页码已按实际语义位置生成."
+  }
+]

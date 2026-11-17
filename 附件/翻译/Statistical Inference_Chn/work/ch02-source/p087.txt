@@ -1,0 +1,56 @@
+56                              TRANSFORMATIONS AND EXPECTATIONS
+
+           .3
+
+
+
+
+
+           .2
+
+
+
+
+
+           .1
+
+
+
+
+
+         0                                                                                        x
+          0        2        4        6        8        10        12        14
+
+        Figure 2.3.3 Poisson (dotted line) approximation to the binomial (solid line), n = 15, p = .3
+
+2.4  Differentiating under an Integral Sign
+In the previous section we encountered an instance in which we desired to interchange the order of
+integration and differentiation. This situation is encountered frequently in theoretical statistics. The
+purpose of this section is to characterize conditions under which this operation is legitimate. We
+will also discuss interchanging the order of differentiation and summation.
+   Many of these conditions can be established using standard theorems from calculus and detailed
+proofs can be found in most calculus textbooks. Thus, detailed proofs will not be presented here.
+  We first want to establish the method of calculating
+
+                                 d    b(θ)
+                                           f(x,θ)dx                                  (2.4.1)
+                              dθ  a(θ)
+where −∞< a(θ),b(θ) < ∞for all θ. The rule for differentiating (2.4.1) is called Leibnitz’s Ruleand is an application of the Fundamental Theorem of Calculus and the chain rule.
+Theorem 2.4.1 (Leibnitz’s Rule)    If f(x,θ), a(θ), and b(θ) are differentiable with respect to θ,
+then
+      d    b(θ)                    d                d            b(θ) ∂
+              f(x,θ)dx = f(b(θ),θ)
+     dθ  a(θ)                              dθ b(θ)−f(a(θ),θ) dθ a(θ)+  a(θ) ∂θ f(x,θ)dx.
+
+
+   Notice that if a(θ) and b(θ) are constant, we have a special case of Leibnitz’s Rule:
+
+                         d    b                 b ∂
+                                f(x,θ)dx =        f(x,θ)dx.
+                       dθ  a                 a ∂θ
+
+Thus, in general, if we have the integral of a differentiable function over a finite range, differentiation
+of the integral poses no problem. If the range of integration is infinite, however, problems can arise.
+   Note that the interchange of derivative and integral in the above equation equates a partial deriva-
+tive with an ordinary derivative. Formally, this must be the case since the left-hand side is a function
+only of θ, while the integrand on the right-hand side is a function of both θ and x.

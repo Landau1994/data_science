@@ -1,0 +1,48 @@
+THE SUFFICIENCY PRINCIPLE                                                233
+for all p, 0 < p < 1. The factor (1−p)n is not 0 for any p in this range. Thus, it must be that
+                                   n      n     p        t     n      n
+                                   g(t)        =                                                             g(t)       rt                      0 =            ∑                      ∑                                                         t=0         t                               t=0         t   1−p
+for all r, 0 < r < ∞. But the last expression is a polynomial of degree n in r where the coefficient
+of rt is g(t)( nt ). For the polynomial to be 0 for all r, each coefficient must be 0. Since none of the n
+( t ) terms is zero, this implies that g(t) = 0 for t = 0,1,...,n. Since T takes on the values 0,1,...,n
+with probability 1, this yields that Pp(g(T) = 0) = 1 for all p, the desired conclusion. Hence, T is a
+complete statistic.                                                                ∥
+Example 6.2.23 (Uniform complete sufficient statistic)  Let X1,...,Xn be iid uniform(0,θ) ob-
+servations, 0 < θ < ∞. Using an argument similar to that in Example 6.2.8, it can be shown that
+T(X) = maxi Xi is a sufficient statistic and, by Theorem 5.4.4, the pdf of T(X) is
+
+                                       ntn−1θ −n  0 < t < θ,
+                                f(t|θ) =  0          otherwise.
+
+Suppose g(t) is a function satisfying Eθg(T) = 0 for all θ. Since Eθg(T) is constant as a function
+of θ, its derivative with respect to θ is 0. Thus, we have that
+
+             d              d    θ
+         0 =   Eθg(T) =         g(t)ntn−1θ −ndt           dθ            dθ  0
+                                d    θ              d          θ
+               =  (θ −n)       ng(t)tn−1dt +    θ −n      ng(t)tn−1dt
+                              dθ  0             dθ         0
+                                                                     applying the product               =  θ −nng(θ)θ n−1 +0                                                                             rule for differentiation
+               =  θ −1ng(θ).
+
+The first term in the next-to-last line is the result of an application of the Fundamental Theorem of
+Calculus. The second term is 0 because the integral is, except for a constant, equal to Eθg(T), which
+is 0. Since θ −1ng(θ) = 0 and θ −1n̸ = 0, it must be that g(θ) = 0. This is true for every θ > 0; hence,T is a complete statistic. (On a somewhat pedantic note, realize that the Fundamental Theorem of
+Calculus does not apply to all functions, but only to functions that are Riemann-integrable. The
+equation
+                                d    θ
+                                              g(t)dt = g(θ)
+                             dθ  0
+is valid only at points of continuity of Riemann-integrable g. Thus, strictly speaking, the above argu-
+ment does not show that T is a complete statistic, since the condition of completeness applies to all
+functions, not just Riemann-integrable ones. From a more practical view, however, this distinction
+is not of concern since the condition of Riemann-integrability is so general that it includes virtually
+any function we could think of.)                                                    ∥
+  We now use completeness to state a condition under which a minimal sufficient statistic is inde-
+pendent of every ancillary statistic.
+Theorem 6.2.24 (Basu’s Theorem)     If T(X) is a complete and minimal sufficient statistic, then
+T(X) is independent of every ancillary statistic.
+Proof: We give the proof only for discrete distributions.
+   Let S(X) be any ancillary statistic. Then P(S(X) = s) does not depend on θ since S(X) is
+ancillary. Also the conditional probability,
+                P(S(X) = s|T(X) = t) = P(X ∈{x: S(x) = s}|T(X) = t),

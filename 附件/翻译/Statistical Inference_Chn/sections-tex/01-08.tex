@@ -1,0 +1,32 @@
+% 原书印刷37页／PDF物理68页；本节不补写原文未给出的证明.
+\subsection{杂录}\label{sec:1.8}
+\subsubsection{Bonferroni界及其推广}\label{sec:1.8.1}\index{SI0560@Bonferroni}\index{SI0563@Boole}
+式\eqref{eq:1.2.10}中的Bonferroni界，或Boole不等式（定理\ref{thm:1.2.11}），给出了交事件或并事件概率的简单界限.利用下面的展开，可以使这些界限越来越精确.
+
+对集合$A_1,A_2,\ldots,A_n$，按如下方式构造一组新的嵌套交集.令
+$$
+\begin{aligned}
+P_1&=\sum_{i=1}^n P(A_i),\\
+P_2&=\sum_{1\le i<j\le n}^{n}P(A_i\cap A_j),\\
+P_3&=\sum_{1\le i<j<k\le n}^{n}P(A_i\cap A_j\cap A_k),\\
+&\mathrel{\phantom{=}}\vdots\\
+P_n&=P(A_1\cap A_2\cap\cdots\cap A_n).
+\end{aligned}
+$$
+那么，容斥恒等式表明\index{SI0540@容斥}\semanticindexanchor{540:68}
+$$
+P(A_1\cup A_2\cup\cdots\cup A_n)=P_1-P_2+P_3-P_4+\cdots\pm P_n.
+$$
+此外，$P_i$是有序的：当$i\le j$时，$P_i\ge P_j$；并且有下列一系列上界和下界：\footnote{译注：这里关于$P_i$单调的断言一般不成立.例如4个相同事件给出$P_1=4P(A)<6P(A)=P_2$（若$P(A)>0$）.以下Bonferroni上下界本身成立，但不同截断阶数的界不必单调变紧.}
+$$
+\begin{aligned}
+P_1&\ge P\left(\bigcup_{i=1}^{n}A_i\right)\ge P_1-P_2,\\
+P_1-P_2+P_3&\ge P\left(\bigcup_{i=1}^{n}A_i\right)\ge P_1-P_2+P_3-P_4,\\
+&\mathrel{\phantom{\ge}}\vdots
+\end{aligned}
+$$
+详情见习题\ref{exercise:1.42}和\ref{exercise:1.43}.
+
+这些界限随项数增加而越来越紧，从而改进了最初的Bonferroni界.\footnote{译注：此一般性断言需要附加条件.例如6个事件都等于$A$时，一阶上界是$6P(A)$，三阶上界却是$(6-15+20)P(A)=11P(A)$，反而更松.}这些界限的应用包括游程概率的近似（\hyperref[bib:source187]{Karlin和Ost 1988}）以及多重比较程序（\hyperref[bib:source230]{Naiman和Wynn 1992}）.
+
+% 用户授权疑误脚注：2026-11-04

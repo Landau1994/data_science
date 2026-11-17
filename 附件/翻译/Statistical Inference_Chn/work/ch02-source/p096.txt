@@ -1,0 +1,48 @@
+EXERCISES                                                                   65
+
+2.19 Prove that
+                                  d
+                                  E(X   = 0    = a,                                da    −a)2  ⇔EX
+     by differentiating the integral. Verify, using calculus, that a = EX is indeed a minimum. List the assump-
+      tions about FX and fX that are needed.
+2.20 A couple decides to continue to have children until a daughter is born. What is the expected number of
+      children of this couple? (Hint: See Example 1.5.4.)
+2.21 Prove the “two-way” rule for expectations, equation (2.2.5), which says Eg(X) = EY, where Y = g(X).
+     Assume that g(x) is a monotone function.
+2.22 Let X have the pdf
+                                  4                                f(x) =       x2e−x2/β 2,  0 < x < ∞,  β > 0.                             β 3√π
+       (a) Verify that f(x) is a pdf.           (b) Find EX and VarX.
+2.23 Let X have the pdf
+                                       1
+                                        f(x) = 2(1+x),  −1 < x < 1.
+       (a) Find the pdf of Y = X2.           (b) Find EY and VarY.
+2.24 Compute EX and VarX for each of the following probability distributions.
+       (a)  fX(x) = axa−1, 0 < x < 1, a > 0
+      (b)  fX(x) = 1n, x = 1,2,...,n, n > 0 an integer
+                < x < 2       (c)  fX(x) = 32(x−1)2, 0
+2.25 Suppose the pdf fX(x) of a random variable X is an even function. (fX(x) is an even function if fX(x) =
+     fX(−x) for every x.) Show that
+       (a) X and −X are identically distributed.
+      (b) MX(t) is symmetric about zero.
+2.26 Let f(x) be a pdf and let a be a number such that, for all ε > 0, f(a+ε) = f(a−ε). Such a pdf is said      to be symmetric about the point a.
+       (a) Give three examples of symmetric pdfs.
+      (b) Show that if X ∼f(x), symmetric, then the median of X (see Exercise 2.17) is the number a.
+       (c) Show that if X ∼f(x), symmetric, and EX exists, then EX = a.
+      (d) Show that f(x) = e−x, x ≥0, is not a symmetric pdf.
+       (e) Show that for the pdf in part (d), the median is less than the mean.
+2.27 Let f(x) be a pdf and let a be a number such that, if a ≥x ≥y then f(a) ≥f(x) ≥f(y) and, if a ≤x ≤y
+      then f(a) ≥f(x) ≥f(y). Such a pdf is called unimodal with a mode equal to a.
+       (a) Give an example of a unimodal pdf for which the mode is unique.
+      (b) Give an example of a unimodal pdf for which the mode is not unique.
+       (c) Show that if f(x) is both symmetric (see Exercise 2.26) and unimodal, then the point of symmetry is
+         a mode.
+      (d) Consider the pdf f(x) = e−x, x ≥0. Show that this pdf is unimodal. What is its mode?
+2.28 Let µn denote the nth central moment of a random variable X. Two quantities of interest, in addition to
+      the mean and variance, are
+                                         µ3               µ4                                α3 =         and  α4 =      .
+                                            (µ2)3/2            µ22
+     The value α3 is called the skewness and α4 is called the kurtosis. The skewness measures the lack
+      of symmetry in the pdf (see Exercise 2.26). The kurtosis, although harder to interpret, measures the
+     peakedness or flatness of the pdf.
+       (a) Show that if a pdf is symmetric about a point a, then α3 = 0.
+      (b) Calculate α3 for f(x) = e−x, x ≥0, a pdf that is skewed to the right.

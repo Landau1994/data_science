@@ -1,0 +1,37 @@
+INEQUALITIES AND IDENTITIES                                              103
+Example 3.6.6 (Higher-order normal moments)   Stein’s Lemma makes calculation of higher-
+order moments quite easy. For example, if X ∼n(θ,σ2), then
+                        EX3 =  EX2(X −θ +θ)
+                     =  EX2(X −θ)+θEX2                     =  2σ2EX +θEX2               (g(x) = x2, g′(x) = 2x)
+                     =  2σ2θ +θ(σ2 +θ 2)
+                     =  3θσ2 +θ 3.
+                                                                              ∥
+    Similar integration-by-parts identities exist for many distributions (see Exercise 3.49 and Hud-
+son (1978)). One can also get useful identities by exploiting properties of a particular distribution,
+as the next theorem shows.
+Theorem 3.6.7  Let χ2p denote a chi squared random variable with p degrees of freedom. For any
+function h(x),
+                                         h χ2p+2
+                            Eh(χ2p) = pE                                              (3.6.4)                       χ2p+2  provided the expectations exist.             
+Proof: The phrase “provided the expectations exist” is a lazy way of avoiding specification of con-
+ditions on h. In general, reasonable functions will satisfy (3.6.4). We have
+                               1
+               Eh(χ2p) =                  h(x)x(p/2)−1e−x/2 dx                             Γ(p/2)2p/2  0                          ∞
+                               1               =                            x((p+2)/2)−1e−x/2 dx,
+                             Γ(p/2)2p/2  0     x                          ∞ h(x) 
+where we have multiplied the integrand by x/x. Now write
+                                       Γ((p+2)/2)2(p+2)/2                     Γ     2p/2 =                                ,
+                            2                p                    p 
+so we have
+                               p
+            Eh(χ2p) =                                      x((p+2)/2)−1e−x/2 dx,                         Γ((p+2)/2)2(p+2)/2  0     x                             ∞ h(x) 
+                             h(χ2p+2)
+             =  pE                   .                  χ2p+2 
+                                                    2
+   Some moment calculations are very easy with (3.6.4). For example, the mean of a χ2p is
+                                    χ2p+2
+                        Eχ2p = pE     = pE(1) = p,                       χ2p+2 
+and the second moment is
+                                       χ2p+2                     E(χ2p)2 =  pE   χ2p+22                           pE χ2p+2                    =  p(p+2).    =
+So Varχ2p = p(p+2)−p2 = 2p.  We close our section on identities with some discrete analogues of the previous identities. A
+general version of the two identities in Theorem 3.6.8 is due to Hwang (1982).

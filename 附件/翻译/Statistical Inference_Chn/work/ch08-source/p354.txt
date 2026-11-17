@@ -1,0 +1,34 @@
+METHODS OF EVALUATING TESTS                                            323
+Example 8.3.29 (One-sided normal p-value)   Again consider the normal model of Example
+8.3.28, but consider testing H0: µ ≤µ0 versus H1: µ > µ0. By Exercise 8.37, the LRT rejects H0 forlarge values of W(X) = (X             The following argument shows that, for this statistic, the                     −µ0)/(S/√n).supremum in (8.3.9) always occurs at a parameter (µ0,σ), and the value of σ used does not matter.
+Consider any µ ≤µ0 and any σ.
+                                   X                  Pµ,σ (W(X)      =  Pµ,σ   −µ0                     ≥W(x))          S/√n ≥W(x)
+                                   X              µ0                      =  Pµ,σ   −µ        −µ                                     S/√n ≥W(x)+ S/√n
+                                                           µ0                      =  Pµ,σ           −µ                                               Tn−1 ≥W(x)+ S/√n
+                      ≤  P(Tn−1 ≥W(x))
+Here again, Tn−1 has a Student’s t distribution with n −1 degrees of freedom. The inequality in                                                                        is a nonnegative random variable. Thethe last line is true because µ0 ≥µ, and (µ0 −µ)/(S/√n)subscript on P is dropped here, because this probability does not depend on (µ,σ). Furthermore,
+
+                           X                = Pµ0,σ   −µ0      = Pµ0,σ (W(X)            P(Tn−1 ≥W(x))        S/√n ≥W(x)             ≥W(x)),
+
+and this probability is one of those considered in the calculation of the supremum in (8.3.9) because
+(µ0,σ) ∈Θ0. Thus, the p-value from (8.3.9) for this one-sided t test is p(x) = P(Tn−1 ≥W(x)) =P(Tn−1 ≥(x−µ0)/(s/√n)).                                                       ∥
+   Another method for defining a valid p-value, an alternative to using (8.3.9), involves condition-
+ing on a sufficient statistic. Suppose S(X) is a sufficient statistic for the model {f(x|θ) : θ ∈Θ0}.(To avoid tests with low power it is important that S is sufficient only for the null model, not the
+entire model { f(x|θ) : θ ∈Θ}.) If the null hypothesis is true, the conditional distribution of X givenS = s does not depend on θ. Again, let W(X) denote a test statistic for which large values give
+evidence that H1 is true. Then, for each sample point x define
+                            p(x) = P(W(X) ≥W(x)|S = S(x)).                        (8.3.10)
+Arguing as in Theorem 8.3.27, but only considering the single distribution that is the conditional
+distribution of X given S = s, we see that, for any 0 ≤α ≤1,
+                            P(p(X) ≤α|S = s) ≤α.
+Then, for any θ ∈Θ0, unconditionally we have
+                         = s)Pθ (S = s)                                                                  (S = s) ≤α.           Pθ (p(X) ≤α) = ∑s P(p(X) ≤α|S                         ≤∑s αPθ
+
+Thus, p(X) defined by (8.3.10) is a valid p-value. Sums can be replaced by integrals for continuous
+S, but this method is usually used for discrete S, as in the next example.
+Example 8.3.30 (Fisher’s Exact Test)   Let S1 and S2 be independent observations with S1 ∼
+binomial(n1, p1) and S2 ∼binomial(n2, p2). Consider testing H0 : p1 = p2 versus H1 : p1 > p2.Under H0, letting p denote the common value of p1 = p2, the joint pmf of (S1,S2) is
+
+                                   n1                   n2
+                   f(s1,s2|p) =     s1  ps1(1−p)n1−s1   s2  ps2(1−p)n2−s2
+                                   n1    n2
+                =                                        s1     s2   ps1+s2(1−p)n1+n2−(s1+s2).

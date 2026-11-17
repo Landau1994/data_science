@@ -1,0 +1,48 @@
+164                                      MULTIPLE RANDOM VARIABLES
+
+4.47 (Marginal normality does not imply bivariate normality.)   Let X and Y be independent n(0,1) random
+      variables and define a new random variable Z by
+
+                                  X      if XY > 0
+                                Z =                            .
+                              −X    if XY < 0
+       (a) Show that Z has a normal distribution.
+      (b) Show that the joint distribution of Z and Y is not bivariate normal. (Hint: Show that Z and Y always
+         have the same sign.)
+4.48 Gelman and Meng (1991) give an example of a bivariate family of distributions that are not bivariate
+      normal, but have normal conditionals. Define the joint pdf of (X,Y) as
+
+                          f(x,y) ∝exp      Ax2y2 +x2 +y2                        −12           −2Bxy−2Cx−2Dy
+
+     where A,B,C,D are constants.
+                                                                      Ay2+1               Ay2+1.       (a) Show that the distribution of X|Y = y is normal with mean By+C and variance    1    Derive a
+         corresponding result for the distribution of Y|X = x.
+      (b) A most interesting configuration is A = 1,B = 0,C = D = 8. Show that this joint distribution is
+         bimodal.
+4.49 Behboodian (1990) illustrates how to construct bivariate random variables that are uncorrelated but de-
+      pendent. Suppose that f1, f2,g1,g2 are univariate densities with means µ1,µ2,ξ1,ξ2, respectively, and
+      the bivariate random variable (X,Y) has density
+
+                            (X,Y) ∼af1(x)g1(y)+(1−a) f2(x)g2(y),
+     where 0 < a < 1 is known.
+       (a) Show that the marginal distributions are given by fX(x) = a f1(x)+(1−a) f2(x) and fY (x) = ag1(y)+
+         (1−a)g2(y).
+      (b) Show that X and Y are independent if and only if [f1(x)−f2(x)][g1(y)−g2(y)] = 0.
+       (c) Show that Cov(X,Y) = a(1 −a)[µ1 −µ2][ξ1 −ξ2], and thus explain how to construct dependent          uncorrelated random variables.
+      (d) Letting f1, f2,g1,g2 be binomial pmfs, give examples of combinations of parameters that lead to
+         independent (X,Y) pairs, correlated (X,Y) pairs, and uncorrelated but dependent (X,Y) pairs.
+4.50  If (X,Y) has the bivariate normal pdf
+
+                                  1                          f(x,y) =             exp    −1                                ,
+                            2π(1−ρ2)1/2     2(1−ρ2)(x2 −2ρxy+y2)
+     show that Corr(X,Y) = ρ and Corr(X2,Y 2) = ρ2. (Conditional expectations will simplify calculations.)
+4.51 Let X, Y, and Z be independent uniform(0,1) random variables.
+       (a) Find P(X/Y ≤t) and P(XY ≤t). (Pictures will help.)
+      (b) Find P(XY/Z ≤t).
+4.52 Bullets are fired at the origin of an (x,y) coordinate system, and the point hit, say (X,Y), is a random
+      variable. The variables X and Y are taken to be independent n(0,1) random variables. If two bullets are
+       fired independently, what is the distribution of the distance between them?
+4.53 Let A, B, and C be independent random variables, uniformly distributed on (0,1). What is the probability
+       that Ax2 +Bx +C has real roots? (Hint:   If X ∼uniform(0,1), −logX ∼exponential. The sum of two     independent exponentials is gamma.)
+4.54 Find the pdf of Πni=1Xi, where the Xis are independent uniform(0,1) random variables. (Hint:  Try to
+      calculate the cdf, and remember the relationship between uniforms and exponentials.)

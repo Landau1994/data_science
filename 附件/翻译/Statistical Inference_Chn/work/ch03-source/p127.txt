@@ -1,0 +1,39 @@
+96                          COMMON FAMILIES OF DISTRIBUTIONS
+Theorem 3.5.1  Let f(x) be any pdf and let µ and σ > 0 be any given constants. Then the function
+
+                                        1                        =  f(x−µ )                                g(x|µ,σ)  σ   σ
+is a pdf.
+Proof: To verify that the transformation has produced a legitimate pdf, we need to check that
+(1/σ) f((x−µ)/σ), as a function of x, is a pdf for every value of µ and σ we might substitute
+into the formula. That is, we must check that (1/σ) f((x−µ)/σ) is nonnegative and integrates to
+1. Since f(x) is a pdf, f(x) ≥0 for all values of x. So, (1/σ)f((x−µ)/σ) ≥0 for all values of x,µ,and σ. Next we note that
+                        ∞ 1                  ∞                                                    f  x−µ  dx =                         (substitute y = x−µσ  )                      σ    σ                      −∞                     −∞f(y)dy                           =   1,                   (since f(y) is a pdf)
+
+
+as was to be verified.                                         2
+
+  We now turn to the first of our constructions, that of location families.
+Definition 3.5.2  Let f(x) be any pdf. Then the family of pdfs f(x−µ), indexed by the parameter
+µ, −∞< µ < ∞, is called the location family with standard pdf f(x) and µ is called the locationparameter for the family.
+
+   To see the effect of introducing the location parameter µ, consider Figure 3.5.1. At x = µ,
+f(x−µ) = f(0); at x = µ +1, f(x−µ) = f(1); and, in general, at x = µ +a, f(x−µ) = f(a). Of
+course, f(x −µ) for µ = 0 is just f(x). Thus, the location parameter µ simply shifts the pdf f(x)so that the shape of the graph is unchanged but the point on the graph that was above x = 0 for
+f(x) is above x = µ for f(x−µ). It is clear from Figure 3.5.1 that the area under the graph of f(x)
+between x = −1 and x = 2 is the same as the area under the graph of f(x −µ) between x = µ −1
+and x = µ +2. Thus, if X is a random variable with pdf f(x−µ) we can write
+                   P(−1 ≤X ≤2|0) = P(µ −1 ≤X ≤µ +2|µ),
+where the random variable X has pdf f(x −0) = f(x) on the left of the equality and pdf f(x −µ)on the right.
+    Several of the families introduced in Section 3.2 are, or have as subfamilies, location families.
+For example, if σ > 0 is a specified, known number and we define
+
+                               1                            f(x) =        e−x2/(2σ2),         x < ∞,                  √ 2πσ       −∞<
+
+
+
+
+
+                                                                                        x
+                   –3    –2    –1    0     1     2     3     4     5
+
+                 Figure 3.5.1 Two members of the same location family: Means at 0 and 2

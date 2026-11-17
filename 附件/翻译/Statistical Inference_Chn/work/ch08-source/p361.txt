@@ -1,0 +1,46 @@
+330                                             HYPOTHESIS TESTING
+
+8.29 Let X be one observation from a Cauchy(θ) distribution.
+       (a) Show that this family does not have an MLR.
+      (b) Show that the test
+                                           1       if 1 < x < 3                                      φ(x) =                                           0     otherwise
+            is most powerful of its size for testing H0 : θ = 0 versus H1 : θ = 1. Calculate the Type I and Type II
+          Error probabilities.
+       (c) Prove or disprove:  The test in part (b) is UMP for testing H0 : θ ≤0 versus H1 : θ > 0. What can         be said about UMP tests in general for the Cauchy location family?
+8.30 Let f(x|θ) be the Cauchy scale pdf
+                                 θ   1
+                                f(x|θ) = π θ2 +x2 , −∞< x < ∞,  θ > 0.
+       (a) Show that this family does not have an MLR.
+      (b)  If X is one observation from f(x|θ), show that |X| is sufficient for θ, and that the distribution of |X|         does have an MLR.
+8.31 Let X1,...,Xn be iid Poisson(λ).
+       (a) Find a UMP test of H0 : λ ≤λ0 versus H1 : λ > λ0.
+      (b) Consider the specific case H0: λ ≤1 versus H1: λ > 1. Use the Central Limit Theorem to determine
+          the sample size n so a UMP test satisfies P(reject H0|λ = 1) = .05 and P(reject H0|λ = 2) = .9.
+8.32 Let X1,...,Xn be iid n(θ,1), and let θ0 be a specified value of θ.
+       (a) Find the UMP, size α, test of H0 : θ ≥θ0 versus H1 : θ < θ0.
+      (b) Show that there does not exist a UMP, size α, test of H0 : θ = θ0 versus H1 : θ̸ = θ0.
+8.33 Let X1,...,Xn be a random sample from the uniform(θ,θ + 1) distribution. To test H0 : θ = 0 versus
+    H1 : θ > 0, use the test
+                                              reject H0 if Yn ≥1 or Y1 ≥k,
+     where k is a constant, Y1 = min{X1,...,Xn},Yn = max{X1,...,Xn}.
+       (a) Determine k so that the test will have size α.
+      (b) Find an expression for the power function of the test in part (a).
+       (c) Prove that the test is UMP size α.
+      (d) Find values of n and k so that the UMP .10 level test will have power at least .8 if θ > 1.
+8.34 In each of the following two situations, show that for any number c, if θ1 ≤θ2 then
+                                       Pθ1(T > c) ≤Pθ2(T > c).
+       (a) θ is a location parameter in the distribution of the random variable T.
+      (b) The family of pdfs of T,{g(t|θ): θ ∈Θ}, has an MLR.
+8.35 The usual t distribution, as derived in Section 5.3.2, is also known as a central t distribution. It can
+     be thought of as the pdf of a random variable of the form T = n(0,1)/   χ2ν/ν, where the normal and
+      the chi squared random variables are independent. A generalization of the t distribution, the noncentral
+        t, is of the form T ′ = n(µ,1)/   χ2ν/ν, where the normal and the chi squared random variables are
+      independent and we can have µ̸ = 0. (We have already seen a noncentral pdf, the noncentral chi squared,
+      in (4.4.3).) Formally, if X ∼n(µ,1), and Y ∼χ2ν, independent of X, then T ′ = X/  Y/ν has a noncentral
+         t distribution with ν degrees of freedom and noncentrality parameter δ =   µ2.
+       (a) Calculate the mean and variance of T ′.
+      (b) The pdf of T ′ is given by
+                                 e−δ 2/2    ∞ (2/ν)k/2(δt)k   Γ([ν +k +1]/2)
+                                                                                                                                     .                    ∑       k!                           fT ′(t|δ) = Γ(                                                     1+(t2/ν) (ν+k+1)/2                                       12)Γ( ν2 )√ν k=0
+       Show that this pdf reduces to that of a central t if δ = 0.
+       (c) Show that the pdf of T ′ has MLR in its noncentrality parameter.

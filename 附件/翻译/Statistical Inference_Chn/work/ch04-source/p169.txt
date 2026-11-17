@@ -1,0 +1,46 @@
+138                                      MULTIPLE RANDOM VARIABLES
+Example 4.4.8 (Continuation of Example 4.4.6)  To calculate the variance of X, we have from
+(4.4.4),
+                       VarX = Var(E(X|P))+E(Var(X|P)).
+Now E(X|P) = nP, and since P ∼beta(α,β),
+                                       αβ
+                    Var(E(X|P)) = Var(nP) = n2 (α +β)2(α +β +1).
+Also, since X|P is binomial(n,P), Var(X|P) = nP(1−P). We then have
+                                 Γ(α +β)   1
+          E[Var(X|P)] = nE[P(1−P)] = Γ(α)Γ(β)  0 p(1−p)pα−1(1−p)β−1dp.
+
+Notice that the integrand is the kernel of another beta pdf (with parameters α +1 and β +1) so
+
+                      Γ(α +β)  Γ(α +1)Γ(β +1)         αβ
+          E(Var(X|P)) = n Γ(α)Γ(β)   Γ(α +β +2)  = n (α +β)(α +β +1).
+
+Adding together the two pieces and simplifying, we get
+
+                               αβ(α +β +n)
+                         VarX = n                                  (α +β)2(α +β +1).
+
+                                                                              ∥
+
+4.5  Covariance and Correlation
+In earlier sections, we discussed the absence or presence of a relationship between two random
+variables, independence or nonindependence. But if there is a relationship, the relationship may be
+strong or weak. In this section we discuss two numerical measures of the strength of a relationship
+between two random variables, the covariance and correlation.
+   To illustrate what we mean by the strength of a relationship between two random variables,
+consider two different experiments. In the first, random variables X and Y are measured where X
+is the weight of a sample of water and Y is the volume of the same sample of water. Clearly there
+is a strong relationship between X and Y. If (X,Y) pairs are measured on several samples and the
+observed data pairs are plotted, the data points should fall on a straight line because of the physical
+relationship between X and Y. This will not be exactly the case because of measurement errors,
+impurities in the water, etc. But with careful laboratory technique, the data points will fall very
+nearly on a straight line. Now consider another experiment in which X and Y are measured where X
+is the body weight of a human and Y is the same human’s height. Clearly there is also a relationship
+between X and Y here, but the relationship is not nearly as strong. We would not expect a plot of
+(X,Y) pairs measured on different people to form a straight line, although we might expect to see
+an upward trend in the plot. The covariance and correlation are two measures that quantify this
+difference in the strength of a relationship between two random variables.
+   Throughout this section we will frequently be referring to the mean and variance of X and the
+mean and variance of Y. For these we will use the notation EX = µX, EY = µY, VarX = σ2X, and
+VarY = σ2Y . We will assume throughout that 0 < σ2X < ∞and 0 < σ2Y < ∞.
+Definition 4.5.1  The covariance of X and Y is the number defined by
+                        Cov(X,Y) = E((X −µX)(Y −µY)).

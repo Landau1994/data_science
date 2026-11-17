@@ -1,0 +1,49 @@
+142                                      MULTIPLE RANDOM VARIABLES
+    y                                                      y
+
+
+ 2                                           2
+
+
+
+
+
+ 1                                           1
+
+
+
+
+ 0                                                  x  0                                                   x
+   0               .5           1              1.5      0               .5           1               1.5
+                             (a)                                                          (b)
+
+Figure 4.5.1 (a) Region where f(x,y) > 0 for Example 4.5.4; (b) Region where f(x,y) > 0 for Example 4.5.8
+
+
+Rather than using the formal techniques of Section 4.3, we can justify this as follows. Given X = x,
+Y = x + Z. The conditional distribution of Z given X = x is just uniform(0, 10)1  since X and Z are
+independent. Thus, x serves as a location parameter in the conditional distribution of Y given X = x,
+and this conditional distribution is just uniform(x,x + 10).1   Multiplying this conditional pdf by the
+marginal pdf of X (uniform(0,1)) yields the joint pdf above. This representation of Y = X +Z makes
+the computation of the covariance and correlation easy. The expected values of X and Y are EX = 12
+                   +and EY = E(X +Z) = EX +EZ = 12    1    11                                           20                      = 20, giving
+             Cov(X,Y) =  EXY −(EX)(EY)
+               =  EX(X +Z)−(EX)(E(X +Z))
+               =  EX2 +EXZ −(EX)2 −(EX)(EZ)                                                                         independence
+               =  EX2 −(EX)2 +(EX)(EZ)−(EX)(EZ)            of X and Z
+                                 1
+               =  σ2X =                                  12.
+From Theorem 4.5.6, the variance of Y is σ2Y = Var(X +Z) = VarX +VarZ = 121     1                                          + 1200. Thus,
+
+                                                   1           100                                                   12                           ρXY =          =                                              1    1     1       101.                          +                                              12   12   1200
+This is much larger than the value of ρXY = 1/ √2 obtained in Example 4.5.4. The sets on which
+f(x,y) is positive for Example 4.5.4 and this example are illustrated in Figure 4.5.1. (Recall that
+this set is called the support of a distribution.) In each case, (X,Y) is a random point from the set. In
+both cases there is a linearly increasing relationship between X and Y. But the relationship is much
+stronger in Figure 4.5.1(b). Another way to see this is by noting that in this example, the conditional
+distribution of Y given X = x is uniform(x,x + 10).1   In Example 4.5.4, the conditional distribution
+of Y given X = x is uniform(x,x + 1). The knowledge that X = x gives us much more information
+about the value of Y in this model than in the one in Example 4.5.4. Hence the correlation is nearer
+to 1 in this example.                                                              ∥
+   The next example illustrates that there may be a strong relationship between X and Y but, if the
+relationship is not linear, the correlation may be small.

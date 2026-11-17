@@ -1,0 +1,49 @@
+DISCRETE DISTRIBUTIONS                                                    75
+                           = P(die shows 6). Define the random variablefour Bernoulli trials with success probability p = 16
+X by
+                     X = total number of 6s in four rolls.
+                         6  andThen X ∼binomial 4, 1
+                       P(at least one 6) =  P(X > 0) = 1−P(X = 0)
+                                           4    1  0  5  4
+                       = 1−  0    6    6
+                                           5  4
+                       = 1−  6
+                       =  .518.
+
+  Now we consider another game; throw a pair of dice 24 times and ask for the probability of at
+least one double 6. This, again, can be modeled by the binomial distribution with success probability
+p, where
+                                                 1
+                            p = P(roll a double 6) = 36.
+                                                                   36  andSo, if Y = number of double 6s in 24 rolls, Y ∼binomial 24, 1
+                   P(at least one double 6) =  P(Y > 0)
+                        =  1−P(Y = 0)
+                                              24    1   0  35  24
+                        = 1−  0    36    36
+                                              35  24
+                        = 1−  36
+                        =  .491.
+
+This is the calculation originally done in the eighteenth century by Pascal at the request of the
+gambler de Mer´e, who thought both events had the same probability. (He began to believe he was
+wrong when he started losing money on the second bet.)                                 ∥
+
+Poisson Distribution
+
+The Poisson distribution is a widely applied discrete distribution, and can serve as a model for a
+number of different types of experiments. For example, if we are modeling a phenomenon in which
+we are waiting for an occurrence (such as waiting for a bus, waiting for customers to arrive in a
+bank), the number of occurrences in a given time interval can sometimes be modeled by the Poisson
+distribution. One of the basic assumptions on which the Poisson distribution is built is that, for
+small time intervals, the probability of an arrival is proportional to the length of waiting time. This
+makes it a reasonable model for situations like those indicated above. For example, it makes sense
+to assume that the longer we wait, the more likely it is that a customer will enter the bank. See the
+Miscellanea section for a more formal treatment of this.
+   Another area of application is in spatial distributions, where, for example, the Poisson distribu-
+tion may be used to model the distribution of bomb hits in an area or the distribution of fish in a
+lake.
+   The Poisson distribution has a single parameter λ, sometimes called the intensity parameter. A
+random variable X, taking values in the nonnegative integers, has a Poisson(λ) distribution if
+
+                                  e−λλ x
+                       P(X = x|λ) =   x!    ,   x = 0,1,... .                         (3.2.5)

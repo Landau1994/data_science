@@ -1,0 +1,50 @@
+158                                      MULTIPLE RANDOM VARIABLES
+
+  4.4 A pdf is defined by
+                               C(x+2y)   if 0 < y < 1 and 0 < x < 2
+                               f(x,y) =
+                                  0             otherwise.
+       (a) Find the value of C.
+      (b) Find the marginal distribution of X.
+       (c) Find the joint cdf of X and Y.
+      (d) Find the pdf of the random variable Z = 9/(X +1)2.
+  4.5  (a) Find P(X > √Y) if X and Y are jointly distributed with pdf
+                                     f(x,y) = x+y,  0 ≤x ≤1,  0 ≤y ≤1.
+      (b) Find P(X2 < Y < X) if X and Y are jointly distributed with pdf
+
+                                      f(x,y) = 2x,  0 ≤x ≤1,  0 ≤y ≤1.
+  4.6 A and B agree to meet at a certain place between 1 PM and 2 PM. Suppose they arrive at the meeting
+      place independently and randomly during the hour. Find the distribution of the length of time that A
+      waits for B. (If B arrives before A, define A’s waiting time as 0.)
+  4.7 A woman leaves for work between 8 AM and 8:30 AM, and takes between 40 and 50 minutes to get
+       there. Let the random variable X denote her time of departure, and the random variable Y the travel time.
+     Assuming that these variables are independent and uniformly distributed, find the probability that the
+    woman arrives at work before 9 AM.
+  4.8 Referring to Miscellanea 4.9.1:
+       (a) Show that P(X = m|M = m) = P(X = 2m|M = m) = 1/2, and verify the expressions for P(M =
+         x|X = x) and P(M = x/2|X = x).
+      (b) Verify that one should trade only if π(x/2) < 2π(x), and if π is the exponential(λ) density, show
+           that it is optimal to trade if x < 2log2/λ.
+       (c) For the classical approach, show that P(Y = 2x|X = m) = 1 and P(Y = x/2|X = 2m) = 1 and that         your expected winning if you trade or keep your envelope is E(Y) = 3m/2.
+  4.9 Prove that if the joint cdf of X and Y satisfies
+
+                                          FX,Y (x,y) = FX(x)FY (y),
+
+      then for any pair of intervals (a,b), and (c,d),
+
+                       P(a ≤X ≤b,c ≤Y ≤d) = P(a ≤X ≤b)P(c ≤Y ≤d).
+4.10 The random pair (X,Y) has the distribution
+
+                                         X
+                                                1  2  3
+                                          2      121   61  121
+                                    Y 3      16  0  16
+                                          4     0  13  0
+       (a) Show that X and Y are dependent.
+      (b) Give a probability table for random variables U and V that have the same marginals as X and Y but
+          are independent.
+
+4.11 Let U = the number of trials needed to get the first head and V = the number of trials needed to get two
+     heads in repeated tosses of a fair coin. Are U and V independent random variables?
+4.12  If a stick is broken at random into three pieces, what is the probability that the pieces can be put together
+      in a triangle? (See Gardner (1961) for a complete discussion of this problem.)

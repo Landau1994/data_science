@@ -1,0 +1,192 @@
+[
+  {
+    "file": "sections-tex/02-03.tex",
+    "old": "\\begin{theorem}\\label{thm:2.3.11}",
+    "new": "\\needspace{6\\baselineskip}\n\\begin{theorem}\\label{thm:2.3.11}",
+    "reason": "保留标题、题干与首个分问或公式的衔接",
+    "before_pdf_pages": [
+      101,
+      102
+    ]
+  },
+  {
+    "file": "sections-tex/02-05.tex",
+    "old": "\\begin{exercise}\\label{exercise:2.14}",
+    "new": "\\needspace{5\\baselineskip}\n\\begin{exercise}\\label{exercise:2.14}",
+    "reason": "保留标题、题干与首个分问或公式的衔接",
+    "before_pdf_pages": [
+      113,
+      114
+    ]
+  },
+  {
+    "file": "sections-tex/03-07.tex",
+    "old": "\\begin{exercise}\\label{exercise:3.34}",
+    "new": "\\needspace{6\\baselineskip}\n\\begin{exercise}\\label{exercise:3.34}",
+    "reason": "保留标题、题干与首个分问或公式的衔接",
+    "before_pdf_pages": [
+      168,
+      169
+    ]
+  },
+  {
+    "file": "sections-tex/04-07.tex",
+    "old": "\\begin{example}[均值的不等式]\\label{ex:4.7.8}",
+    "new": "\\needspace{6\\baselineskip}\n\\begin{example}[均值的不等式]\\label{ex:4.7.8}",
+    "reason": "保留标题、题干与首个分问或公式的衔接",
+    "before_pdf_pages": [
+      222,
+      223
+    ]
+  },
+  {
+    "file": "sections-tex/05-07.tex",
+    "old": "\\begin{exercise}\\label{exercise:5.14}",
+    "new": "\\needspace{5\\baselineskip}\n\\begin{exercise}\\label{exercise:5.14}",
+    "reason": "保留标题、题干与首个分问或公式的衔接",
+    "before_pdf_pages": [
+      286,
+      287
+    ]
+  },
+  {
+    "file": "sections-tex/10-05.tex",
+    "old": "\\begin{exercise}\\label{exercise:10.13}",
+    "new": "\\needspace{6\\baselineskip}\n\\begin{exercise}\\label{exercise:10.13}",
+    "reason": "保留标题、题干与首个分问或公式的衔接",
+    "before_pdf_pages": [
+      535,
+      536
+    ]
+  },
+  {
+    "file": "sections-tex/11-04.tex",
+    "old": "\\begin{exercise}\\label{exercise:11.18}",
+    "new": "\\needspace{6\\baselineskip}\n\\begin{exercise}\\label{exercise:11.18}",
+    "reason": "保留标题、题干与首个分问或公式的衔接",
+    "before_pdf_pages": [
+      594,
+      595
+    ]
+  },
+  {
+    "file": "sections-tex/12-05.tex",
+    "old": "\\begin{exercise}\\label{exercise:12.7}",
+    "new": "\\needspace{6\\baselineskip}\n\\begin{exercise}\\label{exercise:12.7}",
+    "reason": "保留标题、题干与首个分问或公式的衔接",
+    "before_pdf_pages": [
+      630,
+      631
+    ]
+  },
+  {
+    "file": "sections-tex/03-03.tex",
+    "old": "容易看出，\\eqref{eq:3.3.19}对所有",
+    "new": "\\needspace{5\\baselineskip}容易看出，\\eqref{eq:3.3.19}对所有",
+    "reason": "避免“因此”二字跨页且单字悬在公式前",
+    "before_pdf_pages": [
+      143,
+      144
+    ]
+  },
+  {
+    "file": "sections-tex/04-01.tex",
+    "old": "\\sourcepageanchor{151}",
+    "new": "\\par\\pagebreak[4]\n\\sourcepageanchor{151}",
+    "reason": "为脚注49留出同页空间，使其与标记同页",
+    "before_pdf_pages": [
+      180,
+      181
+    ]
+  },
+  {
+    "file": "sections-tex/05-04.tex",
+    "old": "\\autoref{exercise:5.28}）.",
+    "new": "\\autoref{exercise:5.28}\\mbox{）.}",
+    "reason": "避免句点落在行首",
+    "before_pdf_pages": [
+      261
+    ]
+  },
+  {
+    "file": "sections-tex/05-05.tex",
+    "old": "第22节）.",
+    "new": "第22节\\mbox{）.}",
+    "reason": "避免句点独占一行",
+    "before_pdf_pages": [
+      265
+    ]
+  },
+  {
+    "file": "sections-tex/09-03.tex",
+    "old": "区间估计“$\\theta\\in C$”.",
+    "new": "区间估计“$\\theta\\in C$\\mbox{”.}",
+    "reason": "避免句点落在行首",
+    "before_pdf_pages": [
+      479
+    ]
+  },
+  {
+    "file": "sections-tex/10-06.tex",
+    "old": "自助分布（bootstrap distribution）.",
+    "new": "自助分布（bootstrap distribution\\mbox{）.}",
+    "reason": "避免句点落在行首",
+    "before_pdf_pages": [
+      550
+    ]
+  },
+  {
+    "file": "sections-tex/11-01.tex",
+    "old": "\\hyperref[bib:source102]{Draper和Smith（1998）}.",
+    "new": "\\hyperref[bib:source102]{Draper和Smith（1998\\mbox{）.}}",
+    "reason": "避免文献后句点落在行首",
+    "before_pdf_pages": [
+      552
+    ]
+  },
+  {
+    "file": "sections-tex/11-05.tex",
+    "old": "\\autoref{exercise:11.23}）.",
+    "new": "\\autoref{exercise:11.23}\\mbox{）.}",
+    "reason": "避免句点落在行首",
+    "before_pdf_pages": [
+      602
+    ]
+  },
+  {
+    "file": "sections-tex/11-05.tex",
+    "old": "（上述估计量向零收缩）.",
+    "new": "（上述估计量向零收缩\\mbox{）.}",
+    "reason": "避免句点落在行首",
+    "before_pdf_pages": [
+      604
+    ]
+  },
+  {
+    "file": "sections-tex/12-03.tex",
+    "old": "\\begin{example}[挑战者号数据续]",
+    "new": "\\enlargethispage{1pt}\n\\begin{example}[挑战者号数据续]",
+    "reason": "增加1pt正文页高消除0.5561pt纵向溢出，不压缩公式",
+    "before_pdf_pages": [
+      622
+    ]
+  },
+  {
+    "file": "backmatter/01-computer-algebra-b.tex",
+    "old": "这一步实际上并不必要.）\\footnote",
+    "new": "这一步其实不必要.）\\footnote",
+    "reason": "等义缩短括号内文字，为译注标记保留同行空间；单独nobreak未改变版面，已实际替换验证",
+    "before_pdf_pages": [
+      647
+    ]
+  },
+  {
+    "file": "backmatter/02-distributions.tex",
+    "old": "\\autoref{exercise:4.32}）.",
+    "new": "\\autoref{exercise:4.32}\\mbox{）.}",
+    "reason": "避免句点独占一行",
+    "before_pdf_pages": [
+      650
+    ]
+  }
+]

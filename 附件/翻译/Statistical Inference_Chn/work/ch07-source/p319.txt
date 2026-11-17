@@ -1,0 +1,52 @@
+288                                                 POINT ESTIMATION
+
+  7.9 Let X1,...,Xn be iid with pdf
+
+                                       1
+                                     f(x|θ) = θ ,  0 ≤x ≤θ,  θ > 0.
+      Estimate θ using both the method of moments and maximum likelihood. Calculate the means and vari-
+     ances of the two estimators. Which one should be preferred and why?
+7.10 The independent random variables X1,...,Xn have the common distribution
+
+                                           0               if x < 0,
+                              P(Xi ≤x|α,β) =  (x/β)α       if 0 ≤x ≤β,                                           1               if x > β,
+
+     where the parameters α and β are positive.
+       (a) Find a two-dimensional sufficient statistic for (α,β).
+      (b) Find the MLEs of α and β.
+       (c) The length (in millimeters) of cuckoos’ eggs found in hedge sparrow nests can be modeled with this
+           distribution. For the data
+
+                  22.0, 23.9, 20.9, 23.8, 25.0, 24.0, 21.7, 23.8, 22.8, 23.1, 23.1, 23.5, 23.0, 23.0,
+
+           find the maximum likelihood estimates of α and β.
+7.11 Let X1,...,Xn be iid with pdf
+
+                                    < θ < ∞.                                 f(x|θ) = θxθ−1,  0 ≤x ≤1,  0
+       (a) Find the MLE of θ, and show that its variance →0 as n →∞.
+      (b) Find the method of moments estimator of θ.
+7.12 Let X1,...,Xn be a random sample from a population with pmf
+
+                       Pθ(X = x) = θx(1−θ)1−x,   x                               = 0 or 1,  0 ≤θ ≤12.
+       (a) Find the method of moments estimator and MLE of θ.
+      (b) Find the mean squared errors of each of the estimators.
+       (c) Which estimator is preferred? Justify your choice.
+7.13 Let X1,...,Xn be a sample from a population with double exponential pdf
+
+                                1
+                                < ∞, −∞< θ < ∞.                             f(x|θ) = 2e−|x−θ|, −∞< x
+     Find the MLE of θ. [Hint:  Consider the case of even n separate from that of odd n, and find the MLE
+      in terms of the order statistics. A complete treatment of this problem is given in Norton (1984).]
+7.14 Let X and Y be independent exponential random variables, with
+
+                                1                      1
+                                         > 0.                           f(x|λ) = λ e−x/λ                                                                     , x > 0,   f(y|µ) = µ e−y/µ, y
+
+    We observe Z and W with
+
+                                                   1       if Z = X
+                        Z = min(X,Y)  and W =
+                                                   0       if Z = Y.
+
+      In Exercise 4.26 the joint distribution of Z and W was obtained. Now assume that (Zi,Wi),i = 1,...,n,
+      are n iid observations. Find the MLEs of λ and µ.

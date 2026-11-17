@@ -1,0 +1,40 @@
+EXPECTED VALUES                                                           47
+Proof: We will give details only for the continuous case, the discrete case being similar. By defini-
+tion,
+
+             E(ag1(X)+bg2(X)+c)
+                    ∞
+          =   −∞(ag1(x)+bg2(x)+c)fX(x)dx∞                ∞                ∞
+          =   −∞ag1(x)fX(x)dx+ −∞bg2(x) fX(x)dx+ −∞cfX(x)dx
+by the additivity of the integral. Since a, b, and c are constants, they factor out of their respective
+integrals and we have
+
+            E(ag1(X)+bg2(X)+c)
+                     ∞                ∞                ∞
+          =  a −∞g1(x)fX(x)dx+b −∞g2(x)fX(x)dx+c −∞fX(x)dx
+          =  aEg1(X)+bEg2(x)+c,
+
+establishing (a). The other three properties are proved in a similar manner.            2
+
+Example 2.2.6 (Minimizing distance)  The expected value of a random variable has another prop-
+erty, one that we can think of as relating to the interpretation of EX as a good guess at a value of
+X.
+   Suppose we measure the distance between a random variable X and a constant b by (X −b)2.The closer b is to X, the smaller this quantity is. We can now determine the value of b that minimizes
+E(X −b)2 and, hence, will provide us with a good predictor of X. (Note that it does no good to look
+for a value of b that minimizes (X −b)2, since the answer would depend on X, making it a uselesspredictor of X.)
+  We could proceed with the minimization of E(X −b)2 by using calculus, but there is a simplermethod. (See Exercise 2.19 for a calculus-based proof.) Using the belief that there is something
+special about EX, write
+
+                                                                    add      which                                                 ±EXnothing          E(X −b)2              =  E(X −EX +EX −b)2                        changes
+              =  E((X −EX)+(EX −b))2                         (group terms)
+              =  E(X −EX)2 +(EX −b)2 +2E((X −EX)(EX −b)) ,
+where we have expanded the square. Now, note that
+
+                  E((X −EX)(EX −b)) = (EX −b)E(X −EX) = 0,
+since (EX −b) is constant and comes out of the expectation, and E(X −EX) = EX −EX = 0. Thismeans that
+                      E(X −b)2                     = E(X −EX)2 +(EX −b)2.                        (2.2.2)
+We have no control over the first term on the right-hand side of (2.2.2) and the second term, which
+is always greater than or equal to 0, can be made equal to 0 by choosing b = EX. Hence,
+
+                           min E(X   = E(X                                      (2.2.3)                                       b     −b)2     −EX)2.
+See Exercise 2.18 for a similar result about the median.                                  ∥

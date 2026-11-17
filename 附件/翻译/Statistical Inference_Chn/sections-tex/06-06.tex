@@ -1,0 +1,50 @@
+\sourcepageanchor{281}
+\subsection{杂录}\label{sec:6.6}
+\subsubsection{Basu定理的逆命题}\label{sec:6.6.1}\index{SI0077@逆命题}
+一个有趣的统计事实是，Basu定理的逆命题并不成立.也就是说，若一个统计量$T(\boldsymbol X)$独立于每一个辅助统计量，它不一定完备且最小充分.\hyperref[bib:source197]{Lehmann（1981）}对这一问题作了很好的讨论.他指出，部分原因在于辅助性是\emph{整个分布}的性质，而完备性只涉及期望.据此，可以修改辅助性的定义.
+\begin{definition}\label{def:6.6.1}
+如果$E_\theta V(\boldsymbol X)$与$\theta$无关，则统计量$V(\boldsymbol X)$称为\textbf{一阶辅助统计量}（first-order ancillary statistic）.
+\end{definition}
+Lehmann证明了如下定理，它在某种意义上是Basu定理的逆命题.
+\begin{theorem}\label{thm:6.6.2}\index{SI0111@辅助性}
+设$T$为满足$\operatorname{Var}T<\infty$的统计量.$T$完备当且仅当每一个有界的一阶辅助统计量$V$与$T$的每一个有界实值函数均不相关（对所有$\theta$）.\footnote{译注：按本书的完备性定义，单独的完备性并不足以推出这里的结论，原述似缺少充分性等限定. 例如，取单个观测$X\sim\operatorname{uniform}(\theta,\theta+1)$，$0<\theta<1$；$T=\lfloor X\rfloor$服从完备的Bernoulli$(\theta)$族，而$V=X-\lfloor X\rfloor\sim\operatorname{uniform}(0,1)$为有界辅助统计量，但$\operatorname{Cov}_\theta(T,V)=-\theta(1-\theta)/2\ne0$. 正文保留原述；此反例为译者独立核验，精确修订条件仍需对照所引原始论文.}
+\end{theorem}
+Lehmann还指出，通过修改完备性的概念，而非辅助性的概念，还能得到其他逆命题.
+\subsubsection{关于辅助性的困惑}\label{sec:6.6.2}\index{SI0018@辅助统计量}
+辅助性有许多不同的定义，各自具有不同性质.若一个定义就已经令人困惑，那么五六个定义简直让人无从着手.
+
+\hyperref[bib:source56]{Buehler（1982）}指出，这个主题始于\hyperref[bib:source123]{Fisher（1925）}，后者“留下了一连串耐人寻味的概念，却没有给出定义，这正是他的一贯风格”.Buehler至少区分出三个不同定义，将其归功于\hyperref[bib:source13]{Basu（1959）}以及\hyperref[bib:source86]{Cox和Hinkley（1974）}，并给出了八条性质和二十五个例子.
+
+这个困难的主题值得理解，因为它在统计推断中起着重要作用.例如，\hyperref[bib:source52]{Brown（1990）}说明辅助性如何影响回归分析.\hyperref[bib:source250]{Reid（1995）}综述了辅助性以及其他条件化形式；\hyperref[bib:source202]{Lehmann和Scholz（1992）}也给出了一篇很好的综述，可作为进入这一主题的起点.
+\subsubsection{充分性的进一步讨论}\label{sec:6.6.3}\index{SI0623@充分性}
+\paragraph{充分性与似然}
+\autoref{thm:6.2.13}与似然原则之间有一个引人注目的相似之处：两者都涉及似然比$L(\theta\mid\boldsymbol x)/L(\theta\mid\boldsymbol y)$，前者用它描述最小充分统计量，后者用它描述似然原则.仔细结合二者可知，$T(\boldsymbol X)$最小充分当且仅当它是似然$L(\theta\mid\boldsymbol x)$的一一函数（把满足\eqref{eq:6.3.1}的两个样本点视为具有相同的似然函数）.参见\autoref{ex:6.3.3}和\autoref{exercise:6.9}.
+\paragraph{充分性与必要性}
+“既然有充分统计量，为什么没有必要统计量？”实际上是有的，见\hyperref[bib:source104]{Dynkin（1951）}.
+\begin{definition}\label{def:6.6.3}\index{SI0719@必要统计量}
+如果一个统计量是每一个充分统计量的函数，则称它为\textbf{必要统计量}（necessary statistic）.
+\end{definition}
+比较必要统计量和最小充分统计量的定义，便立即得到如下定理.
+\sourcepageanchor{282}
+\begin{theorem}\label{thm:6.6.4}\index{SI1008@必要}
+一个统计量最小充分，当且仅当它既必要又充分.
+\end{theorem}
+\paragraph{最小充分性}
+由\autoref{thm:6.2.13}可以得到一个有趣的发展（见\autoref{exercise:6.28}）.这个结果对于处理指数族之外的分布尤为有用.
+\begin{theorem}[最小充分统计量]\label{thm:6.6.5}
+设$\{f_0(\boldsymbol x),f_1(\boldsymbol x),\ldots,f_k(\boldsymbol x)\}$为具有相同支撑的密度族.
+\begin{enumerate}[label=(\alph*)]
+\item 统计量
+$$T(\boldsymbol X)=\left(\frac{f_1(\boldsymbol X)}{f_0(\boldsymbol X)},\frac{f_2(\boldsymbol X)}{f_0(\boldsymbol X)},\ldots,\frac{f_k(\boldsymbol X)}{f_0(\boldsymbol X)}\right)$$
+对于该有限密度族最小充分.
+\item 若$\mathcal F$是具有相同支撑的密度族，并且
+\begin{enumerate}[label=(\roman*)]
+\item $f_i(\boldsymbol x)\in\mathcal F$，$i=0,\ldots,k$；
+\item $T(\boldsymbol x)$对于$\mathcal F$充分，
+\end{enumerate}
+则$T(\boldsymbol x)$对于$\mathcal F$最小充分.
+\end{enumerate}
+\end{theorem}
+虽然可以利用这个定理确立$\bar X$对于$n(\theta,1)$族的最小充分性，但它真正有用的地方在这些简单情形之外.例如，可利用它确立次序统计量对于logistic族和双指数族的最小充分性（见\autoref{exercise:6.26}），甚至可以将其推广到非参数情形（见\autoref{exercise:6.29}）.
+
+关于最小充分性与完备性的进一步讨论，参见\hyperref[bib:source200]{Lehmann和Casella（1998）}第1.6节.

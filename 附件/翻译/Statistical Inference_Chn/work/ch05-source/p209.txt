@@ -1,0 +1,39 @@
+178                                    PROPERTIES OF A RANDOM SAMPLE
+5.3.1  Properties of the Sample Mean and Variance
+We have already seen how to calculate the means and variances of ¯X and S2 in general. Now,
+under the additional assumption of normality, we can derive their full distributions, and more. The
+properties of ¯X and S2 are summarized in the following theorem.
+Theorem 5.3.1  Let X1,...,Xn be a random sample from a n(µ,σ2) distribution, and let ¯X =
+(1/n)∑ni=1Xi and S2 = [1/(n−1)]∑ni=1(Xi −¯X)2. Then
+  a.  ¯X and S2 are independent random variables,
+  b.  ¯X has a n(µ,σ2/n) distribution,
+  c. (n−1)S2/σ2 has a chi squared distribution with n−1 degrees of freedom.
+Proof: First note that, from Section 3.5 on location–scale families, we can assume, without loss of
+generality, that µ = 0 and σ = 1. (Also see the discussion preceding Theorem 5.2.11.) Furthermore,
+part (b) has already been established in Example 5.2.8, leaving us to prove parts (a) and (c).
+   To prove part (a) we will apply Theorem 4.6.12, and show that ¯X and S2 are functions of inde-
+pendent random vectors. Note that we can write S2 as a function of n−1 deviations as follows:
+                    1    n            S2 =           ∑ (Xi −¯X)2                             i=1             n−1
+                    1                   n
+         =                     +                           (X1 −¯X)2                                             i=2                               ∑ (Xi −¯X)2              n−1
+                    1        n                 n                                   since         =                        +                                                = 0                   ∑ (Xi −¯X)2                                                   i=2             i=2            ∑ (Xi −¯X)2                                                           ∑ni=1(Xi −¯X)             n−1                                                                                                                                                     .
+Thus, S2 can be written as a function only of (X2 −¯X,...,Xn −¯X). We will now show that theserandom variables are independent of ¯X. The joint pdf of the sample X1,...,Xn is given by
+
+                                  1                                                 e−(1/2)Σni=1x2                       f(x1,...,xn) =                                                                                                                                           i , −∞< xi < ∞.                                    (2π)n/2
+
+Make the transformation
+
+                                         y1 =    ¯x,
+                                      y2 =  x2 −¯x,
+                                                                                                                                                                                                                                  ...
+                                         yn =  xn −¯x.
+This is a linear transformation with a Jacobian equal to 1/n. We have
+
+         f(y1,...,yn)
+                n
+      =                                                                                   yi < ∞                         e−(1/2)(y1−Σni=2yi)2e−(1/2)Σni=2(yi+y1)2, −∞<               (2π)n/2
+                                          n1/2                                                      e−(1/2)[Σni=2y2      =              e(−ny21)/2                                                                                                                                                    i +(Σni=2yi)2]   ,          yi < ∞.               2π                                     (2π)(n−1)/2                 −∞<                     1/2                 n
+Since the joint pdf of Y1,...,Yn factors, it follows from Theorem 4.6.11 that Y1 is independent of
+Y2,...,Yn, and hence, from Theorem 4.6.12, that ¯X is independent of S2.             2
+   To finish the proof of the theorem we must now derive the distribution of S2. Before doing
+so, however, we digress a little and discuss the chi squared distribution, whose properties play an

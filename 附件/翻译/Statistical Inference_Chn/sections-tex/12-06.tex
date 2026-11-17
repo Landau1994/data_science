@@ -1,0 +1,63 @@
+\subsection{杂录}\label{sec:12.6}
+\subsubsection{函数与结构的含义}\label{sec:12.6.1}\index{SI0410@函数关系}\index{SI0417@结构关系}
+“函数”和“结构”这两个名称本身就是EIV模型中混淆的主要来源. \hyperref[bib:source189]{Kendall和Stuart（1979}，第29章）详细讨论了这些概念，区分数学变量（非随机变量）间的关系与随机变量间的关系. 理解二者联系的一种方式，是把模型写成层次结构：对函数模型的参数赋予分布，就得到结构关系模型：\footnote{译注：原图将含随机误差的等式左边写为条件期望；由\eqref{eq:12.2.5}、\eqref{eq:12.2.6}，这里应直接为$Y_i,X_i$，或在保留期望时去掉误差项. 原表达式保留.}
+$$\underbrace{\begin{aligned}
+\text{函数关系模型}\quad\left\{\begin{aligned}
+E(Y_i\mid\xi_i)&=\alpha+\beta\xi_i+\varepsilon_i,&\varepsilon_i&\sim\mathrm n(0,\sigma_\varepsilon^2),\\
+E(X_i\mid\xi_i)&=\xi_i+\delta_i,&\delta_i&\sim\mathrm n(0,\sigma_\delta^2),
+\end{aligned}\right.\\
+\xi_i\sim\mathrm n(\xi,\sigma_\xi^2)
+\end{aligned}}_{\text{结构关系模型}}$$
+
+\sourcepageanchor{524}
+可通过以下区别理解这两个词，尽管这种区别并非普遍接受. 例如，微积分中常见方程$y=f(x)$，它描述函数关系，即假定变量间存在的关系. 因此，若把函数关系理解为两变量间假定的关系，那么在函数关系模型和结构关系模型中，方程$\eta_i=\alpha+\beta\xi_i$都是函数关系，即假设的关系，其中$\eta_i=E(Y_i\mid\xi_i)$.
+
+另一方面，结构关系是从问题的假定结构中产生的关系. 因而，在结构关系模型中，$\eta=EY_i=\alpha+\beta\xi=\alpha+\beta EX_i$可由模型结构推出，所以是结构关系.
+
+为使这些想法更清楚，考虑假定$x$没有误差的简单线性回归. 方程$E(Y_i\mid x_i)=\alpha+\beta x_i$是函数关系，即假定$E(Y_i\mid x_i)$与$x_i$间存在的关系. 然而，也可以假定$(X_i,Y_i)$服从二元正态分布，并给定$x_i$作简单线性回归. 此时，关系$E(Y_i\mid x_i)=\alpha+\beta x_i$由所假设模型的结构推出，因而是结构关系.
+
+按这些含义，术语的区分成了偏好问题. 任一模型中，都可以由函数关系推出结构关系，反之亦然. 重要区别在于：推断之前，是否积分消去滋扰参数$\xi_i$.
+
+\subsubsection{EIV模型中普通最小二乘的相合性}\label{sec:12.6.2}\index{SI0409@相合性}\index{SI0608@变量含误差}
+一般而言，用普通最小二乘估计量估计EIV回归斜率并不是好主意，因为它不相合. 假设线性结构关系\eqref{eq:12.2.6}成立，则
+$$\begin{aligned}
+\hat\beta&=\frac{\sum_{i=1}^n(X_i-\bar X)(Y_i-\bar Y)}{\sum_{i=1}^n(X_i-\bar X)^2}\\
+&=\frac{\frac1n\sum_{i=1}^n(X_i-\bar X)(Y_i-\bar Y)}{\frac1n\sum_{i=1}^n(X_i-\bar X)^2}\\
+&\to\frac{\operatorname{Cov}(X,Y)}{\operatorname{Var}X}\qquad(n\to\infty\text{，利用弱大数定律})\\
+&=\beta\frac{\sigma_\xi^2}{\sigma_\delta^2+\sigma_\xi^2}\qquad\text{（由\eqref{eq:12.2.19}）},
+\end{aligned}$$
+说明$\hat\beta$不可能相合. 函数关系情形也可得到同类结果.
+
+\hyperref[bib:source81]{Cochran（1968）}讨论了EIV模型中$\hat\beta$的表现. \hyperref[bib:source59]{Carroll、Gallo和Gleser（1985）}以及\hyperref[bib:source148]{Gleser、Carroll和Gallo（1987）}研究了普通最小二乘估计量的函数何时相合.
+
+\subsubsection{EIV模型中的工具变量}\label{sec:12.6.3}\index{SI0583@工具变量}
+工具变量（instrumental variables）的概念至少可追溯到\hyperref[bib:source324]{Wald（1940）}，他借此构造了斜率的相合估计量. 为理解工具变量，将EIV模型写为
+$$\begin{aligned}Y_i&=\alpha+\beta\xi_i+\varepsilon_i,\\X_i&=\xi_i+\delta_i,\end{aligned}$$
+作代数变换，得
+$$Y_i=\alpha+\beta X_i+[\varepsilon_i-\beta\delta_i].$$
+\sourcepageanchor{525}
+工具变量$Z_i$是能良好预测$X_i$但与$\nu_i=\varepsilon_i-\beta\delta_i$不相关的随机变量. 若能找到这样的变量，就可用来改进预测；特别地，可以构造$\beta$的相合估计量.
+
+\hyperref[bib:source324]{Wald（1940）}证明，在相当一般的条件下，估计量
+$$\hat\beta_{\mathrm W}=\frac{\bar Y_{(1)}-\bar Y_{(2)}}{\bar X_{(1)}-\bar X_{(2)}}$$
+在可识别模型中是$\beta$的相合估计量，下标表示数据的两个分组. 只取两个值以定义分组的变量$Z_i$就是工具变量. 关于Wald估计量的讨论，见\hyperref[bib:source222]{Moran（1971）}.
+
+工具变量虽然很有帮助，使用时也可能有问题. 例如，\hyperref[bib:source117]{Feldstein（1974）}给出使用工具变量反而有害的情形. \hyperref[bib:source222]{Moran（1971）}讨论了验证$\hat\beta_{\mathrm W}$这样简单的估计量相合所需条件的困难. \hyperref[bib:source130]{Fuller（1987）}深入讨论了工具变量. \hyperref[bib:source28]{Berkson（1950）}提出的模型利用了类似于工具变量的相关结构.
+
+\subsubsection{逻辑回归的似然方程}\label{sec:12.6.4}
+逻辑回归模型的似然方程关于参数为非线性，必须数值求解. 最常用的方法为Newton--Raphson方法. 它从MLE的初始猜测$(\hat\alpha^{(1)},\hat\beta^{(1)})$开始，用对数似然在该点的二阶Taylor展开作二次函数近似. MLE的下一次猜测$(\hat\alpha^{(2)},\hat\beta^{(2)})$就是这个二次函数的最大化点. 再以$(\hat\alpha^{(2)},\hat\beta^{(2)})$为中心作另一个二次近似，其最大化点给出下一次猜测. Taylor近似涉及对数似然的一阶、二阶导数，在当前猜测$(\hat\alpha^{(t)},\hat\beta^{(t)})$处计算. 这些二阶导数正是\eqref{eq:12.3.10}的信息矩阵中出现的导数. 因此，这种求解似然方程方法的一个副产品，是$\hat\alpha,\hat\beta$的方差与协方差估计. 对逻辑回归模型，猜测$(\hat\alpha^{(t)},\hat\beta^{(t)})$通常很快收敛到MLE $(\hat\alpha,\hat\beta)$，往往只需几次迭代就得到满意近似.
+
+Newton--Raphson方法也称为迭代重加权最小二乘（iteratively reweighted least squares）. 每一步对$(\hat\alpha,\hat\beta)$的下一次猜测，都可表示为某个最小二乘问题的解. 但这个问题对平方和中的不同项给予不同权重. 此时权重为$n_jF_j^{(t)}(1-F_j^{(t)})$，其中$F_j^{(t)}=F(\hat\alpha^{(t)}+\hat\beta^{(t)}x_j)$，$F$为logistic的cdf. 这是第$j$个样本logit方差近似值的倒数（\autoref{exercise:12.21}）. 每一步都使用当前MLE猜测重新计算权重，因而称为“迭代重加权”. 所以，Newton--Raphson方法近似等于以样本logit为数据，进行加权最小二乘估计参数所得的结果.
+
+\subsubsection{稳健回归的进一步讨论}\label{sec:12.6.5}
+多年来，最小二乘的稳健替代方法一直是研究对象，已有大量文献讨论各种问题. \autoref{sec:12.4}只简要介绍了稳健回归，但其一些优点和困难应已显现. 有许多优秀专著详细讨论稳健回归，包括\hyperref[bib:source165]{Hettmansberger和McKean（1998）}、\hyperref[bib:source299]{Staudte和Sheather（1990）}及\hyperref[bib:source171]{Huber（1981）}.\footnote{译注：原正文作者姓氏写为Hettmansberger，而本书书目相应条目写为Hettmansperger. 原正文拼法保留.} 以下其他主题也受到大量关注.
+
+\paragraph{截尾与变换}
+\sourcepageanchor{526}
+Carroll、Ruppert及其合作者的工作涵盖了稳健回归的许多方面. \hyperref[bib:source269]{Ruppert和Carroll（1979）}细致研究了截尾的渐近理论，截尾均值见\autoref{exercise:10.20}；\hyperref[bib:source60]{Carroll和Ruppert（1985）}考察误差不同分布时最小二乘的替代方法. 后续工作研究了回归中变换的优点（Carroll和Ruppert，\hyperref[bib:source60]{1985}，\hyperref[bib:source61]{1988}）.
+
+\paragraph{其他稳健替代方法}
+这里只考察了LAD估计量和一个M估计量，当然还有许多其他稳健估计量. 一个常用替代方法是\hyperref[bib:source262]{Rousseeuw（1984）}的最小平方中位数（Least Median of Squares，LMS）估计量，另见\hyperref[bib:source264]{Rousseeuw和Leroy（1987）}. 此外还有基于秩的回归估计量，即R估计量（R-estimators；见\hyperref[bib:source101]{Draper，1988}的综述）. 较近期还有关于数据深度（data depth）的研究（\hyperref[bib:source209]{Liu，1990}；\hyperref[bib:source210]{Liu和Singh，1992）}，在回归中应用于寻找最深直线（deepest line；\hyperref[bib:source263]{Rousseeuw和Hubert，1999）}.
+
+\paragraph{计算}
+从实际角度看，计算稳健估计可能颇具挑战，因为经常面对困难的最小化问题. \hyperref[bib:source244]{Portnoy和Koenker（1997）}的综述讨论LAD估计的计算. Hawkins（\hyperref[bib:source161]{1993}，\hyperref[bib:source162]{1994}，\hyperref[bib:source163]{1995}）给出了计算LMS及相关估计的一些算法.

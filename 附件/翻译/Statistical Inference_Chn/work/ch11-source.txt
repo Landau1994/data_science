@@ -1,0 +1,2181 @@
+
+
+=== PDF 452; PRINT 421 ===
+                                   Chapter 11
+
+     Analysis of Variance and Regression
+
+
+
+
+
+   “I’ve wasted time enough,” said Lestrade rising. “I believe in hard work and not in sitting by
+   the fire spinning fine theories.”
+                                                                   Inspector Lestrade
+                                               The Adventure of the Noble Bachelor
+
+11.1  Introduction
+Up until now, we have modeled a random variable with a pdf or pmf that depended on parameters
+to be estimated. In many situations, some of which follow, a random variable can be modeled not
+only with unknown parameters but also with known (and sometimes controllable) covariates. This
+describes the methodologies of analysis of variance (ANOVA) and regression analysis. They are
+based on an underlying assumption of a linear relationship, and form a large core of the statistical
+methods that are used in practice.
+  ANOVA is one of the most widely used statistical techniques. A basic idea of the ANOVA,
+that of partitioning variation, is a fundamental idea of experimental statistics. The ANOVA belies
+its name in that it is not concerned with analyzing variances but rather with analyzing variation in
+means.
+  We will study the a common type of ANOVA, the oneway ANOVA. For a thorough treatment of
+the different facets of ANOVA designs, there is the classic text by Cochran and Cox (1957) or the
+more modern, but still somewhat classical, treatments by Dean and Voss (1999) and Kuehl (2000).
+The text by Neter et al. (1993) provides a guide to overall strategies in experimental statistics.
+   The technique of regression, in particular linear regression, probably wins the prize as the most
+popular statistical tool. There are all forms of regression: linear, nonlinear, simple, multiple, para-
+metric, nonparametric, etc. In this chapter we will look at the simplest case, linear regression with
+one predictor variable. (This is usually called simple linear regression, as opposed to multiple linear
+regression, which deals with many predictor variables.)
+  A major purpose of regression is to explore the dependence of one variable on others. In simple
+linear regression, the mean of a random variable, Y, is modeled as a function of another observable
+variable, x, by the relationship EY = α +βx. In general, the function that gives EY as a function of
+x is called the population regression function.
+   Good overall references for regression models are Christensen (1996) and Draper and Smith
+(1998). A more theoretical treatment is given in Stuart, Ord, and Arnold (1999, Chapter 27).
+
+11.2  Oneway Analysis of Variance
+In its simplest form, the ANOVA is a method of estimating the means of several populations, pop-
+ulations often assumed to be normally distributed. The heart of the ANOVA, however, lies in the
+topic of statistical design. How can we get the most information on the most populations with the
+fewest observations? The ANOVA design question is not our major concern, however; we will be
+concerned with inference, that is, with estimation and testing, in the ANOVA.
+
+DOI: 10.1201/9781003456285-11                                                              421
+
+=== PDF 453; PRINT 422 ===
+422                             ANALYSIS OF VARIANCE AND REGRESSION
+    Classical ANOVA had testing as its main goal – in particular, testing what is known as “the
+ANOVA null hypothesis.” But more recently, especially in the light of greater computing power,
+experimenters have realized that testing one hypothesis (a somewhat ludicrous one at that, as we
+shall see) does not make for good experimental inference. Thus, although we will derive the test of
+the ANOVA null, it is far from the most important part of an analysis of variance. More important
+is estimation, both point and interval. In particular, inference based on contrasts (to be defined) is
+of major importance.
+    In the oneway analysis of variance (also known as the oneway classification), we assume that
+data, Yij, are observed according to a model
+
+                               Yi j = θi +εi j,    i = 1,...,k,     j = 1,...,ni,                    (11.2.1)
+
+where the θi are unknown parameters and the εi j are error random variables.
+Example 11.2.1 (Oneway ANOVA)   Schematically, the data, yij, from a oneway ANOVA will
+look like this:
+                                       Treatments
+                            1     2     3     ...    k
+                                   y11    y21    y31    ···    yk1
+                                   y12    y22    y32    ···    yk2
+                                                                                                                                                                            ...                              ...                              ...            yk3                                                               ···
+                                                    y3n3                                                    ...
+                                     y1n1
+                                            y2n2                  yknk
+Note that we do not assume that there are equal numbers of observations in each treatment group.
+   As an example, consider the following experiment performed to assess the relative effects, of
+three toxins and a control, on the liver of a certain species of trout. The data are the amount of
+deterioration (in standard units) of the liver of each sacrificed fish.
+                          Toxin 1   Toxin 2   Toxin 3   Control
+                          28       33       18       11
+                          23       36       21       14
+                          14       34       20       11
+                          27       29       22       16
+                                  31       24
+                                  34
+                                                                              ∥
+   Without loss of generality we can assume that Eεij = 0, since if not, we can rescale the εij and
+absorb the leftover mean into θi. Thus, it follows that
+
+                                   EYi j = θi,     j = 1,...,ni,
+
+so the θis are the means of the Yi js. The θis are usually referred to as treatment means, since the
+index often corresponds to different treatments or to levels of a particular treatment, such as dosage
+levels of a particular drug.
+   There is an alternative model to (11.2.1), sometimes called the overparameterized model, which
+can be written as
+                             Yi j = µ +τi +εi j,    i = 1,...,k,     j = 1,...,ni,                  (11.2.2)
+where, again, Eεij = 0. It follows from this model that
+
+                                        EYi j = µ +τi.
+
+=== PDF 454; PRINT 423 ===
+ONEWAY ANALYSIS OF VARIANCE                                            423
+In this formulation we think of µ as a grand mean, that is, the common mean level of the treatments.
+The parameters τi then denote the unique effect due to treatment i, the deviation from the mean level
+that is caused by the treatment. However, we cannot estimate both τi and µ separately, because there
+are problems with identifiability.
+Definition 11.2.2  A parameter θ for a family of distributions {f(x|θ): θ ∈Θ} is identifiable if
+distinct values of θ correspond to distinct pdfs or pmfs. That is, if θ̸ = θ ′, then f(x|θ) is not the
+same function of x as f(x|θ ′).
+    Identifiability is a property of the model, not of an estimator or estimation procedure. However,
+if the model is not identifiable, then there is difficulty in doing inference. For example, if f(x|θ) =
+f(x|θ ′), then observations from both distributions look exactly the same and we would have no wayof knowing whether the true value of the parameter was θ or θ ′. In particular, both θ and θ ′ would
+give the likelihood function the same value.
+    Realize that problems with identifiability can usually be solved by redefining the model. One
+reason that we have not encountered identifiability problems before is that our models have not only
+made intuitive sense but also were identifiable (for example, modeling a normal population in terms
+of its mean and variance). Here, however, we have a model, (11.2.2), that makes intuitive sense but
+is not identifiable. In Chapter 12 we will see a parameterization of the bivariate normal distribution
+that models a situation well, but is not identifiable.
+    In the parameterization of (11.2.2), there are k +1 parameters, (µ,τ1,...,τk), but only k means,
+EYij,i = 1,...,k. Without any further restriction on the parameters, more than one set of values for
+(µ,τ1,...,τk) will lead to the same distribution. It is common in this model to add the restriction
+that ∑ki=1 τi = 0, which effectively reduces the number of parameters to k and makes the model
+identifiable. The restriction also has the effect of giving the τis an interpretation as deviations from
+an overall mean level. (See Exercise 11.5.)
+   For the oneway ANOVA the model (11.2.1), the cell means model, which has a more straight-
+forward interpretation, is the one that we prefer to use. In more complicated ANOVAs, however,
+there is sometimes an interpretive advantage in model (11.2.2).
+
+
+11.2.1  Model and Distribution Assumptions
+
+Under model (11.2.1), a minimum assumption that is needed before any estimation can be done is
+that Eεij = 0 and Varεi j < ∞, for all i, j. Under these assumptions, we can do some estimation of
+the θis (as in Exercise 7.41). However, to do any confidence interval estimation or testing, we need
+distributional assumptions. Here are the classic ANOVA assumptions.
+Oneway ANOVA assumptions
+Random variables Yi j are observed according to the model
+
+                               Yi j = θi +εi j,    i = 1,...,k,     j = 1,...,ni,
+
+where
+   (i) Eεij = 0,Varεi j = σ2i < ∞, for all i, j. Cov(εij,εi′ j′) = 0 for all i, i′, j, and  j′ unless i = i′ and
+         j = j′.
+  (ii) The εij are independent and normally distributed (normal errors).
+ (iii) σ2i = σ2 for all i (equality of variance, also known as homoscedasticity).
+   Without assumption (ii) we could only do point estimation and possibly look for estimators that
+minimize variance within a class, but we could not do interval estimation or testing. If we assume
+some distribution other than normal, intervals and tests can be quite difficult (but still possible) to
+derive. Of course, with reasonable sample sizes and populations that are not too asymmetric, we
+have the CLT to rely on.
+
+=== PDF 455; PRINT 424 ===
+424                             ANALYSIS OF VARIANCE AND REGRESSION
+   The equality of variance assumption is also quite important. Interestingly, its importance is
+linked to the normality assumption. In general, if it is suspected that the data badly violate the
+ANOVA assumptions, a first course of attack is usually to try to transform the data, nonlinearly.
+This is done as an attempt to more closely satisfy the ANOVA assumptions, a generally easier alter-
+native than finding another model for the untransformed data. A number of common transformations
+can be found in Snedecor and Cochran (1989); also see Exercises 11.1 and 11.2. (Other research
+on transformations has been concerned with the Box–Cox family of power transformations. See
+Exercise 11.3.)
+   The classic paper of Box (1954) shows that the robustness of the ANOVA to the assumption of
+normality depends on how equal the variances are (equal being better). The problem of estimating
+means when variances are unequal, known as the Behrens–Fisher problem, has a rich statistical
+history which can be traced back to Fisher (1935, 1939). A full account of the Behrens–Fisher
+problem can be found in Stuart, Ord, and Arnold (1999).
+   For the remainder of this chapter we will do what is done in most of the experimental situations
+and we will assume that the three classic assumptions hold. If the data are such that transformations
+and the CLT are needed, we assume that such measures have been taken.
+
+
+11.2.2  The Classic ANOVA Hypothesis
+
+The classic ANOVA test is a test of the null hypothesis
+                           H0 :   θ1 = θ2 = ··· = θk,
+a hypothesis that, in many cases, is silly, uninteresting, and not true. An experimenter would not
+usually believe that the different treatments have exactly the same mean. More reasonably, an ex-
+periment is done to find out which treatments are better (for example, have a larger mean) and the
+real interest in the ANOVA is not in testing but in estimation. (There are some specialized situations
+where there is interest in the ANOVA null in its own right.) Most situations are like the following.
+Example 11.2.3 (The ANOVA hypothesis)  The ANOVA evolved as a method of analyzing agri-
+cultural experiments. For example, in a study of the effect of various fertilizers on the zinc content
+of spinach plants (yi j), five treatments are investigated. Each treatment consists of a mixture of
+fertilizer material (magnesium, potassium, and zinc) and the data look like the layout of Example
+11.2.1. The five treatments, in pounds per acre, are
+                       Treatment  Magnesium   Potassium   Zinc
+                         1          0            0      0
+                         2          0          200      0
+                         3         50          200      0
+                         4        200          200      0
+                         5          0          200     15
+The classic ANOVA null hypothesis is really of no interest since the experimenter is sure that the
+different fertilizer mixtures have some different effects. The interest is in quantifying these effects.
+∥
+  We will spend some time with the ANOVA null, but mostly to use it as a means to an end.
+Recall the connection between testing and interval estimation established in Chapter 9. By using
+this connection, we can derive confidence regions by deriving, then inverting, appropriate tests (an
+easier route here).
+   The alternative to the ANOVA null is simply that the means are not all equal, that is, we test
+        H0 :   θ1 = θ2 = ··· = θk     versus    H1 :     θi̸ = θ j, for some i, j.          (11.2.3)
+
+=== PDF 456; PRINT 425 ===
+ONEWAY ANALYSIS OF VARIANCE                                            425
+Equivalently, we can specify H1 as H1 : not H0. Realize that if H0 is rejected, we can conclude only
+that there is some difference in the θis, but we can make no inference as to where this difference
+might be. (Note that if H1 is accepted, we are not saying that all of the θis are different, merely that
+at least two are.)
+   One problem with the ANOVA hypotheses, a problem shared by many multivariate hypotheses,
+is that the interpretation of the hypotheses is not easy. What would be more useful, rather than
+concluding just that some θis are different, is a statistical description of the θis. Such a description
+can be obtained by breaking down the ANOVA hypotheses into smaller, more easily describable
+pieces.
+  We have already encountered methods for breaking down complicated hypotheses into smaller,
+more easily understood pieces – the union–intersection and intersection–union methods of Chap-
+ter 8. For the ANOVA, the union–intersection method is best suited as the ANOVA null is the
+intersection of more easily understood univariate hypotheses, hypotheses expressed in terms of con-
+trasts. Furthermore, in the cases we will consider, the resulting tests based on the union–intersection
+method are identical to LRTs (Exercise 11.13). Hence, they enjoy all of the properties of likelihood
+tests.
+Definition 11.2.4   Let t = (t1,...,tk) be a set of variables, either parameters or statistics, and let
+a = (a1,...,ak) be known constants. The function
+
+                                                          k
+                                                                                            (11.2.4)                  ∑ aiti
+                                                i=1
+is called a linear combination of the tis. If, furthermore, ∑ai = 0, it is called a contrast.
+    Contrasts are important because they can be used to compare treatment means. For example, if
+we have means θ1,...,θk and constants a = (1,−1,0,...,0), then
+                                                   k
+                ∑ aiθi                         = θ1 −θ2                                           i=1
+is a contrast that compares θ1 to θ2. (See Exercise 11.10 for more about contrasts.)
+   The power of the union–intersection approach is increased understanding. The individual null
+hypotheses, of which the ANOVA null hypothesis is the intersection, are quite easy to visualize.
+Theorem 11.2.5  Let θ = (θ1,...,θk) be arbitrary parameters. Then
+
+                                                           k
+                      θ1 = θ2 =  = θk  ∑ aiθi                                        ···  ⇔ i=1  = 0   for all a ∈A
+where A  is the set of constants satisfying A = {a = (a1,...,ak): ∑ai = 0}, that is, all contrastsmust satisfy ∑aiθi = 0.
+Proof: If θ1 = ··· = θk = θ then
+                               k           k             k
+                =                           = 0,            (because a satisfies ∑ai = 0)          ∑ aiθi             ∑ aiθ                     = θ ∑ ai
+                         i=1       i=1         i=1
+proving one implication (⇒). To prove the other implication, consider the set of ai ∈A given by
+        a1 = (1,−1,0,...,0),   a2 = (0,1,−1,0,...,0),   ...,  ak−1 = (0,...,0,1,−1).
+(The set (a1,a2,...,ak−1) spans the elements of A . That is, any a ∈A can be written as a linear
+combination of (a1,a2,...,ak−1).) Forming contrasts with these ais, we get that
+                  a1 ⇒θ1 = θ2,   a2 ⇒θ2 = θ3,   ...,  ak−1 ⇒θk−1 = θk,
+which, taken together, imply that θ1 = ··· = θk, proving the theorem.               2
+
+=== PDF 457; PRINT 426 ===
+426                             ANALYSIS OF VARIANCE AND REGRESSION
+     It immediately follows from Theorem 11.2.5 that the ANOVA null can be expressed as a hy-
+pothesis about contrasts. That is, the null hypothesis is true if and only if the hypothesis
+
+                                  k                                                  k
+                                       = 0               H0 : ∑ aiθi                  = 0   for all (a1,...,ak) such that ∑ ai
+                            i=1                                         i=1
+
+is true. Moreover, if H0 is false, we now know that there must be at least one nonzero contrast. That
+is, the ANOVA alternative, H1 : not all θis equal, is equivalent to the alternative
+
+                                k                                                      k
+                                       = 0.              H1 :                 = 0   for some (a1,...,ak) such that                           ∑ ai          ∑ aiθi̸                          i=1                                                                         i=1
+
+Thus, we have gained in that the use of contrasts leaves us with hypotheses that are a little easier
+to understand and perhaps are a little easier to interpret. The real gain, however, is that the use of
+contrasts now allows us to think and operate in a univariate manner.
+
+
+11.2.3  Inferences Regarding Linear Combinations of Means
+
+Linear combinations, in particular, contrasts, play an extremely important role in the analysis of
+variance. Through understanding and analyzing the contrasts, we can make meaningful inferences
+about the θis. In the previous section we showed that the ANOVA null is really a statement about
+contrasts. In fact, most interesting inferences in an ANOVA can be expressed as contrasts or sets of
+contrasts. We start simply with inference about a single linear combination.
+   Working under the oneway ANOVA assumptions, we have that
+
+                        = 1,...,k,     j = 1,...,ni.                              Yi j ∼n(θi,σ2),    i
+Therefore,
+                          1   ni
+               =                                                                                  ,    i = 1,...,k.              ∑ Yi j                                               ¯Yi·                      ∼n θi,σ2/ni                                     ni j=1
+A note on notation: It is a common convention that if a subscript is replaced by a ·  (dot), it means                                                                                                                            j = ∑ki=1Yij. The addition of a “bar”that subscript has been summed over. Thus, Yi· = ∑nij=1Yij and Y·
+indicates that a mean is taken, as in ¯Yi· above. If both subscripts are summed over and the overall
+mean (called the grand mean) is calculated, we will break this rule to keep notation a little simpler
+and write ¯¯Y = (1/N)∑ki=1 ∑nij=1Yi j, where N = ∑ki=1 ni.
+   For any constants a = (a1,...,ak), ∑ki=1ai¯Yi· is also normal (Exercise 11.8) with
+                        k                 k                              k                     k a2i               =                                                                                                                        ,          E                                      and    Var                                    = σ2             ∑ aiθi                              ∑       ∑ ai¯Yi·                       ∑ ai¯Yi·                                                                                           ni                    i=1                                   i=1                                                              i=1                                                                                i=1
+
+and furthermore
+                                                  i=1 aiθi                          ∑ki=1 ai¯Yi· −∑k                                             ∼n(0,1).                             σ2 ∑ki=1 a2i /ni
+Although this is nice, we are usually in the situation of wanting to make inferences about the θis
+without knowledge of σ. Therefore, we want to replace σ with an estimate. In each population, if
+we denote the sample variance by S2i , that is,
+                              1      ni
+                                                                                    i = 1,...,k,                          S2i =                ∑ (Yi j −¯Yi·)2,                                       ni     j=1                     −1
+
+=== PDF 458; PRINT 427 ===
+ONEWAY ANALYSIS OF VARIANCE                                            427
+then S2i is an estimate of σ2, and (ni −1)S2                                                                                   i /σ2 ∼χ2ni−1. Furthermore, under the ANOVA assump-
+tions, since each S2i estimates the same σ2, we can improve the estimators by combining them. We
+thus use the pooled estimator of σ2,S2p, given by
+
+                         1     k             1     k   ni
+                         =                                                                                            (11.2.5)                     S2p =   ∑ (ni            i                       ∑ ∑ (Yij                  N     i=1  −1)S2  N     i=1 j=1    −¯Yi·)2.                   −k           −k
+Note that N−k = ∑(ni−1). Since the S2                                                                            i s are independent, Lemma 5.3.2 shows that (N−k)S2p/σ2 ∼
+               p is independent of each ¯Yi· (Exercise 11.6) and thusχ2N−k. Also, S2
+                                                   i=1 aiθi                           ∑ki=1 ai¯Yi· −∑k                                             ∼tN−k,                           (11.2.6)                                                    S2p ∑ki=1 a2i /ni
+Student’s t with N −k degrees of freedom.   To test
+                                      k                                         k
+                                     = 0                 H0 :                   = 0     versus    H1 :            ∑ aiθi                         ∑ aiθi̸                               i=1                                                                   i=1
+at level α, we would reject H0 if
+
+                              ∑ki=1 ai¯Yi·   >                                    (11.2.7)                                                         tN−k,α/2.                                                  S2p ∑ki=1 a2i /ni
+
+(Exercise 11.9 shows some other tests involving linear combinations.) Furthermore, (11.2.6) defines
+a pivot that can be inverted to give an interval estimator of ∑aiθi. With probability 1−α,
+                       k                           k a2i
+
+                   i=1       ∑ ai¯Yi· −tN−k,α/2    S2p i=1∑ ni
+                                                                                         k a2i                                                                                                                .             (11.2.8)                                                                            p                            ∑                                                   i=1 ai¯Yi· +tN−k,α/2  S2             ≤∑k                                   i=1 aiθi ≤∑k                                                                                      ni                                                                           i=1
+
+Example 11.2.6 (ANOVA contrasts)   Special values of a will give particular tests or confidence
+intervals. For example, to compare treatments 1 and 2, take a = (1,−1,0,...,0). Then, using
+(11.2.6), to test H0 : θ1 = θ2 versus H1 : θ1̸ = θ2, we would reject H0 if
+                                                          ¯Y1· −¯Y2·   >                                                         tN−k,α/2.
+                       +                                                  S2p   n11    1                                                         n2
+
+Note, the difference between this test and the two-sample t test (Exercise 8.41) is that here informa-
+tion from treatments 3, ...,k, as well as treatments 1 and 2, is used to estimate σ2.
+    Alternatively, to compare treatment 1 to the average of treatments 2 and 3 (for example, treat-
+ment 1 might be a control, 2 and 3 might be experimental treatments, and we are looking for some
+                                      = 2(θ2 +θ3) ifoverall effect), we would take a = (1,−12,−12,0,...,0) and reject H0 : θ1    1
+
+
+                                            2      2                                                    ¯Y1· −1 ¯Y2· −1 ¯Y3·   >                                                            tN−k,α/2.
+                      +                         +                                             S2p   n11     1     1                                                   4n2                                                          4n3
+
+=== PDF 459; PRINT 428 ===
+428                             ANALYSIS OF VARIANCE AND REGRESSION
+   Using either (11.2.6) or (11.2.8), we have a way of testing or estimating any linear combination
+in the ANOVA. By judiciously choosing our linear combination we can learn much about the treat-
+ment means. For example, if we look at the contrasts θ1 −θ2,θ2 −θ3, and θ1 −θ3, we can learnsomething about the ordering of the θis. (Of course, we have to be careful of the overall α level
+when doing a number of tests or intervals, but we can use the Bonferroni Inequality. See Example
+11.2.9.)
+  We also must use some care in making formal conclusions from combinations of contrasts.
+Consider the hypotheses
+
+                        1                               1
+             H0 :   θ1 = 2(θ2 +θ3)     versus    H1 :   θ1 < 2(θ2 +θ3)
+and
+                    H0 :   θ2 = θ3     versus    H1 :   θ2 < θ3.
+If we reject both null hypotheses, we can conclude that θ3 is bigger than both θ1 and θ2, although we
+can make no formal conclusion about the ordering of θ2 and θ1 from these two tests. (See Exercise
+11.10.)                                                                         ∥
+  Now we will use these univariate results about linear combinations and the relationship between
+the ANOVA null hypothesis and contrasts given in Theorem 11.2.5 to derive a test of the ANOVA
+null hypothesis.
+
+11.2.4  The ANOVA F Test
+
+In the previous section we saw how to deal with single linear combinations and, in particular, con-
+trasts in the ANOVA. Also, in Section 11.2, we saw that the ANOVA null hypothesis is equivalent
+to a hypothesis about contrasts. In this section we will use this equivalence, together with the union–
+intersection methodology of Chapter 8, to derive a test of the ANOVA hypothesis.
+   From Theorem 11.2.5, the ANOVA hypothesis test can be written
+
+                  k                                                         k
+                                    = 0 for some a        ,      H0 : ∑ aiθi           = 0 for all a          versus    H1 : ∑               i=1        ∈A                        i=1 aiθi̸        ∈A
+
+                    = 0}. To see this more clearly as a union–intersection test,where A = {a = (a1,...,ak): ∑ki=1aidefine, for each a, the set
+                                                                     k
+                                = 0}.                      Θa = {θ = (θ1,...,θk): i=1∑ aiθi
+Then we have
+           θ ∈{θ : θ1 = θ2 = ··· = θk} ⇔θ ∈Θa for all a ∈A ⇔θ ∈    Θa,
+                                                               a∈A
+showing that the ANOVA null can be written as an intersection.
+   Now, recalling the union–intersection methodology from Section 8.2.3, we would reject H0: θ ∈
+∩a∈A Θa (and, hence, the ANOVA null), if we can reject
+                       H0a :  θ ∈Θa     versus    H1a :     θ̸ ∈Θa
+for any a. We test H0a with the t statistic of (11.2.6),
+
+                                                         i=1 aiθi                                                                                            .                           (11.2.9)                                ∑ki=1 ai¯Yi· −∑k                                 Ta =
+                                                            S2p ∑ki=1 a2i /ni
+
+=== PDF 460; PRINT 429 ===
+ONEWAY ANALYSIS OF VARIANCE                                            429
+We then reject H0a if Ta > k, for some constant k. Using the union–intersection methodology, it
+follows that if we could reject for any a, we could reject for the a that maximizes Ta. Thus, the
+union–intersection test of the ANOVA null is to reject H0 if supa Ta > k, where k is chosen so that
+PH0(supa Ta > k) = α.
+    Calculation of supa Ta is not straightforward, although with a little care it is not difficult. The
+calculation is that of a constrained maximum, similar to problems previously encountered (see, for
+example, Exercise 7.41, where a constrained minimum is calculated). We will attack the problem
+in a manner similar to what we have done previously and use the Cauchy–Schwarz Inequality.
+(Alternatively, a method such as Lagrange multipliers could be used, but then we would have to use
+second-order conditions to verify that a maximum has been found.)
+   Most of the technical maximization arguments will be given in the following lemma and the
+lemma will then be applied to obtain the supremum of Ta. The lemma is just a statement about con-
+strained maxima of quadratic functions. The proof of the lemma may be skipped by the fainthearted.
+Lemma 11.2.7   Let (v1,...,vk) be constants and let (c1,...,ck) be positive constants. Then, for
+A = {a = (a1,...,ak): ∑ai = 0},
+                             ∑ki=1aivi 2        k
+                           =                                                                                        (11.2.10)                     max                     ∑ ci(vi −¯vc)2,                                                        i=1                         a∈A   ∑ki=1 a2i /ci
+where ¯vc = ∑civi/∑ci. The maximum is attained at any a of the form ai = Kci(vi −¯vc) where K isa nonzero constant.
+Proof: Define B = {b = (b1,...,bk) : ∑bi = 0 and ∑b2                                                                                                                 i /ci = 1}. For any a ∈A , define b =(b1,...,bk) by
+                                                          ai
+                                              bi =
+                                     ∑ki=1a2i /ci
+
+and note that b ∈B. For any a ∈A ,
+
+                                                  2        k       2                            ∑ki=1 aivi
+                         =                                                                                           .                     ∑ bivi                            ∑ki=1 a2i /ci       i=1
+
+We will find an upper bound on (∑bivi)2, for b ∈B, and then we will show that the maximizing a,given in the lemma, achieves the upper bound.
+   Since we are dealing with the sum of products, the Cauchy–Schwarz Inequality (Section 4.7) is
+a natural thing to try, but we have to be careful to build in the constraints involving the cis. We can
+do this in the following way. Define C = ∑ci and write
+
+
+                                             2                            2
+                       1     k                 k    bi          ci
+                      =                                                                                                      .             ∑ bivi                   ∑       (vi)                     C2   i=1            i=1   ci     C
+
+This is the square of a covariance for a probability measure defined by the ratios ci/C. Formally, if
+we define random variables B and V by
+
+                                           bi                ci
+                   P B =   ,V = vi =    ,    i = 1,...,k,
+                                               ci        C
+
+=== PDF 461; PRINT 430 ===
+430                             ANALYSIS OF VARIANCE AND REGRESSION
+then EB = ∑(bi/ci)(ci/C) = ∑bi/C = 0. Thus,
+
+                                            2
+                          k    bi          ci
+        ∑       (vi)                     i=1   ci     C
+             = (EBV)2
+
+             =  (Cov(B,V))2                                     (EB = 0)
+
+                  ≤(VarB)(VarV)                     (Cauchy–Schwarz Inequality)
+                                       k    bi  2   ci         k               ci                               ∑civi             =            ∑       ∑ (vi                                                                                                       .                        ¯vc =  ∑ci                                i=1   ci   C      i=1   −¯vc)2 C
+
+Using the fact that ∑b2i /ci = 1 and canceling common terms, we obtain
+
+                                        2                                   k               k
+                                                            for any b                      (11.2.11)           ∑ bivi  ∑ ci(vi                             i=1    ≤ i=1     −¯vc)2,       ∈B.
+Finally, we see that if ai = Kci(vi −¯vc), for any nonzero constant K, then a ∈A and
+                                  Kci(vi                       ci(vi                          bi =             −¯vc)    =         −¯vc)       .
+                       ∑ki=1(Kci(vi −¯vc))2/ci     ∑k                                                                i=1 ci(vi −¯vc)2
+Since ∑ci(vi −¯vc) = 0,
+                            k          ∑ki=1 ci(vi                =              −¯vc)vi         ∑ bivi
+                       i=1          ∑ki=1 ci(vi −¯vc)2
+                            ∑ki=1 ci(vi                     k                =             −¯vc)2  =                         ∑ ci(vi                                                                    −¯vc)2                             ∑ki=1 ci(vi                i=1                                              −¯vc)2
+and the inequality in (11.2.11) is an equality. Thus, the upper bound is attained and the function is
+maximized at such an a.                                       2
+
+   Returning to Ta of (11.2.9), it should be clear that maximizing Ta is equivalent to maximizing
+Ta2 . We have
+
+                                                       2                2                                        k           k                  k
+                                                                     ai ¯Ui             ∑ ai¯Yi· − i=1∑ aiθi         i=1∑                            2      i=1                                             =                 Ta =            k       =      k            .                   (¯Ui                                                                                                                                                              ¯Yi· −θi)
+                                S2p ∑ a2i /ni         S2p ∑ a2i /ni
+                                        i=1                   i=1
+
+Noting that S2p has no effect on the maximization, we can apply Lemma 11.2.7 to the above expres-
+sion to get the following theorem.
+Theorem 11.2.8  For Ta defined in expression (11.2.9),
+
+                                                                           2
+                               ∑ki=1 ni                                       2                   (¯Yi· −¯¯Y)−(θi −¯θ)                         sup Ta =                                              ,                  (11.2.12)                            a:∑ai=0                          S2p
+
+=== PDF 462; PRINT 431 ===
+ONEWAY ANALYSIS OF VARIANCE                                            431
+                   and ¯θ = ∑niθi/∑ni. Furthermore, under the ANOVA assumptionswhere ¯¯Y = ∑ni¯Yi·/∑ni
+                                sup Ta2 ∼(k −1)Fk−1,N−k,                         (11.2.13)                                    a:∑ai=0
+that is, supa:Σai=0 Ta2 /(k −1) has an F distribution with k−1 and N −k degrees of freedom. (Recallthat N = ∑ni.)
+Proof: To prove (11.2.12), use Lemma 11.2.1 and identify vi with ¯Ui and ci with ni. The result is
+immediate.
+   To prove (11.2.13), we must show that the numerator and denominator of (11.2.12) are in-
+dependent chi squared random variables, each divided by  its degrees of freedom. From the
+ANOVA assumptions two things follow. The numerator and denominator are independent and
+S2p ∼σ2χ2N−k/(N −k). A little work must be done to show that
+                        1   k                            2
+             ∑ ni   (¯Yi· −¯¯Y)−(θi −¯θ)  ∼χ2k−1.                      σ2 i=1
+
+This can be done, however, and is left as an exercise. (See Exercise 11.7.)             2
+     If H0 : θ1 = θ2 = ··· = θk is true, θi = θ for all i = 1,...,k and the θi −¯θ terms drop out of(11.2.12). Thus, for an α level test of the ANOVA hypotheses
+
+                                                                                                                                        j for some i, j,           H0 :   θ1 = θ2 = ··· = θk     versus    H1 :     θi̸ = θ
+we reject H0 if
+                                                   2
+                      ∑ki=1ni   (¯Yi· −¯¯Y)
+                         > (k −1)Fk−1,N−k,α.                   (11.2.14)                                                 S2p
+This rejection region is usually written as
+
+                                                            2
+                            ∑ki=1 ni   (¯Yi· −¯¯Y)                                                   /(k −1)                      reject H0 if F =                                  > Fk−1,N−k,α                                                                S2p
+
+and the test statistic F is called the ANOVA F statistic.
+
+11.2.5  Simultaneous Estimation of Contrasts
+
+We have already seen how to estimate and test a single contrast in the ANOVA; the t statistic and
+interval are given in (11.2.6) and (11.2.8). However, in the ANOVA we are often in the position of
+wanting to make more than one inference and we know that the simultaneous inference from many
+α level tests is not necessarily at level α. In the context of the ANOVA this problem has already
+been mentioned.
+Example 11.2.9 (Pairwise differences)  Many times there is interest in pairwise differences of
+means. Thus, if an ANOVA has means θ1,...,θk, there may be interest in interval estimates of
+θ1 −θ2, θ2 −θ3, θ3 −θ4, etc. With the Bonferroni Inequality, we can build a simultaneous inferencestatement. Define
+
+                                                        1   1
+                                     +                                                                                                                     .                Ci j =   θi −θj : θi −θj ∈¯Yi· −¯Yj· ±tN−k,α/2   S2p   ni                                                                         nj
+
+Then P(Cij) = 1 −α for each Ci j, but, for example, P(C12 and C23) < 1 −α. However, this lastinference is the kind that we want to make in the ANOVA.
+
+=== PDF 463; PRINT 432 ===
+432                             ANALYSIS OF VARIANCE AND REGRESSION
+    Recall the Bonferroni Inequality, given in expression (1.2.10), which states that for any sets
+A1,...,An,
+                                                    n
+                     P     Ai  ∑                       ≥ i=1 P(Ai)−(n−1).                                      i=1                       n
+In this case we want to bound P(∩i, jCi j), the probability that all of the pairwise intervals cover theirrespective differences.
+     If we want to make a simultaneous 1 −α statement about the coverage of m confidence sets,then, from the Bonferroni Inequality, we can construct each confidence set to be of level γ, where γ
+satisfies
+                                   m
+                     1−α = i=1∑ γ −(m−1),
+or, equivalently,
+                                           γ =                         1−αm.
+A slight generalization is also possible in that it is not necessary to require each individual inference
+at the same level. We can construct each confidence set to be of level γi, where γi satisfies
+
+                                   m
+                      =                    1−α   i=1∑ γi −(m−1).
+In an ANOVA with k treatments, simultaneous inference on all k(k −1)/2 pairwise differences can
+be made with confidence 1−α if each t interval has confidence 1−2α/[k(k −1)].            ∥
+  An alternative and quite elegant approach to simultaneous inference is given by Scheff´e (1959).
+Scheff´e’s procedure, sometimes called the S method, allows for simultaneous confidence intervals
+(or tests) on all contrasts. (Exercise 11.14 shows that Scheff´e’s method can also be used to set up
+simultaneous intervals for any linear combination, not just for contrasts.) The procedure allows us
+to set a confidence coefficient that will be valid for all contrast intervals simultaneously, not just a
+specified group. The Scheff´e procedure would be preferred if a large number of contrasts are to be
+examined. If the number of contrasts is small, the Bonferroni bound will almost certainly be smaller.
+(See the Miscellanea section for a discussion of other types of multiple comparison procedures.)
+   The proof that the Scheff´e procedure has simultaneous 1−α coverage on all contrasts followseasily from the union–intersection nature of the ANOVA test.
+Theorem 11.2.10  Under the ANOVA assumptions, if M =   (k −1)Fk−1,N−k,α, then the proba-bility is 1−α that                 
+
+                      k                    k a2i         k              k                    k a2i                                                                                                                      ,             ∑                  ∑ aiθi                             ∑                       ∑ ai¯Yi· +M       ∑ ai¯Yi· −M                                                                                          ni                  i=1                                           ni ≤  i=1                            ≤  i=1              i=1                              i=1                                                 S2p                             S2p
+simultaneously for all a ∈A = {a = (a1,...,ak): ∑ai = 0}.Proof: The simultaneous probability statement requires M to satisfy
+
+                            k           k                      k a2i           P                    ∑                                                                            for all a ∈A   1−α,                                                             ni          i=1         ∑ ai¯Yi· − i=1∑ aiθi                    i=1                                             S2p         =or, equivalently,                                                  ≤M
+                        P(Ta2 ≤M2, for all a ∈A                                                           ) = 1−α,
+
+=== PDF 464; PRINT 433 ===
+ONEWAY ANALYSIS OF VARIANCE                                            433
+where Ta is defined in (11.2.9). However, since
+
+
+                                                                                                             ,                                                   ) = P                  P(Ta2 ≤M2, for all a ∈A                  2                                                   sup Ta ≤M2                                                           a:∑ai=0
+Theorem 11.2.8 shows that choosing M2 = (k −1)Fk−1,N−k,α satisfies the probability requirement.                                                    2
+
+   One of the real strengths of the Scheff´e procedure is that it allows legitimate “data snooping.”
+That is, in classical statistics it is taboo to test hypotheses that have been suggested by the data, since
+this can bias the results and, hence, invalidate the inference. (We normally would not test H0: θ1 = θ2
+just because we noticed that ¯Y1· was different from ¯Y2·. See Exercise 11.18.) However, with Scheff´e’s
+procedure such a strategy is legitimate. The intervals or tests are valid for all contrasts. Whether they
+have been suggested by the data makes no difference. They already have been taken care of by the
+Scheff´e procedure.
+   Of course, we must pay for all of the inferential power offered by the Scheff´e procedure. The
+payment is in the form of the lengths of the intervals. In order to guarantee the simultaneous confi-
+dence level, the intervals may be quite long. For example, it can be shown (Exercise 11.15) that in
+comparing the t and F distributions, for any ν, α, and k, the cutoff points satisfy
+
+                                       tν,α/2 ≤   (k −1)Fk−1,ν,α,
+and so the Scheff´e intervals are always wider, sometimes much wider, than the single-contrast in-
+tervals (another argument in favor of the doctrine that nothing substitutes for careful planning and
+preparation in experimentation). The interval length phenomenon carries over to testing. It also
+follows from the above inequality that Scheff´e tests are less powerful than t tests.
+
+
+11.2.6  Partitioning Sums of Squares
+
+The ANOVA provides a useful way of thinking about the way in which different treatments affect a
+measured variable – the idea of allocating variation to different sources. The basic idea of allocating
+variation can be summarized in the following identity.
+Theorem 11.2.11  For any numbers yi j,i = 1,...,k, and j = 1,...,ni,
+
+                             k   ni                  k                   k   ni
+                    =                             +                                                                                        (11.2.15)         ∑                       ∑          ∑ (yi j −¯¯y)2                ∑ ni(¯yi· −¯¯y)2                        ∑ (yij −¯yi·)2,                        i=1                           j=1                                            i=1                                                             i=1                                                                j=1
+
+     =                  ni ∑j yi j and  ¯¯ywhere ¯yi·    1              = ∑i ni ¯yi·/∑i ni.
+Proof: The proof is quite simple and relies only on the fact that, when dealing with means, the
+cross-term often disappears. Write
+
+                               k   ni                  k   ni
+                     =                                                                                                          ,                 ∑                  ∑ ((yij          ∑           ∑ (yi j −¯¯y)2                                                           −¯yi·)+(¯yi· −¯¯y))2                          i=1                             j=1                                             i=1                                                j=1
+
+expand the right-hand side and regroup terms. (See Exercise 11.21.)                2
+
+   The sums in (11.2.15) are called sums of squares and are thought of as measuring variation in the
+data ascribable to different sources. (They are sometimes called corrected sums of squares, where
+the word corrected refers to the fact that a mean has been subtracted.) In particular, the terms in the
+oneway ANOVA model,
+                                                Yi j = θi +εij,
+
+=== PDF 465; PRINT 434 ===
+434                             ANALYSIS OF VARIANCE AND REGRESSION
+are in one-to-one correspondence with the terms in (11.2.15). Equation (11.2.15) shows how to allo-
+cate variation to the treatments (variation between treatments) and to random error (variation within
+treatments). The left-hand side of (11.2.15) measures variation without regard to categorization by
+treatments, while the two terms on the right-hand side measure variation due only to treatments and
+variation due only to random error, respectively. The fact that these sources of variation satisfy the
+above identity shows that the variation in the data, measured by sums of squares, is additive in the
+same way as the ANOVA model.
+   One reason it is easier to deal with sums of squares is that, under normality, corrected sums of
+squares are chi squared random variables, and we have already seen that independent chi squareds
+can be added to get new chi squareds.
+   Under the ANOVA assumptions, in particular if Yij ∼n(θi,σ2), it is easy to show that
+                             1   k   ni
+                                                                                        (11.2.16)               ∑                ∑ (Yi j −¯Yi·)2 ∼χ2N−k,                          σ2 i=1                                           j=1
+because for each i = 1,...,k,  1                             σ2 ∑nij=1(Yi j −¯Yi·)2 ∼χ2ni−1, all independent, and, for independent chi
+                                                                                                                                      j for every i, j, thensquared random variables, ∑ki=1χ2                                   ni−1 ∼χ2N−k. Furthermore, if θi = θ
+            1   k                        1   k   ni
+                                  and                                                                                        (11.2.17)                    ∑                     ∑ (Yij −¯¯Y)2 ∼χ2N−1.       ∑ ni(¯Yi· −¯¯Y)2 ∼χ2k−1          σ2 i=1                                   σ2 i=1                                                        j=1
+Thus, under H0 : θ1 = ··· = θk, the sum of squares partitioning of (11.2.15) is a partitioning of
+chi squared random variables. When scaled, the left-hand side is distributed as a χ2N−1, and theright-hand side is the sum of two independent random variables distributed, respectively, as χ2
+                                                                                         k−1
+and χ2N−k. Note that the χ2 partitioning is true only if the terms on the right-hand side of (11.2.15)are independent, which follows in this case from the normality in the ANOVA assumptions. The
+partitioning of χ2s does hold in a slightly more general context and a characterization of this is
+sometimes referred to as Cochran’s Theorem. (See Searle (1971) and also the Miscellanea section.)
+    In general, it is possible to partition a sum of squares into sums of squares of uncorrelated
+contrasts, each with one degree of freedom. If the sum of squares has ν degrees of freedom and is
+χ2ν, it is possible to partition it into ν independent terms, each of which is χ21.
+                                                              i /ni) is called the contrast sum of squares for a treatment contrast   The quantity (∑ai¯Yi·)2/(∑a2
+                                          = (a(l)1 ,...,a(l)k  ),∑ai¯Yi·. In a oneway ANOVA it is always possible to find sets of constants a(l)
+l = 1,...,k −1, to satisfy
+               k              ∑ki=1 a(1)i   ¯Y 2     ∑ki=1 a(2)i   ¯Y 2         ∑ki=1 a(k−1)i      ¯Y 2              =                                                                                i· +                                                                                                                  i·                                                                                                                                                                    i·     ∑ ni(¯Yi· −¯¯Y)2                                           +···+            i=1                       ∑ki=1(a(1)i  )2/ni                                    ∑ki=1(a(2)i  )2/ni                                                      ∑ki=1(a(k−1)i    )2/ni
+and
+                                         k  a(l)i  a(l′)i                        = 0   for all = l′.                       (11.2.18)             ∑                                  i=1    ni                                                       l̸
+Thus, the individual contrast sums of squares are all uncorrelated, hence independent under normal-
+ity (Lemma 5.3.3). When suitably normalized, the left-hand side of (11.2.18) is distributed as a χ2
+                                                                                         k−1
+and the right-hand side is k −1 χ21s. (Such contrasts are called orthogonal contrasts. See Exercises11.10 and 11.11.)
+     It is common to summarize the results of an ANOVA F test in a standard form, called an ANOVA
+table. The table also gives a number of useful, intermediate statistics. The headings should be self-
+explanatory.
+Example 11.2.12 (Continuation of Example 11.2.1)  The ANOVA table for the fish toxin data is
+given below. The F statistic of 26.09 is highly significant, showing that there is strong evidence the
+toxins produce different effects.                                                     ∥
+
+=== PDF 466; PRINT 435 ===
+SIMPLE LINEAR REGRESSION                                                435
+                 ANOVA table for oneway classification
+
+           Source of   Degrees of  Sum of       Mean       F
+             variation   freedom     squares         square            statistic
+                                             MSB          Between            SSB =      MSB =      F =                                        MSW
+            treatment   k −1          ∑ni(¯yi −¯¯y)2    SSB/(k −1)           groups
+
+           Within            SSW =     MSW =
+                                                                                          j            treatment  N −k       ∑∑(yi                                                   −¯yi·)2  SSW/(N −k)           groups
+
+                            SST =
+             Total     N −1       ∑∑(yi j                                                      −¯¯y)2
+
+                 Source of   Degrees of  Sum of   Mean   F
+                    variation    freedom     squares    square    statistic
+
+                  Treatments       3       995.90   331.97   26.09
+
+                 Within         15       190.83    12.72
+
+                   Total           18      1,186.73
+
+
+     It follows from equation (11.2.15) that the sum of squares column “adds” – that is, SSB + SSW =
+SST. Similarly, the degrees of freedom column adds. The mean square column, however, does not
+as these are means rather than sums.
+   The ANOVA table contains no new statistics; it merely gives an orderly form for calculation and
+presentation. The F statistic is exactly the same as derived before and, moreover, MSW is the usual,
+pooled, unbiased estimator of σ2, S2p of (11.2.5) (Exercise 11.22).
+
+11.3  Simple Linear Regression
+In the analysis of variance we looked at how one factor (variable) influenced the means of a re-
+sponse variable. We now turn to simple linear regression, where we try to better understand the
+functional dependence of one variable on another. In particular, in simple linear regression we have
+a relationship of the form
+                                              Yi = α +βxi +εi,                                 (11.3.1)
+where Yi is a random variable and xi is another observable variable. The quantities α and β, the
+intercept and slope of the regression, are assumed to be fixed and unknown parameters and εi is,
+necessarily, a random variable. It is also common to suppose that Eεi = 0 (otherwise we could just
+rescale the excess into α), so that, from (11.3.1), we have
+
+                                        EYi = α +βxi.                                  (11.3.2)
+
+In general, the function that gives EY as a function of x is called the population regression function.
+Equation (11.3.2) defines the population regression function for simple linear regression.
+   One main purpose of regression is to predict Yi from knowledge of xi, using a relationship like
+(11.3.2). In common usage this is often interpreted as saying that Yi depends on xi. It is common to
+refer to Yi as the dependent variable and to refer to xi as the independent variable. This terminology
+
+=== PDF 467; PRINT 436 ===
+436                             ANALYSIS OF VARIANCE AND REGRESSION
+is confusing, however, since this use of the word “independent” is different from our previous usage.
+(The xis are not necessarily random variables, so they cannot be statistically “independent” accord-
+ing to our usual meaning.) We will not use this confusing terminology but will use alternate, more
+descriptive, terminology, referring to Yi as the response variable and to xi as the predictor variable.
+    Actually, to keep straight the fact that our inferences about the relationship between Yi and xi
+assume knowledge of xi, we could write (11.3.2) as
+                                      E(Yi |xi) = α +βxi.                                (11.3.3)
+We will tend to use (11.3.3), to reinforce the conditional aspect of any inferences.
+    Recall that in Chapter 4 we encountered the word regression in connection with conditional ex-
+pectations (see Exercise 4.13). There, the regression ofY on X was defined as E(Y|x), the conditionalexpectation of Y given X = x. More generally, the word regression is used in statistics to signify a
+relationship between variables. When we refer to regression that is linear, we can mean that the
+conditional expectation of Y given X = x is a linear function of x. Note that, in equation (11.3.3), it
+does not matter whether xi is fixed and known or it is a realization of the observable random variable
+Xi. In either case, equation (11.3.3) has the same interpretation. This will not be the case in Section
+11.3.4, however, when we will be concerned with inference using the joint distribution of Xi and Yi.
+   The term linear regression refers to a specification that is linear in the parameters. Thus, the
+specifications E(Yi|xi) = α + βx2                                                                i and E(logYi|xi) = α + β(1/xi) both specify linear regressions.The first specifies a linear relationship between Yi and x2i , and the second between logYi and 1/xi.
+In contrast, the specification E(Yi|xi) = α +β 2xi does not specify a linear regression.   The term regression has an interesting history, dating back to the work of Sir Francis Galton in
+the 1800s. (See Freedman et al. (1991) for more details or Stigler (1986) for an in-depth historical
+treatment.) Galton investigated the relationship between heights of fathers and heights of sons. He
+found, not surprisingly, that tall fathers tend to have tall sons and short fathers tend to have short
+sons. However, he also found that very tall fathers tend to have shorter sons and very short fathers
+tend to have taller sons. (Think about it – it makes sense.) Galton called this phenomenon regression
+toward the mean (employing the usual meaning of regression, “to go back”) and from this usage we
+get the present use of the word regression.
+Example 11.3.1 (Predicting grape crops)  A more modern use of regression is to predict crop
+yield of grapes. In July, the grape vines produce clusters of berries, and a count of these clusters can
+be used to predict the final crop yield at harvest time. Typical data are like the following, which give
+the cluster counts and yield (tons/acre) for a number of years.
+
+                           Year   Yield (Y)   Cluster count (x)
+                        1971      5.6             116.37
+                        1973      3.2              82.77
+                        1974      4.5             110.68
+                        1975      4.2              97.50
+                        1976      5.2             115.88
+                        1977      2.7              80.19
+                        1978      4.8             125.24
+                        1979      4.9             116.15
+                        1980      4.7             117.36
+                        1981      4.1              93.31
+                        1982      4.4             107.46
+                        1983      5.4             122.30
+
+The data from 1972 are missing because the crop was destroyed by a hurricane. A plot of these data
+would show that there is a strong linear relationship.                                    ∥
+
+=== PDF 468; PRINT 437 ===
+SIMPLE LINEAR REGRESSION                                                437
+   When we write an equation like (11.3.3) we are implicitly making the assumption that the re-
+gression of Y on X is linear. That is, the conditional expectation of Y, given that X = x, is a linear
+function of x. This assumption may not be justified, because there may be no underlying theory to
+support a linear relationship. However, since a linear relationship is so convenient to work with, we
+might want to assume that the regression of Y on X can be adequately approximated by a linear
+function. Thus, we really do not expect (11.3.3) to hold, but instead we hope that
+                                          E(Yi|xi) ≈α +βxi                                 (11.3.4)
+is a reasonable approximation. If we start from the (rather strong) assumption that the pair (Xi,Yi)
+has a bivariate normal distribution, it immediately follows that the regression of Y on X is linear. In
+this case, the conditional expectation E(Y|x) is linear in the parameters (see Definition 4.5.10 andthe subsequent discussion).
+   There is one final distinction to be made. When doing a regression analysis, that is, when in-
+vestigating the relationship between a predictor and a response variable, there are two steps to the
+analysis. The first step is a totally data-oriented one, in which we attempt only to summarize the
+observed data. (This step is always done, since we almost always calculate sample means and vari-
+ances or some other summary statistic. However, this part of the analysis now tends to get more
+complicated.) It is important to keep in mind that this “data fitting” step is not a matter of statistical
+inference. Since we are interested only in the data at hand, we do not have to make any assumptions
+about parameters.
+   The second step in the regression analysis is the statistical one, in which we attempt to infer con-
+clusions about the relationship in the population, that is, about the population regression function.
+To do this, we need to make assumptions about the population. In particular, if we want to make
+inferences about the slope and intercept of a population linear relationship, we need to assume that
+there are parameters that correspond to these quantities.
+    In a simple linear regression problem, we observe data consisting of n pairs of observations,
+(x1,y1),...,(xn,yn). In this section, we will consider a number of different models for these data.
+The different models will entail different assumptions about whether x or y or both are observed
+values of random variables X or Y.
+    In each model we will be interested in investigating a linear relationship between x and y. The
+n data points will not fall exactly on a straight line, but we will be interested in summarizing the
+sample information by fitting a line to the observed data points. We will find that many different
+approaches lead us to the same line.
+   Based on the data (x1,y1),...,(xn,yn), define the following quantities. The sample means are
+
+                              1  n             1  n
+                                       and    ¯y =                                                                                            (11.3.5)                                                          ¯x =                ∑ xi                       ∑ yi.                              n i=1            n i=1
+
+The sums of squares are
+
+                                      n                           n
+                                                                                            (11.3.6)                             Sxx =                                        and   Syy =             ∑ (xi −¯x)2                       ∑ (yi −¯y)2                                   i=1                                                              i=1
+
+and the sum of cross-products is
+                                                n
+                                                                                            (11.3.7)                                       Sxy = ∑ (xi                                             i=1   −¯x)(yi −¯y).
+Then the most common estimates of α and β in (11.3.4), which we will subsequently justify under
+various models, are denoted by a and b, respectively, and are given by
+
+                                         Sxy
+                            b =                                       and  a = ¯y−b¯x.                            (11.3.8)                                         Sxx
+
+=== PDF 469; PRINT 438 ===
+438                             ANALYSIS OF VARIANCE AND REGRESSION
+
+             y
+
+
+
+        5
+
+
+
+
+
+        4
+
+
+
+
+
+                                                        y = c + dx
+
+        3
+
+
+
+
+
+        2
+
+
+
+
+
+        1
+
+
+
+
+
+        0                                                                                       x
+          0                1                2                3                4
+
+            Figure 11.3.1 Data from Table 11.3.1: Vertical distances that are measured by RSS
+
+
+11.3.1  Least Squares: A Mathematical Solution
+Our first derivation of estimates for α and β makes no statistical assumptions about the observations
+(xi,yi). Simply consider (x1,y1),...,(xn,yn) as n pairs of numbers plotted in a scatterplot as in
+Figure 11.3.1. (The 24 data points pictured in Figure 11.3.1 are listed in Table 11.3.1.) Think of
+drawing through this cloud of points a straight line that comes “as close as possible” to all the
+points.
+   For any line y = c+dx, the residual sum of squares (RSS) is defined to be
+
+                                                n
+                        RSS =                 ∑ (yi −(c+dxi))2.                                             i=1
+
+The RSS measures the vertical distance from each data point to the line c + dx and then sums
+the squares of these distances. (Two such distances are shown in Figure 11.3.1.) The least squares
+
+=== PDF 470; PRINT 439 ===
+SIMPLE LINEAR REGRESSION                                                439
+
+                              Table 11.3.1 Data pictured in Figure 11.3.1
+
+                       x          y        x      y      x      y      x      y
+                     3.74       3.22     0.20   2.81   1.22   1.23   1.76   4.12
+                     3.66       4.87     2.50   3.71   1.00   3.13   0.51   3.16
+                     0.78       0.12     3.50   3.11   1.29   4.05   2.17   4.40
+                     2.40       2.31     1.35   0.90   0.95   2.28   1.99   1.18
+                     2.18       4.25     2.36   4.39   1.05   3.60   1.53   2.54
+                     1.93       2.24     3.13   4.36   2.92   5.39   2.60   4.89
+                                     ¯x = 1.95      ¯y = 3.18    Sxx = 22.82    Syy = 43.62    Sxy = 15.48
+
+
+estimates of α and β are defined to be those values a and b such that the line a+bx minimizes RSS.
+That is, the least squares estimates, a and b, satisfy
+
+                                  n                       n
+                          =                    min
+                                    c,d            ∑ (yi −(c+dxi))2                     ∑ (yi −(a+bxi))2.                                i=1                                                       i=1
+
+   This function of two variables, c and d, can be minimized in the following way. For any fixed
+value of d, the value of c that gives the minimum value can be found by writing
+
+                                n                       n
+                         =           ∑ (yi −(c+dxi))2                    ∑ ((yi −dxi)−c)2.                              i=1                                                     i=1
+
+From Theorem 5.2.4, the minimizing value of c is
+
+                                1  n
+                                c =                            =          ¯x.                           (11.3.9)                ∑ (yi                                n i=1  −dxi)  ¯y−d
+
+Thus, for a given value of d, the minimum value of RSS is
+
+             n                               n
+                   =                                  = Syy       +d2Sxx.    ∑ ((yi                    ¯x))2                ∑ ((yi           i=1   −dxi)−(¯y−d        i=1   −¯y)−d(xi −¯x))2     −2dSxy
+
+The value of d that gives the overall minimum value of RSS is obtained by setting the derivative of
+this quadratic function of d equal to zero. The minimizing value is
+
+                                                    Sxy
+                                    d =      .                                   (11.3.10)
+                                                    Sxx
+
+This value is, indeed, a minimum since the coefficient of d2 is positive. Thus, by (11.3.9) and
+(11.3.10), a and b from (11.3.8) are the values of c and d that minimize the residual sum of squares.
+   The RSS is only one of many reasonable ways of measuring the distance from the line c+dx to
+the data points. For example, rather than using vertical distances we could use horizontal distances.
+This is equivalent to graphing the y variable on the horizontal axis and the x variable on the vertical
+axis and using vertical distances as we did above. Using the above results (interchanging the roles
+of x and y) we find the least squares line is ˆx = a′ +b′y where
+
+                                         Sxy                                       b′ =                                      and   a′ = ¯x−b′ ¯y.                                         Syy
+Reexpressing the line so that y is a function of x, we obtain ˆy = −(a′/b′)+(1/b′)x.   Usually the line obtained by considering horizontal distances is different from the line obtained
+by considering vertical distances. Using the values in Table 11.3.1, the regression of y on x (vertical
+
+=== PDF 471; PRINT 440 ===
+440                             ANALYSIS OF VARIANCE AND REGRESSION
+distances) is ˆy = 1.86+.68x. The regression of x on y (horizontal distances) is ˆy = −2.31+2.82x.In Figure 12.2.1, these two lines are shown (along with a third line discussed in Section 12.2). If
+these two lines were the same, then the slopes would be the same and b/(1/b′) would equal 1. But,
+in fact, b/(1/b′) ≤1 with equality only in special cases. Note that
+                                b            (Sxy)2                       = bb′ =          .
+                                     1/b′          SxxSyy
+Using the version of H¨older’s Inequality in (4.7.9) with p = q = 2,ai = xi −¯x, and bi = yi −¯y, we
+see that (Sxy)2 ≤SxxSyy and, hence, the ratio is less than one.     If x is the predictor variable, y is the response variable, and we think of predicting y from x,
+then the vertical distance measured in RSS is reasonable. It measures the distance from yi to the
+predicted value of yi, ˆyi = c+dxi. But if we do not make this distinction between x and y, then it is
+unsettling that another reasonable criterion, horizontal distance, gives a different line.
+   The least squares method should be considered only as a method of “fitting a line” to a set of
+data, not as a method of statistical inference. We have no basis for constructing confidence intervals
+or testing hypotheses because, in this section, we have not used any statistical model for the data.
+When thinking of a and b in the context of this section, it might be better to call them least squares
+solutions rather than least squares estimates because they are the solutions of the mathematical
+problem of minimizing the RSS rather than estimates derived from a statistical model. But, as we
+shall see, these least squares solutions have optimality properties in certain statistical models.
+
+11.3.2  Best Linear Unbiased Estimators: A Statistical Solution
+
+In this section we show that the estimates a and b from (11.3.8) are optimal in the class of linear,
+unbiased estimates under a fairly general statistical model. The model is described as follows. As-
+sume that the values x1,...,xn are known, fixed values. (Think of them as values the experimenter
+has chosen and set in a laboratory experiment.) The values y1,...,yn are observed values of un-
+correlated random variables Y1,...,Yn. The linear relationship assumed between the xs and the ys
+is
+                                 EYi = α +βxi,    i = 1,...,n,                         (11.3.11)
+where we also assume that
+                                        VarYi = σ2.                                  (11.3.12)
+There is no subscript in σ2, because we are assuming that all the Yis have the same (unknown)
+variance. These assumptions about the first two moments of the Yis are the only assumptions we
+need to make to proceed with the derivation in this subsection. For example, we do not need to
+specify a probability distribution for the Y1,...,Yn.
+   The model in (11.3.11) and (11.3.12) can also be expressed in this way. We assume that
+
+                                     Yi = α +βxi +εi,    i = 1,...,n,                        (11.3.13)
+
+where ε1,...,εn are uncorrelated random variables with
+                               Eεi = 0  and  Varεi = σ2.                          (11.3.14)
+
+The ε1,...,εn are called the random errors. Since Yi depends only on εi and the εis are uncorrelated,
+the Yis are uncorrelated. Also, from (11.3.13) and (11.3.14), the expressions for EYi and VarYi in
+(11.3.11) and (11.3.12) are easily verified.
+   To derive estimators for the parameters α and β, we restrict attention to the class of linear
+estimators. An estimator is a linear estimator if it is of the form
+
+                                                   n
+                                                                                        (11.3.15)                  ∑ diYi,
+                                                i=1
+
+=== PDF 472; PRINT 441 ===
+SIMPLE LINEAR REGRESSION                                                441
+where d1,...,dn are known, fixed constants. (Exercise 7.39 concerns linear estimators of a popula-
+tion mean.) Among the class of linear estimators, we further restrict attention to unbiased estimators.
+This restricts the values of d1, ...,dn that can be used.
+  An unbiased estimator of the slope β must satisfy
+
+                                                 n
+                            E                           = β,                 ∑ diYi
+                                              i=1
+
+regardless of the true value of the parameters α and β. This implies that
+
+
+                                      n            n              n
+                      =                             =                 β =  E ∑ diYi                  ∑ diEYi                        ∑ di(α +βxi)
+                                    i=1          i=1           i=1
+                                        n              n
+                                                                                     .              =  α ∑ di +β ∑ dixi
+                                      i=1           i=1
+
+This equality is true for all α and β if and only if
+
+                                      n                   n
+                    = 0   and                               = 1.                         (11.3.16)             ∑ di                     ∑ dixi
+                                    i=1                 i=1
+
+Thus, d1,...,dn must satisfy (11.3.16) in order for the estimator to be an unbiased estimator of β.
+    In Chapter 7 we called an unbiased estimator “best” if it had the smallest variance among all
+unbiased estimators. Similarly, an estimator is the best linear, unbiased estimator (BLUE) if it is
+the linear, unbiased estimator with the smallest variance. We will now show that the choice of
+di = (xi −¯x)/Sxx that defines the estimator b = SxY/Sxx is the best choice in that it results in thelinear, unbiased estimator of β with the smallest variance. (The dis must be known, fixed constants
+but the xis are known, fixed constants so this choice of dis is legitimate.)
+A note on notation: The notation SxY stresses the fact that SxY is a random variable that is a function
+of the random variables Y1,...,Yn. SxY also depends on the nonrandom quantities x1,...,xn.
+   Because Y1,...,Yn are uncorrelated with equal variance σ2, the variance of any linear estimator
+is given by
+                                n          n              n               n
+                   =                          =                                                                                                          .                      Var           ∑ diYi               ∑ d2i VarYi                     ∑ d2i σ2                                = σ2 ∑ d2i
+                              i=1       i=1            i=1            i=1
+The BLUE of β  is, therefore, defined by constants d1,...,dn that satisfy (11.3.16) and have the
+minimum value of ∑ni=1 d2i . (The presence of σ2 has no effect on the minimization over linear
+estimators since it appears as a multiple of the variance of every linear estimator.)
+   The minimizing values of the constants d1, ...,dn can now be found by using Lemma 11.2.7.
+To apply the lemma to our minimization problem, make the following correspondences, where the
+left-hand sides are notation from Lemma 11.2.1 and the right-hand sides are our current notation.
+Let
+                          k = n,   vi = xi,   ci = 1,  and   ai = di,
+which implies ¯vc = ¯x. If di is of the form
+                               di = Kci(vi −¯vc) = K(xi −¯x),    i = 1,...,n,                  (11.3.17)
+then, by Lemma 11.2.7, d1,...,dn maximizes
+                                    (∑ni=1dixi)2                                                                                        (11.3.18)
+                                  ∑ni=1d2i
+
+=== PDF 473; PRINT 442 ===
+442                             ANALYSIS OF VARIANCE AND REGRESSION
+among all d1,...,dn that satisfy ∑di = 0. Furthermore, since
+
+                                           :   =     =                            :   =                    ∑di   0,∑dixi               ∑di                {(d1,...,dn)                 1} ⊂{(d1,...,dn)         0},
+if dis of the form (11.3.17) also satisfy (11.3.16), they certainly maximize (11.3.18) among all
+d1,...,dn that satisfy (11.3.16). (Since the set over which the maximum is taken is smaller, the
+maximum cannot be larger.) Now, using (11.3.17), we have
+
+                                     n          n
+                     =                              = KSxx.             ∑ dixi                 ∑ K(xi                                   i=1       i=1     −¯x)xi
+
+The second constraint in (11.3.16) is satisfied if K =  1                                                                                          . Therefore, with d1,...,dn defined by                                                                       Sxx
+
+                                               (xi                                        di =    −¯x) ,    i = 1,...,n,                          (11.3.19)
+                                            Sxx
+
+both constraints of (11.3.16) are satisfied and this set of dis produces the maximum. Finally, note
+that for all d1,...,dn that satisfy (11.3.16),
+                               (∑ni=1dixi)2     1                          =            .
+                              ∑ni=1d2i     ∑ni=1d2i
+
+Thus, for d1,...,dn that satisfy (11.3.16), maximization of (11.3.18) is equivalent to minimization
+of ∑d2i . Hence, we can conclude that the dis defined in (11.3.19) give the minimum value of ∑d2i
+among all dis that satisfy (11.3.16) and the linear, unbiased estimator defined by these dis, namely,
+                                              n (xi           Sxy
+                              b =                                            −¯x) yi =      ,                ∑                                           i=1   Sxx        Sxx
+
+is the BLUE of β.
+  A geometric description of this construction of the BLUE of β is given in Figure 11.3.2, where
+we take n = 3. The figure shows three-dimensional space with coordinates d1,d2, and d3. The two
+planes represent the vectors (d1,d2,d3) that satisfy the two linear constraints in (11.3.16) and the
+line where the two planes intersect are the vectors (d1,d2,d3) that satisfy both equalities. For any
+point on the line, ∑ni=1 d2i  is the square of the distance from the point to the origin 0. The vector
+(d1,d2,d3) that defines the BLUE is the point on the line that is closest to 0. The sphere in the figure
+is the smallest sphere that intersects the line and the point of intersection is the point (d1,d2,d3) that
+defines the BLUE of β. This, we have shown, is the point with di = (xi −¯x)/Sxx.   The variance of b is
+                                            n     σ2       σ2
+                        =  =                     .                   (11.3.20)                       Varb = σ2 ∑ d2i                                          i=1      Sxx   ∑ni=1(xi −¯x)2
+Since x1,...,xn are values chosen by the experimenter, they can be chosen to make Sxx large and
+the variance of the estimator small. That is, the experimenter can design the experiment to make the
+estimator more precise. Suppose that all the x1,...,xn must be chosen in an interval [e, f]. Then, if
+n is even, the choice of x1, ...,xn that makes Sxx as large as possible is to take half of the xis equal
+to e and half equal to  f (Exercise 11.26). This would be the best design in that it would give the
+most precise estimate of the slope β if the experimenter were certain that the model described by
+(11.3.11) and (11.3.12) was correct. In practice, however, this design is seldom used because an
+experimenter is hardly ever certain of the model. This two-point design gives information about the
+value of E(Y|x) at only two values, x = e and x = f. If the population regression function E(Y|x),which gives the mean of Y as a function of x, is nonlinear, it could never be detected from data
+obtained using the “optimal” two-point design.
+
+=== PDF 474; PRINT 443 ===
+SIMPLE LINEAR REGRESSION                                                443
+
+
+                                 Σdi xi = 1
+
+
+
+
+
+                                                                       Σdi = 0
+                                             0
+
+                                     d
+
+
+
+
+                           Figure 11.3.2 Geometric description of the BLUE
+
+  We have shown that b is the BLUE of β. A similar analysis will show that a is the BLUE of the
+intercept α. The constants d1,...,dn that define a linear estimator of α must satisfy
+
+                                      n                   n
+                     = 1  and                               = 0.                         (11.3.21)             ∑ di                     ∑ dixi
+                                    i=1                i=1
+The details of this derivation are left as Exercise 11.27. The fact that least squares estimators are
+BLUEs holds in other linear models, also. This general result is called the Gauss–Markov Theorem
+(see Christensen 1996, Lehmann and Casella 1998, Section 3.4, or the more general treatment in
+Harville 1981).
+
+11.3.3  Models and Distribution Assumptions
+In this section, we will introduce two more models for paired data (x1,y1),...,(xn,yn) that are called
+simple linear regression models.
+   To obtain the least squares estimates in Section 12.2.1, we used no statistical model. We simply
+solved a mathematical minimization problem. Thus, we could not derive any statistical properties
+about the estimators obtained by this method because there were no probability models to work with.
+There are not really any parameters for which we could construct hypothesis tests or confidence
+intervals.
+    In Section 11.3.2 we made some statistical assumptions about the data. Specifically, we made
+assumptions about the first two moments, the mean, variance, and covariance, of the data. These
+are all statistical assumptions, related to probability models for the data, and we derived statistical
+properties for the estimators. The properties of unbiasedness and minimum variance, that we proved
+for the estimators a and b of the parameters α and β, are statistical properties.
+   To obtain these properties we did not have to specify a complete probability model for the data,
+only assumptions about the first two moments. We were able to obtain a general optimality property
+under these minimal assumptions, but the optimality was only in a restricted class of estimators –
+linear, unbiased estimators. We were not able to derive exact tests and confidence intervals under
+this model because the model does not specify enough about the probability distribution of the data.
+We now present two statistical models that completely specify the probabilistic structure of the data.
+
+11.3.3.1  Conditional normal model
+
+The conditional normal model is the most common simple linear regression model and the most
+straightforward to analyze. The observed data are the n pairs, (x1,y1),...,(xn,yn). The values of
+the predictor variable, x1,...,xn, are considered to be known, fixed constants. As in Section 11.3.2,
+think of them as being chosen and set by the experimenter. The values of the response variable,
+
+=== PDF 475; PRINT 444 ===
+444                             ANALYSIS OF VARIANCE AND REGRESSION
+y1,...,yn, are observed values of random variables, Y1,...,Yn. The random variables Y1,...,Yn are
+assumed to be independent. Furthermore, the distribution of the Yis is normal, specifically,
+
+                             = 1,...,n.                      (11.3.22)                                    Yi ∼n(α +βxi,σ2),    i
+Thus the population regression function is a linear function of x, that is, E(Y|x) = α +βx, and all theYis have the same variance, σ2. The conditional normal model can be expressed similar to (11.3.13)
+and (11.3.14). Namely,
+                                     Yi = α +βxi +εi,    i = 1,...,n,                        (11.3.23)
+where ε1,...,εn are iid n(0, σ2) random variables.
+   The conditional normal model is a special case of the model considered in Section 11.3.2. The
+population regression function, E(Y|x) = α +βx, and the variance, VarY = σ2, are as in that model.The uncorrelatedness of Y1,...,Yn (or, equivalently, ε1,...,εn) has been strengthened to indepen-
+dence. And, of course, rather than just the first two moments of the distribution of Y1,...,Yn, the
+exact form of the probability distribution is now specified.
+   The joint pdf of Y1,...,Yn is the product of the marginal pdfs, because of the independence. It is
+given by
+
+
+               =            f(y|α,β,σ2)       f(y1,...,yn|α,β,σ2)                                      n
+               =            ∏                                    i=1 f(yi|α,β,σ2)
+                                      n   1
+               =            ∏                  √2πσ exp −(yi −(α +βxi))2/(2σ2)             (11.3.24)                                    i=1
+                               1                 n
+                                                                                                                          .               =            exp                      ∑ (yi            /(2σ2)                              (2π)n/2σn   −  i=1  −α −βxi)2
+
+It is this joint probability distribution that will be used to develop the statistical procedures in Sec-
+tions 11.3.4 and 11.3.5. For example, the expression in (11.3.24) will be used to find MLEs of α,β,
+and σ2.
+
+11.3.3.2  Bivariate normal model
+In all the previous models we have discussed, the values of the predictor variable, x1,...,xn, have
+been fixed, known constants. But sometimes these values are actually observed values of random
+variables, X1,...,Xn. In Galton’s example in Section 11.3, x1,...,xn were observed heights of fa-
+thers. But the experimenter certainly did not choose these heights before collecting the data. Thus it
+is necessary to consider models in which the predictor variable, as well as the response variable, is
+random. One such model that is fairly simple is the bivariate normal model. A more complex model
+is discussed in Section 12.2.
+    In the bivariate normal model the data (x1,y1),...,(xn,yn) are observed values of the bivariate
+random vectors (X1,Y1),...,(Xn,Yn). The random vectors are independent and the joint distribution
+of (Xi,Yi) is assumed to be bivariate normal. Specifically, it is assumed that
+
+                                                                 Y ,ρ).                            (Xi,Yi) ∼bivariate normal(µX,µY,σ2X,σ2
+The joint pdf and various properties of a bivariate normal distribution are given in Definition 4.5.10
+and the subsequent discussion. The joint pdf of all the data (X1,Y1),...,(Xn,Yn) is the product of
+these bivariate pdfs.
+    In a simple linear regression analysis, we are still thinking of x as the predictor variable and y as
+the response variable. That is, we are most interested in predicting the value of y having observed
+
+=== PDF 476; PRINT 445 ===
+SIMPLE LINEAR REGRESSION                                                445
+the value of x. This naturally leads to basing inference on the conditional distribution of Y given
+X = x. For a bivariate normal model, the conditional distribution of Y given X = x is normal. The
+population regression function is now a true conditional expectation, as the notation suggests, and
+is
+                              σY                 σY         σY
+                 E(Y|x) = µY +ρ σX (x−µX) =  µY −ρ σX µX + ρ σX  x.          (11.3.25)
+The bivariate normal model implies that the population regression is a linear function of x. We
+                                                                                             σYneed not assume this as in the previous models. Here    = α + βx where β = ρ   and α =                                                                                      σX        σY                                        E(Y|x)
+       σX µX. Also, as in the conditional normal model, the conditional variance of the responseµY −ρvariable Y does not depend on x,
+
+                                                  Y                                        (1−ρ2).                            (11.3.26)                                 Var(Y|x) = σ2
+   For the bivariate normal model, the linear regression analysis is almost always carried out using
+the conditional distribution of (Y1,...,Yn) given X1 = x1,...,Xn = xn, rather than the unconditional
+distribution of (X1,Y1),...,(Xn,Yn). But then we are in the same situation as the conditional normal
+model described above. The fact that x1,...,xn are observed values of random variables is immate-
+rial if we condition on these values and, in general, in simple linear regression we do not use the fact
+of bivariate normality except to define the conditional distribution. (Indeed, for the most part, the
+marginal distribution of X is of no consequence whatsoever. In linear regression it is the conditional
+distribution that matters.) Inference based on point estimators, intervals, or tests is the same for the
+two models. See Brown (1990b) for an alternative view.
+
+11.3.4  Estimation and Testing with Normal Errors
+
+In this and the next subsections we develop inference procedures under the conditional normal
+model, the regression model defined by (11.3.22) or (11.3.23).
+    First, we find the maximum likelihood estimates of the three parameters, α,β, and σ2. Using
+the joint pdf in (11.3.24), we see that the log likelihood function is
+
+                                                                      i=1(yi                  =              logσ2      −α −βxi)2 .            logL(α,β,σ2|x,y)  −n2 log(2π)−n2    −∑n    2σ2
+For any fixed value of σ2, logL is maximized as a function of α and β by those values, ˆα and ˆβ ,
+that minimize
+                                            n
+                ∑ (yi −α −βxi)2.                                          i=1
+But this function is just the RSS from Section 11.3.1! There we found that the minimizing values
+are
+                                     Sxy                                      ˆβ = b =                                  and   ˆα = a = ¯y−b¯x = ¯y−ˆβ ¯x.                                     Sxx
+Thus, the least squares estimators of α and β are also the MLEs of α and β. The values ˆα and ˆβ
+are the maximizing values, for any fixed value of σ 2. Now, substituting in the log likelihood, to find
+the MLE of σ2 we need to maximize
+
+
+                                                                                                        .                                   logσ2               −n2 log(2π)−n2            i=1(yi                            −∑n    −ˆα2σ2 −ˆβxi)2
+This maximization is similar to finding the MLE of σ2 in ordinary normal sampling (Example
+7.2.11) and we leave the details to Exercise 11.28. The MLE of σ2, under the conditional normal
+model, is
+                                  1  n
+                                        ˆσ2 = ∑ (yi                                  n i=1  −ˆα −ˆβxi)2,
+
+=== PDF 477; PRINT 446 ===
+446                             ANALYSIS OF VARIANCE AND REGRESSION
+the RSS, evaluated at the least squares line, divided by the sample size. Henceforth, when we refer
+to RSS we mean the RSS evaluated at the least squares line.
+    In Section 11.3.2, we showed that ˆα and ˆβ were linear, unbiased estimators of α and β. How-
+ever, ˆσ2 is not an unbiased estimator of σ2. For the calculation of E ˆσ2 and in many subsequent
+calculations, the following lemma will be useful.
+Lemma 11.3.2   Let Y1,...,Yn be uncorrelated random variables with VarYi = σ2 for all  i =
+1,...,n. Let c1,...,cn and d1,...,dn be two sets of constants. Then
+
+                                        n       n              n
+                           =                     Cov              ∑ ciYi, ∑ diYi                      ∑ cidi  σ2.                  i=1     i=1     i=1  
+
+Proof: This type of result has been encountered before. It is similar to Lemma 5.3.3 and Exercise
+11.11. However, here we do not need either normality or independence of Y1,...,Yn.       2
+  We next find the bias in σ2. From (11.3.23) we have
+                                                  εi = Yi −α −βxi.
+We define the residuals from the regression to be
+                                                                            ˆεi = Yi −ˆα −ˆβxi,                               (11.3.27)
+and thus
+                                   1  n      1
+                           =                                          ˆσ2 = ∑ ˆε2i                                   n i=1    nRSS.
+It can be calculated (Exercise 11.29) that
+
+                                                          Eˆεi = 0,
+
+and a lengthy calculation (also in Exercise 11.29) gives
+
+                                                                                        (11.3.28)
+                                  1   1  n
+                                                    x2j +x2i                                ¯x    σ2.          Var ˆεi =   Eˆε2i =  n−2 +   ∑                  n     Sxx  n j=1      −2(xi −¯x)2 −2xi 
+
+Thus,
+
+                    1  n
+         Eˆσ2 =  ∑ Eˆε2i                    n i=1
+                    1  n          1   1  n
+          =                   n−2 +                                                                                                                                    ¯x   σ2           ∑                   ∑ x2j +x2i                    n i=1   n     Sxx  n j=1      −2(xi −¯x)2 −2xi 
+                             1      n        n                     n
+          =                         +                 +                 ∑ x2j                    ∑ x2i                            ∑ xi                 n                                  nSxx  j=1                                                     i=1                                            −2Sxx −21n  i=1                                           2                                                n−2                                σ2     1                                   ∑xi ¯x =                                                                              n(∑xi)2          =      +0  σ2                          ∑x2i   n(∑xi)2 = Sxx                       n                             −1              n−2                                                                                                 =  n−2 σ2.
+                      n
+
+=== PDF 478; PRINT 447 ===
+SIMPLE LINEAR REGRESSION                                                447
+The MLE ˆσ2 is a biased estimator of σ2. The more commonly used estimator of σ2, which is
+unbiased, is
+                       n        1    n                 1    n
+                                =                                                                                                               .            (11.3.29)                   S2 =       ˆσ2 =                            ∑ ˆε2i                 ∑ (yi −ˆα −ˆβxi)2                                              i=1                                                                           i=1                n−2    n−2             n−2
+   To develop estimation and testing procedures, based on these estimators, we need to know their
+sampling distributions. These are summarized in the following theorem.
+Theorem 11.3.3  Under the conditional normal regression model (11.3.22), the sampling distri-
+butions of the estimators ˆα, ˆβ, and S2 are
+
+                            σ2   n                 σ2
+                                 ˆα     α,  ∑ x2i               ∼n     nSxx i=1       ,        ˆβ ∼n  β, Sxx    ,
+
+with
+                                                                                                 ¯x                                Cov(ˆα, ˆβ)−σ2  .
+                                                       Sxx
+Furthermore, (ˆα, ˆβ) and S2 are independent and
+                               (n−2)S2                                σ2   ∼χ2n−2.
+Proof: We first show that ˆα and ˆβ have the indicated normal distributions. The estimators ˆα and ˆβ
+are both linear functions of the independent normal random variables Y1,...,Yn. Thus, by Corollary
+4.6.10, they both have normal distributions. Specifically, in Section 11.3.2, we showed that ˆβ =
+∑ni=1 diYi, where the di are given in (11.3.19), and we also showed that
+
+                                             σ2                       Eˆβ = β  and  Var ˆβ =      .
+                                                              Sxx
+                          = ∑ni=1 ciYi whereThe estimator ˆα = ¯Y −ˆβ ¯x can be expressed as ˆα
+                                    1                                                 ci =         −¯x)¯x ,                                    n −(xi Sxx
+
+and thus it is straightforward to verify that
+
+                                 n              n   1
+                    =                                                             −¯x)¯x  (α +βxi) = α,             Eˆα = ∑ ciEYi                 ∑                               i=1           i=1  n −(xi Sxx
+                         and
+                                    n            1   n
+                                                                                       ,               Var ˆα =  σ2 ∑ c2i                    = σ2   ∑ x2i                                  i=1            nSxx i=1
+
+showing that ˆα and ˆβ have the specified distributions. Also, Cov( ˆα, ˆβ) is easily calculated using
+Lemma 11.3.2. Details are left to Exercise 11.30.
+  We next show that ˆα and ˆβ are independent of S2, a fact that will follow from Lemma 11.3.2
+and Lemma 5.3.3. From the definition of ˆεi in (11.3.27), we can write
+
+                                             n
+                                                                                        (11.3.30)                                                                  ˆεi = ∑ [δi j      +djxi)]Yi,                                          j=1   −(cj
+
+where
+                   1   if i = j        1                           (x j                   δij =                     ,   c j =         −¯x)¯x ,  and  d j =    −¯x) .                   0   if = j        n −(xj Sxx                      Sxx                                                                                       i̸
+
+=== PDF 479; PRINT 448 ===
+448                             ANALYSIS OF VARIANCE AND REGRESSION
+Since ˆα = ∑ciYi and ˆβ = ∑diYi, application of Lemma 11.3.2 together with some algebra will show
+that
+                             Cov(ˆεi, ˆα) = Cov(ˆεi, ˆβ) = 0,    i = 1,...,n.
+Details are left to Exercise 11.31. Thus, it follows from Lemma 5.3.3 that, under normal sampling,
+S2 = ∑ˆε2i /(n−2) is independent of ˆα and ˆβ.
+   To prove that (n−2)S2/σ2 ∼χ2n−2, we write (n−2)S2 as the sum of n−2 independent random
+variables, each of which has a χ21 distribution. That is, we find constants aij,i = 1,...,n and  j =
+1,...,n−2, that satisfy                                        2
+                                         n      n−2   n
+                      =                                                                                        (11.3.31)               ∑ ˆε2i                  ∑ ∑ aijYi
+                                       i=1      j=1  i=1
+where
+                   n                                             n
+            = 0,     j =              and                                    = 0,  = j′.      ∑ ai j                       ∑ aijaij′                 i=1            1,...,n−2              i=1                                         j̸
+The details are somewhat involved because of the general nature of the xis. We omit details.   2
+
+   The RSS from the linear regression contains information about the worth of a polynomial fit
+of a higher order, over and above a linear fit. Since, in this model, we assume that the population
+regression is linear, the variation in this higher-order fit is just random variation. Robson (1959)
+gives a general recursion formula for finding coefficients for such higher-order polynomial fits, a
+formula that can be adapted to explicitly find the ai js of (11.3.31). Alternatively, Cochran’s Theorem
+(Miscellanea 11.5.1) can be used to establish that ∑ˆε2i /σ2 ∼χ2n−2.    Inferences regarding the two parameters α and β are usually based on the following two Stu-
+dent’s t distributions. Their derivations follow immediately from the normal and χ2 distributions
+and the independence in Theorem 11.3.3. We have
+                                                      ˆα −α                                        (11.3.32)                                            ∼tn−2                             S  (∑ni=1 x2i )/(nSxx)
+
+and
+                                                              ˆβ −β                                         (11.3.33)                                 S/√Sxx ∼tn−2.
+The joint distribution of these two t statistics is called a bivariate Student’s t distribution. This
+distribution is derived in a manner analogous to the univariate case. We use the fact that the joint
+distribution of ˆα and ˆβ is bivariate normal and the same variance estimate S is used in both univariate
+t statistics. This joint distribution would be used if we wanted to do simultaneous inference regarding
+α and β. However, we shall deal only with the inferences regarding one parameter at a time.
+   Usually there is more interest in β than in α. The parameter α is the expected value of Y at
+x = 0,E(Y|x = 0). Depending on the problem, this may or may not be an interesting quantity. Inparticular, the value x = 0 may not be a reasonable value for the predictor variable. However, β
+is the rate of change of E(Y|x) as a function of x. That is, β is the amount that E(Y|x) changes ifx is changed by one unit. Thus, this parameter relates to the entire range of x values and contains
+the information about whatever linear relationship exists between Y and x. (See Exercise 11.33.)
+Furthermore, the value β = 0 is of particular interest.
+     If β = 0, then E(Y|x) = α +βx = α and Y ∼n(α,σ2), which does not depend on x. In a well-thought-out experiment leading to a regression analysis we do not expect this to be the case, but we
+would be interested in knowing this if it were true.
+   The test that β = 0 is quite similar to the ANOVA test that all treatments are equal. In the
+ANOVA, the null hypothesis states that the treatments are unrelated to the response in any way,
+while in linear regression the null hypothesis β = 0 states that the treatments (x) are unrelated to
+the response in a linear way.
+
+=== PDF 480; PRINT 449 ===
+SIMPLE LINEAR REGRESSION                                                449
+   To test
+                     H0 :  β = 0     versus    H1 :    β̸ = 0,                   (11.3.34)
+using (11.3.33), we reject H0 at level α if
+                                                           ˆβ −0 >                                S/√Sxx     tn−2,α/2,
+
+or, equivalently, if
+                                                             ˆβ 2
+                         > F1,n−2,α.                              (11.3.35)                                     S2/Sxx
+Recalling the formula for ˆβ and that RSS= ∑ˆε2i , we have
+                                  ˆβ 2        S2xy/Sxx      Regression Sum of Squares
+               =       =                    S2/Sxx                  Residual Sum of Squares/df.                       RSS/(n−2)
+   This last formula is summarized in the regression ANOVA table, which is like the ANOVA
+tables encountered in Section 11.2. For simple linear regression, the table, resulting in the test given
+in (11.3.35), is given in Table 11.3.2. Note that the table involves only a hypothesis about β. The
+parameter α and the estimate ˆα play the same role here as the grand mean did in Section 11.2. They
+merely serve to locate the overall level of the data and are “corrected” for in the sums of squares.
+
+
+                         Table 11.3.2 ANOVA table for simple linear regression
+         Source of    Degrees of  Sum of     Mean       F
+           variation     freedom     squares      square           statistic
+          Regression               Reg. SS=    MS(Reg)=        MS(Reg)                    1                            F =             (slope)                   S2xy/Sxx       Reg. SS         MS(Resid)
+                                            MS(Resid)=
+          Residual    n−2      RSS = ∑ˆε2                                                                                                 i  RSS/(n−2)
+                             SST=
+          Total      n−1         ∑(yi                                          −¯y)2
+
+Example 11.3.4 (Continuation of Example 11.3.1)  The regression ANOVA for the grape crop
+yield data follows.
+
+                     ANOVA table for grape data
+                  Source of    Degrees of  Sum of   Mean   F
+                     variation    freedom      squares   square     statistic
+                   Regression      1         6.66     6.66      50.23
+                   Residual       10         1.33       .133
+                    Total          11         7.99
+This shows a highly significant slope of the regression line.                               ∥
+  We draw one final parallel with the analysis of variance. It may not be obvious from Table
+11.3.2, but the partitioning of the sum of squares of the ANOVA has an analogue in regression. We
+have
+
+       Total Sum of Squares =  Regression Sum of Squares+Residual Sum of Squares
+                    n                   n              n
+                =                         +                                                                                        (11.3.36)       ∑ (yi −¯y)2              ∑ (ˆyi −¯y)2                    ∑ (yi −ˆyi)2,                   i=1                                      i=1                                                    i=1
+
+=== PDF 481; PRINT 450 ===
+450                             ANALYSIS OF VARIANCE AND REGRESSION
+where ˆyi = ˆα + ˆβxi. Notice the similarity of these sums of squares to those in ANOVA. The total sum
+of squares is, of course, the same. The RSS measures deviation of the fitted line from the observed
+values, and the regression sum of squares, analogous to the ANOVA treatment sum of squares,
+measures the deviation of predicted values (“treatment means”) from the grand mean. Also, as in
+the ANOVA, the sum of squares identity is valid because of the disappearance of the cross-term
+(Exercise 11.34). The total and residual sums of squares in (11.3.36) are clearly the same as in
+Table 11.3.2. But the regression sum of squares looks different. However, they are equal (Exercise
+11.34). That is,
+                                            n            S2xy
+                           =                                                                                    .                ∑ (ˆyi −¯y)2                                                         Sxx                                          i=1
+The expression S2xy/Sxx is easier to use for computing and provides the link with the t test. But,
+∑ni=1(ˆyi −¯y)2 is the more easily interpreted expression.  A statistic that is used to quantify how well the fitted line describes the data is the coefficient of
+determination. It is defined as the ratio of the regression sum of squares to the total sum of squares.
+It is usually referred to as r2, and can be written in the various forms
+
+                      Regression Sum of Squares   ∑ni=1(ˆyi          S2xy                    r2 =               =        −¯y)2 =          .
+                           Total Sum of Squares     ∑ni=1(yi −¯y)2    SxxSyy
+The coefficient of determination measures the proportion of the total variation in y1,...,yn (mea-
+sured by Syy) that is explained by the fitted line (measured by the regression sum of squares). From
+(11.3.36), 0 ≤r2 ≤1. If y1,...,yn all fall exactly on the fitted line, then yi = ˆyi for all i and r2 = 1.If y1,...,yn are not close to the fitted line, then the residual sum of squares will be large and r2 will
+be near 0. The coefficient of determination can also be (perhaps more straightforwardly) derived as
+the square of the sample correlation coefficient of the n pairs (y1,x1),...,(yn,xn) or of the n pairs
+(y1, ˆy1),...,(yn, ˆyn).
+   Expression (11.3.33) can be used to construct a 100(1−α)% confidence interval for β given by
+                                 S                   S
+                                                                                                      .                  (11.3.37)                                        ˆβ −tn−2,α/2 √Sxx                        < β < ˆβ +tn−2,α/2 √Sxx
+Also, a level α test of H0 : β = β0 versus H1 : β̸ = β0 rejects H0 if
+                                                          ˆβ −β0 >                                      (11.3.38)                                S/√Sxx     tn−2,α/2.
+
+As mentioned above, it is common to test H0 : β = 0 versus H1 : β̸ = 0 to determine if there is somelinear relationship between the predictor and response variables. However, the above test is more
+general, since any value of β0 can be specified. The regression ANOVA, which is locked into a
+“recipe,” can test only H0 : β = 0.
+
+11.3.5  Estimation and Prediction at a Specified x = x0
+Associated with a specified value of the predictor variable, say x = x0, there is a population of Y val-
+ues. In fact, according to the conditional normal model, a random observation from this population
+is Y ∼n(α + βx0,σ2). After observing the regression data (x1,y1),...,(xn,yn) and estimating theparameters α,β, and σ2, perhaps the experimenter is going to set x = x0 and obtain a new obser-
+vation, call it Y0. There might be interest in estimating the mean of the population from which this
+observation will be drawn, or even predicting what this observation will be. We will now discuss
+these types of inferences.
+
+=== PDF 482; PRINT 451 ===
+SIMPLE LINEAR REGRESSION                                                451
+  We assume that (x1,Y1),...,(xn,Yn) satisfy the conditional normal regression model and based
+on these n observations we have the estimates ˆα, ˆβ, and S2. Let x0 be a specified value of the
+predictor variable. First, consider estimating the mean of the Y population associated with x0, that
+is, E(Y|x0) = α + βx0. The obvious choice for our point estimator is ˆα + ˆβx0. This is an unbiasedestimator since E(ˆα + ˆβx0) = Eˆα +(Eˆβ)x0 = α +βx0. Using the moments given in Theorem 11.3.3,
+we can also calculate
+
+        Var(ˆα + ˆβx0) =  Var ˆα +(Var ˆβ)x20 +2x0Cov(ˆα, ˆβ)
+                       σ2   n     σ2x20                 ¯x                     +             =              ∑ x2i                             nSxx i=1       Sxx −2σ2x0Sxx
+                       σ2  1 n
+             =                         + ¯x2     ¯x+x20               ∑ x2i                                Sxx  n i=1  −¯x2    −2x0                                (±¯x)
+                       σ2        n            n
+             =                ∑ x2i   ∑ xi                              terms                                Sxx  n  i=1 −1n  i=1 2      −¯x)2                   1 (x0            +(x0           recombine              =  σ2  +    −¯x)2    .                  ∑x2i   n(∑xi)2 = Sxx                            n      Sxx                    −1                    1                                                                                            
+Finally, since ˆα and ˆβ are both linear functions of Y1,...,Yn, so is ˆα + ˆβx0. Thus ˆα + ˆβx0 has a
+normal distribution, specifically,
+
+                                                           (x0                                 ˆα + ˆβx0    α +βx0,σ2  +    −¯x)2      .                (11.3.39)                  ∼n             n      Sxx                            1       
+   By Theorem 11.3.3, (ˆα, ˆβ) and S2 are independent. Thus S2 is also independent of ˆα + ˆβx0
+(Theorem 4.6.12) and
+                                            ˆα + ˆβx0 −(α +βx0)                                              1           ∼tn−2.                                                            (x0−¯x)2                               S   n +                                                                Sxx                
+This pivot can be inverted to give the 100(1−α)% confidence interval for α +βx0,
+
+                               1   (x0                    ˆα + ˆβx0        +    −¯x)2                      −tn−2,α/2S  n      Sxx
+
+                                                     1   (x0                     +βx0       ˆα + ˆβx0        +    −¯x)2 .         (11.3.40)          ≤α    ≤         +tn−2,α/2S  n      Sxx
+
+   The length of the confidence interval for α +βx0 depends on the values of x1,...,xn through the
+value of (x0 −¯x)2/Sxx. It is clear that the length of the interval is shorter if x0 is near ¯x and minimizedat x0 = ¯x. Thus, in designing the experiment, the experimenter should choose the values x1,...,xn
+so that the value x0, at which the mean is to be estimated, is at or near ¯x. It is only reasonable that
+we can estimate more precisely near the center of the data we observed.
+  A type of inference we have not discussed until now is prediction of an, as yet, unobserved
+random variableY, a type of inference that is of interest in a regression setting. For example, suppose
+that x is a college applicant’s measure of high school performance. A college admissions office might
+want to use x to predict Y, the student’s grade point average after one year of college. Clearly, Y has
+not been observed yet since the student has not even been admitted! The college has data on former
+students, (x1,y1),...,(xn,yn), giving their high school performances and one-year GPAs. These data
+might be used to predict the new student’s GPA.
+
+=== PDF 483; PRINT 452 ===
+452                             ANALYSIS OF VARIANCE AND REGRESSION
+Definition 11.3.5  A 100(1−α)% prediction interval for an unobserved random variable Y basedon the observed data X is a random interval [L(X),U(X)] with the property that
+                           Pθ(L(X) ≤Y ≤U(X)) ≥1−α,
+for all values of the parameter θ.
+
+   Note the similarity in the definitions of a prediction interval and a confidence interval. The
+difference is that a prediction interval is an interval on a random variable, rather than a parameter.
+Intuitively, since a random variable is more variable than a parameter (which is constant), we expect
+a prediction interval to be wider than a confidence interval of the same level. In the special case of
+linear regression, we see that this is the case.
+  We assume that the new observation Y0 to be taken at x = x0 has a n(α +βx0,σ2) distribution,
+independent of the previous data, (x1,Y1),...,(xn,Yn). The estimators ˆα, ˆβ, and S2 are calculated
+from the previous data and, thus, Y0 is independent of ˆα, ˆβ, and S2. Using (11.3.39), we find that
+Y0     ˆα + ˆβx0) has a normal distribution with mean E(Y0     ˆα + ˆβx0)) = α +βx0    +βx0) = 0,  −(                                −(              −(αand variance
+
+                                                           1   (x0        Var(Y0     ˆα + ˆβx0)) =  VarY0 +Var(ˆα + ˆβx0) = σ2 +σ2  +    −¯x)2    .          −(                                            n      Sxx
+Using the independence of S2 and Y0     ˆα + ˆβx0), we see that                       −(
+                                     Y0     ˆα + ˆβx0)                        T =   −(                                                   1         ∼tn−2,                                                                  (x0−¯x)2                               S 1+ n +                                                                      Sxx
+which can be rearranged in the usual way to obtain the 100(1−α)% prediction interval,
+                                   1   (x0                     ˆα + ˆβx0        1+ +    −¯x)2                       −tn−2,α/2S     n      Sxx
+
+                                                    1   (x0              <  Y0 <  ˆα + ˆβx0        1+ +    −¯x)2 .          (11.3.41)                                          +tn−2,α/2S     n      Sxx
+
+Since the endpoints of this interval depend only on the observed data, (11.3.41) defines a prediction
+interval for the new observation Y0.
+
+11.3.6  Simultaneous Estimation and Confidence Bands
+In the previous section we looked at prediction at a single value x0. In some circumstances, however,
+there may be interest in prediction at many x0s. For example, in the previously mentioned grade
+point average prediction problem, an admissions office probably has interest in predicting the grade
+point average of many applicants, which naturally leads to prediction at many x0s.
+   The problem encountered is the (by now) familiar problem of simultaneous inference. That is,
+how do we control the overall confidence level for the simultaneous inference? In the previous
+section, we saw that a 1 −α confidence interval for the mean of the Y population associated with
+x0, that is, E(Y|x0) = α +βx0, is given by
+                               1   (x0                    ˆα + ˆβx0        +    −¯x)2                      −tn−2,α/2S  n      Sxx
+
+                                                     1   (x0              < α +βx0 <  ˆα + ˆβx0        +    −¯x)2 .                                               +tn−2,α/2S  n      Sxx
+
+=== PDF 484; PRINT 453 ===
+SIMPLE LINEAR REGRESSION                                                453
+Now suppose that we want to make an inference about the Y population mean at a number of x0
+values. For example, we might want intervals for E(Y|x0i),i = 1,...,m. We know that if we set up
+m intervals as above, each at level 1−α, the overall inference will not be at the 1−α level.  A simple and reasonably good solution is to use the Bonferroni Inequality, as used in Example
+11.2.9. Using the inequality, we can state that the probability is at least 1−α that
+                                1    (x0i                 ˆα + ˆβx0i          +    −¯x)2                     −tn−2,α/(2m)S  n       Sxx
+
+                                                      1    (x0i            < α +βx0i <  ˆα + ˆβx0i          +    −¯x)2 ,       (11.3.42)                                               +tn−2,α/(2m)S  n       Sxx
+
+simultaneously for i = 1,...,m. (See Exercise 11.39.)
+  We can take simultaneous inference in regression one step further. Realize that our assumption
+about the population regression line implies that the equation E(Y|x) = α +βx holds for all x; hence,we should be able to make inferences at all x. Thus, we want to make a statement like (11.3.42),
+but we want it to hold for all x. As might be expected, as he did for the ANOVA, Scheff´e derived a
+solution for this problem. We summarize the result, for the case of simple linear regression, in the
+following theorem.
+Theorem 11.3.6  Under the conditional normal regression model (11.3.22), the probability is at
+least 1−α that
+
+                             1                         ˆα +        + (x−¯x)2                ˆβx−MαS  n      Sxx
+
+                                                   1               < α +βx <  ˆα + ˆβx+MαS  + (x−¯x)2 ,            (11.3.43)                         n      Sxx
+
+simultaneously for all x, where Mα =
+Proof: By rearranging terms, it should be clear that the conclusion of the theorem is true if we can                                  2F2,n−2,α.find a constant Mα that satisfies
+                            (ˆα + ˆβx)−(α +βx)              P                                                    α, for all x                                                   2 ≤M2                                             1−α,                         S2  1n + (x−¯x)2Sxx                                                                =
+or, equivalently,
+                                   (ˆα + ˆβx)−(α +βx)               P                                                      α               x                                               2 ≤M2                                            1−α.                                  S2  1n + (x−¯x)2Sxx                             The parameterization givenmaxin Exercise 11.32, which results in independent=       estimators for α and β,
+makes the above maximization easier. Write
+                                            ˆα + ˆβx =    ¯Y + ˆβ(x−¯x),
+                                              = α +β ¯x)                      α +βx =  µ¯Y +β(x−¯x),                 (µ¯Y = E ¯Y
+and, for notational convenience, define t = x−¯x. We then have
+                         (ˆα + ˆβx)−(α +βx)          (¯Y −µ¯Y)+(ˆβ −β)t                         =                                     ,                       1          2            1     t2     2                                +                         S2  n + (x−¯x)2Sxx                 S2  n                                                                                       Sxx                                                       
+
+=== PDF 485; PRINT 454 ===
+454                             ANALYSIS OF VARIANCE AND REGRESSION
+and we want to find Mα to satisfy
+                                              (¯Y −µ¯Y)+(ˆβ −β)t               P                                                     α                 t           1     t2     2 ≤M2                                           1−α.                                   S2  n + Sxx                                            max                    =
+Note that S2 plays no role in the maximization, merely being a constant. Applying the result of
+Exercise 11.40, a direct application of calculus, we obtain
+
+                                              n(¯Y      +Sxx(ˆβ          (¯Y −µ¯Y)+(ˆβ −β)t  max              =      −µ¯Y)2      −β)2         t            1     t2     2                  S2           S2  n + Sxx
+                                                                                                           ¯Y )2     (                                    (¯Y−µ                         +  ˆβ−β)2                                         σ2/n      σ2/Sxx                  =                                 .                   (multiply by σ2/σ2)
+                                    S2/σ2                                                                                     (11.3.44)
+
+From Theorem 11.3.3 and Exercise 11.32, we see that this last expression is the quotient of indepen-
+dent chi squared random variables, the denominator being divided by its degrees of freedom. The
+numerator is the sum of two independent random variables, each of which has a χ21 distribution.
+Thus the numerator is distributed as χ22, the distribution of the quotient is
+
+                                                                                                ¯Y )2                                        (¯Y−µ                      + (ˆβ−β)2                                     σ2/n      σ2/Sxx
+                                S2/σ2     ∼2F2,n−2,
+
+and
+                                              (¯Y −µ¯Y)+(ˆβ −β)t                P                                                      α                 t           1     t2     2 ≤M2                                      1−α                                    S2  n + Sxx                                            max                    =
+if Mα =           proving the theorem.                              2   Since2F2,n−2,(11.3.43) is true for all x, it actually gives a confidence band on the entire population
+regression line. That is, as a confidence interval covers a single-valued parameter, a confidence band
+covers an entire line with a band. An example of the Scheff´e band is given in Figure 11.3.3, along
+with two Bonferroni intervals and a single t interval. Notice that, although it is not the case in Figure
+11.3.3, it is possible for the Bonferroni intervals to be wider than the Scheff´e bands, even though
+the Bonferroni inference (necessarily) pertains to fewer intervals. This will be the case whenever
+
+                                        tn−2,α/(2m) > 2F2,n−2,α,
+where m is defined as in (11.3.42). The inequality will always be satisfied for large enough m,
+so there will always be a point where it pays to switch from Bonferroni to Scheff´e, even if there
+is interest in only a finite number of xs. This “phenomenon,” that we seem to get something for
+nothing, occurs because the Bonferroni Inequality is an all-purpose bound while the Scheff´e band
+is an exact solution for the problem at hand. (The actual coverage probability for the Bonferroni
+intervals is higher than 1 −α.) There are many variations on the Scheff´e band. Some variationshave different shapes and some guarantee coverage for only a particular interval of x values. See the
+Miscellanea section for a discussion of these alternate bands.
+    In theory, the proof of Theorem 11.3.6, with suitable modifications, can result in simultaneous
+prediction intervals. (In fact, the maximization of the function in Exercise 11.40 gives the result
+almost immediately.) The problem, however, is that the resulting statistic does not have a particularly
+nice distribution.
+
+=== PDF 486; PRINT 455 ===
+EXERCISES                                                                  455
+
+
+
+
+            5
+
+
+
+
+
+            4
+
+
+
+
+
+            3
+
+
+
+
+
+            2
+
+
+
+
+
+            1
+
+
+
+
+
+            0                1              2              3              4
+
+                                  Two 90% Bonferroni intervals at x = 1, 3
+                              90% t interval at x = 3.5
+                              90% Scheffé bands
+
+Figure 11.3.3 Scheff´e bands, t interval (at x = 3.5) and Bonferroni intervals (at x = 1 and x = 3) for data in
+Table 11.3.1
+
+
+    Finally, we note a problem about using procedures like the Scheff´e band to make inferences at
+x values that are outside the range of the observed xs. Such procedures are based on the assumption
+that we know the population regression function is linear for all x. Although it may be reasonable to
+assume the regression function is linear over the range of xs observed, extrapolation to xs outside the
+observed range is usually unwise. (Since there are no data outside the observed range, we cannot
+check if the regression becomes nonlinear.) This caveat also applies to the procedures in Section
+11.3.5.
+
+11.4  Exercises
+11.1 An ANOVA variance-stabilizing transformation stabilizes variances in the following approximate way.
+      Let Y have mean θ and variance v(θ).
+
+=== PDF 487; PRINT 456 ===
+456                             ANALYSIS OF VARIANCE AND REGRESSION
+
+       (a) Use arguments as in Section 10.1.3 to show that a one-term Taylor series approximation of the
+          variance of g(y) is given by Var(g(Y)) = [ dθd g(θ)]2v(θ).
+      (b) Show that the approximate variance of g∗(Y) is independent of θ, where g∗(y) =  [1/   v(y)]dy.
+11.2 Verify that the following transformations are approximately variance-stabilizing in the sense of Exercise
+      11.1.
+       (a) Y            g∗(y) = √y          ∼Poisson,
+      (b) Y ∼binomial(n, p),g∗(y) = sin−1(  y/n)
+       (c) Y has variance v(θ) = Kθ2 for some constant K,g∗(y) = log(y).
+      (Conditions for the existence of variance-stabilizing transformations go back at least to Curtiss 1943,
+     with refinements given by Bar-Lev and Enis 1988, 1990.)
+11.3 The Box–Cox family of power transformations (Box and Cox 1964) is defined by
+
+                                                (yλ              if = 0,                                   g∗λ (y) =     −1)/λ       λ̸                                            logy            if λ = 0,
+
+     where λ is a free parameter.
+       (a) Show that, for each y,g∗λ (y) is continuous in λ. In particular, show that
+
+                                = logy.                                      λ→0(yλlim   −1)/λ
+      (b) Find the function v(θ), the approximate variance of Y, that g∗λ (y) stabilizes. (Note that v(θ) will
+        most likely also depend on λ.)
+      Analysis of transformed data in general, and the Box–Cox power transformation in particular, has been
+      the topic of some controversy in the statistical literature. See Bickel and Doksum (1981), Box and Cox
+      (1982), and Hinkley and Runger (1984).
+11.4 A most famous (and useful) variance stabilizing transformation is Fisher’s z-transformation, which we
+     have already encountered in Exercise 10.17. Here we will look at a few more details. Suppose that (X,Y)
+      are bivariate normal with correlation coefficient ρ and sample correlation r.
+       (a) Starting from Exercise 10.17, part (d), use the Delta Method to show that
+
+                                  1     1+r      1+ρ
+                                          log       −log                                  2                               1−r      1−ρ
+            is approximately normal with mean 0 and variance 1/n.
+      (b) Fisher actually used a somewhat more accurate expansion (Stuart and Ord 1987, Section 16.33) and
+          established that the quantity in part (a) is approximately normal with
+
+                                ρ                   1                       mean =        and variance =   + 4−ρ2   .
+                             2(n−1)          n−1  2(n−1)2
+       Show that for small ρ and moderate n, we can approximate this mean and variance by 0 and 1/(n−           3), which is the most popular form of the Fisher’s z-transformation.
+11.5 Suppose that random variables Yij are observed according to the overparameterized oneway ANOVA
+     model in (11.2.2). Show that, without some restriction on the parameters, this model is not identifiable
+     by exhibiting two distinct collections of parameters that lead to exactly the same distribution of the Yijs.
+11.6 Under the oneway ANOVA assumptions:
+       (a) Show that the set of statistics (¯Y1·, ¯Y2·,..., ¯Yk·,S2p) is sufficient for (θ1,θ2,...,θk,σ2).
+                                      = 1,...,k. (See Lemma 5.3.3.)                                                                                   i is independent of each ¯Yi·,i      (b) Show that S2p = N−k∑k1    i=1(ni −1)S2
+       (c)  If σ2 is known, explain how the anova data are equivalent to their canonical version in Miscellanea
+          11.5.6.
+
+=== PDF 488; PRINT 457 ===
+ EXERCISES                                                                  457
+
+ 11.7 Complete the proof of Theorem 11.2.8 by showing that
+
+                              1   k                           2
+                                                 (                ∑ ni                                                                                   ¯Yi· −¯¯Y)−(θi −¯θ)  ∼χ2k−1.                           σ2 i=1
+                    = 1,...,k. Show that ¯Ui are independent n(0,σ2/ni). Then, adapt the       (Hint:  Define ¯Ui = ¯Yi· −θi,i                                                                     where ¯¯U = ∑ni ¯Ui/∑ni.)       induction argument of Lemma 5.3.2 to show that ∑ni(¯Ui −¯¯U)2/σ2 ∼χ2k−1,
+ 11.8 Show that under the oneway ANOVA assumptions, for any set of constants a = (a1,...,ak), the quantity
+                                                                                                                                          i /ni. (See Corollary 4.6.10.)     ∑ai ¯Yi· is normally distributed with mean ∑aiθi and variance σ2 ∑a2
+ 11.9 Using an argument similar to that which led to the t test in (11.2.7), show how to construct a t test for
+        (a) H0 : ∑aiθi = δ versus H1 : ∑aiθi̸ = δ,
+       (b) H0 : ∑aiθi ≤δ versus H1 : ∑aiθi > δ, where δ is a specified constant.
+11.10 Suppose we have a oneway ANOVA with five treatments. Denote the treatment means by θ1,...,θ5,
+      where θ1 is a control and θ2,...,θ5 are alternate new treatments and assume that an equal number of
+       observations per treatment is taken. Consider the four contrasts ∑aiθi defined by
+
+                                    a1  =                                       ,                                    1,−14,−14,−14,−14
+                                    a2  =                                    ,                                       0,1,−13,−13,−13
+                                    a3  =                                ,                                         0,0,1,−12,−12
+                                    a4  =  (0,0,0,1,−1).
+        (a) Argue that the results of the four t tests using these contrasts can lead to conclusions about the
+           ordering of θ1,...,θ5. What conclusions might be made?
+       (b) Show that any two contrasts ∑ai ¯Yi· formed from the four ais in part (a) are uncorrelated. (Recall that           these are called orthogonal contrasts.)
+        (c) For the fertilizer experiment of Example 11.2.3, the following contrasts were planned:
+                                         a1  =  (−1,1,0,0,0),
+                                                   1 1
+                                         a2  =    0,−1, 2, 2,0   ,
+                                         a3  =  (0,0,1,−1,0),
+                                         a4  =  (0,−1,0,0,1,).
+        Show that these contrasts are not orthogonal. Interpret these contrasts in the context of the fertilizer
+          experiment, and argue that they are a sensible set of contrasts.
+11.11 For any sets of constants a = (a1,...,ak) and b = (b1,...,bk), show that under the oneway ANOVA
+      assumptions
+                                                                                                         .                                = σ2∑aibini                                  Cov(∑ai ¯Yi·,∑bi ¯Yi·)
+      Hence, in the oneway ANOVA, contrasts are uncorrelated (orthogonal) if ∑aibi/ni = 0.
+11.12 Suppose that we have a oneway ANOVA with equal numbers of observations on each treatment, that is,
+        ni = n,i = 1,...,k. In this case the F test can be considered an average t test.
+        (a) Show that a t test of H0 : θi = θi′ versus H1 : θi̸ = θi′ can be based on the statistic
+                                                                                        (¯Yi· −¯Yi′·)2 .                                                       t2ii′ =                                                        S2p(2/n)
+
+       (b) Show that
+                                           1
+                                                                                                                               ii′ = F,                                              k(k  ∑ t2                                    −1)  i,i′
+         where F is the usual ANOVA F statistic. (Hint:  See Exercise 5.8a.) (Communicated by George
+         McCabe, who learned it from John Tukey.)
+
+=== PDF 489; PRINT 458 ===
+ 458                             ANALYSIS OF VARIANCE AND REGRESSION
+11.13 Under the oneway ANOVA assumptions, show that the likelihood ratio test of H0 : θ1 = θ2 = ··· = θk is      given by the F test of (11.2.14).
+11.14 The Scheff´e simultaneous interval procedure actually works for all linear combinations, not just con-
+        trasts. Show that under the oneway ANOVA assumptions, if M =             (note the change in the      numerator degrees of freedom), then the probability is 1−α that  kFk,N−k,α
+                             k                    k a2i         k             k                    k  a2i                                                                                                                                  ,                ∑                                 ∑                                        ∑ ai ¯Yi· −M                                                                                                  ni                        i=1                                                   ni ≤  i=1                     ∑ aiθi ≤  i=1∑ ai ¯Yi· +M                i=1                                 i=1                                                          S2p                             S2p
+      simultaneously for all a = (a1,...,ak). (It is probably easiest to proceed by first establishing, in the spirit
+       of Lemma 11.2.7, that if v1,...,vk are constants and c1,...,ck are positive constants, then
+
+                                     ∑ki=1 aivi          k                                 =                                                                                                          .                             max                          ∑ civ2i                                            a                                                                 i=1                        ∑ki=1 a2i /ci2 
+
+     The proof of Theorem 11.2.10 can then be adapted to establish the result.)
+11.15  (a) Show that for the t and F distributions, for any ν, α, and k,
+
+                                               tν,α/2 ≤   (k −1)Fk−1,ν,α.                      
+           (Recall the relation between the t and the F. This inequality is a consequence of the fact that the
+            distributions kFk,ν are stochastically increasing in k for fixed ν, but is actually a weaker statement.
+         See Exercise 5.19.)
+       (b) Explain how the above inequality shows that the simultaneous Scheff´e intervals are always wider
+          than the single-contrast intervals.
+        (c) Show that it also follows from the above inequality that Scheff´e tests are less powerful than t tests.
+11.16 In Theorem 11.2.5 we saw that the ANOVA null is equivalent to all contrasts being zero. We can also
+       write the ANOVA null as the intersection over another set of hypotheses.
+        (a) Show that the hypotheses
+
+                                                                                                                                                     j for some i, j                  H0 :   θ1 = θ2 = ··· = θk     versus    H1 :     θi̸ = θ
+         and the hypotheses
+                H0 :   θi −θj = 0 for all i, j     versus    H1 :   θi −θj̸ = 0 for some i, j
+           are equivalent.
+       (b) Express H0 and H1 of the ANOVA test as unions and intersections of the sets
+                                     Θij = {θ = (θ1,...,θk): θi −θj = 0}.
+          Describe how these expressions can be used to construct another (different) union–intersection test
+           of the ANOVA null hypothesis. (See Miscellanea 11.5.2.)
+11.17 A multiple comparison procedure called the Protected LSD (Protected Least Significant Difference) is
+      performed as follows. If the ANOVA F test rejects H0 at level α, then for each pair of means θi and θi′,
+       declare the means different if
+                                                                    |¯Yi· −¯Yi′·|                                                    1    1      tα/2,N−k.
+                                                          S2p   ni + ni′                                                     >      Note that each t test is done at the same α level as the ANOVA F test. Here we are using an experiment-
+      wise α level, where
+
+                                                          at least one false      all the means
+                     experimentwise α = P                      assertion of difference    are equal                                              .
+
+=== PDF 490; PRINT 459 ===
+ EXERCISES                                                                  459
+
+        (a) Prove that no matter how many means are in the experiment, simultaneous inference from the Pro-
+           tected LSD is made at level α.
+       (b) The ordinary (or unprotected) LSD simply does the individual t tests, at level α, no matter what the
+         outcome of the ANOVA F test. Show that the ordinary LSD can have an experimentwise error rate
+           greater than α. (The unprotected LSD does maintain a comparisonwise error rate of α.)
+        (c) Perform the LSD procedure on the fish toxin data of Example 11.2.1. What are the conclusions?
+11.18 To see that “data snooping,” that is, testing hypotheses that are suggested by the data, is generally not a
+      good practice,
+        (a) Show that, for any random variable Y and constants a and b with a > b and P(Y > b) < 1, P(Y >
+          a|Y > b) > P(Y > a).
+       (b) Apply the inequality in part (a) to the size of a data-suggested hypothesis test by letting Y be a test
+             statistic and a be a cutoff point.
+                                                                                 j=1 Xj   , i = 1,...,n−1, and11.19 Let Xi ∼gamma(λi,1) independently for i = 1,...,n. Define Yi = Xi+1/  ∑i
+      Yn = ∑ni=1 Xi.
+        (a) Find the joint and marginal distributions of Yi,i = 1,...,n.
+       (b) Connect your results to any distributions that are commonly employed in the ANOVA.
+11.20 Show that if the oneway ANOVA null hypothesis is true, then
+                                 gives an unbiased estimate of σ2.        (a)  ∑ni(¯Yi· −¯¯Y)2/(k −1)
+       (b) Show how to use the method of Example 5.3.5 to derive the ANOVA F test.
+11.21  (a)  Illustrate the partitioning of the sums of squares in the ANOVA by calculating the complete ANOVA
+            table for the following data. To determine diet quality, male weanling rats were fed diets with various
+           protein levels. Each of fifteen rats was randomly assigned to one of three diets, and their weight gain
+            in grams was recorded.
+                                               Diet protein level
+                               Low  Medium   High
+                                           3.89      8.54    20.39
+                                           3.87      9.32    24.22
+                                           3.26      8.76    30.91
+                                           2.70      9.30    22.78
+                                           3.82    10.45    26.33
+
+       (b) Analytically verify the partitioning of the ANOVA sums of squares by completing the proof of
+         Theorem 11.2.11.
+        (c)  Illustrate the relationship between the t and F statistics, given in Exercise 11.12b, using the data of
+            part (a).
+11.22 Calculate the expected values of MSB and MSW given in the oneway ANOVA table. (Such expectations
+       are formally known as expected mean squares and can be used to help identify F tests in complicated
+     ANOVAs. An algorithm exists for calculating expected mean squares. See, for example, Kirk (1982) for
+        details about the algorithm.)
+11.23 For the model in Miscellanea 11.5.3:
+        (a) Show that the mean and variance of Yij are EYi j = µ +τi, and VarYij = σ2B +σ2.
+       (b)  If ∑ai = 0, show that the unconditional variance of ∑aiY  is Var(∑aiY  = 1r (σ2 +σ2                      i ,                                                                                                                              i·                  i·)        B)(1−ρ)∑a2         where ρ = the intraclass correlation.
+11.24 The form of the Stein estimator of Miscellanea 11.5.6 can be justified somewhat by an empirical Bayes
+      argument given in Efron and Morris (1972), which can be quite useful in data analysis. Such an argument
+     may have been known by Stein (1956), although he makes no mention of it. Let Xi ∼n(θi,1),i = 1,..., p,      and θi be iid n(0,τ2).
+        (a) Show that the Xis, marginally, are iid n(0,τ2 +1), hence, ∑X2i /(τ2 +1) ∼χ2p.
+
+=== PDF 491; PRINT 460 ===
+ 460                             ANALYSIS OF VARIANCE AND REGRESSION
+       (b) Using the marginal distribution, show that E(1−((p−2)/∑pj=1X2                                                                                                                                               j )) = τ2/(τ2 +1) if p ≥3. Thus,           the Stein estimator of Miscellanea 11.5.6 is an empirical Bayes version of the Bayes estimator
+         δ iπ (X) = [τ2/(τ2 +1)]Xi.
+        (c) Show that the argument fails if p < 3 by showing that E(1/Y) = ∞if Y ∼χ2p with p < 3.
+11.25 In Section 11.3.1, we found the least squares estimators of α and β by a two-stage minimization. This
+      minimization can also be done using partial derivatives.
+        (a) Compute ∂RSS and ∂RSS and set them equal to zero. Show that the resulting two equations can be                      ∂c        ∂d
+           written as
+
+                                   n           n               n            n           n
+                      =                                          =                 nc+ ∑ xi  d                 ∑ yi  and  ∑ xi c+ ∑ x2i  d                                 ∑ xiyi.
+                                 i=1        i=1             i=1          i=1         i=1
+
+          (These equations are called the normal equations for this minimization problem.)
+       (b) Show that c = a and d = b are the solutions to the normal equations.
+        (c) Check the second partial derivative condition to verify that the point c = a and d = b is indeed the
+        minimum of RSS.
+11.26 Suppose n is an even number. The values of the predictor variable, x1,...,xn, all must be chosen to be in
+       the interval [e, f]. Show that the choice that maximizes Sxx is to choose half of the xi equal to e and the
+       other half equal to f. (This was the choice mentioned in Section 11.3.2 that minimizes Varb.)
+11.27 Observations (xi,Yi), i = 1,...,n, follow the model Yi = α + βxi + εi, where E εi = 0, Varεi = σ2, and
+      Cov(εi,ε j) = 0 if  i̸ = j. Find the best linear, unbiased estimator of α.
+11.28 Show that in the conditional normal model for simple linear regression, the MLE of σ2 is given by
+                                        1 n                                                ˆσ2 =                    ∑ (yi −ˆα −ˆβxi)2.                                        n i=1
+11.29 Consider the residuals ˆε1,..., ˆεn defined in Section 11.3.4 by ˆεi = Yi −ˆα −ˆβxi.
+        (a) Show that Eˆεi = 0.
+       (b) Verify that
+                 Var ˆεi = VarYi +Var ˆα +x2i Var ˆβ −2Cov(Yi, ˆα)−2xiCov(Yi, ˆβ)+2xiCov(ˆα, ˆβ).
+        (c) Use Lemma 11.3.2 to show that
+
+                                    1    (xi                                         xi                        Cov(Yi, ˆα) = σ2  +    −¯x)¯x    and  Cov(Yi, ˆβ) = σ2  −¯x ,
+                                    n      Sxx                                Sxx
+
+         and use these to verify (11.3.28).
+11.30  Fill in the details about the distribution of ˆα left out of the proof of Theorem 11.3.3.
+                                    = ∑ni=1 ciYi, where        (a) Show that the estimator ˆα = ¯y−ˆβ ¯x can be expressed as ˆα
+                                            1                                                            ci =         −¯x)¯x .                                            n −(xi Sxx
+
+       (b) Verify that
+                                                        1   n
+                                                                                                                   .                         E ˆα = α  and  Var ˆα = σ2   ∑ x2i                                                                nSxx i=1
+        (c) Verify that
+                                                                                                                    ¯x                                      Cov( ˆα, ˆβ) =          .                                     −σ2Sxx
+11.31 Verify the claim in Theorem 11.3.3, that ˆεi is uncorrelated with ˆα and ˆβ. (Show that ˆεi = ∑ejYj, where
+       the ejs are given by (11.3.30). Then, using the facts that we can write ˆα = ∑cjYj and ˆβ = ∑d jYj, verify
+       that ∑e jcj = ∑e jdj = 0 and apply Lemma 11.3.2.)
+
+=== PDF 492; PRINT 461 ===
+ EXERCISES                                                                  461
+
+11.32 Observations (xi,Yi),i = 1,...,n, are made according to the model
+
+                                                      Yi = α +βxi +εi,
+      where x1,...,xn are fixed constants and ε1,...,εn are iid n(0,σ2). The model is then reparameterized as
+                                                  Yi = α′ +β ′(xi −¯x)+εi.
+      Let ˆα and ˆβ denote the MLEs of α and β, respectively, and ˆα′ and ˆβ ′ denote the MLEs of α′ and β ′,
+       respectively.
+        (a) Show that ˆβ ′ = ˆβ.
+             = ˆα . In fact, show that ˆα′ = ¯Y. Find the distribution of ˆα′.       (b) Show that ˆα′̸
+        (c) Show that ˆα′ and ˆβ ′ are uncorrelated and, hence, independent under normality.
+11.33 Observations (Xi,Yi),i = 1,...,n, are made from a bivariate normal population with parameters
+      (µX,µY ,σ2X,σ2Y ,ρ), and the model Yi = α +βxi +εi is going to be fit.
+        (a) Argue that the hypothesis H0 : β = 0 is true if and only if the hypothesis H0 : ρ = 0 is true. (See
+            (11.3.25).)
+       (b) Show algebraically that
+                                                               ˆβ                            = √         r      ,                                    S/√Sxx   n−2 √                                             1−r2
+         where r is the sample correlation coefficient, the MLE of ρ.
+        (c) Show how to test H0 : ρ = 0, given only r2 and n, using Student’s t with n −2 degrees of freedom           (see (11.3.33)). (Fisher derived an approximate confidence interval for ρ, using a variance-stabilizing
+           transformation. See Exercise 11.4.)
+11.34  (a)  Illustrate the partitioning of the sum of squares for simple linear regression by calculating the re-
+           gression ANOVA table for the following data. Parents are often interested in predicting the eventual
+           heights of their children. The following is a portion of the data taken from a study that might have
+         been suggested by Galton’s analysis.
+                       Height (inches)
+                                       39   30   32   34   35   36   36   30                             at age two (x)
+                       Height (inches)                                       71   63   63   67   68   68   70   64
+                         as an adult (y)
+       (b) Analytically establish the partitioning of the sum of squares for simple linear regression by verifying
+           (11.3.36).
+        (c) Prove that the two expressions for the regression sum of squares are, in fact, equal. That is, show that
+                                                    n                 S2xy
+                                =                                                                                                  .                   ∑ (ˆyi −¯y)2                                                                 Sxx                                                 i=1
+
+       (d) Show that the coefficient of determination, r2, given by
+                                        ∑ni=1(ˆyi                                                 r2 =        −¯y)2 ,
+                                        ∑ni=1(yi −¯y)2
+          can be  derived  as  either  the square  of  the sample  correlation  coefficient  of  the n  pairs
+           (y1,x1),...,(yn,xn) or of the n pairs (y1, ˆy1),...,(yn, ˆyn).
+11.35 Observations Y1,...,Yn are described by the relationship Yi = θx2i + εi, where x1,...,xn are fixed con-
+       stants and ε1,...,εn are iid n(0,σ2).
+        (a) Find the least squares estimator of θ.
+       (b) Find the MLE of θ.
+        (c) Find the best unbiased estimator of θ.
+11.36 Observations Y1,...,Yn are made according to the model Yi = α + βxi + εi, where x1,...,xn are fixed
+       constants and ε1,...,εn are iid n(0,σ2). Let ˆα and ˆβ denote MLEs of α and β.
+
+=== PDF 493; PRINT 462 ===
+ 462                             ANALYSIS OF VARIANCE AND REGRESSION
+
+        (a) Assume that x1,...,xn are observed values of iid random variables X1,...,Xn with distribution
+         n(µX,σ2X). Prove that when we take expectations over the joint distribution of X and Y we still
+           get E ˆα = α and E ˆβ = β.
+       (b) The phenomenon of part (a) does not carry over to the covariance. Calculate the unconditional co-
+           variance of ˆα and ˆβ (using the joint distribution of X and Y).
+11.37 We observe random variables Y1,...,Yn that are mutually independent, each with a normal distribution
+      with variance σ2. Furthermore, EYi = βxi, where β is an unknown parameter and x1,...,xn are fixed
+       constants not all equal to zero.
+        (a) Find the MLE of β. Compute its mean and variance.
+       (b) Compute the Cram´er–Rao Lower Bound for the variance of an unbiased estimator of β.
+        (c) Find a best unbiased estimator of β.
+       (d)  If you could place the values x1,...,xn anywhere within a given nondegenerate closed interval [A,B],
+         where would you place these values? Justify your answer.
+        (e) For a given positive value r, the maximum probability estimator of β with respect to r is the value of
+      D that maximizes the integral
+                                        D+r
+                                                 f(y1,...,yn|β)dβ,                                       D−r
+         where f(y1,...,yn|β) is the joint pdf of Y1,...,Yn. Find this estimator.
+11.38 An ecologist takes data (xi,Yi), i = 1,...,n, where xi is the size of an area and Yi is the number of moss
+       plants in the area. We model the data by Yi ∼Poisson(θxi),Yis independent.
+        (a) Show that the least squares estimator of θ is ∑xiYi/∑x2i . Show that this estimator has variance
+         θ ∑x3i /(∑x2i )2. Also, compute its bias.
+       (b) Show that the MLE of θ is ∑Yi/∑xi and has variance θ/∑xi. Compute its bias.
+        (c) Find a best unbiased estimator of θ and show that its variance attains the Cram´er–Rao Lower Bound.
+11.39 Verify that the simultaneous confidence intervals in (11.3.42) have the claimed coverage probability.
+11.40  (a) Prove that if a, b, c, and d are constants, with c > 0 and d > 0, then
+
+                                        (a+bt)2   a2   b2
+                                max     =  +     .
+                                                                                        t   c+dt2     c    d
+
+       (b) Use part (a) to verify equation (11.3.44) and hence fill in the gap in Theorem 11.3.6.
+        (c) Use part (a) to find a Scheff´e-type simultaneous band using the prediction intervals of (11.3.41). That
+               is, rewriting the prediction intervals as was done in Theorem 11.3.6, show
+
+                                                         2
+                                   (¯Y −µ¯Y                           )+(ˆβ −β)t  =                                                             n+1(¯Yn    −µ¯Y )2 +Sxx(ˆβ −β)2 .                   max
+                                                      t      S2 1+ 1n + Sxxt2                     S2
+
+       (d) The distribution of the maximum is not easy to write down, but we could approximate it. Approxi-
+         mate the statistic by using moment matching, as done in Example 7.2.3.
+11.41 In the discussion in Example 12.4.2, note that there was one observation from the Potoroo data that had
+      a missing value. Suppose that on the 24th animal it was observed that O2 = 16.3.
+        (a) Write down the observed-data and expected complete-data log likelihood functions.
+       (b) Describe the E-step and the M-step of an EM Algorithm to find the MLEs.
+        (c) Find the MLEs using all 24 observations.
+       (d) Actually, the O2 reading on the 24th animal was not observed, but rather the CO2 was observed to
+         be 4.2 (and the O2 was missing). Set up the EM Algorithm in this case and find the MLEs. (This is
+          a much harder problem, as you now have to take expectations over the xs. This means you have to
+          formulate the regression problem using the bivariate normal distribution.)
+
+=== PDF 494; PRINT 463 ===
+MISCELLANEA                                                              463
+11.5  Miscellanea
+
+11.5.1 Cochran’s Theorem
+     Sums of squares of normal random variables, when properly scaled and centered, are dis-
+        tributed as chi squared random variables. This type of result is first due to Cochran (1934).
+       Cochran’s Theorem gives necessary and sufficient conditions on the scaling required for
+       squared and summed iid normal random variables to be distributed as a chi squared random
+        variable. The conditions are not difficult, but they are best stated in terms of properties of
+       matrices, and will not be treated here. It is an immediate consequence of Cochran’s Theorem
+        that in the oneway ANOVA the χ2 random variables partition as discussed in Section 11.2.6.
+       Furthermore, another consequence is that in the Randomized Complete Blocks Anova (Mis-
+       cellanea 11.5.3) the mean squares all have chi squared distributions.
+         Cochran’s Theorem has been generalized to the extent that necessary and sufficient con-
+        ditions are known for the distribution of squared normals (not necessarily iid) to be chi
+       squared. See Stuart and Ord (1987, Chapter 15) for details.
+11.5.2 Multiple Comparisons
+     We have seen two ways of doing simultaneous inference in this chapter, the Scheff´e proce-
+       dure and use of the Bonferroni Inequality. There is a plethora of other simultaneous inference
+       procedures. Most are concerned with inference on pairwise comparisons, that is, differences
+      between means. These procedures can be applied to estimate treatment means in the oneway
+     ANOVA.
+      A method due to Tukey (see Miller, 1981), sometimes known as the Q method, applies a
+        Scheff´e-type maximization argument, but only over pairwise differences, not all contrasts.
+      The Q distribution is the distribution of
+
+                   Q = max  (¯Yi· −¯Yj·)−(θi −θj)  ,
+                                                                               i, j            S2p  1n + 1n
+
+      where ni = n for all i. (Hayter 1984 has shown that if  = nj and the n above is replaced by                                                 1                         ni̸       the harmonic mean nh, where 1/nh = 2((1/ni)+(1/n j)), the resulting procedure is conser-
+        vative.) The Q method is an improvement over Scheff´e’s S method in that if there is interest
+       only in pairwise differences, the Q method is more powerful (shorter intervals). This is easy
+        to see because, by definition, the Q maximization will produce a smaller maximum than the
+      S method.
+         Other types of multiple comparison procedures, which deal with pairwise differences, are
+      more powerful than the S method. Some procedures are the LSD (Least Significant Dif-
+       ference) Procedure, Protected LSD, Duncan’s Procedure, Student–Neumann–Keuls’ Proce-
+       dure. These last two are multiple range procedures. The cutoff point to which comparisons
+       are made changes between comparisons.
+       One difficulty in fully understanding multiple comparison procedures is that the defini-
+        tion of Type I Error is not inviolate. Some of these procedures have changed the definition of
+      Type I Error for multiple comparisons, so exactly what is meant by “α level” is not always
+        clear. Some of the types of error rates considered are called experimentwise error rate, com-
+       parisonwise error rate, and familywise error rate. Miller (1981) and Hsu (1996) are good
+       references for this topic. A humorous, but illuminating treatment of this subject is given in
+      Carmer and Walker (1982).
+11.5.3 Randomized Complete Block Designs
+       Section 11.2 was concerned with a oneway classification of the data, that is, there was only
+      one categorization (treatment) in the experiment. In general, the ANOVA allows for many
+       types of categorization, with one of the most commonly used ANOVAs being the Random-
+       ized Complete Block (RCB) ANOVA.
+
+=== PDF 495; PRINT 464 ===
+464                             ANALYSIS OF VARIANCE AND REGRESSION
+      A block (or blocking factor) is categorization that is in an experiment for the express pur-
+       pose of removing variation. In contrast to a treatment, there is usually no interest in finding
+       block differences. The practice of blocking originated in agriculture, where experimenters
+       took advantage of similar growing conditions to control experimental variances. To model
+         this, the actual blocks in the experiment were considered to be a random sample from a large
+       population of blocks (which makes them a random factor).
+     RCB ANOVA assumptions
+     Random variables Yi j are observed according to the model
+                           Yi j|b = µ +τi +bj +εi j,    i = 1,...,k,     j = 1,...,r,
+       where:
+          (i) The random variables εi j ∼iid n(0,σ2) for i = 1,...,k, and  j = 1,...,r (normal errors          with equal variances).
+         (ii) The random variables B1,...,Br, whose realized (but unobserved) values are the blocks
+            b1,...,br, are iid n(0,σ2B) and are independent of εij for all i, j.
+      The mean and variance of Yi j are
+
+                                EYi j = µ +τi,   VarYij = σ2B +σ2.
+
+       Moreover, although the Yi js are uncorrelated conditionally, there is correlation in the blocks
+       unconditionally. The correlation between Yij and Yi′ j in block j, with  i̸ = i′, is
+                                  Cov(Yi j,Yi′ j)       σ2B                            =              ,
+                                   (VarYi j)(VarYi′ j)   σ2B +σ2
+       a quantity called the intraclass correlation. Thus, the model not only implies that there is
+        correlation in the blocks, but also that there is positive correlation. This is a consequence of
+       the additive model and the assumption that the ε s and Bs are independent (Exercise 11.23).
+      Even though the Yi js are not independent, the intraclass correlation structure still results in
+      an analysis of variance where ratios of mean squares have the F-distribution (Miscellanea
+        11.5.1).
+11.5.4 Other Types of Analyses of Variance
+      The two types of ANOVA that we have considered, oneway ANOVAs and RCB ANOVAs,
+       are the simplest types. For example, an extension of a complete block design is an incom-
+        plete block design. Sometimes there are physical constraints that prohibit putting all treat-
+      ments in each block and an incomplete block design is needed. Deciding how to arrange the
+       treatments in such a design is both difficult and critical. Of course, as the design gets more
+       complicated, so does the analysis.
+         Study of the subject of statistical design, which is concerned with getting the most infor-
+      mation from the fewest observations, leads to more complicated and more efficient ANOVAs
+        in many situations. ANOVAs based on designs such as fractional factorials, Latin squares,
+      and balanced incomplete blocks can be efficient methods of gathering much information
+       about a phenomenon. Good overall references for this subject are Cochran and Cox (1957),
+      Dean and Voss (1999), and Kuehl (2000).
+11.5.5 Shapes of Confidence Bands
+       Confidence bands come in many shapes, not just the hyperbolic shape defined by the Scheff´e
+       band. For example, Gafarian (1964) showed how to construct a straight-line band over a
+         finite interval. Gafarian-type bands allow statements of the form
+             P(ˆα + ˆβx−dα ≤α +βx ≤ˆα                        + ˆβx+dα, for all x ∈[a,b])                                       = 1−α.
+
+=== PDF 496; PRINT 465 ===
+MISCELLANEA                                                              465
+       Gafarian gave tables of dα. A finite-width band must, necessarily, apply only to a finite range
+       of x. Any band of level 1−α must have infinite length as |x| →∞.          Casella and Strawderman (1980), among others, showed how to construct Scheff´e-type
+      bands over finite intervals, thereby reducing width while maintaining the same confidence as
+       the infinite Scheff´e band. Naiman (1983) compared performance of straight-line and Scheff´e
+      bands over finite intervals. Under his criterion, one of average width, the Scheff´e band is
+        superior. In some cases, an experimenter might be more comfortable with the interpretation
+       of a straight-line band, however.
+        Shapes other than straight-line and hyperbolic are possible. Piegorsch (1985) investigated
+      and characterized the shapes that are admissible in the sense that their probability statements
+       cannot be improved upon. He obtained “growth conditions” that must be satisfied by an
+       admissible band. Naiman (1983, 1984, 1987) and Naiman and Wynn (1992, 1997) have
+       developed this theory to a very high level, establishing useful inequalities and geometric
+        identities to further improve inferences.
+11.5.6 Stein’s Paradox
+     One part of the analysis of variance is concerned with the simultaneous estimation of a
+        collection of normal means. Developments in this particular problem, starting with Stein
+       (1956), have had a profound effect on both the theory and applications of point estimation.
+      A canonical version of the analysis of variance is to observe X = (X1,...,Xp), independent
+      normal random variables with Xi ∼n(θi,1), i = 1,..., p, with the objective being the estima-        tion of θ = (θ1,...,θp). Our usual estimate of θi would be Xi, but Stein (1956) established
+       the surprising result that, if p ≥3, the estimator of θi given by
+                              δiS (X) =     p−2    Xi                           1− ∑pi=1 X2i
+         is a better estimator of θi in the sense that
+                                  p                    p
+                                                               S          2
+                                          Eθ δ i (X)−θi    .                                i=1            ∑ Eθ (Xi −θi)2 ≥ i=1∑
+       That is, the summed mean squared of Stein’s estimator is always smaller, and usually strictly
+        smaller, than that of X.
+         Notice that the estimators are being compared using the sum of the component wise mean
+       squared errors, and each δ iS can be a function of the entire vector (X1,...,Xp). Thus, all of
+       the data can be used in estimating each mean. Since the Xis are independent, we might think
+        that restricting δ iS just to be a function of Xi would be enough. However, by summing the
+      mean squared errors, we tie the components together.
+          In the oneway ANOVA we observe
+                             σ2
+                                                                ,    i = 1,...,k,   independent,                                               ¯Yi· ∼n  θi, ni
+      where the ¯Yi·s are the cell means. The Stein estimator takes the form
+                                         +
+
+                    =                                   = 1,...,k,                                                           2         ¯Yi·,    i                   δ iS (¯Y1·,..., ¯Yk·)                            1−(k∑n−2)σ2j ¯Y                                                                                                     j·
+       This Stein-type estimator can further be improved by choosing a meaningful place toward
+      which to shrink (the above estimator shrinks toward zero). One such estimator, due to Lind-
+       ley (1962), shrinks toward the grand mean of the observations. It is given by
+
+                                          +
+               L                           (k             δ i       = ¯¯Y +        −3)σ2                          i = 1,...,k.                       (¯Y1·,..., ¯Yk·)     1− ∑n                        (¯Yi· −¯¯Y),                                                                     j(¯Yj· −¯¯Y)2
+
+=== PDF 497; PRINT 466 ===
+466                             ANALYSIS OF VARIANCE AND REGRESSION
+       Other choices of a shrinkage target might be even more appropriate. Discussion of this,
+       including methods for improving on confidence statements, such as the Scheff´e S method, is
+       given in Casella and Hwang (1987). Morris (1983) also discusses applications of these types
+       of estimators.
+         There have been many theoretical developments using Stein-type estimators, not only in
+       point estimation but also in confidence set estimation, where it has been shown that recen-
+        tering at a Stein estimator can result in increased coverage probability and reduced size.
+      There is also a strong connection between Stein estimators and empirical Bayes estimators
+       (Miscellanea 7.5.6), first uncovered in a series of papers by Efron and Morris in the 1970s
+       (1972, 1973, 1975), where the components of θ are tied together using a common prior dis-
+        tribution. An introduction to the theory, and some applications of Stein estimators, is given
+        in Lehmann and Casella (1998, Chapter 5).

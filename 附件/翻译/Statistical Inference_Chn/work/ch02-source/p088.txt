@@ -1,0 +1,47 @@
+DIFFERENTIATING UNDER AN INTEGRAL SIGN                                 57
+   The question of whether interchanging the order of differentiation and integration is justified is
+really a question of whether limits and integration can be interchanged, since a derivative is a special
+kind of limit. Recall that if f(x,θ) is differentiable, then
+
+                         ∂               f(x,θ                              f(x,θ) = lim     +δ)−f(x,θ) ,
+                     ∂θ        δ→0        δ
+so we have
+                 ∞  ∂             ∞      f(x,θ                         f(x,θ)dx =            +δ)−f(x,θ)  dx,
+                  ∂θ                                                  δ                −∞                                −∞limδ→0
+while
+                  d   ∞               ∞   f(x,θ                    = lim         +δ)−f(x,θ)  dx.
+                dθ                                                  δ                    −∞f(x,θ)dx  δ→0 −∞
+Therefore, if we can justify the interchanging of the order of limits and integration, differentiation
+under the integral sign will be justified. Treatment of this problem in full generality will, unfortu-
+nately, necessitate the use of measure theory, a topic that will not be covered in this book. However,
+the statements and conclusions of some important results can be given. The following theorems are
+all corollaries of Lebesgue’s Dominated Convergence Theorem (see, for example, Rudin (1976)).
+Theorem 2.4.2  Suppose the function h(x,y) is continuous at y0 for each x, and there exists a
+function g(x) satisfying
+    i. |h(x,y)|∞    ≤g(x) for all x and y
+   ii.  −∞g(x)dx < ∞.
+   Then                            ∞            ∞
+                           lim        =         h(x,y)dx.
+                            y→y0 −∞h(x,y)dx   −∞limy→y0
+
+   The key condition in this theorem is the existence of a dominating function g(x), with a finite
+integral, which ensures that the integrals cannot be too badly behaved. We can now apply this
+theorem to the case we are considering by identifying h(x,y) with the difference (f(x,θ + δ) −f(x,θ))/δ.
+Theorem 2.4.3  Suppose f(x,θ) is differentiable at θ = θ0, that is,
+
+                             f(x,θ0                 ∂                        lim      +δ)−f(x,θ0) =     f(x,θ)
+                    δ→0         δ          ∂θ        θ=θ0
+exists for every x, and there exists a function g(x,θ0) and a constant δ0 > 0 such that
+       f(x,θ0    i.       +δ)−f(x,θ0)             for all x and              δ          ≤g(x,θ0),              |δ| ≤δ0,
+           < ∞.   ii.  −∞g(x,θ0)dx∞
+Then
+                   d   ∞                ∞   ∂
+                        =          f(x,θ)       dx.                (2.4.2)
+                 dθ                     ∂θ                      −∞f(x,θ)dx θ=θ0   −∞             θ=θ0
+
+   Condition (i) is similar to what is known as a Lipschitz condition, a condition that imposes
+smoothness on a function. Here, condition (i) is effectively bounding the variability in the first
+derivative; other smoothness constraints might bound this variability by a constant (instead of a
+function g), or place a bound on the variability of the second derivative of f.
+   The conclusion of Theorem 2.4.3 is a little cumbersome, but it is important to realize that al-
+though we seem to be treating θ as a variable, the statement of the theorem is for one value of θ.

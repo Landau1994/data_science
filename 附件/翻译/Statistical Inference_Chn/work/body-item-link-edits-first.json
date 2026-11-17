@@ -1,0 +1,104 @@
+[
+  {
+    "file": "01-02.tex",
+    "scope": "\\label{def:1.2.1}",
+    "end": "\\begin{example}",
+    "links": 5
+  },
+  {
+    "file": "01-02.tex",
+    "scope": "\\label{thm:1.2.8}",
+    "end": "\\begin{theorem}",
+    "links": 5
+  },
+  {
+    "file": "01-02.tex",
+    "scope": "\\label{thm:1.2.9}",
+    "end": "\\begin{example}",
+    "links": 7
+  },
+  {
+    "file": "01-02.tex",
+    "scope": "\\label{thm:1.2.11}",
+    "end": "\\subsubsection",
+    "links": 3
+  },
+  {
+    "file": "01-03.tex",
+    "old": "定理\\ref{thm:1.2.9}(a)",
+    "new": "定理\\ref{thm:1.2.9}\\hyperref[itm:thm:1.2.9:a]{(a)}"
+  },
+  {
+    "file": "01-03.tex",
+    "old": "要证明(a)",
+    "new": "要证明\\hyperref[item:1.3.9a]{(a)}"
+  },
+  {
+    "file": "01-06.tex",
+    "old": "定理\\ref{thm:1.2.9}(c)",
+    "new": "定理\\ref{thm:1.2.9}\\hyperref[itm:thm:1.2.9:c]{(c)}"
+  },
+  {
+    "file": "01-07.tex",
+    "old": "定理\\ref{thm:1.3.9}的(b)和(c)",
+    "new": "定理\\ref{thm:1.3.9}的\\hyperref[item:1.3.9b]{(b)}和\\hyperref[item:1.3.9c]{(c)}"
+  },
+  {
+    "file": "01-07.tex",
+    "old": "规则(ii)",
+    "new": "规则\\hyperref[itm:exercise:1.32:ii]{(ii)}"
+  },
+  {
+    "file": "03-06.tex",
+    "scope": "\\label{thm:3.6.8}",
+    "end": null,
+    "links": 2
+  },
+  {
+    "file": "03-08.tex",
+    "scope": "\\label{thm:3.8.1}",
+    "end": "\\end{theorem}",
+    "links": 2
+  },
+  {
+    "file": "03-01.tex",
+    "old": "Johnson, Kotz, and Balakrishnan (1994, 1995)",
+    "new": "Johnson, Kotz, and Balakrishnan (\\hyperref[bib:source178]{1994}, \\hyperref[bib:source179]{1995})"
+  },
+  {
+    "file": "03-01.tex",
+    "old": "\\hyperref[bib:source177]{Johnson and Kotz (1969}–1972)",
+    "new": "\\hyperref[bib:source177]{Johnson and Kotz (1969–1972)}"
+  },
+  {
+    "file": "03-05.tex",
+    "old": "原文此处指向第3.2节",
+    "new": "原文此处指向\\hyperref[sec:3.2]{第3.2节}"
+  },
+  {
+    "file": "03-05.tex",
+    "old": "原交叉引用疑应为第3.3节",
+    "new": "原交叉引用疑应为\\hyperref[sec:3.3]{第3.3节}"
+  },
+  {
+    "file": "05-01.tex",
+    "old": "\\autoref{thm:1.2.11}(a)",
+    "new": "\\autoref{thm:1.2.11}\\hyperref[itm:thm:1.2.11:a]{(a)}"
+  },
+  {
+    "file": "05-03.tex",
+    "old": "\\autoref{thm:5.3.1}(c)的证明",
+    "new": "\\autoref{thm:5.3.1}\\hyperref[item:5.3.1c]{(c)}的证明"
+  },
+  {
+    "file": "05-06.tex",
+    "scope": "\\label{ex:5.6.7}",
+    "end": "\\subsubsection{接受／拒绝算法}",
+    "links": 2
+  },
+  {
+    "file": "05-08.tex",
+    "old": "\\autoref{exercise:5.38}(d)",
+    "new": "\\autoref{exercise:5.38}\\hyperref[itm:exercise:5.38:d]{(d)}"
+  }
+]

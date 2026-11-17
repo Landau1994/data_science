@@ -1,0 +1,148 @@
+{
+  "environment": {
+    "python": "3.10.6",
+    "scipy": "1.11.4",
+    "numpy": "1.26.2",
+    "mpmath": "1.3.0",
+    "method": "确定性分位数与一维求根；9.52用60位数二分，无随机抽样"
+  },
+  "9.3": {
+    "data": [
+      22.0,
+      23.9,
+      20.9,
+      23.8,
+      25.0,
+      24.0,
+      21.7,
+      23.8,
+      22.8,
+      23.1,
+      23.1,
+      23.5,
+      23.0,
+      23.0
+    ],
+    "alpha_mle": 12.594868873445787,
+    "beta_mle": 25.0,
+    "upper": 25.428366769468052
+  },
+  "9.18": {
+    "target": 0.442,
+    "correct_boundaries": [
+      0.23825883969067274,
+      0.30518187417975057,
+      0.3623009389479504,
+      0.6376990610520497,
+      0.6948181258202495,
+      0.7617411603093273
+    ],
+    "original_counterexample_p": 0.634,
+    "original_acceptance_probability": 0.44134768800000007
+  },
+  "9.23": {
+    "data": [
+      155,
+      104,
+      66,
+      50,
+      36,
+      40,
+      30,
+      35,
+      42
+    ],
+    "sum": 558,
+    "exact_nonrandomized_LR_interval": [
+      57.77847722888353,
+      66.44919766325262
+    ],
+    "all_ordering_cells_checked": 232,
+    "Chernoff_outer_bounds": [
+      55.795437329024,
+      68.64832191995755
+    ],
+    "connected_components_from_all_cells": [
+      [
+        57.778477228873676,
+        66.44919766321179
+      ]
+    ],
+    "endpoint_pvalues_one_sided_limits": [
+      [
+        0.09999999970155943,
+        0.100000000298445
+      ],
+      [
+        0.10191596849790859,
+        0.09791230035463765
+      ]
+    ],
+    "asymptotic_chisquare_LR_interval": [
+      57.78242162844643,
+      66.41797820172741
+    ],
+    "Garwood_equal_tail": [
+      57.74688817081436,
+      66.49441480252322
+    ],
+    "truncation": "Poisson upper omitted mass <=1e-14; deterministic LR ordering and bisection; discrete p-value may jump"
+  },
+  "9.34": {
+    "known_sigma_min_n": 246,
+    "unknown_sigma_min_n": 276,
+    "probability_at_n": 0.903839939864215,
+    "probability_at_previous_n": 0.8956379910677157
+  },
+  "9.45": {
+    "original_Madansky_coverage": 0.2993803913123313,
+    "exact_corrected_minimum_denominator": 0.010033106702716134,
+    "correct_quantile_upper_.3": 250.98809673126132,
+    "UMA_expected_length_factor": 0.9562206460212074,
+    "original_Madansky_length_factor": 0.8291596872785174,
+    "corrected_Madansky_length_factor": 0.8305835450825373
+  },
+  "9.49": {
+    "p": 0.04,
+    "alpha": 0.05,
+    "delta": 0.01,
+    "conditional_test_power": 0.051002401956695136,
+    "always_reject_large_variance_power": 0.05026821792632616
+  },
+  "9.52": {
+    "likelihood": {
+      "a": 0.20648138219484424,
+      "b": 12.521444728781699,
+      "mass": 0.8999999999999999,
+      "high_precision_a": "0.206481382194844247330978506722064433804075106667782455208026",
+      "high_precision_b": "12.5214447287816992892421801577817765425805401241931972341966",
+      "length_coefficient_of_s_squared": 9.526377334693573,
+      "endpoint_ratio": 60.64200363094215
+    },
+    "shortest_length": {
+      "a": 0.21044786240689467,
+      "b": 18.00771928783557,
+      "mass": 0.9,
+      "high_precision_a": "0.210447862406894667620544816297618273653164432545135607852599",
+      "high_precision_b": "18.0077192878355712964369675486322663165092068094143568925835",
+      "length_coefficient_of_s_squared": 9.392478047040086,
+      "endpoint_ratio": 85.56855404412795
+    },
+    "unbiased_ratio": {
+      "a": 0.16762957195892136,
+      "b": 7.864291898604581,
+      "mass": 0.9,
+      "high_precision_a": "0.167629571958921360763147197146428388377275145064253247926299",
+      "high_precision_b": "7.86429189860458073693612048959035709658467852482886866251053",
+      "length_coefficient_of_s_squared": 11.676755002967068,
+      "endpoint_ratio": 46.91470488591221
+    },
+    "equal_tail": {
+      "a": 0.10258658877510109,
+      "b": 5.991464547107979,
+      "mass": 0.9,
+      "length_coefficient_of_s_squared": 19.16191754552835,
+      "endpoint_ratio": 58.40397481431973
+    }
+  }
+}

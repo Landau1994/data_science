@@ -1,0 +1,48 @@
+40                              TRANSFORMATIONS AND EXPECTATIONS
+
+             sin2(x)
+
+
+         1
+
+
+
+
+
+            y
+
+           .5
+
+
+
+
+
+         0                                                                                       x
+                           x1                  x2       p            x3                  x4       2p
+
+                  Figure 2.1.1 Graph of the transformation y = sin2(x) of Example 2.1.2
+
+
+From the symmetry of the function sin2(x), and the fact that X has a uniform distribution, we have
+           P(X ≤x1) = P(X ≥x4)  and  P(x2 ≤X ≤x3) = 2P(x2 ≤X ≤π),
+so
+                       P(Y ≤y) = 2P(X ≤x1)+2P(x2 ≤X ≤π)                      (2.1.6)
+where x1 and x2 are the two solutions to
+
+                                   sin2(x) = y,    0 < x < π.
+
+Thus, even though this example dealt with a seemingly simple situation, the resulting expression for
+the cdf of Y was not simple.                                                        ∥
+   When making transformations, it is important to keep track of the sample spaces of the random
+variables; otherwise, much confusion can arise. When making a transformation from X to Y = g(X),
+it is most convenient to use
+
+    X = {x: fX(x) > 0}    and   Y = {y: y = g(x) for some x ∈X }.          (2.1.7)
+The pdf of the random variable X is positive only on the set X and is zero elsewhere. Such a set
+is called the support set of a distribution or, more informally, the support of a distribution. This
+terminology can also apply to a pmf or, in general, to any nonnegative function.
+     It is easiest to deal with functions g(x) that are monotone, that is, those that satisfy either
+
+         u > v ⇒g(u) > g(v) (increasing)  or  u < v ⇒g(u) > g(v) (decreasing).
+If the transformation x →g(x) is monotone, then it is one-to-one and onto from X →Y . That is,each x goes to only one y and each y comes from at most one x (one-to-one). Also, for Y defined as
+in (2.1.7), for each y ∈Y there is an x ∈X such that g(x) = y (onto). Thus, the transformation g

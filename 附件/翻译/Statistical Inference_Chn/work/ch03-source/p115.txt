@@ -1,0 +1,40 @@
+84                          COMMON FAMILIES OF DISTRIBUTIONS
+also bell-shaped, most do not possess the analytic tractability of the normal. Third, there is the Cen-
+tral Limit Theorem (see Chapter 5 for details), which shows that, under mild conditions, the normal
+distribution can be used to approximate a large variety of distributions in large samples.
+   The normal distribution has two parameters, usually denoted by µ and σ2, which are its mean
+and variance. The pdf of the normal distribution with mean µ and variance σ2 (usually denoted as
+n(µ,σ2)) is given by
+                                1
+                     f(x|µ,σ2) = √ 2πσ e−(x−µ)2/(2σ2), −∞< x < ∞.                (3.3.13)
+     If X ∼n(µ,σ2), then the random variable Z = (X −µ)/σ has a n(0,1) distribution, also knownas the standard normal. This is easily established by writing
+                              X                    P(Z    =  P  −µ                    ≤z)         σ  ≤z
+                   =  P(X ≤zσ zσ+µ+ µ)                                    1                   =                  e−(x−µ)2/(2σ2) dx                    √2πσ                                                                     z −∞                                   1
+                   =                    dt,                    ( substitute t = x−µσ  )                    √2π                                           −∞e−t2/2
+showing that P(Z ≤z) is the standard normal cdf.     It therefore follows that all normal probabilities can be calculated in terms of the standard nor-
+mal. Furthermore, calculations of expected values can be simplified by carrying out the details in
+the n(0,1) case, then transforming the result to the n(µ,σ2) case. For example, if Z ∼n(0,1),
+                          1    ∞              1
+                                                                           0,                EZ = √2π                          = − √ 2π e−z2/2|∞−∞=                                −∞ze−z2/2dz
+and so, if X ∼n(µ,σ2), it follows from Theorem 2.2.5 that
+                     EX = E(µ +σZ) = µ +σEZ = µ.
+Similarly, we have that VarZ = 1 and using Theorem 2.3.4, VarX = σ2.
+  We have not yet established that (3.3.13) integrates to 1 over the whole real line. By applying
+the standardizing transformation, we need only to show that
+                                1    ∞
+                  √ 2π       = 1.                                      −∞e−z2/2dz
+   Notice that the integrand above is symmetric around 0, implying that the integral over (−∞,0)is equal to the integral over (0,∞). Thus, we reduce the problem to showing
+                            ∞      √ 2π     π                                     e−z2/2dz =   =        .                           (3.3.14)
+                                       0            2       2
+   The function e−z2/2 does not have an antiderivative that can be written explicitly in terms of
+elementary functions (that is, in closed form), so we cannot perform the integration directly. In fact,
+this is an example of an integration that either you know how to do, or you can spend a very long
+time going nowhere. Since both sides of (3.3.14) are positive, the equality will hold if we establish
+that the squares are equal. Square the integral in (3.3.14) to obtain
+
+                   ∞            2        ∞           ∞
+                         e−z2/2dz   =        e−t2/2 dt       e−u2/2du
+                          0                         0                 0
+                                    ∞  ∞
+                     =           e−(t2+u2)/2 dt du.
+                                                  0   0

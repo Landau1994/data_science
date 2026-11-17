@@ -1,0 +1,43 @@
+GENERATING A RANDOM SAMPLE                                            203
+are independent normal(0,1) random variables. Thus, although we had no quick transformation for
+generating a single n(0,1) random variable, there is such a method for generating two variables.
+(See Exercise 5.50.)                                                              ∥
+    Unfortunately, solutions such as those in Example 5.6.4 are not plentiful. Moreover, they take
+advantage of the specific structure of certain distributions and are, thus, less applicable as general
+strategies. It turns out that, for the most part, generation of other continuous distributions (than those
+already considered), is best accomplished through indirect methods. Before exploring these, we end
+this subsection with a look at where (5.6.6) is quite useful, the case of discrete random variables.
+     If Y is a discrete random variable taking on values y1 < y2 < ... < yk, then analogous to (5.6.6)
+we can write
+
+                       P[FY(yi) ≤U < FY(yi+1)] =  FY(yi+1)−FY(yi)                   (5.6.7)
+                           =  P(Y = yi+1).
+
+Implementation of (5.6.7) to generate discrete random variables is actually quite straightforward,
+and can be summarized as follows. To generate Yi ∼FY(y),
+a. Generate U ∼uniform(0,1).
+b.  If Fy(yi) ≤U < Fy(yi+1) , set Y = yi+1.
+We define y0 = −∞and FY(y0) = 0.
+Example 5.6.5 (Binomial random variable generation)  To generate a Y ∼binomial(4, 58), for
+example, generate U ∼uniform(0,1) and set
+                                 0   if 0 ≤U < .020,                             <                                 1                                                          if                                                     .152                                          .020 ≤U                             <                                                                                              .                            (5.6.8)                        Y =  2                                                          if                                          .152                                                     .481                         ≤U                                 3   if .481                                          ≤U < .847
+                                 4   if .847 ≤U ≤1                                                                                               ∥
+   The algorithm (5.6.8) also works if the range of the discrete random variable is infinite, say
+Poisson or negative binomial. Although, theoretically, this could require a large number of evalua-
+tions, in practice this does not happen because there are simple and clever ways of speeding up the
+algorithm. For example, instead of checking each yi in the order 1,2,... , it can be much faster to
+start checking yis near the mean. (See Ripley 1987, Section 3.3, and Exercise 5.55.)
+  We will see many uses of simulation methodology. To start off, consider the following explo-
+ration of the Poisson distribution, which is a version of the parametric bootstrap that we will see in
+Section 10.1.4.
+Example 5.6.6 (Distribution of the Poisson variance)    If X1,...,Xn are iid Poisson(λ) then by
+either Theorem 5.2.7 or 5.2.11 the distribution of ∑Xi is Poisson(nλ). Thus, it is quite easy to
+describe the distribution of the sample mean ¯X. However, describing the distribution of the sample
+variance, S2 =  1                ∑(Xi −¯X)2, is not a simple task.              n−1   The distribution of S2 is quite simple to simulate, however. For example, take n = 5 and generate
+1,000 samples of size 5 from a Poisson(λ) distribution. Figure 5.6.2 shows the histogram of these
+samples. Moreover, the simulated samples can also be used to calculate probabilities about S2. If S2i
+is the value calculated from the ith simulated sample, then
+
+                            1 M
+               ∑ I(S2i                 M i=1   ≥a) →Pλ(S2 ≥a)
+as M →∞.

@@ -1,0 +1,41 @@
+METHODS OF EVALUATING TESTS                                            325
+                                                   R(q, d)
+                                       3
+
+
+
+
+
+                                       2
+
+
+
+
+
+                                       1
+
+
+
+
+
+                                                                               q – q0
+          –3        –2        –1         0         1         2         3   s/√n
+
+                 Figure 8.3.4 Risk function for test in Example 8.3.31, where z = √n θ−θ0σ
+
+The risk function associated with (8.3.11) and, in particular, 0–1 loss is very simple. For any value
+of θ ∈Θ,L(θ,a) takes on only two values, 0 and cI if θ ∈Θ0 and 0 and cII if θ ∈Θc0. Thus, the riskis
+       R(θ,δ) =  0Pθ(δ(X) = a0)+cIPθ(δ(X) = a1) = cIβ(θ),    if θ ∈Θ0,
+                        and                                                            (8.3.12)
+                                                                                                     0.       R(θ,δ) =  cIIPθ(δ(X) = a0)+0Pθ(δ(X) = a1) = cII(1−β(θ)),    if θ ∈Θc
+This similarity between a decision theoretic approach and a more traditional power approach is due,
+in part, to the form of the loss function. But in all hypothesis testing problems, as we shall see below,
+the power function plays an important role in the risk function.
+Example 8.3.31 (Risk of UMP test)  Let X1,...,Xn be a random sample from a n(µ,σ2) popula-
+tion, σ2 known. The UMP level α test of H0 : θ ≥θ0 versus H1 : θ < θ0 is the test that rejects H0 if(X        <     (Example 8.3.15). The power function for this test is  −θ0)/(σ/√n)  −zα
+                         β(θ) = Pθ  Z <       −θ0    ,                                     −zα −θσ/√n
+
+where Z has a n(0,1) distribution. For α = .10, the risk function (8.3.12) for cI = 8 and cII = 3 is
+shown in Figure 8.3.4. Notice the discontinuity in the risk function at θ = θ0. This is due to the
+fact that at θ0 the expression in the risk function changes from β(θ) to 1 −β(θ) as well as to the
+difference between cI and cII.                                                       ∥

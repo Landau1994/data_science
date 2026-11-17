@@ -1,0 +1,80 @@
+% 原书印刷169–172页，PDF物理200–203页.
+\subsection{随机样本的基本概念}\label{sec:5.1}
+实验收集的数据往往包含对某个感兴趣变量的若干次观测.我们在\autoref{sec:4}开头讨论过这种例子.本章介绍一种常用于描述这种情形的数据收集模型，称为随机抽样（random sampling）.下面的定义从数学上说明这种数据收集方法的含义.
+\begin{definition}\label{def:5.1.1}\index{SI0545@独立同分布}\index{SI0554@随机变量}\index{SI0917@样本}
+若随机变量$X_1,\ldots,X_n$相互独立，且每个$X_i$的边际pdf或pmf都是同一个函数$f(x)$，则称$X_1,\ldots,X_n$为来自总体$f(x)$的容量为$n$的随机样本（random sample）.也称$X_1,\ldots,X_n$是具有pdf或pmf $f(x)$的独立同分布（independent and identically distributed）随机变量，通常简称为iid随机变量.
+\end{definition}
+随机抽样模型描述这样一种实验情形：感兴趣变量的概率分布由$f(x)$描述.若仅对此变量观测一次，得到$X$，则可用$f(x)$计算关于$X$的概率.大多数实验会对此变量重复观测$n>1$次，其中$n$是固定的正整数；第一次观测为$X_1$，第二次为$X_2$，依此类推.在随机抽样模型下，每个$X_i$都是对同一个变量的观测，并且每个$X_i$的边际分布都由$f(x)$给出.此外，观测的取得方式保证某次观测的值对其他任何观测都没有影响，也没有关系；即$X_1,\ldots,X_n$相互独立.（关于独立性的一种推广，见\autoref{exercise:5.4}.）
+
+由\autoref{def:4.6.5}，$X_1,\ldots,X_n$的联合pdf或pmf为
+\begin{equation}\label{eq:5.1.1}\index{SI0839@样本}\index{SI0857@样本}\index{SI0932@概率密度函数与概率质量函数}
+f(x_1,\ldots,x_n)=f(x_1)f(x_2)\cdots f(x_n)=\prod_{i=1}^n f(x_i).
+\end{equation}
+可用这一联合pdf或pmf计算涉及样本的概率.由于$X_1,\ldots,X_n$同分布，所有边际密度$f(x)$都是同一个函数.特别地，若总体pdf或pmf属于某个参数族，例如\autoref{sec:3}介绍的某个族，且pdf或pmf为$f(x\mid\theta)$，则联合pdf或pmf为
+\begin{equation}\label{eq:5.1.2}
+f(x_1,\ldots,x_n\mid\theta)=\prod_{i=1}^n f(x_i\mid\theta),
+\end{equation}
+\sourcepageanchor{201}
+其中乘积的每一项都使用同一个参数值$\theta$.在统计问题中，若假定所观测总体属于某个指定的参数族，但真实参数值未知，则来自该总体的随机样本具有上述形式的联合pdf或pmf，其中$\theta$未知.考察$\theta$的不同可能值，就能研究来自不同总体的随机样本会有怎样的表现.
+\begin{example}[样本pdf——指数分布]\label{ex:5.1.2}
+设$X_1,\ldots,X_n$是来自$\operatorname{exponential}(\beta)$总体的随机样本.具体来说，$X_1,\ldots,X_n$可以是$n$块相同电路板从投入试验、使用直至失效的时间（以年计）.样本的联合pdf为
+$$f(x_1,\ldots,x_n\mid\beta)=\prod_{i=1}^n f(x_i\mid\beta)=\prod_{i=1}^n\frac1\beta e^{-x_i/\beta}=\frac1{\beta^n}e^{-(x_1+\cdots+x_n)/\beta}.$$
+这个pdf可用于回答关于样本的问题.例如，所有电路板寿命都超过两年的概率是多少？计算得到
+\begin{align*}
+&P(X_1>2,\ldots,X_n>2)\\
+&\quad=\int_2^\infty\cdots\int_2^\infty\prod_{i=1}^n\frac1\beta e^{-x_i/\beta}\,dx_1\cdots dx_n\\
+&\quad=e^{-2/\beta}\int_2^\infty\cdots\int_2^\infty\prod_{i=2}^n\frac1\beta e^{-x_i/\beta}\,dx_2\cdots dx_n&&\text{（对$x_1$积分）}\\
+&\qquad\vdots&&\text{（依次对其余$x_i$积分）}\\
+&\quad=(e^{-2/\beta})^n\\
+&\quad=e^{-2n/\beta}.
+\end{align*}
+若电路板平均寿命$\beta$相对于$n$很大，可见这个概率接近1.
+
+上述计算说明，如何利用\eqref{eq:5.1.1}、或更具体的\eqref{eq:5.1.2}所定义的随机样本pdf计算关于样本的概率.还应认识到，在这种计算中也可直接使用随机样本独立同分布的性质.例如，上述计算可以写成
+\begin{align*}
+P(X_1>2,\ldots,X_n>2)&=P(X_1>2)\cdots P(X_n>2)&&\text{（独立性）}\\
+&=[P(X_1>2)]^n&&\text{（同分布）}\\
+&=(e^{-2/\beta})^n&&\text{（指数分布的计算）}\\
+&=e^{-2n/\beta}.
+\end{align*}
+\end{example}
+\autoref{def:5.1.1}中的随机抽样模型有时称为从无限总体中抽样.\index{SI0920@无限总体}\semanticindexanchor{920:201}可以把它想象为依次取得$X_1,\ldots,X_n$的值.首先进行实验，观测到$X_1=x_1$；然后重复实验，观测到$X_2=x_2$.随机抽样中的独立性假定意味着，先观测到$X_1=x_1$这一事实不影响$X_2$的概率分布.从无限总体中“取出”$x_1$并不改变总体，因此$X_2=x_2$仍是来自同一总体的一个随机观测.
+
+从有限总体中抽样时，\index{SI0919@有限总体}\semanticindexanchor{919:201}\autoref{def:5.1.1}是否适用取决于数据收集的方式.有限总体是一个有限数集$\{x_1,\ldots,x_N\}$.要从此总体中抽出样本$X_1,\ldots,X_n$.\autoref{sec:1.2.3}描述了四种抽取方法，这里讨论前两种.
+
+设从总体中选取一个值，使$N$个值中的每一个都以相同概率$1/N$被选中.（可以想象从帽子里抽取数字.）把这个值记为$X_1=x_1$.然后重复这个过程，$N$个值中的每一个仍然等可能被选中.
+\sourcepageanchor{202}
+把第二次选中的值记为$X_2=x_2$.（若选中同一个数，则$x_1=x_2$.）将从这$N$个值中抽取的过程重复$n$次，就得到样本$X_1,\ldots,X_n$.这种抽样称为有放回抽样（sampling with replacement），\index{SI0942@有放回}\semanticindexanchor{942:202}因为每一阶段选中的值都“放回”总体，在下一阶段仍可被选中.这种抽样满足\autoref{def:5.1.1}的条件.每个$X_i$都是离散随机变量，等概率地取$x_1,\ldots,x_N$中的各个值.随机变量$X_1,\ldots,X_n$相互独立，因为不论其他变量取何值，选取任何$X_i$的过程都相同.（这种抽样用于自助法，见\autoref{sec:10.1.4}.）
+
+从有限总体抽取随机样本的第二种方法称为无放回抽样（sampling without replacement）.\index{SI0943@无放回}\semanticindexanchor{943:202}其方法如下：从$\{x_1,\ldots,x_N\}$中选取一个值，各个值被选中的概率均为$1/N$，记为$X_1=x_1$.然后从剩余的$N-1$个值中选取第二个值，每个值被选中的概率均为$1/(N-1)$，记为$X_2=x_2$.继续以这种方式选取其余值，得到样本$X_1,\ldots,X_n$.但一个值一旦被选中，就不能在之后的任何阶段再次被选中.
+
+从有限总体无放回抽出的样本不满足\autoref{def:5.1.1}的全部条件.随机变量$X_1,\ldots,X_n$并不相互独立.为说明这一点，设$x$和$y$是$\{x_1,\ldots,x_N\}$中的不同元素.则$P(X_2=y\mid X_1=y)=0$，因为若第一个阶段已选中$y$，第二个阶段便不能再选中它.然而，$P(X_2=y\mid X_1=x)=1/(N-1)$.因此$X_2$的概率分布依赖于观测到的$X_1$值，故$X_1$与$X_2$不独立.不过，有趣的是，$X_1,\ldots,X_n$仍然同分布，即每个$i=1,\ldots,n$的$X_i$具有相同的边际分布.显然，对每个$x\in\{x_1,\ldots,x_N\}$，$X_1$的边际分布为$P(X_1=x)=1/N$.为计算$X_2$的边际分布，利用\autoref{thm:1.2.11}\hyperref[itm:thm:1.2.11:a]{(a)}及条件概率的定义，写成
+$$P(X_2=x)=\sum_{i=1}^N P(X_2=x\mid X_1=x_i)P(X_1=x_i).$$
+对某个指标值（记为$k$），有$x=x_k$，且$P(X_2=x\mid X_1=x_k)=0$.对所有其他$j\ne k$，有$P(X_2=x\mid X_1=x_j)=1/(N-1)$.因此，
+\begin{equation}\label{eq:5.1.3}
+P(X_2=x)=(N-1)\left(\frac1{N-1}\frac1N\right)=\frac1N.
+\end{equation}
+类似论证可以说明每个$X_i$都有相同的边际分布.
+
+从有限总体无放回抽样有时称为简单随机抽样（simple random sampling）.\index{SI0934@简单随机}\semanticindexanchor{934:202}必须认识到，它与\autoref{def:5.1.1}描述的抽样情形不同.不过，若总体容量$N$远大于样本容量$n$，则$X_1,\ldots,X_n$近似独立，可以假定它们独立来进行某些近似概率计算.说它们“近似独立”，仅仅意味着给定$X_1,\ldots,X_{i-1}$时$X_i$的条件分布与其边际分布差别不大.例如，给定$X_1$时$X_2$的条件分布是
+$$P(X_2=x_1\mid X_1=x_1)=0,\qquad P(X_2=x\mid X_1=x_1)=\frac1{N-1}\quad(x\ne x_1).$$
+若$N$很大，这与\eqref{eq:5.1.3}给出的$X_2$边际分布相差不大.给定$X_1,\ldots,X_{i-1}$时$X_i$条件分布中的非零概率为$1/(N-i+1)$；若$i\le n$相对于$N$很小，它就接近$1/N$.
+\begin{example}[有限总体模型]\label{ex:5.1.3}
+作为利用独立性进行近似计算的例子，设有限总体为$\{1,\ldots,1{,}000\}$，故$N=1{,}000$.从中无放回抽取容量$n=10$的样本.
+\sourcepageanchor{203}
+全部十个样本值都大于200的概率是多少？若$X_1,\ldots,X_{10}$相互独立，就有
+\begin{equation}\label{eq:5.1.4}
+\begin{aligned}
+P(X_1>200,\ldots,X_{10}>200)&=P(X_1>200)\cdots P(X_{10}>200)\\
+&=\left(\frac{800}{1{,}000}\right)^{10}=.107374.
+\end{aligned}
+\end{equation}
+为精确计算这个概率，令随机变量$Y$表示样本中大于200的项数.则$Y$服从$\operatorname{hypergeometric}(N=1{,}000,M=800,K=10)$分布.因此
+\begin{align*}
+P(X_1>200,\ldots,X_{10}>200)&=P(Y=10)\\
+&=\frac{\binom{800}{10}\binom{200}{0}}{\binom{1{,}000}{10}}\\
+&=.106164.
+\end{align*}
+因此，\eqref{eq:5.1.4}是真实值的合理近似.
+\end{example}
+在本书其余部分，我们都采用\autoref{def:5.1.1}作为来自某总体的随机样本的定义.

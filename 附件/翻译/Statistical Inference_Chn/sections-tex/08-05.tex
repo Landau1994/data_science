@@ -1,0 +1,22 @@
+\subsection{杂录}\label{sec:8.5}
+\subsubsection{单调功效函数}\label{sec:8.5.1}\index{SI0503@单调}\index{SI0994@功效}
+本章广泛使用了单调似然比性质，特别是用它研究检验功效函数的性质. 随机序（stochastic ordering）的概念也能用于推导功效函数的性质. （回顾，前几章已遇到随机序，例如\autoref{exercise:1.49}、\autoref{exercise:3.41}至\autoref{exercise:3.43}、\autoref{exercise:5.19}. 若对所有 $x$，$F(x)\le G(x)$，且至少某个 $x$ 取严格不等式，则称累积分布函数 $F$ 在随机意义下大于 $G$. 这意味着，若 $X\sim F,Y\sim G$，则对所有 $x$，$P(X>x)\ge P(Y>x)$，且至少某个 $x$ 取严格不等式. 换言之，$F$ 把更多概率赋予较大的值.）
+\sourcepageanchor{367}
+从假设检验的角度看，备择假设下的分布常在随机意义下大于原假设下的分布. 例如，若有来自 $\mathrm n(\theta,\sigma^2)$ 总体的随机样本，希望检验 $H_0:\theta\le\theta_0$ 对 $H_1:\theta>\theta_0$，则备择假设中的所有分布确实都在随机意义下大于原假设中的所有分布. \hyperref[bib:source142]{Gilat (1977)} 利用随机序而非单调似然比，在一般条件下证明功效函数的单调性.
+
+\subsubsection{似然比作为证据}\label{sec:8.5.2}\index{SI0487@贝叶斯}
+似然比 $L(\theta_1\mid\boldsymbol x)/L(\theta_0\mid\boldsymbol x)=f(\boldsymbol x\mid\theta_1)/f(\boldsymbol x\mid\theta_0)$，在检验 $H_0:\theta=\theta_0$ 对 $H_1:\theta=\theta_1$ 时起重要作用. 对产生较小 $\lambda$ 值的那些 $\boldsymbol x$，这一比值等于似然比检验统计量 $\lambda(\boldsymbol x)$.\footnote{译注：此处原文把比值与其倒数混淆. 在只含 $\theta_0,\theta_1$ 的简单对简单模型中，按\autoref{def:8.2.1}，$\lambda=f_0/\max(f_0,f_1)$；当 $\lambda<1$ 时，$f_1/f_0=1/\lambda$，并非 $\lambda$. 后面的后验优势比公式使用 $f_1/f_0$ 是正确的.} 此外，Neyman–Pearson 引理说明，$H_0$ 对 $H_1$ 的水平 $\alpha$ 一致最强检验可用该比值定义. 这一似然比还有重要的贝叶斯解释. 设 $\pi_0,\pi_1$ 分别为 $\theta_0,\theta_1$ 的先验概率，则支持 $\theta_1$ 的后验优势比（posterior odds）为
+$$\frac{P(\theta=\theta_1\mid\boldsymbol x)}{P(\theta=\theta_0\mid\boldsymbol x)}
+=\frac{f(\boldsymbol x\mid\theta_1)\pi_1/m(\boldsymbol x)}{f(\boldsymbol x\mid\theta_0)\pi_0/m(\boldsymbol x)}
+=\frac{f(\boldsymbol x\mid\theta_1)}{f(\boldsymbol x\mid\theta_0)}\cdot\frac{\pi_1}{\pi_0}.$$
+$\pi_1/\pi_0$ 是支持 $\theta_1$ 的先验优势比（prior odds\mbox{）.} 观察到数据 $\boldsymbol X=\boldsymbol x$ 后，似然比给出将先验优势比调整为后验优势比所需的倍数. 若似然比等于二，先验优势比就加倍. 似然比不依赖先验概率，所以可解释为数据中支持 $H_1$ 而非 $H_0$ 的证据. \hyperref[bib:source265]{Royall (1997)} 讨论了这种解释.
+
+\subsubsection{\texorpdfstring{$p$}{p} 值与后验概率}\label{sec:8.5.3}\index{SI0744@与贝叶斯检验的关系}
+在讨论贝叶斯检验的\autoref{sec:8.2.2}中，我们看到 $H_0$ 为真的后验概率可以度量数据反对（或支持）原假设的证据. \autoref{sec:8.3.4}又说明，$p$ 值可以度量数据反对 $H_0$ 的证据. 自然要问，这两种不同度量是否会一致，即能否协调起来？\hyperref[bib:source21]{Berger（James，而非 Roger）与 Sellke (1987)} 认为，在双侧检验问题中，这些度量无法协调，贝叶斯度量更优. \hyperref[bib:source66]{Casella 与 Berger（Roger，1987）}则认为，双侧贝叶斯问题是人为构造的，在更自然的单侧问题中，这些证据度量可以协调. 这种协调对 \hyperref[bib:source277]{Schervish (1996)} 意义不大；他认为，把 $p$ 值当作证据度量存在严重的逻辑缺陷.
+
+\subsubsection{置信集 \texorpdfstring{$p$}{p} 值}\label{sec:8.5.4}
+\hyperref[bib:source25]{Berger and Boos (1994)} 提出了计算 $p$ 值的另一种方法. 在\autoref{thm:8.3.27}的通常定义中，上确界取遍整个原假设空间 $\Theta_0$. Berger 与 Boos 建议在 $\Theta_0$ 的一个子集 $C$ 上取上确界. 集合 $C=C(\boldsymbol X)$ 由数据确定，并具有性质：若 $\theta\in\Theta_0$，则 $P_\theta(\theta\in C(\boldsymbol X))\ge1-\beta$. （关于 $C$ 这样的置信集，见\autoref{sec:9}.）置信集 $p$ 值（confidence set $p$-value）定义为
+$$p_C(\boldsymbol x)=\sup_{\theta\in C(\boldsymbol x)}P_\theta(W(\boldsymbol X)\ge W(\boldsymbol x))+\beta.$$
+Berger 与 Boos 证明 $p_C$ 是有效 $p$ 值.\footnote{译注：原式可能大于 $1$，而\autoref{def:8.3.26}要求 $p$ 值在 $[0,1]$ 内. 为与该定义严格一致，通常取 $\min\{1,p_C(\boldsymbol x)\}$；这一截断不改变 $0\le\alpha<1$ 时的拒绝事件. 原公式保留.}
+
+$p_C$ 有两个潜在优点. 计算上的优点是，在较小集合 $C$ 上求上确界，可能比在较大的 $\Theta_0$ 上容易. 统计上的优点是，观察 $\boldsymbol X$ 后，我们对 $\theta$ 的值已有一些认识，$\theta\in C$ 有较大机会成立；考虑那些看起来不可能为真的 $\theta$ 值似乎没有必要. 置信集 $p$ 值只考察 $\Theta_0$ 中看起来可信的取值. \hyperref[bib:source25]{Berger and Boos (1994)} 与 \hyperref[bib:source291]{Silvapulle (1996)} 给出了许多例子. \hyperref[bib:source24]{Berger (1996)} 指出，在比较两个二项概率的问题中，置信集 $p$ 值能产生功效有所提高的检验.

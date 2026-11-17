@@ -1,0 +1,44 @@
+JOINT AND MARGINAL DISTRIBUTIONS                                       115
+
+                               Table 4.1.1 Values of the joint pmf f(x,y)
+                                               x
+                           2  3  4  5  6  7  8  9 10 11 12
+                        0  361      361       361       361       361       361
+                        1      181      181       181       181       181
+                        y  2          181       181       181       181
+                        3              181      181       181
+                        4                  181      181
+                        5                      181
+
+For the sample point (3,3), X = 3+3 = 6 and Y = |3−3| = 0. For (4,1), X = 5 and Y = 3. Theseare also the values of X and Y for the sample point (1,4). For each of the 36 sample points we could
+compute the values of X and Y. In this way we have defined the bivariate random vector (X,Y).
+   Having defined a random vector (X,Y), we can now discuss probabilities of events that are
+defined in terms of (X,Y). The probabilities of events defined in terms of X and Y are just defined
+in terms of the probabilities of the corresponding events in the sample space S. What is P(X = 5 and
+Y = 3)? You can verify that the only two sample points that yield X = 5 and Y = 3 are (4,1) and
+(1,4). Thus, the event “X = 5 and Y = 3” will occur if and only if the event {(4,1),(1,4)} occurs.Since each of the 36 sample points in S is equally likely,
+
+                                             2    1
+                              P({(4,1),(1,4)}) = 36 = 18.
+Thus,
+                                                1
+                           P(X = 5 and Y = 3) = 18.
+Henceforth, we will write P(X = 5,Y = 3) for P(X = 5 and Y = 3). Read the comma as “and.”
+Similarly, P(X = 6,Y = 0) = 361 because the only sample point that yields these values of X and Y
+is  (3,3).        For more complicated events, the technique is the same. For example, P(X = 7,Y ≤4) = 4      1  =36      9 because the only four sample points that yield X = 7 and Y ≤4 are (4,3), (3,4), (5,2), and
+(2,5).                                                                         ∥
+   The random vector (X,Y) defined above is called a discrete random vector because it has only a
+countable (in this case, finite) number of possible values. For a discrete random vector, the function
+f(x,y) defined by f(x,y) = P(X = x,Y = y) can be used to compute any probabilities of events
+defined in terms of (X,Y).
+Definition 4.1.3  Let (X,Y) be a discrete bivariate random vector. Then the function f(x,y) from
+ℜ2 into ℜdefined by f(x,y) = P(X = x,Y = y) is called the joint probability mass function or joint
+pmf of (X,Y). If it is necessary to stress the fact that  f is the joint pmf of the vector (X,Y) rather
+than some other vector, the notation fX,Y(x,y) will be used.
+
+   The joint pmf of (X,Y) completely defines the probability distribution of the random vector
+(X,Y), just as the pmf of a discrete univariate random variable completely defines its distribution.
+For the (X,Y) defined in Example 4.1.2 in terms of the roll of a pair of dice, there are 21 possible
+values of (X,Y). The value of f(x,y) for each of these 21 possible values is given in Table 4.1.1.
+Two of these values, f(5,3) = 181 and f(6,0)    1                        = 36, were computed above and the rest are obtained
+by similar reasoning. The joint pmf f(x,y) is defined for all (x,y) ∈ℜ2, not just the 21 pairs in Table4.1.1. For any other (x,y), f(x,y) = P(X = x,Y = y) = 0.

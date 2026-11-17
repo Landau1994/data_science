@@ -1,0 +1,46 @@
+286                                                 POINT ESTIMATION
+
+                             Table 7.3.1 Three estimators for a binomial p
+                        n = 10     prior π(p) ∼uniform(0,1)                                      Bayes      Bayes
+                                           absolute     squared
+                            y  MLE      error         error
+                         0   .0000    .0611       .0833
+                         1   .1000    .1480       .1667
+                         2   .2000    .2358       .2500
+                         3   .3000    .3238       .3333
+                         4   .4000    .4119       .4167
+                         5   .5000    .5000       .5000
+                         6   .6000    .5881       .5833
+                         7   .7000    .6762       .6667
+                         8   .8000    .7642       .7500
+                         9   .9000    .8520       .8333
+                        10   1.0000    .9389       .9137
+
+    In Section 7.2.3, the Bayes estimator we discussed was δ π(x) = E(θ|x), the posterior mean. Wenow see that this is the Bayes estimator with respect to squared error loss. If some other loss func-
+tion is deemed more appropriate than squared error loss, the Bayes estimator might be a different
+statistic.
+Example 7.3.29 (Normal Bayes estimates)  Let X1,...,Xn be a random sample from a n(θ,σ2)
+population and let π(θ) be n(µ,τ2). The values σ2, µ, and τ2 are known. In Example 7.2.16, as
+extended in Exercise 7.22, we found that the posterior distribution of θ given X = x is normal with
+
+                                          τ2          σ2/n
+                        E(θ|x) =   τ2 +(σ2/n)x+ τ2 +(σ2/n)µ
+and
+                                   τ2σ2/n
+                        Var(θ|x) =   τ2 +(σ2/n).
+For squared error loss, the Bayes estimator is δ π(x) = E(θ|x). Since the posterior distribution is
+normal, it is symmetric about its mean and the median of π(θ|x) is equal to E(θ|x). Thus, for
+absolute error loss, the Bayes estimator is also δ π(x) = E(θ|x).                           ∥
+Example 7.3.30 (Binomial Bayes estimates)  Let X1,...,Xn be iid Bernoulli(p) and let Y = ∑Xi.
+Suppose the prior on p is beta(α,β). In Example 7.2.14, we found that the posterior distribution
+depends on the sample only through the observed value of Y = y and is beta(y + α,n −y + β).            = (y+α)/(α +β +n) is the Bayes estimator of p for squared error loss.Hence, δ π(y) = E(p|y)
+   For absolute error loss, we need to find the median of π(p|y) = beta(y+α,n−y+β). In general,there is no simple expression for this median. The median is implicitly defined to be the number, m,
+that satisfies
+                 m    Γ(α +β +n)                           1
+                                      =                        0                   py+α−1(1−p)n−y+β−1dp   2.                Γ(y+α)Γ(n−y+β)
+This integral can be evaluated numerically to find (approximately) the value m that satisfies the
+equality. We have done this for n = 10 and α = β = 1, the uniform(0,1) prior. The Bayes estimator
+for absolute error loss is given in Table 7.3.1. In the table we have also listed the Bayes estimator
+for squared error loss, derived above, and the MLE, ˆp = y/n.
+   Notice in Table 7.3.1 that, unlike the MLE, neither Bayes estimator estimates p to be 0 or 1,
+even if y is 0 or n. It is typical of Bayes estimators that they would not take on extreme values in the

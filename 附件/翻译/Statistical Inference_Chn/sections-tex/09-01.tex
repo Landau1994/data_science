@@ -1,0 +1,63 @@
+\subsection{引言}\label{sec:9.1}
+在\autoref{sec:7}，我们讨论了参数$\theta$的点估计，即以单个数值作为$\theta$的值所作的推断. 本章讨论区间估计（interval estimation），以及更一般的集合估计（set estimation）. 集合估计问题中的推断是断言“$\theta\in C$”，其中$C\subset\Theta$，且$C=C(\boldsymbol x)$是由观测到的数据值$\boldsymbol X=\boldsymbol x$确定的集合. 如果$\theta$取实数值，我们通常希望集合估计$C$是一个区间. 区间估计量是本章的主要论题.
+
+与前两章一样，本章分为两部分，第一部分研究如何寻找区间估计量，第二部分研究如何评价估计量的优劣. 我们从区间估计量的形式定义开始，这个定义与点估计量的定义一样宽泛.
+\begin{definition}\label{def:9.1.1}\index{SI0179@置信区间（另见置信集；置信程序；可信集）}
+实值参数$\theta$的区间估计，是样本的任意一对函数$L(x_1,\ldots,x_n)$和$U(x_1,\ldots,x_n)$，它们对所有$\boldsymbol x\in\mathcal X$均满足$L(\boldsymbol x)\le U(\boldsymbol x)$. 如果观测到$\boldsymbol X=\boldsymbol x$，便作出推断$L(\boldsymbol x)\le\theta\le U(\boldsymbol x)$. 随机区间$[L(\boldsymbol X),U(\boldsymbol X)]$称为区间估计量（interval estimator）.
+\end{definition}
+我们沿用前面规定的记号，以$[L(\boldsymbol X),U(\boldsymbol X)]$表示基于随机样本$\boldsymbol X=(X_1,\ldots,X_n)$的$\theta$的区间估计量，以$[L(\boldsymbol x),U(\boldsymbol x)]$表示该区间的实现值. 虽然大多数情形下我们研究的$L$和$U$均取有限值，但有时也关注单侧区间估计.\index{SI0165@单侧}\semanticindexanchor{165:368} 例如，若$L(\boldsymbol x)=-\infty$，就得到单侧区间$(-\infty,U(\boldsymbol x)]$，相应断言为“$\theta\le U(\boldsymbol x)$”，并不涉及下界. 类似地，令$U(\boldsymbol x)=\infty$便得到单侧区间$[L(\boldsymbol x),\infty)$.
+
+虽然定义中使用闭区间$[L(\boldsymbol x),U(\boldsymbol x)]$，但有时使用开区间$(L(\boldsymbol x),U(\boldsymbol x))$，甚至像上一段那样使用半开半闭区间，会更加自然. 我们将采用最适合具体问题的形式，不过通常优先采用闭区间.
+\begin{example}[区间估计量]\label{ex:9.1.2}\index{SI0163@正态}
+对于来自$\mathrm n(\mu,1)$的样本$X_1,X_2,X_3,X_4$，$\mu$的一个区间估计量是$[\bar X-1,\bar X+1]$. 这意味着我们将断言$\mu$在这个区间内.
+\end{example}
+这时，自然要问使用区间估计量能带来什么好处. 以前我们以$\bar X$估计$\mu$，现在却采用精度较低的估计量$[\bar X-1,\bar X+1]$. 我们肯定应当有所收获！牺牲估计（或关于$\mu$的断言）的一部分精度，使我们对断言的正确性获得了某种置信或保证.
+\sourcepageanchor{369}
+\begin{example}[续\autoref{ex:9.1.2}]\label{ex:9.1.3}
+以$\bar X$估计$\mu$时，估计恰好正确的概率，即$P(\bar X=\mu)$，等于零. 但采用区间估计量，正确的概率就是正的. 区间$[\bar X-1,\bar X+1]$覆盖$\mu$的概率可计算如下：
+$$\begin{aligned}
+P(\mu\in[\bar X-1,\bar X+1])
+&=P(\bar X-1\le\mu\le\bar X+1)\\
+&=P(-1\le\bar X-\mu\le1)\\
+&=P\left(-2\le\frac{\bar X-\mu}{\sqrt{1/4}}\le2\right)\\
+&=P(-2\le Z\le2)\qquad\left(\frac{\bar X-\mu}{\sqrt{1/4}}\text{服从标准正态分布}\right)\\
+&=.9544.
+\end{aligned}$$
+因此，区间估计量覆盖未知参数的机会超过$95\%$. 从点估计改为区间估计，牺牲一些估计精度，使我们对断言正确性的信心增加了.
+\end{example}
+使用区间估计量而非点估计量，目的是使我们对捕获感兴趣的参数有某种保证. 以下定义对这种保证的确定程度加以量化.
+\begin{definition}\label{def:9.1.4}\index{SI0224@覆盖概率}
+对于参数$\theta$的区间估计量$[L(\boldsymbol X),U(\boldsymbol X)]$，其覆盖概率（coverage probability）是随机区间$[L(\boldsymbol X),U(\boldsymbol X)]$覆盖真实参数$\theta$的概率. 用符号表示为$P_\theta(\theta\in[L(\boldsymbol X),U(\boldsymbol X)])$或$P(\theta\in[L(\boldsymbol X),U(\boldsymbol X)]\mid\theta)$.
+\end{definition}
+\begin{definition}\label{def:9.1.5}\index{SI0127@置信系数}
+对于参数$\theta$的区间估计量$[L(\boldsymbol X),U(\boldsymbol X)]$，其置信系数（confidence coefficient）是覆盖概率的下确界$\inf_\theta P_\theta(\theta\in[L(\boldsymbol X),U(\boldsymbol X)])$.
+\end{definition}
+关于这些定义，有几点需要注意. 首先，务必牢记随机的是区间，而不是参数. 因此，当我们写出$P_\theta(\theta\in[L(\boldsymbol X),U(\boldsymbol X)])$这样的概率陈述时，它针对的是$\boldsymbol X$，而不是$\theta$. 换言之，应把看似针对随机$\theta$的$P_\theta(\theta\in[L(\boldsymbol X),U(\boldsymbol X)])$，理解为与之在代数上等价、针对随机$\boldsymbol X$的陈述$P_\theta(L(\boldsymbol X)\le\theta,U(\boldsymbol X)\ge\theta)$.
+
+区间估计量连同置信程度的度量（通常是置信系数），有时称为置信区间（confidence interval）.\index{SI0171@与集合估计量的关系}\semanticindexanchor{171:369}\index{SI0958@与置信区间的关系}\semanticindexanchor{958:369} 我们经常将这个术语与区间估计量互换使用. 虽然我们主要关注置信区间，但有时也研究更一般的集合. 当进行一般讨论、还不完全确定集合的具体形式时，我们将称之为置信集（confidence set）. 置信系数等于某个数值（比如$1-\alpha$）的置信集，简称为$1-\alpha$置信集.
+
+另一个要点涉及覆盖概率与置信系数. 因为不知道$\theta$的真实值，我们只能保证覆盖概率达到其下确界，即置信系数. 在一些情形下，这没有关系，因为覆盖概率是$\theta$的常数函数. 但在另一些情形下，覆盖概率可能是随$\theta$变动颇大的函数.
+\begin{example}[尺度均匀分布的区间估计量]\label{ex:9.1.6}\index{SI0177@均匀}
+设$X_1,\ldots,X_n$为来自$\operatorname{uniform}(0,\theta)$总体的随机样本，并令$Y=\max\{X_1,\ldots,X_n\}$. 我们关心$\theta$的区间估计量，考虑两个候选估计量：$[aY,bY]$，$1\le a<b$，以及$[Y+c,Y+d]$，$0\le c<d$，其中
+\sourcepageanchor{370}
+$a,b,c,d$是给定的常数.（注意，$\theta$必然大于$y$.）对于第一个区间，有
+$$\begin{aligned}
+P_\theta(\theta\in[aY,bY])&=P_\theta(aY\le\theta\le bY)\\
+&=P_\theta\left(\frac1b\le\frac Y\theta\le\frac1a\right)\\
+&=P_\theta\left(\frac1b\le T\le\frac1a\right).\qquad(T=Y/\theta)
+\end{aligned}$$
+此前已经看到（\autoref{ex:7.3.13}），$f_Y(y)=ny^{n-1}/\theta^n$，$0\le y\le\theta$，所以$T$的pdf为$f_T(t)=nt^{n-1}$，$0\le t\le1$. 因此，
+$$P_\theta\left(\frac1b\le T\le\frac1a\right)=\int_{1/b}^{1/a}nt^{n-1}\,dt=\left(\frac1a\right)^n-\left(\frac1b\right)^n.$$
+第一个区间的覆盖概率与$\theta$的值无关，故$(1/a)^n-(1/b)^n$就是该区间的置信系数.
+
+对于另一个区间，当$\theta\ge d$时，类似计算给出
+$$\begin{aligned}
+P_\theta(\theta\in[Y+c,Y+d])&=P_\theta(Y+c\le\theta\le Y+d)\\
+&=P_\theta\left(1-\frac d\theta\le T\le1-\frac c\theta\right)\qquad(T=Y/\theta)\\
+&=\int_{1-d/\theta}^{1-c/\theta}nt^{n-1}\,dt
+=\left(1-\frac c\theta\right)^n-\left(1-\frac d\theta\right)^n.
+\end{aligned}$$
+此时覆盖概率依赖于$\theta$. 而且，直接计算可知，对任意常数$c,d$，
+$$\lim_{\theta\to\infty}\left(1-\frac c\theta\right)^n-\left(1-\frac d\theta\right)^n=0,$$
+这说明这个区间估计量的置信系数为零.
+\end{example}

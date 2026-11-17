@@ -1,0 +1,69 @@
+{
+  "applied": true,
+  "links": [
+    {
+      "file": "08-04-b.tex",
+      "exercise": "8.34",
+      "part": "b",
+      "target": "itm:exercise:8.34:b",
+      "context": "\\}$ 具有单调似然比.\\footnote{译注：(b) 需取似然比非减的方向，参见\\autoref{exercise:8.26}与\\autoref{thm:8.3.17}的译注；原定义"
+    },
+    {
+      "file": "08-04-b.tex",
+      "exercise": "8.46",
+      "part": "a",
+      "target": "itm:exercise:8.46:a",
+      "context": "_2$、$n\\ge2$、$0<\\alpha<1$，(a) 的拒绝概率不超过 $\\alpha$，而 $\\sigma\\to\\infty$ 时趋于 $\\alpha$，故大小恰为 $\\alpha"
+    },
+    {
+      "file": "08-04-b.tex",
+      "exercise": "8.46",
+      "part": "b",
+      "target": "itm:exercise:8.46:b",
+      "context": " $\\alpha$，故大小恰为 $\\alpha$；(b) 对任意有限固定 $k>0$，取 $\\theta=\\theta_2$、$\\sigma\\downarrow0$，则拒绝概率趋于 $1"
+    },
+    {
+      "file": "08-04-b.tex",
+      "exercise": "8.46",
+      "part": "c",
+      "target": "itm:exercise:8.46:c",
+      "context": "0$，则拒绝概率趋于 $1$，故大小为 $1$. (c) 的无偏性也不能在这一完整参数空间中直接成立：对 (a)，在固定有限 $\\sigma$ 下，原假设端点及其附近的某些备择点功效仍小"
+    },
+    {
+      "file": "08-04-b.tex",
+      "exercise": "8.46",
+      "part": "a",
+      "target": "itm:exercise:8.46:a",
+      "context": " 的无偏性也不能在这一完整参数空间中直接成立：对 (a)，在固定有限 $\\sigma$ 下，原假设端点及其附近的某些备择点功效仍小于实际大小 $\\alpha$；对 (b) 的 $k>0$"
+    },
+    {
+      "file": "08-04-b.tex",
+      "exercise": "8.46",
+      "part": "b",
+      "target": "itm:exercise:8.46:b",
+      "context": "些备择点功效仍小于实际大小 $\\alpha$；对 (b) 的 $k>0$，有限参数值下功效小于实际大小 $1$. 若 $k\\le0$，(b) 是以概率 $1$ 拒绝的平凡检验，也不能给出"
+    },
+    {
+      "file": "08-04-b.tex",
+      "exercise": "8.46",
+      "part": "b",
+      "target": "itm:exercise:8.46:b",
+      "context": "下功效小于实际大小 $1$. 若 $k\\le0$，(b) 是以概率 $1$ 拒绝的平凡检验，也不能给出所要求的大小 $\\alpha$. 若作者意指固定 $\\sigma$、仅对 $\\the"
+    },
+    {
+      "file": "08-04.tex",
+      "exercise": "8.8",
+      "part": "a",
+      "target": "itm:exercise:8.8:a",
+      "context": "{译注：原题未明示参数空间. 使用普通正态密度时，(a) 至少须有 $a\\theta>0$，(b) 须有 $a>0$、$\\theta\\ne0$；是否还限定 $a,\\theta$ 各自为正"
+    },
+    {
+      "file": "08-04.tex",
+      "exercise": "8.8",
+      "part": "b",
+      "target": "itm:exercise:8.8:b",
+      "context": "密度时，(a) 至少须有 $a\\theta>0$，(b) 须有 $a>0$、$\\theta\\ne0$；是否还限定 $a,\\theta$ 各自为正，会影响约束最大化的范围. 此处保留原题，"
+    }
+  ],
+  "errors": []
+}

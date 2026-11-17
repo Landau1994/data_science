@@ -1,0 +1,18 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,pgfplots}
+\setCJKmainfont{SimSun}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+\begin{document}
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1,horizontal sep=1.8cm},width=8cm,height=6cm,tick label style={font=\small},title style={font=\small}]
+\nextgroupplot[title={拟合泊松：50,000次方差},xlabel={$S^2$},ylabel={相对频率},xmin=0,xmax=400,ymin=0]
+\addplot[ybar interval,fill=gray!30,draw=black] table[x=x,y=frequency] {5.54-poisson.dat};
+\node[align=center,font=\small,anchor=north east] at (rel axis cs:0.98,0.96) {观测 $s^2=6370.60$\\远在右侧图域外};
+\nextgroupplot[title={负二项：方差的模拟中央95\%区间},xlabel={$r$（对数刻度）},ylabel={$S^2$（对数刻度）},xmode=log,ymode=log,xmin=.4,xmax=130,ymin=100,ymax=200000,legend style={font=\small,at={(.5,-.25)},anchor=north}]
+\addplot[only marks,mark=*,error bars/.cd,y dir=both,y explicit] table[x=r,y=expected,y error plus=plus,y error minus=minus] {5.54-nb-intervals.dat};
+\addlegendentry{点：理论均值；线：模拟区间}
+\addplot[black,dashed,domain=.4:130] {6370.602564102565};\addlegendentry{观测 $s^2$}
+\end{groupplot}
+\end{tikzpicture}
+\end{document}

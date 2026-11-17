@@ -1,0 +1,45 @@
+54                              TRANSFORMATIONS AND EXPECTATIONS
+   The problem of uniqueness of moments does not occur if the random variables have bounded
+support. If that is the case, then the infinite sequence of moments does uniquely determine the
+distribution (see, for example, Billingsley 1995, Section 30). Furthermore, if the mgf exists in a
+neighborhood of zero, then the distribution is uniquely determined, no matter what its support.
+Thus, existence of all moments is not equivalent to existence of the moment generating function.
+The following theorem shows how a distribution can be characterized.
+Theorem 2.3.11  Let FX(x) and FY(y) be two cdfs all of whose moments exist.
+  a.  If X and Y have bounded support, then FX(u) = FY(u) for all u if and only if EXr = EY r for
+   all integers r = 0,1,2,....
+  b.  If the moment generating functions exist and MX(t) = MY(t) for all t in some neighborhood of
+   0, then FX(u) = FY(u) for all u.
+
+    In the next theorem, which deals with a sequence of mgfs that converges, we do not treat the
+bounded support case separately. Note that the uniqueness assumption is automatically satisfied if
+the limiting mgf exists in a neighborhood of 0 (Miscellanea 2.6.1).
+Theorem 2.3.12 (Convergence of mgfs)  Suppose {Xi, i = 1,2,...} is a sequence of random vari-
+ables, each with mgf MXi(t). Furthermore, suppose that
+                  i→∞MXi(t)lim    = MX(t),     for all t in a neighborhood of 0,
+and MX(t) is an mgf. Then there is a unique cdf FX whose moments are determined by MX(t) and,
+for all x where FX(x) is continuous, we have
+                                    i→∞FXi(x)lim    = FX(x).
+That is, convergence, for |t| < h, of mgfs to an mgf implies convergence of cdfs.
+   The proofs of Theorems 2.3.11 and 2.3.12 rely on the theory of Laplace transforms. (The classic
+reference is Widder (1946), but Laplace transforms also get a comprehensive treatment by Feller
+(1971).) The defining equation for MX(t), that is,
+
+                                     ∞
+                              MX(t) =  −∞etx fX(x)dx,                               (2.3.8)
+defines a Laplace transform (MX(t) is the Laplace transform of fX(x)). A key fact about Laplace
+transforms is their uniqueness. If (2.3.8) is valid for all t such that |t| < h, where h is some positivenumber, then given MX(t) there is only one function fX(x) that satisfies (2.3.8). Given this fact, the
+two previous theorems are quite reasonable. While rigorous proofs of these theorems are not beyond
+the scope of this book, the proofs are technical in nature, and shed no real understanding. We omit
+them.
+   The possible nonuniqueness of the moment sequence is an annoyance. If we show that a se-
+quence of moments converges, we will not be able to conclude formally that the random variables
+converge. To do so, we would have to verify the uniqueness of the moment sequence, a generally
+horrible job (Miscellanea 2.6.1). However, if the sequence of mgfs converges in a neighborhood
+of 0, then the random variables converge. Thus, we can consider the convergence of mgfs as a
+sufficient, but not necessary, condition for the sequence of random variables to converge.
+Example 2.3.13 (Poisson approximation)  One approximation that is usually taught in elemen-
+tary statistics courses is that binomial probabilities (see Example 2.3.5) can be approximated by
+Poisson probabilities, which are generally easier to calculate. The binomial distribution is charac-
+terized by two quantities, denoted by n and p. It is taught that the Poisson approximation is valid
+“when n is large and np is small” and rules of thumb are sometimes given.

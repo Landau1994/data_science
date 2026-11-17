@@ -1,0 +1,349 @@
+% 原书印刷188–200页，PDF物理219–231页.
+\subsection{收敛概念}\label{sec:5.5}
+本节考虑让样本容量趋于无穷这一有些理想化的想法，并研究在此过程中某些样本量的行为.虽然无限样本容量只是理论构造，但它往往能为有限样本情形提供有用的近似，因为表达式通常会在极限中简化.
+
+我们主要关注三种收敛，讨论的详略有所不同.（例如，\hyperref[bib:source33]{Billingsley 1995}或\hyperref[bib:source251]{Resnick 1999}对收敛有完整论述.）特别地，我们想考察$n\to\infty$时$n$个观测的均值$\bar X_n$的行为.
+\sourcepageanchor{220}
+\subsubsection{依概率收敛}\label{sec:5.5.1}
+这种收敛是较弱的收敛之一，因此通常容易验证.
+\begin{definition}\label{def:5.5.1}\index{SI0206@依概率}
+若对每个$\varepsilon>0$，都有
+$$\lim_{n\to\infty}P(|X_n-X|\ge\varepsilon)=0,\quad\text{或等价地}\quad\lim_{n\to\infty}P(|X_n-X|<\varepsilon)=1,$$
+则称随机变量序列$X_1,X_2,\ldots$依概率收敛（converges in probability）到随机变量$X$.
+\end{definition}
+\autoref{def:5.5.1}（以及本节其他定义）中的$X_1,X_2,\ldots$通常不像随机样本那样是独立同分布的随机变量.$X_n$的分布随下标变化；本节的收敛概念描述了下标增大时，$X_n$的分布以不同方式趋向某个极限分布.
+
+统计学家经常关心这样的情形：极限随机变量是常数，而序列中的随机变量是某种样本均值.这类结果中最著名的是以下定理.
+\begin{theorem}[弱大数定律]\label{thm:5.5.2}\index{SI0210@弱大数定律}\index{SI0565@切比雪夫}\index{SI0605@弱}
+设$X_1,X_2,\ldots$为iid随机变量，$EX_i=\mu$、$\operatorname{Var}X_i=\sigma^2<\infty$.定义$\bar X_n=(1/n)\sum_{i=1}^nX_i$.则对每个$\varepsilon>0$，
+$$\lim_{n\to\infty}P(|\bar X_n-\mu|<\varepsilon)=1,$$
+即$\bar X_n$依概率收敛到$\mu$.
+\end{theorem}
+\begin{proof}
+证明很简单，只需直接应用Chebychev不等式.对每个$\varepsilon>0$，
+$$P(|\bar X_n-\mu|\ge\varepsilon)=P((\bar X_n-\mu)^2\ge\varepsilon^2)\le\frac{E(\bar X_n-\mu)^2}{\varepsilon^2}=\frac{\operatorname{Var}\bar X}{\varepsilon^2}=\frac{\sigma^2}{n\varepsilon^2}.$$
+故当$n\to\infty$时，$P(|\bar X_n-\mu|<\varepsilon)=1-P(|\bar X_n-\mu|\ge\varepsilon)\ge1-\sigma^2/(n\varepsilon^2)\to1$.
+\end{proof}
+\sourcepageanchor{221}
+弱大数定律（Weak Law of Large Numbers，WLLN）简洁地说明，在一般条件下，$n\to\infty$时样本均值趋近总体均值.事实上还有更一般的弱大数定律，只需假设均值有限.不过，\autoref{thm:5.5.2}的版本已适用于多数实际情形.
+
+弱大数定律所概括的性质，即“同一个”样本量构成的序列在$n\to\infty$时趋向一个常数，称为相合性（consistency）.\autoref{sec:7}会更仔细地讨论这一性质.
+\begin{example}[$S^2$的相合性]\label{ex:5.5.3}\index{SI0196@相合性（见点估计量的相合性）}
+设有iid随机变量序列$X_1,X_2,\ldots$，满足$EX_i=\mu$、$\operatorname{Var}X_i=\sigma^2<\infty$.若定义
+$$S_n^2=\frac1{n-1}\sum_{i=1}^n(X_i-\bar X_n)^2,$$
+能否证明$S_n^2$的弱大数定律？由Chebychev不等式，
+$$P(|S_n^2-\sigma^2|\ge\varepsilon)\le\frac{E(S_n^2-\sigma^2)^2}{\varepsilon^2}=\frac{\operatorname{Var}S_n^2}{\varepsilon^2},$$
+所以$S_n^2$依概率收敛到$\sigma^2$的一个充分条件是$n\to\infty$时$\operatorname{Var}S_n^2\to0$.
+\end{example}
+\autoref{def:5.5.1}的一个自然推广涉及随机变量的函数.即若序列$X_1,X_2,\ldots$依概率收敛到随机变量$X$或常数$a$，对于某个表现较好的函数$h$，能否对随机变量序列$h(X_1),h(X_2),\ldots$作出结论？下一个定理表明可以（证明见\autoref{exercise:5.39}）.
+\begin{theorem}\label{thm:5.5.4}
+设$X_1,X_2,\ldots$依概率收敛到随机变量$X$，且$h$是连续函数，则$h(X_1),h(X_2),\ldots$依概率收敛到$h(X)$.
+\end{theorem}
+\begin{example}[$S$的相合性]\label{ex:5.5.5}
+若$S_n^2$是$\sigma^2$的相合估计量，则由\autoref{thm:5.5.4}，样本标准差$S_n=\sqrt{S_n^2}=h(S_n^2)$是$\sigma$的相合估计量.注意$S_n$实际上是$\sigma$的有偏估计量（\autoref{exercise:5.11}），但偏差渐近消失.
+\end{example}
+\subsubsection{几乎处处收敛}\label{sec:5.5.2}
+比依概率收敛更强的一种收敛是几乎处处收敛（almost sure convergence；有时也称以概率1收敛，这一名称容易引起混淆）.它类似于函数列的逐点收敛，只是不要求在概率为0的集合上收敛（故称“几乎”处处）.
+\begin{definition}\label{def:5.5.6}\index{SI0201@几乎处处}\index{SI0211@以概率1}
+若对每个$\varepsilon>0$，都有
+$$P\left(\lim_{n\to\infty}|X_n-X|<\varepsilon\right)=1,$$
+则称随机变量序列$X_1,X_2,\ldots$几乎处处收敛到随机变量$X$.
+\end{definition}
+注意\autoref{def:5.5.1}与\autoref{def:5.5.6}的表述相似.虽然外观相近，它们却十分不同，后者强得多.为理解几乎处处收敛，须回顾\autoref{def:1.4.1}中随机变量的基本定义：随机变量是定义在样本空间$S$上的实值函数.若$S$的元素记为$s$，则$X_n(s)$与$X(s)$都是$S$上的函数.\autoref{def:5.5.6}说明，若除可能属于某个$N\subset S$、$P(N)=0$的$s$以外，对所有$s\in S$都有$X_n(s)\to X(s)$，则$X_n$几乎处处收敛到$X$.\autoref{ex:5.5.7}说明几乎处处收敛，\autoref{ex:5.5.8}说明它与依概率收敛的差别.
+\sourcepageanchor{222}
+\begin{example}[几乎处处收敛]\label{ex:5.5.7}
+设样本空间$S$为具有均匀概率分布的闭区间$[0,1]$.定义随机变量$X_n(s)=s+s^n$及$X(s)=s$.对每个$s\in[0,1)$，$n\to\infty$时$s^n\to0$，故$X_n(s)\to s=X(s)$.但对每个$n$都有$X_n(1)=2$，所以$X_n(1)$不收敛到$1=X(1)$.由于收敛发生在集合$[0,1)$上，且$P([0,1))=1$，$X_n$几乎处处收敛到$X$.
+\end{example}
+\begin{example}[依概率收敛但不几乎处处收敛]\label{ex:5.5.8}
+本例给出一个依概率收敛但不几乎处处收敛的序列.仍设$S$为具有均匀概率分布的闭区间$[0,1]$.如下定义序列$X_1,X_2,\ldots$：
+$$\begin{array}{lll}
+X_1(s)=s+I_{[0,1]}(s),&X_2(s)=s+I_{[0,1/2]}(s),&X_4(s)=s+I_{[0,1/3]}(s),\\
+&X_3(s)=s+I_{[1/2,1]}(s),&X_5(s)=s+I_{[1/3,2/3]}(s),\\
+&&X_6(s)=s+I_{[2/3,1]}(s),
+\end{array}$$
+依此类推.令$X(s)=s$.容易看出$X_n$依概率收敛到$X$.$n\to\infty$时，$P(|X_n-X|\ge\varepsilon)$等于某个$s$值区间的概率，而该区间长度趋于0.但$X_n$不几乎处处收敛到$X$.事实上，不存在任何$s\in S$使$X_n(s)\to s=X(s)$.对每个$s$，$X_n(s)$在$s$与$s+1$之间无限次交替.例如，$s=3/8$时，$X_1(s)=1\frac38$、$X_2(s)=1\frac38$、$X_3(s)=\frac38$、$X_4(s)=\frac38$、$X_5(s)=1\frac38$、$X_6(s)=\frac38$，等等.此序列在任何一点都不收敛.
+\end{example}
+可以预料，几乎处处收敛作为更强的条件，蕴含依概率收敛.逆命题当然不成立，\autoref{ex:5.5.8}已说明这一点.然而，如果序列依概率收敛，就可以找到一个几乎处处收敛的子序列.（\hyperref[bib:source251]{Resnick 1999}，第6.3节详细讨论了这两种收敛的联系.）
+
+统计学家仍常关注到常数的收敛.下面不加证明地给出弱大数定律的更强对应结果——强大数定律（Strong Law of Large Numbers，SLLN）.证明提纲见\autoref{sec:5.8.4}.
+\begin{theorem}[强大数定律]\label{thm:5.5.9}\index{SI0209@强大数定律}\index{SI0604@强}
+设$X_1,X_2,\ldots$为iid随机变量，$EX_i=\mu$、$\operatorname{Var}X_i=\sigma^2<\infty$，定义$\bar X_n=(1/n)\sum_{i=1}^nX_i$.则对每个$\varepsilon>0$，
+$$P\left(\lim_{n\to\infty}|\bar X_n-\mu|<\varepsilon\right)=1,$$
+即$\bar X_n$几乎处处收敛到$\mu$.
+\end{theorem}
+在弱大数定律与强大数定律中，都假设方差有限.虽然多数应用中这一假设成立（也很理想），但事实上它强于实际所需条件.去掉这一假设，弱定律与强定律仍然成立.唯一需要的矩条件是$E|X_i|<\infty$（见\hyperref[bib:source251]{Resnick 1999}，第7章；或\hyperref[bib:source33]{Billingsley 1995}，第22节\mbox{）.}
+\subsubsection{依分布收敛}\label{sec:5.5.3}
+\autoref{sec:2}已介绍依分布收敛（convergence in distribution）的概念.回顾矩母函数的性质，以及其收敛如何蕴含依分布收敛（\autoref{thm:2.3.12}）.
+\begin{definition}\label{def:5.5.10}\index{SI0204@依分布}
+若在$F_X(x)$连续的每一点$x$都有
+$$\lim_{n\to\infty}F_{X_n}(x)=F_X(x),$$
+则称随机变量序列$X_1,X_2,\ldots$依分布收敛到随机变量$X$.
+\end{definition}
+\sourcepageanchor{223}
+\begin{example}[均匀随机变量的最大值]\label{ex:5.5.11}\index{SI0388@最大值}
+若$X_1,X_2,\ldots$为iid $\operatorname{uniform}(0,1)$，$X_{(n)}=\max_{1\le i\le n}X_i$，考察$X_{(n)}$是否依分布收敛，以及收敛到哪里.
+
+$n\to\infty$时，我们预期$X_{(n)}$接近1.由于$X_{(n)}$必小于1，对任何$\varepsilon>0$，
+\begin{align*}
+P(|X_{(n)}-1|\ge\varepsilon)&=P(X_{(n)}\ge1+\varepsilon)+P(X_{(n)}\le1-\varepsilon)\\
+&=0+P(X_{(n)}\le1-\varepsilon).
+\end{align*}
+再利用样本iid，有
+$$P(X_{(n)}\le1-\varepsilon)=P(X_i\le1-\varepsilon,\ i=1,\ldots,n)=(1-\varepsilon)^n,$$
+它趋于0.所以证明了$X_{(n)}$依概率收敛到1.不过，若取$\varepsilon=t/n$，则
+$$P(X_{(n)}\le1-t/n)=(1-t/n)^n\to e^{-t},$$
+整理得到
+$$P(n(1-X_{(n)})\le t)\to1-e^{-t},$$
+即随机变量$n(1-X_{(n)})$依分布收敛到$\operatorname{exponential}(1)$随机变量.
+\end{example}
+注意，虽然说的是随机变量序列依分布收敛，实际收敛的是cdf，而不是随机变量本身.在这一根本意义上，依分布收敛与依概率收敛、几乎处处收敛都很不同.不过，其他两种收敛都蕴含它.
+\begin{theorem}\label{thm:5.5.12}\index{SI0205@与依概率收敛的关系}\index{SI0207@与依分布收敛的关系}
+若随机变量序列$X_1,X_2,\ldots$依概率收敛到随机变量$X$，则该序列也依分布收敛到$X$.
+\end{theorem}
+证明见\autoref{exercise:5.40}.另外，由\autoref{sec:5.5.2}可知，几乎处处收敛也蕴含依分布收敛.
+
+在一个特殊情形中，\autoref{thm:5.5.12}有一个有用的逆命题.例示见\autoref{ex:10.1.13}，证明见\autoref{exercise:5.41}.
+\begin{theorem}\label{thm:5.5.13}\index{SI0208@收敛到常数}
+随机变量序列$X_1,X_2,\ldots$依概率收敛到常数$\mu$，当且仅当它依分布收敛到$\mu$.即
+$$P(|X_n-\mu|>\varepsilon)\to0\quad\text{对每个$\varepsilon>0$}$$
+等价于
+$$P(X_n\le x)\to\begin{cases}0,&x<\mu,\\1,&x>\mu.\end{cases}$$
+\end{theorem}
+样本均值是大样本行为极其重要的统计量之一.特别地，我们想研究它的极限分布.统计学中最令人惊叹的定理之一——中心极限定理（Central Limit Theorem，CLT）——概括了这一结果.
+\begin{theorem}[中心极限定理]\label{thm:5.5.14}\index{SI0102@中心极限定理}
+设$X_1,X_2,\ldots$为iid随机变量序列，其矩母函数在0的某个邻域内存在（即对某个$h>0$，$|t|<h$时$M_{X_i}(t)$存在）.设$EX_i=\mu$、$\operatorname{Var}X_i=\sigma^2>0$.（矩母函数存在，故$\mu$与$\sigma^2$都有限.）定义$\bar X_n=(1/n)\sum_{i=1}^nX_i$，以$G_n(x)$表示$\sqrt n(\bar X_n-\mu)/\sigma$的cdf.则对任意$-\infty<x<\infty$，
+$$\lim_{n\to\infty}G_n(x)=\int_{-\infty}^x\frac1{\sqrt{2\pi}}e^{-y^2/2}\,dy,$$
+即$\sqrt n(\bar X_n-\mu)/\sigma$具有标准正态极限分布.
+\end{theorem}
+\sourcepageanchor{224}
+在证明此定理之前（证明颇有些平淡），先考察它的含义.几乎不作假设（除了独立性和方差有限），最终竟得到正态性！关键在于，正态性来自“小的”（方差有限的）独立扰动之和.方差有限的假设对收敛到正态分布基本上是必要的.虽然可以略加放宽，却不能完全取消.（回顾讨论Cauchy分布的\autoref{ex:5.2.10}；那里没有到正态分布的收敛.）
+
+在赞叹中心极限定理的同时，也应思考其局限.它虽然给出有用的一般近似，但通常无法自动知道这种近似究竟有多好.事实上，近似精度依赖原始分布，必须逐个情形检查.此外，当今计算能力充裕而廉价，使中心极限定理这类近似的重要性有所降低.尽管如此，它仍是一个非凡的结果.
+\begin{proof}[\autoref{thm:5.5.14}的证明]
+下面证明，对$|t|<h$，$\sqrt n(\bar X_n-\mu)/\sigma$的矩母函数收敛到$n(0,1)$随机变量的矩母函数$e^{t^2/2}$.
+
+定义$Y_i=(X_i-\mu)/\sigma$，以$M_Y(t)$表示各$Y_i$共同的矩母函数，它在$|t|<\sigma h$时存在，可由\autoref{thm:2.3.15}给出.由于
+\begin{equation}\label{eq:5.5.1}
+\frac{\sqrt n(\bar X_n-\mu)}\sigma=\frac1{\sqrt n}\sum_{i=1}^nY_i,
+\end{equation}
+由矩母函数的性质（见\autoref{thm:2.3.15}和\autoref{thm:4.6.7}），有
+\begin{equation}\label{eq:5.5.2}
+\begin{aligned}
+M_{\sqrt n(\bar X_n-\mu)/\sigma}(t)&=M_{\sum_{i=1}^nY_i/\sqrt n}(t)\\
+&=M_{\sum_{i=1}^nY_i}\left(\frac t{\sqrt n}\right)&&\text{（\autoref{thm:2.3.15}）}\\
+&=\left(M_Y\left(\frac t{\sqrt n}\right)\right)^n.&&\text{（\autoref{thm:4.6.7}）}
+\end{aligned}
+\end{equation}
+把$M_Y(t/\sqrt n)$在0附近展开为Taylor级数\index{SI0696@在中心极限定理中的用途}\semanticindexanchor{696:224}\index{SI1031@在中心极限定理中的用途}\semanticindexanchor{1031:224}（幂级数；见\autoref{def:5.5.20}），得到
+\begin{equation}\label{eq:5.5.3}
+M_Y\left(\frac t{\sqrt n}\right)=\sum_{k=0}^\infty M_Y^{(k)}(0)\frac{(t/\sqrt n)^k}{k!},
+\end{equation}
+其中$M_Y^{(k)}(0)=(d^k/dt^k)M_Y(t)|_{t=0}$.由于矩母函数在$|t|<h$时存在，当$t<\sqrt n\sigma h$时幂级数展开有效.\footnote{译注：此处原文写$t<\sqrt n\sigma h$，按前文矩母函数存在的双侧邻域，应理解为$|t|<\sqrt n\sigma h$.原式保留；对固定$t$取充分大的$n$，证明仍适用.}
+
+利用$M_Y^{(0)}=1$、$M_Y^{(1)}=0$和$M_Y^{(2)}=1$（按构造，$Y$的均值和方差为0和1），得到
+\begin{equation}\label{eq:5.5.4}
+M_Y\left(\frac t{\sqrt n}\right)=1+\frac{(t/\sqrt n)^2}{2!}+R_Y\left(\frac t{\sqrt n}\right),
+\end{equation}
+其中$R_Y$是Taylor展开的余项，
+$$R_Y\left(\frac t{\sqrt n}\right)=\sum_{k=3}^\infty M_Y^{(k)}(0)\frac{(t/\sqrt n)^k}{k!}.$$
+由Taylor定理（\autoref{thm:5.5.21}），对固定的$t\ne0$，有
+$$\lim_{n\to\infty}\frac{R_Y(t/\sqrt n)}{(t/\sqrt n)^2}=0.$$
+由于$t$固定，也有
+\begin{equation}\label{eq:5.5.5}
+\lim_{n\to\infty}\frac{R_Y(t/\sqrt n)}{(1/\sqrt n)^2}=\lim_{n\to\infty}nR_Y\left(\frac t{\sqrt n}\right)=0.
+\end{equation}
+\sourcepageanchor{225}
+当$t=0$时，由于$R_Y(0/\sqrt n)=0$，\eqref{eq:5.5.5}也成立.因此对任意固定$t$，可以写
+\begin{equation}\label{eq:5.5.6}
+\begin{aligned}
+\lim_{n\to\infty}\left(M_Y\left(\frac t{\sqrt n}\right)\right)^n
+&=\lim_{n\to\infty}\left[1+\frac{(t/\sqrt n)^2}{2!}+R_Y\left(\frac t{\sqrt n}\right)\right]^n\\
+&=\lim_{n\to\infty}\left[1+\frac1n\left(\frac{t^2}2+nR_Y\left(\frac t{\sqrt n}\right)\right)\right]^n\\
+&=e^{t^2/2},
+\end{aligned}
+\end{equation}
+这里应用了\autoref{lem:2.3.14}，取$a_n=(t^2/2)+nR_Y(t/\sqrt n)$.（注意，\eqref{eq:5.5.5}意味着$n\to\infty$时$a_n\to t^2/2$.）由于$e^{t^2/2}$是$n(0,1)$分布的矩母函数，定理得证.
+\end{proof}
+中心极限定理在比\autoref{thm:5.5.14}更一般的条件下仍成立（\autoref{sec:5.8.1}）.特别地，所有关于矩母函数的假设都不需要，可以改用特征函数（\autoref{sec:2.6.2}）.下面的定理不给证明.这是几乎足以满足全部统计用途的中心极限定理版本.注意对母分布的唯一假设是方差有限.
+\begin{theorem}[更强形式的中心极限定理]\label{thm:5.5.15}\index{SI0102@中心极限定理}\index{SI0105@在中心极限定理中的用途}
+设$X_1,X_2,\ldots$为iid随机变量序列，$EX_i=\mu$，$0<\operatorname{Var}X_i=\sigma^2<\infty$.定义$\bar X_n=(1/n)\sum_{i=1}^nX_i$，以$G_n(x)$表示$\sqrt n(\bar X_n-\mu)/\sigma$的cdf.则对任意$-\infty<x<\infty$，
+$$\lim_{n\to\infty}G_n(x)=\int_{-\infty}^x\frac1{\sqrt{2\pi}}e^{-y^2/2}\,dy,$$
+即$\sqrt n(\bar X_n-\mu)/\sigma$具有标准正态极限分布.
+\end{theorem}
+证明与\autoref{thm:5.5.14}几乎相同，只是用特征函数代替矩母函数.分布的特征函数总存在，所以无须在定理假设中提及.不过证明更细致，因为须处理复变量函数.详见\hyperref[bib:source33]{Billingsley（1995}，第27节）.
+
+中心极限定理提供一种通用近似（但请记住关于近似精度的提醒）.实践中，总可先用它进行粗略计算.
+\begin{example}[负二项分布的正态近似]\label{ex:5.5.16}\index{SI0063@以正态近似负二项}
+设$X_1,\ldots,X_n$为来自$\operatorname{negative\ binomial}(r,p)$分布的随机样本.回顾
+$$EX=\frac{r(1-p)}p,\qquad\operatorname{Var}X=\frac{r(1-p)}{p^2},$$
+中心极限定理告诉我们
+$$\frac{\sqrt n(\bar X-r(1-p)/p)}{\sqrt{r(1-p)/p^2}}$$
+近似服从$n(0,1)$.近似概率计算比精确计算容易得多.例如$r=10$、$p=1/2$、$n=30$时，精确计算为
+\begin{align*}
+P(\bar X\le11)&=P\left(\sum_{i=1}^{30}X_i\le330\right)\\
+&=\sum_{x=0}^{330}\binom{300+x-1}x\left(\frac12\right)^{300}\left(\frac12\right)^x
+&&\text{（$\sum X_i$服从负二项$(nr,p)$分布）}\\
+&=.8916,
+\end{align*}
+\sourcepageanchor{226}
+这个计算非常困难.（即使借助计算机也不容易，阶乘的巨大数值会带来很大困难.不信可以试试！）中心极限定理给出近似
+\begin{align*}
+P(\bar X\le11)&=P\left(\frac{\sqrt{30}(\bar X-10)}{\sqrt{20}}\le\frac{\sqrt{30}(11-10)}{\sqrt{20}}\right)\\
+&\approx P(Z\le1.2247)=.8888.
+\end{align*}
+进一步的改进见\autoref{exercise:5.37}.
+\end{example}
+一种可结合中心极限定理使用的近似工具称为Slutsky定理.
+\begin{theorem}[Slutsky定理]\label{thm:5.5.17}\index{SI0204@依分布}\index{SI0979@Slutsky定理}
+若$X_n$依分布收敛到$X$，而$Y_n$依概率收敛到常数$a$，则
+\begin{enumerate}[label=\textbf{\alph*.}]
+\item $Y_nX_n$依分布收敛到$aX$.
+\item $X_n+Y_n$依分布收敛到$X+a$.
+\end{enumerate}
+\end{theorem}
+Slutsky定理的证明略去，因为它依赖于尚未讨论的依分布收敛的一种刻画.下面的例子说明一种典型应用.
+\begin{example}[以估计方差作正态近似]\label{ex:5.5.18}
+设
+$$\frac{\sqrt n(\bar X_n-\mu)}\sigma\to n(0,1),$$
+但$\sigma$未知.\autoref{ex:5.5.3}表明，若$\lim_{n\to\infty}\operatorname{Var}S_n^2=0$，则$S_n^2$依概率收敛到$\sigma^2$.由\autoref{exercise:5.32}，$\sigma/S_n$依概率收敛到1.于是Slutsky定理告诉我们
+$$\frac{\sqrt n(\bar X_n-\mu)}{S_n}=\frac\sigma{S_n}\frac{\sqrt n(\bar X_n-\mu)}\sigma\to n(0,1).$$
+\end{example}
+\subsubsection{Delta方法}\label{sec:5.5.4}\index{SI0246@Delta方法}
+上一小节给出了标准化随机变量具有正态极限分布的条件.不过很多时候，我们关心的并非随机变量本身的分布，而是其某个函数的分布.
+\begin{example}[优势的估计]\label{ex:5.5.19}
+设观测到独立的$\operatorname{Bernoulli}(p)$随机变量$X_1,X_2,\ldots,X_n$.通常关注的参数是成功概率$p$，另一个常见参数是优势（odds）$p/(1-p)$.例如，若数据代表某种医疗方法的治疗结果，且$p=2/3$，则病情好转的优势为$2:1$.此外，若另一种疗法的成功概率为$r$，生物统计学家常估计优势比（odds ratio）$\frac p{1-p}/\frac r{1-r}$，它表示一种疗法相对于另一种疗法的优势.
+
+通常用观测成功比例$\hat p=\sum_iX_i/n$估计成功概率$p$，所以可考虑用$\hat p/(1-\hat p)$估计$p/(1-p)$.但这一估计量有什么性质？怎样估计$\hat p/(1-\hat p)$的方差？又怎样近似它的抽样分布？
+
+直觉不再帮得上忙，而精确计算也几乎没有希望，只能依赖近似.Delta方法将使我们得到合理的近似答案.
+\end{example}
+\sourcepageanchor{227}
+一种方法是利用Taylor级数近似，它能近似随机变量的函数的均值与方差.还将看到，这些相当直接的近似足以得到一个中心极限定理.先简要回顾Taylor级数.
+\begin{definition}\label{def:5.5.20}\index{SI1029@泰勒级数}
+若函数$g(x)$有$r$阶导数，即$g^{(r)}(x)=\frac{d^r}{dx^r}g(x)$存在，则对任意常数$a$，在$a$处的$r$阶Taylor多项式（Taylor polynomial）为
+$$T_r(x)=\sum_{i=0}^r\frac{g^{(i)}(a)}{i!}(x-a)^i.$$
+\end{definition}
+Taylor的主要定理说明，近似的余项$g(x)-T_r(x)$趋于零总比显式写出的最高阶项更快.这里不证明.
+\begin{theorem}[Taylor]\label{thm:5.5.21}\index{SI1030@泰勒定理}
+若$g^{(r)}(a)=\frac{d^r}{dx^r}g(x)|_{x=a}$存在，则
+$$\lim_{x\to a}\frac{g(x)-T_r(x)}{(x-a)^r}=0.$$
+\end{theorem}
+一般来说，我们不关心余项的显式形式.由于关注近似，直接忽略余项即可.不过余项有很多显式形式，其中一个有用的形式为
+$$g(x)-T_r(x)=\int_a^x\frac{g^{(r+1)}(t)}{r!}(x-t)^r\,dt.$$
+在Taylor定理的统计应用中，我们最关心一阶Taylor级数，即只利用一阶导数的近似（上述公式取$r=1$）.另外还会用到多元Taylor级数.上面只详述了一元情形，因此下面有些结果须暂且接受.
+
+设$T_1,\ldots,T_k$是均值分别为$\theta_1,\ldots,\theta_k$的随机变量，定义$\boldsymbol T=(T_1,\ldots,T_k)$、$\boldsymbol\theta=(\theta_1,\ldots,\theta_k)$.设有可微函数$g(\boldsymbol T)$（某参数的估计量），我们想近似估计它的方差.定义
+$$g'_i(\boldsymbol\theta)=\frac\partial{\partial t_i}g(\boldsymbol t)\bigg|_{t_1=\theta_1,\ldots,t_k=\theta_k}.$$
+$g$在$\boldsymbol\theta$处的一阶Taylor展开为
+$$g(\boldsymbol t)=g(\boldsymbol\theta)+\sum_{i=1}^k g'_i(\boldsymbol\theta)(t_i-\theta_i)+\text{余项}.$$
+在统计近似中忽略余项，写成
+\begin{equation}\label{eq:5.5.7}
+ g(\boldsymbol t)\approx g(\boldsymbol\theta)+\sum_{i=1}^k g'_i(\boldsymbol\theta)(t_i-\theta_i).
+\end{equation}
+对\eqref{eq:5.5.7}两边取期望，得到
+\begin{equation}\label{eq:5.5.8}
+\begin{aligned}
+E_{\boldsymbol\theta}g(\boldsymbol T)&\approx g(\boldsymbol\theta)+\sum_{i=1}^k g'_i(\boldsymbol\theta)E_{\boldsymbol\theta}(T_i-\theta_i)\\
+&=g(\boldsymbol\theta).\qquad\text{（$T_i$的均值为$\theta_i$）}
+\end{aligned}
+\end{equation}
+\sourcepageanchor{228}
+现在可以近似$g(\boldsymbol T)$的方差：
+\begin{equation}\label{eq:5.5.9}\index{SI0764@近似}\index{SI1069@泰勒近似}
+\begin{aligned}
+\operatorname{Var}_{\boldsymbol\theta}g(\boldsymbol T)
+&\approx E_{\boldsymbol\theta}([g(\boldsymbol T)-g(\boldsymbol\theta)]^2)&&\text{（由\eqref{eq:5.5.8}）}\\
+&\approx E_{\boldsymbol\theta}\left(\left(\sum_{i=1}^k g'_i(\boldsymbol\theta)(T_i-\theta_i)\right)^2\right)&&\text{（由\eqref{eq:5.5.7}）}\\
+&=\sum_{i=1}^k[g'_i(\boldsymbol\theta)]^2\operatorname{Var}_{\boldsymbol\theta}T_i
++2\sum_{i>j}g'_i(\boldsymbol\theta)g'_j(\boldsymbol\theta)\operatorname{Cov}_{\boldsymbol\theta}(T_i,T_j),
+\end{aligned}
+\end{equation}
+最后的等号由展开平方、利用方差和协方差的定义得到（类似\autoref{exercise:4.44}）.近似\eqref{eq:5.5.9}十分有用，因为仅用简单的方差和协方差就给出一般函数的方差公式.下面给出两个例子.
+\begin{example}[续\autoref{ex:5.5.19}]\label{ex:5.5.22}
+回顾我们关心$\hat p/(1-\hat p)$作为$p/(1-p)$估计量的性质，其中$p$是二项成功概率.沿用上面的记号，取$g(p)=p/(1-p)$，则$g'(p)=1/(1-p)^2$，且
+$$\operatorname{Var}\left(\frac{\hat p}{1-\hat p}\right)\approx[g'(p)]^2\operatorname{Var}(\hat p)=\left[\frac1{(1-p)^2}\right]^2\frac{p(1-p)}n=\frac p{n(1-p)^3},$$
+由此得到估计量方差的近似.
+\end{example}
+\begin{example}[近似均值与方差]\label{ex:5.5.23}
+设随机变量$X$满足$E_\mu X=\mu\ne0$.若要估计函数$g(\mu)$，一阶近似给出
+$$g(X)=g(\mu)+g'(\mu)(X-\mu).$$
+若用$g(X)$估计$g(\mu)$，则近似有
+$$\begin{aligned}E_\mu g(X)&\approx g(\mu),\\\operatorname{Var}_\mu g(X)&\approx[g'(\mu)]^2\operatorname{Var}_\mu X.\end{aligned}$$
+具体地，取$g(\mu)=1/\mu$，用$1/X$估计$1/\mu$，便有
+$$\begin{aligned}E_\mu\left(\frac1X\right)&\approx\frac1\mu,\\
+\operatorname{Var}_\mu\left(\frac1X\right)&\approx\left(\frac1\mu\right)^4\operatorname{Var}_\mu X.\end{aligned}$$
+\end{example}
+利用这些均值、方差的Taylor级数近似，可得到下面这个称为Delta方法的中心极限定理推广.
+\begin{theorem}[Delta方法]\label{thm:5.5.24}
+设随机变量序列$Y_n$满足$\sqrt n(Y_n-\theta)\to n(0,\sigma^2)$（依分布）.给定函数$g$及特定的$\theta$，假设$g'(\theta)$存在且非零.则
+\begin{equation}\label{eq:5.5.10}
+\sqrt n[g(Y_n)-g(\theta)]\to n(0,\sigma^2[g'(\theta)]^2)\quad\text{（依分布）}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+$g(Y_n)$在$Y_n=\theta$附近的Taylor展开为
+\begin{equation}\label{eq:5.5.11}
+g(Y_n)=g(\theta)+g'(\theta)(Y_n-\theta)+\text{余项},
+\end{equation}
+其中$Y_n\to\theta$时余项趋于0.由于$Y_n$依概率收敛到$\theta$，余项也依概率收敛到0.将Slutsky定理（\autoref{thm:5.5.17}）用于
+$$\sqrt n[g(Y_n)-g(\theta)]=g'(\theta)\sqrt n(Y_n-\theta)$$
+即得结论.详见\autoref{exercise:5.43}.\footnote{译注：原文最后一式省去了余项，直接写成等式.严谨论证须说明乘以$\sqrt n$后的余项依概率趋于0；仅有未缩放余项趋于0还不够.可微性给出余项为$(Y_n-\theta)o(1)$，结合$\sqrt n(Y_n-\theta)$依分布收敛，便可完成这一步.}
+\end{proof}
+\sourcepageanchor{229}
+\begin{example}[续\autoref{ex:5.5.23}]\label{ex:5.5.25}
+现在设有随机样本的均值$\bar X$.当$\mu\ne0$时，
+$$\sqrt n\left(\frac1{\bar X}-\frac1\mu\right)\to n\left(0,\left(\frac1\mu\right)^4\operatorname{Var}_\mu X_1\right)\quad\text{（依分布）}.$$
+若不知道$X_1$的方差，要使用这个近似，就须用某个估计，例如$S^2$.此外，$1/\mu$项也有问题，因为$\mu$同样未知.可以把所有未知量都估计出来，得到近似方差\footnote{译注：原文这一式若指$1/\bar X$本身的方差，右端应再除以$n$；所写右端对应于上式经$\sqrt n$缩放后的渐近方差估计.随后标准化公式与后者一致.}
+$$\operatorname{Var}\left(\frac1{\bar X}\right)\approx\left(\frac1{\bar X}\right)^4S^2.$$
+
+此外，$\bar X$和$S^2$都是相合估计量，故可再次用Slutsky定理得出：当$\mu\ne0$时，
+$$\frac{\sqrt n\left(\frac1{\bar X}-\frac1\mu\right)}{\left(\frac1{\bar X}\right)^2S}\to n(0,1)\quad\text{（依分布）}.$$
+注意后一量的写法：除以估计的标准差，使极限分布成为标准正态分布.如果需要估计极限分布中的某些参数，这是唯一合理的方式.还应指出，当存在待估参数时另有一种方法，这里实际上可以避免在方差中使用$\mu$的估计（见\autoref{sec:10.3.2}的得分检验）.
+\end{example}
+为了完整讨论，还需要处理基本Delta方法的两个推广.第一个是$g'(\mu)=0$的可能性.例如，估计二项方差的方差时就可能出现这种情况（见\autoref{exercise:5.44}）.
+
+若$g'(\theta)=0$，在Taylor展开中多取一项，得
+$$g(Y_n)=g(\theta)+g'(\theta)(Y_n-\theta)+\frac{g''(\theta)}2(Y_n-\theta)^2+\text{余项}.$$
+稍加整理（令$g'=0$），有
+\begin{equation}\label{eq:5.5.12}
+g(Y_n)-g(\theta)=\frac{g''(\theta)}2(Y_n-\theta)^2+\text{余项}.
+\end{equation}
+回顾$n(0,1)$的平方服从$\chi_1^2$（\autoref{ex:2.1.9}），这意味着
+$$\frac{n(Y_n-\theta)^2}{\sigma^2}\to\chi_1^2\quad\text{（依分布）}.$$
+因此，类似\autoref{thm:5.5.24}的论证即可证明如下定理.
+\begin{theorem}[二阶Delta方法]\label{thm:5.5.26}
+设随机变量序列$Y_n$满足$\sqrt n(Y_n-\theta)\to n(0,\sigma^2)$（依分布）.对于给定函数$g$及特定$\theta$，假定$g'(\theta)=0$，而$g''(\theta)$存在且非零.则
+\begin{equation}\label{eq:5.5.13}
+n[g(Y_n)-g(\theta)]\to\sigma^2\frac{g''(\theta)}2\chi_1^2\quad\text{（依分布）}.
+\end{equation}
+\end{theorem}
+\sourcepageanchor{230}
+当待估函数包含多个参数、估计量用到多个随机变量时，近似方法十分有用.生长研究中一个常见例子，是把体重与身高之比作为感兴趣变量.（回顾\autoref{sec:3}，两个正态随机变量之比服从Cauchy分布.比值问题对实验者很重要，但理论上十分棘手.）
+
+这引出Delta方法的第二个推广，即多元情形.既然已有多元Taylor定理，这一推广并不出人意料.
+\begin{example}[比值估计量的矩]\label{ex:5.5.27}\index{SI0812@比值}
+设随机变量$X$与$Y$的非零均值分别为$\mu_X$和$\mu_Y$.待估参数函数为$g(\mu_X,\mu_Y)=\mu_X/\mu_Y$.直接计算得到
+$$\frac\partial{\partial\mu_X}g(\mu_X,\mu_Y)=\frac1{\mu_Y},\qquad
+\frac\partial{\partial\mu_Y}g(\mu_X,\mu_Y)=-\frac{\mu_X}{\mu_Y^2}.$$
+一阶Taylor近似\eqref{eq:5.5.8}与\eqref{eq:5.5.9}给出
+$$E\left(\frac XY\right)\approx\frac{\mu_X}{\mu_Y},$$
+以及
+\begin{align*}
+\operatorname{Var}\left(\frac XY\right)&\approx\frac1{\mu_Y^2}\operatorname{Var}X+\frac{\mu_X^2}{\mu_Y^4}\operatorname{Var}Y-2\frac{\mu_X}{\mu_Y^3}\operatorname{Cov}(X,Y)\\
+&=\left(\frac{\mu_X}{\mu_Y}\right)^2\left(\frac{\operatorname{Var}X}{\mu_X^2}+\frac{\operatorname{Var}Y}{\mu_Y^2}-2\frac{\operatorname{Cov}(X,Y)}{\mu_X\mu_Y}\right).
+\end{align*}
+由此得到比值估计量均值、方差的近似，而且只用到$\bar X$与$Y$的均值、方差和协方差.\footnote{译注：原文此处写$\bar X$与$Y$；按本例设定和前面的公式，应为$X$与$Y$.}精确计算几乎没有希望，也无法得到闭式表达式.
+\end{example}
+下面给出适用于比值估计量等情形的中心极限定理.虽然最终的中心极限定理是一元的，推导仍须处理多个随机变量.设向量值随机变量$\boldsymbol X=(X_1,\ldots,X_p)$的均值为$\boldsymbol\mu=(\mu_1,\ldots,\mu_p)$，协方差为$\operatorname{cov}(X_i,X_j)=\sigma_{ij}$，观测独立随机样本$\boldsymbol X_1,\ldots,\boldsymbol X_n$，计算均值$\bar X_i=\sum_{k=1}^nX_{ik}$，$i=1,\ldots,p$.\footnote{译注：原文均值定义漏写因子$1/n$；样本均值应为$\bar X_i=n^{-1}\sum_{k=1}^nX_{ik}$.}对函数$g(\boldsymbol x)=g(x_1,\ldots,x_p)$，利用\eqref{eq:5.5.7}之后的推导可写\footnote{译注：原文这一式写成等式，且导数在$\boldsymbol x$处取值.作为在$\boldsymbol\mu$处的一阶Taylor近似，应把等号理解为近似，并在$\boldsymbol\mu$处计算导数，或显式保留相应余项.}
+$$g(\bar x_1,\ldots,\bar x_p)=g(\mu_1,\ldots,\mu_p)+\sum_{k=1}^p g'_k(\boldsymbol x)(\bar x_k-\mu_k),$$
+
+于是得到如下定理.
+\Needspace{10\baselineskip}
+\begin{theorem}[多元Delta方法]\label{thm:5.5.28}
+设$\boldsymbol X_1,\ldots,\boldsymbol X_n$为随机样本，$E(X_{ij})=\mu_i$、\allowbreak $\operatorname{cov}(X_{ik},X_{jk})=\sigma_{ij}$.给定具有连续一阶偏导数的函数$g$及特定值$\boldsymbol\mu=(\mu_1,\mu_2,\ldots,\mu_p)$，满足
+$$\tau^2=\sum\sum\sigma_{ij}\frac{\partial g(\boldsymbol\mu)}{\partial\mu_i}\cdot\frac{\partial g(\boldsymbol\mu)}{\partial\mu_j}>0,$$
+则\footnote{译注：原文左端写$\bar X_s$，但这里的向量维数是$p$，应为$\bar X_p$.}
+$$\sqrt n[g(\bar X_1,\ldots,\bar X_s)-g(\mu_1,\ldots,\mu_p)]\to n(0,\tau^2)\quad\text{（依分布）}.$$
+
+\end{theorem}
+证明需要处理多元随机变量的收敛.这里不涉及这些多元问题的细节，暂且接受\autoref{thm:5.5.28}.感兴趣的读者可参阅\hyperref[bib:source200]{Lehmann和Casella（1998}，第1.8节）.

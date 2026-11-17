@@ -1,0 +1,53 @@
+162                                      MULTIPLE RANDOM VARIABLES
+
+4.37 A generalization of the hierarchy in Exercise 4.34 is described by D. G. Morrison (1978), who gives
+      a model for forced binary choices. A forced binary choice occurs when a person is forced to choose
+     between two alternatives, as in a taste test. It may be that a person cannot actually discriminate between
+      the two choices (can you tell Coke from Pepsi?), but the setup of the experiment is such that a choice
+     must be made. Therefore, there is a confounding between discriminating correctly and guessing correctly.
+     Morrison modeled this by defining the following parameters:
+
+                      p =   probability that a person can actually discriminate,
+                         c =   probability that a person discriminates correctly.
+
+     Then
+                                   1         1         1
+                               c = p+ 2(1−p) = 2(1+ p),  2 < c < 1,
+     where 12(1−p) is the probability that a person guesses correctly. We now run the experiment and observe
+      X1,...,Xn ∼Bernoulli(c), so
+                                              n
+                                 P(ΣXi = k|c) =  k  ck(1−c)n−k.
+     However, it is probably the case that p is not constant from person to person, so p is allowed to vary
+      according to a beta distribution,
+                                P ∼beta(a,b).
+       (a) Show that the distribution of ΣXi is beta-binomial.
+      (b) Find the mean and variance of ΣXi.
+4.38 (The gamma as a mixture of exponentials)  Gleser (1989) shows that, in certain cases, the gamma dis-
+      tribution can be written as a scale mixture of exponentials, an identity suggested by different analyses of
+      the same data. Let f(x) be a gamma(r,λ) pdf.
+       (a) Show that if r ≤1 then f(x) can be written
+                                                  λ 1
+                                           f(x) =      e−x/ν pλ (ν)dν,                                                      0  ν
+        where
+                                        1       νr−1
+                              pλ (ν) =                                  ,  0 < ν < λ.
+                                   Γ(r)Γ(1−r) (λ −ν)r
+          (Hint:  Make a change of variable from ν to u, where u = x/ν −x/λ.)
+      (b) Show that pλ (ν) is a pdf, for r ≤1, by showing
+                                                λ
+                                              pλ (ν)dν = 1.
+                                                    0
+       (c) Show that the restriction r ≤1 is necessary for the representation in part (a) to be∞valid, that is, there is        no such representation if r > 1. (Hint:  Suppose f(x) can be written f(x) =  0 (e−x/ν/ν)qλ (ν)dν
+                            > 0 but                                                              log   0 (e−x/ν/ν)qλ (ν)dν < 0, a contra-           for some pdf qλ (ν). Show that ∂x∂ log( f(x))          ∂      ∞                                                              ∂x
+           diction.)
+4.39 Let (X1,...,Xn) have a multinomial distribution with m trials and cell probabilities p1,..., pn (see Defi-
+      nition 4.6.2). Show that, for every i and j
+
+                                                                                  pi
+                                 Xi|Xj = x                                                                                 j  ∼  binomial m−xj,                                              1−pj
+                                                                                                                           j                                    Xj  ∼  binomial m, p
+     and that Cov(Xi,Xj) = −mpip j.
+4.40 A generalization of the beta distribution is the Dirichlet distribution. In its bivariate version, (X,Y) have
+      pdf
+               f(x,y) = Cxa−1yb−1(1−x−y)c−1,  0                            < x < 1,  0 < y < 1,  0 < y < 1−x < 1,
+     where a > 0, b > 0, and c > 0 are constants.

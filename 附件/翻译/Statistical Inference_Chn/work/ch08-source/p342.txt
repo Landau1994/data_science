@@ -1,0 +1,42 @@
+METHODS OF EVALUATING TESTS                                            311
+
+
+                  1.0
+
+
+
+
+
+                                                     b2(q)
+
+                   .5
+
+                                                                                  b1(q)
+
+
+
+
+
+               0                                                              q
+                 0                                 .5                                 1.0
+
+                            Figure 8.3.1 Power functions for Example 8.3.2
+
+The graph of β2(θ) is also in Figure 8.3.1. It can be seen in Figure 8.3.1 that the second test has
+achieved a smaller Type II Error probability in that β2(θ) is larger for θ > 12. But the Type I Error
+probability is larger for the second test; β2(θ) is larger for θ ≤12. If a choice is to be made betweenthese two tests, the researcher must decide which error structure, that described by β1(θ) or that
+described by β2(θ), is more acceptable.                                              ∥
+Example 8.3.3 (Normal power function)   Let X1,...,Xn be a random sample from a n(θ,σ2)
+population, σ2 known. An LRT of H0 : θ ≤θ0 versus H1 : θ > θ0 is a test that rejects H0 if (X −θ0)/(σ/√n) > c (Exercise 8.37). The constant c can be any positive number. The power function
+of this test is
+                               X                       β(θ) =  Pθ   −θ0 > c                             σ/√n
+                               X           θ0                   =  Pθ   −θ > c+  −θ                             σ/√n     σ/√n
+                                                θ0                   =  P Z > c+  −θ    ,                                  σ/√n
+where Z is a standard normal random variable, since (X                   As θ increases                                        −θ)/(σ/√n) ∼n(0,1).
+from −∞to ∞, it is easy to see that this normal probability increases from zero to one. Therefore, itfollows that β(θ) is an increasing function of θ, with
+          θ→−∞β(θ)lim    = 0,  θ→∞β(θ)lim   = 1,  and  β(θ0) = α if P(Z > c) = α.
+A graph of β(θ) for c = 1.28 is given in Figure 8.3.2.                                   ∥
+
+    Typically, the power function of a test will depend on the sample size n. If n can be chosen by
+the experimenter, consideration of the power function might help determine what sample size is
+appropriate in an experiment.

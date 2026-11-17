@@ -1,0 +1,39 @@
+THE SUFFICIENCY PRINCIPLE                                                229
+    First we show that T(X) is a sufficient statistic. Let T = {t : t = T(x) for some x ∈X } be the
+image of X under T(x). Define the partition sets induced by T(x) as At = {x: T(x) = t}. For each
+At, choose and fix one element xt ∈At. For any x ∈X , xT(x) is the fixed element that is in the same
+set, At, as x. Since x and xT(x) are in the same set At,T(x) = T(xT(x)) and, hence, f(x|θ)/ f(xT(x)|θ)
+is constant as a function of θ. Thus, we can define a function on X by h(x) = f(x|θ)/ f(xT(x)|θ)
+and h does not depend on θ. Define a function on T by g(t|θ) = f(xt|θ). Then it can be seen that
+                 = f(xT(x)|θ)f(x|θ) =                         f(x|θ)                     g(T(x)|θ)h(x)                                       f(xT(x)|θ)
+and, by the Factorization Theorem, T(X) is a sufficient statistic for θ.
+  Now to show that T(X) is minimal, let T ′(X) be any other sufficient statistic. By the Factoriza-
+tion Theorem, there exist functions g′ and h′ such that f(x|θ) = g′(T ′(x)|θ)h′(x). Let x and y beany two sample points with T ′(x) = T ′(y). Then
+                             f(x|θ) = g′(T ′(x)|θ)h′(x) = h′(x)                                       g′(T                h′(y).                             f(y|θ)        ′(y)|θ)h′(y)
+Since this ratio does not depend on θ, the assumptions of the theorem imply that T(x) = T(y). Thus,
+T(x) is a function of T ′(x) and T(x) is minimal.                          2
+Example 6.2.14 (Normal minimal sufficient statistic)  Let X1,...,Xn be iid n(µ,σ2), both µ and
+σ2 unknown. Let x and y denote two sample points and let (x,s2x) and (y,s2y) be the sample means
+and variances corresponding to the x and y samples, respectively. Then, using (6.2.5), we see that
+the ratio of densities is
+                                                                           x /(2σ2)         f(x|µ,σ2) =  (2πσ2)−n/2 exp − n(x−µ)2 +(n−1)s2
+         f(y|µ,σ2)      (2πσ2)−n/2 exp − n(y−µ)2 +(n−1)s2y /(2σ2)
+                                                                              x                                                                            y) /(2σ2)  .            =  exp  −n(x2 −y2)+2nµ(x−y)−(n−1)(s2                                                    −s2
+This ratio will be constant as a function of µ and σ2 if and only if x = y and s2x = s2y. Thus, by
+Theorem 6.2.13, (X,S2) is a minimal sufficient statistic for (µ,σ2).                        ∥
+     If the set of xs on which the pdf or pmf is positive depends on the parameter θ, then, for the
+ratio in Theorem 6.2.13 to be constant as a function of θ, the numerator and denominator must be
+positive for exactly the same values of θ. This restriction is usually reflected in a minimal sufficient
+statistic, as the next example illustrates.
+Example 6.2.15 (Uniform minimal sufficient statistic)  Suppose X1,...,Xn are iid uniform ob-
+servations on the interval (θ,θ +1),−∞< θ < ∞. Then the joint pdf of X is
+                               1  θ < xi < θ +1, i = 1,...,n,
+                         f(x|θ) =  0  otherwise,
+
+which can be written as
+                                1  maxi xi  < θ < mini xi.                  =        −1                          f(x|θ)    0  otherwise.
+Thus, for two sample points x and y, the numerator and denominator of the ratio f(x|θ)/ f(y|θ)will be positive for the same values of θ if and only if mini xi = mini yi and maxi xi = maxi yi. And,
+if the minima and maxima are equal, then the ratio is constant and, in fact, equals 1. Thus, letting
+X(1) = mini Xi and X(n) = maxi Xi, we have that T(X) = (X(1),X(n)) is a minimal sufficient statistic.
+This is a case in which the dimension of a minimal sufficient statistic does not match the dimension
+of the parameter.                                                                 ∥

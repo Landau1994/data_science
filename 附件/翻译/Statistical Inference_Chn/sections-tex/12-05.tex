@@ -1,0 +1,297 @@
+\subsection{习题}\label{sec:12.5}
+\begin{exercise}\label{exercise:12.1}
+验证\eqref{eq:12.2.7}的表达式. （提示：使用勾股定理.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.2}
+证明函数
+$$f(b)=\frac1{1+b^2}\bigl[S_{yy}-2bS_{xy}+b^2S_{xx}\bigr]$$
+的极值点为
+$$b=\frac{-(S_{xx}-S_{yy})\pm\sqrt{(S_{xx}-S_{yy})^2+4S_{xy}^2}}{2S_{xy}}.$$
+证明“$+$”解给出$f(b)$的最小值.
+\end{exercise}
+
+\sourcepageanchor{519}
+\begin{center}\begin{tabular}{lrr}\toprule
+物种&体重（kg）&脑重（g）\\&$(x)$&$(y)$\\\midrule
+北极狐&3.385&44.50\\夜猴&.480&15.50\\山河狸&1.350&8.10\\豚鼠&1.040&5.50\\
+毛丝鼠&.425&6.40\\地松鼠&.101&4.00\\树蹄兔&2.000&12.30\\大棕蝠&.023&.30\\\bottomrule
+\end{tabular}\end{center}
+
+\begin{exercise}\label{exercise:12.3}
+最大化似然\eqref{eq:12.2.13}时，对每个$\alpha,\beta,\sigma_\delta^2$值，先关于$\xi_1,\ldots,\xi_n$最小化函数
+$$f(\xi_1,\ldots,\xi_n)=\sum_{i=1}^n\bigl((x_i-\xi_i)^2+\lambda(y_i-(\alpha+\beta\xi_i))^2\bigr).$$
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.3.a} 证明这一函数在
+$$\xi_i^*=\frac{x_i+\lambda\beta(y_i-\alpha)}{1+\lambda\beta^2}$$
+处取得最小值.
+\item\label{item:12.3.b}\index{SI0687@度量} 证明函数
+$$D_\lambda((x,y),(\xi,\alpha+\beta\xi))=(x-\xi)^2+\lambda(y-(\alpha+\beta\xi))^2$$
+定义了点$(x,y)$与$(\xi,\alpha+\beta\xi)$之间的度量（metric）. 度量是一种距离度量，即测量两点$A,B$间距离的函数$D$. 度量满足以下四个性质：\footnote{译注：所给$D_\lambda$为加权距离的平方，一般不满足三角不等式；例如同一直线上间距为1的三点有$4>1+1$. 对$D_\lambda$取平方根才得到度量. 第\hyperref[item:12.3.b.iii]{(iii)}项原称“reflexive”，实际为对称性. 原题保留.}
+\begin{enumerate}[label=\roman*.]
+\item $D(A,A)=0$.
+\item 若$A\ne B$，则$D(A,B)>0$.
+\item\phantomsection\label{item:12.3.b.iii} $D(A,B)=D(B,A)$（自反性）.
+\item $D(A,B)\le D(A,C)+D(C,B)$（三角不等式）.
+\end{enumerate}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.4}\index{SI0414@与最小二乘的关系}\index{SI0611@与最大似然估计量的关系}
+考虑EIV模型中斜率的MLE
+$$\hat\beta(\lambda)=\frac{-(S_{xx}-\lambda S_{yy})+\sqrt{(S_{xx}-\lambda S_{yy})^2+4\lambda S_{xy}^2}}{2\lambda S_{xy}},$$
+其中假定$\lambda=\sigma_\delta^2/\sigma_\varepsilon^2$已知.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.4.a} 证明$\lim_{\lambda\to0}\hat\beta(\lambda)=S_{xy}/S_{xx}$，即$y$对$x$普通回归的斜率.
+\item\label{item:12.4.b} 证明$\lim_{\lambda\to\infty}\hat\beta(\lambda)=S_{yy}/S_{xy}$，即$x$对$y$普通回归斜率的倒数.
+\item\label{item:12.4.c} 证明$\hat\beta(\lambda)$关于$\lambda$单调；当$S_{xy}>0$时递增，当$S_{xy}<0$时递减.
+\item\label{item:12.4.d} 证明正交最小二乘直线（$\lambda=1$）总在$y$对$x$及$x$对$y$的普通回归直线之间.
+\item\label{item:12.4.e} 上表数据来自一项研究，旨在考察若干动物物种的脑重与体重的关系. 假设EIV模型，计算斜率的MLE. 再计算$y$对$x$及$x$对$y$回归的最小二乘斜率，说明这些量如何给出MLE的界.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.5}
+在EIV函数关系模型中，假定$\lambda=\sigma_\delta^2/\sigma_\varepsilon^2$已知，证明$\sigma_\delta^2$的MLE由\eqref{eq:12.2.18}给出.
+\end{exercise}
+
+\sourcepageanchor{520}
+\begin{exercise}\label{exercise:12.6}
+证明在线性结构关系模型\eqref{eq:12.2.6}中，积分消去$\xi_i$后，$(X_i,Y_i)$的边际分布由\eqref{eq:12.2.19}给出.
+\end{exercise}
+
+\needspace{6\baselineskip}
+\begin{exercise}\label{exercise:12.7}
+考虑线性结构关系模型，假定$\xi_i$具有非正常分布$\xi_i\sim\operatorname{uniform}(-\infty,\infty)$.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.7.a} 证明对每个$i$，
+$$\begin{aligned}
+&\int_{-\infty}^\infty\frac1{2\pi}\frac1{\sigma_\delta\sigma_\varepsilon}
+\exp\left[-\frac{(x_i-\xi_i)^2}{2\sigma_\delta^2}\right]
+\exp\left[-\frac{(y_i-(\alpha+\beta\xi_i))^2}{2\sigma_\varepsilon^2}\right]d\xi_i\\
+&=\frac1{\sqrt{2\pi}}\frac1{\sqrt{\beta^2\sigma_\delta^2+\sigma_\varepsilon^2}}
+\exp\left[-\frac12\frac{(y_i-(\alpha+\beta x_i))^2}{\beta^2\sigma_\delta^2+\sigma_\varepsilon^2}\right].
+\end{aligned}$$
+（在指数中配方便容易积分.）
+\item\label{item:12.7.b} \hyperref[item:12.7.a]{(a)}的积分结果看起来像pdf；若把它当作给定$X$时$Y$的pdf，似乎就有$X,Y$之间的线性关系. 因此，有时称结构关系的这一“极限情形”导致简单线性回归和普通最小二乘. 解释为何对上述函数的这一解释是错误的.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.8}
+用以下方式验证结构关系模型的不可识别性问题.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.8.a} 给出两组不同参数，使$(X_i,Y_i)$具有相同的边际分布.
+\item\label{item:12.8.b} 证明至少存在两个不同的参数向量，对\eqref{eq:12.2.20}的方程给出相同的解.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.9}
+结构关系模型中，\eqref{eq:12.2.20}的解对$\hat\beta$施加一个限制，与函数关系情形的限制相同（\autoref{exercise:12.4}）.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.9.a} 证明\eqref{eq:12.2.20}中，$\sigma_\delta^2$的MLE非负仅当$S_{xx}\ge(1/\hat\beta)S_{xy}$；$\sigma_\varepsilon^2$的MLE非负仅当$S_{yy}\ge\hat\beta S_{xy}$.
+\item\label{item:12.9.b} 证明\hyperref[item:12.9.a]{(a)}的限制与\eqref{eq:12.2.20}其余方程共同推出
+$$\frac{|S_{xy}|}{S_{xx}}\le|\hat\beta|\le\frac{S_{yy}}{|S_{xy}|}.$$
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.10}\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.10.a} 假设$\sigma_\delta^2=\lambda\sigma_\varepsilon^2$，解\eqref{eq:12.2.20}，推导结构关系模型中$(\alpha,\beta,\sigma_\varepsilon^2,\sigma_\delta^2,\sigma_\xi^2)$的MLE.
+\item\label{item:12.10.b} 假设结构关系模型成立且$\sigma_\delta^2=\lambda\sigma_\varepsilon^2$，计算\autoref{exercise:12.4}数据的$(\alpha,\beta,\sigma_\varepsilon^2,\sigma_\delta^2,\sigma_\xi^2)$的MLE.
+\item\label{item:12.10.c} 验证函数关系模型与结构关系模型中方差估计的关系. 特别地，证明
+$$\widehat{\operatorname{Var}}X_i(\text{结构})=2\widehat{\operatorname{Var}}X_i(\text{函数}).$$
+即验证\footnote{译注：后一等式比较的是两模型中的测量误差方差$\sigma_\delta^2$估计；结构模型的无条件$\operatorname{Var}X_i=\sigma_\delta^2+\sigma_\xi^2$，故前一式的方差名称易造成混淆. 原题保留.}
+$$\left(S_{xx}-\frac{S_{xy}}{\hat\beta}\right)=\frac\lambda{1+\lambda\hat\beta^2}\sum_{i=1}^n\bigl(y_i-(\hat\alpha+\hat\beta x_i)\bigr)^2.$$
+\item\label{item:12.10.d} 验证\eqref{eq:12.2.21}的MLE方差估计中隐含的等式：
+$$S_{xx}-\frac{S_{xy}}{\hat\beta}=\lambda(S_{yy}-\hat\beta S_{xy}).$$
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.11}\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.11.a}\index{SI0222@线性函数}\index{SI0534@协方差} 证明对随机变量$X,Y$和常数$a,b,c,d$，
+$$\operatorname{Cov}(aY+bX,cY+dX)=ac\operatorname{Var}Y+(bc+ad)\operatorname{Cov}(X,Y)+bd\operatorname{Var}X.$$
+\item\label{item:12.11.b} 用\hyperref[item:12.11.a]{(a)}验证，在$\sigma_\delta^2=\lambda\sigma_\varepsilon^2$的结构关系模型中，
+$$\operatorname{Cov}(\beta\lambda Y_i+X_i,Y_i-\beta X_i)=0,$$
+这就是Creasy--Williams置信集所依据的恒等式.
+\sourcepageanchor{521}
+\item\label{item:12.11.c} 用\hyperref[item:12.11.b]{(b)}证明，对任意$\beta$，
+$$\frac{\sqrt{n-2}\,r_\lambda(\beta)}{\sqrt{1-r_\lambda^2(\beta)}}\sim t_{n-2},$$
+其中$r_\lambda(\beta)$由\eqref{eq:12.2.23}给出. 再证明\eqref{eq:12.2.24}定义的置信集具有恒定覆盖概率$1-\alpha$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.12}
+验证关于$\hat\beta$（假设$\sigma_\delta^2=\lambda\sigma_\varepsilon^2$时$\beta$的MLE）、\eqref{eq:12.2.23}的$r_\lambda(\beta)$以及\eqref{eq:12.2.24}的Creasy--Williams置信集$C_\lambda(\hat\beta)$的下列事实.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.12.a} $\hat\beta$与$-1/(\lambda\hat\beta)$是定义似然函数\eqref{eq:12.2.14}一阶导数零点的二次方程的两个根.
+\item\label{item:12.12.b} 对每个$\beta$，$r_\lambda(\beta)=-r_\lambda(-1/(\lambda\beta))$.
+\item\label{item:12.12.c} 若$\beta\in C_\lambda(\hat\beta)$，则$-1/(\lambda\beta)\in C_\lambda(\hat\beta)$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.13}
+\eqref{eq:12.2.24}的Creasy--Williams置信集与\eqref{eq:12.2.22}的区间$C_G(\hat\beta)$之间有一个有趣联系.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.13.a} 证明
+$$C_G(\hat\beta)=\left\{\beta:\frac{(\beta-\hat\beta)^2}{\hat\sigma_\beta^2/(n-2)}\le F_{1,n-2,\alpha}\right\},$$
+其中$\hat\beta$是$\beta$的MLE，$\hat\sigma_\beta^2$是先前定义的$\sigma_\beta^2$的相合估计量.
+\item\label{item:12.13.b} 证明Creasy--Williams集合可写为
+$$\left\{\beta:\frac{(\beta-\hat\beta)^2}{\hat\sigma_\beta^2/(n-2)}
+\left[\frac{(1+\lambda\beta\hat\beta)^2}{(1+\lambda\beta^2)^2}\right]\le F_{1,n-2,\alpha}\right\}.$$
+因此，将方括号中的项替换为其概率极限1，即得到$C_G(\hat\beta)$. （推导这一表示时，$\hat\beta$与$-1/(\lambda\hat\beta)$是$r_\lambda(\beta)$分子的根这一事实很有帮助. 特别地，容易建立
+$$\frac{r_\lambda^2(\beta)}{1-r_\lambda^2(\beta)}
+=\frac{\lambda^2S_{xy}^2(\beta-\hat\beta)^2(\beta+(1/\lambda\hat\beta))^2}
+{(1+\lambda\beta^2)^2(S_{xx}S_{yy}-S_{xy}^2)}.\quad\text{）}$$
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.14}
+画出\eqref{eq:12.3.2}的逻辑回归函数$\pi(x)$在以下三种情形的图像：$\alpha=\beta=1$、$\alpha=\beta=2$、$\alpha=\beta=3$.
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.15}
+对\eqref{eq:12.3.2}的逻辑回归函数，验证以下关系.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.15.a} $\pi(-\alpha/\beta)=1/2$.
+\item\label{item:12.15.b} 对任意$c$，$\pi((-\alpha/\beta)+c)=1-\pi((-\alpha/\beta)-c)$.
+\item\label{item:12.15.c} 验证关于$d\pi(x)/dx$的\eqref{eq:12.3.3}.
+\item\label{item:12.15.d} 验证关于优势比的\eqref{eq:12.3.4}.
+\item\label{item:12.15.e} 验证关于优势乘法变化的\eqref{eq:12.3.5}.
+\item\label{item:12.15.f} 验证Bernoulli GLM似然方程的\eqref{eq:12.3.6}、\eqref{eq:12.3.8}.
+\item\label{item:12.15.g} 验证逻辑回归中，\eqref{eq:12.3.7}、\eqref{eq:12.3.8}内$f_i/(F_i(1-F_i)=1$.\footnote{译注：原题左边漏一个右括号，应为$f_i/[F_i(1-F_i)]=1$. 原式保留.}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.16}
+考虑以下逻辑回归数据，只观测两个取值$x=0,1$. 在$x=0$处，十次试验有十次成功；在$x=1$处，十次试验有五次成功. 验证以下结论，证明这些数据的逻辑回归MLE $\hat\alpha,\hat\beta$不存在.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.16.a} 不受\eqref{eq:12.3.2}限制时，$\pi(0),\pi(1)$的MLE为$\hat\pi(0)=1$、$\hat\pi(1)=.5$.
+\item\label{item:12.16.b} \hyperref[item:12.16.a]{(a)}的估计所给似然函数整体最大值，不能在逻辑回归参数$\alpha,\beta$的任何有限值处取得，但可在$\beta\to-\infty$、$\alpha=-\beta$的极限中达到.
+\end{enumerate}
+\end{exercise}
+\sourcepageanchor{522}
+\begin{exercise}\label{exercise:12.17}
+在probit回归中，连接函数为标准正态cdf $\Phi(x)=P(Z\le x)$，其中$Z\sim\mathrm n(0,1)$. 因而，在这一模型中观测$(Y_1,x_1),\allowbreak(Y_2,x_2),\allowbreak\ldots,\allowbreak(Y_n,x_n)$，其中$Y_i\sim\operatorname{Bernoulli}(\pi_i)$，且$\pi_i=\Phi(\alpha+\beta x_i)$.\footnote{译注：按\autoref{sec:12.3.1}的定义，连接函数应为$\Phi^{-1}$；$\Phi$是逆连接函数. 原文名称保留.}
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.17.a} 写出似然函数，并说明如何求解$\alpha,\beta$的MLE.
+\item\label{item:12.17.b} 对\autoref{tab:12.3.1}的数据拟合probit模型，评论它与逻辑回归拟合的任何差异.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.18}
+\hyperref[bib:source49]{Brown和Rothery（1993}，第4章）讨论了将线性逻辑模型推广为二次模型：
+$$\log\left(\frac{\pi_i}{1-\pi_i}\right)=\alpha+\beta x_i+\gamma x_i^2.$$
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.18.a} 写出似然函数，并说明如何求解$\alpha,\beta,\gamma$的MLE.
+\item\label{item:12.18.b} 用对数似然比检验，说明如何检验$H_0:\gamma=0$，即模型实际为线性逻辑模型.
+\item\label{item:12.18.c} 对\autoref{tab:12.5.4}中不同年龄雀鹰的存活数据拟合二次逻辑模型.
+\item\label{item:12.18.d} 判断雀鹰数据用线性还是二次模型更好，即检验$H_0:\gamma=0$.
+\end{enumerate}
+\begin{table}[htbp]\centering\setcounter{table}{3}
+\caption{按年龄分组的雀鹰存活情况}\label{tab:12.5.4}
+\begin{tabular}{lrrrrrrrrr}\toprule
+年龄&1&2&3&4&5&6&7&8&9\\
+鸟数&77&149&182&118&78&46&27&10&4\\
+存活数&35&89&130&79&52&28&14&3&1\\\bottomrule
+\end{tabular}
+\end{table}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.19}
+对于逻辑回归模型：
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.19.a} 证明$\bigl(\sum_{j=1}^JY_j^*,\sum_{j=1}^JY_j^*x_j\bigr)$是$(\alpha,\beta)$的充分统计量.
+\item\label{item:12.19.b} 验证\eqref{eq:12.3.10}的逻辑回归信息矩阵公式.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.20}
+考虑逻辑回归模型，并假定$\beta=0$.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.20.a} 若$0<\sum_{i=1}^ny_i<n$，证明$\pi(x)$的MLE为$\hat\pi=\sum_{i=1}^ny_i/n$，此时它不依赖$x$.
+\item\label{item:12.20.b} 若$0<\sum_{i=1}^ny_i<n$，证明$\alpha$的MLE为$\hat\alpha_0=\log\bigl((\sum_{i=1}^ny_i)/(n-\sum_{i=1}^ny_i)\bigr)$.
+\item\label{item:12.20.c} 证明若$\sum_{i=1}^ny_i=0$或$n$，$\hat\alpha_0$不存在，但检验$H_0:\beta=0$的似然比统计量仍有良好定义.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.21}
+设$Y\sim\operatorname{binomial}(n,\pi)$，用$\hat\pi=Y/n$表示$\pi$的MLE. 令$W=\log(\hat\pi/(1-\hat\pi))$为样本logit，即$\log(\pi/(1-\pi))$的MLE. 用Delta方法证明$1/(n\hat\pi(1-\hat\pi))$是$\operatorname{Var}W$的合理估计.
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.22}
+\autoref{ex:12.4.1}考察了小扰动对斜率最小二乘估计的影响. 作类似计算，评价截距最小二乘估计对小扰动的稳健性.
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.23}
+\autoref{ex:12.4.1}与\hyperref[ex:10.2.1]{习题10.2.1}不同，引入$\varepsilon_i$的污染分布时没有引入偏倚.\footnote{译注：原文称“Exercise 10.2.1”，本书习题没有这一编号；所指应为\autoref{ex:10.2.1}. 原称呼保留.} 证明即使引入偏倚也不会有影响. 即假设
+$$\bigl(E\varepsilon_i,\operatorname{Var}\varepsilon_i\bigr)=
+\begin{cases}(0,\sigma^2),&\text{概率为 }1-\delta,\\(\mu,\tau^2),&\text{概率为 }\delta,
+\end{cases}$$
+则
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.23.a} 最小二乘估计量$b$仍为$\beta$的无偏估计量.
+\item\label{item:12.23.b} 最小二乘估计量$a$的期望为$\alpha+\delta\mu$，所以也可将模型假设为$Y_i=\alpha+\delta\mu+\beta x_i+\varepsilon_i$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.24}
+对模型$Y_i=\beta x_i+\varepsilon_i$，证明LAD估计量为$t_{(k^*+1)}$，其中$t_i=y_i/x_i$，$t_{(1)}\le t_{(2)}\le\cdots\le t_{(n)}$，若$x_{(i)}$为与$t_{(i)}$配对的$x$值，则$k^*$满足
+$$\sum_{i=1}^{k^*}|x_{(i)}|\le\sum_{i=k^*+1}^n|x_{(i)}|\quad\text{和}\quad
+\sum_{i=1}^{k^*+1}|x_{(i)}|>\sum_{i=k^*+2}^n|x_{(i)}|.$$
+\end{exercise}
+
+\sourcepageanchor{523}
+\begin{exercise}\label{exercise:12.25}\index{SI0894@最小绝对偏差}
+LAD回归直线的一个问题是，它不总有唯一定义.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.25.a} 对含三个观测$(x_1,y_1)$、$(x_1,y_2)$、$(x_3,y_3)$的数据集，注意前两个$x$相同，证明任何通过$(x_3,y_3)$并位于$(x_1,y_1)$与$(x_1,y_2)$之间的直线，都是最小绝对偏差直线.
+\item\label{item:12.25.b} 对三名个体测量心率$x$，单位为每分钟心跳次数，以及耗氧量$y$，单位为ml/kg. $(x,y)$数据为$(127,14.4)$、$(127,11.9)$、$(136,17.9)$. 计算最小二乘直线的斜率、截距及最小绝对偏差直线的范围.
+\end{enumerate}
+对于最小绝对偏差直线的价值，似乎存在一些分歧. 它肯定比最小二乘稳健，但可能很难计算，不过\hyperref[bib:source244]{Portnoy和Koenker（1997）}给出了高效算法. \hyperref[bib:source115]{Ellis（1998）}似乎质疑其稳健性，而\hyperref[bib:source245]{Portnoy和Misera（1998）}\footnote{译注：原正文写 Misera，书末对应文献写 Mizera；本段 Ellis 文献的书末条目没有列出年份. 保留原正文和书目各自的写法.}在一篇讨论中又质疑Ellis.
+\end{exercise}
+
+\autoref{exercise:12.26}至\autoref{exercise:12.28}考察\autoref{ex:12.4.3}的一些细节.
+\begin{exercise}\label{exercise:12.26}\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.26.a} \autoref{ex:12.4.3}始终假定$\frac1n\sum_{i=1}^nx_i^2\to\sigma_x^2<\infty$. 证明以下情形满足此条件：(i) $x_i=1$，即普通中位数的情形；(ii) $|x_i|\le1$，即$x_i$有界的情形.\footnote{译注：有界性只保证这些平均值有界，不保证其收敛；(ii)还需平方均值存在极限等条件. 可由长短交替的0、1区块构造均值不收敛的有界序列. 原题照录.}
+\item\label{item:12.26.b} 证明在\hyperref[item:12.26.a]{(a)}关于$x_i$的条件下，$\frac1n\sum_{i=1}^n\psi(y_i-\hat\beta_Lx_i)\to0$依概率成立.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.27}\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.27.a} 验证$-\frac1{\sqrt n}\sum_{i=1}^n\psi(Y_i-\hat\beta x_i)\to\mathrm n(0,\sigma_x^2)$.
+\item\label{item:12.27.b} 验证
+$$\left.\frac1n\sum_{i=1}^n\frac d{d\beta_0}E_\beta[\psi(Y_i-\beta_0x_i)]\right|_{\beta_0=\beta}
+=2f(0)\frac1n\sum_{i=1}^nx_i^2,$$
+并结合\hyperref[item:12.27.a]{(a)}得出$\sqrt n(\hat\beta_L-\beta)\to\mathrm n\bigl(0,1/(4f(0)^2\sigma_x^2)\bigr)$.\footnote{译注：本题重复\autoref{ex:12.4.3}中的符号疑点：\hyperref[item:12.27.a]{(a)}的$\hat\beta$应核为真实参数$\beta$；按所给$\psi$定义，\hyperref[item:12.27.b]{(b)}导数右端应带负号. 原题保留，依据见该例译注.}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.28}
+证明最小二乘估计量为$\hat\beta=\sum_{i=1}^nx_iy_i/\sum_{i=1}^nx_i^2$，并且$\sqrt n(\hat\beta-\beta)\to\mathrm n(0,1/\sigma_x^2)$.
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.29}
+用\autoref{ex:12.4.3}那样的Taylor级数论证，推导独立同分布抽样中中位数的渐近分布.
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.30}
+对\autoref{tab:12.4.2}的数据，用参数自助法评价LAD和M估计拟合的标准误. 具体地：
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.30.a} 拟合直线$y=\alpha+\beta x$，得到估计$\tilde\alpha,\tilde\beta$.
+\item\label{item:12.30.b} 计算残差均方误差$\hat\sigma^2=\frac1{n-2}\sum_{i=1}^n[y_i-(\tilde\alpha+\tilde\beta x_i)]^2$.
+\item\label{item:12.30.c} 从$\mathrm n(0,\hat\sigma^2)$生成新残差，重新估计$\alpha,\beta$.
+\item\label{item:12.30.d} 将\hyperref[item:12.30.c]{(c)}重复$B$次，计算$\tilde\alpha,\tilde\beta$的标准差.
+\item\label{item:12.30.e} 分别用双指数和Laplace分布作为误差，重复\hyperref[item:12.30.a]{(a)}至\hyperref[item:12.30.d]{(d)}，并与正态情形比较.\footnote{译注：双指数分布与Laplace分布通常同义；此处可能沿袭\autoref{ex:12.4.5}中的名称疑误，是否原拟指Logistic分布尚待核实. 原题照录.}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:12.31}
+对\autoref{tab:12.4.2}的数据，也可以用非参数自助法评价LAD和M估计拟合的标准误. 此时：
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:12.31.a} 拟合直线$y=\alpha+\beta x$，得到估计$\tilde\alpha,\tilde\beta$.
+\item\label{item:12.31.b} 对拟合残差重抽样生成新残差，并重新估计$\alpha,\beta$.
+\item\label{item:12.31.c} 将\hyperref[item:12.31.c]{(c)}重复$B$次，计算$\tilde\alpha,\tilde\beta$的标准差.\footnote{译注：原题(c)自我引用；按自助法步骤，应重复\hyperref[item:12.31.b]{(b)}. 原引用保留.}
+\end{enumerate}
+\end{exercise}

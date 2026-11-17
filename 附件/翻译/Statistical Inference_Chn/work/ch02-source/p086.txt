@@ -1,0 +1,43 @@
+MOMENTS AND MOMENT GENERATING FUNCTIONS                            55
+   The Poisson(λ) pmf is given by
+                                e−λλ x
+                      P(X = x) =           ,     x = 0,1,2,...,
+                                              x!
+where λ  is a positive constant. The approximation states that if X ∼binomial(n, p) and Y ∼Poisson(λ), with λ = np, then
+                         P(X= x) ≈P(Y= x)                                  (2.3.9)
+for large n and small np. We now show that the mgfs converge, lending credence to this approxima-
+tion. Recall that
+                              MX(t) = [pet +(1−p)]n.                             (2.3.10)
+For the Poisson(λ) distribution, we can calculate (see Exercise 2.33)
+                                  MY(t) = eλ(et−1),
+and if we define p = λ/n, then MX(t) →MY(t) as n →∞. The validity of the approximation in(2.3.9) will then follow from Theorem 2.3.12.
+  We first must digress a bit and mention an important limit result, one that has wide applicability
+in statistics. The proof of this lemma may be found in many standard calculus texts.
+Lemma 2.3.14   Let a1,a2,... be a sequence of numbers converging to a, that is, limn→∞an = a.
+Then                                                    n                                             an                                   lim 1+   = ea.
+                             n→∞     n
+   Returning to the example, we have
+                                     1               n       1            n
+                                                                                                                           ,           MX(t) = [pet +(1−p)]n                    = 1+ n(et −1)(np)                                 = 1+ n(et −1)λ
+because λ = np. Now set an = a = (et −1)λ, and apply Lemma 2.3.14 to get
+                               lim    = eλ(et−1) = MY(t),                          n→∞MX(t)
+the moment generating function of the Poisson.
+   The Poisson approximation can be quite good even for moderate p and n. In Figure 2.3.3 we
+show a binomial mass function along with its Poisson approximation, with λ = np. The approxi-
+mation appears to be satisfactory.                                                    ∥
+  We close this section with a useful result concerning mgfs.
+Theorem 2.3.15  For any constants a and b, the mgf of the random variable aX +b is given by
+
+                               MaX+b(t) = ebtMX(at).
+
+Proof: By definition,
+
+                       MaX+b(t) =  E  e(aX+b)t
+
+                    =  E  e(aX)tebt                (properties of exponentials)
+
+                    =   ebtE  e(at)X                                 (ebt is constant)
+
+                    =  ebtMX(at),                           (definition of mgf)
+
+proving the theorem.                                         2

@@ -1,0 +1,471 @@
+1:235 | Accept-Reject algorithm | 接受／拒绝算法 | 204
+  05-06.tex:134 接受／拒绝算法 | 找不到容易的直接变换来生成所需随机变量时，一种非常有力的间接方法——接受／拒绝算法（Accept/Reject Algorithm）——常能提供解法.它的思想或许最好用一个简单例子说明.
+1:237 | Accept-Reject algorithm | 接受／拒绝算法 | 206
+  05-06.tex:178 接受／拒绝算法 | 步骤(b)的一般化，是比较$U\sim\operatorname{uniform}(0,1)$与$(1/M)f_Y(V)/f_V(V)$.比值越大，$V$越“像”来自随机密度$f_Y$，越有可能满足$U<(1/M)f_Y(V)/f_V(V)$.这就是一般接受／拒绝算法的基础.
+  05-06.tex:179 接受／拒绝算法 | \subsubsection{接受／拒绝算法}\label{sec:5.6.3}
+6:235 | Algorithm > accept-reject | 接受／拒绝 | 204
+  05-06.tex:134 接受／拒绝 | 找不到容易的直接变换来生成所需随机变量时，一种非常有力的间接方法——接受／拒绝算法（Accept/Reject Algorithm）——常能提供解法.它的思想或许最好用一个简单例子说明.
+6:237 | Algorithm > accept-reject | 接受／拒绝 | 206
+  05-06.tex:178 接受／拒绝 | 步骤(b)的一般化，是比较$U\sim\operatorname{uniform}(0,1)$与$(1/M)f_Y(V)/f_V(V)$.比值越大，$V$越“像”来自随机密度$f_Y$，越有可能满足$U<(1/M)f_Y(V)/f_V(V)$.这就是一般接受／拒绝算法的基础.
+  05-06.tex:179 接受／拒绝 | \subsubsection{接受／拒绝算法}\label{sec:5.6.3}
+  05-06.tex:172 算法 | 所以$N$是几何随机变量.因此，为生成一个$Y$，平均需要$E(N)=c$对$(U,V)$；从这一意义上，最小化$c$会使算法最优.
+14:247 | Algorithm > importance sampling | 重要性抽样 | 216
+  05-07.tex:397 重要性抽样 | 与接受／拒绝方法类似的一种技术是重要性抽样（importance sampling），它很适合计算分布的特征.设$X\sim f$，但难以从pdf $f$模拟.从$g$生成iid $Y_1,Y_2,\ldots,Y_m$，对任意函数$h$计算$m^{-1}\sum_{i=1}^m[f(Y_i)/g(Y_i)]h(Y_i)$.假定$f,g$支撑集相同，且$\operatorname{Var}h(X)<\infty$.
+  05-07.tex:373 算法 | 证明\autoref{ex:5.6.7}的算法生成$\operatorname{beta}(a,b)$随机变量.
+  05-07.tex:376 算法 | 把\autoref{ex:5.6.7}的算法推广到$[0,1]$上的任意连续pdf，即对$[a,b]$上的任意有界pdf $f(x)$，定义$c=\max_{a\le x\le b}f(x)$.设$X,Y$独立，$X\sim\operatorname{uniform}(a,b)$、$Y\sim\operatorname{uniform}(0,c)$.取$d>b$，定义
+15:238 | Algorithm > Metropolis | Metropolis | 207
+  05-06.tex:220 Metropolis | 但有时目标密度具有重尾，难以找到使$M$有限的候选密度.此时接受／拒绝算法不再适用，便引出另一类方法，称为马尔可夫链Monte Carlo方法（Markov Chain Monte Carlo，MCMC）.其特例包括Gibbs抽样器（Gibbs Sampler）和Metropolis算法.下面给出后者.
+  05-06.tex:222 Metropolis | \noindent\textbf{Metropolis算法.} 设$Y\sim f_Y(y)$、$V\sim f_V(v)$，其中$f_Y$和$f_V$有共同支撑集.为生成$Y\sim f_Y$：
+  05-06.tex:235 Metropolis | 虽然算法不要求$M$有限，但它并不生成密度恰为$f_Y$的随机变量，而是产生一个收敛序列.实际运行一段时间后（$i$变大），产生的$Z$的表现就很接近来自$f_Y$的变量.（关于Metropolis算法的初步介绍，见Chib和Greenberg.）
+17:250 | Algorithms > Markov chain Monte Carlo | 马尔可夫链蒙特卡洛 | 219
+  05-08.tex:47 算法 | 统称为马尔可夫链Monte Carlo（MCMC）的方法用于生成随机变量，在复杂计算中非常有用，尤其是涉及积分和最大化的计算.Metropolis算法（见\autoref{sec:5.6}）就是MCMC方法的例子.
+63:225 | Approximation > negative binomial by normal | 以正态近似负二项 | 194
+  05-05.tex:175 近似 | 中心极限定理提供一种通用近似（但请记住关于近似精度的提醒）.实践中，总可先用它进行粗略计算.
+  05-05.tex:176 近似 | \begin{example}[负二项分布的正态近似]\label{ex:5.5.16}
+  05-05.tex:181 近似 | 近似服从$n(0,1)$.近似概率计算比精确计算容易得多.例如$r=10$、$p=1/2$、$n=30$时，精确计算为
+96:234 | Bootstrap > parametric | 参数 | 203
+  05-06.tex:112 参数 | 后面将看到模拟方法的许多用途.先考察下面对Poisson分布的探索，它是\autoref{sec:10.1.4}将介绍的参数自助法（parametric bootstrap）的一个版本.
+99:233 | Box-Muller transformation | Box–Muller变换 | 202
+102:223 | Central Limit Theorem (CLT) | 中心极限定理 | 192
+  05-05.tex:112 中心极限定理 | 样本均值是大样本行为极其重要的统计量之一.特别地，我们想研究它的极限分布.统计学中最令人惊叹的定理之一——中心极限定理（Central Limit Theorem，CLT）——概括了这一结果.
+  05-05.tex:113 中心极限定理 | \begin{theorem}[中心极限定理]\label{thm:5.5.14}
+102:225 | Central Limit Theorem (CLT) | 中心极限定理 | 194
+  05-05.tex:167 中心极限定理 | 中心极限定理在比\autoref{thm:5.5.14}更一般的条件下仍成立（\autoref{sec:5.8.1}）.特别地，所有关于矩母函数的假设都不需要，可以改用特征函数（\autoref{sec:2.6.2}）.下面的定理不给证明.这是几乎足以满足全部统计用途的中心极限定理版本.注意对母分布的唯一假设是方差有限.
+  05-05.tex:168 中心极限定理 | \begin{theorem}[更强形式的中心极限定理]\label{thm:5.5.15}
+  05-05.tex:175 中心极限定理 | 中心极限定理提供一种通用近似（但请记住关于近似精度的提醒）.实践中，总可先用它进行粗略计算.
+102:248 | Central Limit Theorem (CLT) | 中心极限定理 | 217
+  05-08.tex:3 中心极限定理 | \subsubsection{中心极限定理补充}\label{sec:5.8.1}
+105:225 | Characteristic function > use in CLT | 在中心极限定理中的用途 | 194
+  05-05.tex:167 特征函数 | 中心极限定理在比\autoref{thm:5.5.14}更一般的条件下仍成立（\autoref{sec:5.8.1}）.特别地，所有关于矩母函数的假设都不需要，可以改用特征函数（\autoref{sec:2.6.2}）.下面的定理不给证明.这是几乎足以满足全部统计用途的中心极限定理版本.注意对母分布的唯一假设是方差有限.
+  05-05.tex:173 特征函数 | 证明与\autoref{thm:5.5.14}几乎相同，只是用特征函数代替矩母函数.分布的特征函数总存在，所以无须在定理假设中提及.不过证明更细致，因为须处理复变量函数.详见Billingsley（1995，第27节）.
+196:221 | Consistency | 相合性（见点估计量的相合性） | 190
+  05-05.tex:30 相合性 | 弱大数定律所概括的性质，即“同一个”样本量构成的序列在$n\to\infty$时趋向一个常数，称为相合性（consistency）.\autoref{sec:7}会更仔细地讨论这一性质.
+  05-05.tex:31 相合性 | \begin{example}[$S^2$的相合性]\label{ex:5.5.3}
+  05-05.tex:42 相合性 | \begin{example}[$S$的相合性]\label{ex:5.5.5}
+201:221 | Convergence > almost sure | 几乎处处 | 190
+  05-05.tex:45 几乎处处 | \subsubsection{几乎处处收敛}\label{sec:5.5.2}
+  05-05.tex:46 几乎处处 | 比依概率收敛更强的一种收敛是几乎处处收敛（almost sure convergence；有时也称以概率1收敛，这一名称容易引起混淆）.它类似于函数列的逐点收敛，只是不要求在概率为0的集合上收敛（故称“几乎”处处）.
+  05-05.tex:50 几乎处处 | 则称随机变量序列$X_1,X_2,\ldots$几乎处处收敛到随机变量$X$.
+202:250 | Convergence > almost surely | 几乎处处 | 219
+  05-08.tex:31 收敛 | 强大数定律所断言的收敛是我们最熟悉的一种，即随机变量序列$\bar X_n$逐点收敛到共同均值$\mu$.由\autoref{ex:5.5.8}可知，它比弱大数定律的依概率收敛更强.
+203:250 | Convergence > ergodic theorem | 遍历定理 | 219
+  05-08.tex:53 遍历定理 | 遍历定理（Ergodic Theorem）是大数定律的推广，它说明若马尔可夫链$X_1,X_2,\ldots$满足某些正则条件（统计问题中常常满足），则只要期望存在，
+  05-08.tex:31 收敛 | 强大数定律所断言的收敛是我们最熟悉的一种，即随机变量序列$\bar X_n$逐点收敛到共同均值$\mu$.由\autoref{ex:5.5.8}可知，它比弱大数定律的依概率收敛更强.
+204:222 | Convergence > in distribution | 依分布 | 191
+  05-05.tex:75 依分布 | \subsubsection{依分布收敛}\label{sec:5.5.3}
+  05-05.tex:76 依分布 | \autoref{sec:2}已介绍依分布收敛（convergence in distribution）的概念.回顾矩母函数的性质，以及其收敛如何蕴含依分布收敛（\autoref{thm:2.3.12}）.
+  05-05.tex:80 依分布 | 则称随机变量序列$X_1,X_2,\ldots$依分布收敛到随机变量$X$.
+204:226 | Convergence > in distribution | 依分布 | 195
+  05-05.tex:198 依分布 | 若$X_n$依分布收敛到$X$，而$Y_n$依概率收敛到常数$a$，则
+  05-05.tex:200 依分布 | \item $Y_nX_n$依分布收敛到$aX$.
+  05-05.tex:201 依分布 | \item $X_n+Y_n$依分布收敛到$X+a$.
+205:223 | Convergence > in distribution > relation to convergence in probability | 与依概率收敛的关系 | 192
+  05-05.tex:84 依分布 | 若$X_1,X_2,\ldots$为iid $\operatorname{uniform}(0,1)$，$X_{(n)}=\max_{1\le i\le n}X_i$，考察$X_{(n)}$是否依分布收敛，以及收敛到哪里.
+  05-05.tex:97 依分布 | 即随机变量$n(1-X_{(n)})$依分布收敛到$\operatorname{exponential}(1)$随机变量.
+  05-05.tex:99 依分布 | 注意，虽然说的是随机变量序列依分布收敛，实际收敛的是cdf，而不是随机变量本身.在这一根本意义上，依分布收敛与依概率收敛、几乎处处收敛都很不同.不过，其他两种收敛都蕴含它.
+206:220 | Convergence > in probability | 依概率 | 189
+  05-05.tex:7 依概率 | \subsubsection{依概率收敛}\label{sec:5.5.1}
+  05-05.tex:12 依概率 | 则称随机变量序列$X_1,X_2,\ldots$依概率收敛（converges in probability）到随机变量$X$.
+  05-05.tex:20 依概率 | 即$\bar X_n$依概率收敛到$\mu$.
+207:223 | Convergence > in probability > relation to convergence in distribution | 与依分布收敛的关系 | 192
+  05-05.tex:93 依概率 | 它趋于0.所以证明了$X_{(n)}$依概率收敛到1.不过，若取$\varepsilon=t/n$，则
+  05-05.tex:99 依概率 | 注意，虽然说的是随机变量序列依分布收敛，实际收敛的是cdf，而不是随机变量本身.在这一根本意义上，依分布收敛与依概率收敛、几乎处处收敛都很不同.不过，其他两种收敛都蕴含它.
+  05-05.tex:101 依概率 | 若随机变量序列$X_1,X_2,\ldots$依概率收敛到随机变量$X$，则该序列也依分布收敛到$X$.
+208:223 | Convergence > in probability > to a constant | 收敛到常数 | 192
+  05-05.tex:107 收敛到常数 | 随机变量序列$X_1,X_2,\ldots$依概率收敛到常数$\mu$，当且仅当它依分布收敛到$\mu$.即
+  05-05.tex:93 依概率 | 它趋于0.所以证明了$X_{(n)}$依概率收敛到1.不过，若取$\varepsilon=t/n$，则
+  05-05.tex:99 依概率 | 注意，虽然说的是随机变量序列依分布收敛，实际收敛的是cdf，而不是随机变量本身.在这一根本意义上，依分布收敛与依概率收敛、几乎处处收敛都很不同.不过，其他两种收敛都蕴含它.
+209:222 | Convergence > strong law | 强大数定律 | 191
+  05-05.tex:68 强大数定律 | 统计学家仍常关注到常数的收敛.下面不加证明地给出弱大数定律的更强对应结果——强大数定律（Strong Law of Large Numbers，SLLN）.证明提纲见\autoref{sec:5.8.4}.
+  05-05.tex:69 强大数定律 | \begin{theorem}[强大数定律]\label{thm:5.5.9}
+  05-05.tex:74 强大数定律 | 在弱大数定律与强大数定律中，都假设方差有限.虽然多数应用中这一假设成立（也很理想），但事实上它强于实际所需条件.去掉这一假设，弱定律与强定律仍然成立.唯一需要的矩条件是$E|X_i|<\infty$（见Resnick 1999，第7章；或Billingsley 1995，第22节）.
+210:220 | Convergence > weak law | 弱大数定律 | 189
+  05-05.tex:17 弱大数定律 | \begin{theorem}[弱大数定律]\label{thm:5.5.2}
+  05-05.tex:7 收敛 | \subsubsection{依概率收敛}\label{sec:5.5.1}
+  05-05.tex:8 收敛 | 这种收敛是较弱的收敛之一，因此通常容易验证.
+211:221 | Convergence > with probability one | 以概率1 | 190
+  05-05.tex:46 以概率1 | 比依概率收敛更强的一种收敛是几乎处处收敛（almost sure convergence；有时也称以概率1收敛，这一名称容易引起混淆）.它类似于函数列的逐点收敛，只是不要求在概率为0的集合上收敛（故称“几乎”处处）.
+  05-05.tex:36 收敛 | 所以$S_n^2$依概率收敛到$\sigma^2$的一个充分条件是$n\to\infty$时$\operatorname{Var}S_n^2\to0$.
+  05-05.tex:38 收敛 | \autoref{def:5.5.1}的一个自然推广涉及随机变量的函数.即若序列$X_1,X_2,\ldots$依概率收敛到随机变量$X$或常数$a$，对于某个表现较好的函数$h$，能否对随机变量序列$h(X_1),h(X_2),\ldots$作出结论？下一个定理表明可以（证明见\autoref{exercise:5.39}）.
+213:206 | Convolution | 卷积 | 175
+  05-02.tex:122 卷积 | 若\autoref{thm:5.2.7}不适用——或者因为无法辨认所得$\bar X$的矩母函数，或者因为总体矩母函数不存在——则可尝试用\autoref{sec:4.3}和\autoref{sec:4.6}的变换法求$Y=X_1+\cdots+X_n$及$\bar X$的pdf.这时，下面的卷积公式（convolution formula）很有用.
+215:246 | Correlation > binary | 二元 | 215
+  05-07.tex:352 二元 | Park等（1996）给出如下生成相关二元变量的方法.设$X_1,X_2,X_3$为均值分别为$\lambda_1,\lambda_2,\lambda_3$的独立Poisson随机变量，构造$Y_1=X_1+X_3$及$Y_2=X_2+X_3$.
+  05-07.tex:349 相关 | （相关结果见\autoref{exercise:2.12}.）\footnote{译注：原题的pdf漏掉归一化因子$1/\pi$，cdf也漏掉缩放和加性常数.标准Cauchy的pdf应为$1/[\pi(1+y^2)]$，cdf为$1/2+\arctan(y)/\pi$.}
+  05-07.tex:357 相关 | \item 证明$Z_1,Z_2$的相关系数不能在$[-1,1]$中任意取值，而满足
+246:226 | Delta method | Delta方法 | 195
+  05-05.tex:211 Delta方法 | \subsubsection{Delta方法}\label{sec:5.5.4}
+  05-05.tex:218 Delta方法 | 直觉不再帮得上忙，而精确计算也几乎没有希望，只能依赖近似.Delta方法将使我们得到合理的近似答案.
+253:245 | Distribution > Bernoulli > limit | 极限 | 214
+  05-07.tex:274 分布 | 证明\autoref{thm:5.5.13}，即证明\footnote{译注：右端原文写$x\ge\mu$，但依分布收敛到常数只要求在$x\ne\mu$的连续点成立；应将第二行条件改为$x>\mu$，与所引定理一致.}
+  05-07.tex:285 分布 | \begin{enumerate}[label=(\alph*)]\item 若$f$为$\operatorname{beta}(1,\beta)$，求使$n^\nu(1-X_{(n)})$依分布收敛的$\nu$.\item 若$f$为$\operatorname{exponential}(1)$，求使$X_{(n)}-a_n$依分布收敛的序列$a_n$.\end{enumerate}
+  05-07.tex:289 分布 | \begin{enumerate}[label=(\alph*)]\item 证明若$\sqrt n(Y_n-\mu)\to n(0,\sigma^2)$（依分布），则$Y_n\to\mu$（依概率）.\item 给出应用Slutsky定理（\autoref{thm:5.5.17}）的细节.\end{enumerate}
+255:233 | Distribution > beta > generating | 生成 | 202
+  05-06.tex:60 生成 | \caption{从$\lambda=2$的指数pdf生成的10,000个观测的直方图及其pdf}\label{fig:5.6.1}
+  05-06.tex:62 生成 | 指数分布与其他分布的关系，使许多随机变量可以快速生成.例如，若$U_i$为iid $\operatorname{uniform}(0,1)$随机变量，则
+  05-06.tex:72 生成 | 遗憾的是，这一变换有局限.例如，不能用它生成奇数自由度的$\chi^2$随机变量，所以不能得到$\chi_1^2$，进而得到极其有用的$\operatorname{normal}(0,1)$随机变量.下一小节会再讨论此问题.
+255:235 | Distribution > beta > generating | 生成 | 204
+  05-06.tex:134 生成 | 找不到容易的直接变换来生成所需随机变量时，一种非常有力的间接方法——接受／拒绝算法（Accept/Reject Algorithm）——常能提供解法.它的思想或许最好用一个简单例子说明.
+  05-06.tex:135 生成 | \begin{example}[beta随机变量的生成——I]\label{ex:5.6.7}
+  05-06.tex:136 生成 | 设目标是生成$Y\sim\operatorname{beta}(a,b)$.若$a,b$都是整数，可用直接变换法\eqref{eq:5.6.5}；若不是整数，该方法就不适用.具体取$a=2.7$、$b=6.3$.\autoref{fig:5.6.3}把beta密度$f_Y(y)$放在边长为1和$c\ge\max_yf_Y(y)$的长方形里.考虑以下计算$P(Y\le y)$的方法.若$(U,V)$为独立的$\operatorname{uniform}(0,1)$随机变量，则阴
+255:238 | Distribution > beta > generating | 生成 | 207
+  05-06.tex:208 生成 | \begin{example}[beta随机变量的生成——II]\label{ex:5.6.9}
+  05-06.tex:209 生成 | 为生成$Y\sim\operatorname{beta}(2.7,6.3)$，考虑算法：
+  05-06.tex:211 生成 | \item\label{item:5.6.9a} 生成$U\sim\operatorname{uniform}(0,1)$、$V\sim\operatorname{beta}(2,6)$.
+255:247 | Distribution > beta > generating | 生成 | 216
+  05-07.tex:373 生成 | 证明\autoref{ex:5.6.7}的算法生成$\operatorname{beta}(a,b)$随机变量.
+  05-07.tex:378 生成 | \begin{enumerate}[label=(\alph*)]\item 证明$a\le w\le b$时，$P(W\le w)=\int_a^w f(t)\,dt/[c(b-a)]$.\item 利用(a)说明如何生成pdf为$f(x)$的随机变量.（提示：用几何论证，画图会有帮助.）\end{enumerate}
+  05-07.tex:382 生成 | \item 要生成$Y\sim\operatorname{beta}(a,b)$，其中$a,b$不是整数.证明取$V\sim\operatorname{beta}([a],[b])$会使$M=\sup_y f_Y(y)/f_V(y)$有限.
+258:215 | Distribution > beta > relation to F | 与F的关系 | 184
+  05-03.tex:201 分布 | $F$分布具有许多有趣性质，并与多种其他分布相关.下面的定理概括其中一些事实，其证明留作习题（见\autoref{exercise:5.17}和\autoref{exercise:5.18}）.
+  05-03.tex:206 beta | \item 若$X\sim F_{p,q}$，则$(p/q)X/(1+(p/q)X)\sim\operatorname{beta}(p/2,q/2)$.
+263:234 | Distribution > binomial > generating | 生成 | 203
+  05-06.tex:87 生成 | 是独立的$\operatorname{normal}(0,1)$随机变量.所以，虽然没有生成单个$n(0,1)$变量的快速变换，却有一次生成两个变量的方法（见\autoref{exercise:5.50}）.
+  05-06.tex:89 生成 | 遗憾的是，\autoref{ex:5.6.4}这样的解法并不多.它们还利用了特定分布的结构，因此不太适合作为一般策略.对于其他尚未讨论的连续分布，多数时候最好用间接方法生成.在探索这些方法之前，先以离散随机变量的情形结束本小节；此时\eqref{eq:5.6.6}很有用.
+  05-06.tex:98 生成 | 实际用\eqref{eq:5.6.7}生成离散随机变量很直接，可概括如下.为生成$Y_i\sim F_Y(y)$：
+281:233 | Distribution > chi squared > generating | 生成 | 202
+  05-06.tex:60 生成 | \caption{从$\lambda=2$的指数pdf生成的10,000个观测的直方图及其pdf}\label{fig:5.6.1}
+  05-06.tex:62 生成 | 指数分布与其他分布的关系，使许多随机变量可以快速生成.例如，若$U_i$为iid $\operatorname{uniform}(0,1)$随机变量，则
+  05-06.tex:72 生成 | 遗憾的是，这一变换有局限.例如，不能用它生成奇数自由度的$\chi^2$随机变量，所以不能得到$\chi_1^2$，进而得到极其有用的$\operatorname{normal}(0,1)$随机变量.下一小节会再讨论此问题.
+282:210 | Distribution > chi squared > properties | 性质 | 179
+  05-03.tex:41 卡方 | 回顾\autoref{sec:3.3}，卡方pdf是gamma pdf的特例，表达式为
+  05-03.tex:43 卡方 | 其中$p$称为自由度（degrees of freedom）.现概括卡方分布的一些相关事实.
+  05-03.tex:44 卡方 | \begin{lemma}[关于卡方随机变量的事实]\label{lem:5.3.2}
+286:234 | Distribution > discrete > generating | 生成 | 203
+  05-06.tex:87 生成 | 是独立的$\operatorname{normal}(0,1)$随机变量.所以，虽然没有生成单个$n(0,1)$变量的快速变换，却有一次生成两个变量的方法（见\autoref{exercise:5.50}）.
+  05-06.tex:89 生成 | 遗憾的是，\autoref{ex:5.6.4}这样的解法并不多.它们还利用了特定分布的结构，因此不太适合作为一般策略.对于其他尚未讨论的连续分布，多数时候最好用间接方法生成.在探索这些方法之前，先以离散随机变量的情形结束本小节；此时\eqref{eq:5.6.6}很有用.
+  05-06.tex:98 生成 | 实际用\eqref{eq:5.6.7}生成离散随机变量很直接，可概括如下.为生成$Y_i\sim F_Y(y)$：
+290:232 | Distribution > exponential > generating | 生成 | 201
+  05-06.tex:39 生成 | \autoref{ex:5.6.1}和\autoref{ex:5.6.2}突出本节的主要问题：首先研究如何生成所需随机变量，然后用某个版本的大数定律验证模拟近似.
+  05-06.tex:41 生成 | 总得有个起点，这里首先假定能够生成iid均匀随机变量$U_1,\ldots,U_m$.（计算机科学家对均匀随机数生成问题已作了卓有成效的研究.）有许多生成伪随机数（pseudo-random numbers）的算法，产生的数可通过几乎所有均匀性检验.此外，多数优秀统计软件包都有合理的均匀随机数生成器.（关于伪随机数生成，更多内容见Devroye 1985或Ripley 1987.）
+  05-06.tex:43 生成 | 既然从均匀随机变量出发，这里真正的问题便不是生成所需随机变量，而是把均匀随机变量变换成所需分布.基本上有两类一般方法，我们把它们称为直接方法和间接方法，尽管这两个名称并没有提供多少信息.
+299:208 | Distribution > exponential family > curved | 曲线 | 177
+  05-02.tex:160 指数族 | 从指数族抽样时，随机样本中某些和的抽样分布容易推导.下一个定理中的$T_1,\ldots,T_k$是重要的样本概要统计量，这将在\autoref{sec:6.2}中看到.
+  05-02.tex:164 指数族 | 是指数族的一个成员.定义统计量$T_1,\ldots,T_k$为
+  05-02.tex:166 指数族 | 若集合$\{(w_1(\theta),w_2(\theta),\ldots,w_k(\theta)),\theta\in\Theta\}$包含$\mathbb R^k$的一个开子集，则$(T_1,\ldots,T_k)$的分布是形如下式的指数族：
+301:214 | Distribution > F | F | 183
+  05-03.tex:170 F | 样本方差之比$S_X^2/S_Y^2$包含关于该比值的信息.$F$分布给出
+  05-03.tex:174 F | 的分布，从而可以比较这些量.考察\eqref{eq:5.3.8}便能看出如何推导$F$分布.比值$S_X^2/\sigma_X^2$和$S_Y^2/\sigma_Y^2$各自都是按比例缩放的卡方变量，而且相互独立.
+  05-03.tex:177 F | 设$X_1,\ldots,X_n$为来自$n(\mu_X,\sigma_X^2)$总体的随机样本，$Y_1,\ldots,Y_m$为来自独立的$n(\mu_Y,\sigma_Y^2)$总体的随机样本.随机变量$F=(S_X^2/\sigma_X^2)/(S_Y^2/\sigma_Y^2)$服从自由度为$n-1$和$m-1$的Snedecor $F$分布.等价地，若随机变量$F$具有pdf
+302:215 | Distribution > F > reciprocal | 倒数 | 184
+  05-03.tex:204 倒数 | \item 若$X\sim F_{p,q}$，则$1/X\sim F_{q,p}$；即$F$随机变量的倒数仍是$F$随机变量.
+  05-03.tex:201 F | $F$分布具有许多有趣性质，并与多种其他分布相关.下面的定理概括其中一些事实，其证明留作习题（见\autoref{exercise:5.17}和\autoref{exercise:5.18}）.
+303:215 | Distribution > F > relation to beta | 与贝塔的关系 | 184
+  05-03.tex:201 F | $F$分布具有许多有趣性质，并与多种其他分布相关.下面的定理概括其中一些事实，其证明留作习题（见\autoref{exercise:5.17}和\autoref{exercise:5.18}）.
+  05-03.tex:204 F | \item 若$X\sim F_{p,q}$，则$1/X\sim F_{q,p}$；即$F$随机变量的倒数仍是$F$随机变量.
+304:215 | Distribution > F > relation to t | 与t的关系 | 184
+  05-03.tex:201 F | $F$分布具有许多有趣性质，并与多种其他分布相关.下面的定理概括其中一些事实，其证明留作习题（见\autoref{exercise:5.17}和\autoref{exercise:5.18}）.
+  05-03.tex:204 F | \item 若$X\sim F_{p,q}$，则$1/X\sim F_{q,p}$；即$F$随机变量的倒数仍是$F$随机变量.
+307:233 | Distribution > gamma > generating | 生成 | 202
+  05-06.tex:60 生成 | \caption{从$\lambda=2$的指数pdf生成的10,000个观测的直方图及其pdf}\label{fig:5.6.1}
+  05-06.tex:62 生成 | 指数分布与其他分布的关系，使许多随机变量可以快速生成.例如，若$U_i$为iid $\operatorname{uniform}(0,1)$随机变量，则
+  05-06.tex:72 生成 | 遗憾的是，这一变换有局限.例如，不能用它生成奇数自由度的$\chi^2$随机变量，所以不能得到$\chi_1^2$，进而得到极其有用的$\operatorname{normal}(0,1)$随机变量.下一小节会再讨论此问题.
+307:247 | Distribution > gamma > generating | 生成 | 216
+  05-07.tex:373 生成 | 证明\autoref{ex:5.6.7}的算法生成$\operatorname{beta}(a,b)$随机变量.
+  05-07.tex:378 生成 | \begin{enumerate}[label=(\alph*)]\item 证明$a\le w\le b$时，$P(W\le w)=\int_a^w f(t)\,dt/[c(b-a)]$.\item 利用(a)说明如何生成pdf为$f(x)$的随机变量.（提示：用几何论证，画图会有帮助.）\end{enumerate}
+  05-07.tex:382 生成 | \item 要生成$Y\sim\operatorname{beta}(a,b)$，其中$a,b$不是整数.证明取$V\sim\operatorname{beta}([a],[b])$会使$M=\sup_y f_Y(y)/f_V(y)$有限.
+345:242 | Distribution > mixture > normal–gamma | 正态–伽马 | 211
+  05-07.tex:141 混合 | 它是正态分布的尺度混合.用直接积分验证此公式.
+  05-07.tex:142 混合 | \item $F$分布也有类似公式，即可写成卡方分布的混合.若$F_{1,\nu}$为自由度为1和$\nu$的$F$随机变量，则
+  05-07.tex:157 分布 | 设$U_i$（$i=1,2,\ldots$）是独立的$\operatorname{uniform}(0,1)$随机变量，$X$具有分布
+347:242 | Distribution > mixture > t–F | t–F | 211
+  05-07.tex:141 混合 | 它是正态分布的尺度混合.用直接积分验证此公式.
+  05-07.tex:142 混合 | \item $F$分布也有类似公式，即可写成卡方分布的混合.若$F_{1,\nu}$为自由度为1和$\nu$的$F$随机变量，则
+  05-07.tex:157 分布 | 设$U_i$（$i=1,2,\ldots$）是独立的$\operatorname{uniform}(0,1)$随机变量，$X$具有分布
+361:233 | Distribution > normal > generating | 生成 | 202
+  05-06.tex:60 生成 | \caption{从$\lambda=2$的指数pdf生成的10,000个观测的直方图及其pdf}\label{fig:5.6.1}
+  05-06.tex:62 生成 | 指数分布与其他分布的关系，使许多随机变量可以快速生成.例如，若$U_i$为iid $\operatorname{uniform}(0,1)$随机变量，则
+  05-06.tex:72 生成 | 遗憾的是，这一变换有局限.例如，不能用它生成奇数自由度的$\chi^2$随机变量，所以不能得到$\chi_1^2$，进而得到极其有用的$\operatorname{normal}(0,1)$随机变量.下一小节会再讨论此问题.
+362:211 | Distribution > normal > linear combination | 线性组合 | 180
+  05-03.tex:85 正态 | 只须证明$\mu_i=0$、$\sigma_i^2=1$时的结论，一般形式就能很快得到.此外，由独立性推出协方差为零是直接的（\autoref{thm:4.5.5}），协方差表达式也容易验证（\autoref{exercise:5.14}）.还应注意，\autoref{cor:4.6.10}表明$U_i$与$V_r$都服从正态分布.
+  05-03.tex:87 正态 | 所以，只需证明：若常数满足上述限制（等价地，协方差为零），则在正态性假设下有独立性.这里只证明$n=2$的情形；一般$n$的证明类似，但需要详尽的$n$元变换.
+  05-03.tex:109 正态 | 类似论证可用于\hyperref[item:5.3.3b]{(b)}，这里不详述.作适当变换便可得到向量$(U_1,\ldots,U_k)$与$(V_1,\ldots,V_m)$的联合pdf.由\autoref{thm:4.6.11}，联合pdf可分解时，这两个向量独立.根据正态pdf的形式，这当且仅当所有配对$i,r$（$i=1,\ldots,k$；$r=1,\ldots,m$）的$U_i$与$V_r$独立时成立.
+367:241 | Distribution > normal > relation to t | 与t的关系 | 210
+  05-07.tex:136 正态 | \item 以下论证说明$t$分布是正态分布的混合：
+  05-07.tex:108 分布 | 设$X_i$（$i=1,2,3$）独立且各服从$n(i,i^2)$分布.在每种情形中，用$X_i$构造具有指定分布的统计量.
+  05-07.tex:109 分布 | \begin{enumerate}[label=(\alph*)]\item 自由度为3的卡方分布.\item 自由度为2的$t$分布.\item 自由度为1和2的$F$分布.\end{enumerate}
+381:213 | Distribution > t | t | 182
+  05-03.tex:140 t | 设$X_1,\ldots,X_n$为来自$n(\mu,\sigma^2)$分布的随机样本，则$(\bar X-\mu)/(S/\sqrt n)$服从自由度为$n-1$的Student $t$分布.等价地，若随机变量$T$具有pdf
+  05-03.tex:142 t | f_T(t)=\frac{\Gamma\left(\frac{p+1}2\right)}{\Gamma\left(\frac p2\right)}\frac1{(p\pi)^{1/2}}\frac1{(1+t^2/p)^{(p+1)/2}},\qquad -\infty<t<\infty,
+  05-03.tex:144 t | 则称它服从自由度为$p$的Student $t$分布，记作$T\sim t_p$.
+383:215 | Distribution > t > relation to F | 与F的关系 | 184
+  05-03.tex:201 分布 | $F$分布具有许多有趣性质，并与多种其他分布相关.下面的定理概括其中一些事实，其证明留作习题（见\autoref{exercise:5.17}和\autoref{exercise:5.18}）.
+384:241 | Distribution > t > relation to normal | 与正态的关系 | 210
+  05-07.tex:108 分布 | 设$X_i$（$i=1,2,3$）独立且各服从$n(i,i^2)$分布.在每种情形中，用$X_i$构造具有指定分布的统计量.
+  05-07.tex:109 分布 | \begin{enumerate}[label=(\alph*)]\item 自由度为3的卡方分布.\item 自由度为2的$t$分布.\item 自由度为1和2的$F$分布.\end{enumerate}
+  05-07.tex:112 分布 | 设随机变量$X$服从$F_{p,q}$分布.
+388:223 | Distribution > uniform > maximum | 最大值 | 192
+  05-05.tex:83 最大值 | \begin{example}[均匀随机变量的最大值]\label{ex:5.5.11}
+  05-05.tex:84 uniform | 若$X_1,X_2,\ldots$为iid $\operatorname{uniform}(0,1)$，$X_{(n)}=\max_{1\le i\le n}X_i$，考察$X_{(n)}$是否依分布收敛，以及收敛到哪里.
+  05-05.tex:97 分布 | 即随机变量$n(1-X_{(n)})$依分布收敛到$\operatorname{exponential}(1)$随机变量.
+389:218 | Distribution > uniform > order statistic | 次序统计量 | 187
+  05-04.tex:96 次序统计量 | \begin{example}[均匀分布次序统计量的pdf]\label{ex:5.4.5}
+  05-04.tex:97 次序统计量 | 设$X_1,\ldots,X_n$为iid $\operatorname{uniform}(0,1)$，故$x\in(0,1)$时$f_X(x)=1$、$F_X(x)=x$.由\eqref{eq:5.4.4}，第$j$个次序统计量的pdf为
+  05-04.tex:102 次序统计量 | 所以，$\operatorname{uniform}(0,1)$样本的第$j$个次序统计量服从$\operatorname{beta}(j,n-j+1)$分布.由此推得
+406:250 | Ergodic theorem | 遍历定理 | 219
+  05-08.tex:53 遍历定理 | 遍历定理（Ergodic Theorem）是大数定律的推广，它说明若马尔可夫链$X_1,X_2,\ldots$满足某些正则条件（统计问题中常常满足），则只要期望存在，
+421:239 | Exchangeable | 可交换 | 208
+  05-07.tex:19 可交换 | iid随机变量的一种推广是可交换随机变量（exchangeable random variables），这一概念出自De Finetti（1972）.Feller（1971）也讨论了可交换性.若随机变量$X_1,\ldots,X_n$中任意容量为$k$（$k\le n$）的子集的任意排列都具有相同分布，则称它们可交换.本题给出可交换但非iid的例子.设$X_i\mid P\sim\operatorname{Bernoulli}(P)$，$i=1,\ldots,n$，条件iid
+  05-07.tex:23 可交换 | 其中$t=\sum_{i=1}^kx_i$.因此这些$X$可交换.
+  05-07.tex:26 可交换 | 所以这些$X$的分布可交换，但并非iid.
+433:204 | Expected value > sum | 和 | 173
+  EN SUMS OF RANDOM VARIABLES FROM A RANDOM SAMPLE 173 Definition 5.2.3 The sample variance is the s
+  EN (b) is useful both computationally and theoretically because it allows us to express s2 in terms of sums that are easy to handle. We will begin our study of sampling distributions by considering the expected values of some statistics. The following result is q
+441:208 | Exponential family > sums | 和 | 177
+  05-02.tex:160 指数族 | 从指数族抽样时，随机样本中某些和的抽样分布容易推导.下一个定理中的$T_1,\ldots,T_k$是重要的样本概要统计量，这将在\autoref{sec:6.2}中看到.
+  05-02.tex:164 指数族 | 是指数族的一个成员.定义统计量$T_1,\ldots,T_k$为
+  05-02.tex:166 指数族 | 若集合$\{(w_1(\theta),w_2(\theta),\ldots,w_k(\theta)),\theta\in\Theta\}$包含$\mathbb R^k$的一个开子集，则$(T_1,\ldots,T_k)$的分布是形如下式的指数族：
+461:212 | Gosset, W. S. | Gosset，W. S. | 181
+  05-03.tex:125 Gosset | 从某种意义上说，\autoref{sec:5.3.1}推导的分布是在正态性假设下进行统计分析的第一步.特别地，实际情形中方差$\sigma^2$大多未知，因此，要了解$\bar X$（作为$\mu$的估计）的变异程度，就必须估计这一方差.W. S. Gosset（以Student为笔名发表论文）在20世纪初首次研究这个问题.Student的奠基性工作产生了Student的$t$分布，简称$t$分布.
+542:240 | Identity > Lagrange | 拉格朗日 | 209
+  05-07.tex:67 恒等式 | 证明Lagrange恒等式：对任意数$a_1,a_2,\ldots,a_n$和$b_1,b_2,\ldots,b_n$，
+  05-07.tex:69 恒等式 | 利用此恒等式证明，相关系数等于1，当且仅当全部样本点位于一条直线上（Wright 1992）.\footnote{译注：原文写相关系数“等于1”.一般直线上的点可能具有负斜率，正确的共线刻画应是相关系数绝对值为1，并要求两组样本方差非零；等于$+1$还须正斜率.}提示：先证明$n=2$，再用归纳法.
+545:200 | Iid | 独立同分布 | 169
+  05-01.tex:5 独立同分布 | 若随机变量$X_1,\ldots,X_n$相互独立，且每个$X_i$的边际pdf或pmf都是同一个函数$f(x)$，则称$X_1,\ldots,X_n$为来自总体$f(x)$的容量为$n$的随机样本（random sample）.也称$X_1,\ldots,X_n$是具有pdf或pmf $f(x)$的独立同分布（independent and identically distributed）随机变量，通常简称为iid随机变量.
+554:200 | Independence > random variables | 随机变量 | 169
+  05-01.tex:5 随机变量 | 若随机变量$X_1,\ldots,X_n$相互独立，且每个$X_i$的边际pdf或pmf都是同一个函数$f(x)$，则称$X_1,\ldots,X_n$为来自总体$f(x)$的容量为$n$的随机样本（random sample）.也称$X_1,\ldots,X_n$是具有pdf或pmf $f(x)$的独立同分布（independent and identically distributed）随机变量，通常简称为iid随机变量.
+  05-01.tex:7 独立性 | 随机抽样模型描述这样一种实验情形：感兴趣变量的概率分布由$f(x)$描述.若仅对此变量观测一次，得到$X$，则可用$f(x)$计算关于$X$的概率.大多数实验会对此变量重复观测$n>1$次，其中$n$是固定的正整数；第一次观测为$X_1$，第二次为$X_2$，依此类推.在随机抽样模型下，每个$X_i$都是对同一个变量的观测，并且每个$X_i$的边际分布都由$f(x)$给出.此外，观测的取得方式保证某次观测的值对其他任何观测都没有影响，也没有关系；即$X_1,\ldots,X_
+565:220 | Inequality > Chebychev’s | 切比雪夫 | 189
+  05-05.tex:23 不等式 | 证明很简单，只需直接应用Chebychev不等式.对每个$\varepsilon>0$，
+565:249 | Inequality > Chebychev’s | 切比雪夫 | 218
+  05-08.tex:16 不等式 | \subsubsection{再论Chebychev不等式}\label{sec:5.8.3}
+  05-08.tex:17 不等式 | \autoref{sec:3.6}讨论过Chebychev不等式（另见\autoref{sec:3.8.2}），\autoref{ex:3.6.2}给出一个特别有用的形式.该形式仍要求知道随机变量的均值与方差，但有时我们想用均值、方差的估计值来给出界.
+  05-08.tex:19 不等式 | 若$X_1,\ldots,X_n$为来自均值$\mu$、方差$\sigma^2$的总体的随机样本，Chebychev不等式为
+574:244 | Inequality > mgf | 矩母函数 | 213
+  05-07.tex:248 矩母函数 | 下面对\autoref{exercise:3.45}不等式的推广，可用于证明强大数定律（见\autoref{sec:5.8.4}）.设$X_1,X_2,\ldots,X_n$为iid，矩母函数为$M_X(t)$，$-h<t<h$，令$S_n=\sum_{i=1}^nX_i$、$\bar X_n=S_n/n$.
+600:248 | Lévy Theorem | Lévy定理 | 217
+604:222 | Law of Large Numbers > Strong | 强 | 191
+  05-05.tex:68 Strong | 统计学家仍常关注到常数的收敛.下面不加证明地给出弱大数定律的更强对应结果——强大数定律（Strong Law of Large Numbers，SLLN）.证明提纲见\autoref{sec:5.8.4}.
+  05-05.tex:69 大数定律 | \begin{theorem}[强大数定律]\label{thm:5.5.9}
+  05-05.tex:74 大数定律 | 在弱大数定律与强大数定律中，都假设方差有限.虽然多数应用中这一假设成立（也很理想），但事实上它强于实际所需条件.去掉这一假设，弱定律与强定律仍然成立.唯一需要的矩条件是$E|X_i|<\infty$（见Resnick 1999，第7章；或Billingsley 1995，第22节）.
+605:220 | Law of Large Numbers > Weak | 弱 | 189
+  05-05.tex:17 大数定律 | \begin{theorem}[弱大数定律]\label{thm:5.5.2}
+643:248 | Lindeberg–Feller Condition | Lindeberg–Feller条件 | 217
+666:250 | Markov chain Monte Carlo | 马尔可夫链蒙特卡洛 | 219
+  EN et where the sequence {X̄n } diverges has probability zero and the SLLN is established. 5.8.5 Markov Chain Monte Carlo Methods that are collectively known as Markov Chain Monte Carlo (MCMC) methods are used in the generation of random variables, and have proved extr
+  EN N is established. 5.8.5 Markov Chain Monte Carlo Methods that are collectively known as Markov Chain Monte Carlo (MCMC) methods are used in the generation of random variables, and have proved extremely useful for doing com- plicated calculations, most notably,
+688:238 | Metropolis Algorithm | Metropolis算法 | 207
+  05-06.tex:220 Metropolis算法 | 但有时目标密度具有重尾，难以找到使$M$有限的候选密度.此时接受／拒绝算法不再适用，便引出另一类方法，称为马尔可夫链Monte Carlo方法（Markov Chain Monte Carlo，MCMC）.其特例包括Gibbs抽样器（Gibbs Sampler）和Metropolis算法.下面给出后者.
+  05-06.tex:222 Metropolis算法 | \noindent\textbf{Metropolis算法.} 设$Y\sim f_Y(y)$、$V\sim f_V(v)$，其中$f_Y$和$f_V$有共同支撑集.为生成$Y\sim f_Y$：
+  05-06.tex:235 Metropolis算法 | 虽然算法不要求$M$有限，但它并不生成密度恰为$f_Y$的随机变量，而是产生一个收敛序列.实际运行一段时间后（$i$变大），产生的$Z$的表现就很接近来自$f_Y$的变量.（关于Metropolis算法的初步介绍，见Chib和Greenberg.）
+694:206 | Moment generating function (mgf) > sample mean | 样本均值 | 175
+  05-02.tex:106 样本均值 | 设$X_1,\ldots,X_n$是来自矩母函数为$M_X(t)$的总体的随机样本，则样本均值的矩母函数为
+  05-02.tex:111 样本均值 | 设$X_1,\ldots,X_n$为来自$n(\mu,\sigma^2)$总体的随机样本.样本均值的矩母函数为
+  05-02.tex:118 样本均值 | 另一个简单例子是$\operatorname{gamma}(\alpha,\beta)$随机样本（见\autoref{ex:4.6.8}）.同样容易推导样本均值的分布，其矩母函数为
+696:224 | Moment generating function (mgf) > use in CLT | 在中心极限定理中的用途 | 193
+  05-05.tex:123 矩母函数 | 下面证明，对$|t|<h$，$\sqrt n(\bar X_n-\mu)/\sigma$的矩母函数收敛到$n(0,1)$随机变量的矩母函数$e^{t^2/2}$.
+  05-05.tex:125 矩母函数 | 定义$Y_i=(X_i-\mu)/\sigma$，以$M_Y(t)$表示各$Y_i$共同的矩母函数，它在$|t|<\sigma h$时存在，可由\autoref{thm:2.3.15}给出.由于
+  05-05.tex:129 矩母函数 | 由矩母函数的性质（见\autoref{thm:2.3.15}和\autoref{thm:4.6.7}），有
+731:215 | Order statistics | 次序统计量 | 184
+  05-04.tex:2 次序统计量 | \subsection{次序统计量}\label{sec:5.4}
+  05-04.tex:3 次序统计量 | 随机样本中的最小、最大或中间观测值等，可以提供额外的概要信息.例如，为未来紧急情况制定计划时，过去50年记录到的最高洪水水位或最低冬季气温可能是有用的数据.上个月出售房屋的价格中位数可能有助于估计生活成本.这些都是次序统计量（order statistics）的例子.
+  05-04.tex:5 次序统计量 | 随机样本$X_1,\ldots,X_n$的次序统计量，是将样本值按递增次序排列后所得的值，记为$X_{(1)},\ldots,X_{(n)}$.
+732:216 | Order statistics > cdf | 累积分布函数 | 185
+  05-04.tex:28 次序统计量 | 大约十来位年薪超过200万美元的球员，就能把平均薪资抬到433,659美元，而大多数球员收入不到250,000美元，包括所有年薪62,500美元的新秀.讨论工资、价格或任何有少数极端值的变量时，中位数比均值更能代表“典型”值.还有其他可由次序统计量定义、对极端值较不敏感的统计量，例如\autoref{exercise:10.20}中的$\alpha$截尾均值；Tukey（1977）等书对此有所讨论.
+  05-04.tex:30 次序统计量 | 对0与1之间任意数$p$，第$100p$样本百分位数（sample percentile）是这样一个观测值：大约$np$个观测值比它小，$n(1-p)$个比它大.第50样本百分位数（$p=.5$）就是样本中位数.对于其他$p$值，可按下述方式用次序统计量更精确地定义样本百分位数.
+  05-04.tex:40 次序统计量 | 由于次序统计量是样本的函数，关于次序统计量的概率可由样本的概率计算.若$X_1,\ldots,X_n$为iid离散随机变量，计算次序统计量的概率主要是一个计数问题.\autoref{thm:5.4.3}推导了相应公式.若$X_1,\ldots,X_n$为来自连续总体的随机样本，\autoref{thm:5.4.4}和\autoref{thm:5.4.6}给出一个或多个次序统计量pdf的方便表达式，之后可用来推导次序统计量的函数的分布.
+733:243 | Order statistics > joint cdf | 联合累积分布函数 | 212
+  05-07.tex:187 次序统计量 | 设$X_1,\ldots,X_n$为iid，pdf为$f_X(x)$、cdf为$F_X(x)$，次序统计量为$X_{(1)}<\cdots<X_{(n)}$.
+  05-07.tex:194 次序统计量 | 设$X_1,\ldots,X_n$为iid，pdf为$f_X(x)$、cdf为$F_X(x)$，$X_{(i_1)}<\cdots<X_{(i_l)}$与$X_{(j_1)}<\cdots<X_{(j_m)}$是任意两组互不重叠的次序统计量.用$f_X,F_X$表示：
+734:218 | Order statistics > joint pdf | 联合概率密度函数 | 187
+  05-04.tex:96 次序统计量 | \begin{example}[均匀分布次序统计量的pdf]\label{ex:5.4.5}
+  05-04.tex:97 次序统计量 | 设$X_1,\ldots,X_n$为iid $\operatorname{uniform}(0,1)$，故$x\in(0,1)$时$f_X(x)=1$、$F_X(x)=x$.由\eqref{eq:5.4.4}，第$j$个次序统计量的pdf为
+  05-04.tex:102 次序统计量 | 所以，$\operatorname{uniform}(0,1)$样本的第$j$个次序统计量服从$\operatorname{beta}(j,n-j+1)$分布.由此推得
+735:217 | Order statistics > pdf | 概率密度函数 | 186
+  05-04.tex:63 次序统计量 | 若$X_1,\ldots,X_n$为来自连续总体的随机样本，情形会稍简单，因为任意两个$X_j$相等的概率为0，无须担心并列值.故$P(X_{(1)}<X_{(2)}<\cdots<X_{(n)})=1$，且$(X_{(1)},\ldots,X_{(n)})$的样本空间为$\{(x_1,\ldots,x_n):x_1<x_2<\cdots<x_n\}$.\autoref{thm:5.4.4}和\autoref{thm:5.4.6}再次利用二项分布论证，分别给出单个次序统计量的
+  05-04.tex:65 次序统计量 | 设$X_{(1)},\ldots,X_{(n)}$是随机样本$X_1,\ldots,X_n$的次序统计量，总体连续且cdf为$F_X(x)$、pdf为$f_X(x)$.则$X_{(j)}$的pdf为
+736:216 | Order statistics > pmf | 概率质量函数 | 185
+  05-04.tex:28 次序统计量 | 大约十来位年薪超过200万美元的球员，就能把平均薪资抬到433,659美元，而大多数球员收入不到250,000美元，包括所有年薪62,500美元的新秀.讨论工资、价格或任何有少数极端值的变量时，中位数比均值更能代表“典型”值.还有其他可由次序统计量定义、对极端值较不敏感的统计量，例如\autoref{exercise:10.20}中的$\alpha$截尾均值；Tukey（1977）等书对此有所讨论.
+  05-04.tex:30 次序统计量 | 对0与1之间任意数$p$，第$100p$样本百分位数（sample percentile）是这样一个观测值：大约$np$个观测值比它小，$n(1-p)$个比它大.第50样本百分位数（$p=.5$）就是样本中位数.对于其他$p$值，可按下述方式用次序统计量更精确地定义样本百分位数.
+  05-04.tex:40 次序统计量 | 由于次序统计量是样本的函数，关于次序统计量的概率可由样本的概率计算.若$X_1,\ldots,X_n$为iid离散随机变量，计算次序统计量的概率主要是一个计数问题.\autoref{thm:5.4.3}推导了相应公式.若$X_1,\ldots,X_n$为来自连续总体的随机样本，\autoref{thm:5.4.4}和\autoref{thm:5.4.6}给出一个或多个次序统计量pdf的方便表达式，之后可用来推导次序统计量的函数的分布.
+752:234 | Parametric bootstrap | 参数自助法 | 203
+  05-06.tex:112 参数自助法 | 后面将看到模拟方法的许多用途.先考察下面对Poisson分布的探索，它是\autoref{sec:10.1.4}将介绍的参数自助法（parametric bootstrap）的一个版本.
+754:216 | Percentile | 百分位数 | 185
+  05-04.tex:30 百分位数 | 对0与1之间任意数$p$，第$100p$样本百分位数（sample percentile）是这样一个观测值：大约$np$个观测值比它小，$n(1-p)$个比它大.第50样本百分位数（$p=.5$）就是样本中位数.对于其他$p$值，可按下述方式用次序统计量更精确地定义样本百分位数.
+  05-04.tex:34 百分位数 | 当$1/(2n)<p<.5$时，第$100p$样本百分位数是$X_{(\{np\})}$；当$.5<p<1-1/(2n)$时，则是$X_{(n+1-\{n(1-p)\})}$.例如，若$n=12$，要求第65百分位数，注意$12\times(1-.65)=4.2$，且$12+1-4=9$，所以它是$X_{(9)}$.对$p$的范围有限制，是因为样本容量限制了样本百分位数的范围.
+  05-04.tex:36 百分位数 | 将$p<.5$与$p>.5$两种情形分别定义，是为了让样本百分位数具有如下对称性：若第$100p$样本百分位数为第$i$小的观测值，则第$100(1-p)$样本百分位数应为第$i$大的观测值，上述定义正好满足这一点.例如，$n=11$时，第30样本百分位数为$X_{(3)}$，第70样本百分位数为$X_{(9)}$.
+764:228 | Point estimator > approximation | 近似 | 197
+  05-05.tex:251 近似 | 现在可以近似$g(\boldsymbol T)$的方差：
+  05-05.tex:261 近似 | 最后的等号由展开平方、利用方差和协方差的定义得到（类似\autoref{exercise:4.44}）.近似\eqref{eq:5.5.9}十分有用，因为仅用简单的方差和协方差就给出一般函数的方差公式.下面给出两个例子.
+  05-05.tex:265 近似 | 由此得到估计量方差的近似.
+812:230 | Point estimator > ratio | 比值 | 199
+  05-05.tex:321 比值 | 当待估函数包含多个参数、估计量用到多个随机变量时，近似方法十分有用.生长研究中一个常见例子，是把体重与身高之比作为感兴趣变量.（回顾\autoref{sec:3}，两个正态随机变量之比服从Cauchy分布.比值问题对实验者很重要，但理论上十分棘手.）
+  05-05.tex:324 比值 | \begin{example}[比值估计量的矩]\label{ex:5.5.27}
+  05-05.tex:335 比值 | 由此得到比值估计量均值、方差的近似，而且只用到$\bar X$与$Y$的均值、方差和协方差.\footnote{译注：原文此处写$\bar X$与$Y$；按本例设定和前面的公式，应为$X$与$Y$.}精确计算几乎没有希望，也无法得到闭式表达式.
+839:200 | Probability density function (pdf) > sample | 样本 | 169
+  05-01.tex:2 样本 | \subsection{随机样本的基本概念}\label{sec:5.1}
+  05-01.tex:5 样本 | 若随机变量$X_1,\ldots,X_n$相互独立，且每个$X_i$的边际pdf或pmf都是同一个函数$f(x)$，则称$X_1,\ldots,X_n$为来自总体$f(x)$的容量为$n$的随机样本（random sample）.也称$X_1,\ldots,X_n$是具有pdf或pmf $f(x)$的独立同分布（independent and identically distributed）随机变量，通常简称为iid随机变量.
+  05-01.tex:13 样本 | 可用这一联合pdf或pmf计算涉及样本的概率.由于$X_1,\ldots,X_n$同分布，所有边际密度$f(x)$都是同一个函数.特别地，若总体pdf或pmf属于某个参数族，例如\autoref{sec:3}介绍的某个族，且pdf或pmf为$f(x\mid\theta)$，则联合pdf或pmf为
+847:232 | Probability integral transformation | 概率积分变换 | 201
+  05-06.tex:45 概率积分变换 | 生成随机变量的直接方法（direct method），是指存在闭式函数$g(u)$，当$U\sim\operatorname{uniform}(0,1)$时，变换后的$Y=g(U)$具有所需分布.回顾概率积分变换\autoref{thm:2.1.10}，它已对连续随机变量完成这一任务：将任意分布变为均匀分布.所以逆变换就能解决这里的问题.
+  05-06.tex:46 概率积分变换 | \begin{example}[概率积分变换]\label{ex:5.6.3}
+857:200 | Probability mass function (pmf) > sample | 样本 | 169
+  05-01.tex:2 样本 | \subsection{随机样本的基本概念}\label{sec:5.1}
+  05-01.tex:5 样本 | 若随机变量$X_1,\ldots,X_n$相互独立，且每个$X_i$的边际pdf或pmf都是同一个函数$f(x)$，则称$X_1,\ldots,X_n$为来自总体$f(x)$的容量为$n$的随机样本（random sample）.也称$X_1,\ldots,X_n$是具有pdf或pmf $f(x)$的独立同分布（independent and identically distributed）随机变量，通常简称为iid随机变量.
+  05-01.tex:13 样本 | 可用这一联合pdf或pmf计算涉及样本的概率.由于$X_1,\ldots,X_n$同分布，所有边际密度$f(x)$都是同一个函数.特别地，若总体pdf或pmf属于某个参数族，例如\autoref{sec:3}介绍的某个族，且pdf或pmf为$f(x\mid\theta)$，则联合pdf或pmf为
+860:216 | Quartile | 四分位数 | 185
+  05-04.tex:38 四分位数 | 除了中位数，还常用两个样本百分位数：下四分位数（lower quartile，第25百分位数）与上四分位数（upper quartile，第75百分位数）.有时用四分位距（interquartile range），即上、下四分位数之间的距离，衡量离散程度.
+861:245 | Random number generation | 随机数生成 | 214
+861:246 | Random number generation | 随机数生成 | 215
+863:231 | Random sample > generating | 生成 | 200
+  05-06.tex:3 生成 | \subsection{随机样本的生成}\label{sec:5.6}
+  05-06.tex:6 生成 | 所以，通常我们观测来自分布$f(x\mid\theta)$的随机变量$X_1,\ldots,X_n$，主要关心如何用$f(x\mid\theta)$的性质描述随机变量的行为.本节实质上将这一策略反过来，关心从给定分布$f(x\mid\theta)$生成随机样本$X_1,\ldots,X_n$.
+  05-06.tex:24 生成 | 计算\eqref{eq:5.6.2}这类表达式的一种模拟方法，是生成服从所需分布的随机变量，再用大数定律（\autoref{thm:5.5.2}）验证模拟的有效性.即若$Y_i$（$i=1,\ldots,n$）为iid，则该定理的一个推论（只要假设成立）是
+917:200 | Sample | 样本 | 169
+  05-01.tex:2 样本 | \subsection{随机样本的基本概念}\label{sec:5.1}
+  05-01.tex:5 样本 | 若随机变量$X_1,\ldots,X_n$相互独立，且每个$X_i$的边际pdf或pmf都是同一个函数$f(x)$，则称$X_1,\ldots,X_n$为来自总体$f(x)$的容量为$n$的随机样本（random sample）.也称$X_1,\ldots,X_n$是具有pdf或pmf $f(x)$的独立同分布（independent and identically distributed）随机变量，通常简称为iid随机变量.
+  05-01.tex:13 样本 | 可用这一联合pdf或pmf计算涉及样本的概率.由于$X_1,\ldots,X_n$同分布，所有边际密度$f(x)$都是同一个函数.特别地，若总体pdf或pmf属于某个参数族，例如\autoref{sec:3}介绍的某个族，且pdf或pmf为$f(x\mid\theta)$，则联合pdf或pmf为
+918:208 | Sample > exponential family | 指数族 | 177
+  05-02.tex:160 指数族 | 从指数族抽样时，随机样本中某些和的抽样分布容易推导.下一个定理中的$T_1,\ldots,T_k$是重要的样本概要统计量，这将在\autoref{sec:6.2}中看到.
+  05-02.tex:164 指数族 | 是指数族的一个成员.定义统计量$T_1,\ldots,T_k$为
+  05-02.tex:166 指数族 | 若集合$\{(w_1(\theta),w_2(\theta),\ldots,w_k(\theta)),\theta\in\Theta\}$包含$\mathbb R^k$的一个开子集，则$(T_1,\ldots,T_k)$的分布是形如下式的指数族：
+919:201 | Sample > finite population | 有限总体 | 170
+  05-01.tex:43 有限总体 | 从有限总体中抽样时，\autoref{def:5.1.1}是否适用取决于数据收集的方式.有限总体是一个有限数集$\{x_1,\ldots,x_N\}$.要从此总体中抽出样本$X_1,\ldots,X_n$.\autoref{sec:1.2.3}描述了四种抽取方法，这里讨论前两种.
+  05-01.tex:18 样本 | 其中乘积的每一项都使用同一个参数值$\theta$.在统计问题中，若假定所观测总体属于某个指定的参数族，但真实参数值未知，则来自该总体的随机样本具有上述形式的联合pdf或pmf，其中$\theta$未知.考察$\theta$的不同可能值，就能研究来自不同总体的随机样本会有怎样的表现.
+  05-01.tex:19 样本 | \begin{example}[样本pdf——指数分布]\label{ex:5.1.2}
+920:201 | Sample > infinite population | 无限总体 | 170
+  05-01.tex:41 无限总体 | \autoref{def:5.1.1}中的随机抽样模型有时称为从无限总体中抽样.可以把它想象为依次取得$X_1,\ldots,X_n$的值.首先进行实验，观测到$X_1=x_1$；然后重复实验，观测到$X_2=x_2$.随机抽样中的独立性假定意味着，先观测到$X_1=x_1$这一事实不影响$X_2$的概率分布.从无限总体中“取出”$x_1$并不改变总体，因此$X_2=x_2$仍是来自同一总体的一个随机观测.
+  05-01.tex:18 样本 | 其中乘积的每一项都使用同一个参数值$\theta$.在统计问题中，若假定所观测总体属于某个指定的参数族，但真实参数值未知，则来自该总体的随机样本具有上述形式的联合pdf或pmf，其中$\theta$未知.考察$\theta$的不同可能值，就能研究来自不同总体的随机样本会有怎样的表现.
+  05-01.tex:19 样本 | \begin{example}[样本pdf——指数分布]\label{ex:5.1.2}
+921:203 | Sample > mean | 均值 | 172
+  05-02.tex:7 均值 | 统计量的定义十分宽泛，唯一的限制是统计量不能是参数的函数.统计量给出的样本概要可包含多种信息.例如，它可以给出样本的最小值或最大值、样本平均值，或样本观测值变异程度的度量.下面定义三个常用且能很好概括样本的统计量.
+  05-02.tex:9 均值 | 样本均值（sample mean）是随机样本各数值的算术平均，通常记为
+  05-02.tex:2 样本 | \subsection{随机样本中的随机变量之和}\label{sec:5.2}
+922:207 | Sample > mean > Cauchy | 柯西 | 176
+  05-02.tex:137 Cauchy | 作为矩母函数方法失效的例子，考虑从Cauchy分布抽样.我们最终要推导$\bar Z$的分布，其中$\bar Z$是iid $\operatorname{Cauchy}(0,1)$观测$Z_1,\ldots,Z_n$的均值.不过，先从两个独立Cauchy随机变量之和的分布入手，应用\eqref{eq:5.2.3}.
+  05-02.tex:139 Cauchy | 设$U$和$V$是独立的Cauchy随机变量，$U\sim\operatorname{Cauchy}(0,\sigma)$，$V\sim\operatorname{Cauchy}(0,\tau)$，即
+  05-02.tex:149 Cauchy | 因此，两个独立Cauchy随机变量之和仍服从Cauchy分布，其尺度参数相加.由此，若$Z_1,\ldots,Z_n$为iid $\operatorname{Cauchy}(0,1)$随机变量，则$\sum Z_i$服从$\operatorname{Cauchy}(0,n)$，而且$\bar Z$仍服从$\operatorname{Cauchy}(0,1)$！样本均值与单个观测具有相同的分布.（这一计算的计算机代数版本，见计算机代数附录中的\autoref{ex:12.6.5
+923:205 | Sample > mean > expected value | 期望值 | 174
+  05-02.tex:78 均值 | 设$X_1,\ldots,X_n$为来自均值为$\mu$、方差为$\sigma^2<\infty$的总体的随机样本.则
+  05-02.tex:90 样本 | 对样本方差，利用\autoref{thm:5.2.4}，有
+924:208 | Sample > mean > location–scale | 位置尺度 | 177
+  05-03.tex:3 样本 | 本节讨论从正态总体抽取的样本量的性质；正态总体仍然是应用最广的统计模型之一.从正态总体抽样会使样本统计量具有许多有用的性质，也会产生许多熟知的抽样分布.
+  05-02.tex:158 样本 | \autoref{ex:5.2.10}说明，若$Z_1,\ldots,Z_n$为来自$\operatorname{Cauchy}(0,1)$分布的随机样本，则$\bar Z$也服从$\operatorname{Cauchy}(0,1)$分布.现在可以断定，若$X_1,\ldots,X_n$为来自$\operatorname{Cauchy}(\mu,\sigma)$分布的随机样本，则$\bar X$也服从$\operatorname{Cauchy}(\mu,\sigma)$分布
+  05-02.tex:160 样本 | 从指数族抽样时，随机样本中某些和的抽样分布容易推导.下一个定理中的$T_1,\ldots,T_k$是重要的样本概要统计量，这将在\autoref{sec:6.2}中看到.
+925:206 | Sample > mean > mgf | 矩母函数 | 175
+  05-02.tex:102 矩母函数 | 先指出一些简单关系.由于$\bar X=(X_1+\cdots+X_n)/n$，若$f(y)$是$Y=X_1+\cdots+X_n$的pdf，则$f_{\bar X}(x)=nf(nx)$是$\bar X$的pdf（见\autoref{exercise:5.5}）.因此，关于$Y$的pdf的结果容易转化为关于$\bar X$的pdf的结果.矩母函数也有类似关系：
+  05-02.tex:106 矩母函数 | 设$X_1,\ldots,X_n$是来自矩母函数为$M_X(t)$的总体的随机样本，则样本均值的矩母函数为
+  05-02.tex:109 矩母函数 | 当然，只有当$M_{\bar X}(t)$的表达式是某个熟悉的矩母函数时，\autoref{thm:5.2.7}才有用.这种情况比较有限，但下面的例子表明，一旦这种方法适用，就能十分巧妙地推导出$\bar X$的抽样分布.
+926:206 | Sample > mean > normal | 正态 | 175
+  05-02.tex:106 均值 | 设$X_1,\ldots,X_n$是来自矩母函数为$M_X(t)$的总体的随机样本，则样本均值的矩母函数为
+  05-02.tex:110 均值 | \begin{example}[均值的分布]\label{ex:5.2.8}
+  05-02.tex:111 均值 | 设$X_1,\ldots,X_n$为来自$n(\mu,\sigma^2)$总体的随机样本.样本均值的矩母函数为
+926:209 | Sample > mean > normal | 正态 | 178
+  05-03.tex:6 正态 | 前面已经看到，一般情形下如何计算$\bar X$与$S^2$的均值和方差.现在加上正态性假设，就可以推导它们的完整分布以及更多结论.下面的定理概括了$\bar X$与$S^2$的性质.
+  05-03.tex:5 均值 | \subsubsection{样本均值与方差的性质}\label{sec:5.3.1}
+  05-03.tex:8 样本 | 设$X_1,\ldots,X_n$为来自$n(\mu,\sigma^2)$分布的随机样本，$\bar X=(1/n)\sum_{i=1}^nX_i$，$S^2=[1/(n-1)]\sum_{i=1}^n(X_i-\bar X)^2$.则
+927:239 | Sample > mean > pdf | 概率密度函数 | 208
+  05-07.tex:10 均值 | \item 证明直到第一次超过$X_1$所需年数的均值为无穷.
+  05-07.tex:31 均值 | 设$X_1,\ldots,X_n$为iid，pdf为$f_X(x)$，样本均值为$\bar X$.证明即使$X$的矩母函数不存在，也有
+  05-07.tex:4 样本 | 某总体有1\%的人是色盲.若要样本中包含色盲者的概率至少为.95，样本容量须多大？（假定总体大到可视为无限总体，抽样可视为有放回抽样.）
+928:241 | Sample > mean > recursion relation | 递推关系 | 210
+  05-07.tex:101 递推关系 | 建立以下均值、方差的递推关系.设$\bar X_n$和$S_n^2$分别为$X_1,\ldots,X_n$的均值与方差，又取得一个观测$X_{n+1}$.证明
+  05-07.tex:113 均值 | \begin{enumerate}[label=(\alph*)]\item 推导$X$的pdf.\item 推导$X$的均值与方差.\item 证明$1/X$服从$F_{q,p}$分布.\item 证明$(p/q)X/[1+(p/q)X]$服从参数为$p/2$和$q/2$的beta分布.\end{enumerate}
+  05-07.tex:118 均值 | \item 推导$X$的均值和方差.
+930:215 | Sample > median | 中位数 | 184
+  05-04.tex:3 中位数 | 随机样本中的最小、最大或中间观测值等，可以提供额外的概要信息.例如，为未来紧急情况制定计划时，过去50年记录到的最高洪水水位或最低冬季气温可能是有用的数据.上个月出售房屋的价格中位数可能有助于估计生活成本.这些都是次序统计量（order statistics）的例子.
+  05-04.tex:18 中位数 | 样本中位数（sample median）记为$M$，大约一半的观测小于$M$，另一半大于$M$.用次序统计量定义为
+  05-04.tex:24 中位数 | 中位数是一种位置度量，可以作为样本均值的替代量.样本中位数相对于样本均值的一个优点，是它受极端观测值的影响较小（详见\autoref{sec:10.2}）.
+931:219 | Sample > midrange | 中程数 | 188
+  05-04.tex:124 中程数 | \begin{example}[中程数与极差的分布]\label{ex:5.4.7}
+  05-04.tex:125 中程数 | 设$X_1,\ldots,X_n$为iid $\operatorname{uniform}(0,a)$，次序统计量为$X_{(1)},\ldots,X_{(n)}$.前面已定义极差$R=X_{(n)}-X_{(1)}$.中程数（midrange）与样本中位数或均值一样，是位置度量，定义为$V=(X_{(1)}+X_{(n)})/2$.我们由$X_{(1)}$与$X_{(n)}$的联合pdf推导$R$与$V$的联合pdf.由\eqref{eq:5.4.6}有
+  05-05.tex:3 样本 | 本节考虑让样本容量趋于无穷这一有些理想化的想法，并研究在此过程中某些样本量的行为.虽然无限样本容量只是理论构造，但它往往能为有限样本情形提供有用的近似，因为表达式通常会在极限中简化.
+932:200 | Sample > pdf, pmf | 概率密度函数与概率质量函数 | 169
+  05-01.tex:2 样本 | \subsection{随机样本的基本概念}\label{sec:5.1}
+  05-01.tex:5 样本 | 若随机变量$X_1,\ldots,X_n$相互独立，且每个$X_i$的边际pdf或pmf都是同一个函数$f(x)$，则称$X_1,\ldots,X_n$为来自总体$f(x)$的容量为$n$的随机样本（random sample）.也称$X_1,\ldots,X_n$是具有pdf或pmf $f(x)$的独立同分布（independent and identically distributed）随机变量，通常简称为iid随机变量.
+  05-01.tex:13 样本 | 可用这一联合pdf或pmf计算涉及样本的概率.由于$X_1,\ldots,X_n$同分布，所有边际密度$f(x)$都是同一个函数.特别地，若总体pdf或pmf属于某个参数族，例如\autoref{sec:3}介绍的某个族，且pdf或pmf为$f(x\mid\theta)$，则联合pdf或pmf为
+933:215 | Sample > range | 极差 | 184
+  05-04.tex:16 极差 | 样本极差（sample range）$R=X_{(n)}-X_{(1)}$是最小观测值与最大观测值之间的距离.它衡量样本的离散程度，应反映总体的离散程度.
+  05-04.tex:3 样本 | 随机样本中的最小、最大或中间观测值等，可以提供额外的概要信息.例如，为未来紧急情况制定计划时，过去50年记录到的最高洪水水位或最低冬季气温可能是有用的数据.上个月出售房屋的价格中位数可能有助于估计生活成本.这些都是次序统计量（order statistics）的例子.
+  05-04.tex:5 样本 | 随机样本$X_1,\ldots,X_n$的次序统计量，是将样本值按递增次序排列后所得的值，记为$X_{(1)},\ldots,X_{(n)}$.
+934:202 | Sample > simple random | 简单随机 | 171
+  05-01.tex:59 简单随机 | 从有限总体无放回抽样有时称为简单随机抽样（simple random sampling）.必须认识到，它与\autoref{def:5.1.1}描述的抽样情形不同.不过，若总体容量$N$远大于样本容量$n$，则$X_1,\ldots,X_n$近似独立，可以假定它们独立来进行某些近似概率计算.说它们“近似独立”，仅仅意味着给定$X_1,\ldots,X_{i-1}$时$X_i$的条件分布与其边际分布差别不大.例如，给定$X_1$时$X_2$的条件分布是
+  05-01.tex:47 样本 | 把第二次选中的值记为$X_2=x_2$.（若选中同一个数，则$x_1=x_2$.）将从这$N$个值中抽取的过程重复$n$次，就得到样本$X_1,\ldots,X_n$.这种抽样称为有放回抽样（sampling with replacement），因为每一阶段选中的值都“放回”总体，在下一阶段仍可被选中.这种抽样满足\autoref{def:5.1.1}的条件.每个$X_i$都是离散随机变量，等概率地取$x_1,\ldots,x_N$中的各个值.随机变量$X_1,\ldots,
+  05-01.tex:49 样本 | 从有限总体抽取随机样本的第二种方法称为无放回抽样（sampling without replacement）.其方法如下：从$\{x_1,\ldots,x_N\}$中选取一个值，各个值被选中的概率均为$1/N$，记为$X_1=x_1$.然后从剩余的$N-1$个值中选取第二个值，每个值被选中的概率均为$1/(N-1)$，记为$X_2=x_2$.继续以这种方式选取其余值，得到样本$X_1,\ldots,X_n$.但一个值一旦被选中，就不能在之后的任何阶段再次被选中.
+935:204 | Sample > standard deviation | 标准差 | 173
+  05-02.tex:16 标准差 | 样本标准差（sample standard deviation）是统计量$S=\sqrt{S^2}$.
+  05-02.tex:20 标准差 | 大家当然都熟悉样本均值.样本方差和标准差是衡量样本变异程度的量，它们与总体方差和标准差的关系将在下面说明.先推导样本均值和方差的一些性质.特别地，\autoref{thm:5.2.4}给出的样本方差关系与总体方差的类似关系\eqref{eq:2.3.1}相对应.
+  05-02.tex:14 样本 | 样本方差（sample variance）是如下定义的统计量：
+936:204 | Sample > variance | 方差 | 173
+  05-02.tex:14 方差 | 样本方差（sample variance）是如下定义的统计量：
+  05-02.tex:20 方差 | 大家当然都熟悉样本均值.样本方差和标准差是衡量样本变异程度的量，它们与总体方差和标准差的关系将在下面说明.先推导样本均值和方差的一些性质.特别地，\autoref{thm:5.2.4}给出的样本方差关系与总体方差的类似关系\eqref{eq:2.3.1}相对应.
+  05-02.tex:16 样本 | 样本标准差（sample standard deviation）是统计量$S=\sqrt{S^2}$.
+937:249 | Sample > variance > bias | 偏差 | 218
+  05-08.tex:11 偏差 | \subsubsection{\texorpdfstring{$S^2$}{S²}的偏差}\label{sec:5.8.2}
+  05-08.tex:12 偏差 | 本章多数计算假定观测相互独立，一些期望的计算也依赖这一事实.H. A. David（1985）指出，若观测相关，$S^2$可能是$\sigma^2$的有偏估计，即$ES^2=\sigma^2$未必成立.但可能偏差的范围很容易计算.若随机变量$X_1,\ldots,X_n$（不一定独立）都具有均值$\mu$、方差$\sigma^2$，则
+  05-08.tex:8 方差 | 注意这是一个方差条件.它虽不完全要求方差有限，却要求方差“几乎”有限.这是收敛到正态分布的重要一点：正态性来自小扰动之和.
+938:205 | Sample > variance > expected value | 期望值 | 174
+  05-02.tex:61 方差 | &=E\left[\sum_{i=1}^n g(X_i)-E\left(\sum_{i=1}^n g(X_i)\right)\right]^2&&\text{（方差的定义）}\\
+  05-02.tex:66 方差 | E(g(X_i)-Eg(X_i))^2&=\operatorname{Var}g(X_i)&&\text{（方差的定义）}\\
+  05-02.tex:72 方差 | &\quad=\operatorname{Cov}(g(X_i),g(X_j))&&\text{（协方差的定义）}\\
+939:240 | Sample > variance > identity | 恒等式 | 209
+  05-07.tex:67 恒等式 | 证明Lagrange恒等式：对任意数$a_1,a_2,\ldots,a_n$和$b_1,b_2,\ldots,b_n$，
+  05-07.tex:69 恒等式 | 利用此恒等式证明，相关系数等于1，当且仅当全部样本点位于一条直线上（Wright 1992）.\footnote{译注：原文写相关系数“等于1”.一般直线上的点可能具有负斜率，正确的共线刻画应是相关系数绝对值为1，并要求两组样本方差非零；等于$+1$还须正斜率.}提示：先证明$n=2$，再用归纳法.
+  05-07.tex:80 方差 | 设$\bar X$与$S^2$由来自方差$\sigma^2$有限的总体的随机样本$X_1,\ldots,X_n$计算.已知$ES^2=\sigma^2$.证明$ES\le\sigma$，且若$\sigma^2>0$，则$ES<\sigma$.
+940:209 | Sample > variance > normal | 正态 | 178
+  05-03.tex:6 正态 | 前面已经看到，一般情形下如何计算$\bar X$与$S^2$的均值和方差.现在加上正态性假设，就可以推导它们的完整分布以及更多结论.下面的定理概括了$\bar X$与$S^2$的性质.
+  05-03.tex:5 方差 | \subsubsection{样本均值与方差的性质}\label{sec:5.3.1}
+  05-03.tex:8 样本 | 设$X_1,\ldots,X_n$为来自$n(\mu,\sigma^2)$分布的随机样本，$\bar X=(1/n)\sum_{i=1}^nX_i$，$S^2=[1/(n-1)]\sum_{i=1}^n(X_i-\bar X)^2$.则
+941:241 | Sample > variance > recursion relation | 递推关系 | 210
+  05-07.tex:101 递推关系 | 建立以下均值、方差的递推关系.设$\bar X_n$和$S_n^2$分别为$X_1,\ldots,X_n$的均值与方差，又取得一个观测$X_{n+1}$.证明
+  05-07.tex:113 方差 | \begin{enumerate}[label=(\alph*)]\item 推导$X$的pdf.\item 推导$X$的均值与方差.\item 证明$1/X$服从$F_{q,p}$分布.\item 证明$(p/q)X/[1+(p/q)X]$服从参数为$p/2$和$q/2$的beta分布.\end{enumerate}
+  05-07.tex:118 方差 | \item 推导$X$的均值和方差.
+942:202 | Sample > with replacement | 有放回 | 171
+  05-01.tex:47 有放回 | 把第二次选中的值记为$X_2=x_2$.（若选中同一个数，则$x_1=x_2$.）将从这$N$个值中抽取的过程重复$n$次，就得到样本$X_1,\ldots,X_n$.这种抽样称为有放回抽样（sampling with replacement），因为每一阶段选中的值都“放回”总体，在下一阶段仍可被选中.这种抽样满足\autoref{def:5.1.1}的条件.每个$X_i$都是离散随机变量，等概率地取$x_1,\ldots,x_N$中的各个值.随机变量$X_1,\ldots,
+  05-01.tex:49 样本 | 从有限总体抽取随机样本的第二种方法称为无放回抽样（sampling without replacement）.其方法如下：从$\{x_1,\ldots,x_N\}$中选取一个值，各个值被选中的概率均为$1/N$，记为$X_1=x_1$.然后从剩余的$N-1$个值中选取第二个值，每个值被选中的概率均为$1/(N-1)$，记为$X_2=x_2$.继续以这种方式选取其余值，得到样本$X_1,\ldots,X_n$.但一个值一旦被选中，就不能在之后的任何阶段再次被选中.
+  05-01.tex:51 样本 | 从有限总体无放回抽出的样本不满足\autoref{def:5.1.1}的全部条件.随机变量$X_1,\ldots,X_n$并不相互独立.为说明这一点，设$x$和$y$是$\{x_1,\ldots,x_N\}$中的不同元素.则$P(X_2=y\mid X_1=y)=0$，因为若第一个阶段已选中$y$，第二个阶段便不能再选中它.然而，$P(X_2=y\mid X_1=x)=1/(N-1)$.因此$X_2$的概率分布依赖于观测到的$X_1$值，故$X_1$与$X_2$不独立.不过，
+943:202 | Sample > without replacement | 无放回 | 171
+  05-01.tex:49 无放回 | 从有限总体抽取随机样本的第二种方法称为无放回抽样（sampling without replacement）.其方法如下：从$\{x_1,\ldots,x_N\}$中选取一个值，各个值被选中的概率均为$1/N$，记为$X_1=x_1$.然后从剩余的$N-1$个值中选取第二个值，每个值被选中的概率均为$1/(N-1)$，记为$X_2=x_2$.继续以这种方式选取其余值，得到样本$X_1,\ldots,X_n$.但一个值一旦被选中，就不能在之后的任何阶段再次被选中.
+  05-01.tex:51 无放回 | 从有限总体无放回抽出的样本不满足\autoref{def:5.1.1}的全部条件.随机变量$X_1,\ldots,X_n$并不相互独立.为说明这一点，设$x$和$y$是$\{x_1,\ldots,x_N\}$中的不同元素.则$P(X_2=y\mid X_1=y)=0$，因为若第一个阶段已选中$y$，第二个阶段便不能再选中它.然而，$P(X_2=y\mid X_1=x)=1/(N-1)$.因此$X_2$的概率分布依赖于观测到的$X_1$值，故$X_1$与$X_2$不独立.不过，
+  05-01.tex:59 无放回 | 从有限总体无放回抽样有时称为简单随机抽样（simple random sampling）.必须认识到，它与\autoref{def:5.1.1}描述的抽样情形不同.不过，若总体容量$N$远大于样本容量$n$，则$X_1,\ldots,X_n$近似独立，可以假定它们独立来进行某些近似概率计算.说它们“近似独立”，仅仅意味着给定$X_1,\ldots,X_{i-1}$时$X_i$的条件分布与其边际分布差别不大.例如，给定$X_1$时$X_2$的条件分布是
+945:219 | Sample range > uniform | 均匀 | 188
+  05-04.tex:125 uniform | 设$X_1,\ldots,X_n$为iid $\operatorname{uniform}(0,a)$，次序统计量为$X_{(1)},\ldots,X_{(n)}$.前面已定义极差$R=X_{(n)}-X_{(1)}$.中程数（midrange）与样本中位数或均值一样，是位置度量，定义为$V=(X_{(1)}+X_{(n)})/2$.我们由$X_{(1)}$与$X_{(n)}$的联合pdf推导$R$与$V$的联合pdf.由\eqref{eq:5.4.6}有
+951:203 | Sampling distribution | 抽样分布 | 172
+  05-02.tex:3 抽样分布 | 抽得样本$X_1,\ldots,X_n$后，通常会计算这些数值的某种概要.任何定义明确的概要，在数学上都可以表示为函数$T(x_1,\ldots,x_n)$，其定义域包含随机向量$(X_1,\ldots,X_n)$的样本空间.函数$T$可以取实数值，也可以取向量值；因此这种概要是一个随机变量（或向量）$Y=T(X_1,\ldots,X_n)$.\autoref{sec:4}详细讨论了把随机变量定义为其他随机变量的函数的方法；该章的方法可用来根据产生样本的总体分布描述$Y$的分
+  05-02.tex:5 抽样分布 | 设$X_1,\ldots,X_n$为来自某总体的容量为$n$的随机样本，$T(x_1,\ldots,x_n)$为实值或向量值函数，其定义域包含$(X_1,\ldots,X_n)$的样本空间.则随机变量或随机向量$Y=T(X_1,\ldots,X_n)$称为统计量（statistic）.统计量$Y$的概率分布称为$Y$的抽样分布.
+979:226 | Slutsky’s Theorem | Slutsky定理 | 195
+  05-05.tex:196 Slutsky定理 | 一种可结合中心极限定理使用的近似工具称为Slutsky定理.
+  05-05.tex:197 Slutsky定理 | \begin{theorem}[Slutsky定理]\label{thm:5.5.17}
+  05-05.tex:204 Slutsky定理 | Slutsky定理的证明略去，因为它依赖于尚未讨论的依分布收敛的一种刻画.下面的例子说明一种典型应用.
+981:203 | Statistic | 统计量 | 172
+  05-02.tex:5 统计量 | 设$X_1,\ldots,X_n$为来自某总体的容量为$n$的随机样本，$T(x_1,\ldots,x_n)$为实值或向量值函数，其定义域包含$(X_1,\ldots,X_n)$的样本空间.则随机变量或随机向量$Y=T(X_1,\ldots,X_n)$称为统计量（statistic）.统计量$Y$的概率分布称为$Y$的抽样分布.
+  05-02.tex:7 统计量 | 统计量的定义十分宽泛，唯一的限制是统计量不能是参数的函数.统计量给出的样本概要可包含多种信息.例如，它可以给出样本的最小值或最大值、样本平均值，或样本观测值变异程度的度量.下面定义三个常用且能很好概括样本的统计量.
+985:244 | Stirling’s formula | Stirling公式 | 213
+  05-07.tex:229 Stirling公式 | Stirling公式给出阶乘的近似，已在\autoref{exercise:1.28}推导，也容易由中心极限定理推出.
+  05-07.tex:236 Stirling公式 | 且令$x=0$可得Stirling公式.
+990:241 | Stochastic order > increasing > chi squared | 卡方 | 210
+  05-07.tex:109 卡方 | \begin{enumerate}[label=(\alph*)]\item 自由度为3的卡方分布.\item 自由度为2的$t$分布.\item 自由度为1和2的$F$分布.\end{enumerate}
+  05-07.tex:129 递增 | \item 证明$\chi^2$分布随自由度随机递增（stochastically increasing）：若$p>q$，则对任意$a$有$P(\chi_p^2>a)\ge P(\chi_q^2>a)$，且对某个$a$严格不等号成立.
+  05-07.tex:130 递增 | \item 用(a)证明，对任意$\nu$，$kF_{k,\nu}$随$k$随机递增.
+991:241 | Stochastic order > increasing > F | F | 210
+  05-07.tex:109 F | \begin{enumerate}[label=(\alph*)]\item 自由度为3的卡方分布.\item 自由度为2的$t$分布.\item 自由度为1和2的$F$分布.\end{enumerate}
+  05-07.tex:119 F | \item 证明$X^2$服从自由度为1和$p$的$F$分布.
+  05-07.tex:120 f | \item 以$f(x\mid p)$表示$X$的pdf.证明对每个$-\infty<x<\infty$，
+995:250 | Strong Law of Large Numbers | 强大数定律 | 219
+  05-08.tex:28 强大数定律 | \subsubsection{强大数定律补充}\label{sec:5.8.4}
+  05-08.tex:29 强大数定律 | 如前所述，强大数定律\autoref{thm:5.5.9}可在较弱条件下证明，只要求随机变量的均值有限（例如见Resnick 1999，第7章；或Billingsley 1995，第22节）.不过，在矩母函数存在的假设下，Koopmans（1993）给出了只使用微积分的证明.
+  05-08.tex:31 强大数定律 | 强大数定律所断言的收敛是我们最熟悉的一种，即随机变量序列$\bar X_n$逐点收敛到共同均值$\mu$.由\autoref{ex:5.5.8}可知，它比弱大数定律的依概率收敛更强.
+1029:227 | Taylor series | 泰勒级数 | 196
+  EN  PROPERTIES OF A RANDOM SAMPLE One method of proceeding is based on using a Taylor series approximation, which allows us to approximate the mean and variance of a function of a random variable. We will also see that these rather straightforward appr
+  EN her straightforward approximations are good enough to obtain a CLT. We begin with a short review of Taylor series. d r Definition 5.5.20 If a function g(x) has derivatives 
+1030:227 | Taylor’s Theorem | 泰勒定理 | 196
+  EN  a r! For the statistical application of Taylor’s Theorem, we are most concerned with the first-order Taylor series, that is, an approximation using just the first derivative (taking r = 1 in the above formulas). Furt
+1031:224 | Taylor’s Theorem > use in CLT | 在中心极限定理中的用途 | 193
+  EN  . n k=3 k! An application of Taylor’s Theorem (Theorem 5.5.21) shows that, for fixed t ̸= 0, we have √ RY (t/ n) 
+1038:233 | Transformation > Box-Muller | Box–Muller | 202
+  05-06.tex:81 Box–Muller | \begin{example}[Box–Muller，1958]\label{ex:5.6.4}
+  05-06.tex:70 变换 | 还可以作许多变形（见\autoref{exercise:5.47}—\autoref{exercise:5.49}），但都由指数—均匀变换导出.
+  05-06.tex:72 变换 | 遗憾的是，这一变换有局限.例如，不能用它生成奇数自由度的$\chi^2$随机变量，所以不能得到$\chi_1^2$，进而得到极其有用的$\operatorname{normal}(0,1)$随机变量.下一小节会再讨论此问题.
+1041:232 | Transformation > probability integral | 概率积分 | 201
+  05-06.tex:45 概率积分 | 生成随机变量的直接方法（direct method），是指存在闭式函数$g(u)$，当$U\sim\operatorname{uniform}(0,1)$时，变换后的$Y=g(U)$具有所需分布.回顾概率积分变换\autoref{thm:2.1.10}，它已对连续随机变量完成这一任务：将任意分布变为均匀分布.所以逆变换就能解决这里的问题.
+  05-06.tex:46 概率积分 | \begin{example}[概率积分变换]\label{ex:5.6.3}
+  05-06.tex:43 变换 | 既然从均匀随机变量出发，这里真正的问题便不是生成所需随机变量，而是把均匀随机变量变换成所需分布.基本上有两类一般方法，我们把它们称为直接方法和间接方法，尽管这两个名称并没有提供多少信息.
+1044:206 | Unbiased estimator | 无偏估计量 | 175
+  05-02.tex:98 无偏估计量 | \autoref{thm:5.2.6}中的\hyperref[item:5.2.6a]{(a)}和\hyperref[item:5.2.6c]{(c)}是统计量与总体参数之间的关系，也是无偏统计量（unbiased statistics）的例子.\autoref{sec:7}将讨论这些概念.$\bar X$是$\mu$的无偏估计量，$S^2$是$\sigma^2$的无偏估计量.$S^2$定义中使用$n-1$可能显得不够直观；现在可以看出，这样定义使$ES^2=\sigma^2
+1068:204 | Variance > sum | 和 | 173
+  05-02.tex:14 方差 | 样本方差（sample variance）是如下定义的统计量：
+  05-02.tex:20 方差 | 大家当然都熟悉样本均值.样本方差和标准差是衡量样本变异程度的量，它们与总体方差和标准差的关系将在下面说明.先推导样本均值和方差的一些性质.特别地，\autoref{thm:5.2.4}给出的样本方差关系与总体方差的类似关系\eqref{eq:2.3.1}相对应.
+1069:228 | Variance > Taylor approximation | 泰勒近似 | 197
+  05-05.tex:251 方差 | 现在可以近似$g(\boldsymbol T)$的方差：
+  05-05.tex:261 方差 | 最后的等号由展开平方、利用方差和协方差的定义得到（类似\autoref{exercise:4.44}）.近似\eqref{eq:5.5.9}十分有用，因为仅用简单的方差和协方差就给出一般函数的方差公式.下面给出两个例子.
+  05-05.tex:265 方差 | 由此得到估计量方差的近似.

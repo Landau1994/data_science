@@ -1,0 +1,48 @@
+EXERCISES                                                                  295
+7.46 Let X1,X2, and X3 be a random sample of size three from a uniform(θ,2θ) distribution, where θ > 0.
+       (a) Find the method of moments estimator of θ.
+      (b) Find the MLE, ˆθ, and find a constant k such that Eθ(k ˆθ) = θ.
+       (c) Which of the two estimators can be improved by using sufficiency? How?
+      (d) Find the method of moments estimate and the MLE of θ based on the data
+
+                                                 1.29, .86, 1.33,
+
+          three observations of average berry sizes (in centimeters) of wine grapes.
+7.47 Suppose that when measuring the radius of a circle, an error is made that has a n(0,σ2) distribution.
+       If n independent measurements are made, find an unbiased estimator of the area of the circle. Is it best
+      unbiased?
+7.48 Suppose that Xi,i = 1,...,n, are iid Bernoulli(p).
+       (a) Show that the variance of the MLE of p attains the Cram´er–Rao Lower Bound.
+      (b) For n ≥4, show that the product X1X2X3X4 is an unbiased estimator of p4, and use this fact to find          the best unbiased estimator of p4.
+7.49 Let X1,...,Xn be iid exponential(λ).
+       (a) Find an unbiased estimator of λ based only on Y = min{X1,...,Xn}.
+      (b) Find a better estimator than the one in part (a). Prove that it is better.
+       (c) The following data are high-stress failure times (in hours) of Kevlar/epoxy spherical vessels used in
+         a sustained pressure environment on the space shuttle:
+
+                  50.1, 70.1, 137.0, 166.9, 170.5, 152.8, 80.5, 123.5, 112.6, 148.5, 160.0, 125.4.
+
+          Failure times are often modeled with the exponential distribution. Estimate the mean failure time
+         using the estimators from parts (a) and (b).
+7.50 Let X1,...,Xn be iid n(θ,θ2),θ > 0. For this model both ¯X and cS are unbiased estimators of θ, where
+      c = √n−1Γ((n−1)/2) .         √2Γ(n/2)
+       (a) Prove that for any number a the estimator a¯X +(1−a)(cS) is an unbiased estimator of θ.
+      (b) Find the value of a that produces the estimator with minimum variance.
+       (c) Show that (¯X,S2) is a sufficient statistic for θ but it is not a complete sufficient statistic.
+7.51 Gleser and Healy (1976) give a detailed treatment of the estimation problem in the n(θ,aθ2) family,
+     where a is a known constant (of which Exercise 7.50 is a special case). We explore a small part of their
+       results here. Again, let X1,...,Xn be iid n(θ,θ2), θ > 0, and let ¯X and cS be as in Exercise 7.46. Define
+      the class of estimators
+                      T = {T: T = a1 ¯X +a2(cS)},
+     where we do not assume that a1 +a2 = 1.
+       (a) Find the estimator T ∈T that minimizes Eθ(θ −T)2, call it T ∗.
+      (b) Show that the MSE of T ∗is smaller than the MSE of the estimator derived in Exercise 7.50b.
+       (c) Show that the MSE of T ∗+ = max{0,T ∗} is smaller than the MSE of T ∗.
+      (d) Would θ be classified as a location parameter or a scale parameter? Explain.
+7.52 Let X1,...,Xn be iid Poisson(λ), and let ¯X and S2 denote the sample mean and variance, respectively.
+    We now complete Example 7.3.8 in a different way. There we used the Cram´er–Rao Bound; now we use
+      completeness.
+       (a) Prove that ¯X is the best unbiased estimator of λ, without using the Cram´er–Rao Theorem.
+                             = ¯X, and use it to explicitly demonstrate that VarS2 >      (b) Prove the rather remarkable identity E(S2|¯X)         Var ¯X.
+       (c) Using completeness, can a general theorem be formulated for which the identity in part (b) is a
+          special case?

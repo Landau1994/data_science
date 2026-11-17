@@ -1,0 +1,57 @@
+MOMENTS AND MOMENT GENERATING FUNCTIONS                            49
+
+
+
+             5
+
+
+
+             4
+                       l = 1
+                                  5
+
+
+             3
+                      l = 1
+                                 3
+
+
+             2
+
+
+                         l = 1
+
+             1
+
+
+
+             0                                                                           x
+               0                  1                  2                  3
+
+                           Figure 2.3.1 Exponential densities for λ = 1, 13, 15
+
+Example 2.3.3 (Exponential variance)   Let X have the exponential(λ) distribution, defined in
+Example 2.2.2. There we calculated EX = λ, and we can now calculate the variance by
+
+                                         ∞       1
+                         =                  VarX =  E(X −λ)2                                                          0 (x−λ)2 λ e−x/λ dx
+                             ∞             1
+                =                                        (x2 −2xλ +λ 2) λ e−x/λ dx.                                         0
+
+To complete the integration, we can integrate each of the terms separately, using integration by parts
+on the terms involving x and x2. Upon doing this, we find that VarX = λ 2.                   ∥
+  We see that the variance of an exponential distribution is directly related to the parameter λ.
+Figure 2.3.1 shows several exponential distributions corresponding to different values of λ. Notice
+how the distribution is more concentrated about its mean for smaller values of λ. The behavior of the
+variance of an exponential, as a function of λ, is a special case of the variance behavior summarized
+in the following theorem.
+Theorem 2.3.4   If X is a random variable with finite variance, then for any constants a and b,
+
+                               Var(aX +b) = a2VarX.
+
+Proof: From the definition, we have
+
+                      Var(aX +b) =  E((aX +b)−E(aX +b))2
+                                             = aEX +b)                     =  E(aX −aEX)2            (E(aX +b)
+                     =  a2E(X −EX)2
+                     =  a2VarX.                       2

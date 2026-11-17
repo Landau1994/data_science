@@ -1,0 +1,41 @@
+322                                             HYPOTHESIS TESTING
+8.3.4  p-Values
+
+After a hypothesis test is done, the conclusions must be reported in some statistically meaningful
+way. One method of reporting the results of a hypothesis test is to report the size, α, of the test used
+and the decision to reject H0 or accept H0. The size of the test carries important information. If α
+is small, the decision to reject H0 is fairly convincing, but if α is large, the decision to reject H0
+is not very convincing because the test has a large probability of incorrectly making that decision.
+Another way of reporting the results of a hypothesis test is to report the value of a certain kind of
+test statistic called a p-value.
+Definition 8.3.26 A p-value p(X) is a test statistic satisfying 0 ≤p(x) ≤1 for every sample point
+x. Small values of p(X) give evidence that H1 is true. A p-value is valid if, for every θ ∈Θ0 and
+every 0 ≤α ≤1,
+                                    Pθ (p(X) ≤α) ≤α.                                  (8.3.8)
+
+     If p(X) is a valid p-value, it is easy to construct a level-α test based on p(X). The test that
+rejects H0 if and only if p(X) ≤α is a level-α test because of (8.3.8). An advantage to reporting atest result via a p-value is that each reader can choose the α he or she considers appropriate and then
+can compare the reported p(x) to α and know whether these data lead to acceptance or rejection of
+H0. Furthermore, the smaller the p-value the stronger the evidence for rejecting H0. Hence, a p-value
+reports the results of a test on a more continuous scale, rather than just the dichotomous decision,
+“Accept H0” or “Reject H0.”
+   The most common way to define a valid p-value is given in Theorem 8.3.27.
+Theorem 8.3.27  Let W(X) be a test statistic such that large values of W give evidence that H1 is
+true. For each sample point x, define
+                              p(x) = sup Pθ (W(X) ≥W(x)).                            (8.3.9)                                    θ∈Θ0
+Then, p(X) is a valid p-value.
+Proof: Fix θ ∈Θ0. Let Fθ(w) denote the cdf of −W(X). Define
+             pθ(x) = Pθ (W(X) ≥W(x)) = Pθ (−W(X) ≤−W(x)) = Fθ (−W(x)).
+Then the random variable pθ(X) is equal to Fθ(−W(X)). Hence, by the Probability IntegralTransformation or Exercise 2.10, the distribution of pθ(X) is stochastically greater than or equal
+to a uniform(0,1) distribution. That  is, for every 0 ≤α ≤1, Pθ(pθ(X) ≤α) ≤α. Because
+p(x) = supθ′∈Θ0 pθ′(x) ≥pθ(x) for every x,
+                           Pθ (p(X) ≤α) ≤Pθ (pθ(X) ≤α) ≤α.
+This is true for every θ ∈Θ0 and for every 0 ≤α ≤1; p(X) is a valid p-value.          2
+   The calculation of the supremum in (8.3.9) might be difficult. The next two examples illustrate
+common situations in which it is not too difficult. In the first, no supremum is necessary; in the
+second, it is easy to determine the θ value at which the supremum occurs.
+Example 8.3.28 (Two-sided normal p-value)  Let X1,...,Xn be a random sample from a n(µ,σ2)
+population. Consider testing H0: µ = µ0 versus H1: µ̸ = µ0. By Exercise 8.38, the LRT rejects H0 for                                                   If µ = µ0, regardless of the value of σ, (Xlarge values of W(X) = |X −µ0|/(S/√n).                                                               −µ0)/(S/√n)
+has a Student’s t distribution with n−1 degrees of freedom. Thus, in calculating (8.3.9), the proba-bility is the same for all values of θ, that is, all values of σ. Thus, the p-value from (8.3.9) for this
+                                               where Tn−1 has a Student’s t distributiontwo-sided t test is p(x) = 2P(Tn−1 ≥|x −µ0|/(s/√n))
+with n−1 degrees of freedom.                                                      ∥

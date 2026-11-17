@@ -1,0 +1,41 @@
+306                                             HYPOTHESIS TESTING
+Proof: From the Factorization Theorem (Theorem 6.2.6), the pdf or pmf of X can be written as
+f(x|θ) = g(T(x)|θ)h(x) where g(t|θ) is the pdf or pmf of T and h(x) does not depend on θ. Thus,
+                                        sup                                            Θ0 L(θ|x)                            λ(x) =
+                                        sup                                   Θ L(θ|x)
+                                        sup                                            Θ0 f(x|θ)
+                     =
+                                        sup                                   Θ  f(x|θ)
+                                        sup                                            Θ0 g(T(x)|θ)h(x)
+                     =                                    (T is sufficient)
+                                        sup                                   Θ g(T(x)|θ)h(x)
+                                        sup                                            Θ0 g(T(x)|θ)                     =                             (h does not depend on θ)
+                                        sup                                   Θ g(T(x)|θ)
+                                        sup                                            Θ0 L∗(θ|T(x))
+                     =                             (g is the pdf or pmf of T)
+                                        sup                                   Θ L∗(θ|T(x))
+                     =  λ ∗(T(x)).
+                                                    2
+   The comment after Example 8.2.2 was that, after finding an expression for λ(x), we try to
+simplify that expression. In light of Theorem 8.2.4, one interpretation of this comment is that the
+simplified expression for λ(x) should depend on x only through T(x) if T(X) is a sufficient statistic
+for θ.
+Example 8.2.5 (LRT and sufficiency)   In Example 8.2.2, we can recognize that X is a sufficient
+                                                                             n)) to more easilystatistic for θ. We could use the likelihood function associated with X (X ∼n(θ, 1
+reach the conclusion that a likelihood ratio test of H0: θ = θ0 versus H1: θ̸ = θ0 rejects H0 for large
+values of X −θ0  .    Similarly, in Example 8.2.3, X(1) = minXi is a sufficient statistic for θ. The likelihood function
+of X(1) (the pdf of X(1)) is
+                                             ne−n(x(1)−θ)    θ                    =                   ≤x(1),                            L∗(θ|x(1))    0            θ > x(1).
+This likelihood could also be used to derive the fact that a likelihood ratio test of H0 : θ ≤θ0 versus
+H1 : θ > θ0 rejects H0 for large values of X(1).                                          ∥
+   Likelihood ratio tests are also useful in situations where there are nuisance parameters, that is,
+parameters that are present in a model but are not of direct inferential interest. The presence of such
+nuisance parameters does not affect the LRT construction method but, as might be expected, the
+presence of nuisance parameters might lead to a different test.
+Example 8.2.6 (Normal LRT with unknown variance)  Suppose X1,...,Xn is a random sample
+from a n(µ,σ2), and an experimenter is interested only in inferences about µ, such as testing H0 :
+µ ≤µ0 versus H1 : µ > µ0. Then the parameter σ2 is a nuisance parameter. The LRT statistic is
+                                       {µ,σ2:µ≤µ0,σ2≥0}L(µ,σ2|x)max                       λ(x) =
+                                   {µ,σ2:−∞<µ<∞,σ2≥0}L(µ,σ2|x)max
+                  =   {µ,σ2:µ≤µ0,σ2≥0}L(µ,σ2|x)max                         ,
+                                         L( ˆµ, ˆσ2|x)

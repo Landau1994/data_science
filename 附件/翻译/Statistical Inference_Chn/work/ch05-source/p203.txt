@@ -1,0 +1,49 @@
+172                                    PROPERTIES OF A RANDOM SAMPLE
+is drawn without replacement. What is the probability that all ten sample values are greater than 200?
+If X1,...,X10 were mutually independent we would have
+              P(X1 > 200,...,X10 > 200) =  P(X1 > 200)·····P(X10 > 200)
+                                            800   10
+                        =        = .107374.                  (5.1.4)
+                                               1,000
+To calculate this probability exactly, let Y be a random variable that counts the number of items in
+the sample that are greater than 200. Then Y has a hypergeometric (N = 1,000,M = 800,K = 10)
+distribution. So
+
+                  P(X1 > 200,...,X10 > 200) =  P(Y = 10)
+                                                800     200
+                                                10       0
+                           =
+                                                        1,000
+                                                     10
+                           =  .106164.
+Thus, (5.1.4) is a reasonable approximation to the true value.                              ∥
+   Throughout the remainder of the book, we will use Definition 5.1.1 as our definition of a random
+sample from a population.
+
+5.2  Sums of Random Variables from a Random Sample
+When a sample X1,...,Xn is drawn, some summary of the values is usually computed. Any well-
+defined summary may be expressed mathematically as a function T(x1,...,xn) whose domain in-
+cludes the sample space of the random vector (X1,...,Xn). The function T may be real-valued or
+vector-valued; thus the summary is a random variable (or vector), Y = T(X1,...,Xn). This definition
+of a random variable as a function of others was treated in detail in Chapter 4, and the techniques in
+Chapter 4 can be used to describe the distribution of Y in terms of the distribution of the population
+from which the sample was obtained. Since the random sample X1,...,Xn has a simple probabilistic
+structure (because the Xis are independent and identically distributed) the distribution of Y is par-
+ticularly tractable. Because this distribution is usually derived from the distribution of the variables
+in the random sample, it is called the sampling distribution of Y. This distinguishes the probability
+distribution of Y from the distribution of the population, that is, the marginal distribution of each Xi.
+In this section, we will discuss some properties of sampling distributions, especially for functions
+T(x1,...,xn) defined by sums of random variables.
+Definition 5.2.1  Let X1,...,Xn be a random sample of  size n from a population and  let
+T(x1,...,xn) be a real-valued or vector-valued function whose domain includes the sample space of
+(X1,...,Xn). Then the random variable or random vector Y = T(X1,...,Xn) is called a statistic. The
+probability distribution of a statistic Y is called the sampling distribution of Y.
+
+   The definition of a statistic is very broad, with the only restriction being that a statistic cannot
+be a function of a parameter. The sample summary given by a statistic can include many types of
+information. For example, it may give the smallest or largest value in the sample, the average sample
+value, or a measure of the variability in the sample observations. Three statistics that are often used,
+and provide good summaries of the sample, are now defined.
+Definition 5.2.2  The sample mean is the arithmetic average of the values in a random sample. It
+is usually denoted by
+                                 X1           1  n                                              ¯X =   +···+Xn =                       ∑ Xi.                                     n        n i=1

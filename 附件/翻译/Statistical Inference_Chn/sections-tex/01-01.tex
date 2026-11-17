@@ -1,0 +1,106 @@
+% 原书印刷页1–4；PDF物理页32–35.逐页核对原图.
+\subsection{集合论}\label{sec:1.1}
+统计学家的主要目标之一，是通过开展试验对一个对象总体作出结论.第一步是确定所有可能的结果，用统计学的术语说，就是确定样本空间.
+\begin{definition}\label{def:1.1.1}\index{SI0948@样本空间}
+一个特定试验所有可能结果组成的集合$S$，称为该试验的\emph{样本空间}（sample space）.
+\end{definition}
+如果试验是抛掷一枚硬币，那么样本空间包含正面和反面这两个结果；因此，
+$$S=\{\mathrm H,\mathrm T\}.$$
+另一方面，如果试验是观察某所大学随机选出学生所报告的SAT成绩，那么样本空间就是200与800之间、为10的倍数的正整数集合，即$S=\{200,210,220,\ldots,780,790,800\}$.最后，考虑观察对某种刺激的反应时间的试验.此时样本空间由所有正数组成，即$S=(0,\infty)$.
+
+按照元素个数，可以把样本空间分成两类：可数的（countable）和不可数的（uncountable）.如果样本空间的元素能够与整数的某个子集建立一一对应，那么样本空间就是可数的.当然，如果它只包含有限个元素，它便是可数的.因此，抛硬币和SAT成绩的样本空间都是可数的（实际上都是有限的），而反应时间的样本空间是不可数的，因为正实数无法与整数建立一一对应.不过，如果把反应时间测量到最接近的整数秒，那么样本空间（以秒为单位）就是$S=\{0,1,2,3,\ldots\}$，此时它便是可数的.
+
+
+\sourcepageanchor{33}
+
+可数与不可数样本空间的区别，重要之处只在于它决定了赋予概率的方式.尽管数学处理方式不同，但这在大多数情况下并不造成问题.从哲学层面看，人们或许会认为只能存在可数样本空间，因为测量不可能具有无限精度.（例如，由所有十位数字组成的样本空间就是可数的.）实际情况固然如此，但一般说来，与不可数样本空间相联系的概率和统计方法，比可数情形的方法更简便，而且能很好地逼近真实的（可数）情形.
+
+一旦定义了样本空间，就可以考虑试验可能结果的各种集合.
+\begin{definition}\label{def:1.1.2}\index{SI0418@事件}
+\emph{事件}（event）是试验可能结果的任意集合，即$S$的任意子集（包括$S$本身）.
+\end{definition}
+设$A$是一个事件，即$S$的一个子集.如果试验结果属于集合$A$，就说事件$A$发生.讨论概率时，我们一般说事件的概率，而不是集合的概率.不过，这两个术语可以互换使用.
+
+首先需要正式定义下面两种关系，它们使我们能够比较集合的包含关系并判定相等：
+$$\begin{aligned}
+A\subset B&\ \Longleftrightarrow\ x\in A\Rightarrow x\in B;&&\text{（包含）}\\
+A=B&\ \Longleftrightarrow\ A\subset B\text{ 且 }B\subset A.&&\text{（相等）}
+\end{aligned}$$
+给定任意两个事件（或集合）$A$和$B$，有以下基本集合运算：
+\begin{description}
+\item[并（union）：]\index{SI0969@并}\semanticindexanchor{969:33} $A$与$B$的并记为$A\cup B$，是属于$A$或$B$，或同时属于二者的元素组成的集合：
+$$A\cup B=\{x:x\in A\text{ 或 }x\in B\}.$$
+\item[交（intersection）：]\index{SI0966@交}\semanticindexanchor{966:33} $A$与$B$的交记为$A\cap B$，是同时属于$A$和$B$的元素组成的集合：
+$$A\cap B=\{x:x\in A\text{ 且 }x\in B\}.$$
+\item[补（complementation）：]\index{SI0962@求补}\semanticindexanchor{962:33} $A$的补集记为$A^c$，是所有不属于$A$的元素组成的集合：
+$$A^c=\{x:x\notin A\}.$$
+\end{description}
+\begin{example}[事件运算]\label{ex:1.1.3}
+考虑从一副标准扑克牌中随机选一张并记录其花色的试验：梅花（C）、方块（D）、红桃（H）或黑桃（S）.样本空间为
+$$S=\{\mathrm C,\mathrm D,\mathrm H,\mathrm S\},$$
+其中一些可能事件为
+$$A=\{\mathrm C,\mathrm D\}\quad\text{和}\quad B=\{\mathrm D,\mathrm H,\mathrm S\}.$$
+由这些事件可构成
+$$A\cup B=\{\mathrm C,\mathrm D,\mathrm H,\mathrm S\},\quad A\cap B=\{\mathrm D\},\quad A^c=\{\mathrm H,\mathrm S\}.$$
+此外，注意$A\cup B=S$（事件$S$），且$(A\cup B)^c=\emptyset$，其中$\emptyset$表示\emph{空集}（empty set，即不含任何元素的集合）\index{SI0397@空集}\semanticindexanchor{397:33}.
+\end{example}
+
+\sourcepageanchor{34}
+
+基本集合运算可以组合起来，这与加法和乘法的组合有些相似.只要小心，我们便可以像处理数一样处理集合.现在陈述集合运算的一些有用性质.
+\begin{theorem}\label{thm:1.1.4}\index{SI0960@结合律}\index{SI0961@交换律}\index{SI0963@德摩根律}\index{SI0964@分配律}
+对定义在样本空间$S$上的任意三个事件$A,B,C$，有
+\begin{enumerate}
+\item[(a)] 交换律：$A\cup B=B\cup A$，$A\cap B=B\cap A$；
+\item[(b)] 结合律：$A\cup(B\cup C)=(A\cup B)\cup C$，$A\cap(B\cap C)=(A\cap B)\cap C$；
+\item[(c)] 分配律：$A\cap(B\cup C)=(A\cap B)\cup(A\cap C)$，$A\cup(B\cap C)=(A\cup B)\cap(A\cup C)$；
+\item[(d)] 德摩根律（DeMorgan's Laws）：$(A\cup B)^c=A^c\cap B^c$，$(A\cap B)^c=A^c\cup B^c$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+本定理大部分结论的证明留作习题\ref{exercise:1.3}.习题\ref{exercise:1.9}和\ref{exercise:1.10}还给出了推广.为了说明证明方法，这里证明分配律
+$$A\cap(B\cup C)=(A\cap B)\cup(A\cap C).$$
+（读者可能熟悉用维恩图（Venn diagram）\index{SI1070@韦恩图}\semanticindexanchor{1070:34}“证明”集合论定理的做法.我们提醒读者，维恩图有时有助于直观理解，但并不构成严格证明.）要证明两个集合相等，必须说明它们彼此包含.正式地说，
+$$\begin{aligned}
+A\cap(B\cup C)&=\{x\in S:x\in A\text{ 且 }x\in(B\cup C)\};\\
+(A\cap B)\cup(A\cap C)&=\{x\in S:x\in(A\cap B)\text{ 或 }x\in(A\cap C)\}.
+\end{aligned}$$
+先证明$A\cap(B\cup C)\subset(A\cap B)\cup(A\cap C)$.设$x\in(A\cap(B\cup C))$.由交的定义，必有$x\in(B\cup C)$，即$x\in B$或$x\in C$.由于$x$也必须属于$A$，所以$x\in(A\cap B)$或$x\in(A\cap C)$；因此，
+$$x\in\bigl((A\cap B)\cup(A\cap C)\bigr),$$
+包含关系得证.
+
+反过来，设$x\in((A\cap B)\cup(A\cap C))$.于是$x\in(A\cap B)$或$x\in(A\cap C)$.若$x\in(A\cap B)$，则$x$同时属于$A$和$B$.因为$x\in B$，所以$x\in(B\cup C)$，从而$x\in(A\cap(B\cup C))$.另一方面，若$x\in(A\cap C)$，论证类似，仍可得出$x\in(A\cap(B\cup C))$.这样就证明了$(A\cap B)\cup(A\cap C)\subset A\cap(B\cup C)$，即另一个方向的包含关系，因此分配律得证.
+\end{proof}
+并和交的运算也可以推广到无穷集合族.\index{SI0967@可数}\semanticindexanchor{967:34}\index{SI0970@可数}\semanticindexanchor{970:34}若$A_1,A_2,A_3,\ldots$是一族都定义在样本空间$S$上的集合，则
+$$\begin{aligned}
+\bigcup_{i=1}^{\infty}A_i&=\{x\in S:\text{对某个 }i,\ x\in A_i\},\\
+\bigcap_{i=1}^{\infty}A_i&=\{x\in S:\text{对所有 }i,\ x\in A_i\}.
+\end{aligned}$$
+
+\sourcepageanchor{35}
+
+例如，令$S=(0,1]$并定义$A_i=[(1/i),1]$.那么
+$$\begin{aligned}
+\bigcup_{i=1}^{\infty}A_i&=\bigcup_{i=1}^{\infty}[(1/i),1]=\{x\in(0,1]:\text{对某个 }i,\ x\in[(1/i),1]\}\\
+&=\{x\in(0,1]\}=(0,1];\\
+\bigcap_{i=1}^{\infty}A_i&=\bigcap_{i=1}^{\infty}[(1/i),1]=\{x\in(0,1]:\text{对所有 }i,\ x\in[(1/i),1]\}\\
+&=\{x\in(0,1]:x\in[1,1]\}=\{1\}.\qquad\text{（点1）}
+\end{aligned}$$
+也可以对不可数的集合族定义并和交.\index{SI0968@不可数}\semanticindexanchor{968:35}\index{SI0971@不可数}\semanticindexanchor{971:35}如果$\Gamma$是一个指标集（其中的元素用作指标），则
+$$\begin{aligned}
+\bigcup_{a\in\Gamma}A_a&=\{x\in S:\text{对某个 }a,\ x\in A_a\},\\
+\bigcap_{a\in\Gamma}A_a&=\{x\in S:\text{对所有 }a,\ x\in A_a\}.
+\end{aligned}$$
+例如，取$\Gamma=\{\text{所有正实数}\}$且$A_a=(0,a]$，那么$\bigcup_{a\in\Gamma}A_a=(0,\infty)$就是一个不可数并.虽然不可数并和交在统计学中并不占主要地位，但有时它们提供了求解问题的有效手段（见\hyperref[sec:8.2.3]{第8.2.3节}）.
+
+最后讨论样本空间的划分.
+\begin{definition}\label{def:1.1.5}\index{SI0249@不交集}\index{SI0745@两两不交集}
+若两个事件$A$和$B$满足$A\cap B=\emptyset$，就称它们\emph{不相交}（disjoint）或\emph{互斥}（mutually exclusive）.若对所有$i\ne j$都有$A_i\cap A_j=\emptyset$，就称事件$A_1,A_2,\ldots$\emph{两两不相交}或\emph{两两互斥}.
+\end{definition}
+不相交的集合没有公共点.若给两个不相交集合画维恩图，则它们不重叠.集合族
+$$A_i=[i,i+1),\qquad i=0,1,2,\ldots$$
+中的集合两两不相交.进一步注意到$\bigcup_{i=0}^{\infty}A_i=[0,\infty)$.
+\begin{definition}\label{def:1.1.6}\index{SI0753@划分}
+若$A_1,A_2,\ldots$两两不相交且$\bigcup_{i=1}^{\infty}A_i=S$，则称集合族$A_1,A_2,\ldots$构成$S$的一个\emph{划分}（partition）.
+\end{definition}
+集合$A_i=[i,i+1)$构成$[0,\infty)$的一个划分.一般说来，划分十分有用，它使我们能够把样本空间分成互不重叠的小块.

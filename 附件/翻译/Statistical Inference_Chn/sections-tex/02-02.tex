@@ -1,0 +1,134 @@
+\subsection{期望值}\label{sec:2.2}
+随机变量的期望值（expected value），或期望（expectation），就是它的平均值；这里的“平均”是按照概率分布加权的平均. 我们把平均值理解为居中的值，因此分布的期望值可以视为其中心的一种度量. 按概率分布对随机变量的各个值加权，我们希望得到一个数，以概括该随机变量的一次观测的典型值或预期值.
+
+\begin{definition}\label{def:2.2.1}\index{SI0422@期望值}
+随机变量 $g(X)$ 的期望值或均值（mean），记为 $\mathrm E g(X)$，定义为
+$$\mathrm E g(X)=\begin{cases}
+\displaystyle\int_{-\infty}^\infty g(x)f_X(x)\,dx,&X\text{ 连续},\\
+\displaystyle\sum_{x\in\mathscr X}g(x)f_X(x)=\sum_{x\in\mathscr X}g(x)P(X=x),&X\text{ 离散},
+\end{cases}$$
+前提是该积分或级数存在. 如果 $\mathrm E|g(X)|=\infty$，我们就说 $\mathrm E g(X)$ 不存在. （\hyperref[bib:source259]{Ross (1988)} 将此称为“无意识统计学家定律”. 我们并不觉得这有什么好笑的.）
+\end{definition}
+
+\begin{example}[指数分布的均值]\label{ex:2.2.2}\index{SI0292@均值}
+设 $X$ 具有指数分布 $\operatorname{exponential}(\lambda)$，也就是说，它的概率密度函数为
+$$f_X(x)=\frac1\lambda e^{-x/\lambda},\qquad0\le x<\infty,\quad\lambda>0.$$
+那么 $\mathrm EX$ 为
+$$\begin{aligned}
+\mathrm EX&=\int_0^\infty\frac1\lambda xe^{-x/\lambda}\,dx\\
+&=\left.-xe^{-x/\lambda}\right|_0^\infty+\int_0^\infty e^{-x/\lambda}\,dx&&\text{（分部积分）}\\
+&=\int_0^\infty e^{-x/\lambda}\,dx=\lambda.
+\end{aligned}$$
+\end{example}
+
+\begin{example}[二项分布的均值]\label{ex:2.2.3}\index{SI0264@均值}
+如果 $X$ 具有二项分布，其概率质量函数为
+$$P(X=x)=\binom nx p^x(1-p)^{n-x},\qquad x=0,1,\ldots,n,$$
+其中 $n$ 为正整数，$0\le p\le1$；对每一对固定的 $n$ 和 $p$，概率质量函数之和为 $1$. 二项随机变量的期望为
+$$\mathrm EX=\sum_{x=0}^n x\binom nx p^x(1-p)^{n-x}
+=\sum_{x=1}^n x\binom nx p^x(1-p)^{n-x}$$
+\sourcepageanchor{77}
+（$x=0$ 的项为 $0$）. 利用恒等式 $x\binom nx=n\binom{n-1}{x-1}$，得到
+$$\begin{aligned}
+\mathrm EX&=\sum_{x=1}^n n\binom{n-1}{x-1}p^x(1-p)^{n-x}\\
+&=\sum_{y=0}^{n-1}n\binom{n-1}y p^{y+1}(1-p)^{n-(y+1)}&&\text{（令 $y=x-1$）}\\
+&=np\sum_{y=0}^{n-1}\binom{n-1}y p^y(1-p)^{n-1-y}\\
+&=np,
+\end{aligned}$$
+因为最后的求和是 $\operatorname{binomial}(n-1,p)$ 概率质量函数对所有可能值求和，必定等于 $1$.
+\end{example}
+
+\begin{example}[柯西分布的均值]\label{ex:2.2.4}\index{SI0278@均值}
+期望不存在的随机变量的一个经典例子是柯西随机变量（Cauchy random variable），其概率密度函数为
+$$f_X(x)=\frac1\pi\frac1{1+x^2},\qquad-\infty<x<\infty.$$
+容易验证 $\int_{-\infty}^\infty f_X(x)\,dx=1$，但 $\mathrm E|X|=\infty$. 写成
+$$\mathrm E|X|=\int_{-\infty}^\infty\frac{|x|}\pi\frac1{1+x^2}\,dx
+=\frac2\pi\int_0^\infty\frac{x}{1+x^2}\,dx.$$
+对任意正数 $M$，
+$$\int_0^M\frac{x}{1+x^2}\,dx
+=\left.\frac{\log(1+x^2)}2\right|_0^M=\frac{\log(1+M^2)}2.$$
+因此，
+$$\mathrm E|X|=\lim_{M\to\infty}\frac2\pi\int_0^M\frac{x}{1+x^2}\,dx
+=\frac1\pi\lim_{M\to\infty}\log(1+M^2)=\infty,$$
+所以 $\mathrm EX$ 不存在.
+\end{example}
+
+求期望是线性运算，这意味着只要注意到对任意常数 $a$ 和 $b$ 有
+\begin{equation}\label{eq:2.2.1}
+\mathrm E(aX+b)=a\mathrm EX+b,
+\end{equation}
+就能容易地算出 $X$ 的线性函数的期望. 例如，若 $X$ 服从 $\operatorname{binomial}(n,p)$，则 $\mathrm EX=np$，所以
+$$\mathrm E(X-np)=\mathrm EX-np=np-np=0.$$
+实际上，期望算子有许多能够减轻计算工作的性质. 其中多数来自积分或求和的性质，概括于下面的定理.
+
+\begin{theorem}\label{thm:2.2.5}\index{SI0432@性质}
+设 $X$ 是随机变量，$a,b,c$ 是常数. 对任意期望存在的函数 $g_1(x)$ 和 $g_2(x)$，有
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:thm:2.2.5:a} $\mathrm E(ag_1(X)+bg_2(X)+c)=a\mathrm Eg_1(X)+b\mathrm Eg_2(X)+c$.
+\item[(b)] 如果对所有 $x$ 都有 $g_1(x)\ge0$，则 $\mathrm Eg_1(X)\ge0$.
+\item[(c)] 如果对所有 $x$ 都有 $g_1(x)\ge g_2(x)$，则 $\mathrm Eg_1(X)\ge\mathrm Eg_2(X)$.
+\item[(d)] 如果对所有 $x$ 都有 $a\le g_1(x)\le b$，则 $a\le\mathrm Eg_1(X)\le b$.
+\end{enumerate}
+\end{theorem}
+\sourcepageanchor{78}
+\begin{proof}
+我们只详细证明连续情形，离散情形类似. 由定义和积分的可加性，
+$$\begin{aligned}
+&\mathrm E(ag_1(X)+bg_2(X)+c)\\
+&\quad=\int_{-\infty}^\infty(ag_1(x)+bg_2(x)+c)f_X(x)\,dx\\
+&\quad=\int_{-\infty}^\infty ag_1(x)f_X(x)\,dx
++\int_{-\infty}^\infty bg_2(x)f_X(x)\,dx+\int_{-\infty}^\infty cf_X(x)\,dx.
+\end{aligned}$$
+因为 $a,b,c$ 为常数，可以分别提出积分号，于是
+$$\begin{aligned}
+&\mathrm E(ag_1(X)+bg_2(X)+c)\\
+&\quad=a\int_{-\infty}^\infty g_1(x)f_X(x)\,dx
++b\int_{-\infty}^\infty g_2(x)f_X(x)\,dx+c\int_{-\infty}^\infty f_X(x)\,dx\\
+&\quad=a\mathrm Eg_1(X)+b\mathrm Eg_2(x)+c,
+\end{aligned}$$
+这就证明了 \hyperref[itm:thm:2.2.5:a]{(a)}.\footnote{译注：原文最后一行写作 $b\mathrm Eg_2(x)$，按定理陈述和前面的积分，应为 $b\mathrm Eg_2(X)$；此处保留原文大小写.} 其余三个性质可用类似的方法证明.
+\end{proof}
+
+\begin{example}[距离最小化]\label{ex:2.2.6}\index{SI0430@最小化性质}
+随机变量的期望还有另一个性质，它与把 $\mathrm EX$ 解释为对 $X$ 的值的一个良好猜测有关.
+
+假设用 $(X-b)^2$ 衡量随机变量 $X$ 与常数 $b$ 之间的距离. $b$ 越接近 $X$，这个量就越小. 现在可以确定使 $\mathrm E(X-b)^2$ 最小的 $b$，从而得到 $X$ 的一个良好预测量. （注意，寻找使 $(X-b)^2$ 最小的 $b$ 没有用处，因为答案依赖于 $X$，无法用来预测 $X$.）
+
+我们可以用微积分求 $\mathrm E(X-b)^2$ 的最小值，但有一个更简单的方法. （基于微积分的证明见\autoref{exercise:2.19}.）相信 $\mathrm EX$ 应该有某种特殊性，写出
+$$\begin{aligned}
+\mathrm E(X-b)^2&=\mathrm E(X-\mathrm EX+\mathrm EX-b)^2&&\text{（加上 $\pm\mathrm EX$，值不变）}\\
+&=\mathrm E((X-\mathrm EX)+(\mathrm EX-b))^2&&\text{（合并项）}\\
+&=\mathrm E(X-\mathrm EX)^2+(\mathrm EX-b)^2\\
+&\qquad+2\mathrm E((X-\mathrm EX)(\mathrm EX-b)),
+\end{aligned}$$
+其中展开了平方. 现在注意，
+$$\mathrm E((X-\mathrm EX)(\mathrm EX-b))=(\mathrm EX-b)\mathrm E(X-\mathrm EX)=0,$$
+因为 $(\mathrm EX-b)$ 是常数，可以提出期望号，而 $\mathrm E(X-\mathrm EX)=\mathrm EX-\mathrm EX=0$. 这意味着
+\begin{equation}\label{eq:2.2.2}
+\mathrm E(X-b)^2=\mathrm E(X-\mathrm EX)^2+(\mathrm EX-b)^2.
+\end{equation}
+我们不能改变\eqref{eq:2.2.2}右端第一项；第二项总是大于等于 $0$，选择 $b=\mathrm EX$ 就能使其等于 $0$. 因此，
+\begin{equation}\label{eq:2.2.3}
+\min_b\mathrm E(X-b)^2=\mathrm E(X-\mathrm EX)^2.
+\end{equation}
+关于中位数的类似结果见\autoref{exercise:2.18}.
+\end{example}
+
+\sourcepageanchor{79}
+计算 $X$ 的非线性函数的期望时，可以采用两种方法之一. 根据 $\mathrm Eg(X)$ 的定义，可以直接计算
+\begin{equation}\label{eq:2.2.4}
+\mathrm Eg(X)=\int_{-\infty}^\infty g(x)f_X(x)\,dx.
+\end{equation}
+也可以先求出 $Y=g(X)$ 的密度 $f_Y(y)$，于是
+\begin{equation}\label{eq:2.2.5}\index{SI0434@两种计算方法}
+\mathrm Eg(X)=\mathrm EY=\int_{-\infty}^\infty yf_Y(y)\,dy.
+\end{equation}
+
+\begin{example}[均匀分布与指数分布的关系——II]\label{ex:2.2.7}
+设 $X$ 服从 $\operatorname{uniform}(0,1)$ 分布，即 $X$ 的概率密度函数为
+$$f_X(x)=\begin{cases}1,&0\le x\le1,\\0,&\text{其他},\end{cases}$$
+并定义新随机变量 $g(X)=-\log X$. 那么
+$$\mathrm Eg(X)=\mathrm E(-\log X)=\int_0^1-\log x\,dx
+=\left.x-x\log x\right|_0^1=1.$$
+但我们在\autoref{ex:2.1.4}中也已看到，$Y=-\log X$ 的累积分布函数为 $1-e^{-y}$，所以其密度为 $f_Y(y)=\frac d{dy}(1-e^{-y})=e^{-y}$，$0<y<\infty$，这是 $\lambda=1$ 时指数密度的特殊情形. 因而由\autoref{ex:2.2.2}，$\mathrm EY=1$.
+\end{example}

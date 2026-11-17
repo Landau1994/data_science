@@ -1,0 +1,20 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,pgfplots}
+\setCJKmainfont{SimSun}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+\begin{document}\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 2,horizontal sep=1.5cm,vertical sep=1.8cm},width=8cm,height=5.7cm,xlabel={$-2\log\lambda$},ylabel={每箱平均密度},xmin=0,xmax=10,ymin=0,title style={font=\small},legend style={font=\scriptsize,at={(.98,.98)},anchor=north east}]
+\nextgroupplot[title={$n=25,p_0=0.5$；10,000次}]
+\addplot[ybar interval,fill=gray!35,draw=gray] table[x=x,y=density] {10.34-hist-0.dat};\addlegendentry{实际模拟}
+\addplot[black,thick,const plot] table[x=x,y=density] {10.34-theory-0.dat};\addlegendentry{$\chi^2_1$每箱平均密度}
+\nextgroupplot[title={$n=25,p_0=0.1$；10,000次}]
+\addplot[ybar interval,fill=gray!35,draw=gray] table[x=x,y=density] {10.34-hist-1.dat};\addlegendentry{实际模拟}
+\addplot[black,thick,const plot] table[x=x,y=density] {10.34-theory-1.dat};\addlegendentry{$\chi^2_1$每箱平均密度}
+\nextgroupplot[title={$n=100,p_0=0.1$；10,000次}]
+\addplot[ybar interval,fill=gray!35,draw=gray] table[x=x,y=density] {10.34-hist-2.dat};\addlegendentry{实际模拟}
+\addplot[black,thick,const plot] table[x=x,y=density] {10.34-theory-2.dat};\addlegendentry{$\chi^2_1$每箱平均密度}
+\nextgroupplot[title={$n=100,p_0=0.5$；10,000次}]
+\addplot[ybar interval,fill=gray!35,draw=gray] table[x=x,y=density] {10.34-hist-3.dat};\addlegendentry{实际模拟}
+\addplot[black,thick,const plot] table[x=x,y=density] {10.34-theory-3.dat};\addlegendentry{$\chi^2_1$每箱平均密度}
+\end{groupplot}\end{tikzpicture}\end{document}

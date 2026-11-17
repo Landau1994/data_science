@@ -1,0 +1,41 @@
+190                                    PROPERTIES OF A RANDOM SAMPLE
+   The Weak Law of Large Numbers (WLLN) quite elegantly states that, under general conditions,
+the sample mean approaches the population mean as n →∞. In fact, there are more general versionsof the WLLN, where we need assume only that the mean is finite. However, the version stated in
+Theorem 5.5.2 is applicable in most practical situations.
+   The property summarized by the WLLN, that a sequence of the “same” sample quantity ap-
+proaches a constant as n →∞, is known as consistency. We will examine this property more closelyin Chapter 7.
+Example 5.5.3 (Consistency of S2)  Suppose we have a sequence X1,X2,... of iid random vari-
+ables with EXi = µ and VarXi = σ2 < ∞. If we define
+
+                                    1    n
+                                  S2n =                   ∑ (Xi −¯Xn)2,                                                  i=1                         n−1
+can we prove a WLLN for S2n? Using Chebychev’s Inequality, we have
+                                                         n         VarS2n                                   n              −σ2)2 =                          P(|S2 −σ2| ≥ε) ≤E(S2 ε2          ε2
+and thus, a sufficient condition that S2n converges in probability to σ2 is that VarS2n →0 as n →∞. ∥
+  A natural extension of Definition 5.5.1 relates to functions of random variables. That is, if the
+sequence X1,X2,... converges in probability to a random variable X, or to a constant a, can we
+make any conclusions about the sequence of random variables h(X1),h(X2),... for some reasonably
+behaved function h? This next theorem shows that we can. (See Exercise 5.39 for a proof.)
+Theorem 5.5.4 Suppose that X1,X2,... converges in probability to a random variable X, and that
+h is a continuous function. Then h(X1),h(X2),... converges in probability to h(X).
+Example 5.5.5 (Consistency of S)   If S2n is a consistent estimator of σ2, then by Theorem 5.5.4,
+the sample standard deviation Sn =    S2n = h(S2n) is a consistent estimator of σ. Note that Sn is, in
+fact, a biased estimator of σ (Exercise 5.11), but the bias disappears asymptotically.           ∥
+
+5.5.2  Almost Sure Convergence
+
+A type of convergence that is stronger than convergence in probability is almost sure convergence
+(sometimes confusingly known as convergence with probability 1). This type of convergence is
+similar to pointwise convergence of a sequence of functions, except that the convergence need not
+occur on a set with probability 0 (hence the “almost” sure).
+Definition 5.5.6 A sequence of random variables, X1,X2,..., converges almost surely to a random
+variable X if, for every ε > 0,
+                              P( n→∞|Xnlim  −X| < ε) = 1.
+
+   Notice the similarity in the statements of Definitions 5.5.1 and 5.5.6. Although they look similar,
+they are very different statements with Definition 5.5.6 much stronger. To understand almost sure
+convergence, we must recall the basic definition of a random variable as given in Definition 1.4.1. A
+random variable is a real-valued function defined on a sample space S. If a sample space S has ele-
+ments denoted by s, then Xn(s) and X(s) are all functions defined on S. Definition 5.5.6 states that Xn
+converges to X almost surely if the functions Xn(s) converge to X(s) for all s ∈S except perhaps for
+s ∈N where N ⊂S and P(N) = 0. Example 5.5.7 illustrates almost sure convergence. Example 5.5.8illustrates the difference between convergence in probability and almost sure convergence.

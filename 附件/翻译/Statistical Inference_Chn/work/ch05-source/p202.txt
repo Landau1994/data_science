@@ -1,0 +1,45 @@
+BASIC CONCEPTS OF RANDOM SAMPLES                                      171
+to be chosen. The second value chosen is recorded as X2 = x2. (If the same number is chosen,
+then x1 = x2.) This process of drawing from the N values is repeated n times, yielding the sample
+X1,...,Xn. This kind of sampling is called with replacement because the value chosen at any stage
+is “replaced” in the population and is available for choice again at the next stage. For this kind
+of sampling, the conditions of Definition 5.1.1 are met. Each Xi is a discrete random variable that
+takes on each of the values x1,...,xN with equal probability. The random variables X1,...,Xn are
+independent because the process of choosing any Xi is the same, regardless of the values that are
+chosen for any of the other variables. (This type of sampling is used in the bootstrap; see Section
+10.1.4.)
+  A second method for drawing a random sample from a finite population is called sampling
+without replacement. Sampling without replacement is done as follows. A value is chosen from
+{x1,...,xN} in such a way that each of the N values has probability 1/N of being chosen. This value
+is recorded as X1 = x1. Now a second value is chosen from the remaining N −1 values. Each of the
+N −1 values has probability 1/(N −1) of being chosen. The second chosen value is recorded asX2 = x2. Choice of the remaining values continues in this way, yielding the sample X1,...,Xn. But
+once a value is chosen, it is unavailable for choice at any later stage.
+  A sample drawn from a finite population without replacement does not satisfy all the con-
+ditions of Definition 5.1.1. The random variables X1,...,Xn are not mutually independent. To
+see this, let x and y be distinct elements of {x1,...,xN}. Then P(X2 = y|X1 = y) = 0, since thevalue y cannot be chosen at the second stage  if  it was already chosen at the  first. However,
+P(X2 = y|X1 = x) = 1/(N −1). The probability distribution for X2 depends on the value of X1 that isobserved and, hence, X1 and X2 are not independent. However, it is interesting to note that X1,...,Xn
+are identically distributed. That is, the marginal distribution of Xi is the same for each i = 1,...,n.
+For X1 it is clear that the marginal distribution is P(X1 = x) = 1/N for each x ∈{x1,...,xN}. Tocompute the marginal distribution for X2, use Theorem 1.2.11(a) and the definition of conditional
+probability to write
+                                 N
+                         =   = xi)P(X1 = xi).                      P(X2 = x) = ∑ P(X2                                         i=1        x|X1
+For one value of the index, say k, x = xk and P(X2 = x|X1 = xk) = 0. For all other   j̸ = k, P(X2 =
+x|X1 = x j) = 1/(N −1). Thus,
+                                            1   1     1
+                        P(X2 = x) = (N −1) N   N = N .                        (5.1.3)                               −1
+Similar arguments can be used to show that each of the Xis has the same marginal distribution.
+   Sampling without replacement from a finite population is sometimes called simple random sam-
+pling. It is important to realize that this is not the same sampling situation as that described in Defi-
+nition 5.1.1. However, if the population size N is large compared to the sample size n, X1,...,Xn are
+nearly independent and some approximate probability calculations can be made assuming they are
+independent. By saying they are “nearly independent” we simply mean that the conditional distri-
+bution of Xi given X1,...,Xi−1 is not too different from the marginal distribution of Xi. For example,
+the conditional distribution of X2 given X1 is
+
+                                                        1
+          P(X2 = x1|X1 = x1) = 0  and  P(X2 = x|X1 = x1) = N       for x̸ = x1.                                       −1
+This is not too different from the marginal distribution of X2 given in (5.1.3) if N is large. The
+nonzero probabilities in the conditional distribution of Xi given X1,...,Xi−1 are 1/(N −i+1), which
+are close to 1/N if i ≤n is small compared with N.
+Example 5.1.3 (Finite population model)  As an example of an approximate calculation using
+independence, suppose {1,...,1,000} is the finite population, so N = 1,000. A sample of size n = 10

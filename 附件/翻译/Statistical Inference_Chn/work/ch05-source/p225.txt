@@ -1,0 +1,43 @@
+194                                    PROPERTIES OF A RANDOM SAMPLE
+and (5.5.5) is also true at t = 0 since RY(0/√n) = 0. Thus, for any fixed t, we can write
+
+                                         n                                               (t/√n)2                n
+                 lim  MY       =   lim 1+      +RY                        (5.5.6)                            t√n                        2!          t√n              n→∞                 n→∞
+                                            1   t2                    n
+                     =   lim 1+     +nRY                                            n  2         t√n                                  n→∞
+                     =   et2/2,
+by an application of Lemma 2.3.14, where we set an = (t2/2) + nRY(t/√n). (Note that (5.5.5)
+implies that an →t2/2 as n →∞.) Since et2/2 is the mgf of the n(0,1) distribution, the theorem isproved.                                                2
+   The Central Limit Theorem is valid in much more generality than is stated in Theorem 5.5.14
+(Miscellanea 5.8.1). In particular, all of the assumptions about mgfs are not needed – the use of
+characteristic functions (Miscellanea 2.6.2) can replace them. We state the next theorem without
+proof. It is a version of the Central Limit Theorem that is general enough for almost all statistical
+purposes. Notice that the only assumption on the parent distribution is that it has finite variance.
+Theorem 5.5.15 (Stronger Form of the Central Limit Theorem)   Let X1,X2,... be a sequence
+of iid random variables with EXi = µ and 0 < VarXi = σ2 < ∞. Define ¯Xn = (1/n)∑ni=1 Xi. Let
+Gn(x) denote the cdf of √n(¯Xn         Then, for any x,       x < ∞,                      −µ)/σ.        −∞<
+                                                           x   1                              lim    =          e−y2/2 dy,
+                                         2π                          n→∞Gn(x)   −∞ √
+that is, √n(¯Xn        has a limiting standard normal distribution.         −µ)/σ
+   The proof is almost identical to that of Theorem 5.5.14, except that characteristic functions
+are used instead of mgfs. Since the characteristic function of a distribution always exists, it is not
+necessary to mention them in the assumptions of the theorem. The proof is more delicate, however,
+since functions of complex variables must be dealt with. Details can be found in Billingsley (1995,
+Section 27).
+   The Central Limit Theorem provides us with an all-purpose approximation (but, remember the
+warning about the goodness of the approximation). In practice, it can always be used for a first,
+rough calculation.
+Example 5.5.16 (Normal approximation to the negative binomial)   Suppose X1,...,Xn are a
+random sample from a negative binomial(r, p) distribution. Recall that
+                    EX = r(1−p) ,  VarX = r(1−p) ,
+                                 p                  p2
+and the Central Limit Theorem tells us that
+                           √n(¯X                                −r(1−p)/p)
+                                  r(1−p)/p2
+is approximately n(0,1). The approximate probability calculations are much easier than the exact
+                          = 30, an exact calculation would becalculations. For example, if r = 10, p = 12, and n
+
+                             30
+    P(¯X     =  P ∑ Xi       ≤11)           i=1  ≤330
+                         330               1  300  1   x           ∑X is negative         =     300+x−1         ∑                              x        2      2                      binomial(nr, p)                     x=0
+         =  .8916,

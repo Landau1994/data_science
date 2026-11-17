@@ -1,0 +1,47 @@
+EXERCISES                                                                   67
+
+2.35  Fill in the gaps in Example 2.3.10.
+       (a) Show that if X1 ∼f1(x), then
+                               EXr1 = er2/2,   r = 0,1,....
+
+        So f1(x) has all of its moments, and all of the moments are finite.
+      (b) Now show that
+                                ∞
+                                                 xr f1(x)sin(2π logx)dx = 0,
+                                             0
+           for all positive integers r, so EXr1 = EXr2 for all r. (Romano and Siegel (1986) discuss an extreme
+          version of this example, where an entire class of distinct pdfs have the same moments. Also, Berg
+         (1988) has shown that this moment behavior can arise with simpler transforms of the normal distri-
+          bution such as X3.)
+2.36 The lognormal distribution, on which Example 2.3.10 is based, has an interesting property. If we have
+      the pdf
+                                      1
+                                     < ∞,                                    f(x) = √2πxe−(logx)2/2,  0 ≤x
+      then Exercise 2.35 shows that all moments exist and are finite. However, this distribution does not have
+      a moment generating function, that is,
+
+                                     ∞   etx
+                                MX(t) =                                                    0 √2πxe−(logx)2/2 dx
+
+     does not exist. Prove this.
+2.37 Referring to the situation described in Miscellanea 2.6.3:
+       (a) Plot the pdfs f1 and f2 to illustrate their difference.
+      (b) Plot the cumulant generating functions K1 and K2 to illustrate their similarity.
+       (c) Calculate the moment generating functions of the pdfs f1 and f2. Are they similar or different?
+      (d) How do the pdfs f1 and f2 relate to the pdfs described in Example 2.3.10?
+2.38 Let X have the negative binomial distribution with pmf
+
+                                           r                                f(x) =  +x−1               x = 0,1,2,...                                         x     pr(1−p)x,
+
+     where 0 < p < 1 and r > 0 is an integer.
+       (a) Calculate the mgf of X.
+      (b) Define a new random variable by Y = 2pX. Show that, as p ↓0, the mgf of Y converges to that of a          chi squared random variable with 2r degrees of freedom by showing that
+                                              1      r          1
+                           p→0MYlim    (t) =  1−2t     ,       |t| < 2.
+2.39 In each of the following cases calculate the indicated derivatives, justifying all operations.
+         d   x                            d  ∞       (a)               e−λt dt                       (b)                                                    e−λt dt         dx  0                                     dλ  0
+         d   1 1                          d  ∞   1                                                    dx       (c)                dx                         (d)                                                  dt  1           dt   t  x2                                              (x−t)2
+2.40 Prove
+                                x   n                      n    1−p
+          ∑  k  pk(1−p)n−k                         = (n−x)  x    0   tn−x−1(1−t)x dt.                       k=0
+      (Hint: Integrate by parts or differentiate both sides with respect to p.)

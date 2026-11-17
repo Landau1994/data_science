@@ -1,0 +1,40 @@
+METHODS OF FINDING ESTIMATORS                                          257
+   Another way to find an MLE is to abandon differentiation and proceed with a direct maximiza-
+tion. This method is usually simpler algebraically, especially if the derivatives tend to get messy, but
+is sometimes harder to implement because there are no set rules to follow. One general technique
+is to find a global upper bound on the likelihood function and then establish that there is a unique
+point for which the upper bound is attained.
+Example 7.2.6 (Continuation of Example 7.2.5) Recall (Theorem 5.2.4) that for any number a,
+
+                                         n               n
+                                                              (xi −¯x)2                                      i=1              ∑ (xi −a)2 ≥ i=1∑
+
+with equality if, and only if, a = ¯x. This implies that for any θ,
+                                    e−(1/2)Σ(xi−θ)2 ≤e−(1/2)Σ(xi−¯x)2
+with equality if, and only if, θ = ¯x. Hence ¯X is the MLE.                                                                              ∥
+    In most cases, especially when differentiation is to be used, it is easier to work with the natural
+logarithm of L(θ|x),logL(θ|x) (known as the log likelihood), than it is to work with L(θ|x) directly.This is possible because the log function is strictly increasing on (0,∞), which implies that the
+extrema of L(θ|x) and logL(θ|x) coincide (see Exercise 7.3).
+Example 7.2.7 (Bernoulli MLE)  Let X1,...,Xn be iid Bernoulli(p). Then the likelihood function
+is
+                                          n
+                         L(p|x) = ∏i=1 pxi(1−p)1−xi = py(1−p)n−y
+where y = ∑xi. While this function is not all that hard to differentiate, it is much easier to differen-
+tiate the log likelihood
+                         logL( p|x) = ylog p+(n−y)log(1−p).
+If 0 < y < n, differentiating logL( p|x) and setting the result equal to zero gives the solution, ˆp = y/n.It is also straightforward to verify that y/n is the global maximum in this case. If y = 0 or y = n,
+then
+                                                                                if y = 0                         logL(   =  nlog(1−p)                                  p|x)    nlog p              if y = n.
+In either case logL( p|x) is a monotone function of p, and it is again straightforward to verify that
+ˆp = y/n in each case. Thus, we have shown that ∑Xi/n is the MLE of p.                    ∥
+    In this derivation we have assumed that the parameter space is 0 ≤p ≤1. The values p = 0 and1 must be in the parameter space in order for ˆp = y/n to be the MLE for y = 0 and n. Contrast this
+with Example 3.4.1, where we took 0 < p < 1 to satisfy the requirements of an exponential family.
+   One other point to be aware of when finding a maximum likelihood estimator is that the max-
+imization takes place only over the range of parameter values. In some cases this point plays an
+important part.
+Example 7.2.8 (Restricted range MLE)  Let X1,...,Xn be iid n(θ,1), where it is known that θ
+must be nonnegative. With no restrictions on θ, we saw that the MLE of θ is ¯X; however, if ¯X is
+negative it will be outside the range of the parameter.
+     If  ¯x is negative, it is easy to check (see Exercise 7.4) that the likelihood function L(θ|x) is                         = 0. Hence, in this case, the MLE of θ isdecreasing in θ for θ ≥0 and is maximized at ˆθ
+                             = 0 if ¯X < 0.                                             ˆθ = ¯X if ¯X ≥0  and    ˆθ
+                                                                              ∥

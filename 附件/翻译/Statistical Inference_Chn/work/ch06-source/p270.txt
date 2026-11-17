@@ -1,0 +1,46 @@
+THE LIKELIHOOD PRINCIPLE                                                 239
+two experiments, happens to choose E2, and collects data consisting of the seventh Head occurring
+on trial 20. The Conditionality Principle says that the information about θ that the experimenter
+now has, Ev(E∗,(2,13)), is the same as that which he would have, Ev(E2,13), if he had just chosen
+to do the negative binomial experiment and had never contemplated the binomial experiment.    ∥
+   The following Formal Likelihood Principle can now be derived from the Formal Sufficiency
+Principle and the Conditionality Principle.
+FORMAL LIKELIHOOD PRINCIPLE: Suppose that we have two experiments, E1 = (X1,θ,
+{f1(x1|θ)}) and E2 = (X2,θ,{ f2(x2|θ)}), where the unknown parameter θ is the same in both
+experiments. Suppose x∗1 and x∗2 are sample points from E1 and E2, respectively, such that
+                                   L(θ|x∗2) = CL(θ|x∗1)                                  (6.3.3)
+for all θ and for some constant C that may depend on x∗1 and x∗2 but not θ. Then
+                               Ev(E1,x∗1) = Ev(E2,x∗2).
+
+   The Formal Likelihood Principle is different from the Likelihood Principle in Section 6.3.1 be-
+cause the Formal Likelihood Principle concerns two experiments, whereas the Likelihood Principle
+concerns only one. The Likelihood Principle, however, can be derived from the Formal Likelihood
+Principle by letting E2 be an exact replicate of E1. Thus, the two-experiment setting in the Formal
+Likelihood Principle is something of an artifact and the important consequence is the following
+corollary, whose proof is left as an exercise. (See Exercise 6.32.)
+LIKELIHOOD PRINCIPLE COROLLARY: If E = (X,θ,{f(x|θ)}) is an experiment, then Ev(E,x)
+should depend on E and x only through L(θ|x).
+  Now we state Birnbaum’s Theorem and then investigate its somewhat surprising consequences.
+Theorem 6.3.6 (Birnbaum’s Theorem)   The Formal Likelihood Principle follows from the For-
+mal Sufficiency Principle and the Conditionality Principle. The converse is also true.
+Proof: We only outline the proof, leaving details to Exercise 6.33. Let E1, E2, x∗1, and x∗2 be as de-
+fined in the Formal Likelihood Principle and let E∗be the mixed experiment from the Conditionality
+Principle. On the sample space of E∗define the statistic
+
+                           (1,x∗1)   if j = 1 and x1 = x∗1 or if j = 2 and x2 = x∗2,             T(j,x j) =                           (j,x j)   otherwise.
+
+The Factorization Theorem can be used to prove that T(J,XJ) is a sufficient statistic in the E∗
+experiment. Then the Formal Sufficiency Principle implies
+
+                            Ev(E∗,(1,x∗1)) = Ev(E∗,(2,x∗2)),                           (6.3.4)
+
+the Conditionality Principle implies
+
+                            Ev(E∗,(1,x∗1)) =  Ev(E1,x∗1)                            (6.3.5)
+                            Ev(E∗,(2,x∗2)) =  Ev(E2,x∗2),
+
+and we can deduce that Ev(E1,x∗1) = Ev(E2,x∗2), the Formal Likelihood Principle.
+   To prove the converse, first let one experiment be the E∗experiment and the other Ej. It can
+be shown that Ev(E∗,(j,x j)) = Ev(Ej,x j), the Conditionality Principle. Then, if T(X) is sufficient
+and T(x) = T(y), the likelihoods are proportional and the Formal Likelihood Principle implies that
+Ev(E,x) = Ev(E,y), the Formal Sufficiency Principle.                       2

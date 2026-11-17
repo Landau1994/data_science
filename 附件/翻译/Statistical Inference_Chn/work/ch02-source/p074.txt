@@ -1,0 +1,42 @@
+DISTRIBUTIONS OF FUNCTIONS OF A RANDOM VARIABLE                       43
+Theorem 2.1.8  Let X have pdf fX(x), let Y = g(X), and define the sample space X as in (2.1.7).
+Suppose there exists a partition, A0,A1,...,Ak, of X such that P(X ∈A0) = 0 and fX(x) is con-tinuous on each Ai. Further, suppose there exist functions g1(x),...,gk(x), defined on A1,...,Ak,
+respectively, satisfying
+    i. g(x) = gi(x), for x ∈Ai,
+   ii. gi(x) is monotone on Ai,
+  iii. the set Y = {y: y = gi(x) for some x ∈Ai} is the same for each i = 1,...,k, and
+  iv. g−1i  (y) has a continuous derivative on Y , for each i = 1,...,k.
+Then
+                                          d
+                       fY(y) =                          ∑ki=1 fX g−1i  (y)  dyg−1i  (y)   y ∈Y ,
+                           0                              otherwise.
+
+   The important point in Theorem 2.1.8 is that X can be divided into sets A1,...,Ak such that
+g(x) is monotone on each Ai. We can ignore the “exceptional set” A0 since P(X ∈A0) = 0. It is atechnical device that is used, for example, to handle endpoints of intervals. It is important to note
+that each gi(x) is a one-to-one transformation from Ai onto Y . Furthermore, g−1i  (y) is a one-to-one
+function from Y onto Ai such that, for y        , g−1i  (y) gives the unique x = g−1i  (y)      for which                     ∈Y                           ∈Aigi(x) = y. (See Exercise 2.7 for an extension.)
+Example 2.1.9 (Normal-chi squared relationship)  Let X have the standard normal distribution,
+
+                                1                             fX(x) =      e−x2/2,           x < ∞.                   √ 2π      −∞<
+
+                                                 Y = (0,∞).Consider Y = X2. The function g(x) = x2 is monotone on (−∞,0) and on (0,∞). The setApplying Theorem 2.1.8, we take
+
+                  A0 =  {0};
+                                                                    1  (y) =                  A1 =  (−∞,0),     g1(x) = x2,    g−1                                                 −√y;                  A2 =  (0,∞),       g2(x) = x2,     g−12  (y) = √y.
+
+The pdf of Y is
+
+                           1                     1           1                   fY(y) =        e−(−√y)2/2     +      e−(√y)2/2               √ 2π     −12√y  √ 2π       2√y
+                           1   1
+                            < y < ∞.              = √ 2π √ye−y/2,    0
+
+The pdf of Y is one that we will often encounter, that of a chi squared random variable with 1 degree
+of freedom.                                                                     ∥
+  We close this section with a special and very useful transformation.
+Theorem 2.1.10 (Probability integral transformation)   Let X have continuous cdf FX(x) and
+define the random variable Y as Y = FX(X). Then Y  is uniformly distributed on (0,1), that is,
+P(Y ≤y) = y,0 < y < 1.
+   Before we prove this theorem, we will digress for a moment and look at F−1X   , the inverse of the
+cdf FX, in some detail. If FX is strictly increasing, then F−1X   is well defined by
+
+                               = y.                           (2.1.12)                          F−1X  (y) = x ⇔FX(x)

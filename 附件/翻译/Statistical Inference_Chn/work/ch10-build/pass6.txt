@@ -1,0 +1,477 @@
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex)
+ restricted \write18 enabled.
+entering extended mode
+(./work/ch10-preview.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-02-22>
+(d:/texlive/2023/texmf-dist/tex/latex/ctex/ctexart.cls
+(d:/texlive/2023/texmf-dist/tex/latex/ctex/config/ctexbackend.cfg)
+(d:/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
+(d:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-xetex.def))
+Document Class: ctexart 2022/07/14 v2.5.10 Chinese adapter for class article (C
+TEX)
+(d:/texlive/2023/texmf-dist/tex/latex/ctex/ctexhook.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/ctex/ctexpatch.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/base/fix-cm.sty
+(d:/texlive/2023/texmf-dist/tex/latex/base/ts1enc.def))
+(d:/texlive/2023/texmf-dist/tex/latex/ctex/config/ctexopts.cfg)
+(d:/texlive/2023/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
+(d:/texlive/2023/texmf-dist/tex/latex/base/size12.clo))
+(d:/texlive/2023/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.def
+(d:/texlive/2023/texmf-dist/tex/xelatex/xecjk/xeCJK.sty
+(d:/texlive/2023/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/fontspec/fontspec.sty
+(d:/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+(d:/texlive/2023/texmf-dist/tex/latex/base/fontenc.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+(d:/texlive/2023/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg)))
+(d:/texlive/2023/texmf-dist/tex/latex/zhnumber/zhnumber.sty
+(d:/texlive/2023/texmf-dist/tex/latex/zhnumber/zhnumber-utf8.cfg))
+(d:/texlive/2023/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-chinese-article.d
+ef (d:/texlive/2023/texmf-dist/tex/latex/ctex/config/ctex-name-utf8.cfg))
+(d:/texlive/2023/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-windows.def))
+(d:/texlive/2023/texmf-dist/tex/latex/ctex/config/ctex.cfg)
+
+Package xeCJK Warning: Redefining CJKfamily `\CJKrmdefault' (SimSun(0)).
+
+
+Package fontspec Warning: Font "FandolSong-Regular" does not contain requested
+(fontspec)                Script "Default".
+
+(d:/texlive/2023/texmf-dist/tex/latex/geometry/geometry.sty
+(d:/texlive/2023/texmf-dist/tex/latex/graphics/keyval.sty)
+(d:/texlive/2023/texmf-dist/tex/generic/iftex/ifvtex.sty
+(d:/texlive/2023/texmf-dist/tex/generic/iftex/iftex.sty)))
+(d:/texlive/2023/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(d:/texlive/2023/texmf-dist/tex/latex/amsmath/amstext.sty
+(d:/texlive/2023/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(d:/texlive/2023/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(d:/texlive/2023/texmf-dist/tex/latex/amscls/amsthm.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(d:/texlive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(d:/texlive/2023/texmf-dist/tex/latex/jknapltx/mathrsfs.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/bbm-macros/bbm.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/needspace/needspace.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/graphics/graphicx.sty
+(d:/texlive/2023/texmf-dist/tex/latex/graphics/graphics.sty
+(d:/texlive/2023/texmf-dist/tex/latex/graphics/trig.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(d:/texlive/2023/texmf-dist/tex/latex/graphics-def/xetex.def)))
+(d:/texlive/2023/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
+(d:/texlive/2023/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(d:/texlive/2023/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(d:/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/pgf.revision.tex)))
+(d:/texlive/2023/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(d:/texlive/2023/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.co
+de.tex)) (d:/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-xetex.def
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-dvipdfmx.def
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def))
+))
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+)) (d:/texlive/2023/texmf-dist/tex/latex/xcolor/xcolor.sty
+(d:/texlive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(d:/texlive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+(d:/texlive/2023/texmf-dist/tex/latex/graphics/dvipsnam.def))
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.te
+x)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric
+.code.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.t
+ex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.co
+de.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex
+)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.te
+x)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex
+)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithm
+etics.code.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex))
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.cod
+e.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.te
+x)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code
+.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.c
+ode.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex)
+
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.co
+de.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+) (d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code
+.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+) (d:/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex)))
+ (d:/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex)
+(d:/texlive/2023/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.st
+y)
+(d:/texlive/2023/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.st
+y)) (d:/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(d:/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(d:/texlive/2023/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.co
+de.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+brarytopaths.code.tex)))
+(d:/texlive/2023/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+brarymatrix.code.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+braryquotes.code.tex)
+(d:/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.cod
+e.tex))) (d:/texlive/2023/texmf-dist/tex/latex/titlesec/titlesec.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
+(d:/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(d:/texlive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(d:/texlive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(d:/texlive/2023/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(d:/texlive/2023/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(d:/texlive/2023/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/hyperref/nameref.sty
+(d:/texlive/2023/texmf-dist/tex/latex/refcount/refcount.sty)
+(d:/texlive/2023/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(d:/texlive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(d:/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(d:/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(d:/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def)
+(d:/texlive/2023/texmf-dist/tex/latex/url/url.sty)
+(d:/texlive/2023/texmf-dist/tex/generic/bitset/bitset.sty
+(d:/texlive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(d:/texlive/2023/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(d:/texlive/2023/texmf-dist/tex/latex/hyperref/hxetex.def
+(d:/texlive/2023/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(d:/texlive/2023/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(d:/texlive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(d:/texlive/2023/texmf-dist/tex/latex/oberdiek/aliascnt.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/tools/longtable.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/tools/array.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/xurl/xurl.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/float/float.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/multirow/multirow.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/placeins/placeins.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/fvextra/fvextra.sty
+(d:/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/upquote/upquote.sty
+(d:/texlive/2023/texmf-dist/tex/latex/base/textcomp.sty))
+(d:/texlive/2023/texmf-dist/tex/latex/lineno/lineno.sty))
+(d:/texlive/2023/texmf-dist/tex/latex/tools/multicol.sty)
+(d:/texlive/2023/texmf-dist/tex/latex/base/makeidx.sty)
+Writing index file ch10-preview.idx
+(work/ch10-build/ch10-preview.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+(work/ch10-build/ch10-preview.out) (work/ch10-build/ch10-preview.out)
+(d:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(d:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(d:/texlive/2023/texmf-dist/tex/latex/jknapltx/ursfs.fd)
+(./sections-tex/10-01.tex [1]
+
+LaTeX Warning: Reference `def:5.5.1' on page 2 undefined on input line 22.
+
+
+LaTeX Warning: Reference `def:5.5.1' on page 2 undefined on input line 22.
+
+
+LaTeX Warning: Reference `eq:7.3.1' on page 2 undefined on input line 43.
+
+[2]
+
+LaTeX Warning: Reference `thm:5.2.6' on page 3 undefined on input line 62.
+
+[3]
+
+LaTeX Warning: Reference `ex:5.5.23' on page 4 undefined on input line 102.
+
+
+LaTeX Warning: Reference `thm:4.4.7' on page 4 undefined on input line 124.
+
+[4]
+
+LaTeX Warning: Reference `thm:7.3.9' on page 5 undefined on input line 138.
+
+[5]
+
+LaTeX Warning: Reference `thm:5.5.17' on page 6 undefined on input line 182.
+
+
+LaTeX Warning: Reference `thm:5.5.13' on page 6 undefined on input line 185.
+
+
+LaTeX Warning: Reference `ex:7.3.13' on page 6 undefined on input line 189.
+
+
+LaTeX Warning: Reference `thm:5.5.24' on page 6 undefined on input line 191.
+
+
+LaTeX Warning: Reference `lem:7.3.11' on page 6 undefined on input line 197.
+
+[6]
+
+LaTeX Warning: Reference `ex:7.2.7' on page 7 undefined on input line 209.
+
+[7]
+
+LaTeX Warning: Reference `thm:5.5.17' on page 8 undefined on input line 227.
+
+
+LaTeX Warning: Hyper reference `ex:5.5.22' on page 8 undefined on input line 23
+0.
+
+
+LaTeX Warning: Reference `ex:5.5.22' on page 8 undefined on input line 230.
+
+
+LaTeX Warning: Reference `thm:5.5.26' on page 8 undefined on input line 253.
+
+[8] [9]
+
+LaTeX Warning: Reference `ex:12.6.7' on page 10 undefined on input line 305.
+
+
+LaTeX Warning: Reference `ex:1.2.20' on page 10 undefined on input line 309.
+
+[10]
+
+LaTeX Warning: Reference `ex:1.2.20' on page 11 undefined on input line 322.
+
+
+LaTeX Warning: Reference `fig:1.2.2' on page 11 undefined on input line 324.
+
+[11]
+
+LaTeX Warning: Reference `thm:5.5.26' on page 12 undefined on input line 355.
+
+
+Underfull \hbox (badness 1264) in paragraph at lines 355--355
+[][][]\TU/FandolSong-Regular(0)/m/n/10 译 注：|  表 中  |“真 实 值”|  与 所 述 $\OML/cmm/m
+/it/10 n \OT1/cmr/m/n/10 = 24$ \TU/FandolSong-Regular(0)/m/n/10 二 项 模 型 不 符\TU/
+lmr/m/n/10 . \TU/FandolSong-Regular(0)/m/n/10 按 该 模 型 对 $\OML/cmm/m/it/10 Y \OT
+1/cmr/m/n/10 = 0\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 24$ \TU/FandolSong-Regu
+lar(0)/m/n/10 逐 项
+
+LaTeX Warning: Reference `thm:5.5.26' on page 12 undefined on input line 359.
+
+
+LaTeX Warning: Reference `thm:5.5.26' on page 12 undefined on input line 359.
+
+[12]
+
+LaTeX Warning: Reference `ex:5.6.6' on page 13 undefined on input line 383.
+
+[13]) (./sections-tex/10-02.tex [14]
+
+LaTeX Warning: Reference `def:5.4.2' on page 15 undefined on input line 41.
+
+[15]
+
+LaTeX Warning: Reference `thm:5.4.3' on page 16 undefined on input line 51.
+
+
+LaTeX Warning: Reference `thm:5.4.4' on page 16 undefined on input line 51.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 78.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 78.
+
+[16] [17] [18] [19]
+
+LaTeX Warning: Reference `lem:7.3.11' on page 20 undefined on input line 201.
+
+[20]) (./sections-tex/10-03.tex [21]
+
+LaTeX Warning: Reference `thm:5.5.17' on page 22 undefined on input line 29.
+
+[22] [23] [24]
+
+LaTeX Warning: Reference `ex:5.5.18' on page 25 undefined on input line 102.
+
+[25]
+
+LaTeX Warning: Reference `exercise:5.32' on page 26 undefined on input line 127
+.
+
+
+LaTeX Warning: Reference `ex:3.3.2' on page 26 undefined on input line 141.
+
+
+LaTeX Warning: Reference `eq:7.3.8' on page 26 undefined on input line 146.
+
+
+LaTeX Warning: Reference `eq:7.3.10' on page 26 undefined on input line 146.
+
+[26] [27]) (./sections-tex/10-04.tex [28]
+
+LaTeX Warning: Reference `thm:5.5.17' on page 29 undefined on input line 15.
+
+[29]
+
+LaTeX Warning: Reference `sec:7.3.2' on page 30 undefined on input line 36.
+
+
+LaTeX Warning: Reference `eq:9.2.7' on page 30 undefined on input line 67.
+
+[30] [31]
+
+LaTeX Warning: Reference `sec:7' on page 32 undefined on input line 110.
+
+
+Underfull \hbox (badness 1867) in paragraph at lines 121--122
+[][]\TU/FandolSong-Regular(0)/b/n/12 例 \TU/lmr/bx/n/12 10.4.6 \TU/lmr/m/n/12 (\
+TU/FandolSong-Regular(0)/m/n/12 再 论 二 项 得 分 区 间\TU/lmr/m/n/12 )\TU/lmr/bx/n/12 
+. []\TU/FandolSong-Regular(0)/m/it/12 对 \TU/lmr/m/it/12 Bernoulli$\OT1/cmr/m/n/
+12 (\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 )$ \TU/FandolSong-Regular(0)/m/it/12 总 体 
+的 随 机 样 本 $\OML/cmm/m/it/12 X[]; [] ; X[]$\TU/FandolSong-Regular(0)/m/it/12 ，|
+[32]
+
+LaTeX Warning: Reference `ex:3.3.2' on page 33 undefined on input line 135.
+
+
+LaTeX Warning: Hyper reference `sec:9.5.2' on page 33 undefined on input line 1
+60.
+
+[33]
+
+LaTeX Warning: Reference `ex:9.2.17' on page 34 undefined on input line 188.
+
+
+LaTeX Warning: Reference `ex:2.3.13' on page 34 undefined on input line 188.
+
+[34] [35]
+
+LaTeX Warning: Reference `exercise:9.22' on page 36 undefined on input line 192
+.
+
+
+LaTeX Warning: Reference `exercise:2.38' on page 36 undefined on input line 194
+.
+
+) (./sections-tex/10-05.tex
+
+LaTeX Warning: Reference `exercise:7.19' on page 36 undefined on input line 22.
+
+
+[36] [37]
+
+LaTeX Warning: Reference `thm:5.5.26' on page 38 undefined on input line 82.
+
+
+LaTeX Warning: Reference `ex:12.6.7' on page 38 undefined on input line 90.
+
+[38]
+
+LaTeX Warning: Reference `ex:5.6.6' on page 39 undefined on input line 117.
+
+
+LaTeX Warning: Reference `thm:5.5.26' on page 39 undefined on input line 132.
+
+[39]
+
+LaTeX Warning: Reference `exercise:11.4' on page 40 undefined on input line 156
+.
+
+[40]
+
+LaTeX Warning: Hyper reference `sec:5.8.2' on page 41 undefined on input line 1
+78.
+
+[41] [42] [43] [44] [45]
+
+LaTeX Warning: Reference `thm:5.5.17' on page 46 undefined on input line 376.
+
+[46] [47]
+
+LaTeX Warning: Reference `exercise:9.23' on page 48 undefined on input line 439
+.
+
+
+LaTeX Warning: Reference `exercise:9.23' on page 48 undefined on input line 439
+.
+
+
+LaTeX Warning: Reference `eq:9.2.7' on page 48 undefined on input line 444.
+
+
+LaTeX Warning: Reference `sec:9.2.3' on page 48 undefined on input line 450.
+
+[48]
+
+LaTeX Warning: Hyper reference `sec:9.5.3' on page 49 undefined on input line 4
+84.
+
+
+LaTeX Warning: Reference `ex:5.5.27' on page 49 undefined on input line 484.
+
+) (./sections-tex/10-06.tex
+
+LaTeX Warning: Reference `thm:7.3.9' on page 49 undefined on input line 4.
+
+
+LaTeX Warning: Reference `eq:7.2.5' on page 49 undefined on input line 10.
+
+[49]
+
+LaTeX Warning: Reference `thm:7.3.9' on page 50 undefined on input line 17.
+
+[50]
+
+LaTeX Warning: Reference `def:1.5.1' on page 51 undefined on input line 52.
+
+[51] [52]) [53] (work/ch10-build/ch10-preview.aux)
+
+LaTeX Warning: There were undefined references.
+
+ )
+(see the transcript file for additional information)
+Output written on work/ch10-build/ch10-preview.pdf (53 pages).
+Transcript written on work/ch10-build/ch10-preview.log.

@@ -1,0 +1,39 @@
+METHODS OF EVALUATING ESTIMATORS                                      281
+Example 7.3.24 (Binomial best unbiased estimation)  Let X1,...,Xn be iid binomial(k,θ). The
+problem is to estimate the probability of exactly one success from a binomial(k,θ), that is, estimate
+                          τ(θ) = Pθ(X = 1) = kθ(1−θ)k−1.
+Now ∑ni=1 Xi ∼binomial(kn,θ) is a complete sufficient statistic, but no unbiased estimator based onit is immediately evident. When in this situation, try for the simplest solution. The simple-minded
+estimator
+                                      1    if X1 = 1                                h(X1) =                                      0  otherwise
+satisfies
+                                                     k         k
+                      Eθh(X1) =                 ∑ h(x1)                                            θ x1(1−θ)k−x1                                                     x1                                         x1=0
+                   =                                 kθ(1−θ)k−1,
+and hence is an unbiased estimator of kθ(1−θ)k−1. Our theory now tells us that the estimator
+                                          n                    n
+                       = E                           φ( ∑ Xi)                      ∑ Xi                                       i=1         h(X1)| i=1
+is the best unbiased estimator of kθ(1−θ)k−1. (Notice that we do not need to actually calculate theexpectation of φ(∑ni=1 Xi); we know that it has the correct expected value by properties of iterated
+expectations.) We must, however, be able to evaluate φ. Suppose that we observe ∑ni=1 Xi = t. Then,
+                                                      n                         the expectation does                                                     Xi = t                                                                          not depend on θ                          φ(t) =  E  h(X1)| i=1∑
+                                                        n
+                  =  P  X1 = ∑ Xi                                                  1| i=1  = t                          (h is 0 or 1)
+                                  Pθ(X1 = 1,∑ni=1Xi = t)                  definition of                  =
+                                   Pθ(∑ni=1 Xi = t)               conditional probability
+                                  Pθ(X1 = 1,∑ni=2 Xi = t                      X1 = 1 is                  =                 −1)
+                                     Pθ(∑ni=1 Xi = t)                        redundant
+                                  Pθ(X1 = 1)Pθ(∑ni=2 Xi = t            X1 is independent                  =                   −1) .
+                                      Pθ(∑ni=1 Xi = t)                   of X2,...,Xn
+  Now X1 ∼binomial(k,θ), ∑n                                  i=2 Xi ∼binomial(k(n−1),θ), and ∑n                                                                         i=1 Xi ∼binomial(kn,θ). Us-ing these facts we have
+                       kθ(1−θ)k−1     k(n−1)t−1   θt−1(1−θ)k(n−1)−(t−1)                 φ(t) =
+                                                     kn
+                                                                                             t                                          θt(1−θ)kn−t
+                                   k(n−1)
+             =  k   t−1     .
+                                       kn
+                                                                    t
+Note that all of the θs cancel, as they must since ∑ni=1 Xi is sufficient. Hence, the best unbiased
+estimator of kθ(1−θ)k−1 is
+                                             n             k(n−1)
+                                                                                         .                         = k  ΣXi−1                            φ ∑ Xi                                                               kn
+                                          i=1              ΣXi
+We can assert unbiasedness without performing the difficult evaluation of Eθ[φ (∑ni=1 Xi)].                                                                              ∥

@@ -1,0 +1,44 @@
+EXERCISES                                                                  211
+        where Tν is a t random variable with ν degrees of freedom. Using the Fundamental Theorem of
+          Calculus, and interpreting P χ2ν = νx  as a pdf, we obtain
+                           ∞  1       √x     1
+                                  fTν (t) =          e−t2x/2ν                (x)(ν/2)−1e−x/2 dx,                                      0 √2π     √ν Γ(ν/2)2ν/2
+
+         a scale mixture of normals. Verify this formula by direct integration.
+      (b) A similar formula holds for the F distribution; that is, it can be written as a mixture of chi squareds.
+            If F1,ν is an F random variable with 1 and ν degrees of freedom, then we can write
+
+                                        ∞
+                                                                1                                            ≤ty  fν(y)dy,                                    P(F1,ν ≤νt) =  0 P χ2
+        where fν(y) is a χ2ν pdf. Use the Fundamental Theorem of Calculus to obtain an integral expression
+           for the pdf of F1,ν, and show that the integral equals the pdf.
+       (c) Verify that the generalization of part (b),
+
+                                         ∞
+                           =                        P Fm,ν                     ≤νmt                                      P χ2m ≤ty  fν(y)dy,                                                          0
+
+            is valid for all integers m > 1.
+5.21 What is the probability that the larger of two continuous iid random variables will exceed the population
+     median? Generalize this result to samples of size n.
+5.22 Let X and Y be iid n(0,1) random variables, and define Z = min(X,Y). Prove that Z2 ∼χ21.
+5.23 Let Ui,i = 1,2,..., be independent uniform(0,1) random variables, and let X have distribution
+                                                 c
+                              P(X = x) = x!,   x = 1,2,3,...
+     where c = 1/(e−1). Find the distribution of
+                                 Z = min{U1,...,UX}.
+      (Hint:  Note that the distribution of Z|X = x is that of the first order statistic from a sample of size x.)
+5.24 Let X1,...,Xn be a random sample from a population with pdf
+
+                                        1/θ       if 0 < x < θ
+                                      fX(x) =                                         0        otherwise.
+     Let X(1) < ··· < X(n) be the order statistics. Show that X(1)/X(n) and X(n) are independent random vari-      ables.
+5.25 As a generalization of the previous exercise, let X1,...,Xn be iid with pdf
+                                        a xa−1       if 0 < x < θ                                       θa                                    fX(x) =
+                                       0           otherwise.
+
+     Let X(1) < ··· < X(n) be the order statistics. Show that X(1)/X(2),X(2)/X(3),...,X(n−1)/X(n), and X(n) are      mutually independent random variables. Find the distribution of each of them.
+5.26 Complete the proof of Theorem 5.4.6.
+       (a) Let U be a random variable that counts the number of X1,...,Xn less than or equal to u and V
+         be a random variable that counts the number of X1,...,Xn greater than u and less than or equal to
+            v. Show that (U,V,n −U −V) is a multinomial random vector with n trials and cell probabilities
+        (FX(u),FX(v)−FX(u),1−FX(v)).

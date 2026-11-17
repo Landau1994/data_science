@@ -1,0 +1,48 @@
+                                   Chapter 5
+
+        Properties of a Random Sample
+
+
+
+
+
+  “I’m afraid that I rather give myself away when I explain,” said he. “Results without causes
+   are much more impressive.”
+                                                                  Sherlock Holmes
+                                                         The Stockbroker’s Clerk
+
+5.1  Basic Concepts of Random Samples
+Often, the data collected in an experiment consist of several observations on a variable of interest.
+We discussed examples of this at the beginning of Chapter 4. In this chapter, we present a model for
+data collection that is often used to describe this situation, a model referred to as random sampling.
+The following definition explains mathematically what is meant by the random sampling method of
+data collection.
+Definition 5.1.1  The random variables X1,...,Xn are called a random sample of size n from the
+population f(x) if X1,...,Xn are mutually independent random variables and the marginal pdf or
+pmf of each Xi is the same function f(x). Alternatively, X1,...,Xn are called independent and iden-
+tically distributed random variables with pdf or pmf f(x). This is commonly abbreviated to iid
+random variables.
+
+   The random sampling model describes a type of experimental situation in which the variable of
+interest has a probability distribution described by f(x). If only one observation X is made on this
+variable, then probabilities regarding X can be calculated using f(x). In most experiments there are
+n > 1 (a fixed, positive integer) repeated observations made on the variable, the first observation is
+X1, the second is X2, and so on. Under the random sampling model each Xi is an observation on the
+same variable and each Xi has a marginal distribution given by f(x). Furthermore, the observations
+are taken in such a way that the value of one observation has no effect on or relationship with
+any of the other observations; that is, X1,...,Xn are mutually independent. (See Exercise 5.4 for a
+generalization of independence.)
+   From Definition 4.6.5, the joint pdf or pmf of X1,...,Xn is given by
+
+                                                                       n
+                         f(x1,...,xn) =           = ∏ f(xi).                                       f(x1)f(x2)·····f(xn)   i=1                          (5.1.1)
+This joint pdf or pmf can be used to calculate probabilities involving the sample. Since X1,...,Xn
+are identically distributed, all the marginal densities f(x) are the same function. In particular, if the
+population pdf or pmf is a member of a parametric family, say one of those introduced in Chapter
+3, with pdf or pmf given by f(x|θ), then the joint pdf or pmf is
+                                                          n
+                                  f(x1,...,xn|θ) = ∏i=1 f(xi|θ),                              (5.1.2)
+
+
+
+DOI: 10.1201/9781003456285-5                                                               169

@@ -1,0 +1,45 @@
+260                                                 POINT ESTIMATION
+   The invariance property of MLEs also holds in the multivariate case. There is nothing in the
+proof of Theorem 7.2.10 that precludes θ from being a vector. If the MLE of (θ1,...,θk) is
+(ˆθ1,..., ˆθk), and if τ(θ1,...,θk) is any function of the parameters, the MLE of τ(θ1,...,θk) is
+τ( ˆθ1,..., ˆθk).
+     If θ = (θ1,...,θk) is multidimensional, then the problem of finding an MLE is that of maximiz-
+ing a function of several variables. If the likelihood function is differentiable, setting the first partial
+derivatives equal to zero provides a necessary condition for an extremum in the interior. However,
+in the multidimensional case, using a second derivative condition to check for a maximum is a te-
+dious task, and other methods might be tried first. We first illustrate a technique that usually proves
+simpler, that of successive maximizations.
+Example 7.2.11 (Normal MLEs, µ and σ unknown)  Let X1,...,Xn be iid n(θ,σ2), with both θ
+and σ2 unknown. Then
+                                     1
+                    =                                                      e−(1/2)Σni=1(xi−θ)2/σ2                       L(θ,σ2|x)                                    (2πσ2)n/2
+
+and
+                                                                     n
+                 logL(θ,σ2|x) = −n2 log2π −n2 logσ2 −12 i=1∑ (xi −θ)2/σ2.
+The partial derivatives, with respect to θ and σ2, are
+                           ∂                1   n
+                          =                      ∑ (xi −θ)                      ∂θ logL(θ,σ2|x)                                       σ2 i=1
+and
+                      ∂                        1   n
+                       =                            +                        ∑ (xi −θ)2.                  ∂σ2 logL(θ,σ2|x)                   −n2σ2                                           2σ4 i=1
+Setting these  partial derivatives equal to zero and solving yields the solution  ˆθ =  ¯x, ˆσ2 =
+                                                 = ¯x,n−1 ∑ni=1(xi −¯x)2. To verify that this solution is, in fact, a global maximum, recall first that if θ̸
+then ∑(xi −θ)2 > ∑(xi −¯x)2. Hence, for any value of σ2,
+                 1                          1                             e−(1/2)Σni=1(xi−¯x)2/σ2               e−(1/2)Σni=1(xi−θ)2/σ2.           (7.2.6)               (2πσ2)n/2           ≥ (2πσ2)n/2
+
+Therefore, verifying that we have found the maximum likelihood estimators is reduced to a one-
+dimensional problem, verifying that (σ2)−n/2exp(−1                                                         2 ∑(xi −¯x)2/σ2) achieves its global maximum
+at σ2 = n−1 ∑(xi −¯x)2. This is straightforward to do using univariate calculus and, in fact, the
+estimators (¯X, n−1 ∑(Xi −¯X)2) are the MLEs.  We note that the left side of the inequality in (7.2.6) is known as the profile likelihood for σ2.
+See Miscellanea 7.5.5.                                                            ∥
+  Now consider the solution to the same problem using two-variate calculus.
+Example 7.2.12 (Continuation of Example 7.2.11)  To use two-variate calculus to verify that a
+function H(θ1,θ2) has a local maximum at (ˆθ1, ˆθ2), it must be shown that the following three con-
+ditions hold.
+a. The first-order partial derivatives are zero,
+              ∂                               ∂
+                      = 0   and               = 0.             ∂θ1 H(θ1,θ2)|θ1=ˆθ1,θ2=ˆθ2           ∂θ2 H(θ1,θ2)|θ1= ˆθ1,θ2= ˆθ2
+b. At least one second-order partial derivative is negative,
+               ∂2                            ∂2
+                      < 0  or               < 0.            ∂θ 12 H(θ1,θ2)|θ1=ˆθ1,θ2=ˆθ2        ∂θ 22 H(θ1,θ2)|θ1=ˆθ1,θ2=ˆθ2

@@ -1,0 +1,12 @@
+[
+  {
+    "script": "check_math_overflow.py",
+    "returncode": 0,
+    "output": "work\\final-checks\\math-overflow-run.txt"
+  },
+  {
+    "script": "check_tex_static.py",
+    "returncode": 1,
+    "output": "work\\final-checks\\static-check-run.txt"
+  }
+]

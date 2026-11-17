@@ -1,0 +1,47 @@
+298                                                 POINT ESTIMATION
+7.5  Miscellanea
+
+ 7.5.1 Moment Estimators and MLEs
+       In general, method of moments estimators are not functions of sufficient statistics, hence,
+       they can always be improved upon by conditioning on a sufficient statistic. In the case of
+       exponential families, however, there can be a correspondence between a modified method of
+      moments strategy and maximum likelihood estimation. This correspondence is discussed in
+        detail by Davidson and Solomon (1974), who also relate some interesting history.
+      Suppose that we have a random sample X = (X1,...,Xn) from a pdf in the exponential family
+       (see Theorem 5.2.11)
+
+                                                                    k
+                                                                                                      ,                             f(x|θ) = h(x)c(θ)exp  i=1∑ wi(θ)ti(x)
+      where the range of f(x|θ) is independent of θ. (Note that θ may be a vector.) The likelihood       function is of the form
+
+                                                                   k         n
+                                                                           ti(xj)   ,                       L(θ|x) = H(x)[c(θ)]nexp  i=1∑ wi(θ) j=1∑
+
+      and a modified method of moments would estimate wi(θ),i = 1,...,k, by ˆwi(θ), the solu-
+        tions to the k equations
+
+                                 n                 n
+                                                                                   ,    i = 1,...,k.            ∑ ti(x j)                    = Eθ ∑ ti(Xj)
+                              j=1              j=1
+
+      Davidson and Solomon, extending work of Huzurbazar (1949), show that the estimators
+        ˆwi(θ) are, in fact, the MLEs of wi(θ). If we define ηi = wi(θ),i = 1,...,k, then the MLE of
+       g(ηi) is equal to g(ˆηi) = g(ˆwi(θ)) for any one-to-one function g. Calculation of the above
+       expectations may be simplified by using the facts (Lehmann, 1986, Section 2.7) that
+
+                           ∂
+            Eθ(ti(Xj)) =          log(c(θ)),    i = 1,...,k,     j = 1,...,n;                         ∂wi(θ)
+
+                       Covθ(ti(Xj),ti′(Xj))
+                              ∂2
+             =                 log(c(θ)),    i,i′ = 1,...,k,     j = 1,...,n.
+                          ∂wi(θ)∂wi′(θ)
+ 7.5.2 Unbiased Bayes Estimates
+     As was seen in Section 7.2.3, if a Bayesian calculation is done, the mean of the posterior
+        distribution usually is taken as a point estimator. To be specific, if X has pdf f(x|θ) with      Eθ(X) = θ, and there is a prior distribution π(θ), then the posterior mean, a Bayesian point
+       estimator of θ, is given by
+
+                                  E(θ|x) =   θπ(θ|x)dθ.
+    A question that could be asked is whether E(θ|X) can be an unbiased estimator of θ, and       thus satisfy the equation
+
+                       Eθ[E(θ|X)] =      θπ(θ|x)dθ  f(x|θ)dx = θ.

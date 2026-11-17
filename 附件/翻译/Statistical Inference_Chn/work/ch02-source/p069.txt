@@ -1,0 +1,41 @@
+                                    Chapter 2
+
+      Transformations and Expectations
+
+
+
+
+
+  We want something more than mere theory and preaching now, though.
+                                                                  Sherlock Holmes
+                                                   A Study in Scarlet
+    Often, if we are able to model a phenomenon in terms of a random variable X with cdf FX(x), we
+will also be concerned with the behavior of functions of X. In this chapter we study techniques that
+allow us to gain information about functions of X that may be of interest, information that can range
+from very complete (the distributions of these functions) to more vague (the average behavior).
+
+2.1  Distributions of Functions of a Random Variable
+If X is a random variable with cdf FX(x), then any function of X, say g(X), is also a random variable.
+Often g(X) is of interest itself and we write Y = g(X) to denote the new random variable g(X). Since
+Y is a function of X, we can describe the probabilistic behavior of Y in terms of that of X. That is,
+for any set A,
+                             P(Y ∈A) = P(g(X) ∈A),
+showing that the distribution of Y depends on the functions FX and g. Depending on the choice of
+g, it is sometimes possible to obtain a tractable expression for this probability.
+    Formally, if we write y = g(x), the function g(x) defines a mapping from the original sample
+space of X, X , to a new sample space, Y , the sample space of the random variable Y. That is,
+
+                                          g(x): X →Y .
+We associate with g an inverse mapping, denoted by g−1, which is a mapping from subsets of Y to
+subsets of X , and is defined by
+                             g−1(A) = {x ∈X : g(x) ∈A}.                            (2.1.1)
+   Note that the mapping g−1 takes sets into sets, that is, g−1(A) is the set of points in X that g(x)
+takes into the set A. It is possible for A to be a point set, say A = {y}. Then
+                             g−1({y})                      = {x ∈X : g(x) = y}.
+In this case we often write g−1(y) instead of g−1({y}). The quantity g−1(y) can still be a set,however, if there is more than one x for which g(x) = y. If there is only one x for which g(x) = y,
+then g−1(y) is the point set {x}, and we will write g−1(y) = x. If the random variable Y is now
+defined by Y = g(X), we can write for any set A ⊂Y ,
+                        P(Y ∈A) =  P(g(X) ∈A)
+                      =  P({x ∈X : g(x) ∈A})                        (2.1.2)
+                                                                                          .                      =  P X ∈g−1(A)
+38                                                  DOI: 10.1201/9781003456285-2

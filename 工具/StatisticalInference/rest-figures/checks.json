@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-13",
+  "randomness": "none",
+  "density_coefficient": 0.5,
+  "frequency": "2*pi",
+  "cumulant_amplitude": 1.3376439955371215e-09,
+  "domain": [
+    -4,
+    4
+  ],
+  "Borel_epsilon": 0.2,
+  "Borel_display_window": {
+    "x1": [
+      0,
+      6.3
+    ],
+    "x2": [
+      0,
+      2.35
+    ]
+  },
+  "source_pages": {
+    "2.37": 100,
+    "4.61": 197
+  },
+  "boundary": "独立公式构造；图4.61只显示正象限的有限窗口，阴影表示集合而非概率密度。编译后须另行目视。"
+}

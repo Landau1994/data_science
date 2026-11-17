@@ -1,0 +1,42 @@
+METHODS OF EVALUATING ESTIMATORS                                      271
+For any W1,W2 ∈Cτ, Biasθ W1 = Biasθ W2, so
+                  Eθ(W1 −θ)2 −Eθ(W2 −θ)2                           = Varθ W1 −Varθ W2,
+and MSE comparisons, within the class Cτ, can be based on variance alone. Thus, although we speak
+in terms of unbiased estimators, we really are comparing estimators that have the same expected
+value, τ(θ).
+   The goal of this section is to investigate a method for finding a “best” unbiased estimator, which
+we define in the following way.
+Definition 7.3.7  An estimator W ∗is a best unbiased estimator of τ(θ) if it satisfies EθW ∗= τ(θ)
+for all θ and, for any other estimator W with EθW = τ(θ), we have Varθ W ∗≤Varθ W for all θ.W ∗is also called a uniform minimum variance unbiased estimator (UMVUE) of τ(θ).
+
+   Finding a best unbiased estimator (if one exists!) is not an easy task for a variety of reasons, two
+of which are illustrated in the following example.
+Example 7.3.8 (Poisson unbiased estimation)  Let X1,...,Xn be iid Poisson(λ), and let ¯X and S2
+be the sample mean and variance, respectively. Recall that for the Poisson pmf both the mean and
+variance are equal to λ. Therefore, applying Theorem 5.2.6, we have
+
+                              Eλ ¯X = λ,   for all λ,
+
+and
+                              EλS2 = λ,   for all λ,
+so both ¯X and S2 are unbiased estimators of λ.
+   To determine the better estimator, ¯X or S2, we should now compare variances. Again from
+Theorem 5.2.6, we have Varλ ¯X = λ/n, but Varλ S2 is quite a lengthy calculation (resembling that
+in Exercise 5.10b). This is one of the first problems in finding a best unbiased estimator. Not only
+may the calculations be long and involved, but they may be for naught (as in this case), for we will
+see that Varλ ¯X ≤Varλ S2 for all λ.   Even if we can establish that ¯X is better than S2, consider the class of estimators
+                           Wa(¯X,S2) = a ¯X +(1−a)S2.
+For every constant a,EλWa(¯X, S2) = λ, so we now have infinitely many unbiased estimators of λ.
+Even if ¯X is better than S2, is it better than every Wa( ¯X,S2)? Furthermore, how can we be sure that
+there are not other, better, unbiased estimators lurking about?                             ∥
+   This example shows some of the problems that might be encountered in trying to find a best
+unbiased estimator, and perhaps that a more comprehensive approach is desirable. Suppose that, for
+estimating a parameter τ(θ) of a distribution f(x|θ), we can specify a lower bound, say B(θ), on thevariance of any unbiased estimator of τ(θ). If we can then find an unbiased estimator W ∗satisfying
+Varθ W ∗= B(θ), we have found a best unbiased estimator. This is the approach taken with the use
+of the Cram´er–Rao Lower Bound.
+Theorem 7.3.9 (Cram´er–Rao Inequality)   Let X1,...,Xn be a sample with pdf f(x|θ), and letW(X) = W(X1,...,Xn) be any estimator satisfying
+
+                              d                  ∂
+                           EθW(X) =                                                    [W(x) f(x|θ)] dx                           dθ                                 X ∂θ
+               and                                                                         (7.3.4)
+                            VarθW(X) <  ∞.

@@ -1,0 +1,42 @@
+212                                    PROPERTIES OF A RANDOM SAMPLE
+
+      (b) Show that the joint cdf of X(i) and X( j) can be expressed as
+                           FX(i),X( j)(u,v) =  P(U ≥i,U +V ≥j)
+                                         j−1  n−k
+                   =                ∑                   ∑ P(U                             = k,V = m)+P(U ≥j)                                           k=i                               m=                                                  j−k
+                                         j−1  n−k         n!
+                   =                ∑ ∑                                           k=i m= j−k k!m!(n−k −m)![FX(u)]k[FX(v)−FX(u)]m
+                                ×[1−FX(v)]n−k−m +P(U ≥j).
+       (c) Find the find the joint pdf by computing the mixed partial as indicated in (4.1.3).
+         (The mixed partial of P(U ≥j) is 0 since this term depends only on u, not v. For the other terms,          there is much cancelation using relationships like (5.4.5).)
+5.27 Let X1,...,Xn be iid with pdf fX(x) and cdf FX(x), and let X(1) < ··· < X(n) be the order statistics.
+       (a) Find an expression for the conditional pdf of X(i) given X(j) in terms of fX and FX.
+      (b) Find the pdf of V|R = r, where V and R are defined in Example 5.4.7.
+5.28 Let X1,...,Xn be iid with pdf fX(x) and cdf FX(x), and let X(i1) < ··· < X(il) and X(j1) < ··· < X(jm) be     any two disjoint groups of order statistics. In terms of the pdf fX(x) and the cdf FX(x), find expressions
+      for
+       (a) The marginal cdf and pdf of X(i1),...,X(il).
+      (b) The conditional cdf and pdf of X(i1),...,X(il) given X(j1),...,X(jm).
+5.29 A manufacturer of booklets packages them in boxes of 100. It is known that, on the average, the booklets
+     weigh 1 ounce, with a standard deviation of .05 oz. The manufacturer is interested in calculating
+
+                            P(100 booklets weigh more than 100.4 oz),
+
+      a number that would help detect whether too many booklets are being put in a box. Explain how you
+     would calculate the (approximate?) value of this probability. Mention any relevant theorems or assump-
+      tions needed.
+5.30  If ¯X1 and ¯X2 are the means of two independent samples of size n from a population with variance σ2,
+      find a value for n so that P(|¯X1 −¯X2|                      < σ/5) ≈.99. Justify your calculations.
+5.31 Suppose ¯X is the mean of 100 observations from a population with mean µ and variance σ2 = 9. Find
+      limits between which ¯X −µ will lie with probability at least .90. Use both Chebychev’s Inequality and      the Central Limit Theorem, and comment on each.
+5.32 Let X1,X2,... be a sequence of random variables that converges in probability to a constant a. Assume
+       that P(Xi > 0) = 1 for all i.
+       (a) Verify that the sequences defined by Yi = √Xi and Yi′ = a/Xi converge in probability.
+      (b) Use the results in part (a) to prove the fact used in Example 5.5.18, that σ/Sn converges in probability
+           to 1.
+5.33 Let Xn be a sequence of random variables that converges in distribution to a random variable X. Let Yn
+     be a sequence of random variables with the property that for any finite number c,
+                                    n→∞P(Ynlim   > c) = 1.
+    Show that for any finite number c,
+                                 n→∞P(Xnlim    +Yn > c) = 1.
+      (This is the type of result used in the discussion of the power properties of the tests described in Section
+      10.3.2.)

@@ -1,0 +1,12 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[UTF8,fontset=fandol]{ctex}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.18,every axis/.append style={axis lines=left,tick label style={font=\small},label style={font=\small},title style={font=\small},samples=201}}
+\begin{document}\begin{tikzpicture}
+\begin{axis}[width=13cm,height=8cm,xmin=-4,xmax=4,ymin=0,ymax=4.5,xlabel={$\mu$},ylabel={平方误差风险},title={习题7.63：先验方差与频率风险},legend style={font=\small,at={(.5,-.17)},anchor=north,legend columns=1}]
+\addplot[black,thick,domain=-4:4]{(1+x^2)/4};\addlegendentry{$\pi_1=n(0,1)$：$R=(1+\mu^2)/4$}
+\addplot[black,dashed,thick,domain=-4:4]{(100+x^2)/121};\addlegendentry{$\pi_{10}=n(0,10)$：$R=(100+\mu^2)/121$}
+\addplot[black,densely dotted,domain=-4:4]{1};\addlegendentry{参考：$\delta(X)=X$，风险为1}
+\end{axis}
+\end{tikzpicture}\end{document}

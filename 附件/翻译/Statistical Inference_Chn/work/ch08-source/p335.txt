@@ -1,0 +1,39 @@
+304                                             HYPOTHESIS TESTING
+     If we think of doing the maximization over both the entire parameter space (unrestricted max-
+imization) and a subset of the parameter space (restricted maximization) then the correspondence
+between LRTs and MLEs becomes more clear. Suppose ˆθ, an MLE of θ, exists; ˆθ is obtained by
+doing an unrestricted maximization of L(θ|x). We can also consider the MLE of θ, call it ˆθ0, ob-tained by doing a restricted maximization, assuming Θ0 is the parameter space. That is, ˆθ0 = ˆθ0(x)
+is the value of θ ∈Θ0 that maximizes L(θ|x). Then, the LRT statistic is
+
+                                          L(                                  λ(x) =    ˆθ0|x) .
+                                          L(ˆθ|x)
+
+Example 8.2.2 (Normal LRT)   Let X1,...,Xn be a random sample from a n(θ,1) population.
+Consider testing H0 : θ = θ0 versus H1 : θ̸ = θ0. Here θ0 is a number fixed by the experimenterprior to the experiment. Since there is only one value of θ specified by H0, the numerator of λ(x) is
+L(θ0|x). In Example 7.2.5 the (unrestricted) MLE of θ was found to be X, the sample mean. Thus
+the denominator of λ(x) is L(x|x). So the LRT statistic is
+                              (2π)−n/2 exp −∑ni=1(xi −θ0)2/2                          (8.2.1)                  λ(x) =
+                               (2π)−n/2 exp[−∑ni=1(xi −x)2/2]
+                                                n               n
+                             +                                                          /2   .                 ∑ (xi −θ0)2                       ∑ (xi −x)2               =  exp  − i=1                                                             i=1
+
+The expression for λ(x) can be simplified by noting that
+
+
+                                 n                n
+                      =           ∑ (xi −θ0)2                  ∑ (xi −x)2 +n(x−θ0)2.                              i=1                                               i=1
+
+Thus, the LRT statistic is
+
+                                                                                            .                              (8.2.2)                             λ(x) = exp −n(x−θ0)2/2
+An LRT is a test that rejects H0 for small values of λ(x). Using (8.2.2), the rejection region, {x:
+λ(x) ≤c}, can be written as
+                             {x: |x−θ0| ≥   −2(logc)/n}.
+As c ranges between 0 and 1,   −2(logc)/n ranges between 0 and ∞. Thus the LRTs are just thosetests that reject H0 : θ = θ0 if the sample mean differs from the hypothesized value θ0 by more than
+a specified amount.                                                               ∥
+   The analysis in Example 8.2.2 is typical in that first the expression for λ(X) from Definition
+8.2.1 is found, as we did in (8.2.1). Then the description of the rejection region is simplified, if
+possible, to an expression involving a simpler statistic, X−θ0  in the example.
+Example 8.2.3 (Exponential LRT)  Let X1,...,Xn be a random sample from an exponential pop-
+ulation with pdf
+                                           e−(x−θ)     x                     =           ≥θ,                                f(x|θ)    0          x < θ,

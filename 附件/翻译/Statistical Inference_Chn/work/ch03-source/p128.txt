@@ -1,0 +1,42 @@
+LOCATION AND SCALE FAMILIES                                              97
+then the location family with standard pdf f(x) is the set of normal distributions with unknown
+mean µ and known variance σ2. To see this, check that replacing x by x −µ in the above formulayields pdfs of the form defined in (3.3.13). Similarly, the Cauchy family and the double exponential
+family, with σ a specified value and µ a parameter, are examples of location families. But the point
+of Definition 3.5.2 is that we can start with any pdf f(x) and generate a family of pdfs by introducing
+a location parameter.
+     If X is a random variable with pdf f(x−µ), then X may be represented as X = Z +µ, where Z isa random variable with pdf f(z). This representation is a consequence of Theorem 3.5.6 (with σ =
+1), which will be proved later. Consideration of this representation indicates when a location family
+might be an appropriate model for an observed variable X. We will describe two such situations.
+    First, suppose an experiment is designed to measure some physical constant µ, say the temper-
+ature of a solution. But there is some measurement error involved in the observation. So the actual
+observed value X is Z + µ where Z is the measurement error. X will be greater than µ if Z > 0 for
+this observation and less than µ if Z < 0. The distribution of the random measurement error might
+be well known from previous experience in using this measuring device to measure other solutions.
+If this distribution has pdf f(z) then the pdf of the observed value X is f(x−µ).   As another example, suppose the distribution of reaction times of drivers on a coordina-
+tion test  is known from previous experimentation. Denote the reaction time for a randomly
+chosen driver by the random variable Z. Let the pdf of Z describing the known distribu-
+tion be  f(z). Now, consider “applying a treatment” to the population. For example, consider
+what would happen if everyone drank three glasses of beer. We might assume that everyone’s
+reaction time would change by some unknown amount µ. (This very simple model, in which every-
+one’s reaction time changes by the same amount µ, is probably not the best model. For example, it is
+known that the effect of alcohol is weight-dependent, so heavier people are likely to be less affected
+by the beers.) Being open-minded scientists, we might even allow the possibility that µ < 0, that is,
+that the reaction times decrease. Then, if we observe the reaction time of a randomly selected driver
+after “treatment,” the reaction time would be X = Z + µ and the family of possible distributions for
+X would be given by f(x−µ).
+     If the set of x for which f(x) > 0 is not the whole real line, then the set of x for which f(x−µ) >0 will depend on µ. Example 3.5.3 illustrates this.
+Example 3.5.3 (Exponential location family)   Let f(x) = e−x, x ≥0, and f(x) = 0, x < 0. To
+form a location family we replace x with x−µ to obtain
+                                            e−(x−µ)                     =        x−µ ≥0,                             f(x|µ)       0        < 0,                                 x−µ                                            e−(x−µ)  x                     =          ≥µ,                                      0        x < µ.
+Graphs of f(x|µ), for various values of µ, are shown in Figure 3.5.2. As in Figure 3.5.1, the graphhas been shifted. Now the positive part of the graph starts at µ rather than at zero. If X measures
+time, then µ might be restricted to be nonnegative so that X will be positive with probability 1 for
+every value of µ. In this type of model, where µ denotes a bound on the range of X, µ is sometimes
+called a threshold parameter.                                                       ∥
+   The other two types of families to be discussed in this section are scale families and location–
+scale families.
+Definition 3.5.4  Let f(x) be any pdf. Then for any σ > 0, the family of pdfs (1/σ) f(x/σ), in-
+dexed by the parameter σ, is called the scale family with standard pdf f(x) and σ is called the scale
+parameter of the family.
+
+   The effect of introducing the scale parameter σ is either to stretch (σ > 1) or to contract (σ < 1)
+the graph of f(x) while still maintaining the same basic shape of the graph. This is illustrated

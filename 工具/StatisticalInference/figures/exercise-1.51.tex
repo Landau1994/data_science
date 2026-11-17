@@ -1,0 +1,41 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[UTF8,fontset=fandol]{ctex}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[name=main,width=10cm,height=7cm,xmin=-0.7,xmax=4.7,ymin=-0.04,ymax=1.04,
+  axis lines=left,xtick={0,1,2,3,4},ytick={0,0.2,0.4,0.6,0.8,1},
+  xlabel={$x$},ylabel={$F_X(x)$},title={习题1.51：超几何分布函数},
+  tick label style={font=\small},title style={font=\small}]
+\addplot[black,thick] coordinates {(-0.7,0.000000000000) (0,0.000000000000)};
+\addplot[black,thick] coordinates {(0,0.461594599526) (1,0.461594599526)};
+\addplot[black,thick] coordinates {(1,0.881226053640) (2,0.881226053640)};
+\addplot[black,thick] coordinates {(2,0.990695128626) (3,0.990695128626)};
+\addplot[black,thick] coordinates {(3,0.999817551542) (4,0.999817551542)};
+\addplot[black,thick] coordinates {(4,1.000000000000) (4.7,1.000000000000)};
+\addplot[only marks,mark=*,mark size=1.6pt,black] coordinates {(0,0.461594599526)};
+\addplot[only marks,mark=o,mark size=1.6pt,mark options={solid,fill=white},black] coordinates {(0,0.000000000000)};
+\addplot[only marks,mark=*,mark size=1.6pt,black] coordinates {(1,0.881226053640)};
+\addplot[only marks,mark=o,mark size=1.6pt,mark options={solid,fill=white},black] coordinates {(1,0.461594599526)};
+\addplot[only marks,mark=*,mark size=1.6pt,black] coordinates {(2,0.990695128626)};
+\addplot[only marks,mark=o,mark size=1.6pt,mark options={solid,fill=white},black] coordinates {(2,0.881226053640)};
+\addplot[only marks,mark=*,mark size=1.6pt,black] coordinates {(3,0.999817551542)};
+\addplot[only marks,mark=o,mark size=1.6pt,mark options={solid,fill=white},black] coordinates {(3,0.990695128626)};
+\addplot[only marks,mark=*,mark size=1.6pt,black] coordinates {(4,1.000000000000)};
+\addplot[only marks,mark=o,mark size=1.6pt,mark options={solid,fill=white},black] coordinates {(4,0.999817551542)};
+\end{axis}
+\begin{axis}[at={(main.east)},anchor=west,xshift=1.5cm,width=6.3cm,height=7cm,
+  xmin=2.7,xmax=4.4,ymin=0.9996,ymax=1.00004,axis lines=left,
+  xtick={3,4},ytick={0.9996,0.9998,1},scaled y ticks=false,
+  yticklabel style={/pgf/number format/fixed,/pgf/number format/precision=4},
+  xlabel={$x$},title={上尾局部放大},
+  tick label style={font=\small},title style={font=\small}]
+\addplot[black,thick] coordinates {(3,0.999817551542) (4,0.999817551542)};
+\addplot[black,thick] coordinates {(4,1.000000000000) (4.7,1.000000000000)};
+\addplot[only marks,mark=*,mark size=1.6pt,black] coordinates {(3,0.999817551542)};
+\addplot[only marks,mark=*,mark size=1.6pt,black] coordinates {(4,1.000000000000)};
+\addplot[only marks,mark=o,mark size=1.6pt,mark options={solid,fill=white},black] coordinates {(4,0.999817551542)};
+\end{axis}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,37 @@
+86                          COMMON FAMILIES OF DISTRIBUTIONS
+
+
+
+
+
+                                                                                              x
+             –4     –3     –2     –1      0      1      2      3      4
+
+                                 Figure 3.3.1 Standard normal density
+
+Example 3.3.2 (Normal approximation)   Let X ∼binomial(25,.6). We can approximate Xwith a normal random variable, Y, with mean µ = 25(.6) = 15 and standard deviation σ =
+((25)(.6)(.4))1/2 = 2.45. Thus,
+
+                               = P(Z ≤−.82) = .206,           P(X ≤13) ≈P(Y ≤13) = P  Z ≤13−152.45
+while the exact binomial calculation gives
+
+                                             13  25
+                    P(X    =                ∑        (.6)x(.4)25−x                     ≤13)   x=0   x         = .267,
+showing that the normal approximation is good, but not terrific. The approximation can be greatly
+improved, however, by a “continuity correction.” To see how this works, look at Figure 3.3.2, which
+shows the binomial(25,.6) pmf and the n(15,(2.45)2) pdf. We have drawn the binomial pmf using
+bars of width 1, with height equal to the probability. Thus, the areas of the bars give the bino-
+mial probabilities. In the above approximation, notice how the area of the approximating normal is
+smaller than the binomial area (the normal area is everything to the left of the line at 13, whereas
+the binomial area includes the entire bar at 13 up to 13.5). The continuity correction adds this area
+back by adding 21 to the cutoff point. So instead of approximating P(X ≤13), we approximate the
+equivalent expression (because of the discreteness), P(X ≤13.5), and obtain
+            P(X ≤13) = P(X ≤13.5) ≈P(Y ≤13.5) = P(Z ≤−.61) = .271,
+
+
+
+
+
+              7      9      11     13     15     17     19     21     23
+
+                 Figure 3.3.2 Normal (15,(2.45)2) approximation to the binomial (25,.6)

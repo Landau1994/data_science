@@ -1,0 +1,8 @@
+\subsection{引言}\label{sec:6.1}
+实验者用样本$X_1,\ldots,X_n$中的信息推断未知参数$\theta$.若样本容量$n$很大，观测样本$x_1,\ldots,x_n$就是一长串难以解释的数字.实验者可能希望确定样本值的几个关键特征，来概括样本中的信息.通常通过计算统计量，即样本的函数，来完成这一点.例如，样本均值、样本方差、最大观测值和最小观测值，是可以用来概括样本某些关键特征的四个统计量.回顾我们用粗体字母表示多元变量，因而$\boldsymbol X$表示随机变量$X_1,\ldots,X_n$，$\boldsymbol x$表示样本$x_1,\ldots,x_n$.
+
+任何统计量$T(\boldsymbol X)$都确定一种数据约简（data reduction）或数据概括的形式.若实验者只使用统计量的观测值$T(\boldsymbol x)$，那么对满足$T(\boldsymbol x)=T(\boldsymbol y)$的两个样本$\boldsymbol x$和$\boldsymbol y$，他就会等同看待，即使实际样本值在某些方面可能不同.
+
+以某个特定统计量进行的数据约简，可以看作样本空间$\mathcal X$的一个划分.\index{SI0753@划分}\semanticindexanchor{753:252}令$\mathcal T=\{t:t=T(\boldsymbol x)\text{，其中某个}\boldsymbol x\in\mathcal X\}$为$\mathcal X$在$T(\boldsymbol x)$下的像.那么$T(\boldsymbol x)$把样本空间划分为集合$A_t$、$t\in\mathcal T$，其定义为$A_t=\{\boldsymbol x:T(\boldsymbol x)=t\}$.统计量概括数据的含义是：它只报告$T(\boldsymbol x)=t$，或等价地报告$\boldsymbol x\in A_t$，而不报告整个样本$\boldsymbol x$.例如，若$T(\boldsymbol x)=x_1+\cdots+x_n$，则$T(\boldsymbol x)$只报告总和，不报告实际样本值.可能有许多不同的样本点具有相同的总和.这种数据约简的优点和后果是本章讨论的主题.
+
+我们研究三种数据约简原则.我们关心既不丢弃有关未知参数$\theta$的重要信息，又能成功去掉与认识$\theta$无关的信息的约简方法.充分性原则（Sufficiency Principle）提出一种在概括数据的同时不丢弃关于$\theta$的信息的方法.\index{SI0997@充分性原则}\semanticindexanchor{997:252}似然原则（Likelihood Principle）描述一个由观测样本确定的参数函数，这个函数含有样本能提供的全部关于$\theta$的信息.等变性原则（Equivariance Principle）则规定另一种仍保留模型某些重要特征的数据约简方法.

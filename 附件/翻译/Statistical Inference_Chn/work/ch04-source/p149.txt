@@ -1,0 +1,45 @@
+118                                      MULTIPLE RANDOM VARIABLES
+   The marginal pmf of X or Y is the same as the pmf of X or Y defined in Chapter 1. The marginal
+pmf of X or Y can be used to compute probabilities or expectations that involve only X or Y. But to
+compute a probability or expectation that simultaneously involves both X and Y, we must use the
+joint pmf of X and Y.
+Example 4.1.8 (Dice probabilities)  Using the marginal pmf of Y computed in Example 4.1.7, we
+can compute
+                                                1   5   2   2
+                 P(Y < 3) = fY(0)+ fY(1)+ fY(2) = +  + =                                                6   18   9   3.
+Also,
+                     EY 3 = 03                fY(5) = 2011                               fY(0)+···+53          18.
+                                                                              ∥
+   The marginal distributions of X and Y, described by the marginal pmfs fX(x) and fY(y), do
+not completely describe the joint distribution of X and Y. Indeed, there are many different joint
+distributions that have the same marginal distributions. Thus, it is hopeless to try to determine the
+joint pmf, fX,Y(x,y), from knowledge of only the marginal pmfs, fX(x) and fY(y). The next example
+illustrates the point.
+Example 4.1.9 (Same marginals, different joint pmf)  Define a joint pmf by
+                     f(0,0) = 12,1    f(1,0)    5                           3                       = 12,   f(0,1) = f(1,1) = 12,
+                                f(x,y) = 0   for all other values.
+
+The marginal pmf of Y is fY(0) = f(0,0) + f(1,0) = 12 and fY(1)                         1                                    = f(0,1) + f(1,1) = 2. The
+marginal pmf of X is fX(0) = 13 and fX(1)    2                      = 3. Now check that for the joint pmf given in Example
+4.1.5, which is obviously different from the one given here, the marginal pmfs of both X and Y are
+exactly the same as the ones just computed. Thus, we cannot determine what the joint pmf is if we
+know only the marginal pmfs. The joint pmf tells us additional information about the distribution of
+(X,Y) that is not found in the marginal distributions.                                    ∥
+   To this point we have discussed discrete bivariate random vectors. We can also consider ran-
+dom vectors whose components are continuous random variables. The probability distribution of
+continuous random vector is usually described using a density function, as in the univariate case.
+Definition 4.1.10 A function f(x,y) from ℜ2 into ℜis called a joint probability density function
+or joint pdf of the continuous bivariate random vector (X,Y) if, for every A ⊂ℜ2,
+                         P((X,Y) ∈A) =  A   f(x,y)dxdy.
+
+
+  A joint pdf is used just like a univariate pdf except now the integrals are double integrals over
+sets in the plane. The notation   A simply means that the limits of integration are set so that the
+function is integrated over all (x,y) ∈A. Expectations of functions of continuous random vectorsare defined as in the discrete case with integrals replacing sums and the pdf replacing the pmf. That
+is, if g(x,y) is a real-valued function, then the expected value of g(X,Y) is defined to be
+
+                                 ∞  ∞
+                       Eg(X,Y) =                                                      (4.1.1)
+                               −∞  −∞g(x,y)f(x,y)dxdy.
+It is important to realize that the joint pdf is defined for all (x,y) ∈ℜ2. The pdf may equal 0 on a
+large set A if P((X,Y) ∈A) = 0 but the pdf is defined for the points in A.

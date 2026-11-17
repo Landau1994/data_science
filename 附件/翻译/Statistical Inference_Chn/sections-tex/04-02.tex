@@ -1,0 +1,252 @@
+\subsection{条件分布与独立性}\label{sec:4.2}
+观测两个随机变量 $(X,Y)$ 时，两者的取值往往有关系. 例如，从一个人群中抽样，令 $X$ 表示某人的身高，$Y$ 表示同一个人的体重. 相比于得知 $X=41$ 英寸，若得知 $X=73$ 英寸，我们自然会认为 $Y>200$ 磅更有可能. 即使知道 $X$ 的值不能确切告诉我们 $Y$ 的值，它也提供了关于 $Y$ 的一些信息. 利用 $(X,Y)$ 的联合分布，可以计算已知 $X$ 值时关于 $Y$ 的条件概率. 然而，有时关于 $X$ 的知识并不提供任何关于 $Y$ 的信息. 本节讨论这些有关条件概率的问题.
+
+若 $(X,Y)$ 是离散随机向量，则 $P(Y=y\mid X=x)$ 这样的条件概率完全按照\autoref{def:1.3.2} 来解释. 对可数个（也许有限个）$x$，有 $P(X=x)>0$. 对这些 $x$，根据定义，$P(Y=y\mid X=x)$ 就是 $P(X=x,Y=y)/P(X=x)$. 事件 $\{Y=y\}$ 对应公式中的 $A$，事件 $\{X=x\}$ 对应 $B$. 固定 $x$ 后，可以对所有可能的 $y$ 计算 $P(Y=y\mid X=x)$，从而在已观测到 $X=x$ 的条件下，评价各个 $y$ 值的概率. 用 $X$ 和 $Y$ 的联合与边缘 pmf 表示这些概率，即 $P(X=x,Y=y)=f(x,y)$，$P(X=x)=f_X(x)$，便可简化计算. 由此得到下面的定义.
+\begin{definition}\label{def:4.2.1}\index{SI0851@条件}
+设 $(X,Y)$ 是离散二元随机向量，联合 pmf 为 $f(x,y)$，边缘 pmf 为 $f_X(x)$ 和 $f_Y(y)$. 对任意满足 $P(X=x)=f_X(x)>0$ 的 $x$，给定 $X=x$ 时 $Y$ 的条件 pmf（conditional pmf）是关于 $y$ 的函数，记为 $f(y\mid x)$，定义为
+$$f(y\mid x)=P(Y=y\mid X=x)=\frac{f(x,y)}{f_X(x)}.$$
+对任意满足 $P(Y=y)=f_Y(y)>0$ 的 $y$，给定 $Y=y$ 时 $X$ 的条件 pmf 是关于 $x$ 的函数，记为 $f(x\mid y)$，定义为
+$$f(x\mid y)=P(X=x\mid Y=y)=\frac{f(x,y)}{f_Y(y)}.$$
+\end{definition}
+\sourcepageanchor{153}
+
+既然把 $f(y\mid x)$ 称为 pmf，就应验证这个关于 $y$ 的函数确实定义了某个随机变量的 pmf. 首先，因为 $f(x,y)\ge0$ 且 $f_X(x)>0$，所以对每个 $y$，$f(y\mid x)\ge0$. 其次，
+$$\sum_y f(y\mid x)=\frac{\sum_y f(x,y)}{f_X(x)}=\frac{f_X(x)}{f_X(x)}=1.$$
+因此，$f(y\mid x)$ 确实是 pmf，可以按通常方式计算已知 $X=x$ 发生时关于 $Y$ 的概率.
+\begin{example}[条件概率的计算]\label{ex:4.2.2}
+定义 $(X,Y)$ 的联合 pmf 为
+$$
+\begin{gathered}
+f(0,10)=f(0,20)=\frac2{18},\qquad f(1,10)=f(1,30)=\frac3{18},\\
+f(1,20)=\frac4{18},\qquad f(2,30)=\frac4{18}.
+\end{gathered}
+$$
+可以用\autoref{def:4.2.1}，分别对 $X$ 的每个可能取值 $x=0,1,2$，计算给定 $X$ 时 $Y$ 的条件 pmf. 首先，$X$ 的边缘 pmf 为
+$$
+\begin{aligned}
+f_X(0)&=f(0,10)+f(0,20)=\frac4{18},\\
+f_X(1)&=f(1,10)+f(1,20)+f(1,30)=\frac{10}{18},\\
+f_X(2)&=f(2,30)=\frac4{18}.
+\end{aligned}
+$$
+当 $x=0$ 时，$f(0,y)$ 仅在 $y=10$ 和 $y=20$ 时为正. 因此，$f(y\mid0)$ 也仅在这两个值处为正，而且
+$$
+f(10\mid0)=\frac{f(0,10)}{f_X(0)}=\frac{2/18}{4/18}=\frac12,\qquad
+f(20\mid0)=\frac{f(0,20)}{f_X(0)}=\frac12.
+$$
+也就是说，已知 $X=0$ 时，$Y$ 的条件概率分布是在 $y=10$ 和 $y=20$ 两点各赋予概率 $1/2$ 的离散分布.
+
+当 $x=1$ 时，$f(y\mid1)$ 在 $y=10,20,30$ 处为正，而且
+$$
+\begin{aligned}
+f(10\mid1)&=f(30\mid1)=\frac{3/18}{10/18}=\frac3{10},\\
+f(20\mid1)&=\frac{4/18}{10/18}=\frac4{10};
+\end{aligned}
+$$
+当 $x=2$ 时，
+$$f(30\mid2)=\frac{4/18}{4/18}=1.$$
+最后这个结果反映了一个从联合 pmf 中也能看出的事实：如果知道 $X=2$，就知道 $Y$ 必定等于 30.
+
+利用这些条件 pmf，还能计算其他条件概率. 例如，
+$$
+\begin{aligned}
+P(Y>10\mid X=1)&=f(20\mid1)+f(30\mid1)=\frac7{10},\\
+\text{或}\qquad P(Y>10\mid X=0)&=f(20\mid0)=\frac12.
+\end{aligned}
+$$
+\end{example}
+\sourcepageanchor{154}
+
+若 $X$ 和 $Y$ 是连续随机变量，则对每个 $x$ 都有 $P(X=x)=0$. 因为分母 $P(X=73)$ 为 0，不能用\autoref{def:1.3.2} 计算 $P(Y>200\mid X=73)$ 这样的条件概率. 可是在实际中，确实观测到了 $X$ 的一个值. 如果在测量精度范围内看到 $X=73$，这仍可能提供有关 $Y$ 的信息，正如本节开头的身高与体重例子所说明的那样. 当 $X$ 和 $Y$ 都连续时，给定 $X=x$ 时 $Y$ 的条件概率分布的恰当定义与离散情形类似，只需用 pdf 替代 pmf（见\hyperref[misc:4.9.3]{杂录 4.9.3}）.
+\begin{definition}\label{def:4.2.3}\index{SI0830@条件}
+设 $(X,Y)$ 为连续二元随机向量，联合 pdf 为 $f(x,y)$，边缘 pdf 为 $f_X(x)$ 和 $f_Y(y)$. 对任意满足 $f_X(x)>0$ 的 $x$，给定 $X=x$ 时 $Y$ 的条件 pdf（conditional pdf）是关于 $y$ 的函数，记为 $f(y\mid x)$，定义为
+$$f(y\mid x)=\frac{f(x,y)}{f_X(x)}.$$
+对任意满足 $f_Y(y)>0$ 的 $y$，给定 $Y=y$ 时 $X$ 的条件 pdf 是关于 $x$ 的函数，记为 $f(x\mid y)$，定义为
+$$f(x\mid y)=\frac{f(x,y)}{f_Y(y)}.$$
+\end{definition}
+验证 $f(x\mid y)$ 和 $f(y\mid x)$ 确实是 pdf，只需重复前面验证\autoref{def:4.2.1} 给出了真正 pmf 的步骤，并用积分代替求和.
+
+条件 pdf 或 pmf 除了可用来计算概率，也可用来计算期望. 只要记住 $f(y\mid x)$ 作为 $y$ 的函数是 pdf 或 pmf，就可以像之前使用无条件 pdf 或 pmf 那样使用它. 若 $g(Y)$ 是 $Y$ 的函数，则给定 $X=x$ 时 $g(Y)$ 的条件期望（conditional expected value）记为 $E(g(Y)\mid x)$；在离散和连续情形下分别为\index{SI0425@条件}\semanticindexanchor{425:154}
+$$E(g(Y)\mid x)=\sum_y g(y)f(y\mid x),\qquad E(g(Y)\mid x)=\int_{-\infty}^{\infty}g(y)f(y\mid x)\,dy.$$
+条件期望具有\autoref{thm:2.2.5} 所列通常期望的全部性质. 此外，$E(Y\mid X)$ 给出了基于 $X$ 的知识对 $Y$ 的最佳猜测，这推广了\autoref{ex:2.2.6} 的结论（见\autoref{exercise:4.13}）.
+\begin{example}[条件 pdf 的计算]\label{ex:4.2.4}
+与\autoref{ex:4.1.12} 一样，设连续随机向量 $(X,Y)$ 的联合 pdf 为 $f(x,y)=e^{-y}$，$0<x<y<\infty$. 假定要计算给定 $X=x$ 时 $Y$ 的条件 pdf. $X$ 的边缘 pdf 可如下求得：如果 $x\le0$，则对所有 $y$ 均有 $f(x,y)=0$，所以 $f_X(x)=0$；如果 $x>0$，则 $f(x,y)>0$ 当且仅当 $y>x$. 因此，
+$$f_X(x)=\int_{-\infty}^{\infty}f(x,y)\,dy=\int_x^\infty e^{-y}\,dy=e^{-x}.$$
+于是，$X$ 的边缘分布是指数分布. 根据\autoref{def:4.2.3}，对任何 $x>0$ 都可以计算给定 $X=x$ 时 $Y$ 的条件分布，因为恰好对这些值有 $f_X(x)>0$. 对任意这样的 $x$，
+$$f(y\mid x)=\frac{f(x,y)}{f_X(x)}=\frac{e^{-y}}{e^{-x}}=e^{-(y-x)},\qquad y>x,$$
+而
+$$f(y\mid x)=\frac{f(x,y)}{f_X(x)}=\frac0{e^{-x}}=0,\qquad y\le x.$$
+\sourcepageanchor{155}
+
+因此，给定 $X=x$ 时，$Y$ 服从指数分布，其中 $x$ 是位置参数，$\beta=1$ 是尺度参数. 每个不同的 $x$ 值都对应 $Y$ 的一个不同条件分布. 进而有
+$$E(Y\mid X=x)=\int_x^\infty ye^{-(y-x)}\,dy=1+x.$$
+由 $f(y\mid x)$ 描述的概率分布的方差，称为给定 $X=x$ 时 $Y$ 的条件方差（conditional variance）. 将其记为 $\operatorname{Var}(Y\mid x)$，根据通常的方差定义，有\index{SI1064@条件}\semanticindexanchor{1064:155}
+$$\operatorname{Var}(Y\mid x)=E(Y^2\mid x)-(E(Y\mid x))^2.$$
+将该定义用于本例，得到
+$$\operatorname{Var}(Y\mid x)=\int_x^\infty y^2e^{-(y-x)}\,dy-\left(\int_x^\infty ye^{-(y-x)}\,dy\right)^2=1.$$
+这里，给定 $X=x$ 时 $Y$ 的条件方差对所有 $x$ 都相同. 但在其他情形，它可能随 $x$ 而异. 可以将此条件方差与 $Y$ 的无条件方差比较. $Y$ 的边缘分布是 $\operatorname{gamma}(2,1)$，其方差为 $\operatorname{Var}Y=2$. 得知 $X=x$ 后，$Y$ 的变异程度显著减小.
+\end{example}
+
+\autoref{ex:4.2.4} 的模型可用于如下实际情形. 假设有两只灯泡，它们的发光寿命分别为随机变量 $X$ 和 $Z$. 寿命 $X$ 与 $Z$ 相互独立，且 pdf 均为 $e^{-x}$，$x>0$. 先点亮第一只灯泡；它一烧坏，便立即点亮第二只. 现在考虑观测第一只烧坏的时刻 $X$，以及第二只烧坏的时刻 $Y=X+Z$. 已知第一只在 $X=x$ 时烧坏且第二只开始发光，则 $Y=Z+x$. 这类似于\autoref{ex:3.5.3}，其中 $x$ 起位置参数的作用，而 $Y$ 的 pdf（这里是给定 $X=x$ 时的条件 pdf）为 $f(y\mid x)=f_Z(y-x)=e^{-(y-x)}$，$y>x$.
+
+给定 $X=x$ 时 $Y$ 的条件分布，对不同的 $x$ 可能是不同的概率分布. 因而，实际上我们有一个 $Y$ 的概率分布族，每个 $x$ 对应一个分布. 要描述整个分布族时，就使用“$Y\mid X$ 的分布”这一说法. 例如，若 $X$ 是取正整数值的随机变量，给定 $X=x$ 时 $Y$ 的条件分布为 $\operatorname{binomial}(x,p)$，则可以说 $Y\mid X$ 的分布为 $\operatorname{binomial}(X,p)$，或写成 $Y\mid X\sim\operatorname{binomial}(X,p)$. 每当使用符号 $Y\mid X$，或以随机变量作为概率分布的参数时，我们描述的都是一个条件概率分布族. 有时通过指定条件分布 $f(y\mid x)$ 和边缘分布 $f_X(x)$ 来定义联合 pdf 或 pmf. 此时由定义有 $f(x,y)=f(y\mid x)f_X(x)$. \autoref{sec:4.4} 将进一步讨论这类模型.
+
+还要注意，$E(g(Y)\mid x)$ 是 $x$ 的函数. 即对每个 $x$，$E(g(Y)\mid x)$ 是通过适当的积分或求和得到的一个实数. 所以 $E(g(Y)\mid X)$ 是随机变量，其值取决于 $X$ 的值. 当 $X=x$ 时，随机变量 $E(g(Y)\mid X)$ 的值就是 $E(g(Y)\mid x)$. 因此，在\autoref{ex:4.2.4} 中可以写成 $E(Y\mid X)=1+X$.
+
+在前面所有例子中，给定 $X=x$ 时 $Y$ 的条件分布都随 $x$ 改变. 某些情形下，知道 $X=x$ 并不比原有知识提供更多有关 $Y$ 的信息. $X$ 与 $Y$ 的这一重要关系称为独立性（independence）. 和\autoref{sec:1} 中独立事件的情形一样，先以对称方式定义独立性，再推导刚刚提到的条件性质，会更方便. 下面就这样做.
+\begin{definition}\label{def:4.2.5}\index{SI0554@随机变量}
+设 $(X,Y)$ 为二元随机向量，其联合 pdf 或 pmf 为 $f(x,y)$，边缘 pdf 或 pmf 为 $f_X(x)$ 和 $f_Y(y)$. 若对每个 $x\in\mathbb R$ 和 $y\in\mathbb R$，均有
+\begin{equation}\label{eq:4.2.1}
+f(x,y)=f_X(x)f_Y(y),
+\end{equation}
+则称 $X$ 和 $Y$ 是相互独立的随机变量（independent random variables）.
+\end{definition}
+\sourcepageanchor{156}
+
+如果 $X$ 和 $Y$ 相互独立，则给定 $X=x$ 时 $Y$ 的条件 pdf 为
+$$
+\begin{aligned}
+f(y\mid x)&=\frac{f(x,y)}{f_X(x)}&&\text{（定义）}\\
+&=\frac{f_X(x)f_Y(y)}{f_X(x)}&&\text{（由\eqref{eq:4.2.1}）}\\
+&=f_Y(y),
+\end{aligned}
+$$
+与 $x$ 的值无关. 因此，对任意 $A\subset\mathbb R$ 和 $x\in\mathbb R$，$P(Y\in A\mid x)=\int_A f(y\mid x)\,dy=\int_A f_Y(y)\,dy=P(Y\in A)$. 知道 $X=x$ 并未提供关于 $Y$ 的额外信息.\footnote{译注：依本节条件密度的定义，上述比值及由它得到的结论限于 $f_X(x)>0$ 的 $x$；原文“任意 $x\in\mathbb R$”应作此限制.}
+
+\autoref{def:4.2.5} 有两种用法. 一种是从联合 pdf 或 pmf 出发，检查 $X$ 与 $Y$ 是否独立. 为此，必须验证\eqref{eq:4.2.1} 对所有 $x,y$ 都成立. 另一种是希望定义一个 $X$ 和 $Y$ 独立的模型. 根据 $X$ 和 $Y$ 的实际含义，可能认为知道 $X=x$ 不应提供任何有关 $Y$ 的信息. 此时，可以指定 $X$ 和 $Y$ 的边缘分布，再按\eqref{eq:4.2.1} 将联合分布定义为它们的乘积.
+\begin{example}[独立性的检验——I]\label{ex:4.2.6}
+考虑离散二元随机向量 $(X,Y)$，其联合 pmf 为
+$$
+\begin{gathered}
+f(10,1)=f(20,1)=f(20,2)=\frac1{10},\\
+f(10,2)=f(10,3)=\frac15,\qquad f(20,3)=\frac3{10}.
+\end{gathered}
+$$
+容易算出边缘 pmf：
+$$f_X(10)=f_X(20)=\frac12,\qquad f_Y(1)=\frac15,\quad f_Y(2)=\frac3{10},\quad f_Y(3)=\frac12.$$
+$X$ 和 $Y$ 不独立，因为\eqref{eq:4.2.1} 并非对所有 $x,y$ 都成立. 例如，
+$$f(10,3)=\frac15\ne\frac12\frac12=f_X(10)f_Y(3).$$
+若 $X$ 和 $Y$ 独立，则\eqref{eq:4.2.1} 必须对每一组 $x,y$ 都成立. 注意，$f(10,1)=1/10=(1/2)(1/5)=f_X(10)f_Y(1)$. 仅对某些 $x,y$ 满足\eqref{eq:4.2.1}，并不能保证独立；必须检查所有取值.
+\end{example}
+
+直接用\eqref{eq:4.2.1} 验证独立性，需要先知道 $f_X(x)$ 和 $f_Y(y)$. 下面的引理可使验证稍为容易些.
+\begin{lemma}\label{lem:4.2.7}
+设 $(X,Y)$ 为联合 pdf 或 pmf 为 $f(x,y)$ 的二元随机向量. 则 $X$ 和 $Y$ 独立，当且仅当存在函数 $g(x)$ 和 $h(y)$，使对每个 $x\in\mathbb R$ 和 $y\in\mathbb R$，都有
+$$f(x,y)=g(x)h(y).$$
+\end{lemma}
+\begin{proof}
+必要性由取 $g(x)=f_X(x)$、$h(y)=f_Y(y)$ 并利用\eqref{eq:4.2.1} 即得. 对连续随机变量，证明充分性时，假设 $f(x,y)=g(x)h(y)$. 定义
+$$\int_{-\infty}^{\infty}g(x)\,dx=c,\qquad\int_{-\infty}^{\infty}h(y)\,dy=d.$$
+常数 $c$ 和 $d$ 满足
+\begin{equation}\label{eq:4.2.2}
+\begin{aligned}
+cd&=\left(\int_{-\infty}^{\infty}g(x)\,dx\right)\left(\int_{-\infty}^{\infty}h(y)\,dy\right)\\
+&=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}g(x)h(y)\,dx\,dy\\
+&=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)\,dx\,dy\\
+&=1.\qquad\text{（$f(x,y)$ 是联合 pdf）}
+\end{aligned}
+\end{equation}
+\sourcepageanchor{157}
+
+此外，边缘 pdf 为
+\begin{equation}\label{eq:4.2.3}
+\begin{aligned}
+f_X(x)&=\int_{-\infty}^{\infty}g(x)h(y)\,dy=g(x)d,\\
+f_Y(y)&=\int_{-\infty}^{\infty}g(x)h(y)\,dx=h(y)c.
+\end{aligned}
+\end{equation}
+因此，由\eqref{eq:4.2.2} 和\eqref{eq:4.2.3}，
+$$f(x,y)=g(x)h(y)=g(x)h(y)cd=f_X(x)f_Y(y),$$
+可见 $X$ 和 $Y$ 独立. 将积分换为求和，即得离散随机向量情形的证明.
+\end{proof}
+\begin{example}[独立性的检验——II]\label{ex:4.2.8}
+$f(x,y)=\frac1{384}x^2y^4e^{-y-(x/2)}$，$x>0$ 且 $y>0$，是一个联合 pdf. 如果定义
+$$g(x)=\begin{cases}x^2e^{-x/2},&x>0,\\0,&x\le0,\end{cases}\qquad
+h(y)=\begin{cases}y^4e^{-y}/384,&y>0,\\0,&y\le0,\end{cases}$$
+则对所有 $x\in\mathbb R$ 和所有 $y\in\mathbb R$，都有 $f(x,y)=g(x)h(y)$. 由\autoref{lem:4.2.7}，可断定 $X$ 与 $Y$ 独立，无须计算边缘 pdf.
+\end{example}
+
+若 $X$ 与 $Y$ 独立，则由\eqref{eq:4.2.1} 可见，$f(x,y)>0$ 的集合为 $\{(x,y):x\in A\text{ 且 }y\in B\}$，其中 $A=\{x:f_X(x)>0\}$，$B=\{y:f_Y(y)>0\}$. 这种集合称为笛卡尔积（cross-product），通常记为 $A\times B$. 判断一个点是否属于笛卡尔积，可以分别考察其 $x$ 值和 $y$ 值. 若 $f(x,y)$ 为联合 pdf 或 pmf，而使 $f(x,y)>0$ 的集合不是笛卡尔积，则具有该联合 pdf 或 pmf 的随机变量 $X$ 和 $Y$ 不独立. 在\autoref{ex:4.2.4} 中，集合 $0<x<y<\infty$ 不是笛卡尔积. 要判断成员资格，不仅要检查 $0<x<\infty$ 和 $0<y<\infty$，还必须检查 $x<y$. 因此，\autoref{ex:4.2.4} 中的随机变量不独立. \autoref{ex:4.2.2} 也给出了一个例子：联合 pmf 为正的集合不是笛卡尔积.\index{SI0236@直积集}\semanticindexanchor{236:157}
+\begin{example}[联合概率模型]\label{ex:4.2.9}
+作为利用独立性定义联合概率模型的例子，考虑如下情形. 从堪萨斯城一所小学中随机抽取一名学生，记录 $X=$ 该学生仍在世的父母人数. 假设 $X$ 的边缘分布为
+$$f_X(0)=.01,\qquad f_X(1)=.09,\qquad f_X(2)=.90.$$
+从太阳城随机抽取一位退休者，记录 $Y=$ 该退休者仍在世的父母人数. 假设 $Y$ 的边缘分布为
+$$f_Y(0)=.70,\qquad f_Y(1)=.25,\qquad f_Y(2)=.05.$$
+假定这两个随机变量独立似乎是合理的. 知道该学生的父母人数，并不能告诉我们该退休者的父母人数. 唯一能反映这种独立性的 $X,Y$ 联合分布，就是由\eqref{eq:4.2.1} 定义的分布. 例如，
+$$f(0,0)=f_X(0)f_Y(0)=.0070,\qquad f(0,1)=f_X(0)f_Y(1)=.0025.$$
+此联合分布可用于计算诸如
+$$
+\begin{aligned}
+P(X=Y)&=f(0,0)+f(1,1)+f(2,2)\\
+&=(.01)(.70)+(.09)(.25)+(.90)(.05)=.0745
+\end{aligned}
+$$
+这样的量.
+\end{example}
+\sourcepageanchor{158}
+
+如果 $X$ 与 $Y$ 独立，有些概率和期望很容易计算，如下述定理所示.
+\begin{theorem}\label{thm:4.2.10}\index{SI0427@独立性}\index{SI0553@期望值}
+设 $X$ 和 $Y$ 为相互独立的随机变量.
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:thm:4.2.10:a} 对任意 $A\subset\mathbb R$ 和 $B\subset\mathbb R$，$P(X\in A,Y\in B)=P(X\in A)P(Y\in B)$；即事件 $\{X\in A\}$ 和 $\{Y\in B\}$ 相互独立.
+\item[(b)]\phantomsection\label{itm:thm:4.2.10:b} 设 $g(x)$ 仅为 $x$ 的函数，$h(y)$ 仅为 $y$ 的函数，则
+$$E(g(X)h(Y))=(Eg(X))(Eh(Y)).$$
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+对于连续随机变量，\hyperref[itm:thm:4.2.10:b]{(b)} 由下式得到：
+$$
+\begin{aligned}
+E(g(X)h(Y))&=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}g(x)h(y)f(x,y)\,dx\,dy\\
+&=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}g(x)h(y)f_X(x)f_Y(y)\,dx\,dy\quad\text{（由\eqref{eq:4.2.1}）}\\
+&=\int_{-\infty}^{\infty}h(y)f_Y(y)\int_{-\infty}^{\infty}g(x)f_X(x)\,dx\,dy\\
+&=\left(\int_{-\infty}^{\infty}g(x)f_X(x)\,dx\right)\left(\int_{-\infty}^{\infty}h(y)f_Y(y)\,dy\right)\\
+&=(Eg(X))(Eh(Y)).
+\end{aligned}
+$$
+将积分换为求和，即得离散随机变量的结论. \hyperref[itm:thm:4.2.10:a]{(a)} 可以用类似步骤证明，也可作如下论证. 令 $g(x)$ 为集合 $A$ 的示性函数，$h(y)$ 为集合 $B$ 的示性函数. 注意，$g(x)h(y)$ 是集合 $C=\{(x,y):x\in A,y\in B\}\subset\mathbb R^2$ 的示性函数. 还要注意，对 $g(x)$ 这样的示性函数，有 $Eg(X)=P(X\in A)$. 因此，利用刚刚证明的期望等式，
+$$
+\begin{aligned}
+P(X\in A,Y\in B)&=P((X,Y)\in C)=E(g(X)h(Y))\\
+&=(Eg(X))(Eh(Y))=P(X\in A)P(Y\in B).
+\end{aligned}
+$$
+\end{proof}
+\begin{example}[独立变量的期望]\label{ex:4.2.11}
+设 $X$ 和 $Y$ 为独立的 $\operatorname{exponential}(1)$ 随机变量. 由\autoref{thm:4.2.10}，
+$$P(X\ge4,Y<3)=P(X\ge4)P(Y<3)=e^{-4}(1-e^{-3}).$$
+令 $g(x)=x^2$，$h(y)=y$，得到
+$$E(X^2Y)=(EX^2)(EY)=\bigl(\operatorname{Var}X+(EX)^2\bigr)EY=(1+1^2)1=2.$$
+\end{example}
+下面关于独立随机变量之和的结论，是\autoref{thm:4.2.10} 的简单推论.
+\begin{theorem}\label{thm:4.2.12}\index{SI0555@和}\index{SI0692@独立随机变量}
+设 $X$ 和 $Y$ 是相互独立的随机变量，矩母函数分别为 $M_X(t)$ 和 $M_Y(t)$. 则随机变量 $Z=X+Y$ 的矩母函数为
+$$M_Z(t)=M_X(t)M_Y(t).$$
+\end{theorem}
+\begin{proof}
+根据 mgf 的定义及\autoref{thm:4.2.10}，
+$$M_Z(t)=Ee^{tZ}=Ee^{t(X+Y)}=E(e^{tX}e^{tY})=(Ee^{tX})(Ee^{tY})=M_X(t)M_Y(t).$$
+\end{proof}
+\sourcepageanchor{159}
+
+\begin{example}[正态变量之和的 mgf]\label{ex:4.2.13}\index{SI0369@和}
+有时利用\autoref{thm:4.2.12}，可以从 $X$ 和 $Y$ 的分布轻易推出 $Z$ 的分布. 例如，设 $X\sim n(\mu,\sigma^2)$ 与 $Y\sim n(\gamma,\tau^2)$ 是独立的正态随机变量. 由\autoref{exercise:2.33}，它们的 mgf 为
+$$M_X(t)=\exp(\mu t+\sigma^2t^2/2),\qquad M_Y(t)=\exp(\gamma t+\tau^2t^2/2).$$
+所以根据\autoref{thm:4.2.12}，$Z=X+Y$ 的 mgf 为
+$$M_Z(t)=M_X(t)M_Y(t)=\exp\bigl((\mu+\gamma)t+(\sigma^2+\tau^2)t^2/2\bigr).$$
+这是均值为 $\mu+\gamma$、方差为 $\sigma^2+\tau^2$ 的正态随机变量的 mgf. 这个结论很重要，值得列为定理.
+\end{example}
+\begin{theorem}\label{thm:4.2.14}
+设 $X\sim n(\mu,\sigma^2)$ 与 $Y\sim n(\gamma,\tau^2)$ 是独立的正态随机变量. 则随机变量 $Z=X+Y$ 服从 $n(\mu+\gamma,\sigma^2+\tau^2)$ 分布.
+\end{theorem}
+
+若 $f(x,y)$ 是连续随机向量 $(X,Y)$ 的联合 pdf，\eqref{eq:4.2.1} 可能在某个满足 $\iint_A dx\,dy=0$ 的集合 $A$ 上不成立. 即便如此，仍称 $X$ 和 $Y$ 独立. 这是因为，仅在这样的集合 $A$ 上不同的两个 pdf，定义了同一个 $(X,Y)$ 概率分布. 为说明这一点，设两个 pdf $f(x,y)$ 和 $f^*(x,y)$ 除了在满足 $\iint_A dx\,dy=0$ 的集合 $A$ 上以外，处处相等. 设 $(X,Y)$ 的 pdf 为 $f(x,y)$，$(X^*,Y^*)$ 的 pdf 为 $f^*(x,y)$，$B$ 为 $\mathbb R^2$ 的任意子集. 则
+$$
+\begin{aligned}
+P((X,Y)\in B)&=\iint_B f(x,y)\,dx\,dy=\iint_{B\cap A^c}f(x,y)\,dx\,dy\\
+&=\iint_{B\cap A^c}f^*(x,y)\,dx\,dy=\iint_B f^*(x,y)\,dx\,dy\\
+&=P((X^*,Y^*)\in B).
+\end{aligned}
+$$
+因此，$(X,Y)$ 和 $(X^*,Y^*)$ 有相同的概率分布. 例如，$f(x,y)=e^{-x-y}$，$x>0$ 且 $y>0$，是两个独立指数随机变量的 pdf，并满足\eqref{eq:4.2.1}. 但令 $f^*(x,y)$ 除在 $x=y$ 时取 0 外都等于 $f(x,y)$，所得 $f^*$ 仍是两个独立指数随机变量的 pdf，尽管\eqref{eq:4.2.1} 在集合 $A=\{(x,x):x>0\}$ 上不成立.

@@ -1,0 +1,50 @@
+182                                    PROPERTIES OF A RANDOM SAMPLE
+Definition 5.3.4  Let X1,...,Xn be a random sample from a n(µ,σ2) distribution. The quantity
+(¯X                has Student’s t distribution with n−1 degrees of freedom. Equivalently, a random  −µ)/(S/√n)
+variable T has Student’s t distribution with p degrees of freedom, and we write T ∼tp, if it has pdf
+                   Γ  p+12      1          1
+                    fT(t) =      p                                                                                           , −∞< t < ∞.             (5.3.6)                                  (pπ)1/2 (1+t2/p)(p+1)/2                   Γ  2
+
+
+   Notice that if p = 1 then (5.3.6) becomes the pdf of the Cauchy distribution, which occurs for
+samples of size 2. Once again the Cauchy distribution has appeared in an ordinary situation.
+   The derivation of the t pdf is straightforward. Starting with U and V defined above, it follows
+from (5.3.5) that the joint pdf of U and V is
+
+                    1            1
+                                     < ∞,  0 < v < ∞.                            e−u2/2        fU,V(u,v) =                                               v(p/2)−1e−v/2, −∞< u                    (2π)1/2                        Γ  2p  2p/2
+(Recall that U and V are independent.) Now make the transformation
+                                    u
+                                                       t =           ,   w = v.
+                                   v/p
+
+The Jacobian of the transformation is (w/p)1/2, and the marginal pdf of T is given by
+
+                    ∞      w  1/2    w  1/2
+             fT(t) =       fU,V    t       ,w        dw
+                            0          p          p
+                       1       1     ∞                 w  1/2
+          =               p          e−(1/2)t2w/pw(p/2)−1e−w/2      dw
+                       (2π)1/2 Γ  2  2p/2  0                        p
+                       1        1       ∞
+          =                p               e−(1/2)(1+t2/p)ww((p+1)/2)−1 dw.
+                       (2π)1/2 Γ  2  2p/2p1/2  0
+Recognize the integrand as the kernel of a gamma((p+1)/2,2/(1+t2/p)) pdf. We therefore have
+
+                        1        1      p+1      2     (p+1)/2
+                   fT(t) =             p       Γ                                         ,
+                         (2π)1/2 Γ  2  2p/2p1/2     2    1+t2/p
+which is equal to (5.3.6).
+    Student’s t has no mgf because it does not have moments of all orders. In fact, if there are p
+degrees of freedom, then there are only p−1 moments. Hence, a t1 has no mean, a t2 has no variance,etc. It is easy to check (see Exercise 5.18) that if Tp is a random variable with a tp distribution, then
+
+                             ETp =   0,    if p > 1,
+                                                                                                 (5.3.7)
+                                        p
+                            VarTp =  p−2,    if p > 2.
+   Another important derived distribution is Snedecor’s F, whose derivation is quite similar to that
+of Student’s t. Its motivation, however, is somewhat different. The F distribution, named in honor
+of Sir Ronald Fisher, arises naturally as the distribution of a ratio of variances.
+Example 5.3.5 (Variance ratio distribution)   Let  X1,...,Xn  be  a random sample from  a
+n(µX,σ2X) population, and let Y1,...,Ym be a random sample from an independent n(µY,σY2 ) popu-
+lation. If we were interested in comparing the variability of the populations, one quantity of interest

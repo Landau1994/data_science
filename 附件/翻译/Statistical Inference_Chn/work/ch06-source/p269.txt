@@ -1,0 +1,46 @@
+238                                       PRINCIPLES OF DATA REDUCTION
+6.3.2  The Formal Likelihood Principle
+
+For discrete distributions, the Likelihood Principle can be derived from two intuitively simpler ideas.
+This is also true, with some qualifications, for continuous distributions. In this subsection we will
+deal only with discrete distributions. Berger and Wolpert (1984) provide a thorough discussion of
+the Likelihood Principle in both the discrete and continuous cases. These results were first proved
+by Birnbaum (1962) in a landmark paper, but our presentation more closely follows that of Berger
+and Wolpert.
+    Formally, we define an experiment E to be a triple (X,θ,{f(x|θ)}), where X is a random vector
+with pmf f(x|θ) for some θ in the parameter space Θ. An experimenter, knowing what experiment Ewas performed, and having observed a particular sample X = x, will make some inference or draw
+some conclusion about θ. This conclusion we denote by Ev(E,x), which stands for the evidence
+about θ arising from E and x.
+Example 6.3.4 (Evidence function)  Let E be the experiment consisting of observing X1,...,Xn
+iid n(µ,σ2),σ2 known. Since the sample mean, X, is a sufficient statistic for µ and EX = µ, we
+might use the observed value X = x as an estimate of µ. To give a measure of the accuracy of
+this estimate, it is common to report the standard deviation of X,σ/√n. Thus, we could define
+Ev(E,x) = (x,σ/√n). Here we see that the x coordinate depends on the observed sample x while
+the σ/√n coordinate depends on the knowledge of E.                                                                              ∥
+   To relate the concept of an evidence function to something familiar, we now restate the Suffi-
+ciency Principle of Section 6.2 in terms of these concepts.
+FORMAL SUFFICIENCY PRINCIPLE: Consider experiment E = (X,θ,{f(x|θ)}) and supposeT(X) is a sufficient statistic for θ. If x and y are sample points satisfying T(x) = T(y), then
+Ev(E,x) = Ev(E,y).
+   Thus, the Formal Sufficiency Principle goes slightly further than the Sufficiency Principle of
+Section 6.2. There no mention was made of the experiment. Here, we are agreeing to equate ev-
+idence if the sufficient statistics match. The Likelihood Principle can be derived from the Formal
+Sufficiency Principle and the following principle, an eminently reasonable one.
+CONDITIONALITY PRINCIPLE: Suppose  that E1 = (X1,θ,{f1(x1|θ)}) and E2 = (X2,θ,
+{f2(x2|θ)}) are two experiments, where only the unknown parameter θ need be common betweenthe two experiments. Consider the mixed experiment in which the random variable J is observed,
+where P(J = 1) = P(J = 2) = 12 (independent of θ,X1, or X2), and then experiment EJ is per-
+formed. Formally, the experiment                              performed is E∗= (X∗,θ,{f ∗(x∗|θ)}), where X∗= ( j,Xj) and                               1
+ f ∗(x∗|θ) = f ∗(( j,x j)|θ) =                               2 f j(x j|θ). Then
+                              Ev(E∗,(j,x j)) = Ev(E j,x j).                              (6.3.2)
+
+   The Conditionality Principle simply says that if one of two experiments is randomly chosen
+and the chosen experiment is done, yielding data x, the information about θ depends only on the
+experiment performed. That is, it is the same information as would have been obtained if it were
+decided (nonrandomly) to do that experiment from the beginning, and data x had been observed.
+The fact that this experiment was performed, rather than some other, has not increased, decreased,
+or changed knowledge of θ.
+Example 6.3.5 (Binomial/negative binomial experiment)  Suppose the parameter of interest is
+the probability p, 0 < p < 1, where p denotes the probability that a particular coin will land “Heads”
+when it is flipped. Let E1 be the experiment consisting of tossing the coin 20 times and recording
+the number of Heads in those 20 tosses. E1 is a binomial experiment and {f1(x1|p)} is the familyof binomial(20, p) pmfs. Let E2 be the experiment consisting of tossing the coin until the seventh
+Head occurs and recording the number of Tails before the seventh Head. E2 is a negative binomial
+experiment. Now suppose the experimenter uses a random number table to choose between these

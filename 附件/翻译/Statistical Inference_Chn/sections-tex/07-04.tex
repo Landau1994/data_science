@@ -1,0 +1,596 @@
+\subsection{习题}\label{sec:7.4}
+\begin{exercise}\label{exercise:7.1}
+对离散随机变量$X$作一次观测，其pmf为$f(x\mid\theta)$，其中$\theta\in\{1,2,3\}$.求$\theta$的MLE.
+\begin{center}\begin{tabular}{cccc}
+$x$&$f(x\mid1)$&$f(x\mid2)$&$f(x\mid3)$\\\hline
+0&$1/3$&$1/4$&0\\
+1&$1/3$&$1/4$&0\\
+2&0&$1/4$&$1/4$\\
+3&$1/6$&$1/4$&$1/2$\\
+4&$1/6$&0&$1/4$
+\end{tabular}\end{center}
+\end{exercise}
+\begin{exercise}\label{exercise:7.2}
+设$X_1,\ldots,X_n$为来自$\operatorname{gamma}(\alpha,\beta)$总体的随机样本.
+\begin{enumerate}[label=(\alph*)]
+\item\phantomsection\label{itm:exercise:7.2:a} 假设$\alpha$已知，求$\beta$的MLE.
+\item 若$\alpha$与$\beta$均未知，其MLE没有显式公式，但可通过数值方法寻找最大值.利用\hyperref[itm:exercise:7.2:a]{(a)}的结果，可以把问题化为一元函数的极大化.对\hyperref[itm:exercise:7.10:c]{习题7.10(c)}的数据，求$\alpha$和$\beta$的MLE.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.3}\index{SI0621@对数似然}
+给定来自pdf为$f(x\mid\theta)$的总体的随机样本$X_1,\ldots,X_n$，说明把似然函数$L(\theta\mid\boldsymbol x)$作为$\theta$的函数极大化，等价于极大化$\log L(\theta\mid\boldsymbol x)$.
+\end{exercise}
+\begin{exercise}\label{exercise:7.4}
+证明\autoref{ex:7.2.8}中的断言.即证明，当$\theta$的范围限制为正半轴时，该例给出的$\widehat\theta$为MLE.
+\end{exercise}
+\begin{exercise}\label{exercise:7.5}
+考虑如\autoref{ex:7.2.9}中那样估计二项分布参数$k$.
+\begin{enumerate}[label=(\alph*)]
+\item 证明如下断言：满足那些不等式且为MLE的整数$\widehat k$，是不超过$1/\widehat z$的最大整数.
+\item 令$p=1/2$、$n=4$，且$X_1=0$、$X_2=20$、$X_3=1$、$X_4=19$.$\widehat k$是多少？
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.6}
+设$X_1,\ldots,X_n$为来自下列pdf的随机样本：
+$$f(x\mid\theta)=\theta x^{-2},\qquad0<\theta\le x<\infty.$$
+\begin{enumerate}[label=(\alph*)]
+\item $\theta$的充分统计量是什么？
+\item 求$\theta$的MLE.
+\item 求$\theta$的矩估计量.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.7}
+设$X_1,\ldots,X_n$独立同分布于两个pdf之一.若$\theta=0$，则
+$$f(x\mid\theta)=\begin{cases}1,&\text{若 }0<x<1,\\0,&\text{其他情形};\end{cases}$$
+而若$\theta=1$，则
+$$f(x\mid\theta)=\begin{cases}1/(2\sqrt x),&\text{若 }0<x<1,\\0,&\text{其他情形}.\end{cases}$$
+求$\theta$的MLE.
+\end{exercise}
+\begin{exercise}\label{exercise:7.8}
+从$n(0,\sigma^2)$总体中取得一个观测$X$.
+\begin{enumerate}[label=(\alph*)]
+\item 求$\sigma^2$的一个无偏估计量.
+\item 求$\sigma$的MLE.
+\item 讨论如何求$\sigma$的矩估计量.
+\end{enumerate}
+\end{exercise}
+\sourcepageanchor{319}
+\begin{exercise}\label{exercise:7.9}
+设$X_1,\ldots,X_n$独立同分布，pdf为
+$$f(x\mid\theta)=\frac1\theta,\qquad0\le x\le\theta,\quad\theta>0.$$
+分别用矩估计法和极大似然法估计$\theta$.计算两个估计量的均值和方差.应选择哪一个，为什么？
+\end{exercise}
+\begin{exercise}\label{exercise:7.10}
+独立随机变量$X_1,\ldots,X_n$具有共同分布
+$$P(X_i\le x\mid\alpha,\beta)=\begin{cases}0,&\text{若 }x<0,\\(x/\beta)^\alpha,&\text{若 }0\le x\le\beta,\\1,&\text{若 }x>\beta,\end{cases}$$
+其中参数$\alpha$与$\beta$均为正.
+\begin{enumerate}[label=(\alph*)]
+\item 求$(\alpha,\beta)$的一个二维充分统计量.
+\item 求$\alpha$和$\beta$的MLE.
+\item\phantomsection\label{itm:exercise:7.10:c} 在篱雀巢中发现的杜鹃卵的长度（毫米）可用此分布建模.对数据
+\begin{gather*}
+22.0,\ 23.9,\ 20.9,\ 23.8,\ 25.0,\ 24.0,\ 21.7,\\
+23.8,\ 22.8,\ 23.1,\ 23.1,\ 23.5,\ 23.0,\ 23.0,
+\end{gather*}
+求$\alpha$和$\beta$的极大似然估计值.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.11}
+设$X_1,\ldots,X_n$独立同分布，pdf为
+$$f(x\mid\theta)=\theta x^{\theta-1},\qquad0\le x\le1,\quad0<\theta<\infty.$$
+\begin{enumerate}[label=(\alph*)]
+\item 求$\theta$的MLE，并说明当$n\to\infty$时，其方差趋于零.
+\item 求$\theta$的矩估计量.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.12}
+设$X_1,\ldots,X_n$为来自具有下列pmf的总体的随机样本：
+$$P_\theta(X=x)=\theta^x(1-\theta)^{1-x},\qquad x=0\text{ 或 }1,\quad0\le\theta\le\frac12.$$
+\begin{enumerate}[label=(\alph*)]
+\item 求$\theta$的矩估计量和MLE.
+\item 求两个估计量各自的均方误差.
+\item 更倾向于哪个估计量？说明选择的理由.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.13}
+设$X_1,\ldots,X_n$为来自双指数pdf总体的样本：
+$$f(x\mid\theta)=\frac12e^{-|x-\theta|},\qquad-\infty<x<\infty,\quad-\infty<\theta<\infty.$$
+求$\theta$的MLE.［提示：分别考虑$n$为偶数和奇数的情形，用次序统计量表示MLE.\hyperref[bib:source235]{Norton（1984）}给出了此问题的完整处理.］
+\end{exercise}
+\begin{exercise}\label{exercise:7.14}
+设$X$和$Y$为独立指数随机变量，且
+$$f(x\mid\lambda)=\frac1\lambda e^{-x/\lambda},\ x>0,\qquad f(y\mid\mu)=\frac1\mu e^{-y/\mu},\ y>0.$$
+观测到$Z$和$W$，其中
+$$Z=\min(X,Y)\qquad\text{及}\qquad W=\begin{cases}1,&\text{若 }Z=X,\\0,&\text{若 }Z=Y.\end{cases}$$
+\autoref{exercise:4.26}已求出$Z$和$W$的联合分布.现假设$(Z_i,W_i)$，$i=1,\ldots,n$，为$n$个独立同分布观测.求$\lambda$和$\mu$的MLE.
+\end{exercise}
+\sourcepageanchor{320}
+\begin{exercise}\label{exercise:7.15}\index{SI0324@逆高斯}
+设$X_1,X_2,\ldots,X_n$为来自逆高斯pdf的样本：
+$$f(x\mid\mu,\lambda)=\left(\frac\lambda{2\pi x^3}\right)^{1/2}\exp\{-\lambda(x-\mu)^2/(2\mu^2x)\},\qquad x>0.$$
+\begin{enumerate}[label=(\alph*)]
+\item 说明$\mu$与$\lambda$的极大似然估计量为\footnote{译注：原式分母中$1/\bar X$前漏了$n$；对数似然求导给出$\widehat\lambda_n=n/(\sum_i1/X_i-n/\bar X)$.与\autoref{exercise:6.27}为同一处公式疑误，原式保留.}
+$$\widehat\mu_n=\bar X\qquad\text{及}\qquad\widehat\lambda_n=\frac n{\sum_i\frac1{X_i}-\frac1{\bar X}}.$$
+\item \hyperref[bib:source319]{Tweedie（1957）}说明，$\widehat\mu_n$和$\widehat\lambda_n$独立，$\widehat\mu_n$服从参数为$\mu$和$n\lambda$的逆高斯分布，$n\lambda/\widehat\lambda_n$服从$\chi_{n-1}^2$分布.\hyperref[bib:source281]{Schwarz和Samantha（1991）}用归纳论证证明了这些事实.\footnote{译注：此处原文写 Samantha，书末对应文献作者为 Samanta；保留原拼写，链接指向该条文献.}
+\begin{enumerate}[label=(\roman*)]
+\item 说明$\widehat\mu_2$服从参数为$\mu$与$2\lambda$的逆高斯分布，$2\lambda/\widehat\lambda_2$服从$\chi_1^2$分布，且二者独立.
+\item 假设结果在$n=k$时成立，并得到一个新的独立观测$x$.建立\hyperref[bib:source281]{Schwarz和Samantha（1991）}所用的归纳步骤，把pdf $f(x,\widehat\mu_k,\widehat\lambda_k)$变换为$f(x,\widehat\mu_{k+1},\widehat\lambda_{k+1})$.说明该密度以适当方式分解，从而得到Tweedie的结果.
+\end{enumerate}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.16}\index{SI0452@广义均值}\index{SI0786@广义均值}\index{SI0811@幂平均数}\index{SI0821@幂平均数}\index{SI1037@Box–Cox}
+\hyperref[bib:source26]{Berger和Casella（1992）}还研究了\autoref{exercise:4.57}中见过的幂平均.回顾其定义为$[(1/n)\sum_{i=1}^nx_i^r]^{1/r}$.注意幂函数$x^r$可以替换为任意连续单调函数$h$，于是可进一步推广，得到广义平均$h^{-1}((1/n)\sum_{i=1}^nh(x_i))$.
+\begin{enumerate}[label=(\alph*)]
+\item 最小二乘问题$\min_a\sum_i(x_i-a)^2$有时通过变换变量求解，即求解$\min_a\sum_i[h(x_i)-h(a)]^2$.说明后一个问题的解为$a=h^{-1}((1/n)\sum_i h(x_i))$.
+\item 说明算术平均是未变换的最小二乘问题的解；几何平均是经$h(x)=\log x$变换后问题的解；调和平均是经$h(x)=1/x$变换后问题的解.
+\item 说明若用Box--Cox变换（见\autoref{exercise:11.3}）变换最小二乘问题，则解是$h(x)=x^\lambda$所对应的广义平均.
+\item 设$X_1,X_2,\ldots,X_n$为来自$\operatorname{lognormal}(\mu,\sigma^2)$总体的样本.说明$\mu$的MLE为几何平均.\footnote{译注：按本书通常的对数正态参数约定，$\log X\sim n(\mu,\sigma^2)$，则$\mu$的MLE是$(1/n)\sum\log X_i$，几何平均是$e^\mu$的MLE.原文把二者混同，原题保留.}
+\item 假设$X_1,X_2,\ldots,X_n$为来自单参数指数族$f(x\mid\theta)=\exp\{\theta h(x)-H(\theta)\}g(x)$的样本，其中$h=H'$，且$h$递增.
+\begin{enumerate}[label=(\roman*)]
+\item 说明$\theta$的极大似然估计量为$\widehat\theta=h^{-1}((1/n)\sum_i h(x_i))$.
+\item 说明满足$h=H'$的两个密度是正态密度，以及pdf为$f(x\mid\theta)=\theta x^{-2}\exp\{-\theta/x\}$（$x>0$）的逆gamma密度；对于正态分布，MLE是算术平均，对于逆gamma分布，MLE是调和平均.
+\end{enumerate}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.17}
+Borel悖论（\autoref{sec:4.9.3}）也可能出现在推断问题中.设$X_1$和$X_2$为独立同分布的$\operatorname{exponential}(\theta)$随机变量.
+\begin{enumerate}[label=(\alph*)]
+\item\phantomsection\label{itm:exercise:7.17:a} 若只观测$X_2$，说明$\theta$的MLE为$\widehat\theta=X_2$.
+\item\phantomsection\label{itm:exercise:7.17:b} 假设改为只观测$Z=(X_2-1)/X_1$.求$(X_1,Z)$的联合分布，并将$X_1$积分消去，得到似然函数.
+\item 假设$X_2=1$.比较\hyperref[itm:exercise:7.17:a]{(a)}和\hyperref[itm:exercise:7.17:b]{(b)}中$\theta$的MLE.
+\item Bayes分析也不能免受Borel悖论影响.若$\pi(\theta)$是$\theta$的先验密度，说明在$X_2=1$时，\hyperref[itm:exercise:7.17:a]{(a)}与\hyperref[itm:exercise:7.17:b]{(b)}中的后验分布不同.
+\end{enumerate}
+（由俄亥俄州立大学L. Mark Berliner提供.）
+\end{exercise}
+\sourcepageanchor{321}
+\begin{exercise}\label{exercise:7.18}\index{SI0672@二元正态}
+设$(X_1,Y_1),\ldots,(X_n,Y_n)$为独立同分布的二元正态随机变量对，全部五个参数均未知.
+\begin{enumerate}[label=(\alph*)]
+\item 说明$\mu_X,\mu_Y,\sigma_X^2,\sigma_Y^2,\rho$的矩估计量为
+\begin{gather*}
+\widetilde\mu_X=\bar x,\quad\widetilde\mu_Y=\bar y,\quad\widetilde\sigma_X^2=\frac1n\sum(x_i-\bar x)^2,\quad\widetilde\sigma_Y^2=\frac1n\sum(y_i-\bar y)^2,\\
+\widetilde\rho=\frac{(1/n)\sum(x_i-\bar x)(y_i-\bar y)}{\widehat\sigma_X\widehat\sigma_Y}.
+\end{gather*}
+\item 推导未知参数的MLE，并说明它们与矩估计量相同.（一种办法是把联合pdf写成条件密度与边缘密度的乘积，即
+\begin{align*}
+f(x,y\mid\mu_X,\mu_Y,\sigma_X^2,\sigma_Y^2,\rho)
+&=f(y\mid x,\mu_X,\mu_Y,\sigma_X^2,\sigma_Y^2,\rho)\\
+&\quad\times f(x\mid\mu_X,\sigma_X^2),
+\end{align*}
+并论证$\mu_X$和$\sigma_X^2$的MLE为$\bar x$与$(1/n)\sum(x_i-\bar x)^2$.然后调换角色，求$\mu_Y$和$\sigma_Y^2$的MLE.最后，处理“部分极大化”的似然函数$L(\bar x,\bar y,\widehat\sigma_X^2,\widehat\sigma_Y^2,\rho\mid\boldsymbol x,\boldsymbol y)$，求出$\rho$的MLE.可以猜到，这是一道难题.）
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.19}\index{SI0911@零截距}
+假设随机变量$Y_1,\ldots,Y_n$满足
+$$Y_i=\beta x_i+\varepsilon_i,\qquad i=1,\ldots,n,$$
+其中$x_1,\ldots,x_n$为固定常数，$\varepsilon_1,\ldots,\varepsilon_n$独立同分布于$n(0,\sigma^2)$，$\sigma^2$未知.
+\begin{enumerate}[label=(\alph*)]
+\item 求$(\beta,\sigma^2)$的一个二维充分统计量.
+\item 求$\beta$的MLE，并说明它是$\beta$的无偏估计量.
+\item 求$\beta$的MLE的分布.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.20}
+设$Y_1,\ldots,Y_n$如\autoref{exercise:7.19}所定义.
+\begin{enumerate}[label=(\alph*)]
+\item 说明$\sum Y_i/\sum x_i$是$\beta$的无偏估计量.
+\item 计算$\sum Y_i/\sum x_i$的精确方差，并与MLE的方差比较.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.21}
+仍设$Y_1,\ldots,Y_n$如\autoref{exercise:7.19}所定义.
+\begin{enumerate}[label=(\alph*)]
+\item 说明$[\sum(Y_i/x_i)]/n$也是$\beta$的无偏估计量.
+\item 计算$[\sum(Y_i/x_i)]/n$的精确方差，并与前两题中估计量的方差比较.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.22}\index{SI0080@正态}
+本题将证明\autoref{ex:7.2.16}的断言，并作进一步推广.设$X_1,\ldots,X_n$为来自$n(\theta,\sigma^2)$总体的随机样本，$\theta$的先验分布为$n(\mu,\tau^2)$.这里假设$\sigma^2$、$\mu$和$\tau^2$都已知.
+\begin{enumerate}[label=(\alph*)]
+\item 求$\bar X$与$\theta$的联合pdf.
+\item 说明$\bar X$的边缘分布$m(\bar x\mid\sigma^2,\mu,\tau^2)$为$n(\mu,(\sigma^2/n)+\tau^2)$.
+\item 说明$\theta$的后验分布$\pi(\theta\mid\bar x,\sigma^2,\mu,\tau^2)$为正态，均值和方差由\eqref{eq:7.2.10}给出.\footnote{译注：对样本均值$\bar X$应用\eqref{eq:7.2.10}时，应将该式的$x$换为$\bar x$，$\sigma^2$换为$\sigma^2/n$；原题未明说此替换.}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.23}\index{SI0081@正态方差}\index{SI0826@伽马}
+若$S^2$是正态总体中大小为$n$的样本的样本方差，已知$(n-1)S^2/\sigma^2$服从$\chi_{n-1}^2$分布.$\sigma^2$的共轭先验是逆gamma pdf，记为$\operatorname{IG}(\alpha,\beta)$：
+$$\pi(\sigma^2)=\frac1{\Gamma(\alpha)\beta^\alpha}\frac1{(\sigma^2)^{\alpha+1}}e^{-1/(\beta\sigma^2)},\qquad0<\sigma^2<\infty,$$
+其中$\alpha$和$\beta$为正常数.说明$\sigma^2$的后验分布为
+$$\operatorname{IG}\left(\alpha+\frac{n-1}2,\left[\frac{(n-1)S^2}2+\frac1\beta\right]^{-1}\right).$$
+求此分布的均值，即$\sigma^2$的Bayes估计量.
+\end{exercise}
+\begin{exercise}\label{exercise:7.24}\index{SI0827@泊松}
+设$X_1,\ldots,X_n$独立同分布于$\operatorname{Poisson}(\lambda)$，令$\lambda$服从Poisson分布的共轭族$\operatorname{gamma}(\alpha,\beta)$分布.
+\begin{enumerate}[label=(\alph*)]
+\item 求$\lambda$的后验分布.
+\item 计算后验均值和方差.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.25}\index{SI0782@正态}
+考察\autoref{ex:7.2.16}和\autoref{exercise:7.22}中层次（Bayes）模型的一个推广.假设观测到$X_1,\ldots,X_n$，其中
+\begin{align*}
+X_i\mid\theta_i&\sim n(\theta_i,\sigma^2),\qquad i=1,\ldots,n,\quad\text{相互独立},\\
+\theta_i&\sim n(\mu,\tau^2),\qquad i=1,\ldots,n,\quad\text{相互独立}.
+\end{align*}
+\sourcepageanchor{322}
+\begin{enumerate}[label=(\alph*)]
+\item 说明$X_i$的边缘分布为$n(\mu,\sigma^2+\tau^2)$，且边缘意义下$X_1,\ldots,X_n$独立同分布.（经验Bayes分析会用$X_i$的边缘分布估计先验参数$\mu$和$\tau^2$，参见\autoref{sec:7.5.6}.）
+\item 一般地，说明若
+\begin{align*}
+X_i\mid\theta_i&\sim f(x\mid\theta_i),\qquad i=1,\ldots,n,\quad\text{相互独立},\\
+\theta_i&\sim\pi(\theta\mid\tau),\qquad i=1,\ldots,n,\quad\text{相互独立},
+\end{align*}
+则边缘意义下$X_1,\ldots,X_n$独立同分布.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.26}
+在\autoref{ex:7.2.16}中，看到正态分布是自身的共轭族.不过，有时共轭先验不能准确反映先验知识，需要寻找不同的先验.设$X_1,\ldots,X_n$独立同分布于$n(\theta,\sigma^2)$，$\theta$服从双指数分布，即$\pi(\theta)=e^{-|\theta|/a}/(2a)$，$a$已知.求$\theta$的后验分布的均值.
+\end{exercise}
+\needspace{8\baselineskip}
+\begin{exercise}\label{exercise:7.27}
+参见\hyperref[ex:7.2.17]{习题7.2.17}.\footnote{译注：原文“习题7.2.17”应指\autoref{ex:7.2.17}；下一题的同一引用也如此.保留原显示称谓，链接指向该例.}
+\begin{enumerate}[label=(\alph*)]
+\item 说明完全数据似然\eqref{eq:7.2.11}所给的似然估计量为\eqref{eq:7.2.12}.
+\item 说明\eqref{eq:7.2.23}中EM序列的极限满足\eqref{eq:7.2.16}.
+\item 原始（不完全数据）似然方程可以直接求解.说明\eqref{eq:7.2.16}的解为
+$$\widehat\beta=\frac{\sum_{i=2}^ny_i}{\sum_{i=2}^nx_i},\qquad\widehat\tau_1=\frac{y_1}{\widehat\beta},\qquad\widehat\tau_j=\frac{x_j+y_j}{\widehat\beta+1},\quad j=2,3,\ldots,n,$$
+并且它就是\eqref{eq:7.2.23}中EM序列的极限.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.28}
+把\hyperref[ex:7.2.17]{习题7.2.17}的模型用于\autoref{tab:7.4.2}的数据，数据改编自\hyperref[bib:source193]{Lange等（1994）}.这些是纽约州若干地区的白血病病例数及相应人口数.
+\begin{enumerate}[label=(\alph*)]
+\item\phantomsection\label{itm:exercise:7.28:a} 对\autoref{tab:7.4.2}的完整数据，以及假设首个人口数$x_1=3540$缺失的“不完全”数据，分别拟合Poisson模型.
+\end{enumerate}
+\setcounter{table}{1}
+\begin{table}[H]
+\centering\small
+\caption{白血病病例计数}\label{tab:7.4.2}
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{lrrrrrrrrr}\hline
+人口数&3540&3560&3739&2784&2571&2729&3952&993&1908\\
+病例数&3&4&1&1&3&1&2&0&2\\\hline
+人口数&948&1172&1047&3138&5485&5554&2943&4969&4828\\
+病例数&0&1&3&5&4&6&2&5&4\\\hline
+\end{tabular}
+\end{table}
+\begin{enumerate}[label=(\alph*),start=2]
+\item 假设缺失的不是$x$值，而是一项白血病计数（设$y_1=3$缺失）.用EM算法求此时的MLE，并与\hyperref[itm:exercise:7.28:a]{(a)}的答案比较.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.29}
+\autoref{ex:7.2.17}模型的一个替代如下：观测$(Y_i,X_i)$，$i=1,2,\ldots,n$，其中$Y_i\sim\operatorname{Poisson}(m\beta\tau_i)$，而$(X_1,X_2,\ldots,X_n)\sim\operatorname{multinomial}(m;\boldsymbol\tau)$，$\boldsymbol\tau=(\tau_1,\tau_2,\ldots,\tau_n)$且$\sum_{i=1}^n\tau_i=1$.例如，这里假设人口计数是多项分配，而非Poisson计数.（把$m=\sum x_i$视为已知.）
+\begin{enumerate}[label=(\alph*)]
+\item\phantomsection\label{itm:exercise:7.29:a} 说明$\boldsymbol Y=(Y_1,Y_2,\ldots,Y_n)$与$\boldsymbol X=(X_1,X_2,\ldots,X_n)$的联合密度为
+$$f(\boldsymbol y,\boldsymbol x\mid\beta,\boldsymbol\tau)=\prod_{i=1}^n\frac{e^{-m\beta\tau_i}(m\beta\tau_i)^{y_i}}{y_i!}\,m!\frac{\tau_i^{x_i}}{x_i!}.$$
+\item\phantomsection\label{itm:exercise:7.29:b} 若观测到完全数据，说明MLE为
+$$\widehat\beta=\frac{\sum_{i=1}^ny_i}{\sum_{i=1}^nx_i}\qquad\text{及}\qquad\widehat\tau_j=\frac{x_j+y_j}{\sum_{i=1}^nx_i+y_i},\quad j=1,2,\ldots,n.$$
+\sourcepageanchor{323}
+\item\phantomsection\label{itm:exercise:7.29:c} 假设$x_1$缺失.利用$X_1\sim\operatorname{binomial}(m,t_1)$这一事实，计算期望完全数据对数似然.说明EM序列为\footnote{译注：本题原文有几处需辨明：\hyperref[itm:exercise:7.29:a]{(a)}中的多项系数$m!$只能出现一次，\hyperref[itm:exercise:7.29:b]{(b)}分母应理解为$\sum_i(x_i+y_i)$.在\hyperref[itm:exercise:7.29:c]{(c)}中，若$m$确已知且其余$x_i$全部观测到，则$x_1=m-\sum_{i=2}^nx_i$已经确定，不能用边缘分布的均值$m\tau_1^{(r)}$代替条件均值；所给EM迭代一般不适用于原述观测模型.此外，原文$t_1$应为$\tau_1$，且$j=1$的更新分子仍含缺失的$x_1$.原题保留.}
+\begin{align*}
+\widehat\beta^{(r+1)}&=\frac{\sum_{i=1}^ny_i}{m\widehat\tau_1^{(r)}+\sum_{i=2}^nx_i},\\
+\widehat\tau_j^{(r+1)}&=\frac{x_j+y_j}{m\widehat\tau_1^{(r)}+\sum_{i=2}^nx_i+\sum_{i=1}^ny_i},\qquad j=1,2,\ldots,n.
+\end{align*}
+\item 用此模型求\autoref{tab:7.4.2}数据的MLE，先假设全部数据可用，再假设$x_1=3540$缺失.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.30}
+EM算法适用于多种情形，“缺失数据”的定义也可以扩展，以容纳许多不同模型.假设混合密度为$pf(x)+(1-p)g(x)$，其中$p$未知.若观测$\boldsymbol X=(X_1,X_2,\ldots,X_n)$，则样本密度为
+$$\prod_{i=1}^n[pf(x_i)+(1-p)g(x_i)],$$
+这可能难以处理.（其实，两种分布的混合还不算太糟；但想想当$k$很大时，混合$\sum_{i=1}^kp_if_i(x)$的似然会是什么样.）
+
+EM解法是用$\boldsymbol Z=(Z_1,Z_2,\ldots,Z_n)$增广已观测（不完全）数据，其中$Z_i$说明$X_i$来自哪个混合成分.即
+$$X_i\mid z_i=1\sim f(x_i)\qquad\text{且}\qquad X_i\mid z_i=0\sim g(x_i),$$
+并且$P(Z_i=1)=p$.
+\begin{enumerate}[label=(\alph*)]
+\item 说明$(\boldsymbol X,\boldsymbol Z)$的联合密度为$\prod_{i=1}^n[pf(x_i)^{z_i}][(1-p)g(x_i)^{1-z_i}]$.\footnote{译注：原式把$p$和$1-p$漏在幂之外.正确联合密度应为$\prod_i[pf(x_i)]^{z_i}[(1-p)g(x_i)]^{1-z_i}$；原式保留.}
+\item 说明缺失数据分布，即$Z_i\mid x_i,p$的分布，是成功概率为$pf(x_i)/(pf(x_i)+(1-p)g(x_i))$的Bernoulli分布.
+\item 计算期望完全数据对数似然，并说明EM序列为
+$$\widehat p^{(r+1)}=\frac1n\sum_{i=1}^n\frac{\widehat p^{(r)}f(x_i)}{\widehat p^{(r)}f(x_i)+(1-\widehat p^{(r)})g(x_i)}.$$
+\end{enumerate}
+\end{exercise}
+\needspace{9\baselineskip}
+\begin{exercise}\label{exercise:7.31}
+证明\autoref{thm:7.2.20}.
+\begin{enumerate}[label=(\alph*)]
+\item\phantomsection\label{itm:exercise:7.31:a} 说明，利用\eqref{eq:7.2.19}，可以写成
+\begin{align*}
+\log L(\widehat\theta^{(r)}\mid\boldsymbol y)
+&=E[\log L(\widehat\theta^{(r)}\mid\boldsymbol y,\boldsymbol X)\mid\widehat\theta^{(r)},\boldsymbol y]\\
+&\quad-E[\log k(\boldsymbol X\mid\widehat\theta^{(r)},\boldsymbol y)\mid\widehat\theta^{(r)},\boldsymbol y],
+\end{align*}
+而由于$\widehat\theta^{(r+1)}$是极大值点，有\footnote{译注：原文下面不等式左端漏了期望算子$E$，应与右端一样在方括号外加$E$.关于定理中等号的充分条件，另见\autoref{thm:7.2.20}处的译注.}
+\begin{align*}
+&[\log L(\widehat\theta^{(r+1)}\mid\boldsymbol y,\boldsymbol X)\mid\widehat\theta^{(r)},\boldsymbol y]\\
+&\qquad\ge E[\log L(\widehat\theta^{(r)}\mid\boldsymbol y,\boldsymbol X)\mid\widehat\theta^{(r)},\boldsymbol y].
+\end{align*}
+何时不等式取等号？
+\item 用Jensen不等式说明
+\begin{align*}
+&E[\log k(\boldsymbol X\mid\widehat\theta^{(r+1)},\boldsymbol y)\mid\widehat\theta^{(r)},\boldsymbol y]\\
+&\qquad\le E[\log k(\boldsymbol X\mid\widehat\theta^{(r)},\boldsymbol y)\mid\widehat\theta^{(r)},\boldsymbol y],
+\end{align*}
+将其与\hyperref[itm:exercise:7.31:a]{(a)}结合即可证明定理.
+\end{enumerate}
+提示：若$f$和$g$是密度，因$\log$是凹函数，Jensen不等式\eqref{eq:4.7.7}意味着
+\begin{align*}
+\int\log\left(\frac{f(x)}{g(x)}\right)g(x)\,dx
+&\le\log\left(\int\frac{f(x)}{g(x)}g(x)\,dx\right)\\
+&=\log\int f(x)\,dx=0.
+\end{align*}
+再由对数的性质，得到$\int\log[f(x)]g(x)\,dx\le\int\log[g(x)]g(x)\,dx$.
+\end{exercise}
+\begin{exercise}\label{exercise:7.32}
+\autoref{exercise:5.65}的算法可以调整，使其仅用一个先验分布样本，就能近似模拟后验分布的样本.设$X_1,X_2,\ldots,X_n\sim f(x\mid\theta)$，其中$\theta$的先验分布为$\pi$.从$\pi$生成$\theta_1,\theta_2,\ldots,\theta_m$，并计算$ q_i=L(\theta_i/\mid\boldsymbol x)\sum_jL(\theta_j/\mid\boldsymbol x)$，其中$L(\theta/\mid\boldsymbol x)=\prod_i f(x_i\mid\theta)$是似然函数.\footnote{译注：原文$q_i$把归一化写成了乘法，并在似然的条件竖线前多出斜线.为使概率和为1，应为$q_i=L(\theta_i\mid\boldsymbol x)/\sum_jL(\theta_j\mid\boldsymbol x)$.原记号保留.}
+\begin{enumerate}[label=(\alph*)]
+\item 生成$\theta_1^*,\theta_2^*,\ldots,\theta_r^*$，其中$P(\theta^*=\theta_i)=q_i$.说明这是一个近似的后验样本，其意义是$P(\theta^*\le t)$收敛到$\int_{-\infty}^t\pi(\theta\mid\boldsymbol x)\,d\theta$.
+\item\phantomsection\label{itm:exercise:7.32:b} 说明估计量$\sum_{j=1}^rh(\theta_j^*)/r$收敛到$E[h(\theta)\mid\boldsymbol x]$，其中期望针对后验分布.
+\sourcepageanchor{324}
+\item \hyperref[bib:source261]{Ross（1996）}建议用Rao--Blackwell化改进\hyperref[itm:exercise:7.32:b]{(b)}中的估计.说明对于任意$j$，
+$$E[h(\theta_j^*)\mid\theta_1,\theta_2,\ldots,\theta_m]=\frac1{\sum_{i=1}^mL(\theta_i\mid\boldsymbol x)}\sum_{i=1}^mh(\theta_i)L(\theta_i\mid\boldsymbol x)$$
+与\hyperref[itm:exercise:7.32:b]{(b)}的估计量均值相同，方差较小.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.33}
+\autoref{ex:7.3.5}计算了成功概率的Bayes估计量$\widehat p_B$的MSE（估计量在\autoref{ex:7.2.14}中导出）.说明取$\alpha=\beta=\sqrt{n/4}$，可使$\widehat p_B$的MSE为常数.
+\end{exercise}
+\begin{exercise}\label{exercise:7.34}
+设$X_1,\ldots,X_n$为来自$\operatorname{binomial}(n,p)$的随机样本.希望利用\autoref{ex:6.4.1}描述的群，寻找$p$的等变点估计量.
+\begin{enumerate}[label=(\alph*)]
+\item 求关于此群等变的估计量类.
+\item\phantomsection\label{itm:exercise:7.34:b} 在\autoref{ex:7.2.14}的Bayes估计量类中，求关于此群等变的估计量.
+\item 从\hyperref[itm:exercise:7.34:b]{(b)}的等变Bayes估计量中，求MSE最小者.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.35}\index{SI0755@Pitman估计量（见点估计量：不变）}\index{SI0790@Pitman}
+Pitman位置估计量（Pitman estimator of location；见\hyperref[bib:source200]{Lehmann和Casella 1998}，第3.1节，或\hyperref[bib:source242]{Pitman 1939}的原始论文）为
+$$d_P(\boldsymbol X)=\frac{\int_{-\infty}^\infty t\prod_{i=1}^nf(x_i-t)\,dt}{\int_{-\infty}^\infty\prod_{i=1}^nf(x_i-t)\,dt},$$
+其中观测到来自$f(x-\theta)$的随机样本$X_1,\ldots,X_n$.Pitman说明，该估计量是在位置等变估计量中均方误差最小者（即使\eqref{eq:7.3.3}最小）.本题的目标较为有限.
+\begin{enumerate}[label=(\alph*)]
+\item 说明$d_P(\boldsymbol X)$关于\autoref{ex:7.3.6}的位置群不变.\footnote{译注：原文此处用“invariant”（不变），实际应为“equivariant”（等变）：平移样本$a$会使估计值也增加$a$.原词保留.}
+\item 说明若$f(x-\theta)$为$n(\theta,1)$，则$d_P(\boldsymbol X)=\bar X$.
+\item 说明若$f(x-\theta)$为$\operatorname{uniform}(\theta-\frac12,\theta+\frac12)$，则$d_P(\boldsymbol X)=\frac12(X_{(1)}+X_{(n)})$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.36}
+Pitman尺度估计量（Pitman estimator of scale）为
+$$d_P^r(\boldsymbol X)=\frac{\int_0^\infty t^{n+r-1}\prod_{i=1}^nf(tx_i)\,dt}{\int_0^\infty t^{n+2r-1}\prod_{i=1}^nf(tx_i)\,dt},$$
+其中观测到来自$\frac1\sigma f(x/\sigma)$的随机样本$X_1,\ldots,X_n$.Pitman说明，它是估计$\sigma^r$的尺度等变估计量中，尺度化均方误差最小者（即使$E(d-\sigma^r)^2/\sigma^{2r}$最小）.
+\begin{enumerate}[label=(\alph*)]
+\item 说明$d_P^r(\boldsymbol X)$关于尺度群等变，即对任意常数$c>0$满足
+$$d_P^r(cx_1,\ldots,cx_n)=c^rd_P^r(x_1,\ldots,x_n).$$
+\item 若$X_1,\ldots,X_n$独立同分布于$n(0,\sigma^2)$，求$\sigma^2$的Pitman尺度等变估计量.
+\item 若$X_1,\ldots,X_n$独立同分布于$\operatorname{exponential}(\beta)$，求$\beta$的Pitman尺度等变估计量.
+\item 若$X_1,\ldots,X_n$独立同分布于$\operatorname{uniform}(0,\theta)$，求$\theta$的Pitman尺度等变估计量.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.37}
+设$X_1,\ldots,X_n$为来自具有下列pdf的总体的随机样本：
+$$f(x\mid\theta)=\frac1{2\theta},\qquad-\theta<x<\theta,\quad\theta>0.$$
+若存在，求$\theta$的最佳无偏估计量.
+\end{exercise}
+\sourcepageanchor{325}
+\begin{exercise}\label{exercise:7.38}
+对于下列每个分布，设$X_1,\ldots,X_n$为随机样本.是否存在$\theta$的某个函数$g(\theta)$，使其有一个无偏估计量的方差达到Cramér--Rao下界？若存在，求出它；若不存在，说明原因.
+\begin{enumerate}[label=(\alph*)]
+\item $f(x\mid\theta)=\theta x^{\theta-1}$，$0<x<1$，$\theta>0$.
+\item $f(x\mid\theta)=\frac{\log\theta}{\theta-1}\theta^x$，$0<x<1$，$\theta>1$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.39}
+证明\autoref{lem:7.3.11}.
+\end{exercise}
+\begin{exercise}\label{exercise:7.40}
+设$X_1,\ldots,X_n$独立同分布于$\operatorname{Bernoulli}(p)$.说明$\bar X$的方差达到Cramér--Rao下界，从而$\bar X$是$p$的最佳无偏估计量.
+\end{exercise}
+\begin{exercise}\label{exercise:7.41}\index{SI0792@线性}\index{SI1053@线性}
+设$X_1,\ldots,X_n$为来自均值$\mu$、方差$\sigma^2$的总体的随机样本.
+\begin{enumerate}[label=(\alph*)]
+\item 说明若$\sum_{i=1}^na_i=1$，则估计量$\sum_{i=1}^na_iX_i$对$\mu$无偏.
+\item 在所有这种形式的无偏估计量（称为线性无偏估计量，linear unbiased estimators）中，求方差最小者，并计算其方差.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.42}
+设$W_1,\ldots,W_k$为参数$\theta$的无偏估计量，$\operatorname{Var}W_i=\sigma_i^2$，且$i\ne j$时$\operatorname{Cov}(W_i,W_j)=0$.
+\begin{enumerate}[label=(\alph*)]
+\item 说明在所有形如$\sum a_iW_i$（$a_i$为常数）且满足$E_\theta(\sum a_iW_i)=\theta$的估计量中，$W^*=\sum W_i/\sigma_i^2\,/\sum(1/\sigma_i^2)$的方差最小.
+\item 说明$\operatorname{Var}W^*=1/\sum(1/\sigma_i^2)$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.43}
+\autoref{exercise:7.42}确立了最优权重$q_i^*=(1/\sigma_i^2)/(\sum_j1/\sigma_j^2)$.Tukey的一个结果（见\hyperref[bib:source38]{Bloch和Moses 1988）}指出：若$W=\sum_iq_iW_i$基于另一组权重$q_i\ge0$、$\sum_iq_i=1$，则
+$$\frac{\operatorname{Var}W}{\operatorname{Var}W^*}\le\frac1{1-\lambda^2},$$
+其中$\lambda$满足$(1+\lambda)/(1-\lambda)=b_{\max}/b_{\min}$，而$b_{\max}$与$b_{\min}$分别为$b_i=q_i/q_i^*$的最大和最小值.
+\begin{enumerate}[label=(\alph*)]
+\item 证明Tukey不等式.
+\item 利用该不等式，作为$\sigma_{\max}^2/\sigma_{\min}^2$的函数评估通常均值$\sum_iW_i/k$的表现.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.44}
+设$X_1,\ldots,X_n$独立同分布于$n(\theta,1)$.说明$\theta^2$的最佳无偏估计量为$\bar X^2-1/n$.计算其方差（使用\autoref{sec:3.6}的Stein恒等式），并说明它大于Cramér--Rao下界.
+\end{exercise}
+\begin{exercise}\label{exercise:7.45}\index{SI0599@峰度}
+设$X_1,X_2,\ldots,X_n$独立同分布于均值为$\mu$、方差为$\sigma^2$的分布，$S^2$为通常的$\sigma^2$无偏估计量.在\autoref{ex:7.3.4}中，看到在正态假设下，MLE的MSE小于$S^2$.本题进一步考察方差估计.
+\begin{enumerate}[label=(\alph*)]
+\item\phantomsection\label{itm:exercise:7.45:a} 说明对任意形如$aS^2$（$a$为常数）的估计量，有
+$$\operatorname{MSE}(aS^2)=E[aS^2-\sigma^2]^2=a^2\operatorname{Var}(S^2)+(a-1)^2\sigma^4.$$
+\item\phantomsection\label{itm:exercise:7.45:b} 说明
+$$\operatorname{Var}(S^2)=\frac1n\left(\kappa-\frac{n-3}{n-1}\sigma^4\right),$$
+其中$\kappa=E[X-\mu]^4$为峰度（kurtosis）.（你可能已在\hyperref[item:5.8.b]{习题5.8(b)}中完成此题.）
+\item 说明正态假设下峰度为$3\sigma^4$，并确立此时$aS^2$形式中MSE最小的估计量是$\frac{n-1}{n+1}S^2$.（\autoref{lem:3.6.5}可能有帮助.）
+\item\phantomsection\label{itm:exercise:7.45:d} 若不假设正态性，说明$\operatorname{MSE}(aS^2)$在
+$$a=\frac{n-1}{(n+1)+\frac{(\kappa-1)(n-1)}n}$$
+处最小；由于依赖参数，这个结果没有实际用处.\footnote{译注：原题混用了四阶中心矩与标准化峰度，并且\hyperref[itm:exercise:7.45:d]{(d)}式的常数有误.若按\hyperref[itm:exercise:7.45:b]{(b)}定义$\kappa=E(X-\mu)^4$，由\hyperref[itm:exercise:7.45:a]{(a)}\hyperref[itm:exercise:7.45:b]{(b)}直接求导得$a=(n-1)/[n+1+(\kappa/\sigma^4-3)(n-1)/n]$；\hyperref[itm:exercise:7.45:e]{(e)}中与3比较的也应是$\kappa/\sigma^4$.原公式与原符号保留.}
+\needspace{5\baselineskip}
+\item\phantomsection\label{itm:exercise:7.45:e} 说明
+\begin{enumerate}[label=(\roman*)]
+\item 对于$\kappa>3$的分布，最优$a$满足$a<(n-1)/(n+1)$；
+\item 对于$\kappa<3$的分布，最优$a$满足$(n-1)/(n+1)<a<1$.
+\end{enumerate}
+\end{enumerate}
+更多细节参见\hyperref[bib:source284]{Searls和Intarapanich（1990）}.
+\end{exercise}
+\sourcepageanchor{326}
+\begin{exercise}\label{exercise:7.46}
+设$X_1,X_2,X_3$为来自$\operatorname{uniform}(\theta,2\theta)$分布的大小为3的随机样本，其中$\theta>0$.
+\begin{enumerate}[label=(\alph*)]
+\item 求$\theta$的矩估计量.
+\item 求MLE $\widehat\theta$，并求常数$k$，使$E_\theta(k\widehat\theta)=\theta$.
+\item 这两个估计量中，哪个可利用充分性改进？如何改进？
+\item 根据数据$1.29,.86,1.33$求$\theta$的矩估计值和MLE.这些是酿酒葡萄平均果粒大小（厘米）的三次观测.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.47}
+假设测量一个圆的半径时，误差服从$n(0,\sigma^2)$分布.若作$n$次独立测量，求圆面积的一个无偏估计量.它是最佳无偏的吗？
+\end{exercise}
+\begin{exercise}\label{exercise:7.48}
+假设$X_i$，$i=1,\ldots,n$，独立同分布于$\operatorname{Bernoulli}(p)$.
+\begin{enumerate}[label=(\alph*)]
+\item 说明$p$的MLE的方差达到Cramér--Rao下界.
+\item 对$n\ge4$，说明乘积$X_1X_2X_3X_4$是$p^4$的无偏估计量，并利用这一事实求$p^4$的最佳无偏估计量.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.49}
+设$X_1,\ldots,X_n$独立同分布于$\operatorname{exponential}(\lambda)$.
+\begin{enumerate}[label=(\alph*)]
+\item\phantomsection\label{itm:exercise:7.49:a} 求仅基于$Y=\min\{X_1,\ldots,X_n\}$的$\lambda$无偏估计量.
+\item\phantomsection\label{itm:exercise:7.49:b} 求一个优于\hyperref[itm:exercise:7.49:a]{(a)}中估计量的估计量，并证明它更好.
+\item 下面数据是航天飞机持续加压环境中使用的Kevlar/环氧树脂球形容器在高应力下的失效时间（小时）：
+\begin{gather*}
+50.1,\ 70.1,\ 137.0,\ 166.9,\ 170.5,\ 152.8,\\
+80.5,\ 123.5,\ 112.6,\ 148.5,\ 160.0,\ 125.4.
+\end{gather*}
+失效时间常用指数分布建模.用\hyperref[itm:exercise:7.49:a]{(a)}与\hyperref[itm:exercise:7.49:b]{(b)}中的估计量估计平均失效时间.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.50}\index{SI1056@标准差}
+设$X_1,\ldots,X_n$独立同分布于$n(\theta,\theta^2)$，$\theta>0$.在此模型中，$\bar X$与$cS$都是$\theta$的无偏估计量，其中
+$$c=\frac{\sqrt{n-1}\,\Gamma((n-1)/2)}{\sqrt2\,\Gamma(n/2)}.$$
+\begin{enumerate}[label=(\alph*)]
+\item 证明对任意数$a$，估计量$a\bar X+(1-a)(cS)$都是$\theta$的无偏估计量.
+\item 求使估计量方差最小的$a$值.
+\item 说明$(\bar X,S^2)$是$\theta$的充分统计量，但不是完备充分统计量.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.51}
+\hyperref[bib:source149]{Gleser和Healy（1976）}详细讨论了$n(\theta,a\theta^2)$族中的估计问题，其中$a$是已知常数（\autoref{exercise:7.50}是其特殊情形）.这里考察他们结果的一小部分.仍设$X_1,\ldots,X_n$独立同分布于$n(\theta,\theta^2)$，$\theta>0$，令$\bar X$与$cS$如\hyperref[exercise:7.50]{习题7.46}.\footnote{译注：原文此处写“习题7.46”，实际应为\autoref{exercise:7.50}.原显示编号保留，链接指向实际定义.}定义估计量类
+$$\mathcal T=\{T:T=a_1\bar X+a_2(cS)\},$$
+其中不假设$a_1+a_2=1$.
+\begin{enumerate}[label=(\alph*)]
+\item 求使$E_\theta(\theta-T)^2$最小的估计量$T\in\mathcal T$，记为$T^*$.
+\item 说明$T^*$的MSE小于\hyperref[exercise:7.50]{习题7.50(b)}所得估计量的MSE.
+\item 说明$T^{*+}=\max\{0,T^*\}$的MSE小于$T^*$的MSE.
+\item $\theta$应归为位置参数还是尺度参数？解释理由.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.52}
+设$X_1,\ldots,X_n$独立同分布于$\operatorname{Poisson}(\lambda)$，$\bar X$与$S^2$分别表示样本均值和样本方差.现在用另一种方法完成\autoref{ex:7.3.8}.那里用了Cramér--Rao下界，这里使用完备性.
+\begin{enumerate}[label=(\alph*)]
+\item 不用Cramér--Rao定理，证明$\bar X$是$\lambda$的最佳无偏估计量.
+\item\phantomsection\label{itm:exercise:7.52:b} 证明颇为惊人的恒等式$E(S^2\mid\bar X)=\bar X$，并用它明确说明$\operatorname{Var}S^2>\operatorname{Var}\bar X$.
+\item 利用完备性，能否表述一个一般定理，使\hyperref[itm:exercise:7.52:b]{(b)}中的恒等式成为其特殊情形？
+\end{enumerate}
+\end{exercise}
+\sourcepageanchor{327}
+\begin{exercise}\label{exercise:7.53}
+补全\autoref{thm:7.3.20}证明中省略的一些细节.设$W$是$\tau(\theta)$的无偏估计量，$U$是零的无偏估计量.证明：如果对某个$\theta=\theta_0$有$\operatorname{Cov}_{\theta_0}(W,U)\ne0$，则$W$不可能是$\tau(\theta)$的最佳无偏估计量.
+\end{exercise}
+\needspace{8\baselineskip}
+\begin{exercise}\label{exercise:7.54}\index{SI0859@尼罗河问题}
+对于“尼罗河问题”（见\autoref{exercise:6.37}），
+\begin{enumerate}[label=(\alph*)]
+\item 说明$T$是$\theta$的MLE，$U$是辅助统计量，并且
+$$E(T)=\frac{\Gamma(n+1/2)\Gamma(n-1/2)}{[\Gamma(n)]^2}\theta,\qquad E(T^2)=\frac{\Gamma(n+1)\Gamma(n-1)}{[\Gamma(n)]^2}\theta^2.$$
+\item 令$Z_1=(n-1)/\sum X_i$，$Z_2=\sum Y_i/n$.说明两者均为无偏估计量，方差分别为$\theta^2/(n-2)$和$\theta^2/n$.
+\item 求形如$aZ_1+(1-a)Z_2$的最佳无偏估计量，计算其方差，并将它与经偏差校正的MLE比较.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.55}
+对下列每个pdf，设$X_1,\ldots,X_n$是来自该分布的样本.分别求$\theta^r$的最佳无偏估计量.（\hyperref[bib:source153]{Guenther（1978）}对这一问题有完整讨论.）
+\begin{enumerate}[label=(\alph*)]
+\item $f(x\mid\theta)=1/\theta$，$0<x<\theta$，$r<n$.
+\item $f(x\mid\theta)=e^{-(x-\theta)}$，$x>\theta$.
+\item $f(x\mid\theta)=e^{-x}/(e^{-\theta}-e^{-b})$，$\theta<x<b$，$b$已知.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.56}
+证明\autoref{ex:7.3.24}之前正文中的断言：若$T$是参数$\theta$的完备充分统计量，$h(X_1,\ldots,X_n)$是$\tau(\theta)$的任意无偏估计量，则$\varphi(T)=E(h(X_1,\ldots,X_n)\mid T)$是$\tau(\theta)$的最佳无偏估计量.
+\end{exercise}
+\begin{exercise}\label{exercise:7.57}
+设$X_1,\ldots,X_{n+1}$独立同分布于$\operatorname{Bernoulli}(p)$，定义函数$h(p)$为
+$$h(p)=P\left(\sum_{i=1}^nX_i>X_{n+1}\mid p\right),$$
+即前$n$个观测值之和超过第$n+1$个观测值的概率.
+\begin{enumerate}[label=(\alph*)]
+\item 说明
+$$T(X_1,\ldots,X_{n+1})=\begin{cases}1&\text{若 }\sum_{i=1}^nX_i>X_{n+1},\\0&\text{其他情形}\end{cases}$$
+是$h(p)$的无偏估计量.
+\item 求$h(p)$的最佳无偏估计量.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.58}
+设$X$是来自下列pdf的一个观测：
+$$f(x\mid\theta)=\left(\frac\theta2\right)^{|x|}(1-\theta)^{1-|x|},\qquad x=-1,0,1;\quad0\le\theta\le1.$$
+\begin{enumerate}[label=(\alph*)]
+\item 求$\theta$的MLE.
+\item 定义估计量$T(X)$为
+$$T(X)=\begin{cases}2&\text{若 }x=1,\\0&\text{其他情形}.\end{cases}$$
+说明$T(X)$是$\theta$的无偏估计量.
+\item 求一个优于$T(X)$的估计量，并证明它更好.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.59}
+设$X_1,\ldots,X_n$独立同分布于$n(\mu,\sigma^2)$.求$\sigma^p$的最佳无偏估计量，其中$p$是已知正常数，不一定是整数.
+\end{exercise}
+\begin{exercise}\label{exercise:7.60}
+设$X_1,\ldots,X_n$独立同分布于$\operatorname{gamma}(\alpha,\beta)$，$\alpha$已知.求$1/\beta$的最佳无偏估计量.
+\end{exercise}
+\begin{exercise}\label{exercise:7.61}
+说明基于观测$S^2\sim\sigma^2\chi_\nu^2/\nu$估计$\sigma^2$时，似然函数的对数可写为
+$$\log L(\sigma^2\mid s^2)=K_1\frac{s^2}{\sigma^2}-K_2\log\frac{s^2}{\sigma^2}+K_3,$$
+其中$K_1,K_2,K_3$是不依赖于$\sigma^2$的常数.将上述对数似然与\autoref{ex:7.3.27}讨论的损失函数联系起来.Anderson（1984a）讨论了这种关系.
+\end{exercise}
+\sourcepageanchor{328}
+\begin{exercise}\label{exercise:7.62}
+设$X_1,\ldots,X_n$是来自$n(\theta,\sigma^2)$总体的随机样本，$\sigma^2$已知.考虑在平方误差损失下估计$\theta$.令$\pi(\theta)$为$\theta$的$n(\mu,\tau^2)$先验分布，$\delta^\pi$为$\theta$的贝叶斯估计量.验证下列风险函数与贝叶斯风险公式.
+\begin{enumerate}[label=(\alph*)]
+\item 对任意常数$a,b$，估计量$\delta(\boldsymbol x)=a\bar X+b$的风险函数为
+$$R(\theta,\delta)=a^2\frac{\sigma^2}{n}+(b-(1-a)\theta)^2.$$
+\item 令$\eta=\sigma^2/(n\tau^2+\sigma^2)$.贝叶斯估计量的风险函数为
+$$R(\theta,\delta^\pi)=(1-\eta)^2\frac{\sigma^2}{n}+\eta^2(\theta-\mu)^2.$$
+\item 贝叶斯估计量的贝叶斯风险为$B(\pi,\delta^\pi)=\tau^2\eta$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.63}
+设$X\sim n(\mu,1)$.令$\delta^\pi$为平方误差损失下$\mu$的贝叶斯估计量.分别对$\pi(\mu)\sim n(0,1)$与$\pi(\mu)\sim n(0,10)$计算风险函数$R(\mu,\delta^\pi)$并作图.讨论先验如何影响贝叶斯估计量的风险函数.
+\end{exercise}
+\begin{exercise}\label{exercise:7.64}
+设$X_1,\ldots,X_n$是独立随机变量，$X_i$的cdf为$F(x\mid\theta_i)$.证明：若对$i=1,\ldots,n$，$\delta_i^{\pi_i}(X_i)$是在损失$L(\theta_i,a_i)$和先验$\pi_i(\theta_i)$下估计$\theta_i$的贝叶斯法则，则$\delta^\pi(\boldsymbol X)=(\delta_1^{\pi_1}(X_1),\ldots,\delta_n^{\pi_n}(X_n))$是在损失$\sum_{i=1}^nL(\theta_i,a_i)$和先验$\pi(\boldsymbol\theta)=\prod_{i=1}^n\pi_i(\theta_i)$下估计$\boldsymbol\theta=(\theta_1,\ldots,\theta_n)$的贝叶斯法则.
+\end{exercise}
+\begin{exercise}\label{exercise:7.65}
+\hyperref[bib:source338]{Zellner（1986）}研究的一种损失函数是LINEX（LINear--EXponential，线性—指数）损失，它能以光滑方式处理非对称性.LINEX损失为
+$$L(\theta,a)=e^{c(a-\theta)}-c(a-\theta)-1,$$
+其中$c$是正常数.随着$c$变化，损失函数可以从极不对称变为近乎对称.
+\begin{enumerate}[label=(\alph*)]
+\item 对$c=.2,.5,1$，将$L(\theta,a)$作为$a-\theta$的函数作图.
+\item 若$X\sim F(x\mid\theta)$，证明采用先验$\pi$时，$\theta$的贝叶斯估计量为$\delta^\pi(X)=-(1/c)\log E(e^{-c\theta}\mid X)$.
+\item 设$X_1,\ldots,X_n$独立同分布于$n(\theta,\sigma^2)$，其中$\sigma^2$已知，并设$\theta$具有无信息先验$\pi(\theta)=1$.证明LINEX损失下的贝叶斯估计量为$\delta^B(\boldsymbol X)=\bar X-c\sigma^2/(2n)$.
+\item 在LINEX损失下，计算$\delta^B(\boldsymbol X)$与$\bar X$的后验期望损失.
+\item 在平方误差损失下，计算$\delta^B(\boldsymbol X)$与$\bar X$的后验期望损失.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.66}\index{SI0791@刀切法}
+刀切法（jackknife）是减少估计量偏差的一种一般方法（\hyperref[bib:source249]{Quenouille 1956）}.一步刀切估计量定义如下.设$X_1,\ldots,X_n$为随机样本，$T_n=T_n(X_1,\ldots,X_n)$为参数$\theta$的某个估计量.为对$T_n$实施“刀切”，我们计算$n$个统计量$T_n^{(i)}$，$i=1,\ldots,n$；$T_n^{(i)}$的计算方法与$T_n$相同，但使用从样本中去掉$X_i$后剩下的$n-1$个观测.$\theta$的刀切估计量记为$\operatorname{JK}(T_n)$，定义为
+$$\operatorname{JK}(T_n)=nT_n-\frac{n-1}{n}\sum_{i=1}^nT_n^{(i)}.$$
+（一般说来，$\operatorname{JK}(T_n)$的偏差比$T_n$小.\hyperref[bib:source220]{Miller（1974）}对刀切法的性质作了很好的综述.）
+
+具体地，现设$X_1,\ldots,X_n$独立同分布于$\operatorname{Bernoulli}(\theta)$.目标是估计$\theta^2$.
+\begin{enumerate}[label=(\alph*)]
+\item 说明$\theta^2$的MLE，$(\sum_{i=1}^nX_i/n)^2$，是$\theta^2$的有偏估计量.
+\item 推导基于MLE的一步刀切估计量.
+\item 说明一步刀切估计量是$\theta^2$的无偏估计量.（一般说来，刀切仅能减小偏差，但在这一特殊情形中，它完全消除了偏差.）
+\item 这个刀切估计量是$\theta^2$的最佳无偏估计量吗？若是，请证明；若不是，请求出最佳无偏估计量.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:7.67}
+证明\autoref{thm:10.1.5}.
+\end{exercise}

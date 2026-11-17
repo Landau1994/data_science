@@ -1,0 +1,55 @@
+204                                    PROPERTIES OF A RANDOM SAMPLE
+
+                      Relative frequency
+
+
+
+                          .04
+
+
+
+                          .02
+
+
+
+                          .00
+                         0        10       20       30       40
+                                          Poisson sample variance
+
+Figure 5.6.2 Histogram of the sample variances, S2 of 5,000 samples of size 13 from a Poisson distribution
+with λ = 18.69. The mean and standard deviation of the 5,000 values are 18.86 and 7.68.
+
+
+   To illustrate the use of such methodology consider the following sample of bay anchovy larvae
+counts taken from the Hudson River in late August 1984:
+
+                        19,32,29,13,8,12,16,20,14,17,22,18,23.                      (5.6.9)
+
+If it is assumed that the larvae are distributed randomly and uniformly in the river, then the number
+that are collected in a fixed size net should follow a Poisson distribution. Such an argument follows
+from a spatial version of the Poisson postulates (see the Miscellanea of Chapter 2). To see if such
+an assumption is tenable, we can check if the mean and variance of the observed data are consistent
+with the Poisson assumptions.
+   For the data in (5.6.9) we calculate ¯x = 18.69 and s2 = 44.90. Under the Poisson assumptions
+we expect these values to be the same. Of course, due to sampling variability, they will not be
+exactly the same, and we can use a simulation to get some idea of what to expect. In Figure 5.6.2 we
+simulated 5,000 samples of size n = 13 from a Poisson distribution with λ = 18.69, and constructed
+the relative frequency histogram of S2. Note that the observed value of S2 = 44.90 falls into the tail
+of the distribution. In fact, since 27 of the values of S2 were greater than 44.90, we can estimate
+
+                                    1   5000               27
+                = 18.69) =                              > 44.90) =                                       = .0054,                   ∑ I(S2i            P(S2 > 44.90|λ                                                        5000                                   5000 i=1
+
+which leads us to question the Poisson assumption; see Exercise 5.54. (Such findings spawned the
+extremely bad bilingual pun “Something is fishy in the Hudson–the Poisson has failed.”)       ∥
+
+5.6.2   Indirect Methods
+
+When no easily found direct transformation is available to generate the desired random variable, an
+extremely powerful indirect method, the Accept/Reject Algorithm, can often provide a solution.
+   The idea behind the Accept/Reject Algorithm is, perhaps, best explained through a simple
+example.
+Example 5.6.7 (Beta random variable generation–I)   Suppose the goal  is to generate Y ∼beta(a,b). If both a and b are integers, then the direct transformation method (5.6.5) can be used.
+However, if a and b are not integers, then that method will not work. For definiteness, set a = 2.7
+and b = 6.3. In Figure 5.6.3 we have put the beta density fY(y) inside a box with sides 1 and
+c ≥maxy fY(y). Now consider the following method of calculating P(Y ≤y). If (U,V) are indepen-

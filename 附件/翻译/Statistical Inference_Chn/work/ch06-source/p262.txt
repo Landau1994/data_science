@@ -1,0 +1,44 @@
+THE SUFFICIENCY PRINCIPLE                                                231
+Example 6.2.18 (Location family ancillary statistic)   Let X1,... ,Xn be iid observations from a
+location parameter family with cdf F(x−θ),−∞< θ < ∞. We will show that the range, R = X(n) −X(1), is an ancillary statistic. We use Theorem 3.5.6 and work with Z1,...,Zn, iid observations from
+F(x) (corresponding to θ = 0) with X1 = Z1+θ,...,Xn = Zn+θ. Thus, the cdf of the range statistic,
+R, is
+                      FR(r|θ) =  Pθ(R ≤r)
+                  =  Pθ(max Xi       Xi                                                                                      i   −mini   ≤r)
+                  =  Pθ(max(Zi            (Zi +θ)                                                                                      i   +θ)−mini       ≤r)
+                  =  Pθ(max Zi       Zi +θ                                                                                      i   −mini     −θ ≤r)
+                  =  Pθ(max Zi       Zi                                                                                      i   −mini    ≤r).
+The last probability does not depend on θ because the distribution of Z1,...,Zn does not depend on
+θ. Thus, the cdf of R does not depend on θ and, hence, R is an ancillary statistic.              ∥
+Example 6.2.19 (Scale family ancillary statistic)   Scale parameter families also have certain
+kinds of ancillary statistics. Let X1,...,Xn be iid observations from a scale parameter family with
+cdf F(x/σ),σ > 0. Then any statistic that depends on the sample only through the n −1 values
+X1/Xn,...,Xn−1/Xn is an ancillary statistic. For example,
+                          X1 +···+Xn = X1       Xn−1 +1                               Xn        Xn +···+  Xn
+
+is an ancillary statistic. To see this fact, let Z1,...,Zn be iid observations from F(x) (corresponding
+to σ = 1) with Xi = σZi. The joint cdf of X1/Xn,...,Xn−1/Xn is
+            F(y1,...,yn−1|σ) =  Pσ(X1/Xn ≤y1,...,Xn−1/Xn ≤yn−1)
+                 =  Pσ(σZ1/(σZn) ≤y1,...,σZn−1/(σZn) ≤yn−1)
+                 =  Pσ(Z1/Zn ≤y1,...,Zn−1/Zn ≤yn−1).
+The last probability does not depend on σ because the distribution of Z1,...,Zn does not depend
+on σ. So the distribution of X1/Xn,...,Xn−1/Xn is independent of σ, as is the distribution of any
+function of these quantities.
+    In particular, let X1 and X2 be iid n(0,σ2) observations. From the above result, we see that
+X1/X2 has a distribution that is the same for every value of σ. But, in Example 4.3.6, we saw that, if
+σ = 1,X1/X2 has a Cauchy(0,1) distribution. Thus, for any σ > 0, the distribution of X1/X2 is this
+same Cauchy distribution.                                                         ∥
+    In this section, we have given examples, some rather general, of statistics that are ancillary for
+various models. In the next section we will consider the relationship between sufficient statistics
+and ancillary statistics.
+
+
+6.2.4   Sufficient, Ancillary, and Complete Statistics
+
+A minimal sufficient statistic is a statistic that has achieved the maximal amount of data reduction
+possible while still retaining all the information about the parameter θ. Intuitively, a minimal suffi-
+cient statistic eliminates all the extraneous information in the sample, retaining only that piece with
+information about θ. Since the distribution of an ancillary statistic does not depend on θ, it might be
+suspected that a minimal sufficient statistic is unrelated to (or mathematically speaking, functionally
+independent of) an ancillary statistic. However, this is not necessarily the case. In this section, we
+investigate this relationship in some detail.

@@ -1,0 +1,46 @@
+136                                      MULTIPLE RANDOM VARIABLES
+   Note that this three-stage model can also be thought of as a two-stage hierarchy by combining
+the last two stages. If Y|Λ ∼Poisson(Λ) and Λ ∼exponential(β), then
+                      P(Y = y) =  P(Y = y,0 < Λ < ∞)
+                                   ∞
+                    =      f(y,λ)dλ
+                                                0                                   ∞
+                    =                                                0  f(y|λ)f(λ)dλ
+                                   ∞  e−λλ y  1                    =                e−λ/β dλ
+                                                0      y!   β
+                                    1   ∞            −1)                gamma                    =        λ ye−λ(1+β  dλ                                    βy!  0                                 pdf kernel
+                                    1             1     y+1
+                    =  βy!Γ(y+1) 1+β −1
+                                     1       1       y
+                    =                                   .
+                             (1+β)  1+β −1
+This expression for the pmf of Y is the form (3.1.10) of the negative binomial pmf. Therefore, our
+three-stage hierarchy in Example 4.4.5 is equivalent to the two-stage hierarchy
+                    X|Y ∼  binomial(Y, p),
+                                                  1
+                    Y ∼  negative binomial(p = 1+β ,r = 1).
+However, in terms of understanding the model, the three-stage model is much easier to understand!
+  A useful generalization is a Poisson–gamma mixture, which is a generalization of a part of the
+previous model. If we have the hierarchy
+                           Y|Λ ∼  Poisson(Λ),
+                       Λ ∼  gamma(α,β),
+then the marginal distribution of Y is negative binomial (see Exercise 4.32). This model for the neg-
+ative binomial distribution shows that it can be considered to be a “more variable” Poisson. Solomon
+(1983) explains these and other biological and mathematical models that lead to the negative bino-
+mial distribution. (See Exercise 4.33.)
+   Aside from the advantage in aiding understanding, hierarchical models can often make calcula-
+tions easier. For example, a distribution that often occurs in statistics is the noncentral chi squared
+distribution. With p degrees of freedom and noncentrality parameter λ, the pdf is given by
+                                ∞   xp/2+k−1e−x/2  λ ke−λ
+                            f(x|λ, p) = k=0∑ Γ(p/2+k)2p/2+k   k!    ,                       (4.4.3)
+an extremely messy expression. Calculating EX, for example, looks like quite a chore. However, if
+we examine the pdf closely, we see that this is a mixture distribution, made up of central chi squared
+densities (like those given in (3.2.10)) and Poisson distributions. That is, if we set up the hierarchy,
+
+                                               p+2K,                            X|K ∼  χ2
+                        K ∼  Poisson(λ),
+then the marginal distribution of X is given by (4.4.3). Hence
+                         EX =  E(E(X|K))                       =  E(p+2K)
+                       =  p+2λ,
+
+a relatively simple calculation. VarX can also be calculated in this way.

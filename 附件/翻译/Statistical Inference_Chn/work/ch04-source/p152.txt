@@ -1,0 +1,46 @@
+CONDITIONAL DISTRIBUTIONS AND INDEPENDENCE                          121
+   The joint probability distribution of (X,Y) can be completely described with the joint cdf (cumu-
+lative distribution function) rather than with the joint pmf or joint pdf. The joint cdf is the function
+F(x,y) defined by
+                                F(x,y) = P(X ≤x,Y ≤y)
+for all (x,y) ∈ℜ2. The joint cdf is usually not very handy to use for a discrete random vector. Butfor a continuous bivariate random vector we have the important relationship, as in the univariate
+case,
+                                                        x    y
+                              F(x,y) =                  ds.
+                                 −∞ −∞f(s,t)dt
+From the bivariate Fundamental Theorem of Calculus, this implies that
+
+                                 ∂2F(x,y)
+                          = f(x,y),                                  (4.1.3)
+                               ∂x∂y
+
+at continuity points of f(x,y). This relationship is useful in situations where an expression for F(x,y)
+can be found. The mixed partial derivative can be computed to find the joint pdf.
+
+4.2  Conditional Distributions and Independence
+Oftentimes when two random variables, (X,Y), are observed, the values of the two variables are
+related. For example, suppose that, in sampling from a human population, X denotes a person’s
+height and Y denotes the same person’s weight. Surely we would think it more likely that Y > 200
+pounds if we were told that X = 73 inches than if we were told that X = 41 inches. Knowledge
+about the value of X gives us some information about the value of Y even if it does not tell us the
+value of Y exactly. Conditional probabilities regarding Y given knowledge of the X value can be
+computed using the joint distribution of (X,Y). Sometimes, however, knowledge about X gives us
+no information about Y. We will discuss these topics concerning conditional probabilities in this
+section.
+     If (X,Y) is a discrete random vector, then a conditional probability of the form P(Y = y|X = x)is interpreted exactly as in Definition 1.3.2. For a countable (maybe finite) number of x values,
+P(X = x) > 0. For these values of x, P(Y = y|X = x) is simply P(X = x,Y = y)/P(X = x), according
+to the definition. The event {Y = y} is the event A in the formula and the event {X = x} is the event
+B. For a fixed value of x, P(Y = y|X = x) could be computed for all possible values of y. In thisway the probability of various values of y could be assessed given the knowledge that X = x was
+observed. This computation can be simplified by noting that in terms of the joint and marginal pmfs
+of X and Y, the above probabilities are P(X = x,Y = y) = f(x,y) and P(X = x) = fX(x). This leads
+to the following definition.
+Definition 4.2.1  Let (X,Y) be a discrete bivariate random vector with joint pmf  f(x,y) and
+marginal pmfs fX(x) and fY(y). For any x such that P(X = x) = fX(x) > 0, the conditional pmf
+of Y given that X = x is the function of y denoted by f(y|x) and defined by
+                                                          f(x,y)
+                                f(y|x) = P(Y = y|X = x) =  fX(x) .
+
+For any y such that P(Y = y) = fY(y) > 0, the conditional pmf of X given that Y = y is the function
+of x denoted by f(x|y) and defined by
+                                                          f(x,y)
+                                f(x|y) = P(X = x|Y = y) =  fY(y) .

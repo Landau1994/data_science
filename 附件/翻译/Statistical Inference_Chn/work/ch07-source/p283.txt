@@ -1,0 +1,48 @@
+                                   Chapter 7
+
+               Point Estimation
+
+
+
+
+
+  What! you have solved it already?
+   Well, that would be too much to say. I have discovered a suggestive fact, that is all.
+                                                       Dr. Watson and Sherlock Holmes
+                                                               The Sign of Four
+
+7.1  Introduction
+This chapter is divided into two parts. The first part deals with methods for finding estimators, and
+the second part deals with evaluating these (and other) estimators. In general these two activities
+are intertwined. Often the methods of evaluating estimators will suggest new ones. However, for the
+time being, we will make the distinction between finding estimators and evaluating them.
+   The rationale behind point estimation is quite simple. When sampling is from a population
+described by a pdf or pmf f(x|θ), knowledge of θ yields knowledge of the entire population. Hence,it is natural to seek a method of finding a good estimator of the point θ, that is, a good point
+estimator. It is also the case that the parameter θ has a meaningful physical interpretation (as in
+the case of a population mean) so there is direct interest in obtaining a good point estimate of θ. It
+may also be the case that some function of θ, say τ(θ), is of interest. The methods described in this
+chapter can also be used to obtain estimators of τ(θ).
+   The following definition of a point estimator may seem unnecessarily vague. However, at this
+point, we want to be careful not to eliminate any candidates from consideration.
+Definition 7.1.1 A point estimator is any function W(X1,...,Xn) of a sample. That is, any statistic
+is a point estimator.
+
+   Notice that the definition makes no mention of any correspondence between the estimator and
+the parameter it is to estimate. While it might be argued that such a statement should be included
+in the definition, such a statement would restrict the available set of estimators. Also, there is no
+mention in the definition of the range of the statistic W(X1,...,Xn). While, in principle, the range of
+the statistic should coincide with that of the parameter, we will see that this is not always the case.
+   There is one distinction that must be made clear, the difference between an estimate and an
+estimator. An estimator is a function of the sample, whereas an estimate is the realized value of an
+estimator (that is, a number) that is obtained when a sample is actually taken. Notationally, when a
+sample is taken, an estimator is a function of the random variables X1,...,Xn, while an estimate is a
+function of the realized values x1,...,xn.
+    In many cases, there will be an obvious or natural candidate for a point estimator of a particular
+parameter. For example, the sample mean is a natural candidate for a point estimator of the popu-
+lation mean. However, when we leave a simple case like this, intuition may not only desert us, it
+may also lead us astray. Therefore, it is useful to have some techniques that will at least give us
+some reasonable candidates for consideration. Be advised that these techniques do not carry any
+guarantees with them. The point estimators that they yield still must be evaluated before their worth
+is established.
+
+252                                                 DOI: 10.1201/9781003456285-7

@@ -1,0 +1,39 @@
+98                          COMMON FAMILIES OF DISTRIBUTIONS
+
+
+
+
+
+                                                                                             x
+              0     1     2     3     4     5     6     7     8     9     10
+
+                              Figure 3.5.2 Exponential location densities
+
+
+
+
+
+                                                                                             x
+             –6        –4        –2        0         2         4         6
+
+                             Figure 3.5.3 Members of the same scale family
+
+
+in Figure 3.5.3. Most often when scale parameters are used, f(x) is either symmetric about 0 or
+positive only for x > 0. In these cases the stretching is either symmetric about 0 or only in the
+positive direction. But, in the definition, any pdf may be used as the standard.
+    Several of the families introduced in Section 3.3 either are scale families or have scale families
+as subfamilies. These are the gamma family if α is a fixed value and β is the scale parameter,
+the normal family if µ = 0 and σ is the scale parameter, the exponential family, and the double
+exponential family if µ = 0 and σ is the scale parameter. In each case the standard pdf is the pdf
+obtained by setting the scale parameter equal to 1. Then all other members of the family can be
+shown to be of the form in Definition 3.5.4.
+Definition 3.5.5   Let f(x) be any pdf. Then for any µ, −∞< µ < ∞, and any σ > 0, the family of
+pdfs (1/σ) f((x−µ)/σ), indexed by the parameter (µ,σ), is called the location–scale family withstandard pdf f(x); µ is called the location parameter and σ is called the scale parameter.
+   The effect of introducing both the location and scale parameters is to stretch (σ > 1) or contract
+(σ < 1) the graph with the scale parameter and then shift the graph so that the point that was
+above 0 is now above µ. Figure 3.5.4 illustrates this transformation of f(x). The normal and double
+exponential families are examples of location–scale families. Exercise 3.39 presents the Cauchy as
+a location–scale family.
+   The following theorem relates the transformation of the pdf f(x) that defines a location–scale
+family to the transformation of a random variable Z with pdf f(z). As mentioned earlier in the

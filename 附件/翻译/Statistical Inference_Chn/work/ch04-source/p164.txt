@@ -1,0 +1,43 @@
+HIERARCHICAL MODELS AND MIXTURE DISTRIBUTIONS                       133
+consideration to either positive or negative values of y, then the transformation is one-to-one. In the
+above notation, let
+          A1 = {(x,y) : y > 0},  A2 = {(x,y) : y < 0},  and  A0 = {(x,y) : y = 0}.
+A0, A1, and A2 form a partition of A = ℜ2 and P((X,Y) ∈A0) = P(Y = 0) = 0. For either A1 or
+A2, if (x,y) ∈Ai, v = |y| > 0 and for a fixed value of v = |y|, u = x/y can be any real number since
+x can be any real number. Thus, B = {(u,v) : v > 0} is the image of both A1 and A2 under thetransformation. Furthermore, the inverse transformations from B to A1 and B to A2 are given by
+x = h11(u,v) = uv, y = h21(u,v) = v, and x = h12(u,v) = −uv, y = h22(u,v) = −v. Note that the firstinverse gives positive values of y and the second gives negative values of y. The Jacobians from the
+two inverses are J1 = J2 = v. Using
+
+                                       1                                   fX,Y(x,y) =    e−x2/2e−y2/2,                                    2π
+from (4.3.6) we obtain
+
+                            1                  1                 fU,V(u,v) =      e−(uv)2/2e−v2/2         e−(−uv)2/2e−(−v)2/2                          2π             |v|+ 2π                        |v|                               v
+               =                                              u < ∞,  0 < v < ∞.                                     e−(u2+1)v2/2, −∞<                         π
+From this the marginal pdf of U can be computed to be
+                             ∞ v                     fU(u) =         e−(u2+1)v2/2 dv                                        0  π
+                             1   ∞                =          e−(u2+1)z/2 dz             (change of variable z = v2)
+                           2π  0
+                             1    2                        integrand is kernel of
+                =
+                           2π (u2 +1)               exponential (β = 2/(u2 +1)) pdf
+                                1
+                =                              π(u2 +1), −∞< u < ∞.
+
+So we see that the ratio of two independent standard normal random variables is a Cauchy random
+variable. (See Exercise 4.28 for more relationships between normal and Cauchy random variables.)
+                                                                              ∥
+
+4.4  Hierarchical Models and Mixture Distributions
+In the cases we have seen thus far, a random variable has a single distribution, possibly depending
+on parameters. While, in general, a random variable can have only one distribution, it is often easier
+to model a situation by thinking of things in a hierarchy.
+Example 4.4.1 (Binomial-Poisson hierarchy)  Perhaps the most classic hierarchical model is the
+following. An insect lays a large number of eggs, each surviving with probability p. On the average,
+how many eggs will survive?
+   The “large number” of eggs laid is a random variable, often taken to be Poisson(λ). Furthermore,
+if we assume that each egg’s survival is independent, then we have Bernoulli trials. Therefore, if we
+let X = number of survivors and Y = number of eggs laid, we have
+                             X|Y  ∼binomial(Y, p)
+                            Y   ∼Poisson(λ),
+a hierarchical model. (Recall that we use notation such as X|Y ∼binomial(Y, p) to mean that the
+conditional distribution of X given Y = y is binomial(y, p).)                               ∥

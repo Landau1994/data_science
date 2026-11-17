@@ -1,0 +1,986 @@
+[
+  {
+    "id": "3:103",
+    "label": "ex:3.2.1"
+  },
+  {
+    "id": "59:117",
+    "label": "ex:3.3.2"
+  },
+  {
+    "id": "60:108",
+    "label": "eq:3.2.8"
+  },
+  {
+    "id": "61:137",
+    "file": "sections-tex/03-07.tex",
+    "after": "\\item[(a)] 证明，当$N\\to\\infty$、$M\\to\\infty$且$M/N\\to p$时，"
+  },
+  {
+    "id": "62:137",
+    "label": "itm:exercise:3.11:b"
+  },
+  {
+    "id": "64:187",
+    "label": "ex:4.7.8"
+  },
+  {
+    "id": "88:104",
+    "file": "sections-tex/03-02.tex",
+    "after": "二项分布是一种十分有用的离散分布，其基础是 Bernoulli 试验（Bernoulli trial）的思想. Bernoulli 试验以概率论奠基人之一 James Bernoulli 命名，是恰有两个可能结果的试验. 如果随机变量 $X$ 满足"
+  },
+  {
+    "id": "89:118",
+    "label": "eq:3.3.17"
+  },
+  {
+    "id": "92:105",
+    "label": "thm:3.2.2"
+  },
+  {
+    "id": "98:198",
+    "label": "sec:4.9.3"
+  },
+  {
+    "id": "109:136",
+    "label": "exercise:3.9"
+  },
+  {
+    "id": "121:186",
+    "label": "def:4.7.6"
+  },
+  {
+    "id": "198:117",
+    "label": "ex:3.3.2"
+  },
+  {
+    "id": "212:186",
+    "label": "def:4.7.6"
+  },
+  {
+    "id": "216:170",
+    "label": "def:4.5.2"
+  },
+  {
+    "id": "217:170",
+    "label": "def:4.5.2"
+  },
+  {
+    "id": "217:172",
+    "label": "thm:4.5.7"
+  },
+  {
+    "id": "221:171",
+    "label": "thm:4.5.5"
+  },
+  {
+    "id": "223:169",
+    "label": "def:4.5.1"
+  },
+  {
+    "id": "236:157",
+    "file": "sections-tex/04-02.tex",
+    "after": "若 $X$ 与 $Y$ 独立，则由\\eqref{eq:4.2.1} 可见，$f(x,y)>0$ 的集合为 $\\{(x,y):x\\in A\\text{ 且 }y\\in B\\}$，其中 $A=\\{x:f_X(x)>0\\}$，$B=\\{y:f_Y(y)>0\\}$. 这种集合称为笛卡尔积（cross-product），通常记为 $A\\times B$. 判断一个点是否属于笛卡尔积，可以分别考察其 $x$ 值和 $y$ 值. 若 $f(x,y)$ 为联合 pdf 或 pmf，而使 $f(x,y)>0$ 的集合不是笛卡尔积，则具有该联合 pdf 或 pmf 的随机变量 $X$ 和 $Y$ 不独立. 在\\autoref{ex:4.2.4} 中，集合 $0<x<y<\\infty$ 不是笛卡尔积. 要判断成员资格，不仅要检查 $0<x<\\infty$ 和 $0<y<\\infty$，还必须检查 $x<y$. 因此，\\autoref{ex:4.2.4} 中的随机变量不独立. \\autoref{ex:4.2.2} 也给出了一个例子：联合 pmf 为正的集合不是笛卡尔积."
+  },
+  {
+    "id": "238:189",
+    "label": "exercise:4.9"
+  },
+  {
+    "id": "239:152",
+    "file": "sections-tex/04-01.tex",
+    "after": "$(X,Y)$ 的联合概率分布也可以用联合累积分布函数（joint cumulative distribution function，联合 cdf）来完全描述，而不使用联合 pmf 或联合 pdf. 联合 cdf 是定义在所有 $(x,y)\\in\\mathbb R^2$ 上的函数"
+  },
+  {
+    "id": "245:114",
+    "label": "eq:3.3.10"
+  },
+  {
+    "id": "248:160",
+    "file": "sections-tex/04-03.tex",
+    "after": "若 $(X,Y)$ 是联合 pdf 为 $f_{X,Y}(x,y)$ 的连续随机向量，则可用类似\\eqref{eq:2.1.8} 的方式，通过 $f_{X,Y}(x,y)$ 表示 $(U,V)$ 的联合 pdf. 与前面一样，令 $\\mathscr A=\\{(x,y):f_{X,Y}(x,y)>0\\}$，$\\mathscr B=\\{(u,v):\\text{存在 }(x,y)\\in\\mathscr A,\\ u=g_1(x,y)\\text{ 且 }v=g_2(x,y)\\}$. 联合 pdf $f_{U,V}(u,v)$ 在 $\\mathscr B$ 上为正. 在此结论最简单的版本中，假设 $u=g_1(x,y)$、$v=g_2(x,y)$ 定义了从 $\\mathscr A$ 到 $\\mathscr B$ 的一一变换. 由 $\\mathscr B$ 的定义，该变换是满射. 我们假定，对每个 $(u,v)\\in\\mathscr B$，只有一个 $(x,y)\\in\\mathscr A$ 满足 $(u,v)=(g_1(x,y),g_2(x,y))$. 对这样的一一满射，可以解方程 $u=g_1(x,y)$、$v=g_2(x,y)$，用 $u,v$ 表示 $x,y$. 将逆变换记为 $x=h_1(u,v)$、$y=h_2(u,v)$. 在单变量情形中由导数发挥的作用，现在由称为变换的 Jacobian（雅可比行列式）的量来发挥. 这是一个关于 $(u,v)$ 的函数，记为 $J$，是偏导数矩阵的行列式，定义为"
+  },
+  {
+    "id": "248:182",
+    "file": "sections-tex/04-06.tex",
+    "after": "设 $(X_1,\\ldots,X_n)$ 的 pdf 为 $f_{\\mathbf X}(x_1,\\ldots,x_n)$，令 $\\mathscr A=\\{\\mathbf x:f_{\\mathbf X}(\\mathbf x)>0\\}$. 考虑新随机向量 $(U_1,\\ldots,U_n)$，由 $U_1=g_1(X_1,\\ldots,X_n)$、$U_2=g_2(X_1,\\ldots,X_n)$、……、$U_n=g_n(X_1,\\ldots,X_n)$ 定义. 假设 $A_0,A_1,\\ldots,A_k$ 构成 $\\mathscr A$ 的一个划分，并满足下列性质. 集合 $A_0$ 可以为空，且 $P((X_1,\\ldots,X_n)\\in A_0)=0$. 对每个 $i=1,2,\\ldots,k$，变换 $(U_1,\\ldots,U_n)=(g_1(\\mathbf X),\\ldots,g_n(\\mathbf X))$ 从 $A_i$ 一一映满到 $\\mathscr B$. 对每个 $i$，都可以求出从 $\\mathscr B$ 到 $A_i$ 的逆函数，记为 $x_1=h_{1i}(u_1,\\ldots,u_n)$、$x_2=h_{2i}(u_1,\\ldots,u_n)$、……、$x_n=h_{ni}(u_1,\\ldots,u_n)$. 对 $(u_1,\\ldots,u_n)\\in\\mathscr B$，此第 $i$ 个逆变换给出唯一的 $(x_1,\\ldots,x_n)\\in A_i$，使 $(u_1,\\ldots,u_n)=(g_1(x_1,\\ldots,x_n),\\ldots,g_n(x_1,\\ldots,x_n))$. 记根据第 $i$ 个逆变换计算的 Jacobian 为 $J_i$，即"
+  },
+  {
+    "id": "252:104",
+    "label": "eq:3.2.3"
+  },
+  {
+    "id": "254:118",
+    "label": "eq:3.3.16"
+  },
+  {
+    "id": "256:161",
+    "label": "ex:4.3.3"
+  },
+  {
+    "id": "259:191",
+    "label": "exercise:4.24"
+  },
+  {
+    "id": "260:192",
+    "label": "exercise:4.34"
+  },
+  {
+    "id": "261:104",
+    "file": "sections-tex/03-02.tex",
+    "after": "\\paragraph{二项分布.}"
+  },
+  {
+    "id": "262:123",
+    "label": "ex:3.4.1"
+  },
+  {
+    "id": "266:124",
+    "label": "ex:3.4.3"
+  },
+  {
+    "id": "267:108",
+    "label": "eq:3.2.7"
+  },
+  {
+    "id": "269:179",
+    "file": "sections-tex/04-06.tex",
+    "after": "现在考虑多项模型的一些边缘与条件分布. 对单个坐标 $X_i$，若把第 $i$ 个结果称为“成功”，其他结果称为“失败”，则 $X_i$ 统计 $m$ 次独立试验中的成功次数，每次成功概率为 $p_i$. 因而，$X_i$ 应服从 $\\operatorname{binomial}(m,p_i)$. 为验证这一点，应根据\\eqref{eq:4.6.5} 计算 $X_i$ 的边缘分布. 例如，考虑 $X_n$ 的边缘 pmf. 固定 $x_n\\in\\{0,1,\\ldots,n\\}$，\\footnote{译注：原文取值上界 $n$ 应为试验次数 $m$；$n$ 是类别数.} 要计算 $f(x_n)$，须对所有可能的 $(x_1,\\ldots,x_{n-1})$ 求和."
+  },
+  {
+    "id": "270:137",
+    "label": "exercise:3.12"
+  },
+  {
+    "id": "271:190",
+    "label": "exercise:4.15"
+  },
+  {
+    "id": "273:174",
+    "label": "def:4.5.10"
+  },
+  {
+    "id": "273:194",
+    "label": "exercise:4.45"
+  },
+  {
+    "id": "276:119",
+    "label": "eq:3.3.19"
+  },
+  {
+    "id": "276:141",
+    "label": "exercise:3.39"
+  },
+  {
+    "id": "279:164",
+    "label": "ex:4.3.6"
+  },
+  {
+    "id": "279:191",
+    "label": "exercise:4.28"
+  },
+  {
+    "id": "280:114",
+    "label": "eq:3.3.10"
+  },
+  {
+    "id": "287:101",
+    "label": "eq:3.2.1"
+  },
+  {
+    "id": "288:121",
+    "label": "eq:3.3.23"
+  },
+  {
+    "id": "289:114",
+    "label": "eq:3.3.11"
+  },
+  {
+    "id": "291:139",
+    "file": "sections-tex/03-07.tex",
+    "after": "\\item[(a)] 若$T\\sim\\operatorname{exponential}(\\beta)$，则$h_T(t)=1/\\beta$."
+  },
+  {
+    "id": "293:114",
+    "file": "sections-tex/03-03.tex",
+    "after": "指数分布可以用来对寿命建模，类似于离散情形中几何分布的用途. 实际上，指数分布也具有几何分布的“无记忆”性质. 若$X\\sim\\operatorname{exponential}(\\beta)$，即pdf由\\eqref{eq:3.3.11}给出，则对$s>t\\ge0$有"
+  },
+  {
+    "id": "295:193",
+    "label": "exercise:4.38"
+  },
+  {
+    "id": "300:139",
+    "file": "sections-tex/03-07.tex",
+    "after": "\\item[(e)] 若$X\\sim\\operatorname{exponential}(1)$，则$Y=\\alpha-\\gamma\\log X$具有Gumbel$(\\alpha,\\gamma)$分布，其中$-\\infty<\\alpha<\\infty$且$\\gamma>0$. （Gumbel分布也称为极值分布，extreme value distribution.）"
+  },
+  {
+    "id": "305:138",
+    "label": "exercise:3.20"
+  },
+  {
+    "id": "306:112",
+    "label": "eq:3.3.6"
+  },
+  {
+    "id": "309:138",
+    "label": "exercise:3.17"
+  },
+  {
+    "id": "310:133",
+    "label": "thm:3.6.4"
+  },
+  {
+    "id": "311:191",
+    "label": "exercise:4.24"
+  },
+  {
+    "id": "312:193",
+    "label": "exercise:4.38"
+  },
+  {
+    "id": "314:138",
+    "label": "exercise:3.18"
+  },
+  {
+    "id": "315:113",
+    "label": "ex:3.3.1"
+  },
+  {
+    "id": "315:138",
+    "label": "exercise:3.19"
+  },
+  {
+    "id": "316:181",
+    "label": "ex:4.6.8"
+  },
+  {
+    "id": "317:114",
+    "file": "sections-tex/03-03.tex",
+    "after": "\\paragraph{正态分布.}"
+  },
+  {
+    "id": "318:111",
+    "file": "sections-tex/03-02.tex",
+    "after": "\\paragraph{几何分布.}"
+  },
+  {
+    "id": "320:111",
+    "label": "eq:3.2.11"
+  },
+  {
+    "id": "322:139",
+    "file": "sections-tex/03-07.tex",
+    "after": "\\item[(e)] 若$X\\sim\\operatorname{exponential}(1)$，则$Y=\\alpha-\\gamma\\log X$具有Gumbel$(\\alpha,\\gamma)$分布，其中$-\\infty<\\alpha<\\infty$且$\\gamma>0$. （Gumbel分布也称为极值分布，extreme value distribution.）"
+  },
+  {
+    "id": "323:102",
+    "label": "eq:3.2.2"
+  },
+  {
+    "id": "327:138",
+    "label": "exercise:3.14"
+  },
+  {
+    "id": "330:139",
+    "file": "sections-tex/03-07.tex",
+    "after": "\\item[(c)] 若$T\\sim\\operatorname{logistic}(\\mu,\\beta)$，即"
+  },
+  {
+    "id": "332:120",
+    "label": "eq:3.3.21"
+  },
+  {
+    "id": "335:139",
+    "file": "sections-tex/03-07.tex",
+    "after": "\\item[(d)] 若$X\\sim\\operatorname{gamma}(3/2,\\beta)$，则$Y=(X/\\beta)^{1/2}$具有Maxwell分布."
+  },
+  {
+    "id": "336:166",
+    "label": "def:4.4.4"
+  },
+  {
+    "id": "337:168",
+    "label": "ex:4.4.6"
+  },
+  {
+    "id": "337:169",
+    "label": "ex:4.4.8"
+  },
+  {
+    "id": "338:192",
+    "label": "exercise:4.34"
+  },
+  {
+    "id": "339:167",
+    "file": "sections-tex/04-04.tex",
+    "after": "$Y$ 的这个 pmf 就是负二项 pmf 的\\hyperref[eq:3.2.10]{式 (3.1.10)} 形式.\\footnote{译注：原文引用 (3.1.10)，对应公式实际编号为\\eqref{eq:3.2.10}.} 因此，\\autoref{ex:4.4.5} 的三层结构等价于两层结构"
+  },
+  {
+    "id": "340:164",
+    "label": "ex:4.4.1"
+  },
+  {
+    "id": "341:166",
+    "label": "ex:4.4.5"
+  },
+  {
+    "id": "342:167",
+    "label": "eq:4.4.3"
+  },
+  {
+    "id": "343:193",
+    "label": "exercise:4.38"
+  },
+  {
+    "id": "344:192",
+    "label": "exercise:4.33"
+  },
+  {
+    "id": "346:167",
+    "file": "sections-tex/04-04.tex",
+    "after": "一个有用的推广是 Poisson--Gamma 混合，它推广了上述模型的一部分. 若有层次结构"
+  },
+  {
+    "id": "346:191",
+    "label": "exercise:4.32"
+  },
+  {
+    "id": "348:179",
+    "label": "def:4.6.2"
+  },
+  {
+    "id": "349:180",
+    "file": "sections-tex/04-06.tex",
+    "after": "从条件分布可以看出，向量 $(X_1,\\ldots,X_n)$ 的各坐标有关系. 尤其是 $m$ 固定时，必然有某种负相关. 事实上，所有两两协方差都为负，由下式给出（\\autoref{exercise:4.39}）：\\footnote{译注：原文期望式中应减去均值 $mp_i,mp_j$，而非 $p_i,p_j$；即 $\\operatorname{Cov}(X_i,X_j)=E[(X_i-mp_i)(X_j-mp_j)]=-mp_ip_j$，$i\\ne j$. 当某个格概率为 0 时协方差为 0，故“都为负”在允许边界概率的定义下应为“都非正”.}"
+  },
+  {
+    "id": "349:193",
+    "label": "exercise:4.39"
+  },
+  {
+    "id": "350:179",
+    "file": "sections-tex/04-06.tex",
+    "after": "现在考虑多项模型的一些边缘与条件分布. 对单个坐标 $X_i$，若把第 $i$ 个结果称为“成功”，其他结果称为“失败”，则 $X_i$ 统计 $m$ 次独立试验中的成功次数，每次成功概率为 $p_i$. 因而，$X_i$ 应服从 $\\operatorname{binomial}(m,p_i)$. 为验证这一点，应根据\\eqref{eq:4.6.5} 计算 $X_i$ 的边缘分布. 例如，考虑 $X_n$ 的边缘 pmf. 固定 $x_n\\in\\{0,1,\\ldots,n\\}$，\\footnote{译注：原文取值上界 $n$ 应为试验次数 $m$；$n$ 是类别数.} 要计算 $f(x_n)$，须对所有可能的 $(x_1,\\ldots,x_{n-1})$ 求和."
+  },
+  {
+    "id": "351:109",
+    "label": "eq:3.2.10"
+  },
+  {
+    "id": "351:191",
+    "label": "exercise:4.32"
+  },
+  {
+    "id": "352:110",
+    "file": "sections-tex/03-02.tex",
+    "after": "用均值对负二项分布重新参数化，是一种有趣且有时很有用的做法. 若定义参数$\\mu=r(1-p)/p$，则$EY=\\mu$，且稍作代数运算便可得到"
+  },
+  {
+    "id": "353:137",
+    "label": "exercise:3.12"
+  },
+  {
+    "id": "355:138",
+    "label": "exercise:3.18"
+  },
+  {
+    "id": "356:110",
+    "file": "sections-tex/03-02.tex",
+    "after": "负二项分布族以Poisson分布为其极限情形. 若$r\\to\\infty$且$p\\to1$，使得$r(1-p)\\to\\lambda$，其中$0<\\lambda<\\infty$，则"
+  },
+  {
+    "id": "357:167",
+    "label": "eq:4.4.3"
+  },
+  {
+    "id": "358:114",
+    "file": "sections-tex/03-03.tex",
+    "after": "\\paragraph{正态分布.}"
+  },
+  {
+    "id": "359:195",
+    "label": "exercise:4.47"
+  },
+  {
+    "id": "360:124",
+    "label": "ex:3.4.4"
+  },
+  {
+    "id": "362:182",
+    "label": "cor:4.6.10"
+  },
+  {
+    "id": "363:163",
+    "label": "ex:4.3.6"
+  },
+  {
+    "id": "365:164",
+    "label": "ex:4.3.6"
+  },
+  {
+    "id": "365:191",
+    "label": "exercise:4.28"
+  },
+  {
+    "id": "368:115",
+    "file": "sections-tex/03-03.tex",
+    "after": "若$X\\sim\\operatorname n(\\mu,\\sigma^2)$，则随机变量$Z=(X-\\mu)/\\sigma$具有$\\operatorname n(0,1)$分布，也称为标准正态分布（standard normal distribution）. 写出以下各式便容易证明："
+  },
+  {
+    "id": "369:159",
+    "label": "ex:4.2.13"
+  },
+  {
+    "id": "369:162",
+    "label": "ex:4.3.4"
+  },
+  {
+    "id": "370:139",
+    "label": "exercise:3.23"
+  },
+  {
+    "id": "371:106",
+    "label": "eq:3.2.5"
+  },
+  {
+    "id": "373:126",
+    "label": "ex:3.4.9"
+  },
+  {
+    "id": "374:142",
+    "label": "thm:3.8.1"
+  },
+  {
+    "id": "375:108",
+    "label": "eq:3.2.6"
+  },
+  {
+    "id": "375:133",
+    "label": "eq:3.6.2"
+  },
+  {
+    "id": "376:190",
+    "label": "exercise:4.15"
+  },
+  {
+    "id": "377:113",
+    "label": "ex:3.3.1"
+  },
+  {
+    "id": "377:138",
+    "label": "exercise:3.19"
+  },
+  {
+    "id": "378:110",
+    "file": "sections-tex/03-02.tex",
+    "after": "负二项分布族以Poisson分布为其极限情形. 若$r\\to\\infty$且$p\\to1$，使得$r(1-p)\\to\\lambda$，其中$0<\\lambda<\\infty$，则"
+  },
+  {
+    "id": "378:138",
+    "label": "exercise:3.15"
+  },
+  {
+    "id": "379:160",
+    "label": "thm:4.3.2"
+  },
+  {
+    "id": "380:139",
+    "file": "sections-tex/03-07.tex",
+    "after": "\\item[(b)] 若$X\\sim\\operatorname{exponential}(\\beta)$，则$Y=(2X/\\beta)^{1/2}$具有Rayleigh分布."
+  },
+  {
+    "id": "385:138",
+    "label": "exercise:3.13"
+  },
+  {
+    "id": "387:112",
+    "label": "eq:3.3.1"
+  },
+  {
+    "id": "391:114",
+    "label": "eq:3.3.12"
+  },
+  {
+    "id": "391:139",
+    "file": "sections-tex/03-07.tex",
+    "after": "\\item[(a)] 若$X\\sim\\operatorname{exponential}(\\beta)$，则$Y=X^{1/\\gamma}$具有Weibull$(\\gamma,\\beta)$分布，其中$\\gamma>0$为常数."
+  },
+  {
+    "id": "392:139",
+    "file": "sections-tex/03-07.tex",
+    "after": "\\item[(b)] 若$T\\sim\\operatorname{Weibull}(\\gamma,\\beta)$，则$h_T(t)=(\\gamma/\\beta)t^{\\gamma-1}$."
+  },
+  {
+    "id": "398:196",
+    "file": "sections-tex/04-08.tex",
+    "after": "量 $\\sum_i a_i\\log(1/a_i)$ 称为熵（entropy）"
+  },
+  {
+    "id": "420:197",
+    "label": "sec:4.9.1"
+  },
+  {
+    "id": "423:147",
+    "file": "sections-tex/04-01.tex",
+    "after": "随机向量的函数的期望也与单变量情形相同. 若 $g(x,y)$ 是在随机向量所有可能取值处定义的实值函数，则 $g(X,Y)$ 是一个随机变量，其期望为"
+  },
+  {
+    "id": "423:149",
+    "file": "sections-tex/04-01.tex",
+    "after": "联合 pdf 与单变量 pdf 的用法相同，只是需要在平面集合上做二重积分. 记号 $\\iint_A$ 表示选择积分限，使积分遍及整个集合 $A$. 计算函数的期望时，将求和换为积分、pmf 换为 pdf 即可. 若 $g$ 是实值函数，则"
+  },
+  {
+    "id": "424:188",
+    "label": "exercise:4.2"
+  },
+  {
+    "id": "425:154",
+    "file": "sections-tex/04-02.tex",
+    "after": "条件 pdf 或 pmf 除了可用来计算概率，也可用来计算期望. 只要记住 $f(y\\mid x)$ 作为 $y$ 的函数是 pdf 或 pmf，就可以像之前使用无条件 pdf 或 pmf 那样使用它. 若 $g(Y)$ 是 $Y$ 的函数，则给定 $X=x$ 时 $g(Y)$ 的条件期望（conditional expected value）记为 $E(g(Y)\\mid x)$；在离散和连续情形下分别为"
+  },
+  {
+    "id": "426:190",
+    "label": "exercise:4.13"
+  },
+  {
+    "id": "427:158",
+    "label": "thm:4.2.10"
+  },
+  {
+    "id": "427:181",
+    "label": "thm:4.6.6"
+  },
+  {
+    "id": "428:165",
+    "label": "thm:4.4.3"
+  },
+  {
+    "id": "429:176",
+    "label": "eq:4.6.3"
+  },
+  {
+    "id": "435:121",
+    "label": "eq:3.4.1"
+  },
+  {
+    "id": "435:140",
+    "label": "exercise:3.28"
+  },
+  {
+    "id": "436:125",
+    "label": "def:3.4.7"
+  },
+  {
+    "id": "437:140",
+    "label": "exercise:3.34"
+  },
+  {
+    "id": "438:144",
+    "label": "sec:3.8.3"
+  },
+  {
+    "id": "439:123",
+    "label": "thm:3.4.2"
+  },
+  {
+    "id": "440:125",
+    "file": "sections-tex/03-04.tex",
+    "after": "称为该族的自然参数空间（natural parameter space）. 如果$X$为离散型，就把积分换成对使$h(x)>0$的$x$值求和. 对$\\eta\\in\\mathcal H$，必须有"
+  },
+  {
+    "id": "446:193",
+    "label": "exercise:4.37"
+  },
+  {
+    "id": "448:152",
+    "label": "eq:4.1.3"
+  },
+  {
+    "id": "450:112",
+    "label": "eq:3.3.2"
+  },
+  {
+    "id": "457:187",
+    "label": "ex:4.7.8"
+  },
+  {
+    "id": "468:187",
+    "label": "ex:4.7.8"
+  },
+  {
+    "id": "469:114",
+    "file": "sections-tex/03-03.tex",
+    "after": "显然，我们也可以从Weibull分布出发，再把指数分布作为特例（$\\gamma=1$）推导出来. 这只是取舍偏好的问题. Weibull分布在失效时间数据分析中起着极为重要的作用［这一主题的全面论述见\\hyperref[bib:source186]{Kalbfleisch和Prentice（1980）}］. 特别地，Weibull分布非常适合对风险函数（hazard function）建模［见\\autoref{exercise:3.25}和\\autoref{exercise:3.26}］."
+  },
+  {
+    "id": "469:139",
+    "label": "exercise:3.25"
+  },
+  {
+    "id": "473:135",
+    "label": "thm:3.6.8"
+  },
+  {
+    "id": "530:142",
+    "file": "sections-tex/03-07.tex",
+    "after": "\\item[(b)] 若$X\\sim\\operatorname{beta}(\\alpha,\\beta)$，则"
+  },
+  {
+    "id": "531:103",
+    "file": "sections-tex/03-02.tex",
+    "after": "为计算这个表达式，使用已经在\\autoref{sec:2.3}中遇到的恒等式"
+  },
+  {
+    "id": "532:134",
+    "label": "thm:3.6.7"
+  },
+  {
+    "id": "533:196",
+    "label": "exercise:4.59"
+  },
+  {
+    "id": "538:123",
+    "label": "thm:3.4.2"
+  },
+  {
+    "id": "539:142",
+    "file": "sections-tex/03-07.tex",
+    "after": "\\item[(a)] 若$X\\sim\\operatorname{gamma}(\\alpha,\\beta)$，则"
+  },
+  {
+    "id": "541:133",
+    "label": "lem:3.6.5"
+  },
+  {
+    "id": "543:135",
+    "label": "eq:3.6.6"
+  },
+  {
+    "id": "544:135",
+    "label": "eq:3.6.5"
+  },
+  {
+    "id": "548:171",
+    "label": "thm:4.5.5"
+  },
+  {
+    "id": "553:158",
+    "label": "thm:4.2.10"
+  },
+  {
+    "id": "553:181",
+    "label": "thm:4.6.6"
+  },
+  {
+    "id": "554:155",
+    "label": "def:4.2.5"
+  },
+  {
+    "id": "554:163",
+    "label": "thm:4.3.5"
+  },
+  {
+    "id": "554:180",
+    "label": "def:4.6.5"
+  },
+  {
+    "id": "555:158",
+    "label": "thm:4.2.12"
+  },
+  {
+    "id": "556:124",
+    "label": "def:3.4.5"
+  },
+  {
+    "id": "558:198",
+    "label": "sec:4.9.2"
+  },
+  {
+    "id": "564:172",
+    "label": "thm:4.5.7"
+  },
+  {
+    "id": "564:184",
+    "label": "thm:4.7.3"
+  },
+  {
+    "id": "565:131",
+    "label": "thm:3.6.1"
+  },
+  {
+    "id": "565:143",
+    "label": "thm:3.8.2"
+  },
+  {
+    "id": "566:188",
+    "label": "thm:4.7.9"
+  },
+  {
+    "id": "567:143",
+    "label": "thm:3.8.4"
+  },
+  {
+    "id": "568:184",
+    "label": "thm:4.7.2"
+  },
+  {
+    "id": "569:186",
+    "label": "thm:4.7.7"
+  },
+  {
+    "id": "570:185",
+    "label": "eq:4.7.6"
+  },
+  {
+    "id": "572:143",
+    "label": "lem:3.8.3"
+  },
+  {
+    "id": "573:187",
+    "label": "ex:4.7.8"
+  },
+  {
+    "id": "574:142",
+    "label": "exercise:3.45"
+  },
+  {
+    "id": "575:185",
+    "label": "thm:4.7.5"
+  },
+  {
+    "id": "576:132",
+    "label": "ex:3.6.3"
+  },
+  {
+    "id": "576:142",
+    "label": "exercise:3.47"
+  },
+  {
+    "id": "577:198",
+    "label": "sec:4.9.2"
+  },
+  {
+    "id": "578:185",
+    "label": "eq:4.7.8"
+  },
+  {
+    "id": "578:197",
+    "label": "exercise:4.64"
+  },
+  {
+    "id": "579:143",
+    "label": "thm:3.8.5"
+  },
+  {
+    "id": "592:110",
+    "label": "ex:3.2.6"
+  },
+  {
+    "id": "593:160",
+    "file": "sections-tex/04-03.tex",
+    "after": "若 $(X,Y)$ 是联合 pdf 为 $f_{X,Y}(x,y)$ 的连续随机向量，则可用类似\\eqref{eq:2.1.8} 的方式，通过 $f_{X,Y}(x,y)$ 表示 $(U,V)$ 的联合 pdf. 与前面一样，令 $\\mathscr A=\\{(x,y):f_{X,Y}(x,y)>0\\}$，$\\mathscr B=\\{(u,v):\\text{存在 }(x,y)\\in\\mathscr A,\\ u=g_1(x,y)\\text{ 且 }v=g_2(x,y)\\}$. 联合 pdf $f_{U,V}(u,v)$ 在 $\\mathscr B$ 上为正. 在此结论最简单的版本中，假设 $u=g_1(x,y)$、$v=g_2(x,y)$ 定义了从 $\\mathscr A$ 到 $\\mathscr B$ 的一一变换. 由 $\\mathscr B$ 的定义，该变换是满射. 我们假定，对每个 $(u,v)\\in\\mathscr B$，只有一个 $(x,y)\\in\\mathscr A$ 满足 $(u,v)=(g_1(x,y),g_2(x,y))$. 对这样的一一满射，可以解方程 $u=g_1(x,y)$、$v=g_2(x,y)$，用 $u,v$ 表示 $x,y$. 将逆变换记为 $x=h_1(u,v)$、$y=h_2(u,v)$. 在单变量情形中由导数发挥的作用，现在由称为变换的 Jacobian（雅可比行列式）的量来发挥. 这是一个关于 $(u,v)$ 的函数，记为 $J$，是偏导数矩阵的行列式，定义为"
+  },
+  {
+    "id": "647:126",
+    "label": "sec:3.5"
+  },
+  {
+    "id": "648:127",
+    "label": "def:3.5.2"
+  },
+  {
+    "id": "648:129",
+    "label": "def:3.5.5"
+  },
+  {
+    "id": "650:128",
+    "label": "def:3.5.4"
+  },
+  {
+    "id": "651:126",
+    "file": "sections-tex/03-05.tex",
+    "after": "这三类族称为位置族、尺度族和位置—尺度族. 每一类族的构造，都是先指定一个pdf，例如$f(x)$，称为该族的标准pdf（standard pdf）. 然后按指定方式变换这个标准pdf，生成族中的所有其他pdf. 我们从关于pdf的一个简单定理开始."
+  },
+  {
+    "id": "651:129",
+    "label": "def:3.5.5"
+  },
+  {
+    "id": "686:105",
+    "label": "ex:3.2.3"
+  },
+  {
+    "id": "692:158",
+    "label": "thm:4.2.12"
+  },
+  {
+    "id": "695:181",
+    "label": "thm:4.6.7"
+  },
+  {
+    "id": "712:179",
+    "file": "sections-tex/04-06.tex",
+    "after": "因子 $m!/(x_1!\\cdots x_n!)$ 称为多项系数（multinomial coefficient）. 它表示将 $m$ 个物体分成 $n$ 组、第一组有 $x_1$ 个、第二组有 $x_2$ 个、……、第 $n$ 组有 $x_n$ 个的方法数. 二项式定理（\\autoref{thm:3.2.2}）的一个推广是多项式定理."
+  },
+  {
+    "id": "713:179",
+    "label": "thm:4.6.4"
+  },
+  {
+    "id": "729:160",
+    "file": "sections-tex/04-03.tex",
+    "after": "若 $(X,Y)$ 是联合 pdf 为 $f_{X,Y}(x,y)$ 的连续随机向量，则可用类似\\eqref{eq:2.1.8} 的方式，通过 $f_{X,Y}(x,y)$ 表示 $(U,V)$ 的联合 pdf. 与前面一样，令 $\\mathscr A=\\{(x,y):f_{X,Y}(x,y)>0\\}$，$\\mathscr B=\\{(u,v):\\text{存在 }(x,y)\\in\\mathscr A,\\ u=g_1(x,y)\\text{ 且 }v=g_2(x,y)\\}$. 联合 pdf $f_{U,V}(u,v)$ 在 $\\mathscr B$ 上为正. 在此结论最简单的版本中，假设 $u=g_1(x,y)$、$v=g_2(x,y)$ 定义了从 $\\mathscr A$ 到 $\\mathscr B$ 的一一变换. 由 $\\mathscr B$ 的定义，该变换是满射. 我们假定，对每个 $(u,v)\\in\\mathscr B$，只有一个 $(x,y)\\in\\mathscr A$ 满足 $(u,v)=(g_1(x,y),g_2(x,y))$. 对这样的一一满射，可以解方程 $u=g_1(x,y)$、$v=g_2(x,y)$，用 $u,v$ 表示 $x,y$. 将逆变换记为 $x=h_1(u,v)$、$y=h_2(u,v)$. 在单变量情形中由导数发挥的作用，现在由称为变换的 Jacobian（雅可比行列式）的量来发挥. 这是一个关于 $(u,v)$ 的函数，记为 $J$，是偏导数矩阵的行列式，定义为"
+  },
+  {
+    "id": "730:160",
+    "file": "sections-tex/04-03.tex",
+    "after": "若 $(X,Y)$ 是联合 pdf 为 $f_{X,Y}(x,y)$ 的连续随机向量，则可用类似\\eqref{eq:2.1.8} 的方式，通过 $f_{X,Y}(x,y)$ 表示 $(U,V)$ 的联合 pdf. 与前面一样，令 $\\mathscr A=\\{(x,y):f_{X,Y}(x,y)>0\\}$，$\\mathscr B=\\{(u,v):\\text{存在 }(x,y)\\in\\mathscr A,\\ u=g_1(x,y)\\text{ 且 }v=g_2(x,y)\\}$. 联合 pdf $f_{U,V}(u,v)$ 在 $\\mathscr B$ 上为正. 在此结论最简单的版本中，假设 $u=g_1(x,y)$、$v=g_2(x,y)$ 定义了从 $\\mathscr A$ 到 $\\mathscr B$ 的一一变换. 由 $\\mathscr B$ 的定义，该变换是满射. 我们假定，对每个 $(u,v)\\in\\mathscr B$，只有一个 $(x,y)\\in\\mathscr A$ 满足 $(u,v)=(g_1(x,y),g_2(x,y))$. 对这样的一一满射，可以解方程 $u=g_1(x,y)$、$v=g_2(x,y)$，用 $u,v$ 表示 $x,y$. 将逆变换记为 $x=h_1(u,v)$、$y=h_2(u,v)$. 在单变量情形中由导数发挥的作用，现在由称为变换的 Jacobian（雅可比行列式）的量来发挥. 这是一个关于 $(u,v)$ 的函数，记为 $J$，是偏导数矩阵的行列式，定义为"
+  },
+  {
+    "id": "737:183",
+    "file": "sections-tex/04-06.tex",
+    "after": "\\autoref{ex:4.6.13} 的模型可以如下产生. 假设 $Y_1,Y_2,Y_3,Y_4$ 相互独立，每个都服从 $\\operatorname{exponential}(1)$ 分布. 定义 $X_1=\\min(Y_1,Y_2,Y_3,Y_4)$，$X_2=$ 其中第二小的值，$X_3=$ 其中第二大的值，$X_4=\\max(Y_1,Y_2,Y_3,Y_4)$. \\autoref{sec:5.5} 将这些变量称为次序统计量（order statistics），并会证明它们的联合 pdf 就是\\autoref{ex:4.6.13} 所给出的 pdf. 例中定义的 $U_2,U_3,U_4$ 称为次序统计量之间的间距（spacings）. 该例表明，对这些指数随机变量 $(Y_1,\\ldots,Y_n)$，次序统计量的间距相互独立，且也服从指数分布."
+  },
+  {
+    "id": "747:198",
+    "label": "sec:4.9.3"
+  },
+  {
+    "id": "748:197",
+    "label": "sec:4.9.1"
+  },
+  {
+    "id": "749:196",
+    "label": "exercise:4.55"
+  },
+  {
+    "id": "818:142",
+    "label": "thm:3.8.1"
+  },
+  {
+    "id": "821:198",
+    "label": "sec:4.9.2"
+  },
+  {
+    "id": "829:161",
+    "label": "eq:4.3.2"
+  },
+  {
+    "id": "830:154",
+    "label": "def:4.2.3"
+  },
+  {
+    "id": "830:177",
+    "label": "eq:4.6.6"
+  },
+  {
+    "id": "833:149",
+    "label": "def:4.1.10"
+  },
+  {
+    "id": "833:176",
+    "label": "eq:4.6.2"
+  },
+  {
+    "id": "834:150",
+    "label": "eq:4.1.2"
+  },
+  {
+    "id": "834:176",
+    "file": "sections-tex/04-06.tex",
+    "after": "$(X_1,\\ldots,X_n)$ 中任意一部分坐标的边缘 pdf 或 pmf，都可以通过对其他坐标的所有可能值积分或求和得到."
+  },
+  {
+    "id": "836:182",
+    "label": "eq:4.6.7"
+  },
+  {
+    "id": "851:152",
+    "label": "def:4.2.1"
+  },
+  {
+    "id": "851:177",
+    "label": "eq:4.6.6"
+  },
+  {
+    "id": "853:176",
+    "label": "eq:4.6.1"
+  },
+  {
+    "id": "854:146",
+    "label": "def:4.1.3"
+  },
+  {
+    "id": "855:148",
+    "label": "thm:4.1.6"
+  },
+  {
+    "id": "855:176",
+    "file": "sections-tex/04-06.tex",
+    "after": "$(X_1,\\ldots,X_n)$ 中任意一部分坐标的边缘 pdf 或 pmf，都可以通过对其他坐标的所有可能值积分或求和得到."
+  },
+  {
+    "id": "866:191",
+    "label": "exercise:4.26"
+  },
+  {
+    "id": "871:145",
+    "label": "def:4.1.1"
+  },
+  {
+    "id": "872:149",
+    "label": "def:4.1.10"
+  },
+  {
+    "id": "873:146",
+    "file": "sections-tex/04-01.tex",
+    "after": "这个随机向量称为离散的（discrete），因为其可能取值的个数是可数的（此处为有限个）. 一旦知道函数 $f(x,y)=P(X=x,Y=y)$，就能计算所有这类事件的概率."
+  },
+  {
+    "id": "876:192",
+    "label": "exercise:4.33"
+  },
+  {
+    "id": "884:190",
+    "label": "exercise:4.13"
+  },
+  {
+    "id": "984:133",
+    "label": "lem:3.6.5"
+  },
+  {
+    "id": "987:141",
+    "label": "exercise:3.43"
+  },
+  {
+    "id": "989:141",
+    "label": "exercise:3.41"
+  },
+  {
+    "id": "1034:128",
+    "label": "ex:3.5.3"
+  },
+  {
+    "id": "1064:155",
+    "file": "sections-tex/04-02.tex",
+    "after": "由 $f(y\\mid x)$ 描述的概率分布的方差，称为给定 $X=x$ 时 $Y$ 的条件方差（conditional variance）. 将其记为 $\\operatorname{Var}(Y\\mid x)$，根据通常的方差定义，有"
+  },
+  {
+    "id": "1064:168",
+    "label": "thm:4.4.7"
+  },
+  {
+    "id": "1067:110",
+    "file": "sections-tex/03-02.tex",
+    "after": "用均值对负二项分布重新参数化，是一种有趣且有时很有用的做法. 若定义参数$\\mu=r(1-p)/p$，则$EY=\\mu$，且稍作代数运算便可得到"
+  },
+  {
+    "id": "1068:171",
+    "label": "thm:4.5.6"
+  },
+  {
+    "id": "1068:194",
+    "label": "exercise:4.44"
+  }
+]

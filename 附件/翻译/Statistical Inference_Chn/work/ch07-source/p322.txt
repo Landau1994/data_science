@@ -1,0 +1,46 @@
+EXERCISES                                                                  291
+       (a) Show that the marginal distribution of Xi is n(µ,σ2 + τ2), and that, marginally, X1,...,Xn are iid.
+         (Empirical Bayes analysis would use the marginal distribution of the Xis to estimate the prior param-
+           eters µ and τ2. See Miscellanea 7.5.6.
+      (b) Show, in general, that if
+                                    Xi|θi ∼   f(x|θi),    i = 1,...,n,   independent,
+                                       θi ∼  π(θ|τ),    i = 1,...,n,   independent,
+          then marginally, X1,...,Xn are iid.
+7.26 In Example 7.2.16, we saw that the normal distribution is its own conjugate family. It is sometimes
+      the case, however, that a conjugate prior does not accurately reflect prior knowledge, and a different
+      prior is sought. Let X1,...,Xn be iid n(θ,σ2), and let θ have a double exponential distribution, that is,
+     π(θ) = e−|θ|/a/(2a),a known. Find the mean of the posterior distribution of θ.
+7.27 Refer to Exercise 7.2.17.
+       (a) Show that the likelihood estimators from the complete-data likelihood (7.2.11) are given by (7.2.12).
+      (b) Show that the limit of the EM sequence in (7.2.23) satisfies (7.2.16).
+       (c) A direct solution of the original (incomplete-data) likelihood equations is possible. Show that the
+          solution to (7.2.16) is given by
+                        ∑ni=2 yi          y1           xj +yj                                         ˆβ =            ,    , ˆτ1 =     ,    , ˆτj =            ,     j = 2,3,...,n,
+                        ∑ni=2 xi                ˆβ                 ˆβ +1
+
+         and that this is the limit of the EM sequence in (7.2.23).
+7.28 Use the model of Exercise 7.2.17 on the data in Table 7.4.2, adapted from Lange et al. (1994). These are
+     leukemia counts, and the associated population, for a number of areas in New York state.
+       (a)  Fit the Poisson model to the data of Table 7.4.2, both to the full data set and an “incomplete” data
+           set where we suppose that the first population count (x1 = 3,540 is missing).
+
+
+                                 Table 7.4.2 Counts of leukemia cases
+    Population        3,540   3,560   3,739   2,784   2,571   2,729   3,952    993    1,908
+   Number of Cases     3      4      1      1      3      1      2      0      2
+    Population         948    1,172   1,047   3,138   5,485   5,554   2,943   4,969   4,828
+   Number of Cases     0      1      3      5      4      6      2      5      4
+
+
+      (b) Suppose that instead of having an x value missing, we actually have lost a leukemia count (assume
+           that y1 = 3 is missing). Use the EM algorithm to find the MLEs in this case, and compare your
+         answers to those of part (a).
+7.29 An alternative to the model of Example 7.2.17 is the following, where we observe (Yi,Xi), i = 1,2,...,n
+     where Yi ∼Poisson(mβτi) and (X1,X2,...,Xn) ∼multinomial(m;τ), where τ = (τ1,τ2,...,τn) with    ∑ni=1 τi = 1. So here, for example, we assume that the population counts are multinomial allocations
+      rather than Poisson counts. (Treat m = ∑xi as known.)
+       (a) Show that the joint density of Y = (Y1,Y2 ...,Yn) and X = (X1,X2 ...,Xn) is
+                                                       n e−mβτi(mβτi)yi         i                          =                  m!τxi .                                  f(y,x|β,τ)   i=1∏        yi!           xi!
+
+      (b)  If the complete data are observed, show that the MLEs are given by
+                           ∑ni=1 yi             xj +yj                                               ˆβ =       and ˆτj =                  ,     j = 1,2,...,n.
+                           ∑ni=1 xi        ∑ni=1 xi +yi

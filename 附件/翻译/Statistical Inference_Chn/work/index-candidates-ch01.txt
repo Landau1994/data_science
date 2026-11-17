@@ -1,0 +1,258 @@
+73:63 | Axiom of Continuity | 连续性公理 | 32
+  01-07.tex:120 连续性公理 | \textbf{连续性公理：}\qquad
+  01-07.tex:123 连续性公理 | 证明连续性公理与有限可加性公理一起蕴含可列可加性.
+74:38 | Axiom of Countable Additivity | 可数可加性公理 | 7
+  01-02.tex:102 可数可加性公理 | 在结束概率的公理化讨论之前，还有一点需要考虑.定义\ref{def:1.2.4}中的公理3，通常称为可数可加性公理（Axiom of Countable Additivity），并未得到所有统计学家的认可.的确，人们可以认为公理应是简单且不言自明的陈述.与其他简单且不言自明的公理相比，公理3可能使我们怀疑：假定它为真是否合理？
+  01-02.tex:104 可数可加性公理 | 以De Finetti（1972）为代表的一个统计学派拒绝可数可加性公理，选择以有限可加性公理取代它.
+  01-02.tex:108 可数可加性公理 | 虽然这个公理未必完全不言自明，但它当然比可数可加性公理简单（并且可由后者推出，见习题\ref{exercise:1.12}）.
+74:63 | Axiom of Countable Additivity | 可数可加性公理 | 32
+  EN It was noted in Section 1.2.1 that statisticians who follow the De Finetti school do not accept the Axiom of Countable Additivity, instead adhering to the Axiom of Finite Additivity. (a) Show that the Axiom of Countable Additivity implies Finite Additivity. (b) Although, by itse
+  EN of Countable Additivity, instead adhering to the Axiom of Finite Additivity. (a) Show that the Axiom of Countable Additivity implies Finite Additivity. (b) Although, by itself, the Axiom of Finite Additivity does not imply Countable Additivity, suppose we supplement it 
+75:39 | Axiom of Finite Additivity | 有限可加性公理 | 8
+  EN d by a school of statisticians led by De Finetti (1972), who chooses to replace this axiom with the Axiom of Finite Additivity. Axiom of Finite Additivity: If A ∈ B and B ∈ B are disjoint, then P(A ∪ B) = P(A) + P(B). While this axiom may not be
+  EN ns led by De Finetti (1972), who chooses to replace this axiom with the Axiom of Finite Additivity. Axiom of Finite Additivity: If A ∈ B and B ∈ B are disjoint, then P(A ∪ B) = P(A) + P(B). While this axiom may not be entirely self-evident, it i
+75:63 | Axiom of Finite Additivity | 有限可加性公理 | 32
+  01-07.tex:115 有限可加性公理 | 第\ref{sec:1.2.1}节曾提到，遵从De Finetti学派的统计学家不接受可列可加性公理，而坚持有限可加性公理.
+  01-07.tex:118 有限可加性公理 | \item[(b)] 有限可加性公理本身并不蕴含可列可加性，但假定我们补充如下条件.设$A_1\supset A_2\supset\cdots\supset A_n\supset\cdots$是一个无限的嵌套集合序列，其极限为空集，记为$A_n\downarrow\emptyset$.考虑下述公理：
+  01-07.tex:123 有限可加性公理 | 证明连续性公理与有限可加性公理一起蕴含可列可加性.
+86:50 | Bayes’ Rule | 贝叶斯公式 | 19
+  01-03.tex:108 贝叶斯公式 | \begin{theorem}[贝叶斯公式]\label{thm:1.3.5}
+  01-03.tex:116 贝叶斯公式 | 假设传输线路受到干扰，一个点以$\frac18$的概率被误收为划，反之亦然.如果接收到一个点，能否确定发出的就是点？利用贝叶斯公式，可写成
+  01-03.tex:131 贝叶斯公式 | 若此式成立，则由贝叶斯公式\eqref{eq:1.3.5}及\eqref{eq:1.3.6}，有
+91:43 | Binomial coefficients | 二项式系数 | 12
+  01-02.tex:279 二项式系数 | 在彩票例子中，无序、无放回的可能彩票数是$\binom{44}{6}$.这些数也称为\emph{二项式系数}（binomial coefficients），其原因将在\sourcepageref{101}{第3章}中说明.
+97:36 | Borel field | 博雷尔域（见σ代数） | 5
+  EN ity with the following. Definition 1.2.1 A collection of subsets of S is called a sigma algebra (or Borel field), denoted by B, if it satisfies the following three properties: a. 0/ ∈ B (the empty set is an element of B). b. If A ∈ B then Ac ∈ B (B is closed under comp
+122:48 | Conditional probability | 条件概率 | 17
+  01-03.tex:19 条件概率 | 若$A$和$B$是$S$中的事件，且$P(B)>0$，则给定$B$时$A$的条件概率记为$P(A\mid B)$，定义为
+  01-03.tex:25 条件概率 | 注意，在条件概率计算中，$B$成了样本空间：$P(B\mid B)=1$.直观地说，原来的样本空间$S$已更新为$B$，此后所有事件的发生都按它们与$B$的关系重新衡量.尤其要注意不相交集合的条件概率.设$A$与$B$不相交，则$P(A\cap B)=0$，从而$P(A\mid B)=P(B\mid A)=0$.
+  01-03.tex:28 条件概率 | 虽然得到四张A的概率很小，但我们来看看，已知已经得到若干张A时，条件概率会怎样变化.仍从充分洗匀的一副牌中发出四张牌，现在计算
+123:50 | Conditional probability > multiplication rule | 乘法法则 | 19
+  01-03.tex:109 条件概率 | 设$A_1,A_2,\ldots$是样本空间的一个划分，$B$为任意集合.则对每个$i=1,2,\ldots$，\footnote{译注：按本章的条件概率比值定义，须有$P(B)>0$，且使用$P(B\mid A_j)$的各项须有$P(A_j)>0$；零概率分块应剔除或另约定其贡献为0.原定理没有显写这些条件.}
+124:66 | Conditional probability > properties | 性质 | 35
+218:44 | Counting formulas | 计数公式 | 13
+219:42 | Counting methods | 计数方法 | 11
+  01-02.tex:226 计数方法 | 计数这一基本过程，在统计学家手中可能变得相当精巧.计数方法最常用于在有限样本空间上构造概率分配，当然它们也能用来回答其他问题.
+  01-02.tex:247 计数方法 | \emph{可能的计数方法}\\[3pt]
+237:55 | Cumulative distribution function (cdf) | 累积分布函数 | 24
+  01-05.tex:3 累积分布函数 | 对每个随机变量$X$，都关联一个称为$X$的累积分布函数的函数.
+  01-05.tex:5 累积分布函数 | 随机变量$X$的累积分布函数（cumulative distribution function，cdf）记为$F_X(x)$，定义为
+240:58 | Cumulative distribution function (cdf) > mixed | 混合 | 27
+  01-05.tex:97 混合 | 若$F_X$不是$x$的连续函数，它可以由连续片段与跳跃混合而成.例如，对某个满足$1>\varepsilon>0$的$\varepsilon$，将\eqref{eq:1.5.5}中的$F_X(x)$修改为
+242:56 | Cumulative distribution function (cdf) > properties | 性质 | 25
+  01-05.tex:35 性质 | 每个cdf都满足一些性质；从概率的角度理解$F_X(x)$的定义时，其中一些性质是显然的.
+  01-05.tex:45 性质 | 为证明必要性，将$F$写成概率函数的形式即可验证这三个性质（习题\ref{exercise:1.48}）.充分性的证明，即由函数$F$满足定理的三个条件，推出它是某个随机变量的cdf，要困难得多.必须证明存在样本空间$S$、$S$上的概率函数$P$以及定义在$S$上的随机变量$X$，使得$F$是$X$的cdf.
+  01-05.tex:67 性质 | 此处取极限时，$x$只遍历整数值.为验证性质\hyperref[item:1.5.3b]{(b)}，只需注意\eqref{eq:1.5.3}中的和随着$x$增加，包含更多的正项.最后，为验证\hyperref[item:1.5.3c]{(c)}，注意对任意$x$，只要$\varepsilon>0$足够小，就有$F_X(x+\varepsilon)=F_X(x)$.因此，
+247:36 | DeMorgan’s Laws | 德摩根律（见集合运算） | 5
+  01-02.tex:20 德摩根律 | 空集$\emptyset$是任何集合的子集，因此$\emptyset\subset S$.性质(a)说明，这个子集总属于一个$\sigma$代数.因为$S=\emptyset^c$，性质(a)与(b)还说明$S$总属于$\mathscr B$.此外，由德摩根律可知，$\mathscr B$对可数交也封闭.若$A_1,A_2,\ldots\in\mathscr B$，则由性质(b)有$A_1^c,A_2^c,\ldots\in\mathscr B$，因此$\bigcup_{i=
+247:63 | DeMorgan’s Laws | 德摩根律（见集合运算） | 32
+  EN ts) is a probability function according to the Kolmogorov Axioms. 1.9 Prove the general version of DeMorgan’s Laws. Let {Aα: α ∈ Γ} be a (possibly uncountable) collection of sets. Prove that (a) (∪α Aα )c = ∩α Acα . (b) (∩α Aα )c = ∪α Acα .
+  EN )c = ∩α Acα . (b) (∩α Aα )c = ∪α Acα . 1.10 Formulate and prove a version of DeMorgan’s Laws that applies to a finite collection of sets A1 , . . . , An . 1.11 Let S be a sample space. (a) Show that the collection B = {0,/ S} is a sigma algebra. 
+249:35 | Disjoint sets | 不交集 | 4
+  EN  A1 , A2 , . . . are pairwise disjoint (or mutually exclusive) if Ai ∩ A j = 0/ for all i ̸= j. Disjoint sets are sets with no points in common. If we draw a Venn diagram for two disjoint sets, the sets do not overlap. The collection 
+  EN  all i ̸= j. Disjoint sets are sets with no points in common. If we draw a Venn diagram for two disjoint sets, the sets do not overlap. The collection Ai = [i, i + 1), i = 0, 1, 2, . . . consists of pairwise disjoint sets. 
+250:66 | Disjoint sets > independence | 独立性 | 35
+  EN  (a) If a dash is received, what is the probability that a dash has been sent? (b) Assuming independence between signals, if the message dot–dot was received, what is the probabil- ity distribution of the four possible messages that could have been sent?
+319:57 | Distribution > geometric > cdf | 累积分布函数 | 26
+  01-05.tex:85 分布 | 说明$F_X(x)$递增.$F_X$不仅右连续，而且连续.这是Logistic分布（logistic distribution）的一个特例.
+321:59 | Distribution > geometric > pmf | 概率质量函数 | 28
+  01-06.tex:3 概率质量函数 | 与随机变量$X$及其cdf $F_X$相关联的，还有另一个函数，称为概率密度函数（probability density function，pdf）或概率质量函数（probability mass function，pmf）.pdf与pmf分别对应连续和离散情形.它们都与随机变量的“点概率”有关.
+  01-06.tex:5 概率质量函数 | 离散随机变量$X$的概率质量函数（pmf）为
+  01-06.tex:9 几何 | \begin{example}[几何分布的概率]\label{ex:1.6.2}
+329:57 | Distribution > logistic > cdf | 累积分布函数 | 26
+  01-05.tex:85 分布 | 说明$F_X(x)$递增.$F_X$不仅右连续，而且连续.这是Logistic分布（logistic distribution）的一个特例.
+331:61 | Distribution > logistic > pdf | 概率密度函数 | 30
+  01-06.tex:50 pdf | \includegraphics[width=.88\textwidth]{assets/chapter1/fig-1-6-1.pdf}
+  01-06.tex:72 pdf | \item $\sum_x f_X(x)=1$（pmf），或$\int_{-\infty}^{\infty}f_X(x)\,dx=1$（pdf）.
+  01-06.tex:54 分布 | \begin{example}[Logistic分布的概率]\label{ex:1.6.4}
+397:33 | Empty set | 空集 | 2
+  01-01.tex:45 空集 | 此外，注意$A\cup B=S$（事件$S$），且$(A\cup B)^c=\emptyset$，其中$\emptyset$表示\emph{空集}（empty set，即不含任何元素的集合）.
+418:33 | Event | 事件 | 2
+  01-01.tex:20 事件 | \emph{事件}（event）是试验可能结果的任意集合，即$S$的任意子集（包括$S$本身）.
+  01-01.tex:22 事件 | 设$A$是一个事件，即$S$的一个子集.如果试验结果属于集合$A$，就说事件$A$发生.讨论概率时，我们一般说事件的概率，而不是集合的概率.不过，这两个术语可以互换使用.
+  01-01.tex:29 事件 | 给定任意两个事件（或集合）$A$和$B$，有以下基本集合运算：
+442:43 | Factorial | 阶乘 | 12
+  01-02.tex:259 阶乘 | 对正整数$n$，$n!$（读作$n$的阶乘，$n$ factorial）是所有小于或等于$n$的正整数之积，即
+448:60 | Fundamental Theorem of Calculus | 微积分基本定理 | 29
+  EN  fX (t) dt. −∞ Using the Fundamental Theorem of Calculus, if fX (x) is continuous, we have the further relationship d FX (x) = fX
+449:42 | Fundamental Theorem of Counting | 计数基本定理 | 11
+  01-02.tex:233 计数基本定理 | 计数问题一般听起来很复杂，而且经常必须在许多限制条件下计数.解决方法是把问题拆成一系列容易计数的简单任务，再运用已知的任务组合规则.下面的定理是这个过程的第一步，有时称为计数基本定理（Fundamental Theorem of Counting）.
+  01-02.tex:243 计数基本定理 | 虽然计数基本定理提供了合理的起点，但应用中通常还有更多方面需要考虑.例如，纽约州彩票的第一个号码有44种选法，第二个有43种选法，因此前两个号码共有$44\times43=1,892$种选法.不过，如果允许同一个号码选两次，那么前两个号码就有$44\times44=1,936$种选法.
+460:57 | Geometric series > partial sum | 部分和 | 26
+  EN  (1.5.3) i=1 i=1 The partial sum of the geometric series is n 1 − tn 
+  EN .5.3) i=1 i=1 The partial sum of the geometric series is n 1 − tn ∑ t k−1 = 
+531:64 | Identity > binomial coefficients | 二项式系数 | 33
+  01-07.tex:221 恒等式 | 对$n\ge2$，验证下列恒等式.
+540:66 | Identity > inclusion-exclusion | 容斥 | 35
+  01-07.tex:368 容斥 | 杂录\ref{sec:1.8.1}中的容斥恒等式（inclusion-exclusion identity），因其用容斥法证明而得名（\sourcepageref{545}{Feller 1968，第IV.1节}）.这里给出细节.概率$P(\bigcup_{i=1}^n A_i)$等于至少属于一个$A_i$的所有样本点的概率之和.容斥法就是对这些点计数的一套方法.
+  01-07.tex:378 容斥 | \item[(e)] 证明(a)–(c)蕴含$\sum_{i=1}^n P(E_i)=P_1-P_2=\cdots\pm P_n$，从而建立容斥恒等式.\footnote{译注：原题在$P_1-P_2$后写等号；标准容斥和应为$P_1-P_2+P_3-\cdots+(-1)^{n+1}P_n$.}
+540:68 | Identity > inclusion-exclusion | 容斥 | 37
+  EN . Pn = P(A1 ∩ A2 ∩ . . . ∩ An ). Then the inclusion-exclusion identity says that P(A1 ∪ A2 ∪ . . . ∪ An ) = P1 − P2 + P3 − P4 + . . . ± Pn . Moreover, the Pi are ordered in that Pi ≥ 
+  EN  Pn = P(A1 ∩ A2 ∩ . . . ∩ An ). Then the inclusion-exclusion identity says that P(A1 ∪ A2 ∪ . . . ∪ An ) = P1 − P2 + P3 − P4 + . . . ± Pn . Moreover, the Pi are ordered in that Pi ≥ Pj if i ≤
+549:66 | Independence > disjoint | 不交 | 35
+  EN  (a) If a dash is received, what is the probability that a dash has been sent? (b) Assuming independence between signals, if the message dot–dot was received, what is the probabil- ity distribution of the four possible messages that could have been sent?
+550:51 | Independence > events | 事件 | 20
+  01-03.tex:140 事件 | 若两个事件$A$、$B$满足
+  01-03.tex:144 事件 | 注意，也可以等价地用\eqref{eq:1.3.6}或\eqref{eq:1.3.7}来定义独立性（只要$P(A)>0$或\allowbreak\mbox{$P(B)>0$）.}\allowbreak 式\eqref{eq:1.3.8}的优点在于它对称地处理两个事件，也更容易推广到两个以上的事件.
+  01-03.tex:146 事件 | 许多赌博游戏都提供了独立事件的模型.旋转轮盘或投掷一对骰子，都形成独立事件的序列.
+551:53 | Independence > events > mutual | 相互 | 22
+  01-03.tex:221 相互 | 事件族$A_1,\ldots,A_n$称为相互独立（mutually independent），如果对任意子族$A_{i_1},\ldots,A_{i_k}$都有
+  01-03.tex:232 相互 | 在这个概率模型中，事件$H_1,H_2,H_3$也相互独立.为验证这一点，注意
+  01-03.tex:236 相互 | 另外两对也满足这一等式.因此，$H_1,H_2,H_3$相互独立，也就是说，任一次出现正面对其他各次投掷都没有影响.
+552:51 | Independence > events > properties | 性质 | 20
+  01-03.tex:140 事件 | 若两个事件$A$、$B$满足
+  01-03.tex:144 事件 | 注意，也可以等价地用\eqref{eq:1.3.6}或\eqref{eq:1.3.7}来定义独立性（只要$P(A)>0$或\allowbreak\mbox{$P(B)>0$）.}\allowbreak 式\eqref{eq:1.3.8}的优点在于它对称地处理两个事件，也更容易推广到两个以上的事件.
+  01-03.tex:146 事件 | 许多赌博游戏都提供了独立事件的模型.旋转轮盘或投掷一对骰子，都形成独立事件的序列.
+559:41 | Inequality > Bonferroni - Boole similarity | Bonferroni与Boole的相似性 | 10
+  01-02.tex:212 不等式 | 布尔不等式和邦费罗尼不等式之间有相似之处.事实上，它们本质上是同一回事.我们本来可以用布尔不等式推出式\eqref{eq:1.2.9}.把布尔不等式用于$A^c$，得
+560:40 | Inequality > Bonferroni’s | Bonferroni | 9
+  01-02.tex:172 不等式 | \begin{example}[邦费罗尼不等式]\label{ex:1.2.10}
+  01-02.tex:173 不等式 | 当交事件的概率很难甚至无法计算，但我们仍希望了解该概率的大小时，邦费罗尼不等式尤其有用.设$A,B$是两个事件，各自的概率都是$.95$，则二者同时发生的概率有下界
+  01-02.tex:182 不等式 | \item[(b)] 对任意集合$A_1,A_2,\ldots$，有$P(\bigcup_{i=1}^{\infty}A_i)\le\sum_{i=1}^{\infty}P(A_i)$.（布尔不等式，Boole's Inequality）
+560:42 | Inequality > Bonferroni’s | Bonferroni | 11
+  01-02.tex:223 不等式 | 这就是式\eqref{eq:1.2.9}中邦费罗尼不等式的更一般形式.
+560:68 | Inequality > Bonferroni’s | Bonferroni | 37
+  EN  1.8 Miscellanea 1.8.1 Bonferroni and Beyond The Bonferroni bound of (1.2.10), or Boole’s Inequality (Theorem 1.2.11), provides simple bounds on the probability of an intersection or union. These bounds can be made more and more precise with the 
+563:40 | Inequality > Boole | Boole | 9
+  01-02.tex:182 Boole | \item[(b)] 对任意集合$A_1,A_2,\ldots$，有$P(\bigcup_{i=1}^{\infty}A_i)\le\sum_{i=1}^{\infty}P(A_i)$.（布尔不等式，Boole's Inequality）
+  01-02.tex:172 不等式 | \begin{example}[邦费罗尼不等式]\label{ex:1.2.10}
+  01-02.tex:173 不等式 | 当交事件的概率很难甚至无法计算，但我们仍希望了解该概率的大小时，邦费罗尼不等式尤其有用.设$A,B$是两个事件，各自的概率都是$.95$，则二者同时发生的概率有下界
+563:68 | Inequality > Boole | Boole | 37
+  EN  1.5 1.8 Miscellanea 1.8.1 Bonferroni and Beyond The Bonferroni bound of (1.2.10), or Boole’s Inequality (Theorem 1.2.11), provides simple bounds on the probability of an intersection or union. These bounds can be made more and more prec
+  EN  1.8 Miscellanea 1.8.1 Bonferroni and Beyond The Bonferroni bound of (1.2.10), or Boole’s Inequality (Theorem 1.2.11), provides simple bounds on the probability of an intersection or union. These bounds can be made more and more precise with the 
+571:65 | Inequality > logarithm | 对数 | 34
+  EN  PROBABILITY THEORY (Hint: Feller (1968) proceeds by using the monotonicity of the logarithm to establish that k k+1 log x dx < log k < l
+596:37 | Kolmogorov’s Axioms | 柯尔莫哥洛夫公理 | 6
+  01-02.tex:55 柯尔莫哥洛夫公理 | 定义\ref{def:1.2.4}中的三个性质通常称为概率公理（Axioms of Probability），或柯尔莫哥洛夫公理（Kolmogorov Axioms），以概率论奠基人之一A. Kolmogorov命名.满足概率公理的任何函数$P$都称为概率函数.公理化定义不打算告诉我们应该选择哪个具体的函数$P$；它只要求$P$满足这些公理.对任意样本空间，都可以定义许多不同的概率函数.哪些函数能够反映某一特定试验中可能观察到的情形，还有待讨论.
+  01-02.tex:69 柯尔莫哥洛夫公理 | 我们需要一些定义概率函数的一般方法，并且知道它们总能满足柯尔莫哥洛夫公理.我们不希望每引入一个新的概率函数，都像例\ref{ex:1.2.5}那样逐一检查公理.下面给出一种定义合法概率函数的常用方法.
+  01-02.tex:81 柯尔莫哥洛夫公理 | 第一个和第三个等号来自$P(A)$的定义.$A_i$互不相交保证了第二个等号，因为等号两边相同的$p_j$各出现恰好一次.因此公理3成立，柯尔莫哥洛夫公理全部满足.
+597:49 | Kolmogorov’s Axioms > conditional probability | 条件概率 | 18
+  01-03.tex:93 条件概率 | 可见，条件概率很容易令人误判，需要仔细解释.这个问题的其他变体见习题\ref{exercise:1.37}.
+  01-03.tex:102 条件概率 | 这给出了“反转”条件概率的公式.式\eqref{eq:1.3.5}通常以其发现者Thomas Bayes爵士命名，称为贝叶斯公式（Bayes' Rule）［不过，参见\sourcepageref{552}{Stigler（1983）}］.
+598:54 | Kolmogorov’s Axioms > induced probability | 诱导概率 | 23
+  01-04.tex:34 诱导概率 | 注意，式\eqref{eq:1.4.1}左边的函数$P_X$是$\mathscr X$上的诱导概率函数，它用原来的函数$P$定义.式\eqref{eq:1.4.1}正式给随机变量$X$定义了概率函数$P_X$.当然，还需验证$P_X$满足Kolmogorov公理，不过这并不困难（见习题\ref{exercise:1.45}）.由于\eqref{eq:1.4.1}中的等价关系，今后将简写为$P(X=x_i)$，而不写$P_X(X=x_i)$.
+  01-04.tex:44 诱导概率 | 随机变量$X$的值域为$\mathscr X=\{0,1,2,3\}$.假设$S$中的八个点各有概率$\frac18$，则对上表简单计数可得，$\mathscr X$上的诱导概率函数为
+598:55 | Kolmogorov’s Axioms > induced probability | 诱导概率 | 24
+  01-04.tex:63 诱导概率 | 前面的例子中，$S$与$\mathscr X$都有限，$P_X$的定义很直接.$\mathscr X$可数时也是如此.若$\mathscr X$不可数，则用类似\eqref{eq:1.4.1}的方式定义诱导概率函数$P_X$.对任意集合$A\subset\mathscr X$，
+686:51 | Meré dice problem | 德梅雷骰子问题 | 20
+711:66 | Monte Hall problem | 蒙提霍尔问题 | 35
+745:35 | Pairwise disjoint sets | 两两不交集 | 4
+  EN ction Ai = [i, i + 1), i = 0, 1, 2, . . . consists of pairwise disjoint sets. Note further that ∪∞ i=0 Ai = [0, ∞). Definition 1.1.6 If A1 , A2 , . . . are pairwise disjoint and ∪∞ 
+753:35 | Partition | 划分 | 4
+  01-01.tex:96 划分 | 最后讨论样本空间的划分.
+  01-01.tex:104 划分 | 若$A_1,A_2,\ldots$两两不相交且$\bigcup_{i=1}^{\infty}A_i=S$，则称集合族$A_1,A_2,\ldots$构成$S$的一个\emph{划分}（partition）.
+  01-01.tex:106 划分 | 集合$A_i=[i,i+1)$构成$[0,\infty)$的一个划分.一般说来，划分十分有用，它使我们能够把样本空间分成互不重叠的小块.
+753:50 | Partition | 划分 | 19
+  01-03.tex:109 划分 | 设$A_1,A_2,\ldots$是样本空间的一个划分，$B$为任意集合.则对每个$i=1,2,\ldots$，\footnote{译注：按本章的条件概率比值定义，须有$P(B)>0$，且使用$P(B\mid A_j)$的各项须有$P(A_j)>0$；零概率分块应剔除或另约定其贡献为0.原定理没有显写这些条件.}
+828:60 | Probability density function (pdf) | 概率密度函数 | 29
+  01-06.tex:36 概率密度函数 | 连续随机变量$X$的概率密度函数（pdf）$f_X(x)$是满足下式的函数：
+831:61 | Probability density function (pdf) > construction | 构造 | 30
+838:61 | Probability density function (pdf) > properties | 性质 | 30
+  01-06.tex:76 性质 | 若$f_X(x)$是pdf（或pmf），两个性质由定义立即得到.特别地，对pdf，利用\eqref{eq:1.6.3}和定理\ref{thm:1.5.3}，有
+841:67 | Probability density function (pdf) > truncated | 截断 | 36
+  01-07.tex:442 概率密度函数 | 设$X$是连续随机变量，概率密度函数为$f(x)$，累积分布函数为$F(x)$.对一个固定的数$x_0$，定义函数
+  01-07.tex:449 概率密度函数 | 证明$g(x)$是一个概率密度函数.（假定$F(x_0)<1$.）
+843:37 | Probability function | 概率函数 | 6
+  01-02.tex:48 概率函数 | 给定样本空间$S$及与之相联系的$\sigma$代数$\mathscr B$，\emph{概率函数}（probability function）是以$\mathscr B$为定义域、满足下列条件的函数$P$：
+  01-02.tex:55 概率函数 | 定义\ref{def:1.2.4}中的三个性质通常称为概率公理（Axioms of Probability），或柯尔莫哥洛夫公理（Kolmogorov Axioms），以概率论奠基人之一A. Kolmogorov命名.满足概率公理的任何函数$P$都称为概率函数.公理化定义不打算告诉我们应该选择哪个具体的函数$P$；它只要求$P$满足这些公理.对任意样本空间，都可以定义许多不同的概率函数.哪些函数能够反映某一特定试验中可能观察到的情形，还有待讨论.
+  01-02.tex:57 概率函数 | 考虑抛一枚公平硬币的简单试验，此时$S=\{\mathrm H,\mathrm T\}$.所谓“公平”，是指硬币平衡，正面朝上和反面朝上的可能性相同.因此，合理的概率函数应赋予正面和反面相等的概率，即
+844:37 | Probability function > finite set | 有限集 | 6
+  01-02.tex:71 有限集 | 设$S=\{s_1,\ldots,s_n\}$是有限集，$\mathscr B$是$S$的子集构成的任意$\sigma$代数，$p_1,\ldots,p_n$是和为1的非负数.对任意$A\in\mathscr B$，定义
+  01-02.tex:48 概率函数 | 给定样本空间$S$及与之相联系的$\sigma$代数$\mathscr B$，\emph{概率函数}（probability function）是以$\mathscr B$为定义域、满足下列条件的函数$P$：
+  01-02.tex:55 概率函数 | 定义\ref{def:1.2.4}中的三个性质通常称为概率公理（Axioms of Probability），或柯尔莫哥洛夫公理（Kolmogorov Axioms），以概率论奠基人之一A. Kolmogorov命名.满足概率公理的任何函数$P$都称为概率函数.公理化定义不打算告诉我们应该选择哪个具体的函数$P$；它只要求$P$满足这些公理.对任意样本空间，都可以定义许多不同的概率函数.哪些函数能够反映某一特定试验中可能观察到的情形，还有待讨论.
+845:54 | Probability function > induced | 诱导 | 23
+  01-04.tex:34 诱导 | 注意，式\eqref{eq:1.4.1}左边的函数$P_X$是$\mathscr X$上的诱导概率函数，它用原来的函数$P$定义.式\eqref{eq:1.4.1}正式给随机变量$X$定义了概率函数$P_X$.当然，还需验证$P_X$满足Kolmogorov公理，不过这并不困难（见习题\ref{exercise:1.45}）.由于\eqref{eq:1.4.1}中的等价关系，今后将简写为$P(X=x_i)$，而不写$P_X(X=x_i)$.
+  01-04.tex:44 诱导 | 随机变量$X$的值域为$\mathscr X=\{0,1,2,3\}$.假设$S$中的八个点各有概率$\frac18$，则对上表简单计数可得，$\mathscr X$上的诱导概率函数为
+  01-04.tex:26 概率函数 | 在定义随机变量时，我们也定义了一个新的样本空间（随机变量的值域）.现在必须正式检查，定义在原样本空间上的概率函数，能否用于这个随机变量.
+846:39 | Probability function > properties | 性质 | 8
+  01-02.tex:138 性质 | 定理\ref{thm:1.2.8}中的性质非常基本，几乎也带有公理的意味，尽管我们已仅用最初的三条柯尔莫哥洛夫公理严格证明了它们.下面的定理与定理\ref{thm:1.2.8}精神相似，但其结论并不那么显然.
+  01-02.tex:120 概率函数 | 若$P$是概率函数，$A$是$\mathscr B$中的任意集合，则
+  01-02.tex:140 概率函数 | 若$P$是概率函数，$A$和$B$是$\mathscr B$中的任意集合，则
+850:59 | Probability mass function (pmf) | 概率质量函数 | 28
+  01-06.tex:3 概率质量函数 | 与随机变量$X$及其cdf $F_X$相关联的，还有另一个函数，称为概率密度函数（probability density function，pdf）或概率质量函数（probability mass function，pmf）.pdf与pmf分别对应连续和离散情形.它们都与随机变量的“点概率”有关.
+  01-06.tex:5 概率质量函数 | 离散随机变量$X$的概率质量函数（pmf）为
+852:61 | Probability mass function (pmf) > construction | 构造 | 30
+856:61 | Probability mass function (pmf) > properties | 性质 | 30
+  01-06.tex:76 性质 | 若$f_X(x)$是pdf（或pmf），两个性质由定义立即得到.特别地，对pdf，利用\eqref{eq:1.6.3}和定理\ref{thm:1.5.3}，有
+864:54 | Random variable | 随机变量 | 23
+  01-04.tex:10 随机变量 | 随机变量（random variable）是从样本空间$S$到实数集的函数.
+  01-04.tex:13 随机变量 | \begin{example}[随机变量]\label{ex:1.4.2}
+  01-04.tex:14 随机变量 | 在一些试验中，随机变量被隐含地使用.下面列举若干例子.
+865:62 | Random variable > absolutely continuous | 绝对连续 | 31
+  01-06.tex:88 绝对连续 | 事实上，关系\eqref{eq:1.6.3}并非总成立，因为$F_X(x)$可能连续却不可微.确实存在这样的连续随机变量：无论选择什么$f_X(x)$，该积分关系都不成立.这些情形相当病态，我们将忽略它们.因此，本书假设每个连续随机变量都满足\eqref{eq:1.6.3}.在更高等的教材中（例如\sourcepageref{541}{Billingsley，1995，第31节}），若随机变量满足\eqref{eq:1.6.3}，则称其为绝对连续（absolutely con
+  01-06.tex:86 随机变量 | 则$f_X(x)=h(x)/K$是某个取值于$A$的随机变量$X$的pdf.
+867:58 | Random variable > continuous | 连续 | 27
+  01-05.tex:97 连续 | 若$F_X$不是$x$的连续函数，它可以由连续片段与跳跃混合而成.例如，对某个满足$1>\varepsilon>0$的$\varepsilon$，将\eqref{eq:1.5.5}中的$F_X(x)$修改为
+  01-05.tex:104 连续 | 则$F_Y(y)$是某个随机变量$Y$的cdf（见习题\ref{exercise:1.47}）.函数$F_Y$在$y=0$处有高度为$\varepsilon$的跳跃，其余地方都连续.若观察某个仪表的读数，而该读数理论上可处于$-\infty$与$\infty$之间的任何位置，则这个模型可能合适.不过，这台仪表有时会卡在0处.于是可以用$F_Y$对观测建模，其中$\varepsilon$为仪表卡住的概率.
+  01-05.tex:107 连续 | cdf是连续还是有跳跃，对应于相关随机变量是否连续.事实上，根据这种对应关系来定义连续随机变量很方便.
+868:58 | Random variable > discrete | 离散 | 27
+  01-05.tex:109 离散 | 若$F_X(x)$是$x$的连续函数，则随机变量$X$称为连续型（continuous）.若$F_X(x)$是$x$的阶梯函数，则随机变量$X$称为离散型（discrete）.
+  01-05.tex:104 随机变量 | 则$F_Y(y)$是某个随机变量$Y$的cdf（见习题\ref{exercise:1.47}）.函数$F_Y$在$y=0$处有高度为$\varepsilon$的跳跃，其余地方都连续.若观察某个仪表的读数，而该读数理论上可处于$-\infty$与$\infty$之间的任何位置，则这个模型可能合适.不过，这台仪表有时会卡在0处.于是可以用$F_Y$对观测建模，其中$\varepsilon$为仪表卡住的概率.
+  01-05.tex:107 随机变量 | cdf是连续还是有跳跃，对应于相关随机变量是否连续.事实上，根据这种对应关系来定义连续随机变量很方便.
+869:59 | Random variable > identically distributed | 同分布 | 28
+  01-05.tex:117 同分布 | 若对每个集合$A\in\mathscr B^1$都有$P(X\in A)=P(Y\in A)$，则随机变量$X$与$Y$称为同分布（identically distributed）.
+  01-05.tex:119 同分布 | 注意，同分布的两个随机变量未必相等.也就是说，定义\ref{def:1.5.8}并不是说$X=Y$.
+  01-05.tex:121 同分布 | \begin{example}[同分布的随机变量]\label{ex:1.5.9}
+948:32 | Sample space | 样本空间 | 1
+  01-01.tex:3 样本空间 | 统计学家的主要目标之一，是通过开展试验对一个对象总体作出结论.第一步是确定所有可能的结果，用统计学的术语说，就是确定样本空间.
+  01-01.tex:5 样本空间 | 一个特定试验所有可能结果组成的集合$S$，称为该试验的\emph{样本空间}（sample space）.
+  01-01.tex:7 样本空间 | 如果试验是抛掷一枚硬币，那么样本空间包含正面和反面这两个结果；因此，
+960:34 | Set operations > associativity | 结合律 | 3
+  01-01.tex:55 结合律 | \item[(b)] 结合律：$A\cup(B\cup C)=(A\cup B)\cup C$，$A\cap(B\cap C)=(A\cap B)\cap C$；
+  01-01.tex:50 集合运算 | 基本集合运算可以组合起来，这与加法和乘法的组合有些相似.只要小心，我们便可以像处理数一样处理集合.现在陈述集合运算的一些有用性质.
+961:34 | Set operations > commutativity | 交换律 | 3
+  01-01.tex:54 交换律 | \item[(a)] 交换律：$A\cup B=B\cup A$，$A\cap B=B\cap A$；
+  01-01.tex:50 集合运算 | 基本集合运算可以组合起来，这与加法和乘法的组合有些相似.只要小心，我们便可以像处理数一样处理集合.现在陈述集合运算的一些有用性质.
+962:33 | Set operations > complementation | 求补 | 2
+  01-01.tex:35 complementation | \item[补（complementation）：] $A$的补集记为$A^c$，是所有不属于$A$的元素组成的集合：
+  01-01.tex:29 集合运算 | 给定任意两个事件（或集合）$A$和$B$，有以下基本集合运算：
+963:34 | Set operations > DeMorgan’s Laws | 德摩根律 | 3
+  01-01.tex:57 德摩根律 | \item[(d)] 德摩根律（DeMorgan's Laws）：$(A\cup B)^c=A^c\cap B^c$，$(A\cap B)^c=A^c\cup B^c$.
+  01-01.tex:50 集合运算 | 基本集合运算可以组合起来，这与加法和乘法的组合有些相似.只要小心，我们便可以像处理数一样处理集合.现在陈述集合运算的一些有用性质.
+964:34 | Set operations > Distributive Law | 分配律 | 3
+  01-01.tex:56 分配律 | \item[(c)] 分配律：$A\cap(B\cup C)=(A\cap B)\cup(A\cap C)$，$A\cup(B\cap C)=(A\cup B)\cap(A\cup C)$；
+  01-01.tex:61 分配律 | 本定理大部分结论的证明留作习题\ref{exercise:1.3}.习题\ref{exercise:1.9}和\ref{exercise:1.10}还给出了推广.为了说明证明方法，这里证明分配律
+  01-01.tex:72 分配律 | 反过来，设$x\in((A\cap B)\cup(A\cap C))$.于是$x\in(A\cap B)$或$x\in(A\cap C)$.若$x\in(A\cap B)$，则$x$同时属于$A$和$B$.因为$x\in B$，所以$x\in(B\cup C)$，从而$x\in(A\cap(B\cup C))$.另一方面，若$x\in(A\cap C)$，论证类似，仍可得出$x\in(A\cap(B\cup C))$.这样就证明了$(A\cap B)\cup(A\cap C)
+965:62 | Set operations > identities | 恒等式 | 31
+  01-07.tex:17 恒等式 | 验证下列恒等式.
+966:33 | Set operations > intersection | 交 | 2
+  01-01.tex:33 intersection | \item[交（intersection）：] $A$与$B$的交记为$A\cap B$，是同时属于$A$和$B$的元素组成的集合：
+  01-01.tex:29 集合运算 | 给定任意两个事件（或集合）$A$和$B$，有以下基本集合运算：
+967:34 | Set operations > intersection > countable | 可数 | 3
+  01-01.tex:50 集合运算 | 基本集合运算可以组合起来，这与加法和乘法的组合有些相似.只要小心，我们便可以像处理数一样处理集合.现在陈述集合运算的一些有用性质.
+968:35 | Set operations > intersection > uncountable | 不可数 | 4
+  01-01.tex:89 不可数 | 也可以对不可数的集合族定义并和交.如果$\Gamma$是一个指标集（其中的元素用作指标），则
+  01-01.tex:94 不可数 | 例如，取$\Gamma=\{\text{所有正实数}\}$且$A_a=(0,a]$，那么$\bigcup_{a\in\Gamma}A_a=(0,\infty)$就是一个不可数并.虽然不可数并和交在统计学中并不占主要地位，但有时它们提供了求解问题的有效手段（见\sourcepageref{339}{第8.2.3节}）.
+969:33 | Set operations > union | 并 | 2
+  01-01.tex:31 union | \item[并（union）：] $A$与$B$的并记为$A\cup B$，是属于$A$或$B$，或同时属于二者的元素组成的集合：
+  01-01.tex:29 集合运算 | 给定任意两个事件（或集合）$A$和$B$，有以下基本集合运算：
+970:34 | Set operations > union > countable | 可数 | 3
+  01-01.tex:50 集合运算 | 基本集合运算可以组合起来，这与加法和乘法的组合有些相似.只要小心，我们便可以像处理数一样处理集合.现在陈述集合运算的一些有用性质.
+971:35 | Set operations > union > uncountable | 不可数 | 4
+  01-01.tex:89 不可数 | 也可以对不可数的集合族定义并和交.如果$\Gamma$是一个指标集（其中的元素用作指标），则
+  01-01.tex:94 不可数 | 例如，取$\Gamma=\{\text{所有正实数}\}$且$A_a=(0,a]$，那么$\bigcup_{a\in\Gamma}A_a=(0,\infty)$就是一个不可数并.虽然不可数并和交在统计学中并不占主要地位，但有时它们提供了求解问题的有效手段（见\sourcepageref{339}{第8.2.3节}）.
+972:36 | Sigma algebra | σ代数 | 5
+  01-02.tex:13 sigma algebra | $S$的一个子集族若满足以下三个性质，就称为一个\emph{$\sigma$代数}（sigma algebra，或Borel field），记作$\mathscr B$：
+973:36 | Sigma algebra > countable | 可数 | 5
+  01-02.tex:17 可数 | \item[(c)] 若$A_1,A_2,\ldots\in\mathscr B$，则$\bigcup_{i=1}^{\infty}A_i\in\mathscr B$（$\mathscr B$对可数并封闭）.
+  01-02.tex:20 可数 | 空集$\emptyset$是任何集合的子集，因此$\emptyset\subset S$.性质(a)说明，这个子集总属于一个$\sigma$代数.因为$S=\emptyset^c$，性质(a)与(b)还说明$S$总属于$\mathscr B$.此外，由德摩根律可知，$\mathscr B$对可数交也封闭.若$A_1,A_2,\ldots\in\mathscr B$，则由性质(b)有$A_1^c,A_2^c,\ldots\in\mathscr B$，因此$\bigcup_{i=
+  01-02.tex:28 可数 | 若$S$有限或可数，这些技术困难其实不会出现，因为对给定样本空间$S$，我们定义
+974:59 | Sigma algebra > generated | 生成的 | 28
+  EN obabilities agree on all intervals, then they agree on all sets. To show this requires heavy use of sigma algebras; we will not go into these details here. Suffice it to say that it is necessary to prove only that the two probability functions agree on all intervals (Chung 
+975:63 | Sigma algebra > properties | 性质 | 32
+  EN  A1 , . . . , An . 1.11 Let S be a sample space. (a) Show that the collection B = {0,/ S} is a sigma algebra. (b) Let B = {all subsets of S, including S itself}. Show that B is a sigma algebra. (c) Show that the intersection of two sigma algebras is a sigma 
+  EN ,/ S} is a sigma algebra. (b) Let B = {all subsets of S, including S itself}. Show that B is a sigma algebra. (c) Show that the intersection of two sigma algebras is a sigma algebra. 1.12 It was noted in Section 1.2.1 that statisticians who follow the De Finetti 
+976:36 | Sigma algebra > trivial | 平凡 | 5
+  01-02.tex:26 平凡 | 与样本空间$S$相联系的$\sigma$代数可以有许多个.例如，由两个集合组成的集合族$\{\emptyset,S\}$就是一个$\sigma$代数，通常称为平凡$\sigma$代数.我们只关心包含给定样本空间$S$中所有开集的最小$\sigma$代数.
+  01-02.tex:13 sigma algebra | $S$的一个子集族若满足以下三个性质，就称为一个\emph{$\sigma$代数}（sigma algebra，或Borel field），记作$\mathscr B$：
+977:36 | Sigma algebra > uncountable | 不可数 | 5
+  01-02.tex:37 不可数 | 一般说来，若$S$不可数，描述$\mathscr B$并不容易.不过，我们选取的$\mathscr B$会包含所有感兴趣的集合.
+  01-02.tex:13 sigma algebra | $S$的一个子集族若满足以下三个性质，就称为一个\emph{$\sigma$代数}（sigma algebra，或Borel field），记作$\mathscr B$：
+985:64 | Stirling’s formula | Stirling公式 | 33
+  01-07.tex:230 Stirling公式 | 近似计算大数的阶乘的一种方法是使用Stirling公式（Stirling's Formula）：
+988:67 | Stochastic order > greater | 较大 | 36
+  01-07.tex:422 greater | 若对所有$t$都有$F_X(t)\le F_Y(t)$，并且对某个$t$有$F_X(t)<F_Y(t)$，则称累积分布函数$F_X$在随机意义下大于（stochastically greater than）累积分布函数$F_Y$.证明：若$X\sim F_X$且$Y\sim F_Y$，则
+1070:34 | Venn diagram | 韦恩图 | 3
+  01-01.tex:63 Venn diagram | （读者可能熟悉用维恩图（Venn diagram）“证明”集合论定理的做法.我们提醒读者，维恩图有时有助于直观理解，但并不构成严格证明.）要证明两个集合相等，必须说明它们彼此包含.正式地说，
+1071:49 | Warden problem | 看守问题 | 18
+1071:66 | Warden problem | 看守问题 | 35

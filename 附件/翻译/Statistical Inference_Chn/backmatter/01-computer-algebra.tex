@@ -1,0 +1,143 @@
+% 原PDF528–533／印刷497–502；全部原页已目视核对。
+\clearpage\section*{计算机代数}\phantomsection\label{app:computer-algebra}
+\addcontentsline{toc}{section}{计算机代数}
+\begingroup
+\renewcommand{\thesection}{\arabic{section}}
+\setcounter{section}{12}\setcounter{subsection}{6}\setcounter{theorem}{0}
+\sourcepageanchor{528}
+计算机代数系统（computer algebra system）能够对表达式进行符号运算.面对繁琐、机械的计算时（例如对一个比值求二阶导数），它们尤其有用.本附录通过各种问题说明这类系统的使用.理解和使用统计学绝不以使用计算机代数系统为必要条件；不过，它不仅能减轻一些枯燥的计算工作，还能引导我们得到新的认识和更实用的答案.
+
+需要认识到，计算机代数系统有很多种，它们可以帮助完成的计算也多种多样（求和、积分、模拟等等）.本附录的目的既不是教授这些系统的用法，也不是展示它们的一切可能用途，而只是说明其中一些可能性.
+
+我们使用Mathematica软件包演示计算.其他软件包，例如Maple，也能用于这些计算.
+
+\needspace{5\baselineskip}\medskip\noindent\textit{\hyperref[sec:1]{第1章}}
+\begin{example}[无序抽样]\label{ex:12.6.1}
+我们给出Mathematica代码，枚举\autoref{ex:1.2.20}中从$\{2,4,9,12\}$有放回抽样得到的无序结果.枚举结果并计算多项式权重后，将结果与权重排序.注意，要画出\autoref{fig:1.2.2}中的直方图，还需要做一些工作.例如，有两个不同结果的平均值都是8，因此要得到\autoref{fig:1.2.2}那样的图形，需要将结果$\{8,\frac{3}{128}\}$、$\{8,\frac{3}{64}\}$合并成$\{8,\frac{9}{128}\}$.
+
+集合中的数超过七个时，这种枚举会变得非常耗时，因为这会产生$\binom{13}{7}=27,132$个无序结果.\footnote{译注：原文等式照录，但$\binom{13}{7}=1716$，与所列$27,132$不一致.}
+\begin{enumerate}[label=(\arabic*)]
+\item “DiscreteMath”包包含用于计算排列与组合的函数.
+\begin{sourcecode}
+In[1]:= Needs["DiscreteMath`Combinatorica`"]
+\end{sourcecode}
+\item 令$x=$数值的集合.不同样本的个数为$\operatorname{NumberofCompositions}[n,m]=\binom{n+m-1}{n}$.
+\begin{sourcecode}
+In[2]:= x ={2,4,9,12};
+n=Length[x];
+ncomp=NumberOfCompositions[n,n]
+\end{sourcecode}
+\noindent$\textbf{Out[4]}=35$.
+\item 枚举样本（w），计算每个样本的平均值（avg），并计算各个值的权重（wt）.权重就是对应于该配置的多项式系数.
+\begin{sourcecode}
+In[5]:= w = Compositions[n, n];
+wt = n!/(Apply[Times, Factorial /@ w, 1]*n^n);
+avg = w . x/n;
+Sort[Transpose[{avg, wt}]]
+Out[8] = {2, 1/256}, {5/2, 1/64}, {3, 3/128}, {7/2, 1/64}, {15/4, 1/64},
+{4, 1/256}, {17/4, 3/64}, {9/2, 1/64}, {19/4, 3/64}, {5, 3/64},
+{21/4, 1/64}, {11/2, 3/128}, {11/2, 3/64}, {6, 1/64}, {6, 3/64},
+{25/4, 3/64}, {13/2, 3/128}, {27/4, 3/32}, {7, 3/128}, {29/4, 1/64},
+{29/4, 3/64}, {15/2, 3/64}, {31/4, 1/64}, {8, 3/128}, {8, 3/64},
+{17/2, 3/64}, {35/4, 3/64}, {9, 1/256}, {37/4, 3/64}, {19/2, 1/64},
+{39/4, 1/64}, {10, 1/64}, {21/2, 3/128}, {45/4, 1/64}, {12, 1/256}
+\end{sourcecode}
+\end{enumerate}
+\end{example}
+\sourcepageanchor{529}
+\needspace{5\baselineskip}\medskip\noindent\textit{\hyperref[sec:2]{第2章}}
+\begin{example}[一元变换]\label{ex:12.6.2}
+\hyperref[exercise:2.1]{习题2.1(a)}是一个标准的一元变量变换.对计算机代数程序来说，这类计算通常很容易.
+\begin{enumerate}[label=(\arabic*)]
+\item 输入$f(x)$，并解出变换后的变量.\footnote{译注：代码中的反斜线以及最后一个复根的符号、$y$的幂次均按原页保留.最后一项一般不满足$x^3=y$；本例后续仅使用第一个实根$x=y^{1/3}$.本译稿没有执行或修补这些历史代码.}
+\begin{sourcecode}
+In[1]:=f[x_] := 42*(x^5)*(1 - x)
+sol = Solve[y == x\^3, x]
+\end{sourcecode}
+\begin{equation*}
+\textbf{Out[2]}=\{\{x\mathbin{->}y^{1/3}\},\{x\mathbin{->}-(-1)^{1/3}y^{1/3}\},\{x\mathbin{->}-(-1)^{2/3}y^{2/3}\}\}.
+\end{equation*}
+
+\item 计算雅可比因子.
+\begin{sourcecode}
+In[3]:= D[x/.sol[[1]],y]
+\end{sourcecode}
+$$\textbf{Out[3]}=\frac{1}{3y^{2/3}}.$$
+\item 计算变换后变量的密度.
+\begin{sourcecode}
+In[4]:= f[x/.sol[[1]]]* D[x/.sol[[1]],y]
+\end{sourcecode}
+$$\textbf{Out[4]}=14(1-y^{1/3})y.$$
+\end{enumerate}
+\end{example}
+
+\needspace{5\baselineskip}\medskip\noindent\textit{\hyperref[sec:4]{第4章}}
+\begin{example}[二元变换]\label{ex:12.6.3}
+下面演示一些二元变换.使用类似的代码，也可以完成多元变换.第一个计算演示\autoref{ex:4.3.4}，求正态变量之和的分布.然后计算\autoref{ex:4.3.3}：先对两个贝塔密度的乘积进行二元变换，再求边缘分布.
+\begin{enumerate}[label=(\arabic*)]
+\item 正态变量之和.Out[4]是联合分布，Out[5]是边缘分布.\footnote{译注：原代码对$v$从0积到$\infty$，只覆盖其支持的一半，因此所列Out[5]是完整边缘密度的一半.若求$u=X+Y$的密度，需对$v$从$-\infty$积到$\infty$.}
+\begin{sourcecode}
+In[1]:=f[x_,y_]:=(1/(2*Pi))*E^(-x^2/2)*E^(-y^2/2)
+So:=Solve[{u==x+y,v==x-y},{x,y}]
+g:=f[x/.So,y/.So]*Abs[Det[Outer[D,First[{x,y}/.So],{u,v}]]]
+Simplify[g]
+\end{sourcecode}
+$$\textbf{Out[4]}=\left\{\frac{e^{-u^2/4-v^2/4}}{4\pi}\right\}]$$
+\begin{sourcecode}
+In[5]:= Integrate[g,{v,0,Infinity}]
+\end{sourcecode}
+$$\textbf{Out[5]}=\left\{\frac{e^{-u^2/4}}{4\sqrt{\pi}}\right\}]$$
+\item 贝塔变量的乘积.（“ContinuousDistributions”包包含许多标准分布的pdf和cdf.）Out[10]是贝塔变量乘积的联合密度，Out[11]是$u$的密度.If语句读作If(检验条件,真时的值,假时的值)，因此检验条件为真时，取中间的值.在大多数情形下，检验条件为真，边缘密度就是所给的贝塔密度.\footnote{译注：由变换$u=xy,v=x$及$0<x,y<1$，联合支持应为$0<u<v<1$；原代码的积分写成$v\in(0,1)$，没有显式编码这一支持限制.原输出中还存在括号不配对，以下均照录，不将其当作已核验的可执行代码.}
+\sourcepageanchor{530}
+\begin{sourcecode}
+In[6]:= Needs["Statistics`ContinuousDistributions`"]
+Clear[f, g, u, v, x, y, a, b, c]
+f[x_, y_] := PDF[BetaDistribution[a, b],x]
+*PDF[BetaDistribution[a + b, c], y]
+So := Solve[{u == x*y, v == x}, {x, y}]
+g[u_, v_] = f[x /. So, y /. So]
+*Abs[Det[Outer[D, First[{x, y} /. So], {u, v}]]]
+Integrate[g[u, v] ,{v,0,1}]
+\end{sourcecode}
+$$\textbf{Out[10]}=\left\{\frac{(1-u/v)^{-1+c}(1-v)^{-1+b}(u/v)^{-1+a+b}v^{-1+a}}{\operatorname{Abs}[v]\operatorname{Beta}[a,b]\operatorname{Beta}[a+b,c]}\right\}$$
+\begin{equation*}\begin{aligned}
+\textbf{Out[11]}={}&\{\operatorname{If}[\operatorname{Re}[b]>0\mathbin{\&\&}\operatorname{Re}[b+c]<1\mathbin{\&\&}\operatorname{Im}[u]==0\mathbin{\&\&}u>0\mathbin{\&\&}u<1),\\
+&\frac{1}{\operatorname{Gamma}[1-c]}\Bigl((1-u)^{-1+b+c}(-1/u)^{b+c}(-u)^cu^{-1+a+b}\\
+&\hspace{3em}\operatorname{Gamma}[b]\operatorname{Gamma}[1-b-c]\Bigr),\\
+&\left.\int_0^1\frac{(1-u/v)^{-1+c}(1-v)^{-1+b}(u/v)^{-1+a+b}v^{-1+a}}{\operatorname{Abs}[v]\operatorname{Beta}[a,b]\operatorname{Beta}[a+b,c]}\,dv\right\}.
+\end{aligned}\end{equation*}
+\end{enumerate}
+\end{example}
+
+\begin{example}[正态概率]\label{ex:12.6.4}
+\hyperref[exercise:4.14]{习题4.14(a)}所要求的计算很容易处理.首先直接计算；Mathematica容易以数值方式求出积分，却没有找到闭式表达式.注意，答案用erf函数表示，该函数定义为
+$$\operatorname{erf}(z)=\frac{2}{\sqrt{\pi}}\int_0^z e^{-t^2}\,dt.$$
+如果用一个卡方随机变量重新表达此概率，就能找到闭式表达式.
+
+为求积分，先设置被积函数与积分限.
+\begin{sourcecode}
+In[1]:= Needs["Statistics`ContinuousDistributions`"]
+Clear[f, g, x, y]
+f[x_, y_] = PDF[NormalDistribution[0, 1],x]
+*PDF[NormalDistribution[0, 1],y]
+g[x_] = Sqrt[1 - x^2]
+\end{sourcecode}
+$$\textbf{Out[3]}=\frac{e^{-x^2/2-y^2/2}}{2\pi}.$$
+现在计算二重积分，得到Erf函数.命令N[\%]对前一行作数值求值.
+\sourcepageanchor{531}
+\begin{sourcecode}
+In[5]:= Integrate[f[x, y], {x, -1, 1}, {y, -g[x], g[x]}]
+N[%]
+\end{sourcecode}
+$$\textbf{Out[5]}=\frac{\int_{-1}^1e^{-x^2/2}\operatorname{Erf}\!\left(\frac{\sqrt{1-x^2}}{\sqrt2}\right)\,dx}{\sqrt{2\pi}},\qquad\textbf{Out[6]}=0.393469.$$
+当然，我们知道$X^2+Y^2$是自由度为2的卡方随机变量.利用这一事实，就得到闭式答案.
+\begin{sourcecode}
+In[7]: = Clear[f, t]
+f[t_] = PDF[ChiSquareDistribution[2], t];
+Integrate[f[t], {t, 0, 1}]
+N[%]
+\end{sourcecode}
+$$\textbf{Out[10]}=\frac12\left(2-\frac{2}{\sqrt e}\right),\qquad\textbf{Out[11]}=0.393469.$$
+\end{example}
+\input{backmatter/01-computer-algebra-b.tex}
+\endgroup

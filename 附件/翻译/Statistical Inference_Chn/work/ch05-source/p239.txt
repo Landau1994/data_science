@@ -1,0 +1,43 @@
+208                                    PROPERTIES OF A RANDOM SAMPLE
+   Although MCMC methods can be traced back to at least Metropolis et al. (1953), they entered
+real prominence with the work of Gelfand and Smith (1990), building on that of Geman and Geman
+(1984). See Miscellanea 5.8.5 for more details.
+
+
+5.7  Exercises
+  5.1 Color blindness appears in 1% of the people in a certain population. How large must a sample be if the
+      probability of its containing a color-blind person is to be .95 or more? (Assume that the population is
+      large enough to be considered infinite, so that sampling can be considered to be with replacement.)
+  5.2 Suppose X1,X2,... are jointly continuous and independent, each distributed with marginal pdf f(x),
+     where each Xis represents annual rainfall at a given location.
+       (a) Find the distribution of the number of years until the first year’s rainfall, X1, is exceeded for the first
+          time.
+      (b) Show that the mean number of years until X1 is exceeded for the first time is infinite.
+  5.3 Let X1,...,Xn be iid random variables with continuous cdf FX, and suppose EXi = µ. Define the random
+      variables Y1,...,Yn by
+                                         1       if Xi > µ                                                 Yi =                           .
+                                         0       if Xi ≤µ
+     Find the distribution of ∑ni=1Yi.
+  5.4 A generalization of iid random variables is exchangeable random variables, an idea due to De Finetti
+      (1972). A discussion of exchangeability can also be found in Feller (1971). The random variables
+      X1,...,Xn are exchangeable if any permutation of any subset of them of size k (k ≤n) has the same       distribution. In this exercise we will see an example of random variables that are exchangeable, but not
+       iid. Let Xi|P ∼iid Bernoulli(P), i = 1,...,n, and let P ∼uniform(0,1).
+       (a) Show that the marginal distribution of any k of the Xs is the same as
+
+                                                            1                    t!(k                      P(X1 = x1,...,Xk = xk) =          =    −t)! ,                                                           0 pt(1−p)k−tdp    (k +1)!
+        where t = ∑ki=1 xi. Hence, the Xs are exchangeable.
+      (b) Show that, marginally,
+
+                                      = xi),                            P(X1 = x1,...,Xn = xn)̸ = Πni=1P(Xi
+         so the distribution of the Xs is exchangeable, but not iid.
+     (De Finetti proved an elegant characterization theorem for an infinite sequence of exchangeable random
+      variables. He proved that any such sequence of exchangeable random variables is a mixture of iid random
+      variables.)
+  5.5 Let X1,...,Xn be iid with pdf fX(x), and let ¯X denote the sample mean. Show that
+                                                                f ¯X (x) = nfX1+···+Xn(nx),
+     even if the mgf of X does not exist.
+  5.6  If X has pdf fX(x), and Y, independent of X, has pdf fY (y), establish formulas, similar to (5.2.3), for the
+     random variable Z in each of the following situations.
+       (a) Z = X −Y
+      (b) Z = XY
+       (c) Z = X/Y

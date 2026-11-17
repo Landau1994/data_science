@@ -1,0 +1,486 @@
+\subsection{习题}\label{sec:10.5}
+
+\begin{exercise}\label{exercise:10.1}
+从pdf为
+$$f(x\mid\theta)=\frac12(1+\theta x),\qquad-1<x<1,\quad-1<\theta<1$$
+的总体中抽取随机样本$X_1,\ldots,X_n$. 求$\theta$的一个相合估计量，并证明其相合性.
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.2}
+证明\autoref{thm:10.1.5}.
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.3}
+从$\mathrm n(\theta,\theta)$总体中抽取随机样本$X_1,\ldots,X_n$，其中$\theta>0$.
+\begin{enumerate}[label=(\alph*)]
+\item 证明$\theta$的MLE $\hat\theta$是二次方程$\theta^2+\theta-W=0$的根，其中$W=(1/n)\sum_{i=1}^nX_i^2$，并确定哪个根等于MLE.
+\item 用\autoref{sec:10.1.3}的技术求$\hat\theta$的近似方差.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.4}
+\autoref{exercise:7.19}模型的一个变形是令随机变量$Y_1,\ldots,Y_n$满足
+$$Y_i=\beta X_i+\varepsilon_i,\qquad i=1,\ldots,n,$$
+其中$X_1,\ldots,X_n$为独立的$\mathrm n(\mu,\tau^2)$随机变量，$\varepsilon_1,\ldots,\varepsilon_n$独立同分布于$\mathrm n(0,\sigma^2)$，且$X$与$\varepsilon$相互独立. 精确方差计算相当困难，因此可以采用近似. 用$\mu,\tau^2,\sigma^2$表示以下各量的近似均值与方差：
+\begin{enumerate}[label=(\alph*)]
+\item $\sum X_iY_i/\sum X_i^2$.
+\item $\sum Y_i/\sum X_i$.
+\item $\sum(Y_i/X_i)/n$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.5}
+对\autoref{ex:10.1.8}的情形，令$T_n=\sqrt n/\bar X_n$，证明：
+\begin{enumerate}[label=(\alph*)]
+\item $\operatorname{Var}(T_n)=\infty$.
+\item 若$\mu\ne0$且从样本空间删除区间$(-\delta,\delta)$，则$\operatorname{Var}(T_n)<\infty$.
+\item 若$\mu\ne0$，区间$(-\delta,\delta)$的概率含量趋于0.\footnote{译注：此处需限制$\delta$相对$|\mu|$的大小；若区间包含$\mu$，则$\bar X_n$落在其中的概率反而趋于1. 原题条件照录，待核实所指样本空间及$\delta$约定.}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.6}
+对\autoref{ex:10.1.10}的情形，证明：
+\begin{enumerate}[label=(\alph*)]
+\item $EY_n=0$，且$\operatorname{Var}(Y_n)=p_n+(1-p_n)\sigma_n^2$；
+\item $P(Y_n<a)\to P(Z<a)$，因而$Y_n\to\mathrm n(0,1)$（回顾$p_n\to1$、$\sigma_n\to\infty$且$(1-p_n)\sigma_n^2\to\infty$）.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.7}
+\autoref{thm:10.1.12}的证明说明了MLE $\hat\theta$是$\theta$的渐近有效估计量. 证明：若$\tau(\theta)$是$\theta$的连续函数，则$\tau(\hat\theta)$是$\tau(\theta)$的相合且渐近有效的估计量.
+\end{exercise}
+
+\sourcepageanchor{440}
+\begin{exercise}\label{exercise:10.8}
+通过建立\eqref{eq:10.1.6}中的两个收敛结果，完成\autoref{thm:10.1.6}的证明.\footnote{译注：原题引\autoref{thm:10.1.6}，但\eqref{eq:10.1.6}位于\autoref{thm:10.1.12}的证明中. 下列导数应在$\theta=\theta_0$处求值，原题未显式写出该代入.}
+\begin{enumerate}[label=(\alph*)]
+\item 证明
+$$\frac1{\sqrt n}l'(\theta_0\mid\boldsymbol X)=\sqrt n\left[\frac1n\sum_iW_i\right],$$
+其中$W_i=\frac{\frac d{d\theta}f(X_i\mid\theta)}{f(X_i\mid\theta)}$均值为0、方差为$I(\theta_0)$. 再用中心极限定理建立向$\mathrm n[0,I(\theta_0)]$的收敛.
+\item 证明
+$$-\frac1n l''(\theta_0\mid\boldsymbol X)=\frac1n\sum_iW_i^2-\frac1n\sum_i\frac{\frac{d^2}{d\theta^2}f(X_i\mid\theta)}{f(X_i\mid\theta)},$$
+且第一部分均值为$I(\theta_0)$，第二部分均值为0. 应用弱大数定律.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.9}
+假设$X_1,\ldots,X_n$独立同分布于Poisson$(\lambda)$. 求以下各量的最佳无偏估计量：
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:10.9.a} $e^{-\lambda}$，即$X=0$的概率.
+\item\label{item:10.9.b} $\lambda e^{-\lambda}$，即$X=1$的概率.
+\item 对\hyperref[item:10.9.a]{(a)}和\hyperref[item:10.9.b]{(b)}的最佳无偏估计量，计算相对于MLE的渐近相对效率. 你更倾向于哪些估计量？为什么？
+\item 测量暴露于某种化合物的微生物突变率，可以对该化合物可能的致癌性进行初步检验. 实验者将化合物放入15个培养皿，记录到以下突变菌落数：
+$$10,7,8,13,8,9,5,7,6,8,3,6,6,3,5.$$
+估计没有突变菌落出现的概率$e^{-\lambda}$，以及出现一个突变菌落的概率$\lambda e^{-\lambda}$. 分别计算最佳无偏估计与MLE.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.10}
+继续\autoref{ex:10.1.14}的计算，那里考察了$p(1-p)$估计量的性质.\footnote{译注：直接讨论$p(1-p)$估计量的是\autoref{ex:10.1.15}，原题所引\autoref{ex:10.1.14}保留.}
+\begin{enumerate}[label=(\alph*)]
+\item 证明若$p\ne1/2$，MLE $\hat p(1-\hat p)$渐近有效.
+\item 若$p=1/2$，用\autoref{thm:5.5.26}求$\hat p(1-\hat p)$的极限分布.
+\item 计算$\operatorname{Var}[\hat p(1-\hat p)]$的精确表达式. 近似失效的原因是否更清楚了？
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.11}
+本题考察\autoref{ex:10.1.18}计算的若干细节与推广.
+\begin{enumerate}[label=(\alph*)]
+\item 复现\autoref{fig:10.1.1}，计算$\beta$已知时的ARE. （可沿用\autoref{ex:12.6.7}的计算，或自行编程.）
+\item 验证，无论$\beta$已知还是未知，$\operatorname{ARE}(\bar X,\hat\mu)$的比较都相同.
+\item 对$\mu$已知时$\beta$的估计，证明矩估计与最大似然估计相同. （使用$(\alpha,\beta)$参数化可能更容易.）
+\item 对$\mu$未知时$\beta$的估计，矩估计与最大似然估计不同. 用渐近相对效率比较它们，并作出类似\autoref{fig:10.1.1}的图，不同曲线对应不同$\mu$值.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.12}
+验证\hyperref[sec:10.6.1]{杂录10.6.1}的超有效估计量$d_n$渐近正态，其方差在$\theta\ne0$时为$v(\theta)=1$，在$\theta=0$时为$v(\theta)=a^2$. （超有效估计量的更多内容见\hyperref[bib:source200]{Lehmann和Casella，1998}，第6.2节.）
+\end{exercise}
+
+\needspace{6\baselineskip}
+\begin{exercise}\label{exercise:10.13}
+参照\autoref{ex:10.1.19}：
+\begin{enumerate}[label=(\alph*)]
+\item 验证样本$2,4,9,12$的自助法均值和方差分别为6.75与3.94.
+\item\label{item:10.13.b} 验证6.75是原样本的均值.
+\item\label{item:10.13.c} 验证，当除以$n$而非$n-1$时，均值的自助法方差与均值方差的通常估计相同.
+\item 说明如何利用$\binom{4+4-1}{4}=35$个不同的可能重抽样计算自助法均值和标准误.
+\item 对一般样本$X_1,X_2,\ldots,X_n$证明\hyperref[item:10.13.b]{(b)}和\hyperref[item:10.13.c]{(c)}.
+\end{enumerate}
+\end{exercise}
+
+\sourcepageanchor{441}
+\begin{exercise}\label{exercise:10.14}
+在下列各情形中考察参数与非参数自助法. 比较估计结果，讨论这些方法的优缺点.
+\begin{enumerate}[label=(\alph*)]
+\item 参照\autoref{ex:10.1.22}，用非参数自助法估计$S^2$的方差.
+\item 在\autoref{ex:5.6.6}中，实质上已经对泊松样本的$S^2$分布进行了参数自助法. 使用非参数自助法给出该分布的另一幅直方图.
+\item 在\autoref{ex:10.1.18}中考察了伽马均值的估计. 假设来自gamma$(\alpha,\beta)$分布的随机样本为
+$$0.28,0.98,1.36,1.38,2.4,7.42.$$
+使用最大似然法和自助法估计分布的均值与方差.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.15}\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item 证明当$B\to\infty$时，\eqref{eq:10.1.11}中的$\operatorname{Var}_B^*(\hat\theta)$收敛到\eqref{eq:10.1.10}中的$\operatorname{Var}^*(\hat\theta)$.
+\item 固定$B$，对$i=1,2,\ldots$，计算自助法方差$\operatorname{Var}_{B_i}^*(\hat\theta)$. 用大数定律证明当$m\to\infty$时，$(1/m)\sum_{i=1}^m\operatorname{Var}_{B_i}^*(\hat\theta)\to\operatorname{Var}^*(\hat\theta)$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.16}
+对\autoref{ex:10.1.21}的情形，若观测到$\hat p=1/2$，可以使用\autoref{thm:5.5.26}的方差估计. 证明这个方差估计等于$2[\operatorname{Var}(\hat p)]^2$.\footnote{译注：\hyperref[itm:exercise:10.16:a]{(a)}的$.00007$对应一阶Delta近似，而非题干所列二阶形式；\hyperref[itm:exercise:10.16:b]{(b)}的$.00529$也与$n=24,p=11/24$下对二项概率逐项求和所得方差（约$.000271$）不符. 原题数值保留，须核查原书的数值计算或统计量表述.}
+\begin{enumerate}[label=(\alph*)]
+\item\phantomsection\label{itm:exercise:10.16:a} 若观测到$\hat p=11/24$，验证此方差估计为$.00007$.
+\item\phantomsection\label{itm:exercise:10.16:b} 使用模拟，计算$n=24$且$p=11/24$时$\hat p(1-\hat p)$的“精确方差”. 验证它等于$.00529$.
+\item 你认为Delta方法在此情形下为何如此差？二阶Delta方法会更好吗？自助法估计又如何？
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.17}
+\hyperref[bib:source108]{Efron（1982）}分析法学院录取数据，考察LSAT（法学院入学考试，Law School Admission Test）与第一年GPA（平均绩点，Grade Point Average）之间的相关性. 对15所法学院中的每所，得到一对数据（平均LSAT，平均GPA）.\footnote{译注：原表第三对数据写$(5.58,2.81)$，第二行第一对写$(580.3.07)$，均照录；可能分别为$(558,2.81)$与$(580,3.07)$，需与数据来源核实. \hyperref[itm:exercise:10.17:c]{(c)}原文写GRE，但本题分析的是GPA；亦照录.}
+\begin{center}\small
+\begin{tabular}{ccccc}
+$(576,3.39)$&$(635,3.30)$&$(5.58,2.81)$&$(578,3.03)$&$(666,3.44)$\\
+$(580.3.07)$&$(555,3.00)$&$(661,3.43)$&$(651,3.36)$&$(605,3.13)$\\
+$(653,3.12)$&$(575,2.74)$&$(545,2.76)$&$(572,2.88)$&$(594,2.96)$
+\end{tabular}
+\end{center}
+\begin{enumerate}[label=(\alph*)]
+\item 计算LSAT与GPA之间的相关系数.
+\item 使用非参数自助法估计相关系数的标准差，取$B=1000$次重抽样，并画出其直方图.
+\item\phantomsection\label{itm:exercise:10.17:c} 使用参数自助法估计相关系数的标准差. 假设(LSAT, GRE)服从二元正态分布，估计五个参数. 再从这个二元正态分布生成1,000个各含15对数据的样本.
+\item\label{item:10.17.d}\index{SI0274@相关}\index{SI0775@极限分布} 若$(X,Y)$服从相关系数为$\rho$的二元正态分布，样本相关系数为$r$，则可用Delta方法证明
+$$\sqrt n(r-\rho)\longrightarrow\mathrm n(0,(1-\rho^2)^2).$$
+用此事实估计$r$的标准差. 它与自助法估计相比如何？画出$r$的近似pdf.
+\item\label{item:10.17.e}\index{SI1039@Fisher的z变换} Fisher的$z$变换是相关系数的方差稳定变换（variance stabilizing transformation，见\autoref{exercise:11.4}）. 若$(X,Y)$服从相关系数为$\rho$的二元正态分布，样本相关系数为$r$，则
+$$\frac12\left[\log\left(\frac{1+r}{1-r}\right)-\log\left(\frac{1+\rho}{1-\rho}\right)\right]$$
+近似正态. 用此事实画出$r$的近似pdf.
+\end{enumerate}
+（建立\hyperref[item:10.17.d]{(d)}的正态性结果需要一些繁琐的矩阵计算，见\hyperref[bib:source200]{Lehmann和Casella，1998}，例6.5. \hyperref[item:10.17.e]{(e)}的$z$变换比\hyperref[item:10.17.d]{(d)}的Delta方法更快地收敛到正态分布. \hyperref[bib:source99]{Diaconis和Holmes，1994}，对此问题做了穷尽的自助法计算，枚举全部77,558,760个相关系数.）
+\end{exercise}
+
+\sourcepageanchor{442}
+\begin{exercise}\label{exercise:10.18}
+对\hyperref[ex:10.2.1]{习题10.2.1}的情形，即$X_1,X_2,\ldots,X_n$独立同分布，其中$X_i$以概率$1-\delta$服从$\mathrm n(\theta,\sigma^2)$，以概率$\delta$服从$f(x)$，而$f(x)$为任意均值$\mu$、方差$\tau^2$的密度，证明
+$$\operatorname{Var}(\bar X)=(1-\delta)\frac{\sigma^2}n+\delta\frac{\tau^2}n+\frac{\delta(1-\delta)(\theta-\mu)^2}n.$$
+并推出柯西pdf的污染总会导致无穷方差. （提示：将混合模型写成分层模型. 令$Y$以概率$1-\delta$为0、以概率$\delta$为1. 则$\operatorname{Var}(X_i)=E[\operatorname{Var}(X_i)\mid Y]+\operatorname{Var}(E[X_i\mid Y])$.）\footnote{译注：原题称“习题10.2.1”，对应正文实际为\autoref{ex:10.2.1}. 提示第一项条件位置原文如上，按全方差公式应为$E[\operatorname{Var}(X_i\mid Y)]$. 此处保留原文.}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.19}
+基础假设还可能因抽样中的相关性而被违反，这会严重影响样本均值的性质. 假设在\hyperref[ex:10.2.1]{习题10.2.1}所讨论的情形中引入相关性，即观测$X_1,X_2,\ldots,X_n$，各$X_i\sim\mathrm n(\theta,\sigma^2)$，但不再独立.\footnote{译注：原题“习题10.2.1”应指\autoref{ex:10.2.1}. \hyperref[item:10.19.b]{(b)}方差式中括号内的加号与协方差求和不符，通常应为$n-(1-\rho^n)/(1-\rho)$；\hyperref[itm:exercise:10.19:c]{(c)}还需初始变量处于平稳分布，且与后续创新独立，才能得出所列相关式. 原题均保留.}
+\begin{enumerate}[label=(\alph*)]
+\item 对等相关情形，即$i\ne j$时$\operatorname{Corr}(X_i,X_j)=\rho$，证明
+$$\operatorname{Var}(\bar X)=\frac{\sigma^2}n+\frac{n-1}n\rho\sigma^2,$$
+因此$n\to\infty$时$\operatorname{Var}(\bar X)\not\to0$.
+\item\label{item:10.19.b} 若沿时间（或距离）观测$X_i$，有时假设相关性随时间（或距离）减小，一个具体模型是$\operatorname{Corr}(X_i,X_j)=\rho^{|i-j|}$. 证明在这种情形下
+$$\operatorname{Var}(\bar X)=\frac{\sigma^2}n+\frac{2\sigma^2}{n^2}\frac\rho{1-\rho}\left(n+\frac{1-\rho^n}{1-\rho}\right),$$
+所以$n\to\infty$时$\operatorname{Var}(\bar X)\to0$. （相关性的另一影响见\hyperref[sec:5.8.2]{杂录5.8.2}.）
+\item\phantomsection\label{itm:exercise:10.19:c}\index{SI0072@自回归模型} \hyperref[item:10.19.b]{(b)}的相关结构出现在自回归AR(1)模型（autoregressive AR(1) model）中，假设$X_{i+1}=\rho X_i+\delta_i$，其中$\delta_i$独立同分布于$\mathrm n(0,1)$. 若$|\rho|<1$，定义$\sigma^2=1/(1-\rho^2)$，证明$\operatorname{Corr}(X_1,X_i)=\rho^{i-1}$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.20}\index{SI0100@崩溃值}
+参照关于崩溃值的\autoref{def:10.2.2}，证明：
+\begin{enumerate}[label=(\alph*)]
+\item 若$T_n=\bar X_n$为样本均值，证明$b=0$.
+\item 若$T_n=M_n$为样本中位数，证明$b=.5$.
+
+在敏感性方面介于均值与中位数之间的估计量是\index{SI0929@截尾}\semanticindexanchor{929:442}\index{SI1042@截尾均值}\semanticindexanchor{1042:442}$\alpha$截尾均值（$\alpha$-trimmed mean），$0<\alpha<1/2$，定义如下：删去最小的$\alpha n$个观测和最大的$\alpha n$个观测，取剩余观测的算术平均，得到$\bar X_n^\alpha$.
+\item 若$T_n=\bar X_n^\alpha$为样本的$\alpha$截尾均值，$0<\alpha<1/2$，证明$0<b<1/2$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.21}\index{SI0805@中位数绝对偏差}
+均值与中位数的崩溃表现也延续到对应的尺度估计量. 对样本$X_1,\allowbreak X_2,\allowbreak\ldots,\allowbreak X_n$：
+\begin{enumerate}[label=(\alph*)]
+\item 证明样本方差$S^2=\sum(X_i-\bar X)^2/(n-1)$的崩溃值为0.
+\item 一种稳健替代量是中位数绝对偏差（median absolute deviation，MAD），即$|X_1-m|,|X_2-m|,\ldots,|X_n-m|$的中位数，其中$m$为样本中位数. 证明该估计量的崩溃值为50\%.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.22}
+本题考察\autoref{ex:10.2.3}的若干细节.
+\begin{enumerate}[label=(\alph*)]
+\item 验证若$n$为奇数，则
+$$P\bigl(\sqrt n(M_n-\mu)\leq a\bigr)=P\left(\frac{\sum_iY_i-np_n}{\sqrt{np_n(1-p_n)}}\geq\frac{(n+1)/2-np_n}{\sqrt{np_n(1-p_n)}}\right).$$
+\item 验证$p_n\to p=F(\mu)=1/2$，且
+$$\frac{(n+1)/2-np_n}{\sqrt{np_n(1-p_n)}}\longrightarrow-2aF'(\mu)=-2af(\mu).$$
+（提示：证明$[(n+1)/2-np_n]/\sqrt n$是导数的极限形式.）
+\sourcepageanchor{443}
+\item 解释如何从
+$$P\bigl(\sqrt n(M_n-\mu)\leq a\bigr)\longrightarrow P(Z\geq-2af(\mu))$$
+得到$\sqrt n(M_n-\mu)$渐近正态、均值为0、方差为$1/[2f(\mu)]^2$的结论.
+\end{enumerate}
+（注意，只有$p_n$不依赖$n$时，中心极限定理才可直接应用. 由于这里确实依赖$n$，要严格得出极限正态性还需更多工作. 完成这些工作后，结果与预期一致.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.23}\index{SI0386@Tukey}\index{SI0916@Tukey模型}
+本题进一步考察中位数相对于均值的ARE，即$\operatorname{ARE}(M_n,\bar X)$.
+\begin{enumerate}[label=(\alph*)]
+\item 验证\autoref{ex:10.2.4}给出的三个ARE.
+\item 证明$\operatorname{ARE}(M_n,\bar X)$不受尺度变化影响，即基础pdf为$f(x)$还是$(1/\sigma)f(x/\sigma)$没有区别.
+\item 当基础分布为自由度$\nu$的Student $t$分布时，对$\nu=3,5,10,25,50,\infty$计算$\operatorname{ARE}(M_n,\bar X)$. 关于ARE与分布尾部，你能得出什么结论？
+\item 当基础pdf为Tukey模型
+$$X\sim\begin{cases}\mathrm n(0,1),&\text{概率为$1-\delta$},\\\mathrm n(0,\sigma^2),&\text{概率为$\delta$},\end{cases}$$
+时，计算$\operatorname{ARE}(M_n,\bar X)$. 对一系列$\delta$和$\sigma$计算ARE. 关于均值和中位数的相对表现，你能得出什么结论？
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.24}
+假设$\theta_0$满足$E_{\theta_0}\psi(X-\theta_0)=0$，证明\eqref{eq:10.2.4}与\eqref{eq:10.2.5}蕴含\eqref{eq:10.2.6}.
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.25}
+若$f(x)$是关于0对称的pdf，$\rho$为对称函数，证明$\int\psi(x-\theta)f(x-\theta)\,dx=0$，其中$\psi=\rho'$. 再证明，这意味着若$X_1,X_2,\ldots,X_n$独立同分布于$f(x-\theta)$，$\hat\theta_M$为$\sum_i\rho(x_i-\theta)$的极小化点，则$\hat\theta_M$渐近正态，其均值等于$\theta$的真值.
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.26}
+考察\autoref{ex:10.2.6}计算的若干细节.
+\begin{enumerate}[label=(\alph*)]
+\item 验证$E_\theta\psi'(X-\theta)$与$E_\theta[\psi(X-\theta)]^2$的表达式，从而验证$\hat\theta_M$的方差公式.
+\item 计算$\psi'$的期望时，注意到$\psi$并非处处可微，但可处理其中可微的部分. 另一种做法是注意$\psi$的期望可微，在\eqref{eq:10.2.5}中可以写为
+$$\frac1n\sum_{i=1}^n\psi'(x_i-\theta_0)\longrightarrow\left.\frac d{d\theta_0}E_\theta\psi(X-\theta_0)\right|_{\theta_0=\theta}.$$
+证明这与\eqref{eq:10.2.5}的极限相同.\footnote{译注：按函数自变量求导的撇号约定，右侧关于$\theta_0$的导数应带负号；这与\autoref{sec:10.2.2}的符号疑误相同. 原式保留.}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.27}
+对\autoref{ex:10.6.2}的情形：\footnote{译注：\hyperref[itm:exercise:10.27:b]{(b)}中的中位数分段式未单列中位数恰等于污染点$x$的中间情形；原式照录，待核实端点约定.}
+\begin{enumerate}[label=(\alph*)]
+\item 验证$IF(\bar X,x)=x-\mu$.
+\item\phantomsection\label{itm:exercise:10.27:b} 对中位数，若$P(X\leq m)=1/2$，则$T(F)=m$，或$m=F^{-1}(1/2)$. 若$X\sim F_\delta$，证明
+$$P(X\leq a)=\begin{cases}(1-\delta)F(a),&x>a,\\(1-\delta)F(a)+\delta,&\text{其他},\end{cases}$$
+从而
+$$T(F_\delta)=\begin{cases}F^{-1}\left(\dfrac1{2(1-\delta)}\right),&x>F^{-1}\left(\dfrac1{2(1-\delta)}\right),\\F^{-1}\left(\dfrac{1/2-\delta}{1-\delta}\right),&\text{其他}.
+\end{cases}$$
+\item 证明
+$$\frac1\delta\left[F^{-1}\left(\frac1{2(1-\delta)}\right)-F^{-1}\left(\frac12\right)\right]\longrightarrow\frac1{2f(m)},$$
+并完成计算$IF(M,x)$的论证.
+
+（提示：写成$a_\delta=F^{-1}\left(\frac1{2(1-\delta)}\right)$，说明此极限为$a'_\delta|_{\delta=0}$. 后者可用隐函数求导及$(1-\delta)^{-1}=2F(a_\delta)$计算.）
+\end{enumerate}
+\end{exercise}
+
+\sourcepageanchor{444}
+\begin{exercise}\label{exercise:10.28}
+证明：若$\rho$由\eqref{eq:10.2.2}定义，则$\rho$与$\rho'$均连续.
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.29}\index{SI0794@渐近有效}
+由\eqref{eq:10.2.9}，知道$M$估计量不可能比最大似然估计量更有效. 不过，也知道何时能同样有效.
+\begin{enumerate}[label=(\alph*)]
+\item 证明：若取$\psi(x-\theta)=cl'(\theta\mid x)$，其中$l$为对数似然，$c$为常数，则\eqref{eq:10.2.9}取等号.
+\item 对下列各分布，验证对应的$\psi$函数给出渐近有效的$M$估计量.
+\begin{enumerate}[label=(\roman*)]
+\item 正态：$f(x)=e^{-x^2/2}/\sqrt{2\pi}$，$\psi(x)=x$.
+\item 逻辑斯蒂：$f(x)=e^{-x}/(1+e^{-x})^2$，$\psi(x)=\tanh(x)$，其中$\tanh(x)$为双曲正切（hyperbolic tangent）.\footnote{译注：所列逻辑斯蒂密度的位置得分与$\tanh(x/2)$成比例，而非$\tanh(x)$. 此处原式保留.}
+\item 柯西：$f(x)=[\pi(1+x^2)]^{-1}$，$\psi(x)=2x/(1+x^2)$.
+\item 最少信息分布（least informative distribution）：
+$$f(x)=\begin{cases}Ce^{-x^2/2},&|x|\leq c,\\Ce^{-c|x|+c^2/2},&|x|>c,\end{cases}$$
+对应$\psi(x)=\max\{-c,\min(c,x)\}$，$C$与$c$为常数.
+\end{enumerate}
+\end{enumerate}
+（更多细节见\hyperref[bib:source171]{Huber，1981}，第3.5节.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.30}
+对$M$估计量，$\psi$函数与崩溃值之间存在联系. 细节相当复杂（\hyperref[bib:source171]{Huber，1981}，第3.2节），但可以概括为：若$\psi$有界，则对应$M$估计量的崩溃值为
+$$b^*=\frac\eta{1+\eta},\quad\text{其中}\quad\eta=\min\left\{-\frac{\psi(-\infty)}{\psi(\infty)},-\frac{\psi(\infty)}{\psi(-\infty)}\right\}.$$
+\begin{enumerate}[label=(\alph*)]
+\item 计算\autoref{exercise:10.29}中有效$M$估计量的崩溃值. 哪些既有效又稳健？
+\item\label{item:10.30.b} 计算下列其他$M$估计量的崩溃值：
+\begin{enumerate}[label=(\roman*)]
+\item \eqref{eq:10.2.1}给出的Huber估计量.
+\item Tukey双权函数（Tukey's biweight）：$|x|\leq c$时$\psi(x)=x(c^2-x^2)$，其他情形为0，其中$c$为常数.
+\item Andrews正弦波（Andrew's sine wave）：$|x|\leq c\pi$时$\psi(x)=c\sin(x/c)$，其他情形为0.
+\end{enumerate}
+\item 当基础分布为(i)正态、(ii)双指数时，评价\hyperref[item:10.30.b]{(b)}中估计量相对于MLE的ARE.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.31}\index{SI0106@独立性卡方检验}\index{SI0197@列联表}\index{SI0491@列联表}
+从多个总体采集的二项数据常以列联表（contingency table）呈现. 对两个总体，表格可能如下：
+\begin{center}
+\begin{tabular}{lccr}
+&\multicolumn{2}{c}{总体}&\\
+&1&2&合计\\\cline{2-3}
+成功&\multicolumn{1}{|c|}{$S_1$}&\multicolumn{1}{c|}{$S_2$}&$S=S_1+S_2$\\
+失败&\multicolumn{1}{|c|}{$F_1$}&\multicolumn{1}{c|}{$F_2$}&$F=F_1+F_2$\\\cline{2-3}
+合计&$n_1$&$n_2$&$n=n_1+n_2$
+\end{tabular}
+\end{center}
+其中总体1为binomial$(n_1,p_1)$，有$S_1$次成功与$F_1$次失败；总体2为binomial$(n_2,p_2)$，有$S_2$次成功与$F_2$次失败. 通常感兴趣的假设为
+$$H_0:p_1=p_2\qquad\text{对}\qquad H_1:p_1\ne p_2.$$
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:10.31.a} 证明可以基于统计量
+$$T=\frac{(\hat p_1-\hat p_2)^2}{\left(\frac1{n_1}+\frac1{n_2}\right)\bigl(\hat p(1-\hat p)\bigr)}$$
+建立检验，其中$\hat p_1=S_1/n_1$、$\hat p_2=S_2/n_2$、$\hat p=(S_1+S_2)/(n_1+n_2)$. 再证明当$n_1,n_2\to\infty$时，$T$的分布趋于$\chi_1^2$. （这是称为独立性卡方检验，chi squared test of independence，的一类检验的特例.）
+\sourcepageanchor{445}
+\item 另一种衡量偏离$H_0$程度的方法是计算期望频数表（expected frequency table）. 以边际合计为条件，按照$H_0:p_1=p_2$填表，即
+\begin{center}
+\renewcommand{\arraystretch}{1.7}
+\begin{tabular}{lccr}
+&\multicolumn{2}{c}{期望频数}&\\
+&1&2&合计\\\cline{2-3}
+成功&\multicolumn{1}{|c|}{$\dfrac{n_1S}{n_1+n_2}$}&\multicolumn{1}{c|}{$\dfrac{n_2S}{n_1+n_2}$}&$S=S_1+S_2$\\\cline{2-3}
+失败&\multicolumn{1}{|c|}{$\dfrac{n_1F}{n_1+n_2}$}&\multicolumn{1}{c|}{$\dfrac{n_2F}{n_1+n_2}$}&$F=F_1+F_2$\\\cline{2-3}
+合计&$n_1$&$n_2$&$n=n_1+n_2$
+\end{tabular}
+\end{center}
+利用期望频数表，逐个单元计算并求和，得到统计量$T^*$：
+$$\begin{aligned}
+T^*&=\sum\frac{(\text{观测值}-\text{期望值})^2}{\text{期望值}}\\
+&=\frac{\left(S_1-\frac{n_1S}{n_1+n_2}\right)^2}{\frac{n_1S}{n_1+n_2}}+\cdots+\frac{\left(F_2-\frac{n_2F}{n_1+n_2}\right)^2}{\frac{n_2F}{n_1+n_2}}.
+\end{aligned}$$
+用代数方法证明$T^*=T$，从而$T^*$渐近服从卡方分布.
+\item 另一个可用来检验$p_1$和$p_2$相等的统计量为
+$$T^{**}=\frac{\hat p_1-\hat p_2}{\sqrt{\frac{\hat p_1(1-\hat p_1)}{n_1}+\frac{\hat p_2(1-\hat p_2)}{n_2}}}.$$
+证明在$H_0$下，$T^{**}$渐近服从$\mathrm n(0,1)$，因此其平方渐近服从$\chi_1^2$. 再证明$(T^{**})^2\ne T^*$.
+\item 在什么情况下，一个统计量优于另一个？
+\item 19世纪后期，Joseph Lister进行了一项著名的医学实验. 当时手术相关死亡率很高，Lister猜想使用消毒剂石炭酸会有所帮助. 数年间，Lister完成75例使用或不使用石炭酸的截肢手术，数据如下：
+\begin{center}
+\begin{tabular}{llcc}
+&&\multicolumn{2}{c}{是否使用石炭酸？}\\
+&&是&否\\\cline{3-4}
+患者是否存活？&是&\multicolumn{1}{|c|}{34}&\multicolumn{1}{c|}{19}\\\cline{3-4}
+&否&\multicolumn{1}{|c|}{6}&\multicolumn{1}{c|}{16}\\\cline{3-4}
+\end{tabular}
+\end{center}
+用这些数据检验使用石炭酸是否与患者死亡有关.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.32}\index{SI0485@渐近}\index{SI0499@McNemar检验}\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item 设$(X_1,\ldots,X_n)\sim\operatorname{multinomial}(m,p_1,\ldots,p_n)$. 考虑检验$H_0:p_1=p_2$对$H_1:p_1\ne p_2$. 一个常用的检验称为McNemar检验（McNemar's Test），在
+$$\frac{(X_1-X_2)^2}{X_1+X_2}>\chi_{1,\alpha}^2$$
+时拒绝$H_0$. 证明这个检验统计量具有如下形式（如\autoref{exercise:10.31}）：
+$$\sum_1^n\frac{(\text{观测值}-\text{期望值})^2}{\text{期望值}},$$
+其中$X_i$是观测单元频数，期望单元频数是在$p_1=p_2$假设下$mp_i$的MLE.
+\sourcepageanchor{446}
+\item McNemar检验常用于以下类型的问题. 先问受试者赞成还是反对某个陈述，再让他们阅读与该陈述有关的信息，随后再次询问赞成还是反对. 各类别回答人数汇总于如下$2\times2$表：
+\begin{center}
+\begin{tabular}{llcc}
+&&\multicolumn{2}{c}{之前}\\
+&&赞成&反对\\\cline{3-4}
+之后&赞成&\multicolumn{1}{|c|}{$X_3$}&\multicolumn{1}{c|}{$X_2$}\\\cline{3-4}
+&反对&\multicolumn{1}{|c|}{$X_1$}&\multicolumn{1}{c|}{$X_4$}\\\cline{3-4}
+\end{tabular}
+\end{center}
+假设$H_0:p_1=p_2$意味着，从赞成改为反对者的比例，与从反对改为赞成者的比例相同. 另一种可检验的假设是：最初赞成的人中改变意见的比例，与最初反对的人中改变意见的比例相同. 用条件概率表达这个假设，证明它不同于上述$H_0$. （此假设可用类似\autoref{exercise:10.31}的$\chi^2$检验检验.）
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.33}
+补全\autoref{thm:10.3.1}中的空缺. 用\autoref{thm:10.1.12}及Slutsky定理（\autoref{thm:5.5.17}）证明$(\theta-\hat\theta)/\sqrt{-l''(\hat\theta\mid\boldsymbol x)}\to\mathrm n(0,1)$，从而$-2\log\lambda(\boldsymbol X)\to\chi_1^2$.\footnote{译注：原题除以观测信息量的平方根，与\autoref{thm:10.3.1}证明中的同一疑误相连；通常应乘以该平方根，或除以其倒数. 原式保留.}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.34}
+检验$H_0:p=p_0$对$H_1:p\ne p_0$，假设观测到独立同分布于Bernoulli$(p)$的$X_1,\ldots,X_n$.
+\begin{enumerate}[label=(\alph*)]
+\item 导出$-2\log\lambda(\boldsymbol x)$的表达式，其中$\lambda(\boldsymbol x)$为LRT统计量.
+\item 像\autoref{ex:10.3.2}一样，模拟$-2\log\lambda(\boldsymbol x)$的分布，与$\chi^2$近似比较.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.35}
+设$X_1,\ldots,X_n$为$\mathrm n(\mu,\sigma^2)$总体的随机样本.
+\begin{enumerate}[label=(\alph*)]
+\item 若$\mu$未知、$\sigma^2$已知，证明$Z=\sqrt n(\bar X-\mu_0)/\sigma$是检验$H_0:\mu=\mu_0$的Wald统计量.
+\item 若$\sigma^2$未知、$\mu$已知，求检验$H_0:\sigma=\sigma_0$的Wald统计量.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.36}
+设$X_1,\ldots,X_n$为gamma$(\alpha,\beta)$总体的随机样本，假设$\alpha$已知、$\beta$未知. 考虑检验$H_0:\beta=\beta_0$.
+\begin{enumerate}[label=(\alph*)]
+\item $\beta$的MLE是什么？
+\item\label{item:10.36.b} 导出检验$H_0$的Wald统计量，在统计量的分子与分母中都使用MLE.
+\item 重做\hyperref[item:10.36.b]{(b)}，但在标准误中使用样本标准差.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.37}
+设$X_1,\ldots,X_n$为$\mathrm n(\mu,\sigma^2)$总体的随机样本.
+\begin{enumerate}[label=(\alph*)]
+\item 若$\mu$未知、$\sigma^2$已知，证明$Z=\sqrt n(\bar X-\mu_0)/\sigma$是检验$H_0:\mu=\mu_0$的得分统计量.
+\item 若$\sigma^2$未知、$\mu$已知，求检验$H_0:\sigma=\sigma_0$的得分统计量.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.38}
+设$X_1,\ldots,X_n$为gamma$(\alpha,\beta)$总体的随机样本，假设$\alpha$已知、$\beta$未知. 考虑检验$H_0:\beta=\beta_0$，导出检验$H_0$的得分统计量.
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.39}
+扩展\autoref{ex:10.3.7}中的比较.
+\begin{enumerate}[label=(\alph*)]
+\item 另一种基于Huber $M$估计量的检验，可以使用\eqref{eq:10.3.6}的方差估计. 考察这种检验统计量的表现，评价它作为\eqref{eq:10.3.8}或\eqref{eq:10.3.9}替代量的优点（或不足）.
+\item 另一种基于Huber $M$估计量的检验，可以使用自助法计算的方差. 考察这种检验统计量的表现.
+\item $\hat\theta_M$的一个稳健竞争者是中位数. 考察基于中位数的位置参数检验的表现.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.40}
+在\autoref{ex:10.4.5}中看到，泊松假设结合中心极限定理，可以基于
+$$\frac{\bar X-\lambda}{\sqrt{\lambda/n}}\longrightarrow\mathrm n(0,1)$$
+构造近似区间.
+\sourcepageanchor{447}
+证明，根据\hyperref[bib:source330]{Wilks（1938）}，该近似最优. 即证明
+$$\frac{\bar X-\lambda}{\sqrt{\lambda/n}}=\frac{\frac\partial{\partial\lambda}\log L(\lambda\mid\boldsymbol X)}{\sqrt{-E_\lambda\left(\frac{\partial^2}{\partial\lambda^2}\log L(\lambda\mid\boldsymbol X)\right)}}.$$
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.41}
+设$X_1,\ldots,X_n$独立同分布于negative binomial$(r,p)$. 希望为负二项分布参数构造近似置信区间.
+\begin{enumerate}[label=(\alph*)]
+\item 计算Wilks近似\eqref{eq:10.4.3}，说明如何用此表达式构造置信区间.
+\item\label{item:10.41.b} 求负二项分布均值的一个近似$1-\alpha$置信区间. 说明如何在区间中加入连续性校正.
+\item \autoref{exercise:9.23}的蚜虫数据也可以用负二项分布建模. 利用\hyperref[item:10.41.b]{(b)}的结果，对蚜虫数据构造近似90\%置信区间，与\autoref{exercise:9.23}基于泊松分布的区间比较.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.42}
+证明\eqref{eq:10.4.5}等价于最高似然区域\eqref{eq:9.2.7}，即对任意固定$\alpha$水平，它们产生相同置信集.
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.43}
+在\autoref{ex:10.4.7}中，对Wald区间作了两项修正.
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:10.43.a} 当$y=0$时，将上端点改为$1-(\alpha/2)^{1/n}$；当$y=n$时，将下端点改为$(\alpha/2)^{1/n}$. 说明选取这些端点的理由. （提示：\autoref{sec:9.2.3}.）
+\item 第二项修正是将所有区间截断在$[0,1]$内. 证明这个改变结合\hyperref[item:10.43.a]{(a)}的改变，改进了原Wald区间.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.44}
+\hyperref[bib:source3]{Agresti和Coull（1998）}“强烈推荐”二项参数的得分区间，但担心像\eqref{eq:10.4.7}这样的公式对初等统计课程而言有些令人生畏. 为以更简单公式产生合理的二项区间，他们建议对Wald区间作如下修正：增加两次成功与两次失败，再使用原Wald公式\eqref{eq:10.4.8}. 即用$\hat p=(y+2)/(n+4)$代替$\hat p=y/n$. 从长度与覆盖概率两方面，将此区间与二项得分区间比较. 你是否同意它是得分区间的合理替代？
+
+（\hyperref[bib:source271]{Samuels和Lu，1992}，建议了另一种基于样本量的Wald区间修正.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.45}
+解出\autoref{ex:10.4.6}所给带连续性校正的近似二项置信区间端点. 证明该区间比不带连续性校正的对应区间更宽，且经过校正的区间具有一致更高的覆盖概率. （事实上，未校正区间的覆盖概率不能保持$1-\alpha$，会在一些参数值处低于此水平. 经过校正的区间则对所有参数值都保持大于$1-\alpha$的覆盖概率.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.46}
+扩展\autoref{ex:10.4.8}中的比较.
+\begin{enumerate}[label=(\alph*)]
+\item 制作类似\autoref{tab:10.4.8}的表，考察基于中位数的位置参数区间的稳健性. （基于均值的区间已在\autoref{tab:10.4.7}中完成.）
+\item 另一种基于Huber $M$估计量的区间，可以使用自助法计算的方差. 考察这种区间的稳健性.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.47}
+设$X_1,\ldots,X_n$独立同分布于negative binomial$(r,p)$.
+\begin{enumerate}[label=(\alph*)]
+\item 补全\autoref{ex:10.4.9}的细节，即证明对小$p$，区间
+$$\left\{p:\frac{\chi_{2nr,1-\alpha/2}^2}{2\sum x}\leq p\leq\frac{\chi_{2nr,\alpha/2}^2}{2\sum x}\right\}$$
+是近似$1-\alpha$置信区间.
+\item 说明如何选择端点以获得最短的$1-\alpha$区间.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:10.48}
+对Fieller置信集的情形（见\hyperref[sec:9.5.3]{杂录9.5.3}），即给定来自参数为$(\mu_X,\allowbreak\mu_Y,\allowbreak\sigma_X^2,\allowbreak\sigma_Y^2,\allowbreak\rho)$的二元正态分布的随机样本$(X_1,Y_1),\allowbreak\ldots,\allowbreak(X_n,Y_n)$，求$\theta=\mu_Y/\mu_X$的近似置信区间. 使用\autoref{ex:5.5.27}中的近似矩计算并应用中心极限定理.
+\end{exercise}

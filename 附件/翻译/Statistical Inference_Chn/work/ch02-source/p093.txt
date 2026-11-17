@@ -1,0 +1,46 @@
+62                              TRANSFORMATIONS AND EXPECTATIONS
+Here we (justifiably) pull the derivative through the finite sum. Calculating this derivative gives
+
+                        n
+                    = (1−(1−θ)n+1)−(n+1)θ(1−θ)n ,        ∑ θx(1−θ)x−1                θ                   x=0
+
+and, hence,
+             Sn(θ) =  1−(1−θ)n+1                           θ     −(1−(1−θ)n+1)−(n+1)θ(1−θ)nθ
+            =                     (n+1)(1−θ)n.
+It is clear that, for 0 < θ < 1, S∞= limn→∞Sn(θ) = 0. Since Sn(θ) is continuous, the convergence
+is uniform on any closed bounded interval. Therefore, the series of derivatives converges uniformly
+and the interchange of differentiation and summation is justified.                          ∥
+  We close this section with a theorem that is similar to Theorem 2.4.8, but treats the case of
+interchanging the order of summation and integration.
+Theorem 2.4.10  Suppose the series ∑∞x=0 h(θ,x) converges uniformly on [a,b] and that, for each
+x, h(θ,x) is a continuous function of θ. Then
+
+                                    b ∞           ∞    b
+                         =             ∑ h(θ,x)dθ                    ∑   h(θ,x)dθ.
+                                  a x=0            x=0  a
+
+
+2.5  Exercises
+  2.1 In each of the following find the pdf of Y. Show that the pdf integrates to 1.
+       (a) Y = X3 and fX(x) = 42x5(1−x), 0 < x < 1.
+      (b) Y = 4X +3 and fX(x) = 7e−7x, 0 < x < ∞.
+       (c) Y = X2 and fX(x) = 30x2(1−x)2, 0 < x < 1.
+      (See Example 12.6.2 in the Computer Algebra appendix.)
+  2.2 In each of the following find the pdf of Y.
+       (a) Y = X2 and fX(x) = 1, 0 < x < 1.
+      (b) Y = −logX and X has pdf
+                     (n+m+1)!
+                               < x < 1,  m,n positive integers.                      fX(x) =                            n!m!   xn(1−x)m,  0
+
+       (c) Y = eX and X has pdf
+
+                             1                         fX(x) =    xe−(x/σ)2/2,  0 < x < ∞,  σ2 a positive constant.                          σ2
+
+                                                   1  2  x  2.3 Suppose X has the geometric pmf, fX(x) = 3  3    , x = 0,1,2,... . Determine the probability distribution
+      of Y = X/(X +1). Note that here both X and Y are discrete random variables. To specify the probability
+      distribution of Y, specify its pmf.
+
+                                                        =  2.4 Let                                                                          1       λ be a fixed positive constant, and define the function f(x) by f(x) = 2λe−λx if x ≥0 and f(x)       1     2λeλx if x < 0.
+       (a) Verify that f(x) is a pdf.
+      (b)  If X is a random variable with pdf given by f(x), find P(X < t) for all t. Evaluate all integrals.
+       (c) Find P(|X| < t) for all t. Evaluate all integrals.

@@ -1,0 +1,45 @@
+MULTIVARIATE DISTRIBUTIONS                                              151
+                                                                                                                                                                                           i ).Corollary 4.6.10   Let X1,...,Xn be mutually independent random variables with Xi ∼n(µi,σ2Let a1,...,an and b1,...,bn be fixed constants. Then
+
+                                 n                     n               n
+                                                                                                          .                  Z =           ∑ (aiXi +bi)   ∑ (aiµi +bi), ∑ a2i σ2i                              i=1      ∼n  i=1            i=1
+Proof: Recall that the mgf of a n(µ,σ2) random variable is M(t) = eµt+σ2t2/2. Substituting into the
+expression in Corollary 4.6.9 yields
+
+                =                                      (et(Σbi))eµ1a1t+σ21 a2                   MZ(t)
+
+                                                                                                                              i                =                                                            1t2/2·····eµnant+σ2nσ2i )t2/2),             a2nt2/2                                        e((Σ(aiµi+bi))t+(Σa2
+
+the mgf of the indicated normal distribution.                            2
+Theorem 4.6.11 (Generalization of Lemma 4.2.7)   Let X1,...,Xn be random vectors. Then
+X1,...,Xn are mutually independent random vectors if and only if there exist functions gi(xi),i =
+1,...,n, such that the joint pdf or pmf of (X1,...,Xn) can be written as
+                                f(x1,...,xn) = g1(x1)·····gn(xn).
+
+Theorem 4.6.12 (Generalization of Theorem 4.3.5)  Let X1,...,Xn be independent random vec-
+tors. Let gi(xi) be a function only of xi,i = 1, ...,n. Then the random variables Ui = gi(Xi),i =
+1,...,n, are mutually independent.
+  We close this section by describing the generalization of a technique for finding the distribution
+of a transformation of a random vector. We will present the generalization of formula (4.3.6) that
+gives the pdf of the new random vector in terms of the pdf of the original random vector. Note that to
+fully understand the remainder of this section, some knowledge of matrix algebra is required. (See,
+for example, Searle (1982).) In particular, we will need to compute the determinant of a matrix. This
+is the only place in the book where such knowledge is required.
+   Let (X1,...,Xn) be a random vector with pdf fX(x1,...,xn). Let A = {x : fX(x) > 0}. Considera new random vector, (U1,...,Un), defined by U1 = g1(X1,...,Xn),U2 = g2(X1,...,Xn),...,Un =
+gn(X1,...,Xn). Suppose  that  A0,A1,...,Ak  form  a  partition  of A  with  these  properties.
+The  set A0, which may be empty,  satisfies P((X1,...,Xn) ∈A0) = 0. The transformation(U1,...,Un) = (g1(X),...,gn(X))  is a one-to-one transformation from Ai onto B  for each
+i = 1,2,...,k. Then  for each  i,  the  inverse  functions from B  to  Ai can be found. De-
+note the ith inverse by x1 = h1i(u1,...,un), x2 = h2i(u1,...,un),...,xn = hni(u1,...,un). This
+ith inverse gives, for (u1,...,un) ∈B, the unique (x1,...,xn) ∈Ai such that (u1,...,un) =(g1(x1,...,xn),...,gn(x1,...,xn)). Let Ji denote the Jacobian computed from the ith inverse. That
+is,
+                 ∂x1   ∂x1       ∂x1     ∂h1i(u)   ∂h1i(u)        ∂h1i(u)
+                ∂u1   ∂u2   ···  ∂un      ∂u1      ∂u2      ···    ∂un
+                 ∂x2   ∂x2       ∂x2     ∂h2i(u)   ∂h2i(u)        ∂h2i(u)
+                   Ji = ∂u1   ∂u2   ···  ∂un =   ∂u1      ∂u2      ···    ∂un     ,
+                                                                                                         ...                              ...      ...                      ...                                                 ...                                                 ...        ...                               ...
+                 ∂xn   ∂xn       ∂xn     ∂hni(u)   ∂hni(u)        ∂hni(u)
+                ∂u1   ∂u2   ···  ∂un      ∂u1      ∂u2      ···    ∂un
+the determinant of an n×n matrix. Assuming that these Jacobians do not vanish identically on B,
+we have the following representation of the joint pdf, fU(u1,...,un), for u ∈B:
+                                             k
+                                                                                                 (4.6.7)                  fU(u1,...,un) = ∑                                     i=1 fX(h1i(u1,...,un),...,hni(u1,...,un))|Ji|.

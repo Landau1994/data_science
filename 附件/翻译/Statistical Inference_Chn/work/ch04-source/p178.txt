@@ -1,0 +1,49 @@
+MULTIVARIATE DISTRIBUTIONS                                              147
+   Using (4.6.4), we can obtain the marginal pdf of (X1,X2) by integrating out the variables x3 and
+x4 to obtain
+                         ∞  ∞
+               f(x1,x2) =                           dx4
+                       −∞1  −∞f(x1,x2,x3,x4)dx31                              3                        3          1
+             =                                                                               1 +x22)+                                             1 +x22 +x23 +x24)dx3 dx4 = 4(x2                                                                  2                                  0   0 4(x2
+
+for 0 < x1 < 1 and 0 < x2 < 1. Any probability or expected value that involves only X1 and X2 can
+be computed using this marginal pdf. For example,
+
+                        ∞  ∞
+             EX1X2 =               f(x1,x2)dx1 dx2
+                      −∞1  −∞x1x21                                   3          1
+             =                                                      dx1 dx2                                                   1 +x22)+                                   x1x2  4(x2                                              2                                 0   0
+                                   1   1  3      3      1
+             =                       +                                          4x1x3                                                         2 + 2x1x2  dx1 dx2                                 0   0   4x31x2
+                                   1   3     3    1          3    3   1   5
+             =                                                  2 + 4x2  dx2 = 32 + 32 + 8 = 16.                                 0   16x2 + 8x3
+
+   For any (x1,x2) with 0 < x1 < 1 and 0 < x2 < 1, f(x1,x2) > 0 and the conditional pdf of (X3,X4)
+given X1 = x1 and X2 = x2 can be found using (4.6.6). For any such (x1,x2), f(x1,x2,x3,x4) > 0 if
+0 < x3 < 1 and 0 < x4 < 1, and for these values of (x3,x4), the conditional pdf is
+
+                                                 f(x1,x2,x3,x4)
+                            f(x3,x4|x1,x2) =      f(x1,x2)
+                                                       34(x21 +x22 +x23 +x24)                       =
+                                                          34(x21 +x22)+ 12
+                                                 x21 +x22 +x23 +x24                       =                            .
+                                                    x21 +x22 + 23
+
+                                  =For example, the conditional pdf of (X3,X4) given X1 = 13 and X2    2                                                                          3 is
+
+                                                1  2     2  2                      1      2        3 +  3  +x23 +x24    5    9     9                                     +                                  =                                                                                    3 +                                                                                                  4.                                                     2                                                           2  2                                                                  2                 f  x3,x4 X1 = 3,X2 = 3  =     1                                                       11                                                             11x2                                                                    11x2                          +                              +                                                   3       3      3
+
+This can be used to compute
+
+              3      1      1      2                12   1   5    9     9
+                                  +                                                                              3 +                                                                                       4  dx3 dx4                                                                              3                                                         11x2                                                               11x2     P  X3 > 4,X4 < 2 X1 = 3,X2 = 3  =    0                                                                              4   11
+                                                                          1
+                                                                          2   5   111   9
+                         =      +   +     4  dx4                                                           0   44   704   44x2
+                                           5    111    3    203
+                         =   +   +   =                                           88   1408   352   1408.
+                                                                              ∥
+   Before giving examples of computations with conditional and marginal distributions for a dis-
+crete multivariate random vector, we will introduce an important family of discrete multivariate
+distributions. This family generalizes the binomial family to the situation in which each trial has n
+(rather than two) distinct possible outcomes.

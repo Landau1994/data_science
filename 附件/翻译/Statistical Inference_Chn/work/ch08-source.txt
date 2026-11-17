@@ -1,0 +1,1517 @@
+
+===== PDF 333, printed 302 =====
+                                   Chapter 8
+
+             Hypothesis Testing
+
+
+
+
+
+    It is a mistake to confound strangeness with mystery.
+                                                                  Sherlock Holmes
+                                                   A Study in Scarlet
+
+8.1  Introduction
+In Chapter 7 we studied a method of inference called point estimation. Now we move to another
+inference method, hypothesis testing. Reflecting the need both to find and to evaluate hypothesis
+tests, this chapter is divided into two parts, as was Chapter 7. We begin with the definition of a
+statistical hypothesis.
+Definition 8.1.1 A hypothesis is a statement about a population parameter.
+
+   The definition of a hypothesis is rather general, but the important point is that a hypothesis makes
+a statement about the population. The goal of a hypothesis test is to decide, based on a sample from
+the population, which of two complementary hypotheses is true.
+Definition 8.1.2  The two complementary hypotheses in a hypothesis testing problem are called
+the null hypothesis and the alternative hypothesis. They are denoted by H0 and H1, respectively.
+     If θ denotes a population parameter, the general format of the null and alternative hypotheses is
+                                                                                           0 is its comple-H0 : θ ∈Θ0 and H1 : θ ∈Θc0, where Θ0 is some subset of the parameter space and Θcment. For example, if θ denotes the average change in a patient’s blood pressure after taking a drug,
+an experimenter might be interested in testing H0 : θ = 0 versus H1 : θ̸ = 0. The null hypothesisstates that, on the average, the drug has no effect on blood pressure and the alternative hypothesis
+states that there is some effect. This common situation, in which H0 states that a treatment has no
+effect, has led to the term “null” hypothesis. As another example, a consumer might be interested
+in the proportion of defective items produced by a supplier. If θ denotes the proportion of defective
+items, the consumer might wish to test H0: θ ≥θ0 versus H1: θ < θ0. The value θ0 is the maximumacceptable proportion of defective items and H0 states that the proportion of defectives is unaccept-
+ably high. Problems in which the hypotheses concern the quality of a product are called acceptance
+sampling problems.
+    In a hypothesis testing problem, after observing the sample the experimenter must decide either
+to accept H0 as true or to reject H0 as false and decide H1 is true.
+Definition 8.1.3 A hypothesis testing procedure or hypothesis test is a rule that specifies:
+    i. For which sample values the decision is made to accept H0 as true.
+   ii. For which sample values H0 is rejected and H1 is accepted as true.
+The subset of the sample space for which H0 will be rejected is called the rejection region or critical
+region. The complement of the rejection region is called the acceptance region.
+
+
+
+302                                                 DOI: 10.1201/9781003456285-8
+===== PDF 334, printed 303 =====
+METHODS OF FINDING TESTS                                                303
+  On a philosophical level, some people worry about the distinction between “rejecting H0” and
+“accepting H1.” In the first case, there is nothing implied about what state the experimenter is ac-
+cepting, only that the state defined by H0 is being rejected. Similarly, a distinction can be made
+between “accepting H0” and “not rejecting H0.” The first phrase implies that the experimenter is
+willing to assert the state of nature specified by H0, while the second phrase implies that the exper-
+imenter really does not believe H0, but does not have the evidence to reject it. For the most part,
+we will not be concerned with these issues. We view a hypothesis testing problem as a problem in
+which one of two actions is going to be taken – the actions being the assertion of H0 or H1.
+    Typically, a hypothesis test is specified in terms of a test statistic W(X1,...,Xn) = W(X), a
+function of the sample. For example, a test might specify that H0 is to be rejected if X, the sam-
+ple mean, is greater than 3. In this case W(X) = X is the test statistic and the rejection region is
+{(x1,...,xn) : x > 3}. In Section 8.2, methods of choosing test statistics and rejection regions arediscussed. Criteria for evaluating tests are introduced in Section 8.3. As with point estimators, the
+methods of finding tests carry no guarantees; the tests they yield must be evaluated before their
+worth is established.
+
+8.2  Methods of Finding Tests
+We will detail four methods of finding test procedures, procedures that are useful in different situ-
+ations, and take advantage of different aspects of a problem. We start with a very general method,
+one that is almost always applicable, and is also optimal in some cases.
+
+
+8.2.1  Likelihood Ratio Tests
+
+The likelihood ratio method of hypothesis testing is related to the maximum likelihood estimators
+discussed in Section 7.2.2, and likelihood ratio tests are as widely applicable as maximum likelihood
+estimation. Recall that if X1,...,Xn is a random sample from a population with pdf or pmf f(x|θ)(θ may be a vector), the likelihood function is defined as
+
+                                                                     n
+                        L(θ|x1,...,xn) = L(θ|x) = f(x|θ) = ∏i=1 f(xi|θ).
+
+Let Θ denote the entire parameter space. Likelihood ratio tests are defined as follows.
+                                                                                                    0 isDefinition 8.2.1  The likelihood ratio test statistic for testing H0 : θ ∈Θ0 versus H1 : θ ∈Θc
+                                         sup                                              Θ0 L(θ|x)                                 λ(x) =
+                                         sup                                    Θ L(θ|x).
+A likelihood ratio test (LRT) is any test that has a rejection region of the form {x: λ(x) ≤c}, where
+c is any number satisfying 0 ≤c ≤1.
+   The rationale behind LRTs may best be understood in the situation in which f(x|θ) is the pmfof a discrete random variable. In this case, the numerator of λ(x) is the maximum probability of
+the observed sample, the maximum being computed over parameters in the null hypothesis. (See
+Exercise 8.4.) The denominator of λ(x) is the maximum probability of the observed sample over
+all possible parameters. The ratio of these two maxima is small, if there are parameter points in the
+alternative hypothesis for which the observed sample is much more likely than for any parameter
+point in the null hypothesis. In this situation, the LRT criterion says H0 should be rejected and H1
+accepted as true. Methods for selecting the number c are discussed in Section 8.3.
+===== PDF 335, printed 304 =====
+304                                             HYPOTHESIS TESTING
+     If we think of doing the maximization over both the entire parameter space (unrestricted max-
+imization) and a subset of the parameter space (restricted maximization) then the correspondence
+between LRTs and MLEs becomes more clear. Suppose ˆθ, an MLE of θ, exists; ˆθ is obtained by
+doing an unrestricted maximization of L(θ|x). We can also consider the MLE of θ, call it ˆθ0, ob-tained by doing a restricted maximization, assuming Θ0 is the parameter space. That is, ˆθ0 = ˆθ0(x)
+is the value of θ ∈Θ0 that maximizes L(θ|x). Then, the LRT statistic is
+
+                                          L(                                  λ(x) =    ˆθ0|x) .
+                                          L(ˆθ|x)
+
+Example 8.2.2 (Normal LRT)   Let X1,...,Xn be a random sample from a n(θ,1) population.
+Consider testing H0 : θ = θ0 versus H1 : θ̸ = θ0. Here θ0 is a number fixed by the experimenterprior to the experiment. Since there is only one value of θ specified by H0, the numerator of λ(x) is
+L(θ0|x). In Example 7.2.5 the (unrestricted) MLE of θ was found to be X, the sample mean. Thus
+the denominator of λ(x) is L(x|x). So the LRT statistic is
+                              (2π)−n/2 exp −∑ni=1(xi −θ0)2/2                          (8.2.1)                  λ(x) =
+                               (2π)−n/2 exp[−∑ni=1(xi −x)2/2]
+                                                n               n
+                             +                                                          /2   .                 ∑ (xi −θ0)2                       ∑ (xi −x)2               =  exp  − i=1                                                             i=1
+
+The expression for λ(x) can be simplified by noting that
+
+
+                                 n                n
+                      =           ∑ (xi −θ0)2                  ∑ (xi −x)2 +n(x−θ0)2.                              i=1                                               i=1
+
+Thus, the LRT statistic is
+
+                                                                                            .                              (8.2.2)                             λ(x) = exp −n(x−θ0)2/2
+An LRT is a test that rejects H0 for small values of λ(x). Using (8.2.2), the rejection region, {x:
+λ(x) ≤c}, can be written as
+                             {x: |x−θ0| ≥   −2(logc)/n}.
+As c ranges between 0 and 1,   −2(logc)/n ranges between 0 and ∞. Thus the LRTs are just thosetests that reject H0 : θ = θ0 if the sample mean differs from the hypothesized value θ0 by more than
+a specified amount.                                                               ∥
+   The analysis in Example 8.2.2 is typical in that first the expression for λ(X) from Definition
+8.2.1 is found, as we did in (8.2.1). Then the description of the rejection region is simplified, if
+possible, to an expression involving a simpler statistic, X−θ0  in the example.
+Example 8.2.3 (Exponential LRT)  Let X1,...,Xn be a random sample from an exponential pop-
+ulation with pdf
+                                           e−(x−θ)     x                     =           ≥θ,                                f(x|θ)    0          x < θ,
+===== PDF 336, printed 305 =====
+METHODS OF FINDING TESTS                                                305
+
+
+                  1
+
+
+
+                                                    λ(x)
+
+                  0                                                                                          x(1)
+                                 q0                    q0 + 2n                  q0 + 4n
+
+                               Figure 8.2.1 λ(x), a function only of x(1).
+
+
+where −∞< θ < ∞. The likelihood function is
+                                            e−Σxi+nθ    θ                    =                  ≤x(1),                  (x(1) = minxi)                          L(θ|x)        0          θ > x(1).
+   Consider testing H0: θ ≤θ0 versus H1: θ > θ0 where θ0 is a value specified by the experimenter.
+Clearly L(θ|x) is an increasing function of θ on −∞< θ ≤x(1). Thus, the denominator of λ(x), the
+unrestricted maximum of L(θ|x), is
+                                       L(x(1)|x) = e−Σxi+nx(1).
+
+If x(1) ≤θ0, the numerator of λ(x) is also L(x(1)|x). But since we are maximizing L(θ|x) over
+θ ≤θ0, the numerator of λ(x) is L(θ0|x) if x(1) > θ0. Therefore, the likelihood ratio test statistic is
+
+                                 1                 x(1) ≤θ0,                          λ(x) =
+                                             e−n(x(1)−θ0)      x(1) > θ0.
+
+A graph of λ(x) is shown in Figure 8.2.1. An LRT, a test that rejects H0 if λ(X) ≤c, is a test with
+                                     n                                       }. Note that the rejection region depends on the sample onlyrejection region {x : x(1) ≥θ0 −logc
+through the sufficient statistic X(1). That this is generally the case will be seen in Theorem 8.2.4. ∥
+
+   Example 8.2.3 again illustrates the point, expressed in Section 7.2.2, that differentiation of the
+likelihood function is not the only method of finding an MLE. In Example 8.2.3, L(θ|x) is notdifferentiable at θ = x(1).
+     If T(X) is a sufficient statistic for θ with pdf or pmf g(t|θ), then we might consider constructing
+an LRT based on T and its likelihood function L∗(θ|t) = g(t|θ), rather than on the sample X and its
+likelihood function L(θ|x). Let λ ∗(t) denote the likelihood ratio test statistic based on T. Given theintuitive notion that all the information about θ in x is contained in T(x), the test based on T should
+be as good as the test based on the complete sample X. In fact the tests are equivalent.
+Theorem 8.2.4    If T(X) is a sufficient statistic for θ and λ ∗(t) and λ(x) are the LRT statistics
+based on T and X, respectively, then λ ∗(T(x)) = λ(x) for every x in the sample space.
+===== PDF 337, printed 306 =====
+306                                             HYPOTHESIS TESTING
+Proof: From the Factorization Theorem (Theorem 6.2.6), the pdf or pmf of X can be written as
+f(x|θ) = g(T(x)|θ)h(x) where g(t|θ) is the pdf or pmf of T and h(x) does not depend on θ. Thus,
+                                        sup                                            Θ0 L(θ|x)                            λ(x) =
+                                        sup                                   Θ L(θ|x)
+                                        sup                                            Θ0 f(x|θ)
+                     =
+                                        sup                                   Θ  f(x|θ)
+                                        sup                                            Θ0 g(T(x)|θ)h(x)
+                     =                                    (T is sufficient)
+                                        sup                                   Θ g(T(x)|θ)h(x)
+                                        sup                                            Θ0 g(T(x)|θ)                     =                             (h does not depend on θ)
+                                        sup                                   Θ g(T(x)|θ)
+                                        sup                                            Θ0 L∗(θ|T(x))
+                     =                             (g is the pdf or pmf of T)
+                                        sup                                   Θ L∗(θ|T(x))
+                     =  λ ∗(T(x)).
+                                                    2
+   The comment after Example 8.2.2 was that, after finding an expression for λ(x), we try to
+simplify that expression. In light of Theorem 8.2.4, one interpretation of this comment is that the
+simplified expression for λ(x) should depend on x only through T(x) if T(X) is a sufficient statistic
+for θ.
+Example 8.2.5 (LRT and sufficiency)   In Example 8.2.2, we can recognize that X is a sufficient
+                                                                             n)) to more easilystatistic for θ. We could use the likelihood function associated with X (X ∼n(θ, 1
+reach the conclusion that a likelihood ratio test of H0: θ = θ0 versus H1: θ̸ = θ0 rejects H0 for large
+values of X −θ0  .    Similarly, in Example 8.2.3, X(1) = minXi is a sufficient statistic for θ. The likelihood function
+of X(1) (the pdf of X(1)) is
+                                             ne−n(x(1)−θ)    θ                    =                   ≤x(1),                            L∗(θ|x(1))    0            θ > x(1).
+This likelihood could also be used to derive the fact that a likelihood ratio test of H0 : θ ≤θ0 versus
+H1 : θ > θ0 rejects H0 for large values of X(1).                                          ∥
+   Likelihood ratio tests are also useful in situations where there are nuisance parameters, that is,
+parameters that are present in a model but are not of direct inferential interest. The presence of such
+nuisance parameters does not affect the LRT construction method but, as might be expected, the
+presence of nuisance parameters might lead to a different test.
+Example 8.2.6 (Normal LRT with unknown variance)  Suppose X1,...,Xn is a random sample
+from a n(µ,σ2), and an experimenter is interested only in inferences about µ, such as testing H0 :
+µ ≤µ0 versus H1 : µ > µ0. Then the parameter σ2 is a nuisance parameter. The LRT statistic is
+                                       {µ,σ2:µ≤µ0,σ2≥0}L(µ,σ2|x)max                       λ(x) =
+                                   {µ,σ2:−∞<µ<∞,σ2≥0}L(µ,σ2|x)max
+                  =   {µ,σ2:µ≤µ0,σ2≥0}L(µ,σ2|x)max                         ,
+                                         L( ˆµ, ˆσ2|x)
+===== PDF 338, printed 307 =====
+METHODS OF FINDING TESTS                                                307
+where ˆµ and ˆσ2 are the MLEs of µ and σ2 (Example 7.2.11). Furthermore, if ˆµ ≤µ0, then therestricted maximum is the same as the unrestricted maximum, while if ˆµ > µ0, the restricted maxi-
+mum is L(µ0, ˆσ20 |x) where ˆσ2                               0 = Σ(xi −µ0)2 /n. Thus
+                                   1                                                                        if                                                                                ˆµ                                         ≤µ0,                           λ(x) =                                                   L(µ0,                                                                      ˆσ20 |x)                                                                        if                                                                                ˆµ                               > µ0.                                                  L( ˆµ,                                                                  ˆσ2|x)
+With some algebra, it can be shown that the test based on λ(x) is equivalent to a test based on
+Student’s t statistic. Details are left to Exercise 8.37. (Exercises 8.38–8.42 also deal with nuisance
+parameter problems.)                                                             ∥
+
+8.2.2  Bayesian Tests
+
+Hypothesis testing problems may also be formulated in a Bayesian model. Recall from Section 7.2.3
+that a Bayesian model includes not only the sampling distribution f(x|θ) but also the prior distri-bution π(θ), with the prior distribution reflecting the experimenter’s opinion about the parameter θ
+prior to sampling.
+   The Bayesian paradigm prescribes that the sample information be combined with the prior in-
+formation using Bayes’ Theorem to obtain the posterior distribution π(θ|x). All inferences about θare now based on the posterior distribution.
+    In a hypothesis testing problem, the posterior distribution may be used to calculate the probabil-
+ities that H0 and H1 are true. Remember, π(θ|x) is a probability distribution for a random variable.
+Hence, the posterior probabilities P(θ ∈Θ0|x) = P(H0 is true|x) and P(θ ∈Θc0|x) = P(H1 is true|x)may be computed.
+   The probabilities P(H0 is true|x) and P(H1 is true|x) are not meaningful to the classical statisti-cian. The classical statistician considers θ to be a fixed number. Consequently, a hypothesis is either
+true or false. If θ ∈Θ0, P(H0 is true|x) = 1 and P(H1 is true |x) = 0 for all values of x. If θ ∈Θc0,these values are reversed. Since these probabilities are unknown (since θ is unknown) and do not
+depend on the sample x, they are not used by the classical statistician. In a Bayesian formulation
+of a hypothesis testing problem, these probabilities depend on the sample x and can give useful
+information about the veracity of H0 and H1.
+   One way a Bayesian hypothesis tester may choose to use the posterior distribution is to decide
+to accept H0 as true if P(θ ∈Θ0|X) ≥P(θ ∈Θc0|X) and to reject H0 otherwise. In the terminologyof the previous sections, the test                                       statistic, a function of the sample, is P(θ ∈Θc0|X) and the rejection                                 1
+region is {x : P(θ ∈Θc0|x) > 2}. Alternatively, if the Bayesian hypothesis tester wishes to guard
+against falsely rejecting H0, he may decide to reject H0 only if P(θ ∈Θc0|X) is greater than somelarge number, .99 for example.
+Example 8.2.7 (Normal Bayesian test)  Let X1,...,Xn be iid n(θ,σ2) and let the prior distribu-
+tion on θ be n(µ,τ2) where σ2,µ, and τ2 are known. Consider testing H0: θ ≤θ0 versus H1: θ > θ0.
+From Example 7.2.16, the posterior π(θ|x) is normal with mean (nτ2x+σ2µ)/(nτ2 +σ2) and vari-ance σ2τ2/(nτ2 +σ2).
+     If we decide to accept H0 if and only if P(θ ∈Θ0|X) ≥P(θ ∈Θc0|X), then we will accept H0 ifand only if
+                          1
+                          2 ≤P(θ ∈Θ0|X) = P(θ ≤θ0|X).
+Since π(θ|x) is symmetric, this is true if and only if the mean of π(θ|x) is less than or equal to θ0.Therefore H0 will be accepted as true if
+                         X   + σ2(θ0−µ)                          ≤θ0      nτ2
+===== PDF 339, printed 308 =====
+308                                             HYPOTHESIS TESTING
+and H1 will be accepted as true otherwise. In particular, if µ = θ0 so that prior to experimentation
+probability 12 is assigned to both H0 and H1, then H0 will be accepted as true if x ≤θ0 and H1
+accepted otherwise.                                                              ∥
+   Other methods that use the posterior distribution to make inferences in hypothesis testing prob-
+lems are discussed in Section 8.3.5.
+
+8.2.3  Union–Intersection and Intersection–Union Tests
+
+In some situations, tests for complicated null hypotheses can be developed from tests for simpler
+null hypotheses. We discuss two related methods.
+   The union–intersection method of test construction might be useful when the null hypothesis is
+conveniently expressed as an intersection, say
+                               H0 : θ ∈   Θγ.                                     (8.2.3)
+                                              γ∈Γ
+Here Γ is an arbitrary index set which may be finite or infinite, depending on the problem. Suppose
+that tests are available for each of the problems of testing H0γ : θ ∈Θγ versus H1γ : θ ∈Θcγ. Say
+the rejection region for the test of H0γ is {x: Tγ(x) ∈Rγ}. Then the rejection region for the union–intersection test is
+                                    {x : Tγ(x) ∈Rγ}.                                  (8.2.4)
+                                    γ∈Γ
+The rationale is simple. If any one of the hypotheses H0γ is rejected, then H0, which, by (8.2.3),
+is true only if H0γ is true for every γ, must also be rejected. Only if each of the hypotheses H0γ is
+accepted as true will the intersection H0 be accepted as true.
+    In some situations a simple expression for the rejection region of a union–intersection test can
+be found. In particular, suppose that each of the individual tests has a rejection region of the form
+{x: Tγ(x) > c}, where c does not depend on γ. The rejection region for the union–intersection test,given in (8.2.4), can be expressed as
+                            {x: Tγ(x) > c} = {x: sup Tγ(x) > c}.
+                           γ∈Γ                    γ∈Γ
+Thus the test statistic for testing H0 is T(x) = supγ∈Γ Tγ(x). Some examples in which T(x) has asimple formula may be found in Chapter 11.
+Example 8.2.8 (Normal union-intersection test)   Let X1,...,Xn be a random sample from a
+n(µ,σ2) population. Consider testing H0: µ = µ0 versus H1: µ̸ = µ0 where µ0 is a specified number.We can write H0 as the intersection of two sets,
+                         H0 : {µ : µ ≤µ0}∩{µ : µ ≥µ0}.
+The LRT of H0L : µ ≤µ0 versus H1L : µ > µ0 is
+                                            X                      reject H0L : µ       in favor of H1L : µ > µ0 if  −µ0                     ≤µ0                   S/√n ≥tL
+(see Exercise 8.37). Similarly, the LRT of H0U : µ ≥µ0 versus H1U : µ < µ0 is
+                                           X                     reject H0U : µ       in favor of H1U : µ < µ0 if  −µ0                    ≥µ0                   S/√n ≤tU.
+Thus the union–intersection test of H0 : µ = µ0 versus H1 : µ̸ = µ0 formed from these two LRTs is
+                           X         X                               reject H0 if  −µ0      or  −µ0                            S/√n ≥tL   S/√n ≤tU.
+===== PDF 340, printed 309 =====
+METHODS OF FINDING TESTS                                                309
+If tL = −tU ≥0, the union–intersection test can be more simply expressed as
+                                X −µ0                                       reject H0 if                                  S/√n  ≥tL.
+
+It turns out that this union–intersection test is also the LRT for this problem (see Exercise 8.38) and
+is called the two-sided t test.                                                       ∥
+   The union–intersection method of test construction is useful if the null hypothesis is conve-
+niently expressed as an intersection. Another method, the intersection–union method, may be useful
+if the null hypothesis is conveniently expressed as a union. Suppose we wish to test the null hypoth-
+esis
+                               H0 : θ ∈   Θγ.                                     (8.2.5)
+                                              γ∈Γ
+Suppose that for each γ ∈Γ,{x: Tγ(x) ∈Rγ} is the rejection region for a test of H0γ : θ ∈Θγ versus
+H1γ : θ ∈Θcγ. Then the rejection region for the intersection–union test of H0 versus H1 is
+                                       {x: Tγ(x) ∈Rγ}.                                   (8.2.6)
+                                    γ∈Γ
+From (8.2.5), H0 is false if and only if all of the H0γ are false, so H0 can be rejected if and only if each
+of the individual hypotheses H0γ can be rejected. Again, the test can be greatly simplified if the re-
+jection regions for the individual hypotheses are all of the form {x: Tγ(x) ≥c} (c independent of γ).In such cases, the rejection region for H0 is
+                            {x: Tγ(x) ≥c} = {x: γ∈ΓTγ(x)inf     ≥c}.                           γ∈Γ
+The intersection–union test rejects H0 for large values of the test statistic infγ∈Γ Tγ(X).
+Example 8.2.9 (Acceptance sampling)  The topic of acceptance sampling provides an extremely
+useful application of an intersection–union test, as this example will illustrate. (See Berger (1982)
+for a more detailed treatment of this problem.)
+   Two parameters that are important in assessing the quality of upholstery fabric are θ1, the mean
+breaking strength, and θ2, the probability of passing a flammability test. Standards may dictate that
+θ1 should be over 50 pounds and θ2 should be over .95, and the fabric is acceptable only if it meets
+both of these standards. This can be modeled with the hypothesis test
+          H0 : {θ1 ≤50 or θ2 ≤.95}     versus    H1 : {θ1 > 50 and θ2 > .95},
+where a batch of material is acceptable only if H1 is accepted.
+   Suppose X1,...,Xn are measurements of breaking strength for n samples, and are assumed to be
+                                        > t. Suppose that weiid n(θ1,σ2). The LRT of H01 : θ1 ≤50 will reject H01 if (X −50)/(S/√n)also have the results of m flammability tests, denoted by Y1,...,Ym, where Yi = 1 if the ith sample
+passes the test and Yi = 0 otherwise. If Y1,...,Ym are modeled as iid Bernoulli(θ2) random variables,
+                       > b (see Exercise 8.3). Putting all of this together, thethe LRT will reject H02 : θ2 ≤.95 if ∑mi=1Yirejection region for the intersection–union test is given by
+
+                                          m
+                               (x,y): x−50 > t and ∑ yi                             s/√n          i=1 > b   .
+
+Thus, the intersection–union test decides the product is acceptable, that is, H1 is true, if and only if
+it decides that each of the individual parameters meets its standard, that is, H1i is true. If more than
+two parameters define a product’s quality, individual tests for each parameter can be combined, by
+means of the intersection–union method, to yield an overall test of the product’s quality.        ∥
+===== PDF 341, printed 310 =====
+310                                             HYPOTHESIS TESTING
+8.3  Methods of Evaluating Tests
+In deciding to accept or reject the null hypothesis H0, an experimenter might be making a mistake.
+Usually, hypothesis tests are evaluated and compared through their probabilities of making mistakes.
+In this section, we discuss how these error probabilities can be controlled. In some cases, it can even
+be determined which tests have the smallest possible error probabilities.
+
+8.3.1  Error Probabilities and the Power Function
+                                                       0 might make one of two types of errors. TheseA hypothesis test of H0 : θ ∈Θ0 versus H1 : θ ∈Θctwo types of errors traditionally have been given the non-mnemonic names, Type I Error and Type
+II Error. If θ ∈Θ0 but the hypothesis test incorrectly decides to reject H0, then the test has made a
+                                            0 but the test decides to accept H0, a Type II Error has beenType I Error. If, on the other hand, θ ∈Θcmade. These two different situations are depicted in Table 8.3.1.
+
+
+                          Table 8.3.1 Two types of errors in hypothesis testing
+
+                                                    Decision
+                                           Accept H0   Reject H0
+                                 H0     Correct     Type I
+                                 Truth         Decision      Error
+                                 H1    Type II      Correct
+                                                  Error      Decision
+
+   Suppose R denotes the rejection region for a test. Then for θ ∈Θ0, the test will make a mistake
+if x ∈R so the probability of a Type I Error is Pθ(X ∈R). For θ ∈Θc0, the probability of a Type II
+Error is Pθ(X ∈Rc). This switching from R to Rc is a bit confusing, but, if we realize that Pθ(X ∈
+Rc) = 1−Pθ(X ∈R), then the function of θ,Pθ(X ∈R), contains all the information about the testwith rejection region R. We have
+                            probability of a Type I Error,                          if θ         Pθ(X   =                                 ∈Θ0           ∈R)    one minus the probability of a Type II Error       if θ      0.                                                 ∈Θc
+This consideration leads to the following definition.
+Definition 8.3.1  The power function of a hypothesis test with rejection region R is the function of
+θ defined by β(θ) = Pθ(X ∈R).
+   The ideal power function is zero for all θ ∈Θ0 and one for all θ ∈Θc0. Except in trivial situations,
+                                                                                                          0this ideal cannot be attained. Qualitatively, a good test has power function near one for most θ ∈Θc
+and near zero for most θ ∈Θ0.
+Example 8.3.2 (Binomial                                                                                                          2                    power function)  Let X ∼binomial(5,θ). Consider testing H0 : θ ≤1                  1versus H1 : θ > 2. Consider first the test that rejects H0 if and only if all “successes” are observed.
+The power function for this test is
+                         β1(θ) = Pθ(X ∈R) = Pθ(X = 5) = θ 5.
+The graph of β1(θ) is in Figure 8.3.1. In examining this power function, we might decide that
+although the probability of a Type I Error is acceptably low (β1(θ)     1                                       ≤( 2)5 = .03121     for all θ ≤12),the probability of a Type II Error is too high (β1(θ) is too small) for most θ > 2. The probability of
+a Type II Error is less than 12 only if θ     1                   > ( 2)1/5 = .87. To achieve smaller Type II Error probabilities,
+we might consider using the test that rejects H0 if X = 3, 4, or 5. The power function for this test is
+                               5               5               5
+                            +                                      +     β2(θ) = Pθ(X = 3,4, or 5) =                                θ 3(1−θ)2                                               θ 4(1−θ)1                                                              θ 5(1−θ)0.                               3                                              4                                                              5
+===== PDF 342, printed 311 =====
+METHODS OF EVALUATING TESTS                                            311
+
+
+                  1.0
+
+
+
+
+
+                                                     b2(q)
+
+                   .5
+
+                                                                                  b1(q)
+
+
+
+
+
+               0                                                              q
+                 0                                 .5                                 1.0
+
+                            Figure 8.3.1 Power functions for Example 8.3.2
+
+The graph of β2(θ) is also in Figure 8.3.1. It can be seen in Figure 8.3.1 that the second test has
+achieved a smaller Type II Error probability in that β2(θ) is larger for θ > 12. But the Type I Error
+probability is larger for the second test; β2(θ) is larger for θ ≤12. If a choice is to be made betweenthese two tests, the researcher must decide which error structure, that described by β1(θ) or that
+described by β2(θ), is more acceptable.                                              ∥
+Example 8.3.3 (Normal power function)   Let X1,...,Xn be a random sample from a n(θ,σ2)
+population, σ2 known. An LRT of H0 : θ ≤θ0 versus H1 : θ > θ0 is a test that rejects H0 if (X −θ0)/(σ/√n) > c (Exercise 8.37). The constant c can be any positive number. The power function
+of this test is
+                               X                       β(θ) =  Pθ   −θ0 > c                             σ/√n
+                               X           θ0                   =  Pθ   −θ > c+  −θ                             σ/√n     σ/√n
+                                                θ0                   =  P Z > c+  −θ    ,                                  σ/√n
+where Z is a standard normal random variable, since (X                   As θ increases                                        −θ)/(σ/√n) ∼n(0,1).
+from −∞to ∞, it is easy to see that this normal probability increases from zero to one. Therefore, itfollows that β(θ) is an increasing function of θ, with
+          θ→−∞β(θ)lim    = 0,  θ→∞β(θ)lim   = 1,  and  β(θ0) = α if P(Z > c) = α.
+A graph of β(θ) for c = 1.28 is given in Figure 8.3.2.                                   ∥
+
+    Typically, the power function of a test will depend on the sample size n. If n can be chosen by
+the experimenter, consideration of the power function might help determine what sample size is
+appropriate in an experiment.
+===== PDF 343, printed 312 =====
+312                                             HYPOTHESIS TESTING
+
+
+                  1
+
+
+
+                                                       b(q)
+
+
+
+
+
+                  0                                                           q
+                                          q0
+
+                                                            q0 + 2s/√n
+
+                             Figure 8.3.2 Power function for Example 8.3.3
+
+
+Example 8.3.4 (Continuation of Example 8.3.3)   Suppose the experimenter wishes to have a
+maximum Type I Error probability of .1. Suppose, in addition, the experimenter wishes to have
+a maximum Type II Error probability of .2 if θ ≥θ0 + σ. We now show how to choose c and n to                                        > c. As noted above,achieve these goals, using a test that rejects H0 : θ ≤θ0 if (X −θ0)/(σ/√n)the power function of such a test is
+
+                                                 θ0                           β(θ) = P Z > c+  −θ    .                                   σ/√n
+
+Because β(θ) is increasing in θ, the requirements will be met if
+
+                           β(θ0) = .1  and  β(θ0 +σ) = .8.
+
+By choosing c = 1.28, we achieve β(θ0) = P(Z > 1.28) = .1, regardless of n. Now we wish to
+choose n so that β(θ0 + σ) = P(Z > 1.28    = .8. P(Z >    = .8, so setting 1.28   =                          −√n)           −.84)           −√n
+−.84 and solving for n yields n = 4.49. Of course n must be an integer, so setting c = 1.28 and n = 5
+yields a test with error probabilities controlled as specified by the experimenter.               ∥
+   For a fixed sample size, it is usually impossible to make both types of error probabilities arbi-
+trarily small. In searching for a good test, it is common to restrict consideration to tests that control
+the Type I Error probability at a specified level. Within this class of tests we then search for tests
+that have Type II Error probability that is as small as possible. The following two terms are useful
+when discussing tests that control Type I Error probabilities.
+Definition 8.3.5  For 0 ≤α ≤1, a test with power function β(θ) is a size α test if supθ∈Θ0 β(θ) =α.
+Definition 8.3.6  For 0 ≤α ≤1, a test with power function β(θ) is a level α test if supθ∈Θ0 β(θ) ≤α.
+
+   Some authors do not make the distinction between the terms size and level that we have made,
+and sometimes these terms are used interchangeably. But according to our definitions, the set of level
+α tests contains the set of size α tests. Moreover, the distinction becomes important in complicated
+models and complicated testing situations, where it is often computationally impossible to construct
+a size α test. In such situations, an experimenter must be satisfied with a level α test, realizing
+===== PDF 344, printed 313 =====
+METHODS OF EVALUATING TESTS                                            313
+that some compromises may be made. We will see some examples, especially in conjunction with
+union–intersection and intersection–union tests.
+   Experimenters commonly specify the level of the test they wish to use, with typical choices being
+α = .01, .05, and .10. Be aware that, in fixing the level of the test, the experimenter is controlling
+only the Type I Error probabilities, not the Type II Error. If this approach is taken, the experimenter
+should specify the null and alternative hypotheses so that it is most important to control the Type
+I Error probability. For example, suppose an experimenter expects an experiment to give support
+to a particular hypothesis, but she does not wish to make the assertion unless the data really do
+give convincing support. The test can be set up so that the alternative hypothesis is the one that
+she expects the data to support, and hopes to prove. (The alternative hypothesis is sometimes called
+the research hypothesis in this context.) By using a level α test with small α, the experimenter is
+guarding against saying the data support the research hypothesis when it is false.
+   The methods of Section 8.2 usually yield test statistics and general forms for rejection regions.
+However, they do not generally lead to one specific test. For example, an LRT (Definition 8.2.1) is
+one that rejects H0 if λ(X) ≤c, but c was unspecified, so not one but an entire class of LRTs isdefined, one for each value of c. The restriction to size α tests may now lead to the choice of one
+out of the class of tests.
+Example 8.3.7 (Size of LRT)   In general, a size α LRT is constructed by choosing c such that
+supθ∈Θ0 Pθ(λ(X) ≤c) = α. How that c is determined depends on the particular problem. For ex-ample, in Example 8.2.2 Θ0 consists of the single point θ = θ0 and √n(X                     if θ = θ0.                                                     −θ0) ∼n(0,1)So the test
+                                    reject H0 if X −θ0 ≥zα/2/√n,
+where zα/2 satisfies P(Z ≥zα/2) = α/2 with Z ∼n(0,1), is the size α LRT. Specifically, this
+corresponds to choosing c = exp(−z2α/2/2), but this is not an important point.   For the problem described in Example 8.2.3, finding a size α LRT is complicated by the fact
+that the null hypothesis H0 : θ ≤θ0 consists of more than one point. The LRT rejects H0 if X(1) ≥c,
+where c is chosen so that this is a size α test. But if c = (−logα)/n+θ0, then
+                               = α.                                   Pθ0  X(1) ≥c = e−n(c−θ0)
+Since θ is a location parameter for X(1),
+                       Pθ  X(1) ≥c ≤Pθ0  X(1) ≥c    for any θ ≤θ0.
+Thus,
+                     sup β(θ) = sup Pθ(X(1) ≥c) = Pθ0(X(1) ≥c) = α                     θ∈Θ0        θ≤θ0
+and this c yields the size α LRT.                                                    ∥
+A note on notation:  In the above example we used the notation zα/2 to denote the point having
+probability α/2 to the right of it for a standard normal pdf. We will use this notation in general, not
+just for the normal, but for other distributions as well (defining what we need to for clarity’s sake).
+For example, the point zα satisfies P(Z > zα) = α, where Z ∼n(0,1); tn−1,α/2 satisfies P(Tn−1 >
+                                                                                                     p is atn−1,α/2) = α/2, where Tn−1 ∼tn−1; and χ2p,1−α satisfies P(χ2                                                                    p > χ2p,1−α) = 1 −α, where χ2
+chi squared random variable with p degrees of freedom. Points like zα/2,zα,tn−1,α/2, and χ2p,1−αare known as cutoff points.
+Example 8.3.8 (Size of union-intersection test)    The problem of finding a size α union–
+intersection test in Example 8.2.8 involves finding constants tL and tU such that
+
+                       X            X                      sup Pθ   −µ0        or   −µ0    = α.                               S2/n ≥tL        S2/n ≤tU                      θ∈Θ0
+===== PDF 345, printed 314 =====
+314                                             HYPOTHESIS TESTING
+But for any (µ,σ2) = θ ∈Θ0, µ = µ0 and thus (X −µ0)/  S2/n has a Student’s t distribution
+with n−1 degrees of freedom. So any choice of tU = tn−1,1−α1 and tL = tn−1,α2, with α1 +α2 = α,
+will yield a test with Type I Error probability of exactly α for all θ ∈Θ0. The usual choice is
+tL = −tU = tn−1,α/2.                                                              ∥
+   Other than α levels, there are other features of a test that might also be of concern. For example,
+we would like a test to be more likely to reject H0 if θ ∈Θc                                                                    0 than if θ ∈Θ0. All of the powerfunctions in Figures 8.3.1 and 8.3.2 have this property, yielding tests that are called unbiased.
+
+                                                                                                          0Definition 8.3.9 A test with power function β(θ) is unbiased if β(θ ′) ≥β(θ ′′) for every θ ′ ∈Θc
+and θ ′′ ∈Θ0.
+Example 8.3.10 (Conclusion of Example 8.3.3)  An LRT of H0 : θ ≤θ0 versus H1 : θ > θ0 haspower function
+                                                 θ0                          β(θ) = P  Z > c+  −θ    ,                                   σ/√n
+where Z ∼n(0,1). Since β(θ) is an increasing function of θ (for fixed θ0), it follows that
+                     β(θ) > β(θ0) = max β(t),   for all θ > θ0,
+                                               t≤θ0
+and, hence, that the test is unbiased.                                                 ∥
+    In most problems there are many unbiased tests. (See Exercise 8.45.) Likewise, there are many
+size α tests, likelihood ratio tests, etc. In some cases we have imposed enough restrictions to narrow
+consideration to one test. For the two problems in Example 8.3.7, there is only one size α likelihood
+ratio test. In other cases there remain many tests from which to choose. We discussed only the one
+that rejects H0 for large values of T. In the following sections we will discuss other criteria for
+selecting one out of a class of tests, criteria that are all related to the power functions of the tests.
+
+
+8.3.2  Most Powerful Tests
+
+In previous sections we have described various classes of hypothesis tests. Some of these classes
+control the probability of a Type I Error, for example, level α tests have Type I Error probabilities at
+most α for all θ ∈Θ0. A good test in such a class would also have a small Type II Error probability,
+that is, a large power function for θ ∈Θc0. If one test had a smaller Type II Error probability than allother tests in the class, it would certainly be a strong contender for the best test in the class, a notion
+that is formalized in the next definition.
+Definition 8.3.11  Let C be a class of tests for testing H0: θ ∈Θ0 versus H1: θ ∈Θc0. A test in class
+C , with power function β(θ), is a uniformly most powerful (UMP) class C test if β(θ) ≥β ′(θ) for             0 and every β ′(θ) that is a power function of a test in class C .every θ ∈Θc
+    In this section, the class C will be the class of all level α tests. The test described in Definition
+8.3.11 is then called a UMP level α test. For this test to be interesting, restriction to the class
+C must involve some restriction on the Type I Error probability. A minimization of the Type II
+Error probability without some control of the Type I Error probability is not very interesting. (For
+example, a test that rejects H0 with probability 1 will never make a Type II Error. See Exercise 8.16.)
+   The requirements in Definition 8.3.11 are so strong that UMP tests do not exist in many realistic
+problems. But in problems that have UMP tests, a UMP test might well be considered the best test in
+the class. Thus, we would like to be able to identify UMP tests if they exist. The following famous
+theorem clearly describes which tests are UMP level α tests in the situation where the null and
+alternative hypotheses both consist of only one probability distribution for the sample (that is, when
+both H0 and H1 are simple hypotheses).
+===== PDF 346, printed 315 =====
+METHODS OF EVALUATING TESTS                                            315
+Theorem 8.3.12 (Neyman–Pearson Lemma)  Consider testing H0 : θ = θ0 versus H1 : θ = θ1,
+where the pdf or pmf corresponding to θi is f(x|θi),i = 0,1, using a test with rejection region R thatsatisfies
+                                x ∈R  if  f(x|θ1) > k f(x|θ0)
+                      and                                                                (8.3.1)
+                               x ∈Rc  if  f(x|θ1) < k f(x|θ0),
+for some k ≥0, and
+                          α = Pθ0(X ∈R).                                    (8.3.2)
+Then
+a. (Sufficiency)  Any test that satisfies (8.3.1) and (8.3.2) is a UMP level α test.
+b. (Necessity)   If there exists a test satisfying (8.3.1) and (8.3.2) with k > 0 then every UMP level α
+   test is a size α test (satisfies (8.3.2)) and every UMP level α test satisfies (8.3.1) except perhaps
+  on a set A satisfying Pθ0(X ∈A) = Pθ1(X ∈A) = 0.
+Proof: We will prove the theorem for the case that f(x|θ0) and f(x|θ1) are pdfs of continuous ran-dom variables. The proof for discrete random variables can be accomplished by replacing integrals
+with sums. (See Exercise 8.21.)
+   Note  first that any test satisfying (8.3.2) is a size α and, hence, a level α  test because
+supθ∈Θ0 Pθ(X ∈R) = Pθ0(X ∈R) = α, since Θ0 has only one point.
+   To ease notation, we define a test function, a function on the sample space that is one if x ∈R and
+zero if x ∈Rc. That is, it is the indicator function of the rejection region. Let φ(x) be the test functionof a test satisfying (8.3.1) and (8.3.2). Let φ ′(x) be the test function of any other level α test, and let
+β(θ) and β ′(θ) be the power functions corresponding to the tests φ and φ ′, respectively. Because
+0 ≤φ ′(x) ≤1, (8.3.1) implies that (φ(x)−φ ′(x))(f(x|θ1)−k f(x|θ0)) ≥0 for every x (since φ = 1
+if f(x|θ1) > k f(x|θ0) and φ = 0 if f(x|θ1) < k f(x|θ0)). Thus,
+                    0 ≤    [φ(x)−φ ′(x)][f(x|θ1)−k f(x|θ0)]dx
+               =  β(θ1)−β ′(θ1)−k(β(θ0)−β ′(θ0)).                       (8.3.3)
+   Statement (a) is proved by noting that, since φ ′  is a level α  test and φ  is a size α  test,
+β(θ0)−β ′(θ0) = α −β ′(θ0) ≥0. Thus (8.3.3) and k ≥0 imply that
+                0 ≤β(θ1)−β ′(θ1)−k(β(θ0)−β ′(θ0)) ≤β(θ1)−β ′(θ1),
+showing that β(θ1) ≥β ′(θ1), and hence φ has greater power than φ ′. Since φ ′ was an arbitrary levelα test and θ1 is the only point in Θc0,φ is a UMP level α test.
+   To prove statement (b), let φ ′ now be the test function for any UMP level α test. By part (a),
+φ, the test satisfying (8.3.1) and (8.3.2), is also a UMP level α test, thus β(θ1) = β ′(θ1). This fact,
+(8.3.3), and k > 0 imply
+                     α −β ′(θ0) = β(θ0)−β ′(θ0) ≤0.
+Now, since φ ′  is a level α  test, β ′(θ0) ≤α. Thus β ′(θ0) = α, that  is, φ ′  is a size α  test,and this also implies that (8.3.3)  is an equality in this case. But the nonnegative integrand
+(φ(x)−φ ′(x))( f(x|θ1)−k f(x|θ0)) will have a zero integral only if φ ′ satisfies (8.3.1), except per-
+haps on a set A with  A f(x|θi)dx = 0. This implies that the last assertion in statement (b) is true.                                                    2
+===== PDF 347, printed 316 =====
+316                                             HYPOTHESIS TESTING
+   The following corollary connects the Neyman–Pearson Lemma to sufficiency.
+Corollary 8.3.13  Consider the hypothesis problem posed in Theorem 8.3.12. Suppose T(X) is a
+sufficient statistic for θ and g(t|θi) is the pdf or pmf of T corresponding to θi, i = 0,1. Then any testbased on T with rejection region S (a subset of the sample space of T) is a UMP level α test if it
+satisfies
+                                                            t ∈S  if g(t|θ1) > kg(t|θ0)
+                       and                                                               (8.3.4)
+                                                            t ∈Sc  if g(t|θ1)                               < kg(t|θ0),
+for some k ≥0, where
+                          α = Pθ0(T ∈S).                                    (8.3.5)
+Proof: In terms of the original sample X, the test based on T has the rejection region R =
+{x: T(x) ∈S}. By the Factorization Theorem, the pdf or pmf of X can be written as f(x|θi) =
+g(T(x)|θi)h(x),i = 0,1, for some nonnegative function h(x). Multiplying the inequalities in (8.3.4)by this nonnegative function, we see that R satisfies
+             x ∈R if f(x|θ1) = g(T(x)|θ1)h(x) > kg(T(x)|θ0)h(x) = k f(x|θ0)
+and
+            x ∈Rc if f(x|θ1)                 = g(T(x)|θ1)h(x) < kg(T(x)|θ0)h(x) = k f(x|θ0).
+Also, by (8.3.5),
+                           Pθ0(X ∈R) = Pθ0(T(X) ∈S) = α.
+So, by the sufficiency part of the Neyman–Pearson Lemma, the test based on T is a UMP level α
+test.                                                  2
+
+   When deriving a test that satisfies the inequalities (8.3.1) or (8.3.4), and hence is a UMP level
+α test, it is usually easier to rewrite the inequalities as f(x|θ1)/ f(x|θ0) > k. (We must be carefulabout dividing by zero.) This method is used in the following examples.
+Example                                                                                        1                                                                                                  2 versus          8.3.14 (UMP binomial test)  Let X ∼binomial(2,θ). We want to test H0: θ =          3H1 : θ = 4. Calculating the ratios of the pmfs gives
+
+            = 4)                 f(0|θ    3                     3                            3               =                          1    f(1|θ = 4) = 3   and   f(2|θ = 4) = 9                             1                     1                            1            =      4,     =      4,        =      4.                 f(0|θ   2)         f(1|θ   2)               f(2|θ   2)
+By choosing 34        9        < k < 4 the Neyman–Pearson Lemma says that the test that rejects H0 if X = 2 is the
+                                                            Lemma               = 2) = 4 test. By choosing 4 < k < 4, the Neyman–PearsonUMP level α = P(X = 2|θ    1     1                     1         3                                                                                               1says that the test                                                                                   3                  that rejects                                                                                                     4 test.                      H0 if X = 1 or 2 is the UMP level α = P(X = 1 or 2|θ = 2) =                1                          9Choosing k < 4 or k > 4 yields the UMP level α = 1 or level α = 0 test.
+                                          = 2 and accept H0   Note that if k = 34, then (8.3.1) says we must reject H0 for the sample point x
+for x = 0 but leaves our action for x = 1 undetermined. But if we accept H0 for x = 1 we get the
+UMP level α = 14 test as above. If we reject H0 for x                                   3                           = 1 we get the UMP level α = 4 test as above.
+                                                                              ∥
+   Example 8.3.14 also shows that when dealing with a discrete distribution, the α level at which
+a test can be done is a function of the particular pmf with which we are dealing. (No such problem
+arises in the continuous case. Any α level can be attained.)
+===== PDF 348, printed 317 =====
+METHODS OF EVALUATING TESTS                                            317
+Example 8.3.15 (UMP normal test)   Let X1,...,Xn be a random sample from a n(θ,σ2) popu-
+lation, σ2 known. The sample mean X is a sufficient statistic for θ. Consider testing H0 : θ = θ0
+versus H1 : θ = θ1 where θ0 > θ1. The inequality (8.3.4), g(x|θ1) > kg(x|θ0), is equivalent to
+                                (2σ2             02 +θ 12                                x <     logk)/n−θ          .
+                                          2(θ1 −θ0)
+The fact that θ1 −θ0 < 0 was used to obtain this inequality. The right-hand side increases from −∞to ∞as k increases from 0 to ∞. Thus, by Corollary 8.3.13, the test with rejection region x < c is the
+UMP level α test where α = Pθ0(X < c). If a particular α is specified, then the UMP test rejects H0
+if X < c =                This choice of c ensures that (8.3.5) is true.        −σzα/√n+θ0.                                                        ∥
+    Hypotheses, such as H0 and H1 in the Neyman–Pearson Lemma, that specify only one pos-
+sible distribution for the sample X are called simple hypotheses. In most realistic problems, the
+hypotheses of interest specify more than one possible distribution for the sample. Such hypotheses
+are called composite hypotheses. Since Definition 8.3.11 requires a UMP test to be most powerful
+against each individual θ ∈Θc0, the Neyman–Pearson Lemma can be used to find UMP tests inproblems involving composite hypotheses.
+    In particular, hypotheses that assert that a univariate parameter is large, for example, H : θ ≥θ0,or small, for example, H : θ < θ0, are called one-sided hypotheses. Hypotheses that assert that a
+parameter is either large or small, for example, H : θ̸ = θ0, are called two-sided hypotheses. A largeclass of problems that admit UMP level α tests involve one-sided hypotheses and pdfs or pmfs with
+the monotone likelihood ratio property.
+Definition 8.3.16  A family of pdfs or pmfs {g(t|θ) : θ ∈Θ} for a univariate random variableT with real-valued parameter θ has a monotone likelihood ratio (MLR) if, for every θ2 > θ1,
+g(t|θ2)/g(t|θ1) is a monotone (nonincreasing or nondecreasing) function of t on {t : g(t|θ1) > 0
+or g(t|θ2) > 0}. Note that c/0 is defined as ∞if 0 < c.
+   Many common families of distributions have an MLR. For example, the normal (known vari-
+ance, unknown mean), Poisson, and binomial all have an MLR. Indeed, any regular exponential
+family with g(t|θ) = h(t)c(θ)ew(θ)t has an MLR if w(θ) is a nondecreasing function (see Exercise8.25).
+Theorem 8.3.17 (Karlin–Rubin)  Consider testing H0: θ ≤θ0 versus H1: θ > θ0. Suppose that T
+is a sufficient statistic for θ and the family of pdfs or pmfs {g(t|θ): θ ∈Θ} of T has an MLR. Thenfor any t0, the test that rejects H0 if and only if T > t0 is a UMP level α test where α = Pθ0(T > t0).
+Proof: Let β(θ) = Pθ(T > t0) be the power function of the test. Fix θ ′ > θ0 and consider testing H′0:
+θ = θ0 versus H′1: θ = θ ′. Since the family of pdfs or pmfs of T has an MLR, β(θ) is nondecreasing
+(Exercise 8.34), so
+ i. supθ≤θ0β(θ) = β(θ0) = α, and this is a level α test.
+ii. Defining
+                                                                       ′)                                                   k′ = inf g(t|θ
+                                            t∈T g(t|θ0),
+   where T = {t : t > t0 and either g(t|θ ′) > 0 or g(t|θ0) > 0}, it follows that
+                                                                     ′)
+                             T > t0      > k′.                                 ⇔g(t|θ                                                  g(t|θ0)
+Together with Corollary 8.3.13, (i) and (ii) imply that β(θ ′) ≥β ∗(θ ′) where β ∗(θ) is the power
+function for any other level α test of H′0, that is, any test satisfying β(θ0) ≤α. However, any level
+α test of H0 satisfies β ∗(θ0) ≤supθ∈Θ0 β ∗(θ) ≤α. Thus, β(θ ′) ≥β ∗(θ ′) for any level α test ofH0. Since θ ′ was arbitrary, the test is a UMP level α test.                     2
+===== PDF 349, printed 318 =====
+318                                             HYPOTHESIS TESTING
+   By an analogous argument, it can be shown that under the conditions of Theorem 8.3.17, the test
+that rejects H0 : θ ≥θ0 in favor of H1 : θ < θ0 if and only if T < t0 is a UMP level α = Pθ0(T < t0)test.
+                                                                                                    1 : θ <Example 8.3.18 (Continuation of Example 8.3.15)  Consider testing H′0 : θ ≥θ0 versus H′θ0 using the test that rejects H′0 if
+                           X <                                        +θ0.                              −σzα√n
+As ¯X is sufficient and its distribution has an MLR (Exercise 8.25), it follows from Theorem 8.3.17
+that the test is a UMP level α test in this problem.
+   As the power function of this test,
+
+                                       +θ0   ,                          β(θ) = Pθ  X <                                 −σzα√n
+
+is a decreasing function of θ (since θ is a location parameter in the distribution of X), the value of
+α is given by supθ≥θ0 β(θ) = β(θ0) = α.                                             ∥
+   Although most experimenters would choose to use a UMP level α test if they knew of one,
+unfortunately, for many problems there is no UMP level α test. That is, no UMP test exists because
+the class of level α tests is so large that no one test dominates all the others in terms of power. In
+such cases, a common method of continuing the search for a good test is to consider some subset
+of the class of level α tests and attempt to find a UMP test in this subset. This tactic should be
+reminiscent of what we did in Chapter 7, when we restricted attention to unbiased point estimators
+in order to investigate optimality. We illustrate how restricting attention to the subset consisting of
+unbiased tests can result in finding a best test.
+    First we consider an example that illustrates a typical situation in which a UMP level α test does
+not exist.
+Example 8.3.19 (Nonexistence of UMP test)  Let X1,...,Xn be iid n(θ,σ2),σ2 known. Consider
+testing H0 : θ = θ0 versus H1 : θ̸ = θ0. For a specified value of α, a level α test in this problem isany test that satisfies
+                                         Pθ0(reject H0) ≤α.                                   (8.3.6)
+Consider an alternative parameter point θ1 < θ0. The analysis in Example 8.3.18 shows that, among
+all tests that satisfy (8.3.6), the test that rejects H0 if X <      + θ0 has the highest possible                                      −σzα/√npower at θ1. Call this Test 1. Furthermore, by part (b) (necessity) of the Neyman–Pearson Lemma,
+any other level α test that has as high a power as Test 1 at θ1 must have the same rejection region
+as Test 1 except possibly for a set A satisfying  A f(x|θi)dx = 0. Thus, if a UMP level α test existsfor this problem, it must be Test 1 because no other test has as high a power as Test 1 at θ1.
+  Now consider Test 2, which rejects H0 if X > σzα/√n + θ0. Test 2 is also a level α test. Let
+βi(θ) denote the power function of Test i. For any θ2 > θ0,
+                                      σzα
+                       β2(θ2) =   Pθ2 X > √n +θ0
+                              X             θ0                  =   Pθ2   −θ2 > zα +  −θ2                             σ/√n      σ/√n
+                                                           Z                  >  P(Z > zα)                           ∼n(0,1),
+                                        > since θ0 −θ2 < 0
+                  =  P(Z < −zα)
+                              X              θ0                  again, > since                                −θ2 <                                            −θ2                  >   Pθ2  σ/√n                                         −zα + σ/√n                                                                           θ0 −θ2 < 0.
+===== PDF 350, printed 319 =====
+METHODS OF EVALUATING TESTS                                            319
+
+
+
+              1
+
+
+
+
+                                      b1(q)                             b2(q)
+
+
+
+
+
+                                                                         b3(q)
+
+
+
+
+              0                                                                 q
+                                                      q0                         q2
+                               q0 – 2s/÷n                           q0 + 2s/√n
+
+Figure 8.3.3 Power functions for three tests in Example 8.3.19. β3(θ) is the power function of an unbiased
+level α = .05 test.
+
+
+                                       +θ0                   =   Pθ2 X <                                 −σzα√n
+                   =   β1(θ2).
+Thus Test 1 is not a UMP level α test because Test 2 has a higher power than Test 1 at θ2. Earlier
+we showed that if there were a UMP level α test, it would have to be Test 1. Therefore, no UMP
+level α test exists in this problem.                                                   ∥
+   Example 8.3.19 illustrates again the usefulness of the Neyman–Pearson Lemma. Previously, the
+sufficiency part of the Lemma was used to construct UMP level α tests, but to show the nonexistence
+of a UMP level α test, the necessity part of the Lemma is used.
+Example 8.3.20 (Unbiased test) When no UMP level α test exists within the class of all tests, we
+might try to find a UMP level α test within the class of unbiased tests. The power function, β3(θ),
+of Test 3, which rejects H0 : θ = θ0 in favor of H1 : θ̸ = θ0 if and only if
+                 X > σzα/2/√n+θ0 or X < −σzα/2/√n+θ0,
+as well as β1(θ) and β2(θ) from Example 8.3.19, is shown in Figure 8.3.3. Test 3 is actually a UMP
+unbiased level α test, that is, it is UMP in the class of unbiased tests.
+   Note that although Test 1 and Test 2 have slightly higher powers than Test 3 for some parameter
+points, Test 3 has much higher power than Test 1 and Test 2 at other parameter points. For example,
+β3(θ2) is near one whereas β1(θ2) is near zero. If the interest is in rejecting H0 for both large and
+small values of θ, Figure 8.3.3 shows that Test 3 is better overall than either Test 1 or Test 2.    ∥
+
+8.3.3   Sizes of Union–Intersection and Intersection–Union Tests
+
+Because of the simple way in which they are constructed, the sizes of union–intersection (UIT) and
+intersection–union (IUT) tests can often be bounded above by the sizes of some other tests. Such
+bounds are useful if a level α test is wanted, but the size of the UIT or IUT is too difficult to evaluate.
+===== PDF 351, printed 320 =====
+320                                             HYPOTHESIS TESTING
+In this section we discuss these bounds and give examples in which the bounds are sharp, that is,
+the size of the test is equal to the bound.
+    First consider UITs. Recall that, in this situation, we are testing a null hypothesis of the form
+H0: θ ∈Θ0 where Θ0 =  γ∈Γ Θγ. To be specific, let λγ(x) be the LRT statistic for testing H0γ : θ ∈Θγ
+versus H1γ : θ ∈Θc                         γ and let λ(x) be the LRT statistic for testing H0 : θ ∈Θ0 versus H1 : θ ∈Θc0.Then we have the following relationships between the overall LRT and the UIT based on λγ(x).
+Theorem 8.3.21  Consider testing H0: θ ∈Θ0 versus H1: θ ∈Θc0, where Θ0 =  γ∈Γ Θγ and λγ(x)
+is defined in the previous paragraph. Define T(x) = infγ∈Γλγ(x), and form the UIT with rejection
+region
+                      {x: λγ(x) < c for some γ ∈Γ} = {x: T(x) < c}.
+Also consider the usual LRT with rejection region {x: λ(x) < c}. Then
+a. T(x) ≥λ(x) for every x;
+b.  if βT(θ) and βλ(θ) are the power functions for the tests based on T and λ, respectively, then
+  βT(θ) ≤βλ(θ) for every θ ∈Θ; and
+c.  if the LRT is a level α test then the UIT is a level α test.
+Proof: Since Θ0 =     Θγ       for any γ, from Definition 8.2.1 we see that for any x,                    γ∈Γ  ⊂Θγ
+                              λγ(x) ≥λ(x)   for each γ ∈Γ,
+because the region of maximization is bigger for the individual λγ. Thus T(x) = infγ∈Γ λγ(x) ≥λ(x),
+proving (a). By (a), {x: T(x) < c} ⊂{x: λ(x) < c}, so
+                   βT(θ) = Pθ (T(X) < c) ≤Pθ (λ(X) < c) = βλ(θ),
+proving (b). Since (b) holds for every θ,supθ∈Θ0 βT(θ) ≤supθ∈Θ0 βλ(θ) ≤α, proving (c).   2
+Example 8.3.22 (An equivalence)   In some situations, T(x) = λ(x) in Theorem 8.3.21. The UIT
+built up from individual LRTs is the same as the overall LRT. This was the case in Example 8.2.8.
+There the UIT formed from two one-sided t tests was equivalent to the two-sided LRT.         ∥
+   Since the LRT is uniformly more powerful than the UIT in Theorem 8.3.21, we might ask why
+should we use the UIT. One reason is that the UIT has a smaller Type I Error probability for every
+θ ∈Θ0. Furthermore, if H0 is rejected, we may wish to look at the individual tests of H0γ to seewhy. As yet, we have not discussed inferences for the individual H0γ. The error probabilities for such
+inferences would have to be examined before such an inference procedure were adopted. But the
+possibility of gaining additional information by looking at the H0γ individually, rather than looking
+only at the overall LRT, is evident.
+  Now we investigate the sizes of IUTs. A simple bound for the size of an IUT is related to the
+sizes of the individual tests that are used to define the IUT. Recall that in this situation the null
+hypothesis is expressible as a union, that is, we are testing
+
+                                                                 0,  where Θ0 =   Θγ.              H0 : θ ∈Θ0     versus    H1 : θ ∈Θc
+                                                                    γ∈Γ
+An IUT has a rejection region of the form R =  γ∈ΓRγ where Rγ is the rejection region for a test of
+H0γ : θ ∈Θγ.
+Theorem 8.3.23   Let αγ be the size of the test of H0γ with rejection region Rγ. Then the IUT with
+rejection region R =  γ∈ΓRγ is a level α = supγ∈Γαγ test.
+Proof: Let θ ∈Θ0. Then θ ∈Θγ for some γ and
+                        Pθ(X ∈R) ≤Pθ(X ∈Rγ) ≤αγ ≤α.
+Since θ ∈Θ0 was arbitrary, the IUT is a level α test.                        2
+===== PDF 352, printed 321 =====
+METHODS OF EVALUATING TESTS                                            321
+    Typically, the individual rejection regions Rγ are chosen so that αγ = α for all γ. In such a case,
+Theorem 8.3.23 states that the resulting IUT is a level α test.
+   Theorem 8.3.23, which provides an upper bound for the size of an IUT, is somewhat more useful
+than Theorem 8.3.21, which provides an upper bound for the size of a UIT. Theorem 8.3.21 applies
+only to UITs constructed from likelihood ratio tests. In contrast, Theorem 8.3.23 applies to any IUT.
+   The bound in Theorem 8.3.21 is the size of the LRT, which, in a complicated problem, may be
+difficult to compute. In Theorem 8.3.23, however, the LRT need not be used to obtain the upper
+bound. Any test of H0γ with known size αγ can be used and then the upper bound on the size of the
+IUT is given in terms of the known sizes αγ,γ ∈Γ.   The IUT in Theorem 8.3.23 is a level α test. But the size of the IUT may be much less than α;
+the IUT may be very conservative. The following theorem gives conditions under which the size of
+the IUT is exactly α, and the IUT is not too conservative.
+Theorem 8.3.24  Consider testing H0 : θ      kj=1 Θj where k is a finite positive integer. For each                          ∈ j = 1,...,k, let Rj be the rejection region of a level α test of H0j. Suppose that for some i = 1,...,k,
+there exists a sequence of parameter points, θl ∈Θi, l = 1,2,..., such that,
+ i. liml→∞Pθl(X ∈Ri) = α,
+ii. for each j = 1,...,k,   j̸ = i, liml→∞Pθl(X ∈R j) = 1.
+Then, the IUT with rejection region R =   kj=1 R j is a size α test.
+Proof: By Theorem 8.3.23, R is a level α test, that is,
+                                  sup Pθ(X ∈R) ≤α.                                  (8.3.7)                                   θ∈Θ0
+But, because all the parameter points θl satisfy θl ∈Θi ⊂Θ0,
+                     sup Pθ(X ∈R) ≥  l→∞Pθl(Xlim    ∈R)                     θ∈Θ0                                                                         k
+                      =  l→∞Pθl(Xlim    ∈ j=1 Rj)
+                                                               k
+                                                                               Bonferroni                                          lim                    ∑ Pθl(X                           Inequality                                ∈R j)−(k −1)                      ≥                                     l→∞ j=1
+                      =   (k −1)+α −(k −1)               (by (i) and (ii))
+                      =  α.
+This and (8.3.7) imply the test has size exactly equal to α.                     2
+
+Example 8.3.25 (Intersection-union test)    In Example 8.2.9, let n = m = 58, t = 1.672, and
+b = 57. Then each of the individual tests has size α = .05 (approximately). Therefore, by Theorem
+8.3.23, the IUT is a level α = .05 test, that is, the probability of deciding the product is good, when
+in fact it is not, is no more than .05. In fact, this test is a size α = .05 test. To see this consider a
+sequence of parameter points θl = (θ1l,θ2), with θ1l →∞as l →∞and θ2 = .95. All such parameter
+points are in Θ0 because θ2 ≤.95. Also, Pθl(X ∈R1) →1 as θ1l →∞while Pθl(X ∈R2) = .05 for
+all l because θ2 = .95. Thus, by Theorem 8.3.24, the IUT is a size α test.                    ∥
+   Note that, in Example 8.3.25, only the marginal distributions of the X1,...,Xn and Y1,...,Ym
+were used to find the size of the test. This point is extremely important, and directly relates to the
+usefulness of IUTs, because the joint distribution is often difficult to know and, if known, often
+difficult to work with. For example, Xi and Yi may be related if they are measurements on the same
+piece of fabric, but this relationship would have to be modeled and used to calculate the exact power
+of the IUT at any particular parameter value.
+===== PDF 353, printed 322 =====
+322                                             HYPOTHESIS TESTING
+8.3.4  p-Values
+
+After a hypothesis test is done, the conclusions must be reported in some statistically meaningful
+way. One method of reporting the results of a hypothesis test is to report the size, α, of the test used
+and the decision to reject H0 or accept H0. The size of the test carries important information. If α
+is small, the decision to reject H0 is fairly convincing, but if α is large, the decision to reject H0
+is not very convincing because the test has a large probability of incorrectly making that decision.
+Another way of reporting the results of a hypothesis test is to report the value of a certain kind of
+test statistic called a p-value.
+Definition 8.3.26 A p-value p(X) is a test statistic satisfying 0 ≤p(x) ≤1 for every sample point
+x. Small values of p(X) give evidence that H1 is true. A p-value is valid if, for every θ ∈Θ0 and
+every 0 ≤α ≤1,
+                                    Pθ (p(X) ≤α) ≤α.                                  (8.3.8)
+
+     If p(X) is a valid p-value, it is easy to construct a level-α test based on p(X). The test that
+rejects H0 if and only if p(X) ≤α is a level-α test because of (8.3.8). An advantage to reporting atest result via a p-value is that each reader can choose the α he or she considers appropriate and then
+can compare the reported p(x) to α and know whether these data lead to acceptance or rejection of
+H0. Furthermore, the smaller the p-value the stronger the evidence for rejecting H0. Hence, a p-value
+reports the results of a test on a more continuous scale, rather than just the dichotomous decision,
+“Accept H0” or “Reject H0.”
+   The most common way to define a valid p-value is given in Theorem 8.3.27.
+Theorem 8.3.27  Let W(X) be a test statistic such that large values of W give evidence that H1 is
+true. For each sample point x, define
+                              p(x) = sup Pθ (W(X) ≥W(x)).                            (8.3.9)                                    θ∈Θ0
+Then, p(X) is a valid p-value.
+Proof: Fix θ ∈Θ0. Let Fθ(w) denote the cdf of −W(X). Define
+             pθ(x) = Pθ (W(X) ≥W(x)) = Pθ (−W(X) ≤−W(x)) = Fθ (−W(x)).
+Then the random variable pθ(X) is equal to Fθ(−W(X)). Hence, by the Probability IntegralTransformation or Exercise 2.10, the distribution of pθ(X) is stochastically greater than or equal
+to a uniform(0,1) distribution. That  is, for every 0 ≤α ≤1, Pθ(pθ(X) ≤α) ≤α. Because
+p(x) = supθ′∈Θ0 pθ′(x) ≥pθ(x) for every x,
+                           Pθ (p(X) ≤α) ≤Pθ (pθ(X) ≤α) ≤α.
+This is true for every θ ∈Θ0 and for every 0 ≤α ≤1; p(X) is a valid p-value.          2
+   The calculation of the supremum in (8.3.9) might be difficult. The next two examples illustrate
+common situations in which it is not too difficult. In the first, no supremum is necessary; in the
+second, it is easy to determine the θ value at which the supremum occurs.
+Example 8.3.28 (Two-sided normal p-value)  Let X1,...,Xn be a random sample from a n(µ,σ2)
+population. Consider testing H0: µ = µ0 versus H1: µ̸ = µ0. By Exercise 8.38, the LRT rejects H0 for                                                   If µ = µ0, regardless of the value of σ, (Xlarge values of W(X) = |X −µ0|/(S/√n).                                                               −µ0)/(S/√n)
+has a Student’s t distribution with n−1 degrees of freedom. Thus, in calculating (8.3.9), the proba-bility is the same for all values of θ, that is, all values of σ. Thus, the p-value from (8.3.9) for this
+                                               where Tn−1 has a Student’s t distributiontwo-sided t test is p(x) = 2P(Tn−1 ≥|x −µ0|/(s/√n))
+with n−1 degrees of freedom.                                                      ∥
+===== PDF 354, printed 323 =====
+METHODS OF EVALUATING TESTS                                            323
+Example 8.3.29 (One-sided normal p-value)   Again consider the normal model of Example
+8.3.28, but consider testing H0: µ ≤µ0 versus H1: µ > µ0. By Exercise 8.37, the LRT rejects H0 forlarge values of W(X) = (X             The following argument shows that, for this statistic, the                     −µ0)/(S/√n).supremum in (8.3.9) always occurs at a parameter (µ0,σ), and the value of σ used does not matter.
+Consider any µ ≤µ0 and any σ.
+                                   X                  Pµ,σ (W(X)      =  Pµ,σ   −µ0                     ≥W(x))          S/√n ≥W(x)
+                                   X              µ0                      =  Pµ,σ   −µ        −µ                                     S/√n ≥W(x)+ S/√n
+                                                           µ0                      =  Pµ,σ           −µ                                               Tn−1 ≥W(x)+ S/√n
+                      ≤  P(Tn−1 ≥W(x))
+Here again, Tn−1 has a Student’s t distribution with n −1 degrees of freedom. The inequality in                                                                        is a nonnegative random variable. Thethe last line is true because µ0 ≥µ, and (µ0 −µ)/(S/√n)subscript on P is dropped here, because this probability does not depend on (µ,σ). Furthermore,
+
+                           X                = Pµ0,σ   −µ0      = Pµ0,σ (W(X)            P(Tn−1 ≥W(x))        S/√n ≥W(x)             ≥W(x)),
+
+and this probability is one of those considered in the calculation of the supremum in (8.3.9) because
+(µ0,σ) ∈Θ0. Thus, the p-value from (8.3.9) for this one-sided t test is p(x) = P(Tn−1 ≥W(x)) =P(Tn−1 ≥(x−µ0)/(s/√n)).                                                       ∥
+   Another method for defining a valid p-value, an alternative to using (8.3.9), involves condition-
+ing on a sufficient statistic. Suppose S(X) is a sufficient statistic for the model {f(x|θ) : θ ∈Θ0}.(To avoid tests with low power it is important that S is sufficient only for the null model, not the
+entire model { f(x|θ) : θ ∈Θ}.) If the null hypothesis is true, the conditional distribution of X givenS = s does not depend on θ. Again, let W(X) denote a test statistic for which large values give
+evidence that H1 is true. Then, for each sample point x define
+                            p(x) = P(W(X) ≥W(x)|S = S(x)).                        (8.3.10)
+Arguing as in Theorem 8.3.27, but only considering the single distribution that is the conditional
+distribution of X given S = s, we see that, for any 0 ≤α ≤1,
+                            P(p(X) ≤α|S = s) ≤α.
+Then, for any θ ∈Θ0, unconditionally we have
+                         = s)Pθ (S = s)                                                                  (S = s) ≤α.           Pθ (p(X) ≤α) = ∑s P(p(X) ≤α|S                         ≤∑s αPθ
+
+Thus, p(X) defined by (8.3.10) is a valid p-value. Sums can be replaced by integrals for continuous
+S, but this method is usually used for discrete S, as in the next example.
+Example 8.3.30 (Fisher’s Exact Test)   Let S1 and S2 be independent observations with S1 ∼
+binomial(n1, p1) and S2 ∼binomial(n2, p2). Consider testing H0 : p1 = p2 versus H1 : p1 > p2.Under H0, letting p denote the common value of p1 = p2, the joint pmf of (S1,S2) is
+
+                                   n1                   n2
+                   f(s1,s2|p) =     s1  ps1(1−p)n1−s1   s2  ps2(1−p)n2−s2
+                                   n1    n2
+                =                                        s1     s2   ps1+s2(1−p)n1+n2−(s1+s2).
+===== PDF 355, printed 324 =====
+324                                             HYPOTHESIS TESTING
+Thus, S = S1 + S2 is a sufficient statistic under H0. Given the value of S = s, it is reasonable to
+use S1 as a test statistic and reject H0 in favor of H1 for large values of S1, because large values
+of S1 correspond to small values of S2 = s −S1. The conditional distribution S1 given S = s ishypergeometric(n1 +n2,n1,s) ( see Exercise 8.48). Thus, the conditional p-value in (8.3.10) is
+
+                                                       min{n1,s}
+                                    p(s1,s2) = ∑                                                             f(j|s),                                                          j=s1
+
+the sum of hypergeometric probabilities. The test defined by this p-value is called Fisher’s Exact
+Test.                                                                          ∥
+
+8.3.5  Loss Function Optimality
+
+A decision theoretic analysis, as in Section 7.3.4, may be used to compare hypothesis tests, rather
+than just comparing them via their power functions. To carry out this kind of analysis, we must
+specify the action space and loss function for our hypothesis testing problem.
+    In a hypothesis testing problem, only two actions are allowable, “accept H0” or “reject H0.”
+These two actions might be denoted a0 and a1, respectively. The action space in hypothesis testing
+is the two-point set A = {a0,a1}. A decision rule δ(x) (a hypothesis test) is a function on X that
+takes on only two values, a0 and a1. The set {x: δ(x) = a0} is the acceptance region for the test and
+the set {x: δ(x) = a1} is the rejection region, just as in Definition 8.1.3.
+   The loss function in a hypothesis testing problem should reflect the fact that, if θ ∈Θ0 and
+                                  0 and decision a0 is made, a mistake has been made. But in the otherdecision a1 is made, or if θ ∈Θctwo possible cases, the correct decision has been made. Since there are only two possible actions,
+the loss function L(θ,a) in a hypothesis testing problem is composed of only two parts. The function
+L(θ,a0) is the loss incurred for various values of θ if the decision to accept H0 is made, and L(θ,a1)
+is the loss incurred for various values of θ if the decision to reject H0 is made.
+   The simplest kind of loss in a testing problem is called 0–1 loss, and is defined by
+
+                          0  θ                        1  θ                 L(θ,a0) =      ∈Θ0,   and  L(θ,a1) =      ∈Θ0,
+                          1  θ ∈Θc0,                  0  θ ∈Θc0.
+With 0–1 loss, the value 0 is lost if a correct decision is made, and the value 1 is lost if an incorrect
+decision is made. This is a particularly simple situation in which both types of error have the same
+consequence. A slightly more realistic loss, one that gives different costs to the two types of error,
+is generalized 0–1 loss,
+
+                          0  θ                                  cI  θ                L(θ,a0) =       ∈Θ0,   and  L(θ,a1) =      ∈Θ0,           (8.3.11)
+                                         cII  θ ∈Θc0,                   0  θ ∈Θc0.
+In this loss, cI is the cost of a Type I Error, the error of falsely rejecting H0, and cII is the cost of a
+Type II Error, the error of falsely accepting H0. (Actually, in comparing tests, all that really matters
+is the ratio cII/cI, not the two individual values. If cI = cII, we essentially have 0–1 loss.)
+    In a decision theoretic analysis, the risk function (the expected loss) is used to evaluate a hy-
+pothesis testing procedure. The risk function of a test is closely related to its power function, as the
+following analysis shows.
+   Let β(θ) be the power function of the test based on the decision rule δ. That is, if R = {x :
+δ(x) = a1} denotes the rejection region of the test, then
+                        β(θ) = Pθ(X ∈R) = Pθ(δ(X) = a1).
+===== PDF 356, printed 325 =====
+METHODS OF EVALUATING TESTS                                            325
+                                                   R(q, d)
+                                       3
+
+
+
+
+
+                                       2
+
+
+
+
+
+                                       1
+
+
+
+
+
+                                                                               q – q0
+          –3        –2        –1         0         1         2         3   s/√n
+
+                 Figure 8.3.4 Risk function for test in Example 8.3.31, where z = √n θ−θ0σ
+
+The risk function associated with (8.3.11) and, in particular, 0–1 loss is very simple. For any value
+of θ ∈Θ,L(θ,a) takes on only two values, 0 and cI if θ ∈Θ0 and 0 and cII if θ ∈Θc0. Thus, the riskis
+       R(θ,δ) =  0Pθ(δ(X) = a0)+cIPθ(δ(X) = a1) = cIβ(θ),    if θ ∈Θ0,
+                        and                                                            (8.3.12)
+                                                                                                     0.       R(θ,δ) =  cIIPθ(δ(X) = a0)+0Pθ(δ(X) = a1) = cII(1−β(θ)),    if θ ∈Θc
+This similarity between a decision theoretic approach and a more traditional power approach is due,
+in part, to the form of the loss function. But in all hypothesis testing problems, as we shall see below,
+the power function plays an important role in the risk function.
+Example 8.3.31 (Risk of UMP test)  Let X1,...,Xn be a random sample from a n(µ,σ2) popula-
+tion, σ2 known. The UMP level α test of H0 : θ ≥θ0 versus H1 : θ < θ0 is the test that rejects H0 if(X        <     (Example 8.3.15). The power function for this test is  −θ0)/(σ/√n)  −zα
+                         β(θ) = Pθ  Z <       −θ0    ,                                     −zα −θσ/√n
+
+where Z has a n(0,1) distribution. For α = .10, the risk function (8.3.12) for cI = 8 and cII = 3 is
+shown in Figure 8.3.4. Notice the discontinuity in the risk function at θ = θ0. This is due to the
+fact that at θ0 the expression in the risk function changes from β(θ) to 1 −β(θ) as well as to the
+difference between cI and cII.                                                       ∥
+===== PDF 357, printed 326 =====
+326                                             HYPOTHESIS TESTING
+   The 0–1 loss judges only whether a decision is right or wrong. It may be the case that some
+wrong decisions are more serious than others and the loss function should reflect this. When testing
+H0 : θ ≥θ0 versus H1 : θ < θ0, it is a Type I Error to reject H0 if θ is slightly bigger than θ0, but itmay not be a very serious mistake. The adverse consequences of rejecting H0 may be much worse
+if θ is much larger than θ0. A loss function that reflects this is
+
+                0       θ                              c(θ         θ  L(θ,a0) =            ≥θ0     and    L(θ,a1) =     −θ0)2     ≥θ0   (8.3.13)              b(θ0        θ < θ0                          0       θ < θ0          −θ)                    
+where b and c are positive constants. For example, if an experimenter is testing whether a drug low-
+ers cholesterol level, H0 and H1 might be set up like this with θ0 = standard acceptable cholesterol
+level. Since a high cholesterol level is associated with heart disease, the consequences of rejecting
+H0 when θ is large are quite serious. A loss function like (8.3.13) reflects such a consequence. A
+similar type of loss function is advocated by Vardeman (1987).
+   Even for a general loss function like (8.3.13), the risk function and the power function are closely
+related. For any fixed value of θ, the loss is either L(θ,a0) or L(θ,a1). Thus, the expected loss is
+
+              R(θ,δ) =  L(θ,a0)Pθ(δ(X) = a0)+L(θ,a1)Pθ(δ(X) = a1)
+              =  L(θ,a0)(1−β(θ))+L(θ,a1)β(θ).                       (8.3.14)
+The power function of a test is always important when evaluating a hypothesis test. But in a decision
+theoretic analysis, the weights given by the loss function are also important.
+
+8.4  Exercises
+  8.1 In 1,000 tosses of a coin, 560 heads and 440 tails appear. Is it reasonable to assume that the coin is fair?
+      Justify your answer.
+  8.2 In a given city, it is assumed that the number of automobile accidents in a given year follows a Poisson
+       distribution. In past years, the average number of accidents per year was 15, and this year it was 10. Is it
+       justified to claim that the accident rate has dropped?
+  8.3 Here, the LRT alluded to in Example 8.2.9 will be derived. Suppose that we observe m iid Bernoulli(θ)
+     random variables, denoted by Y1,...,Ym. Show that the LRT of H0 : θ ≤θ0 versus H1 : θ > θ0 will reject     H0 if ∑mi=1Yi > b.
+  8.4 Prove the assertion made in the text after Definition 8.2.1. If f(x|θ) is the pmf of a discrete random vari-      able, then the numerator of λ(x), the LRT statistic, is the maximum probability of the observed sample
+     when the maximum is computed over parameters in the null hypothesis. Furthermore, the denominator
+      of λ(x) is the maximum probability of the observed sample over all possible parameters.
+  8.5 A random sample, X1,...,Xn, is drawn from a Pareto population with pdf
+                                  θνθ
+                               f(x|θ,ν) = xθ+1 I[ν,∞)(x),  θ > 0,  ν > 0.
+       (a) Find the MLEs of θ and ν.
+      (b) Show that the LRT of
+                    H0 : θ = 1, ν unknown     versus    H1 : θ̸ = 1, ν unknown,
+         has critical region of the form {x: T(x) ≤c1 or T(x) ≥c2}, where 0 < c1 < c2 and
+                                                              n
+                             ∏ Xi                                  T = log   i=1   
+                                               (min Xi)n
+                                                                                                               i                                                                                                                     .
+===== PDF 358, printed 327 =====
+EXERCISES                                                                  327
+
+       (c) Show that, under H0, 2T has a chi squared distribution, and find the number of degrees of freedom.
+          (Hint:  Obtain the joint distribution of the n−1 nontrivial terms Xi/(mini Xi) conditional on mini Xi.
+         Put these n−1 terms together, and notice that the distribution of T given mini Xi does not depend on         mini Xi, so it is the unconditional distribution of T.)
+  8.6 Suppose that we have two independent random samples: X1,...,Xn are exponential(θ), and Y1,···,Ym      are exponential(µ).
+       (a) Find the LRT of H0 : θ = µ versus H1 : θ̸ = µ.
+      (b) Show that the test in part (a) can be based on the statistic
+                                                  ΣXi                                    T =                .
+                                                ΣXi +ΣYi
+       (c) Find the distribution of T when H0 is true.
+  8.7 We have already seen the usefulness of the LRT in dealing with problems with nuisance parameters. We
+    now look at some other nuisance parameter problems.
+       (a) Find the LRT of
+                             H0 : θ ≤0     versus    H1 : θ > 0,
+         based              on a sample X1,...,Xn from a population with probability density function f(x|θ,λ) =           1          λ e−(x−θ)/λ I(θ,∞)(x), where both θ and λ are unknown.
+      (b) We have previously seen that the exponential pdf is a special case of a gamma pdf. Generalizing
+           in another way, the exponential pdf can be considered as a special case of the Weibull(γ,β). The
+         Weibull pdf, which reduces to the exponential if γ = 1, is very important in modeling reliability of
+          systems. Suppose that X1,...,Xn is a random sample from a Weibull population with both γ and β
+        unknown. Find the LRT of H0 : γ = 1 versus H1 : γ̸ = 1.
+  8.8 A special case of a normal family is one in which the mean and the variance are related, the n(θ,aθ)
+      family. If we are interested in testing this relationship, regardless of the value of θ, we are again faced
+     with a nuisance parameter problem.
+       (a) Find the LRT of H0 : a = 1 versus H1 : a̸ = 1 based on a sample X1,...,Xn from a n(θ,aθ) family,        where θ is unknown.
+      (b) A similar question can be asked about a related family, the n(θ,aθ2) family. Thus, if X1,...,Xn are
+            iid n(θ,aθ2), where θ is unknown, find the LRT of H0 : a = 1 versus H1 : a̸ = 1.
+  8.9 Stefanski (1996) establishes the arithmetic-geometric-harmonic mean inequality (see Example 4.7.8 and
+      Miscellanea 4.9.2) using a proof based on likelihood ratio tests. Suppose that Y1,Y2,...,Yn are indepen-
+      dent with pdfs λie−λiyi, and we want to test H0 : λ1 = λ2 =  = λn vs. H1 : λi are not all equal.                                                                           ···
+       (a) Show that the LRT statistic is given by (¯Y)−n/(∏iYi)−1, and hence deduce the arithmetic-geometric
+        mean inequality.
+      (b) Make the transformation Xi = 1/Yi, and show that the LRT statistic based on X1,X2,...,Xn is given
+        by [n/∑i(1/Xi)]n/∏i Xi and hence deduce the geometric-harmonic mean inequality.
+8.10 Let X1,...,Xn be iid Poisson(λ), and let λ have a gamma(α,β) distribution, the conjugate family for
+      the Poisson. In Exercise 7.24 the posterior distribution of λ was found, including the posterior mean and
+      variance. Now consider a Bayesian test of H0 : λ ≤λ0 versus H1 : λ > λ0.
+       (a) Calculate expressions for the posterior probabilities of H0 and H1.
+      (b)  If α = 52 and β = 2, the prior distribution is a chi squared distribution with 5 degrees of freedom.
+         Explain how a chi squared table could be used to perform a Bayesian test.
+8.11 In Exercise 7.23 the posterior distribution of σ2, the variance of a normal population, given S2, the sample
+      variance based on a sample of size n, was found using a conjugate prior for σ2 (the inverted gamma pdf
+     with parameters α and β). Based on observing S2, a decision about the hypotheses H0 : σ ≤1 versus     H1 : σ > 1 is to be made.
+       (a) Find the region of the sample space for which P(σ ≤1|s2) > P(σ > 1|s2), the region for which a
+        Bayes test will decide that σ ≤1.
+      (b) Compare the region in part (a) with the acceptance region of an LRT. Is there any choice of prior
+         parameters for which the regions agree?
+===== PDF 359, printed 328 =====
+328                                             HYPOTHESIS TESTING
+8.12 For samples of size n = 1,4,16, 64,100, from a normal population with mean µ and known variance σ2,
+      plot the power function of the following tests. Take α = .05.
+       (a) H0 : µ ≤0 versus H1 : µ > 0
+      (b) H0 : µ = 0 versus H1 : µ̸ = 0
+8.13 Let X1,X2 be iid uniform(θ,θ + 1). For testing H0 : θ = 0 versus H1 : θ > 0, we have two competing
+       tests:
+
+                                 φ1(X1) :     Reject H0 if X1 > .95,
+                              φ2(X1,X2) :     Reject H0 if X1 +X2 > C.
+
+       (a) Find the value of C so that φ2 has the same size as φ1.
+      (b) Calculate the power function of each test. Draw a well-labeled graph of each power function.
+       (c) Prove or disprove:  φ2 is a more powerful test than φ1.
+      (d) Show how to get a test that has the same size, but is more powerful than φ2.
+8.14 For a random sample X1,...,Xn of Bernoulli(p) variables, it is desired to test
+
+                           H0 : p = .49     versus    H1 : p = .51.
+
+     Use the Central Limit Theorem to determine, approximately, the sample size needed so that the two
+      probabilities of error are both about .01. Use a test function that rejects H0 if ∑ni=1 Xi is large.
+8.15 Show that for a random sample X1,...,Xn from a n(0,σ2) population, the most powerful test of H0: σ =
+     σ0 versus H1 : σ = σ1, where σ0 < σ1, is given by
+                                           1       if ΣX2i > c                              φ(ΣX2i ) =
+                                           0       if ΣX2i ≤c.
+     For a given value of α, the size of the Type I Error, show how the value of c is explicitly determined.
+8.16 One very striking abuse of α levels is to choose them after seeing the data, and to choose them in such
+      a way as to force rejection (or acceptance) of a null hypothesis. To see what the true Type I and Type II
+      Error probabilities of such a procedure are, calculate size and power of the following two trivial tests:
+       (a) Always reject H0, no matter what data are obtained (equivalent to the practice of choosing the α
+           level to force rejection of H0).
+      (b) Always accept H0, no matter what data are obtained (equivalent to the practice of choosing the α
+           level to force acceptance of H0).
+8.17 Suppose that X1,...,Xn are iid with a beta(µ,1) pdf and Y1,...,Ym are iid with a beta(θ,1) pdf. Also
+     assume that the Xs are independent of the Ys.
+       (a) Find an LRT of H0 : θ = µ versus H1 : θ̸ = µ.
+      (b) Show that the test in part (a) can be based on the statistic
+                                               ΣlogXi                                  T =                          .
+                                           ΣlogXi +ΣlogYi
+
+       (c) Find the distribution of T when H0 is true, and then show how to get a test of size α = .10.
+8.18 Let X1,...,Xn be a random sample from a n(θ,σ2) population, σ2 known. An LRT of H0: θ = θ0 versus
+                                > c.     H1 : θ̸ = θ0 is a test that rejects H0 if |X −θ0|/(σ/√n)
+       (a) Find an expression, in terms of standard normal probabilities, for the power function of this test.
+      (b) The experimenter desires a Type I Error probability of .05, and a maximum Type II Error probability
+          of .25 at θ = θ0 +σ. Find values of n and c that will achieve this.
+8.19 The random variable X has pdf f(x) = e−x,x > 0. One observation is obtained on the random variable
+    Y = Xθ, and a test of H0 : θ = 1 versus H1 : θ = 2 needs to be constructed. Find the UMP level α = .10
+       test and compute the Type II Error probability.
+===== PDF 360, printed 329 =====
+EXERCISES                                                                  329
+
+8.20 Let X be a random variable whose pmf under H0 and H1 is given by
+                              x      1    2    3    4    5    6    7
+                            f(x|H0)   .01   .01   .01   .01   .01   .01   .94
+                            f(x|H1)   .06   .05   .04   .03   .02   .01   .79
+     Use the Neyman–Pearson Lemma to find the most powerful test for H0 versus H1 with size α = .04.
+     Compute the probability of Type II Error for this test.
+8.21 In the proof of Theorem 8.3.12 (Neyman–Pearson Lemma), it was stated that the proof, which was given
+      for continuous random variables, can easily be adapted to cover discrete random variables. Provide the
+       details, that is, prove the Neyman–Pearson Lemma for discrete random variables. Assume that the α
+      level is attainable.
+8.22 Let X1,...,X10 be iid Bernoulli(p).
+       (a) Find the most powerful test of size α = .0547 of the hypotheses H0 : p = 12 versus H1 : p = 14. Find
+          the power of this test.
+                                2 versus H1 : p > 2, find the size and sketch the power function of the test that      (b) For testing H0 : p ≤1                  1
+           rejects H0 if ∑10i=1 Xi ≥6.
+       (c) For what α levels does there exist a UMP test of the hypotheses in part (a)?
+8.23 Suppose X is one observation from a population with beta(θ,1) pdf.
+       (a) For testing H0 : θ                             1≤1 versus H1 : θ > 1, find the size and sketch the power function of the test that           rejects H0 if X > 2.
+      (b) Find the most powerful level α test of H0 : θ = 1 versus H1 : θ = 2.
+       (c)  Is there a UMP test of H0 : θ ≤1 versus H1 : θ > 1? If so, find it. If not, prove so.
+8.24 Find the LRT of a simple H0 versus a simple H1. Is this test equivalent to the one obtained from the
+     Neyman–Pearson Lemma? (This relationship is treated in some detail by Solomon (1975).)
+8.25 Show that each of the following families has an MLR.
+       (a) n(θ,σ2) family with σ2 known
+      (b) Poisson(θ) family
+       (c) binomial(n,θ) family with n known
+8.26  (a) Show that if a family of pdfs {f(x|θ): θ ∈Θ} has an MLR, then the corresponding family of cdfs is          stochastically increasing in θ. (See the Miscellanea section.)
+      (b) Show that the converse of part (a) is false, that is, give an example of a family of cdfs that is stochas-
+            tically increasing in θ for which the corresponding family of pdfs does not have an MLR.
+8.27 Suppose g(t|θ) = h(t)c(θ)ew(θ)t is a one-parameter exponential family for the random variable T. Show       that this family has an MLR if w(θ) is an increasing function of θ. Give three examples of such a family.
+8.28 Let f(x|θ) be the logistic location pdf
+                                        e(x−θ)
+                          f(x|θ) =              2 , −∞< x < ∞, −∞< θ < ∞.                               1+e(x−θ)
+
+       (a) Show that this family has MLR.
+      (b) Based on one observation, X, find the most powerful size α test of H0 : θ = 0 versus H1 : θ = 1. For
+       α = .2, find the size of the Type II Error.
+       (c) Show that the test in part (b) is UMP size α for testing H0 : θ ≤0 versus H1 : θ > 0. What can be          said about UMP tests in general for the logistic location family?
+===== PDF 361, printed 330 =====
+330                                             HYPOTHESIS TESTING
+
+8.29 Let X be one observation from a Cauchy(θ) distribution.
+       (a) Show that this family does not have an MLR.
+      (b) Show that the test
+                                           1       if 1 < x < 3                                      φ(x) =                                           0     otherwise
+            is most powerful of its size for testing H0 : θ = 0 versus H1 : θ = 1. Calculate the Type I and Type II
+          Error probabilities.
+       (c) Prove or disprove:  The test in part (b) is UMP for testing H0 : θ ≤0 versus H1 : θ > 0. What can         be said about UMP tests in general for the Cauchy location family?
+8.30 Let f(x|θ) be the Cauchy scale pdf
+                                 θ   1
+                                f(x|θ) = π θ2 +x2 , −∞< x < ∞,  θ > 0.
+       (a) Show that this family does not have an MLR.
+      (b)  If X is one observation from f(x|θ), show that |X| is sufficient for θ, and that the distribution of |X|         does have an MLR.
+8.31 Let X1,...,Xn be iid Poisson(λ).
+       (a) Find a UMP test of H0 : λ ≤λ0 versus H1 : λ > λ0.
+      (b) Consider the specific case H0: λ ≤1 versus H1: λ > 1. Use the Central Limit Theorem to determine
+          the sample size n so a UMP test satisfies P(reject H0|λ = 1) = .05 and P(reject H0|λ = 2) = .9.
+8.32 Let X1,...,Xn be iid n(θ,1), and let θ0 be a specified value of θ.
+       (a) Find the UMP, size α, test of H0 : θ ≥θ0 versus H1 : θ < θ0.
+      (b) Show that there does not exist a UMP, size α, test of H0 : θ = θ0 versus H1 : θ̸ = θ0.
+8.33 Let X1,...,Xn be a random sample from the uniform(θ,θ + 1) distribution. To test H0 : θ = 0 versus
+    H1 : θ > 0, use the test
+                                              reject H0 if Yn ≥1 or Y1 ≥k,
+     where k is a constant, Y1 = min{X1,...,Xn},Yn = max{X1,...,Xn}.
+       (a) Determine k so that the test will have size α.
+      (b) Find an expression for the power function of the test in part (a).
+       (c) Prove that the test is UMP size α.
+      (d) Find values of n and k so that the UMP .10 level test will have power at least .8 if θ > 1.
+8.34 In each of the following two situations, show that for any number c, if θ1 ≤θ2 then
+                                       Pθ1(T > c) ≤Pθ2(T > c).
+       (a) θ is a location parameter in the distribution of the random variable T.
+      (b) The family of pdfs of T,{g(t|θ): θ ∈Θ}, has an MLR.
+8.35 The usual t distribution, as derived in Section 5.3.2, is also known as a central t distribution. It can
+     be thought of as the pdf of a random variable of the form T = n(0,1)/   χ2ν/ν, where the normal and
+      the chi squared random variables are independent. A generalization of the t distribution, the noncentral
+        t, is of the form T ′ = n(µ,1)/   χ2ν/ν, where the normal and the chi squared random variables are
+      independent and we can have µ̸ = 0. (We have already seen a noncentral pdf, the noncentral chi squared,
+      in (4.4.3).) Formally, if X ∼n(µ,1), and Y ∼χ2ν, independent of X, then T ′ = X/  Y/ν has a noncentral
+         t distribution with ν degrees of freedom and noncentrality parameter δ =   µ2.
+       (a) Calculate the mean and variance of T ′.
+      (b) The pdf of T ′ is given by
+                                 e−δ 2/2    ∞ (2/ν)k/2(δt)k   Γ([ν +k +1]/2)
+                                                                                                                                     .                    ∑       k!                           fT ′(t|δ) = Γ(                                                     1+(t2/ν) (ν+k+1)/2                                       12)Γ( ν2 )√ν k=0
+       Show that this pdf reduces to that of a central t if δ = 0.
+       (c) Show that the pdf of T ′ has MLR in its noncentrality parameter.
+===== PDF 362, printed 331 =====
+EXERCISES                                                                  331
+
+8.36 We have one observation from a beta(1,θ) population.
+       (a) To test H0 : θ1 ≤θ ≤θ2 versus H1 : θ < θ1 or θ > θ2, where θ1 = 1 and θ2 = 2, a test satisfies         Eθ1φ = .5 and Eθ2φ = .3. Find a test that is as good, and explain why it is as good.
+      (b) For testing H0 : θ = θ1 versus H1 : θ̸ = θ1, with θ1 = 1, find a two-sided test (other than φ ≡.1) that
+            satisfies Eθ1φ = .1 and dθd Eθ(φ)   = 0.                                        θ=θ1
+8.37 Let X1,...,Xn be a random sample from a n(θ,σ2) population. Consider testing
+                           H0 : θ ≤θ0     versus    H1 : θ > θ0.
+       (a)  If σ2 is known, show that the test that rejects H0 when
+
+                                X > θ0 +zα  σ2/n
+
+            is a test of size α. Show that the test can be derived as an LRT.
+      (b) Show that the test in part (a) is a UMP test.
+       (c)  If σ2 is unknown, show that the test that rejects H0 when
+
+                               X > θ0 +tn−1,α  S2/n
+            is a test of size α. Show that the test can be derived as an LRT.
+8.38 Let X1,...,Xn be iid n(θ,σ2), where θ0 is a specified value of θ, and σ2 is unknown. We are interested
+      in testing
+                           H0 : θ = θ0     versus    H1 : θ̸ = θ0.
+       (a) Show that the test that rejects H0 when
+
+                                         |X −θ0| > tn−1,α/2  S2/n
+            is a test of size α.
+      (b) Show that the test in part (a) can be derived as an LRT.
+8.39 Let (X1,Y1),...,(Xn,Yn) be a random sample from a bivariate normal distribution with parameters
+     µX,µY ,σ2X,σ2Y ,ρ. We are interested in testing
+                          H0 : µX = µY     versus    H1 : µX̸ = µY .
+                                           W ).       (a) Show that the random variables Wi = Xi −Yi are iid n(µW ,σ2
+      (b) Show that the above hypothesis can be tested with the statistic
+
+                             W
+                                      TW =
+                                                              1nS2W
+        where W = 1n ∑ni=1Wi and S2W =   1                                     ∑ni=1(Wi −W)2. Furthermore, show that, under H0,TW ∼                                              (n−1)
+          Student’s t with n−1 degrees of freedom. (This test is known as the paired-sample t test.)
+8.40 Let (X1,Y1),...,(Xn,Yn) be a random sample from a bivariate normal distribution with parameters
+     µX,µY ,σ2X,σ2Y ,ρ.
+       (a) Derive the LRT of
+                           H0 : µX = µY     versus    H1 : µX̸ = µY ,
+        where σ2X,σ2Y , and ρ are unspecified and unknown.
+      (b) Show that the test derived in part (a) is equivalent to the paired t test of Exercise 8.39.
+          (Hint:  Straightforward maximization of the bivariate likelihood is possible, but somewhat nasty.
+           Filling in the gaps of the following argument gives a more elegant proof.)
+       Make the transformation u = x−y,v = x+y. Let f(x,y) denote the bivariate normal pdf, and write
+                                               f(x,y) = g(v|u)h(u),
+===== PDF 363, printed 332 =====
+332                                             HYPOTHESIS TESTING
+        where g(v|u) is the conditional pdf of V given U, and h(u) is the marginal pdf of U. Argue that (1)
+          the likelihood can be equivalently factored and (2) the piece involving g(v|u) has the same maximum         whether or not the means are restricted. Thus, it can be ignored (since it will cancel) and the LRT is
+           just based only on h(u). However, h(u) is a normal pdf with mean µX −µY , and the LRT is the usual         one-sample t test, as derived in Exercise 8.38.
+8.41 Let X1,...,Xn be a random sample from a n(µX,σ2X), and let Y1,...,Ym be an independent random sample
+     from a n(µY ,σ2Y ). We are interested in testing
+                          H0 : µX = µY     versus    H1 : µX̸ = µY ,
+     with the assumption that σ2X = σ2Y = σ2.
+       (a) Derive the LRT for these hypotheses. Show that the LRT can be based on the statistic
+
+                                      X                                   T =    −Y       ,
+                                                                           S2p  1n + m1
+
+        where
+                                   1         n          m
+                                                                                                                       .                                  +                              S2p =                     ∑ (Xi −X)2                           ∑ (Yi −Y)2                                                     i=1                                                                    i=1                        (n+m−2)
+         (The quantity S2p is sometimes referred to as a pooled variance estimate. This type of estimate will
+         be used extensively in Section 11.2.)
+      (b) Show that, under H0, T ∼tn+m−2. (This test is known as the two-sample t test.)
+       (c) Samples of wood were obtained from the core and periphery of a certain Byzantine church. The date
+          of the wood was determined, giving the following data.
+                                      Core            Periphery
+                                 1294   1251     1284   1274
+                                 1279   1248     1272   1264
+                                 1274   1240     1256   1256
+                                 1264   1232     1254   1250
+                                 1263   1220     1242
+                                 1254   1218
+                                 1251   1210
+        Use the two-sample t test to determine if the mean age of the core is the same as the mean age of the
+          periphery.
+8.42 The assumption of equal variances, which was made in Exercise 8.41, is not always tenable. In such a
+      case, the distribution of the statistic is no longer a t. Indeed, there is doubt as to the wisdom of calculating
+      a pooled variance estimate. (This problem, of making inference on means when variances are unequal,
+        is, in general, quite a difficult one. It is known as the Behrens–Fisher Problem.) A natural test to try is
+      the following modification of the two-sample t test: Test
+                          H0 : µX = µY     versus    H1 : µX̸ = µY ,
+     where we do not assume that σ2X = σ2Y , using the statistic
+                                     X −Y       ,                                 T ′ =
+                                                                   S2X    S2Y
+                                                           n + m
+
+     where
+                             1    n                      1   m
+                         S2X =                                                         Y =               ∑ (Xi −X)2  and  S2                             ∑ (Yi −Y)2.                                       i=1                                                                        i=1                    n−1               m−1
+     The exact distribution of T ′ is not pleasant, but we can approximate the distribution using Satterthwaite’s
+     approximation (Example 7.2.3).
+===== PDF 364, printed 333 =====
+EXERCISES                                                                  333
+
+       (a) Show that
+                                                S2X    S2Y
+                                          n + m                                                            2       2           ,     (approximately)                                  σ X   σY ∼χ2νν
+                                          n + m
+        where ν can be estimated with
+                                                                   S2X    S2Y   2
+                                                          n + m
+                                                                                                     .                                                                       ˆν =
+                                                       S 4X         S Y4
+                              +
+                                                     n2(n−1)   m2(m−1)
+      (b) Argue that the distribution of T ′ can be approximated by a t distribution with ˆν degrees of freedom.
+       (c) Re-examine the data from Exercise 8.41 using the approximate t test of this exercise, that is, test if
+          the mean age of the core is the same as the mean age of the periphery using the T ′ statistic.
+      (d)  Is there any statistical evidence that the variance of the data from the core may be different from the
+          variance of the data from the periphery? (Recall Example 5.4.1.)
+8.43 Sprott and Farewell (1993) note that in the two sample t-test, a valid t-statistic can be derived as long
+      as the ratio of variances is known. Let X1,X2,...Xn1 be a sample from a N(µ1,σ2) and Y1,Y2,...Yn2 a
+     sample from a n(µ2,ρ2σ2), where ρ2 is known. Show that
+                                                (¯X −¯Y)−(µ1 −µ2)
+                                          1                                                                                           Y /rho2                                               ρ2    n1(n1−1)s2X+n2(n2−1)s2                      +
+                                                n1    n2           n1+n2−2
+                                                                                                n2s2Y
+      has Student’s t distribution with n1 + n2 −2 degrees of freedom and ρ2n1s2X has an F distribution with
+      n1 −1 and n2 −1 degrees of freedom.
+        Sprott and Farewell also note that the t-statistic is maximized at ρ2 = n1 √n1−1s2X , and they suggest                                                                                                  n2         Y                                                                               √n2−1s2
+      plotting the statistic for plausible values of ρ2, possibly those in a confidence interval.
+8.44 Verify that Test 3 in Example 8.3.20 is an unbiased level-α test.
+8.45 Let X1,...,Xn be a random sample from a n(θ,σ2) population. Consider testing
+                           H0 : θ ≤θ0     versus    H1 : θ > θ0.
+      Let Xm denote the sample mean of the first m observations, X1,...,Xm, for m = 1,...,n. If σ2 is known,
+     show that for each m = 1,···,n, the test that rejects H0 when
+                             Xm > θ0 +zα  σ2/m
+
+       is an unbiased size α test. Graph the power function for each of these tests if n = 4.
+8.46 Let X1,...,Xn be a random sample from a n(θ,σ2) population. Consider testing
+                     H0 : θ1 ≤θ ≤θ2     versus    H1 : θ < θ1 or θ > θ2.
+       (a) Show that the test,
+
+                         reject H0 if X > θ2 +tn−1,α/2  S2/n  or  X < θ1 −tn−1,α/2  S2/n,
+            is not a size α test.
+      (b) Show that, for an appropriately chosen constant k, a size α test is given by
+
+                                              reject H0 if |X −θ| > k  S2/n,
+        where θ = (θ1 +θ2)/2.
+       (c) Show that the tests in parts (a) and (b) are unbiased of their size. (Assume that the noncentral t
+           distribution has an MLR.)
+===== PDF 365, printed 334 =====
+334                                             HYPOTHESIS TESTING
+
+8.47 Consider two independent normal samples with equal variances, as in Exercise 8.41. Consider testing
+     H0 : µX −µY ≤−δ or µX −µY ≥δ versus H1 : −δ < µX −µY < δ, where δ is a specified positive      constant. (This is called an equivalence testing problem.)
+                                                                                                    0  if       (a) Show that the size α LRT of H−0  : µX −µY ≤−δ versus H−                                                                       1  : µX −µY > −δ rejects H−
+                               X                              T −=  −Y −(−δ)                                                         1    1  ≥tn+m−2,α.                                                                S2p  n + m
+
+      (b) Find the size α LRT of H+0  : µX −µY ≥δ versus H+                                                                1  : µX −µY < δ.
+       (c) Explain how the tests in (a) and (b) can be combined into a level α test of H0 versus H1.
+      (d) Show that the test in (c) is a size α test. (Hint: Consider σ →0.)
+     This procedure is sometimes known as the two one-sided tests procedure, and was derived by Schuirmann
+     (1987) (see also Westlake 1972) for the problem of testing bioequivalence. See also the review article by
+     Berger and Hsu (1996) and Exercise 9.33 for a confidence interval counterpart.
+8.48 Prove the assertion in Example 8.3.30 that the conditional distribution of S1 given S is hypergeometric.
+8.49 In each of the following situations, calculate the p-value of the observed data.
+                                2 versus H1 : θ > 2, 7 successes are observed out of 10 Bernoulli trials.       (a) For testing H0 : θ ≤1                  1
+      (b) For testing H0 : λ ≤1 versus H1 : λ > 1,X = 3 is observed, where X ∼Poisson(λ).
+       (c) For testing H0 : λ ≤1 versus H1 : λ > 1,X1 = 3,X2 = 5, and X3 = 1 is observed, where Xi ∼         Poisson(λ), independent.
+8.50 Let X1,...,Xn be iid n(θ,σ2), σ2 known, and let θ have a double exponential distribution, that is,
+                                                    > 0 will     π(θ) = e−|θ|/a/(2a), a known. A Bayesian test of the hypotheses H0 : θ ≤0 versus H1 : θ      decide in favor of H1 if its posterior probability is large.
+       (a) For a given constant K, calculate the posterior probability that θ > K, that is, P(θ > K|x1,...,xn,a).
+      (b) Find an expression for lima→∞P(θ > K|x1,...,xn,a).
+       (c) Compare your answer in part (b) to the p-value associated with the classical hypothesis test.
+8.51 Here is another common interpretation of p-values. Consider a problem of testing H0 versus H1. Let
+    W(X) be a test statistic. Suppose that for each α, 0 ≤α ≤1, a critical value cα can be chosen so that
+     {x : W(x) ≥cα} is the rejection region of a size α test of H0. Using this family of tests, show that      the usual p-value p(x), defined by (8.3.9), is the smallest α level at which we could reject H0, having
+     observed the data x.
+8.52 Consider testing H0 : θ      k                                  j=1 Θj. For each  j = 1,...,k, let pj(x) denote a valid p-value for testing                  ∈
+     H0j : θ ∈Θ j. Let p(x) = max1≤j≤k pj(x).
+       (a) Show that p(X) is a valid p-value for testing H0.
+      (b) Show that the α level test defined by p(X) is the same as an α level IUT defined in terms of individual
+            tests based on the pj(x)s.
+8.53 In Example 8.2.7, we saw an example of a one-sided Bayesian hypothesis test. Now we will consider a
+      similar situation, but with a two-sided test. We want to test
+                            H0 : θ = 0     versus    H1 : θ̸ = 0,
+     and we observe X1,...,Xn, a random sample from a n(θ,σ2) population, σ2 known. A type of prior
+      distribution that is often used in this situation is a mixture of a point mass on θ = 0 and a pdf spread
+      out                                                     1         over H1. A typical choice is to take P(θ = 0) = 2, and if θ̸ = 0, take the prior distribution to be       1      2n(0,τ2), where τ2 is known.
+       (a) Show that the prior defined above is proper, that is, P(−∞< θ < ∞) = 1.
+      (b) Calculate the posterior probability that H0 is true, P(θ = 0|x1,...,xn).
+       (c) Find an expression for the p-value corresponding to a value of x.
+      (d) For the special case σ2 = τ2 = 1, compare P(θ = 0|x1,...,xn) and the p-value for a range of values          of x. In particular,
+===== PDF 366, printed 335 =====
+MISCELLANEA                                                              335
+
+                 i. For n = 9, plot the p-value and posterior probability as a function of ¯x, and show that the Bayes
+              probability is bigger than the p-value for moderately large values of x.
+               ii. Now, for α = .05, set ¯x = Zα/2/√n, fixing the p-value at α for all n. Show that the posterior
+              probability at ¯x = Zα/2/√n goes to 1 as n      This is Lindley’s Paradox.                               →∞.
+        Note that small values of P(θ = 0|x1,...,xn) are evidence against H0, and thus this quantity is similar           in spirit to a p-value. The fact that these two quantities can have very different values was noted by
+         Lindley (1957), and is also examined by Berger and Sellke (1987). (See the Miscellanea section.)
+8.54 The discrepancies between p-values and Bayes posterior probabilities are not as dramatic in the one-
+      sided problem, as is discussed by Casella and Berger (1987), also mentioned in the Miscellanea section.
+      Let X1,...,Xn be a random sample from a n(θ,σ2) population, and suppose that the hypotheses to be
+      tested are
+                            H0 : θ ≤0     versus    H1 : θ > 0.
+     The prior distribution on θ is n(0,τ2),τ2 known, which is symmetric about the hypotheses in the sense
+           = P(θ > 0) = 2.       that P(θ ≤0)                1
+       (a) Calculate the posterior probability that H0 is true, P(θ ≤0|x1,...,xn).
+      (b) Find an expression for the p-value corresponding to a value of x, using tests that reject for large
+          values of X.
+       (c) For the special case σ2 = τ2 = 1, compare P(θ ≤0|x1,...,xn) and the p-value for values of x > 0.       Show that the Bayes probability is always bigger than the p-value.
+      (d) Using the expression derived in parts (a) and (b), show that
+                               τ2→∞P(θlim     ≤0|x1,...,xn) = p-value,
+         an equality that does not occur in the two-sided problem.
+8.55 Let X have a n(θ,1) distribution, and consider testing H0 : θ ≥θ0 versus H1 : θ < θ0. Use the loss
+      function (8.3.13) and investigate the three tests that reject H0 if X < −zα +θ0 for α = .1,.3, and .5.
+       (a) For b = c = 1, graph and compare their risk functions.
+      (b) For b = 3,c = 1, graph and compare their risk functions.
+       (c) Graph and compare the power functions of the three tests to the risk functions in parts (a) and (b).
+8.56 Consider testing H0: p ≤1                   1                                  3 versus H1: p > 3 where X ∼binomial(5, p) using 0–1 loss. Graph and     compare the risk functions for the following two tests. Test I rejects H0 if X = 0 or 1. Test II rejects H0
+        if X = 4 or 5.
+8.57 Consider testing H0 : µ ≤0 versus H1 : µ > 0 using 0–1 loss, where X ∼n(µ,1). Let δc be the test that
+       rejects H0 if X > c. For every test in this problem, there is a δc in the class of tests {δc,−∞≤c ≤∞}       that has a uniformly smaller (in µ) risk function. Let δ be the test that rejects H0 if 1 < X < 2. Find a
+       test δc that is better than δ. (Either prove that the test is better or graph the risk functions for δ and δc
+     and carefully explain why the proposed test should be better.)
+8.58 Consider the hypothesis testing problem and loss function given in Example 8.3.31, and let σ = n = 1.
+     Consider tests that reject H0 if X < −zα +θ0. Find the value of α that minimizes the maximum value of      the risk function, that is, that yields a minimax test.
+
+8.5   Miscellanea
+
+ 8.5.1 Monotonic Power Function
+       In this chapter we used the property of MLR quite extensively, particularly in relation to
+        properties of power functions of tests. The concept of stochastic ordering can also be used
+        to obtain properties of power functions. (Recall that stochastic ordering has already been
+       encountered in previous chapters, for example, in Exercises 1.49, 3.41–3.43, and 5.19. A
+       cdf F is stochastically greater than a cdf G if F(x) ≤G(x) for all x, with strict inequality for
+      some x, which implies that if X ∼F,Y ∼G, then P(X > x) ≥P(Y > x) for all x, with strict       inequality for some x. In other words, F gives more probability to greater values.)
+===== PDF 367, printed 336 =====
+336                                             HYPOTHESIS TESTING
+          In terms of hypothesis testing, it is often the case that the distribution under the alternative
+         is stochastically greater than under the null distribution. For example, if we have a random
+      sample from a n(θ,σ2) population and are interested in testing H0 : θ ≤θ0 versus H1 : θ >        θ0, it is true that all the distributions in the alternative are stochastically greater than all those
+        in the null. Gilat (1977) uses the property of stochastic ordering, rather than MLR, to prove
+       monotonicity of power functions under general conditions.
+ 8.5.2 Likelihood Ratio as Evidence
+      The likelihood ratio L(θ1|x)/L(θ0|x) = f(x|θ1)/ f(x|θ0) plays an important role in the test-       ing of H0 : θ = θ0 versus H1 : θ = θ1. This ratio is equal to the LRT statistic λ(x) for values
+       of x that yield small values of λ. Also, the Neyman-Pearson Lemma says that the UMP level
+     α test of H0 versus H1 can be defined in terms of this ratio. This likelihood ratio also has an
+       important Bayesian interpretation. Suppose π0 and π1 are our prior probabilities for θ0 and
+        θ1. Then, the posterior odds in favor of θ1 are
+                     P(θ = θ1|x) = f(x|θ1)π1/m(x) = f(x|θ1)  π1 .                     P(θ =                                                       · π0                                θ0|x)    f(x|θ0)π0/m(x)    f(x|θ0)
+      π1/π0 are the prior odds in favor of θ1. The likelihood ratio is the amount these prior odds
+       should be adjusted, having observed the data X = x, to obtain the posterior odds. If the
+       likelihood ratio equals two, then the prior odds are doubled. The likelihood ratio does not
+      depend on the prior probabilities. Thus, it is interpreted as the evidence in the data favoring
+      H1 over H0. This kind of interpretation is discussed by Royall (1997).
+ 8.5.3 p-Values and Posterior Probabilities
+       In Section 8.2.2, where Bayes tests were discussed, we saw that the posterior probability that
+      H0 is true is a measure of the evidence the data provide against (or for) the null hypothesis.
+     We also saw, in Section 8.3.4, that p-values provide a measure of data-based evidence against
+       H0. A natural question to ask is whether these two different measures ever agree, that is, can
+       they be reconciled? Berger (James, not Roger) and Sellke (1987) contended that, in the
+       two-sided testing problem, these measures could not be reconciled, and the Bayes measure
+      was superior. Casella and Berger (Roger 1987) argued that the two-sided Bayes problem is
+         artificial, and that in the more natural one-sided problem, the measures of evidence can be
+       reconciled. This reconciliation makes little difference to Schervish (1996), who argues that,
+       as measures of evidence, p-values have serious logical flaws.
+ 8.5.4 Confidence Set p-Values
+       Berger and Boos (1994) proposed an alternative method for computing p-values. In the com-
+     mon definition of a p-value, Theorem 8.3.27, the “sup” is over the entire null space Θ0.
+       Berger and Boos proposed taking the sup over a subset of Θ0 called C. This set C = C(X) is
+       determined from the data and has the property that, if θ ∈Θ0, then Pθ(θ ∈C(X)) ≥1−β.       (See Chapter 9 for a discussion of confidence sets like C.) Then the confidence set p-value is
+                           pC(x) =  sup Pθ (W(X) ≥W(x))+β.                                         θ∈C(x)
+       Berger and Boos showed that pC is a valid p-value.
+         There are two potential advantages to pC. The computational advantage is that it may be
+        easier to compute the sup over the smaller set C than over the larger set Θ0. The statistical
+       advantage is that, having observed X, we have some idea of the value of θ; there is a good
+      chance θ ∈C. It seems irrelevant to look at values of θ that do not appear to be true. The       confidence set p-value looks at only those values of θ in Θ0 that seem plausible. Berger
+      and Boos (1994) and Silvapulle (1996) give numerous examples of confidence set p-values.
+       Berger (1996) points out that confidence set p-values can produce tests with improved power
+        in the problem of comparing two binomial probabilities.

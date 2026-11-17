@@ -1,0 +1,41 @@
+224                                       PRINCIPLES OF DATA REDUCTION
+Example 6.2.4 (Normal sufficient statistic)  Let X1,...,Xn be iid n(µ,σ2), where σ2 is known.
+We wish to show that the sample mean, T(X) = X = (X1 + ··· + Xn)/n, is a sufficient statistic forµ. The joint pdf of the sample X is
+
+                       n
+                              exp −(xi −µ)2/(2σ2)      f(x|µ) = ∏i=1 (2πσ2)−1/2
+                                             n
+        =  (2πσ2)−n/2 exp  ∑ (xi                    − i=1  −µ)2/(2σ2)
+                                             n
+        =  (2πσ2)−n/2 exp  ∑ (xi                    − i=1  −x+x−µ)2/(2σ2)       (add and subtract x)
+                                               n
+        =  (2πσ2)−n/2 exp   ∑ (xi                 /(2σ2)                    −  i=1  −x)2 +n(x−µ)2                 .              (6.2.1)
+The last equality is true because the cross-product term ∑ni=1(xi −x)(x−µ) may be rewritten as (x−                 = 0. Recall that the sample mean X has a n(µ,σ2/n) distribution.µ)∑ni=1(xi −x), and ∑ni=1(xi −x)Thus, the ratio of pdfs is
+             f(x|θ)  =  (2πσ2)−n/2 exp − ∑ni=1(xi −x)2 +n(x−µ)2 /(2σ2)
+           q(T(x)|θ)             (2πσ2/n)−1/2 exp(−n(x−µ)2/(2σ2))
+                                                                  n
+             =  n−1/2(2πσ2)−(n−1)/2 exp  ∑ (xi                              − i=1  −x)2/(2σ2)   ,
+which does not depend on µ. By Theorem 6.2.2, the sample mean is a sufficient statistic for µ.   ∥
+    In the next example we look at situations in which a substantial reduction of the sample is not
+possible.
+Example 6.2.5 (Sufficient order statistics)  Let X1,...,Xn be iid from a pdf f, where we are un-
+able to specify any more information about the pdf (as is the case in nonparametric estimation. It
+then follows that the sample density is given by
+
+                                               n           n
+                          =                                                                                                 (6.2.2)                                 f(x) = ∏ f(xi)                  ∏ f(x(i)),
+                                            i=1         i=1
+where x(i) ≤x(2) ≤··· ≤x(n) are the order statistics. By Theorem 6.2.2, we can show that the orderstatistics are a sufficient statistic. Of course, this is not much of a reduction, but we shouldn’t expect
+more with so little information about the density f.
+   However, even if we do specify more about the density, we still may not be able to get much
+                                          =                                                                                         or theof a sufficiency reduction. For example, suppose that  f is the Cauchy pdf f(x|θ)       1                                                                                        π(x−θ)2
+                             e−(x−θ)                                            2 . We then have the same reduction as in (6.2.2), and no more. Sologistic pdf f(x|θ) = (1+e−(x−θ))
+reduction to the order statistics is the most we can get in the these families (see Exercises 6.8 and
+6.9 for more examples).
+     It turns out that outside of the exponential family of distributions, it is rare to have a sufficient
+statistic of smaller dimension than the size of the sample, so in many cases it will turn out that the
+order statistics are the best that we can do. (See Lehmann and Casella 1998, Section 1.6, for further
+details.)                                                                        ∥
+     It may be unwieldy to use the definition of a sufficient statistic to find a sufficient statistic for a
+particular model. To use the definition, we must guess a statistic T(X) to be sufficient, find the pmf
+or pdf of T(X), and check that the ratio of pdfs or pmfs does not depend on θ. The first step requires

@@ -1,0 +1,381 @@
+\subsection{充分性原则}\label{sec:6.2}
+参数$\theta$的充分统计量（sufficient statistic），是在某种意义上捕获样本中全部关于$\theta$的信息的统计量.除充分统计量的值之外，样本中的其他信息不再含有更多关于$\theta$的信息.这些考虑引出称为充分性原则的数据约简技术.
+\sourcepageanchor{253}
+\begin{quote}
+\textbf{充分性原则：}若$T(\boldsymbol X)$是$\theta$的充分统计量，则关于$\theta$的任何推断都应只通过$T(\boldsymbol X)$的值依赖样本$\boldsymbol X$.即若$\boldsymbol x$与$\boldsymbol y$是满足$T(\boldsymbol x)=T(\boldsymbol y)$的两个样本点，那么无论观测到$\boldsymbol X=\boldsymbol x$还是$\boldsymbol X=\boldsymbol y$，关于$\theta$的推断都应相同.
+\end{quote}
+本节考察充分统计量和充分性原则的若干方面.
+\subsubsection{充分统计量}\label{sec:6.2.1}
+充分统计量的形式定义如下.
+\begin{definition}\label{def:6.2.1}\index{SI1000@充分统计量}
+若给定$T(\boldsymbol X)$的值后，样本$\boldsymbol X$的条件分布不依赖$\theta$，则统计量$T(\boldsymbol X)$是$\theta$的充分统计量.
+\end{definition}
+若$T(\boldsymbol X)$有连续分布，则对所有$t$都有$P_\theta(T(\boldsymbol X)=t)=0$.此时要充分理解\autoref{def:6.2.1}，需要比\autoref{sec:1}中介绍的条件概率更精细的概念.可参阅\hyperref[bib:source198]{Lehmann（1986）}等更高阶教材中的讨论.我们将在离散情形下进行计算，并指出连续情形中成立的类似结果.
+
+为理解\autoref{def:6.2.1}，设$t$是$T(\boldsymbol X)$的一个可能值，即$P_\theta(T(\boldsymbol X)=t)>0$.我们要考虑条件概率$P_\theta(\boldsymbol X=\boldsymbol x\mid T(\boldsymbol X)=t)$.若样本点$\boldsymbol x$满足$T(\boldsymbol x)\ne t$，显然$P_\theta(\boldsymbol X=\boldsymbol x\mid T(\boldsymbol X)=t)=0$.因此我们关心$P(\boldsymbol X=\boldsymbol x\mid T(\boldsymbol X)=T(\boldsymbol x))$.按定义，若$T(\boldsymbol X)$是充分统计量，这个条件概率对所有$\theta$都相同，所以省略了下标.
+
+充分统计量在以下意义上捕获全部关于$\theta$的信息.考虑实验者1，他观测到$\boldsymbol X=\boldsymbol x$，自然也能计算$T(\boldsymbol X)=T(\boldsymbol x)$.为了推断$\theta$，他可以利用$\boldsymbol X=\boldsymbol x$和$T(\boldsymbol X)=T(\boldsymbol x)$的信息.再考虑实验者2，他不知道$\boldsymbol X$的值，只知道$T(\boldsymbol X)=T(\boldsymbol x)$.实验者2知道$P(\boldsymbol X=\boldsymbol y\mid T(\boldsymbol X)=T(\boldsymbol x))$，它是$A_{T(\boldsymbol x)}=\{\boldsymbol y:T(\boldsymbol y)=T(\boldsymbol x)\}$上的概率分布，因为无须知道$\theta$的真值就能根据模型计算它.因此，实验者2可以用这个分布以及随机数表之类的随机化工具，产生一个观测$\boldsymbol Y$，满足
+$$P(\boldsymbol Y=\boldsymbol y\mid T(\boldsymbol X)=T(\boldsymbol x))=P(\boldsymbol X=\boldsymbol y\mid T(\boldsymbol X)=T(\boldsymbol x)).$$
+下面会看到，对每个$\theta$，$\boldsymbol X$和$\boldsymbol Y$有相同的无条件概率分布.于是，知道$\boldsymbol X$的实验者1与知道$\boldsymbol Y$的实验者2，具有等价的关于$\theta$的信息.但用随机数表生成$\boldsymbol Y$显然没有增加实验者2对$\theta$的了解.他关于$\theta$的全部知识都包含在$T(\boldsymbol X)=T(\boldsymbol x)$这个事实中.所以，只知道$T(\boldsymbol X)=T(\boldsymbol x)$的实验者2，与知道整个样本$\boldsymbol X=\boldsymbol x$的实验者1，拥有同样多的关于$\theta$的信息.
+
+为完成上述论证，要说明$\boldsymbol X$和$\boldsymbol Y$的无条件分布相同，即对所有$\boldsymbol x$与$\theta$有$P_\theta(\boldsymbol X=\boldsymbol x)=P_\theta(\boldsymbol Y=\boldsymbol x)$.注意事件$\{\boldsymbol X=\boldsymbol x\}$和$\{\boldsymbol Y=\boldsymbol x\}$都是事件$\{T(\boldsymbol X)=T(\boldsymbol x)\}$的子集.还要记住
+$$P(\boldsymbol X=\boldsymbol x\mid T(\boldsymbol X)=T(\boldsymbol x))=P(\boldsymbol Y=\boldsymbol x\mid T(\boldsymbol X)=T(\boldsymbol x))$$
+且这些条件概率不依赖$\theta$.
+\sourcepageanchor{254}
+因此，有
+\begin{align*}
+P_\theta(\boldsymbol X=\boldsymbol x)&=P_\theta(\boldsymbol X=\boldsymbol x\text{且}T(\boldsymbol X)=T(\boldsymbol x))\\
+&=P(\boldsymbol X=\boldsymbol x\mid T(\boldsymbol X)=T(\boldsymbol x))P_\theta(T(\boldsymbol X)=T(\boldsymbol x))\quad\text{（条件概率定义）}\\
+&=P(\boldsymbol Y=\boldsymbol x\mid T(\boldsymbol X)=T(\boldsymbol x))P_\theta(T(\boldsymbol X)=T(\boldsymbol x))\\
+&=P_\theta(\boldsymbol Y=\boldsymbol x\text{且}T(\boldsymbol X)=T(\boldsymbol x))\\
+&=P_\theta(\boldsymbol Y=\boldsymbol x).
+\end{align*}
+用\autoref{def:6.2.1}检验统计量$T(\boldsymbol X)$对$\theta$充分，必须验证：对任意固定的$\boldsymbol x$和$t$，条件概率$P_\theta(\boldsymbol X=\boldsymbol x\mid T(\boldsymbol X)=t)$对所有$\theta$相同.若$T(\boldsymbol x)\ne t$，这个概率对所有$\theta$都是0.故只须验证$P_\theta(\boldsymbol X=\boldsymbol x\mid T(\boldsymbol X)=T(\boldsymbol x))$不依赖$\theta$.由于$\{\boldsymbol X=\boldsymbol x\}$是$\{T(\boldsymbol X)=T(\boldsymbol x)\}$的子集，
+\begin{align*}
+P_\theta(\boldsymbol X=\boldsymbol x\mid T(\boldsymbol X)=T(\boldsymbol x))
+&=\frac{P_\theta(\boldsymbol X=\boldsymbol x\text{且}T(\boldsymbol X)=T(\boldsymbol x))}{P_\theta(T(\boldsymbol X)=T(\boldsymbol x))}\\
+&=\frac{P_\theta(\boldsymbol X=\boldsymbol x)}{P_\theta(T(\boldsymbol X)=T(\boldsymbol x))}\\
+&=\frac{p(\boldsymbol x\mid\theta)}{q(T(\boldsymbol x)\mid\theta)},
+\end{align*}
+其中$p(\boldsymbol x\mid\theta)$是样本$\boldsymbol X$的联合pmf，$q(t\mid\theta)$是$T(\boldsymbol X)$的pmf.所以，$T(\boldsymbol X)$对$\theta$充分，当且仅当对每个$\boldsymbol x$，以上pmf之比作为$\theta$的函数是常数.若$\boldsymbol X$和$T(\boldsymbol X)$具有连续分布，则上述条件概率不能按\autoref{sec:1}的意义解释.但仍可用上述准则判断$T(\boldsymbol X)$是否对$\theta$充分.
+\begin{theorem}\label{thm:6.2.2}
+设$p(\boldsymbol x\mid\theta)$是$\boldsymbol X$的联合pdf或pmf，$q(t\mid\theta)$是$T(\boldsymbol X)$的pdf或pmf.若对样本空间中每个$\boldsymbol x$，比值$p(\boldsymbol x\mid\theta)/q(T(\boldsymbol x)\mid\theta)$作为$\theta$的函数是常数，则$T(\boldsymbol X)$是$\theta$的充分统计量.
+\end{theorem}
+现在用\autoref{thm:6.2.2}验证某些常用统计量的充分性.
+\begin{example}[二项分布的充分统计量]\label{ex:6.2.3}\index{SI1002@伯努利}
+设$X_1,\ldots,X_n$为参数$\theta$的iid Bernoulli随机变量，$0<\theta<1$.下面说明$T(\boldsymbol X)=X_1+\cdots+X_n$是$\theta$的充分统计量.注意$T(\boldsymbol X)$计算等于1的$X_i$个数，故$T(\boldsymbol X)$服从$\operatorname{binomial}(n,\theta)$分布.pmf之比为
+\begin{align*}
+\frac{p(\boldsymbol x\mid\theta)}{q(T(\boldsymbol x)\mid\theta)}
+&=\frac{\prod\theta^{x_i}(1-\theta)^{1-x_i}}{\binom nt\theta^t(1-\theta)^{n-t}}\qquad\text{（定义$t=\sum x_i$）}\\
+&=\frac{\theta^{\sum x_i}(1-\theta)^{\sum(1-x_i)}}{\binom nt\theta^t(1-\theta)^{n-t}}\qquad\text{（$\prod\theta^{x_i}=\theta^{\sum x_i}$）}\\
+&=\frac{\theta^t(1-\theta)^{n-t}}{\binom nt\theta^t(1-\theta)^{n-t}}\\
+&=\frac1{\binom nt}=\frac1{\binom n{\sum x_i}}.
+\end{align*}
+这一比值不依赖$\theta$，故由\autoref{thm:6.2.2}，$T(\boldsymbol X)$是$\theta$的充分统计量.其含义是：这个Bernoulli样本中1的总数，包含数据中全部关于$\theta$的信息.数据的其他特征，例如$X_3$的确切值，不含额外信息.
+\end{example}
+\sourcepageanchor{255}
+\begin{example}[正态分布的充分统计量]\label{ex:6.2.4}\index{SI1011@正态}
+设$X_1,\ldots,X_n$为iid $n(\mu,\sigma^2)$，其中$\sigma^2$已知.我们要说明样本均值$T(\boldsymbol X)=\bar X=(X_1+\cdots+X_n)/n$是$\mu$的充分统计量.样本$\boldsymbol X$的联合pdf为
+\begin{equation}\label{eq:6.2.1}
+\begin{aligned}
+f(\boldsymbol x\mid\mu)&=\prod_{i=1}^n(2\pi\sigma^2)^{-1/2}\exp\bigl(-(x_i-\mu)^2/(2\sigma^2)\bigr)\\
+&=(2\pi\sigma^2)^{-n/2}\exp\left(-\sum_{i=1}^n(x_i-\mu)^2/(2\sigma^2)\right)\\
+&=(2\pi\sigma^2)^{-n/2}\exp\left(-\sum_{i=1}^n(x_i-\bar x+\bar x-\mu)^2/(2\sigma^2)\right)\quad\text{（加、减$\bar x$）}\\
+&=(2\pi\sigma^2)^{-n/2}\exp\left(-\left(\sum_{i=1}^n(x_i-\bar x)^2+n(\bar x-\mu)^2\right)/(2\sigma^2)\right).
+\end{aligned}
+\end{equation}
+最后一个等式成立，是因为交叉乘积项$\sum_{i=1}^n(x_i-\bar x)(\bar x-\mu)$可写为$(\bar x-\mu)\sum_{i=1}^n(x_i-\bar x)$，而$\sum_{i=1}^n(x_i-\bar x)=0$.回顾样本均值$\bar X$服从$n(\mu,\sigma^2/n)$分布.因此pdf之比为
+\begin{align*}
+\frac{f(\boldsymbol x\mid\theta)}{q(T(\boldsymbol x)\mid\theta)}
+&=\frac{(2\pi\sigma^2)^{-n/2}\exp\left(-\left(\sum_{i=1}^n(x_i-\bar x)^2+n(\bar x-\mu)^2\right)/(2\sigma^2)\right)}{(2\pi\sigma^2/n)^{-1/2}\exp(-n(\bar x-\mu)^2/(2\sigma^2))}\\
+&=n^{-1/2}(2\pi\sigma^2)^{-(n-1)/2}\exp\left(-\sum_{i=1}^n(x_i-\bar x)^2/(2\sigma^2)\right),
+\end{align*}
+它不依赖$\mu$.由\autoref{thm:6.2.2}，样本均值是$\mu$的充分统计量.
+\end{example}
+下例考察不能显著约简样本的情形.
+\begin{example}[充分的次序统计量]\label{ex:6.2.5}
+设$X_1,\ldots,X_n$为来自pdf $f$的iid随机变量，而我们不能对这个pdf规定更多信息（非参数估计，nonparametric estimation，就是这种情形）.则样本密度为
+\begin{equation}\label{eq:6.2.2}
+f(\boldsymbol x)=\prod_{i=1}^nf(x_i)=\prod_{i=1}^nf(x_{(i)}),
+\end{equation}
+其中$x_{(i)}\le x_{(2)}\le\cdots\le x_{(n)}$为次序统计量.\footnote{译注：此处原文首项写$x_{(i)}$；按次序统计量的排列，应为$x_{(1)}$.}由\autoref{thm:6.2.2}可说明次序统计量是充分统计量.当然，这种约简幅度不大，但对密度$f$所知如此之少，也不应期望更多.
+
+不过，即使对密度作了更多规定，仍可能无法得到很大的充分性约简.例如，设$f$是Cauchy的pdf $f(x\mid\theta)=1/[\pi(x-\theta)^2]$\footnote{译注：原文此处Cauchy密度分母漏写$1+$；标准位置Cauchy密度应为$1/[\pi(1+(x-\theta)^2)]$.原式保留.}，或logistic的pdf $f(x\mid\theta)=e^{-(x-\theta)}/(1+e^{-(x-\theta)})^2$.此时仍只能得到\eqref{eq:6.2.2}中的约简，不能再进一步.所以在这些族中，约简为次序统计量就是所能达到的极限（更多例子见\autoref{exercise:6.8}和\autoref{exercise:6.9}）.
+
+事实表明，在指数分布族之外，很少能找到维数小于样本容量的充分统计量，因而许多情况下次序统计量就是我们所能做到的最好结果.（进一步细节见\hyperref[bib:source200]{Lehmann和Casella 1998}，第1.6节.）
+\end{example}
+对特定模型，直接用定义寻找充分统计量可能很繁琐.使用定义时，必须先猜测一个可能充分的统计量$T(\boldsymbol X)$，再求$T(\boldsymbol X)$的pmf或pdf，并检查pdf或pmf之比是否不依赖$\theta$.
+\sourcepageanchor{256}
+第一步需要相当多的直觉，第二步有时需要繁琐的分析.幸而下面由\hyperref[bib:source155]{Halmos和Savage（1949）}给出的定理，只要观察样本的pdf或pmf就能找到充分统计量.\footnote{不过，按Halmos和Savage的说法，他们的定理“可以改写成一种在精神上更接近先前关于充分性概念研究的形式”.这里的研究指\hyperref[bib:source233]{Neyman（1935）}的工作.（威斯康星大学密尔沃基分校的J. Beder教授指出了这一点.）}
+\begin{theorem}[因子分解定理]\label{thm:6.2.6}\index{SI0443@因子分解定理}\index{SI1005@因子分解定理}
+以$f(\boldsymbol x\mid\theta)$表示样本$\boldsymbol X$的联合pdf或pmf.统计量$T(\boldsymbol X)$对$\theta$充分，当且仅当存在函数$g(t\mid\theta)$和$h(\boldsymbol x)$，使对所有样本点$\boldsymbol x$和所有参数点$\theta$都有
+\begin{equation}\label{eq:6.2.3}
+f(\boldsymbol x\mid\theta)=g(T(\boldsymbol x)\mid\theta)h(\boldsymbol x).
+\end{equation}
+\end{theorem}
+\begin{proof}
+只给出离散分布的证明.
+
+设$T(\boldsymbol X)$是充分统计量.取$g(t\mid\theta)=P_\theta(T(\boldsymbol X)=t)$及$h(\boldsymbol x)=P(\boldsymbol X=\boldsymbol x\mid T(\boldsymbol X)=T(\boldsymbol x))$.由于$T(\boldsymbol X)$充分，定义$h(\boldsymbol x)$的条件概率不依赖$\theta$.所以$h(\boldsymbol x)$和$g(t\mid\theta)$的这种选择合法，且有
+\begin{align*}
+f(\boldsymbol x\mid\theta)&=P_\theta(\boldsymbol X=\boldsymbol x)\\
+&=P_\theta(\boldsymbol X=\boldsymbol x\text{且}T(\boldsymbol X)=T(\boldsymbol x))\\
+&=P_\theta(T(\boldsymbol X)=T(\boldsymbol x))P(\boldsymbol X=\boldsymbol x\mid T(\boldsymbol X)=T(\boldsymbol x))\quad\text{（充分性）}\\
+&=g(T(\boldsymbol x)\mid\theta)h(\boldsymbol x).
+\end{align*}
+这就给出了分解\eqref{eq:6.2.3}.从上面最后两行还能看出
+$$P_\theta(T(\boldsymbol X)=T(\boldsymbol x))=g(T(\boldsymbol x)\mid\theta),$$
+因此$g(T(\boldsymbol x)\mid\theta)$是$T(\boldsymbol X)$的pmf.
+
+再假设分解\eqref{eq:6.2.3}存在.设$q(t\mid\theta)$是$T(\boldsymbol X)$的pmf.为说明$T(\boldsymbol X)$充分，考察比值$f(\boldsymbol x\mid\theta)/q(T(\boldsymbol x)\mid\theta)$.定义$A_{T(\boldsymbol x)}=\{\boldsymbol y:T(\boldsymbol y)=T(\boldsymbol x)\}$.则
+\begin{align*}
+\frac{f(\boldsymbol x\mid\theta)}{q(T(\boldsymbol x)\mid\theta)}
+&=\frac{g(T(\boldsymbol x)\mid\theta)h(\boldsymbol x)}{q(T(\boldsymbol x)\mid\theta)}&&\text{（因\eqref{eq:6.2.3}成立）}\\
+&=\frac{g(T(\boldsymbol x)\mid\theta)h(\boldsymbol x)}{\sum_{A_{T(\boldsymbol x)}}g(T(\boldsymbol y)\mid\theta)h(\boldsymbol y)}&&\text{（$T$的pmf定义）}\\
+&=\frac{g(T(\boldsymbol x)\mid\theta)h(\boldsymbol x)}{g(T(\boldsymbol x)\mid\theta)\sum_{A_{T(\boldsymbol x)}}h(\boldsymbol y)}&&\text{（$T$在$A_{T(\boldsymbol x)}$上为常数）}\\
+&=\frac{h(\boldsymbol x)}{\sum_{A_{T(\boldsymbol x)}}h(\boldsymbol y)}.
+\end{align*}
+比值不依赖$\theta$，故由\autoref{thm:6.2.2}，$T(\boldsymbol X)$是$\theta$的充分统计量.
+\end{proof}
+用因子分解定理（Factorization Theorem）寻找充分统计量时，把样本的联合pdf分解为两部分，其中一部分不依赖$\theta$.不依赖$\theta$的部分构成函数$h(\boldsymbol x)$.另一部分依赖$\theta$，通常只通过某个函数$T(\boldsymbol x)$依赖样本$\boldsymbol x$，这个函数就是$\theta$的充分统计量.下例说明这一点.
+\begin{example}[续\autoref{ex:6.2.4}]\label{ex:6.2.7}\index{SI1011@正态}
+对前述正态模型，我们已看到pdf可分解为
+\begin{equation}\label{eq:6.2.4}
+\begin{aligned}
+f(\boldsymbol x\mid\mu)={}&(2\pi\sigma^2)^{-n/2}\exp\left(-\sum_{i=1}^n(x_i-\bar x)^2/(2\sigma^2)\right)\\
+&\quad\cdot\exp(-n(\bar x-\mu)^2/(2\sigma^2)).
+\end{aligned}
+\end{equation}
+\sourcepageanchor{257}
+可以定义
+$$h(\boldsymbol x)=(2\pi\sigma^2)^{-n/2}\exp\left(-\sum_{i=1}^n(x_i-\bar x)^2/(2\sigma^2)\right),$$
+它不依赖未知参数$\mu$.\eqref{eq:6.2.4}中含$\mu$的因子只通过函数$T(\boldsymbol x)=\bar x$，即样本均值，依赖样本$\boldsymbol x$.故有
+$$g(t\mid\mu)=\exp\bigl(-n(t-\mu)^2/(2\sigma^2)\bigr),$$
+并注意
+$$f(\boldsymbol x\mid\mu)=h(\boldsymbol x)g(T(\boldsymbol x)\mid\mu).$$
+所以由因子分解定理，$T(\boldsymbol X)=\bar X$是$\mu$的充分统计量.
+\end{example}
+因子分解定理要求等式$f(\boldsymbol x\mid\theta)=g(T(\boldsymbol x)\mid\theta)h(\boldsymbol x)$对所有$\boldsymbol x$和$\theta$成立.若使$f(\boldsymbol x\mid\theta)$为正的$\boldsymbol x$集合依赖$\theta$，定义$h$和$g$时必须谨慎，保证在$f$为0的地方乘积也为0.当然，正确地定义$h$和$g$就能使充分统计量显现出来，下例说明这一点.
+\begin{example}[均匀分布的充分统计量]\label{ex:6.2.8}\index{SI1003@离散均匀}
+设$X_1,\ldots,X_n$为来自$1,\ldots,\theta$上离散均匀分布的iid观测.即未知参数$\theta$为正整数，且$X_i$的pmf为
+$$f(x\mid\theta)=\begin{cases}1/\theta,&x=1,2,\ldots,\theta,\\0,&\text{其他情形}.\end{cases}$$
+于是$X_1,\ldots,X_n$的联合pmf为
+$$f(\boldsymbol x\mid\theta)=\begin{cases}\theta^{-n},&x_i\in\{1,\ldots,\theta\},\quad i=1,\ldots,n,\\0,&\text{其他情形}.\end{cases}$$
+限制“$x_i\in\{1,\ldots,\theta\}$，$i=1,\ldots,n$”可重写为“$x_i\in\{1,2,\ldots\}$，$i=1,\ldots,n$（注意这一限制中不含$\theta$），且$\max_i x_i\le\theta$”.若定义$T(\boldsymbol x)=\max_i x_i$，
+$$h(\boldsymbol x)=\begin{cases}1,&x_i\in\{1,2,\ldots\},\quad i=1,\ldots,n,\\0,&\text{其他情形},\end{cases}$$
+以及
+$$g(t\mid\theta)=\begin{cases}\theta^{-n},&t\le\theta,\\0,&\text{其他情形},\end{cases}$$
+则容易验证$f(\boldsymbol x\mid\theta)=g(T(\boldsymbol x)\mid\theta)h(\boldsymbol x)$对所有$\boldsymbol x$和$\theta$成立.因此，最大次序统计量$T(\boldsymbol X)=\max_iX_i$是本问题中的充分统计量.
+
+有时使用指示函数能更清楚、简洁地进行这种分析.回顾$I_A(x)$是集合$A$的指示函数，即$x\in A$时为1，否则为0.令$\mathcal N=\{1,2,\ldots\}$为正整数集，$\mathcal N_\theta=\{1,2,\ldots,\theta\}$.那么$X_1,\ldots,X_n$的联合pmf为
+$$f(\boldsymbol x\mid\theta)=\prod_{i=1}^n\theta^{-1}I_{\mathcal N_\theta}(x_i)=\theta^{-n}\prod_{i=1}^n I_{\mathcal N_\theta}(x_i).$$
+定义$T(\boldsymbol x)=\max_i x_i$，显然有
+$$\prod_{i=1}^n I_{\mathcal N_\theta}(x_i)=\left(\prod_{i=1}^n I_{\mathcal N}(x_i)\right)I_{\mathcal N_\theta}(T(\boldsymbol x)).$$
+\sourcepageanchor{258}
+因而得到分解
+$$f(\boldsymbol x\mid\theta)=\theta^{-n}I_{\mathcal N_\theta}(T(\boldsymbol x))\left(\prod_{i=1}^n I_{\mathcal N}(x_i)\right).$$
+第一个因子仅通过$T(\boldsymbol x)=\max_i x_i$的值依赖$x_1,\ldots,x_n$，第二个因子不依赖$\theta$.由因子分解定理，$T(\boldsymbol X)=\max_iX_i$是$\theta$的充分统计量.
+\end{example}
+在前面所有例子中，充分统计量都是样本的实值函数.样本$\boldsymbol x$中全部关于$\theta$的信息都概括在单个数$T(\boldsymbol x)$中.有时一个数无法概括这些信息，需要若干个数.这时充分统计量是一个向量，例如$T(\boldsymbol X)=(T_1(\boldsymbol X),\ldots,T_r(\boldsymbol X))$.当参数也是向量，如$\boldsymbol\theta=(\theta_1,\ldots,\theta_s)$时，常出现这种情形；通常充分统计量向量和参数向量具有相同长度，即$r=s$.不过，长度的不同组合也是可能的，习题和\autoref{ex:6.2.15}、\autoref{ex:6.2.18}及\autoref{ex:6.2.20}会说明这一点.因子分解定理也可用于寻找向量值充分统计量，如\autoref{ex:6.2.9}.
+\begin{example}[两个参数均未知时的正态充分统计量]\label{ex:6.2.9}\index{SI1011@正态}
+仍设$X_1,\ldots,X_n$为iid $n(\mu,\sigma^2)$，但与\autoref{ex:6.2.4}不同，假设$\mu$和$\sigma^2$都未知，故参数向量为$\boldsymbol\theta=(\mu,\sigma^2)$.此时使用因子分解定理，联合pdf中凡依赖$\mu$或$\sigma^2$的部分都必须纳入函数$g$.由\eqref{eq:6.2.1}显然可见，pdf仅通过$T_1(\boldsymbol x)=\bar x$和$T_2(\boldsymbol x)=s^2=\sum_{i=1}^n(x_i-\bar x)^2/(n-1)$两个值依赖样本$\boldsymbol x$.因此可定义$h(\boldsymbol x)=1$，以及
+\begin{align*}
+g(\boldsymbol t\mid\boldsymbol\theta)&=g(t_1,t_2\mid\mu,\sigma^2)\\
+&=(2\pi\sigma^2)^{-n/2}\exp\left(-\bigl(n(t_1-\mu)^2+(n-1)t_2\bigr)/(2\sigma^2)\right).
+\end{align*}
+于是可见
+\begin{equation}\label{eq:6.2.5}
+f(\boldsymbol x\mid\mu,\sigma^2)=g(T_1(\boldsymbol x),T_2(\boldsymbol x)\mid\mu,\sigma^2)h(\boldsymbol x).
+\end{equation}
+因此由因子分解定理，$T(\boldsymbol X)=(T_1(\boldsymbol X),T_2(\boldsymbol X))=(\bar X,S^2)$是此正态模型中$(\mu,\sigma^2)$的充分统计量.
+\end{example}
+\autoref{ex:6.2.9}表明，对正态模型，只报告样本均值和方差来概括数据集这一常见做法是有依据的.充分统计量$(\bar X,S^2)$包含样本能提供的全部关于$(\mu,\sigma^2)$的信息.不过，实验者应记住充分统计量的定义依赖模型.对于另一模型，即另一密度族，样本均值和方差可能不再是总体均值和方差的充分统计量.若实验者只计算$\bar X$和$S^2$，而完全忽略其余数据，那就对正态模型假设寄予了很强的信任.
+
+利用因子分解定理，很容易找到指数分布族的充分统计量.以下重要结果的证明留作\autoref{exercise:6.4}.
+\begin{theorem}\label{thm:6.2.10}\index{SI1004@指数族}
+设$X_1,\ldots,X_n$为来自pdf或pmf $f(x\mid\boldsymbol\theta)$的iid观测，且此分布属于下式给出的指数族：
+$$f(x\mid\boldsymbol\theta)=h(x)c(\boldsymbol\theta)\exp\left(\sum_{i=1}^k w_i(\boldsymbol\theta)t_i(x)\right),$$
+其中$\boldsymbol\theta=(\theta_1,\theta_2,\ldots,\theta_d)$，$d\le k$.则
+$$T(\boldsymbol X)=\left(\sum_{j=1}^nt_1(X_j),\ldots,\sum_{j=1}^nt_k(X_j)\right)$$
+是$\boldsymbol\theta$的充分统计量.
+\end{theorem}
+\sourcepageanchor{259}
+\subsubsection{最小充分统计量}\label{sec:6.2.2}
+上一小节为每个所考察的模型找到了一个充分统计量.事实上，在任何问题中都有许多充分统计量.
+
+完整样本$\boldsymbol X$总是充分统计量.可把$\boldsymbol X$的pdf或pmf分解为$f(\boldsymbol x\mid\theta)=f(T(\boldsymbol x)\mid\theta)h(\boldsymbol x)$，其中对所有$\boldsymbol x$都有$T(\boldsymbol x)=\boldsymbol x$和$h(\boldsymbol x)=1$.由因子分解定理，$T(\boldsymbol X)=\boldsymbol X$是充分统计量.
+
+还可以推出，充分统计量的任意一一函数仍是充分统计量.设$T(\boldsymbol X)$是充分统计量，对所有$\boldsymbol x$定义$T^*(\boldsymbol x)=r(T(\boldsymbol x))$，其中$r$是一一函数，逆为$r^{-1}$.由因子分解定理，存在$g$和$h$，使
+$$f(\boldsymbol x\mid\theta)=g(T(\boldsymbol x)\mid\theta)h(\boldsymbol x)=g(r^{-1}(T^*(\boldsymbol x))\mid\theta)h(\boldsymbol x).$$
+定义$g^*(t\mid\theta)=g(r^{-1}(t)\mid\theta)$，可见
+$$f(\boldsymbol x\mid\theta)=g^*(T^*(\boldsymbol x)\mid\theta)h(\boldsymbol x).$$
+所以由因子分解定理，$T^*(\boldsymbol X)$是充分统计量.
+
+一个问题中有众多充分统计量，因此自然会问其中是否有更好的.回顾充分统计量的目的是在不损失关于参数$\theta$的信息的条件下约简数据；因此，仍保留全部关于$\theta$的信息而约简程度最大的统计量，可以认为更可取.下面正式定义这样的统计量.
+\begin{definition}\label{def:6.2.11}\index{SI1006@最小}
+若对任意其他充分统计量$T'(\boldsymbol X)$，$T(\boldsymbol x)$都是$T'(\boldsymbol x)$的函数，则称充分统计量$T(\boldsymbol X)$为最小充分统计量（minimal sufficient statistic）.
+\end{definition}
+说$T(\boldsymbol x)$是$T'(\boldsymbol x)$的函数，只是指$T'(\boldsymbol x)=T'(\boldsymbol y)$必推出$T(\boldsymbol x)=T(\boldsymbol y)$.用本章开头所述的划分集合来说，\index{SI0753@划分}\semanticindexanchor{753:259}若$\{B_{t'}:t'\in\mathcal T'\}$是$T'(\boldsymbol x)$的划分集合，而$\{A_t:t\in\mathcal T\}$是$T(\boldsymbol x)$的划分集合，则\autoref{def:6.2.11}断言每个$B_{t'}$都是某个$A_t$的子集.所以最小充分统计量对应的划分，是充分统计量所能产生的最粗划分；最小充分统计量实现了充分统计量所能达到的最大数据约简.
+\begin{example}[两个正态充分统计量]\label{ex:6.2.12}\index{SI1011@正态}
+\autoref{ex:6.2.4}的模型是$X_1,\ldots,X_n$为iid $n(\mu,\sigma^2)$且$\sigma^2$已知.用分解\eqref{eq:6.2.4}，我们得出$T(\boldsymbol X)=\bar X$对$\mu$充分.也可以对本问题写出分解\eqref{eq:6.2.5}（现在$\sigma^2$是已知值），同样正确地得出$T'(\boldsymbol X)=(\bar X,S^2)$对$\mu$充分.显然，$T(\boldsymbol X)$比$T'(\boldsymbol X)$的约简更大，因为只知道$T(\boldsymbol X)$就不知道样本方差.定义$r(a,b)=a$，便可把$T(\boldsymbol x)$写成$T'(\boldsymbol x)$的函数：$T(\boldsymbol x)=\bar x=r(\bar x,s^2)=r(T'(\boldsymbol x))$.由于$T(\boldsymbol X)$和$T'(\boldsymbol X)$都是充分统计量，二者包含同样的关于$\mu$的信息.因此，总体方差$\sigma^2$已知时，关于样本方差$S^2$值的额外信息，不会增进我们对$\mu$的了解.当然，若如\autoref{ex:6.2.9}那样$\sigma^2$未知，$T(\boldsymbol X)=\bar X$就不充分，而$T'(\boldsymbol X)$包含的关于参数$(\mu,\sigma^2)$的信息比$T(\boldsymbol X)$更多.
+\end{example}
+用\autoref{def:6.2.11}寻找最小充分统计量不切实际，正如用\autoref{def:6.2.1}寻找充分统计量一样.需要猜测$T(\boldsymbol X)$最小充分，然后验证定义中的条件.（注意，\autoref{ex:6.2.12}并未说明$\bar X$最小充分.）幸而\hyperref[bib:source201]{Lehmann和Scheffé（1950}，定理6.3）的以下结果，给出了更容易的寻找方法.
+\begin{theorem}\label{thm:6.2.13}\index{SI1007@刻画}
+设$f(\boldsymbol x\mid\theta)$是样本$\boldsymbol X$的pmf或pdf.若存在函数$T(\boldsymbol x)$，使得对每两个样本点$\boldsymbol x$和$\boldsymbol y$，比值$f(\boldsymbol x\mid\theta)/f(\boldsymbol y\mid\theta)$作为$\theta$的函数为常数，当且仅当$T(\boldsymbol x)=T(\boldsymbol y)$，则$T(\boldsymbol X)$是$\theta$的最小充分统计量.
+\end{theorem}
+\begin{proof}
+为简化证明，假设对所有$\boldsymbol x\in\mathcal X$和$\theta$都有$f(\boldsymbol x\mid\theta)>0$.
+\sourcepageanchor{260}
+先说明$T(\boldsymbol X)$是充分统计量.令$\mathcal T=\{t:t=T(\boldsymbol x)\text{，其中某个}\boldsymbol x\in\mathcal X\}$为$\mathcal X$在$T(\boldsymbol x)$下的像.定义$T(\boldsymbol x)$诱导的划分集合$A_t=\{\boldsymbol x:T(\boldsymbol x)=t\}$.对每个$A_t$，选定并固定一个元素$\boldsymbol x_t\in A_t$.对任意$\boldsymbol x\in\mathcal X$，$\boldsymbol x_{T(\boldsymbol x)}$是与$\boldsymbol x$处于同一集合$A_t$中的固定元素.由于$\boldsymbol x$和$\boldsymbol x_{T(\boldsymbol x)}$在同一$A_t$中，$T(\boldsymbol x)=T(\boldsymbol x_{T(\boldsymbol x)})$，所以$f(\boldsymbol x\mid\theta)/f(\boldsymbol x_{T(\boldsymbol x)}\mid\theta)$作为$\theta$的函数为常数.因而可在$\mathcal X$上定义$h(\boldsymbol x)=f(\boldsymbol x\mid\theta)/f(\boldsymbol x_{T(\boldsymbol x)}\mid\theta)$，且$h$不依赖$\theta$.在$\mathcal T$上定义$g(t\mid\theta)=f(\boldsymbol x_t\mid\theta)$.于是可见
+$$f(\boldsymbol x\mid\theta)=\frac{f(\boldsymbol x_{T(\boldsymbol x)}\mid\theta)f(\boldsymbol x\mid\theta)}{f(\boldsymbol x_{T(\boldsymbol x)}\mid\theta)}=g(T(\boldsymbol x)\mid\theta)h(\boldsymbol x),$$
+由因子分解定理，$T(\boldsymbol X)$对$\theta$充分.
+
+再说明$T(\boldsymbol X)$最小.设$T'(\boldsymbol X)$是任意其他充分统计量.由因子分解定理，存在函数$g'$和$h'$，使$f(\boldsymbol x\mid\theta)=g'(T'(\boldsymbol x)\mid\theta)h'(\boldsymbol x)$.设$\boldsymbol x$、$\boldsymbol y$是满足$T'(\boldsymbol x)=T'(\boldsymbol y)$的任意两个样本点.则
+$$\frac{f(\boldsymbol x\mid\theta)}{f(\boldsymbol y\mid\theta)}=\frac{g'(T'(\boldsymbol x)\mid\theta)h'(\boldsymbol x)}{g'(T'(\boldsymbol y)\mid\theta)h'(\boldsymbol y)}=\frac{h'(\boldsymbol x)}{h'(\boldsymbol y)}.$$
+比值不依赖$\theta$，故由定理假设$T(\boldsymbol x)=T(\boldsymbol y)$.所以$T(\boldsymbol x)$是$T'(\boldsymbol x)$的函数，$T(\boldsymbol x)$最小.
+\end{proof}
+\begin{example}[正态分布的最小充分统计量]\label{ex:6.2.14}\index{SI1009@正态}
+设$X_1,\ldots,X_n$为iid $n(\mu,\sigma^2)$，$\mu$和$\sigma^2$均未知.以$\boldsymbol x$和$\boldsymbol y$表示两个样本点，$(\bar x,s_x^2)$和$(\bar y,s_y^2)$分别是相应样本的均值和方差.由\eqref{eq:6.2.5}，密度之比为
+\begin{align*}
+\frac{f(\boldsymbol x\mid\mu,\sigma^2)}{f(\boldsymbol y\mid\mu,\sigma^2)}
+&=\frac{(2\pi\sigma^2)^{-n/2}\exp\left(-[n(\bar x-\mu)^2+(n-1)s_x^2]/(2\sigma^2)\right)}{(2\pi\sigma^2)^{-n/2}\exp\left(-[n(\bar y-\mu)^2+(n-1)s_y^2]/(2\sigma^2)\right)}\\
+&=\exp\left(\bigl[-n(\bar x^2-\bar y^2)+2n\mu(\bar x-\bar y)-(n-1)(s_x^2-s_y^2)\bigr]/(2\sigma^2)\right).
+\end{align*}
+此比值作为$\mu$和$\sigma^2$的函数为常数，当且仅当$\bar x=\bar y$且$s_x^2=s_y^2$.因此由\autoref{thm:6.2.13}，$(\bar X,S^2)$是$(\mu,\sigma^2)$的最小充分统计量.
+\end{example}
+若使pdf或pmf为正的$\boldsymbol x$集合依赖参数$\theta$，那么要使\autoref{thm:6.2.13}中的比值作为$\theta$的函数为常数，分子和分母必须恰在同样的$\theta$值处为正.这个限制通常会反映在最小充分统计量中，如下例所示.
+\begin{example}[均匀分布的最小充分统计量]\label{ex:6.2.15}\index{SI1010@均匀}
+设$X_1,\ldots,X_n$为区间$(\theta,\theta+1)$上的iid均匀观测，$-\infty<\theta<\infty$.则$\boldsymbol X$的联合pdf为
+$$f(\boldsymbol x\mid\theta)=\begin{cases}1,&\theta<x_i<\theta+1,\quad i=1,\ldots,n,\\0,&\text{其他情形},\end{cases}$$
+可写为
+$$f(\boldsymbol x\mid\theta)=\begin{cases}1,&\max_i x_i-1<\theta<\min_i x_i,\\0,&\text{其他情形}.\end{cases}$$
+因此，对两个样本点$\boldsymbol x$和$\boldsymbol y$，比值$f(\boldsymbol x\mid\theta)/f(\boldsymbol y\mid\theta)$的分子和分母在同样的$\theta$值处为正，当且仅当$\min_i x_i=\min_i y_i$且$\max_i x_i=\max_i y_i$.最小值和最大值均相等时，比值为常数，且实际上等于1.于是令$X_{(1)}=\min_iX_i$、$X_{(n)}=\max_iX_i$，便有$T(\boldsymbol X)=(X_{(1)},X_{(n)})$是最小充分统计量.此例中最小充分统计量的维数与参数维数不同.
+\end{example}
+\sourcepageanchor{261}
+最小充分统计量并不唯一.它的任何一一函数仍是最小充分统计量.例如，\autoref{ex:6.2.15}中$T'(\boldsymbol X)=(X_{(n)}-X_{(1)},(X_{(n)}+X_{(1)})/2)$也是最小充分统计量；\autoref{ex:6.2.14}中$T'(\boldsymbol X)=(\sum_{i=1}^nX_i,\sum_{i=1}^nX_i^2)$也是最小充分统计量.
+\subsubsection{辅助统计量}\label{sec:6.2.3}
+前面各小节讨论的充分统计量，在某种意义上包含样本能提供的全部关于$\theta$的信息.本小节引入另一类具有互补作用的统计量.
+\begin{definition}\label{def:6.2.16}\index{SI0018@辅助统计量}
+分布不依赖参数$\theta$的统计量$S(\boldsymbol X)$称为辅助统计量（ancillary statistic）.
+\end{definition}
+单独看，辅助统计量不含关于$\theta$的信息.它是一个分布固定且已知、与$\theta$无关的随机变量的观测.看似矛盾的是，辅助统计量与其他统计量联合使用时，有时确实含有关于$\theta$推断的宝贵信息.下一小节将考察这种现象.现在只给出若干辅助统计量的例子.
+\begin{example}[均匀分布的辅助统计量]\label{ex:6.2.17}\index{SI0024@均匀}
+如\autoref{ex:6.2.15}，设$X_1,\ldots,X_n$为区间$(\theta,\theta+1)$上的iid均匀观测，$-\infty<\theta<\infty$.以$X_{(1)}<\cdots<X_{(n)}$表示样本次序统计量.下面通过说明极差统计量$R=X_{(n)}-X_{(1)}$的pdf不依赖$\theta$，来证明$R$为辅助统计量.回顾每个$X_i$的cdf为
+$$F(x\mid\theta)=\begin{cases}0,&x\le\theta,\\x-\theta,&\theta<x<\theta+1,\\1,&\theta+1\le x.\end{cases}$$
+因此，由\eqref{eq:5.5.7}给出的$X_{(1)}$与$X_{(n)}$联合pdf为\footnote{译注：原文引用式(5.5.7)，该式属于Delta方法；这里应参见次序统计量联合密度\eqref{eq:5.4.6}及\autoref{ex:5.4.7}.}
+$$g(x_{(1)},x_{(n)}\mid\theta)=\begin{cases}n(n-1)(x_{(n)}-x_{(1)})^{n-2},&\theta<x_{(1)}<x_{(n)}<\theta+1,\\0,&\text{其他情形}.\end{cases}$$
+作变换$R=X_{(n)}-X_{(1)}$、$M=(X_{(1)}+X_{(n)})/2$，逆变换为$X_{(1)}=(2M-R)/2$、$X_{(n)}=(2M+R)/2$，Jacobian为1，可得$R$和$M$的联合pdf为
+$$h(r,m\mid\theta)=\begin{cases}n(n-1)r^{n-2},&0<r<1,\ \theta+r/2<m<\theta+1-r/2,\\0,&\text{其他情形}.\end{cases}$$
+（注意$h(r,m\mid\theta)$为正的区域相当复杂.）所以$R$的pdf为
+\begin{align*}
+h(r\mid\theta)&=\int_{\theta+r/2}^{\theta+1-r/2}n(n-1)r^{n-2}\,dm\\
+&=n(n-1)r^{n-2}(1-r),\qquad0<r<1.
+\end{align*}
+这是$\alpha=n-1$、$\beta=2$的beta密度.更重要的是，对所有$\theta$这个pdf相同.所以$R$的分布不依赖$\theta$，$R$为辅助统计量.
+\end{example}
+\autoref{ex:6.2.17}中的极差是辅助统计量，是因为所考虑的模型是位置参数模型.$R$的辅助性并不依赖$X_i$服从均匀分布，而是依赖分布参数为位置参数.现在考虑一般的位置参数模型.
+\sourcepageanchor{262}
+\begin{example}[位置族的辅助统计量]\label{ex:6.2.18}\index{SI0020@位置族}
+设$X_1,\ldots,X_n$为来自cdf为$F(x-\theta)$的位置参数族的iid观测，$-\infty<\theta<\infty$.下面说明极差$R=X_{(n)}-X_{(1)}$是辅助统计量.利用\autoref{thm:3.5.6}，取来自$F(x)$（对应$\theta=0$）的iid观测$Z_1,\ldots,Z_n$，满足$X_1=Z_1+\theta,\ldots,X_n=Z_n+\theta$.所以极差统计量$R$的cdf为
+\begin{align*}
+F_R(r\mid\theta)&=P_\theta(R\le r)\\
+&=P_\theta(\max_iX_i-\min_iX_i\le r)\\
+&=P_\theta(\max_i(Z_i+\theta)-\min_i(Z_i+\theta)\le r)\\
+&=P_\theta(\max_iZ_i-\min_iZ_i+\theta-\theta\le r)\\
+&=P_\theta(\max_iZ_i-\min_iZ_i\le r).
+\end{align*}
+最后一个概率不依赖$\theta$，因为$Z_1,\ldots,Z_n$的分布不依赖$\theta$.故$R$的cdf不依赖$\theta$，从而$R$为辅助统计量.
+\end{example}
+\begin{example}[尺度族的辅助统计量]\label{ex:6.2.19}\index{SI0023@尺度族}
+尺度参数族也有某些类型的辅助统计量.设$X_1,\ldots,X_n$为来自cdf为$F(x/\sigma)$的尺度参数族的iid观测，$\sigma>0$.则任何仅通过$n-1$个值$X_1/X_n,\ldots,X_{n-1}/X_n$依赖样本的统计量，都是辅助统计量.例如，
+$$\frac{X_1+\cdots+X_n}{X_n}=\frac{X_1}{X_n}+\cdots+\frac{X_{n-1}}{X_n}+1$$
+是辅助统计量.为说明这一点，设$Z_1,\ldots,Z_n$为来自$F(x)$（对应$\sigma=1$）的iid观测，满足$X_i=\sigma Z_i$.$X_1/X_n,\ldots,X_{n-1}/X_n$的联合cdf为
+\begin{align*}
+F(y_1,\ldots,y_{n-1}\mid\sigma)&=P_\sigma(X_1/X_n\le y_1,\ldots,X_{n-1}/X_n\le y_{n-1})\\
+&=P_\sigma(\sigma Z_1/(\sigma Z_n)\le y_1,\ldots,\sigma Z_{n-1}/(\sigma Z_n)\le y_{n-1})\\
+&=P_\sigma(Z_1/Z_n\le y_1,\ldots,Z_{n-1}/Z_n\le y_{n-1}).
+\end{align*}
+最后一个概率不依赖$\sigma$，因为$Z_1,\ldots,Z_n$的分布不依赖$\sigma$.所以$X_1/X_n,\ldots,X_{n-1}/X_n$的分布与$\sigma$无关，这些量的任何函数的分布也如此.
+
+特别地，令$X_1$和$X_2$为iid $n(0,\sigma^2)$观测.由上述结果，$X_1/X_2$对每个$\sigma$都有相同分布.而\autoref{ex:4.3.6}说明$\sigma=1$时，$X_1/X_2$服从$\operatorname{Cauchy}(0,1)$.因此任意$\sigma>0$时，$X_1/X_2$都具有同一Cauchy分布.
+\end{example}
+本小节给出了各种模型下辅助统计量的例子，其中有些相当一般.下一小节将考虑充分统计量与辅助统计量之间的关系.
+\subsubsection{充分、辅助与完备统计量}\label{sec:6.2.4}
+最小充分统计量是在仍保留全部关于参数$\theta$的信息的同时，达到最大可能约简程度的统计量.直观地说，最小充分统计量去掉样本中所有无关信息，只保留关于$\theta$的信息.由于辅助统计量的分布不依赖$\theta$，人们或许会猜测最小充分统计量与辅助统计量无关（或用数学语言说，函数上独立）.然而并不一定如此.本小节较详细地考察这种关系.
+\sourcepageanchor{263}
+我们已经讨论过辅助统计量与最小充分统计量不独立的情形.回顾\autoref{ex:6.2.15}，$X_1,\ldots,X_n$为来自$\operatorname{uniform}(\theta,\theta+1)$的iid观测.在\autoref{sec:6.2.2}末尾，指出$(X_{(n)}-X_{(1)},(X_{(n)}+X_{(1)})/2)$是最小充分统计量；\autoref{ex:6.2.17}则说明$X_{(n)}-X_{(1)}$是辅助统计量.所以此时辅助统计量是最小充分统计量的重要组成部分.二者当然不独立.
+
+为强调辅助统计量有时能为$\theta$的推断提供重要信息，再给出一个例子.
+\begin{example}[辅助统计量与精度]\label{ex:6.2.20}\index{SI0025@用途}
+设$X_1$和$X_2$为来自满足下式的离散分布的iid观测：
+$$P_\theta(X=\theta)=P_\theta(X=\theta+1)=P_\theta(X=\theta+2)=\frac13,$$
+其中未知参数$\theta$可为任意整数.令$X_{(1)}\le X_{(2)}$为样本次序统计量.用类似\autoref{ex:6.2.15}的论证可知，$(R,M)$为最小充分统计量，其中$R=X_{(2)}-X_{(1)}$、$M=(X_{(1)}+X_{(2)})/2$.由于这是位置参数族，由\autoref{ex:6.2.17}，$R$为辅助统计量.为看出$R$虽然是辅助统计量却可能给出关于$\theta$的信息，考虑样本点$(r,m)$，其中$m$为整数.先只考虑$m$，要使这个样本点有正概率，$\theta$必须取三个值之一：$\theta=m$、$\theta=m-1$或$\theta=m-2$.仅凭$M=m$这一信息，三个$\theta$值都有可能.但若再获知$R=2$，就必有$X_{(1)}=m-1$、$X_{(2)}=m+1$.有了这一额外信息，$\theta$唯一可能的值就是$\theta=m-1$.所以知道辅助统计量$R$的值，增进了我们对$\theta$的了解.当然，单独知道$R$并不提供关于$\theta$的信息.（辅助统计量能提供关于$\theta$估计精度的信息，这一思想并非新事物.更多观点可参见\hyperref[bib:source85]{Cox（1971）}或\hyperref[bib:source110]{Efron和Hinkley（1978）}.）
+\end{example}
+不过，在许多重要情形中，最小充分统计量与任意辅助统计量独立这一直觉是正确的.描述何时出现这种情况，要用到下面的定义.
+\begin{definition}\label{def:6.2.21}\index{SI0110@完备性}
+设$f(t\mid\theta)$是统计量$T(\boldsymbol X)$的pdf或pmf族.若对所有$\theta$有$E_\theta g(T)=0$，就能推出对所有$\theta$有$P_\theta(g(T)=0)=1$，则称这个概率分布族完备（complete）.等价地，称$T(\boldsymbol X)$为完备统计量（complete statistic）.
+\end{definition}
+注意完备性是概率分布族的性质，并非某一个特定分布的性质.例如，若$X$服从$n(0,1)$，定义$g(x)=x$就有$Eg(X)=EX=0$.但$g(x)=x$满足$P(g(X)=0)=P(X=0)=0$，而非1.不过这只是一个特定分布，不是分布族.若$X$服从$n(\theta,1)$，$-\infty<\theta<\infty$，我们将看到，除对所有$\theta$以概率1等于0的函数之外，没有任何$X$的函数能对所有$\theta$满足$E_\theta g(X)=0$.所以$n(\theta,1)$、$-\infty<\theta<\infty$这一分布族是完备的.
+\begin{example}[二项分布的完备充分统计量]\label{ex:6.2.22}\index{SI0114@二项}
+设$T$服从$\operatorname{binomial}(n,p)$，$0<p<1$.设$g$为满足$E_pg(T)=0$的函数.则
+\begin{align*}
+0=E_pg(T)&=\sum_{t=0}^n g(t)\binom nt p^t(1-p)^{n-t}\\
+&=(1-p)^n\sum_{t=0}^n g(t)\binom nt\left(\frac p{1-p}\right)^t.
+\end{align*}
+\sourcepageanchor{264}
+对所有$0<p<1$成立.在这个范围内，因子$(1-p)^n$不为0.因此，必有
+$$0=\sum_{t=0}^ng(t)\binom nt\left(\frac p{1-p}\right)^t=\sum_{t=0}^ng(t)\binom nt r^t$$
+对所有$0<r<\infty$成立.最后一个表达式是$r$的$n$次多项式，其中$r^t$的系数为$g(t)\binom nt$.要使多项式对所有$r$都为0，每个系数都必须为0.由于所有$\binom nt$均非零，故$t=0,1,\ldots,n$时$g(t)=0$.又$T$以概率1取值于$0,1,\ldots,n$，从而对所有$p$都有$P_p(g(T)=0)=1$，这正是所需结论.所以$T$是完备统计量.
+\end{example}
+\begin{example}[均匀分布的完备充分统计量]\label{ex:6.2.23}\index{SI0120@均匀}
+设$X_1,\ldots,X_n$为iid $\operatorname{uniform}(0,\theta)$观测，$0<\theta<\infty$.用类似\autoref{ex:6.2.8}的论证，可说明$T(\boldsymbol X)=\max_iX_i$是充分统计量；由\autoref{thm:5.4.4}，$T(\boldsymbol X)$的pdf为
+$$f(t\mid\theta)=\begin{cases}nt^{n-1}\theta^{-n},&0<t<\theta,\\0,&\text{其他情形}.\end{cases}$$
+设函数$g(t)$对所有$\theta$满足$E_\theta g(T)=0$.由于$E_\theta g(T)$作为$\theta$的函数为常数，其对$\theta$的导数为0.故有
+\begin{align*}
+0=\frac d{d\theta}E_\theta g(T)&=\frac d{d\theta}\int_0^\theta g(t)nt^{n-1}\theta^{-n}\,dt\\
+&=\theta^{-n}\frac d{d\theta}\int_0^\theta ng(t)t^{n-1}\,dt+\left(\frac d{d\theta}\theta^{-n}\right)\int_0^\theta ng(t)t^{n-1}\,dt\\
+&=\theta^{-n}ng(\theta)\theta^{n-1}+0\qquad\text{（乘积求导法则）}\\
+&=\theta^{-1}ng(\theta).
+\end{align*}
+倒数第二行的第一项来自微积分基本定理.第二项为0，是因为其中的积分除一个常数因子外等于$E_\theta g(T)$，而后者为0.由于$\theta^{-1}ng(\theta)=0$且$\theta^{-1}n\ne0$，必有$g(\theta)=0$.这对每个$\theta>0$都成立，故$T$是完备统计量.（稍作严格的提醒：微积分基本定理并非适用于所有函数，而只适用于Riemann可积函数.等式
+$$\frac d{d\theta}\int_0^\theta g(t)\,dt=g(\theta)$$
+只在Riemann可积函数$g$的连续点成立.因此，严格地说，上述论证没有证明$T$完备，因为完备性条件针对所有函数，而不仅是Riemann可积函数.但从更实用的角度，这一区别并不重要，因为Riemann可积条件非常宽泛，几乎包含我们能想到的任何函数.）
+\end{example}
+下面利用完备性，给出最小充分统计量与每个辅助统计量独立的一个条件.
+\begin{theorem}[Basu定理]\label{thm:6.2.24}\index{SI0076@Basu定理}\index{SI0111@辅助性}\index{SI0112@Basu定理}\index{SI0117@独立性}\index{SI0119@充分性}\index{SI0547@完备性}
+若$T(\boldsymbol X)$是完备的最小充分统计量，则$T(\boldsymbol X)$与每个辅助统计量独立.
+\end{theorem}
+\begin{proof}
+只给出离散分布的证明.
+
+设$S(\boldsymbol X)$为任意辅助统计量.由于其辅助性，$P(S(\boldsymbol X)=s)$不依赖$\theta$.条件概率
+$$P(S(\boldsymbol X)=s\mid T(\boldsymbol X)=t)=P(\boldsymbol X\in\{\boldsymbol x:S(\boldsymbol x)=s\}\mid T(\boldsymbol X)=t)$$
+也不依赖$\theta$，因为$T(\boldsymbol X)$是充分统计量（回顾其定义！）.
+\sourcepageanchor{265}
+所以，要说明$S(\boldsymbol X)$与$T(\boldsymbol X)$独立，只须说明对所有可能的值$t\in\mathcal T$都有
+\begin{equation}\label{eq:6.2.6}
+P(S(\boldsymbol X)=s\mid T(\boldsymbol X)=t)=P(S(\boldsymbol X)=s).
+\end{equation}
+现在，
+$$P(S(\boldsymbol X)=s)=\sum_{t\in\mathcal T}P(S(\boldsymbol X)=s\mid T(\boldsymbol X)=t)P_\theta(T(\boldsymbol X)=t).$$
+又因为$\sum_{t\in\mathcal T}P_\theta(T(\boldsymbol X)=t)=1$，可写
+$$P(S(\boldsymbol X)=s)=\sum_{t\in\mathcal T}P(S(\boldsymbol X)=s)P_\theta(T(\boldsymbol X)=t).$$
+因此，若定义统计量
+$$g(t)=P(S(\boldsymbol X)=s\mid T(\boldsymbol X)=t)-P(S(\boldsymbol X)=s),$$
+以上两式说明
+$$E_\theta g(T)=\sum_{t\in\mathcal T}g(t)P_\theta(T(\boldsymbol X)=t)=0,\qquad\text{对所有$\theta$}.$$
+由于$T(\boldsymbol X)$是完备统计量，可推出对所有可能的$t\in\mathcal T$都有$g(t)=0$.因此\eqref{eq:6.2.6}得到验证.
+\end{proof}
+Basu定理的用处在于，无须求两个统计量的联合分布，就能推出其独立性.使用Basu定理，需要说明一个统计量完备，这有时是相当困难的分析问题.幸而下面的定理涵盖了我们关心的大多数问题.这里不证明该定理，但指出其证明依赖Laplace变换的唯一性，\index{SI0601@拉普拉斯变换}\semanticindexanchor{601:265}\autoref{sec:2.3}曾提及这一性质.
+\begin{theorem}[指数族中的完备统计量]\label{thm:6.2.25}\index{SI0116@指数族}
+设$X_1,\ldots,X_n$为来自指数族的iid观测，其pdf或pmf具有形式
+\begin{equation}\label{eq:6.2.7}
+f(x\mid\boldsymbol\theta)=h(x)c(\boldsymbol\theta)\exp\left(\sum_{j=1}^k w(\theta_j)t_j(x)\right),
+\end{equation}
+其中$\boldsymbol\theta=(\theta_1,\theta_2,\ldots,\theta_k)$.则统计量
+$$T(\boldsymbol X)=\left(\sum_{i=1}^nt_1(X_i),\sum_{i=1}^nt_2(X_i),\ldots,\sum_{i=1}^nt_k(X_i)\right)$$
+只要参数空间$\Theta$包含$\mathbb R^k$中的一个开集，就是完备的.\footnote{译注：本定理的开集条件严格说应加在自然参数$(w(\theta_1),\ldots,w(\theta_k))$的取值集合上；若$w$退化，单凭原参数空间$\Theta$含开集不足以保证结论.原表述保留；通常的满秩指数族形式满足相应自然参数条件.}
+\end{theorem}
+要求参数空间包含开集，是为避免如下情形.\index{SI0436@曲线}\semanticindexanchor{436:265}$n(\theta,\theta^2)$分布可以写成\eqref{eq:6.2.7}的形式，但参数空间$(\theta,\theta^2)$只由抛物线上的点组成，不含二维开集.于是可找到统计量$T(\boldsymbol X)$的一个变换，它是0的无偏估计量（见\autoref{exercise:6.15}）.（回顾$n(\theta,\theta^2)$这类参数空间为低维曲线的指数族，称为弯曲指数族，curved exponential families；见\autoref{sec:3.4}.）指数族中充分性、完备性与最小性的关系很有意思，简短介绍见\autoref{sec:6.6.3}.
+
+下面举例说明Basu定理、\autoref{thm:6.2.25}以及本章前面许多结果的运用.
+\sourcepageanchor{266}
+\begin{example}[Basu定理的运用——I]\label{ex:6.2.26}\index{SI0019@指数}\index{SI0115@指数}
+设$X_1,\ldots,X_n$为参数$\theta$的iid指数观测.考虑计算
+$$g(\boldsymbol X)=\frac{X_n}{X_1+\cdots+X_n}$$
+的期望值.先注意指数分布构成尺度参数族，因此由\autoref{ex:6.2.19}，$g(\boldsymbol X)$是辅助统计量.指数分布也构成$t(x)=x$的指数族，所以由\autoref{thm:6.2.25}，
+$$T(\boldsymbol X)=\sum_{i=1}^nX_i$$
+是完备统计量；由\autoref{thm:6.2.10}，$T(\boldsymbol X)$也是充分统计量.（如下文指出的，无须验证$T(\boldsymbol X)$最小，虽然用\autoref{thm:6.2.13}很容易验证.）故由Basu定理，$T(\boldsymbol X)$与$g(\boldsymbol X)$独立.于是
+$$\theta=E_\theta X_n=E_\theta T(\boldsymbol X)g(\boldsymbol X)=(E_\theta T(\boldsymbol X))(E_\theta g(\boldsymbol X))=n\theta E_\theta g(\boldsymbol X).$$
+因此，对任意$\theta$有$E_\theta g(\boldsymbol X)=n^{-1}$.
+\end{example}
+\begin{example}[Basu定理的运用——II]\label{ex:6.2.27}
+作为Basu定理的另一个应用，考虑从$n(\mu,\sigma^2)$总体抽样时，样本均值$\bar X$和方差$S^2$的独立性.当然，\autoref{thm:5.3.1}已证明这两个统计量独立，但我们要在这个重要背景下说明Basu定理的用法.先固定$\sigma^2$，让$\mu$变化，$-\infty<\mu<\infty$.由\autoref{ex:6.2.4}，$\bar X$是$\mu$的充分统计量.由\autoref{thm:6.2.25}可推出$n(\mu,\sigma^2/n)$、$-\infty<\mu<\infty$且$\sigma^2/n$已知这一分布族完备.这是$\bar X$的分布，所以$\bar X$是完备统计量.再考虑$S^2$.用类似\autoref{ex:6.2.18}和\autoref{ex:6.2.19}的论证，可说明任意位置参数族中（记住$\sigma^2$固定，$\mu$为位置参数），$S^2$都是辅助统计量.或者，对此正态模型，用\autoref{thm:5.3.1}可知$S^2$的分布依赖固定量$\sigma^2$，却不依赖参数$\mu$.无论采用哪种方式，$S^2$都是辅助统计量，因此由Basu定理，它与完备充分统计量$\bar X$独立.对任意$\mu$和固定的$\sigma^2$，$\bar X$与$S^2$独立.由于$\sigma^2$任意，所以对$\mu$与$\sigma^2$的任意选择，样本均值和方差都独立.注意在$\mu$与$\sigma^2$均未知的模型中，$\bar X$和$S^2$都不是辅助统计量.但通过此论证，我们仍能用Basu定理推出独立性.这类论证有时有用，不过通常证明一个统计量完备，比证明两个统计量独立更难，这一点仍然成立.
+\end{example}
+应注意，Basu定理的证明未用到充分统计量的“最小性”.事实上，去掉这个词定理仍成立，因为完备统计量的一项基本性质就是最小性.
+\begin{theorem}\label{thm:6.2.28}
+若最小充分统计量存在，则任何完备统计量也都是最小充分统计量.\footnote{译注：原文这里遗漏“充分”条件.正确结论应针对“完备充分统计量”；例如常数统计量是完备的，却一般不充分，因而不能仅由完备性推出最小充分性.前一句及后面的解释应结合本节充分统计量的语境理解.}
+\end{theorem}
+所以尽管Basu定理陈述中的“最小”一词是冗余的，保留它是为了提醒：定理中的统计量$T(\boldsymbol X)$是最小充分统计量.（关于完备统计量与最小充分统计量关系的更多内容，见\hyperref[bib:source201]{Lehmann和Scheffé 1950}，以及\hyperref[bib:source276]{Schervish 1995}，第2.1节.）
+
+Basu定理利用完备统计量的概念，给出充分统计量与辅助统计量之间的一种关系.辅助性和完备性还有其他可能的定义.\hyperref[bib:source197]{Lehmann（1981）}讨论了这些定义下充分性与辅助性的一些关系.

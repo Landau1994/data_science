@@ -1,0 +1,44 @@
+72                          COMMON FAMILIES OF DISTRIBUTIONS
+The hypergeometric distribution illustrates the fact that, statistically, dealing with finite populations
+(finite N) is a difficult task.
+   The mean of the hypergeometric distribution is given by
+
+                M             M                K                                 K                               x   N−M                                                          x   N−M
+                    x                                       x                                            K−x    .         (summand is zero at x = 0)        EX =       ∑                          K−x  = ∑                        N                                         N                 x=0                 x=1                        K                 K
+
+To evaluate this expression, we use the identities (already encountered in Section 2.3),
+
+                   M       M                                x     = M   −1   ,
+                                   x         x−1                       N      N  N                       =     −1   ,
+                       K      K  K −1
+and obtain
+                       K M  M−1   N−M         K   M−1   N−M
+              EX =        x−1    K−x  = KM      x−1    K−x    .                       ∑           ∑     N                          x=1                                                      x=1                                                      N−1                             K  N−1       N                                K−1                    K−1
+We now can recognize the second sum above as the sum of the probabilities for another hypergeo-
+metric distribution based on parameter values N −1, M −1, and K −1. This can be seen clearly by
+defining y = x−1 and writing
+              K   M−1   N−M                                      M−1y     (N−1)−(M−1)                                    K−1
+                    =       ∑   x−1    K−x                 ∑            K−1−y                x=1     N−1             y=0         N−1
+                      K−1                      K−1
+                                    K−1
+                    =     P(Y =            = 1,                 ∑                                         y=0       y|N −1,M −1,K −1)
+where Y is a hypergeometric random variable with parameters N −1, M −1, and K −1. Therefore,for the hypergeometric distribution,
+                          KM
+                             EX =       .
+                               N
+A similar, but more lengthy, calculation will establish that
+
+                     KM  (N                        VarX =       −M)(N −K)   .
+                         N     N(N −1)
+   Note the manipulations used here to calculate EX. The sum was transformed to another hyper-
+geometric distribution with different parameter values and, by recognizing this fact, we were able
+to sum the series.
+Example 3.2.1 (Acceptance sampling)  The hypergeometric distribution has application in ac-
+ceptance sampling, as this example will illustrate. Suppose a retailer buys goods in lots and each
+item can be either acceptable or defective. Let
+
+                     N  =   # items in a lot,
+                M  =   # defectives in a lot.
+
+Then we can calculate the probability that a sample of size K contains x defectives. To be specific,
+suppose that a lot of 25 machine parts is delivered, where a part is considered acceptable only if

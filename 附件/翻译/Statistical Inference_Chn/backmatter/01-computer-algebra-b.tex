@@ -1,0 +1,119 @@
+\needspace{5\baselineskip}\medskip\noindent\textit{\hyperref[sec:5]{第5章}}
+\begin{example}[和的密度]\label{ex:12.6.5}
+用于说明\autoref{thm:5.2.9}的\autoref{ex:5.2.10}，其中的计算相当复杂.下面在正态、柯西和Student的$t$这三种情形中演示这种计算.
+
+有两点需要注意.
+\begin{enumerate}[label=(\arabic*)]
+\item 为正确解释答案，可能需要一些复分析知识.正态情形下，报告的答案带有关于变量$z$实部取值的条件（$z$可能取复数值）.在柯西例子中，重要的是知道$I^2=-1$，因此有
+$$\frac{2}{\pi(-2I+z)(2I+z)}=\frac{2}{\pi(4+z^2)}.$$
+\item Student的$t$变量相加时，似乎当自由度之和为偶数时存在闭式表达式，否则积分就必须用数值方法求解.（这是我们试用计算机代数系统时发现的一条经验观察.）
+\end{enumerate}
+还应指出，较新版本的计算机代数程序也许会避免这里出现的复数.不过，其他计算中仍会出现复数，因此最好做好处理它们的准备.
+\begin{enumerate}[label=(\arabic*)]
+\item 两个正态变量之和的密度.\footnote{译注：原页中$f$的代码括号不配对，分母写为$2\pi$；所列Out[3]也没有给出通常的$N(0,2)$密度$e^{-z^2/4}/(2\sqrt\pi)$.这里保留原代码和输出，不据其报告实际运行结果.}
+\begin{sourcecode}
+In[1]:= Clear[f, x, y, z]
+f[x_] = Exp[(-x^2/2]/(2 Pi);
+Integrate[f[y]* f[z - y], {y,-Infinity,Infinity}]
+\end{sourcecode}
+$$\textbf{Out[3]}=\operatorname{If}\left[\operatorname{Re}[z]<0,\frac{E^{-z^2/4}}{2\pi},\int_{-\infty}^{\infty}\frac{E^{-y^2/2-\frac12(-y+z)^2}}{2\pi}\,dy\right].$$
+\item 两个柯西变量之和的密度.
+\begin{sourcecode}
+In[4]:= Clear[f, x, y, z]
+f[x_] = 1/(Pi*(1+x^2));
+Integrate[f[y]* f[z - y], {y,-Infinity,Infinity}]
+\end{sourcecode}
+$$\textbf{Out[6]}=\frac{2}{\pi(-2I+z)(2I+z)}.$$
+\sourcepageanchor{532}
+\item 两个自由度为5的$t$变量之和的密度.\footnote{译注：下面原代码的PDF函数少了一个右方括号；规范的函数调用应为\texttt{PDF[StudentTDistribution[5], x]}.原排印保留.}
+\begin{sourcecode}
+In[7]:= Needs["Statistics`ContinuousDistributions`"]
+Clear[f, x, y, z]
+f[x_] = PDF[StudentTDistribution[5, x]
+Integrate[f[y]* f[z - y], {y,-Infinity,Infinity}]
+\end{sourcecode}
+$$\textbf{Out[10]}=\frac{400\sqrt5(8400+120z^2+z^4)}{3\pi(20+z^2)^5}.$$
+\end{enumerate}
+\end{example}
+
+\begin{example}[均匀变量之和的四阶矩]\label{ex:12.6.6}
+\autoref{exercise:5.51}要求计算12个均匀随机变量之和的四阶矩.由于密度具有分段形式，推导它有些费力（不过也可以用计算机代数完成）.然而，使用矩母函数可以简化事情.
+\begin{enumerate}[label=(\arabic*)]
+\item 先计算均匀随机变量$X_1$的矩母函数，再计算$\sum_{i=1}^{12}X_i$的矩母函数，其中各$X_i$相互独立.
+\begin{sourcecode}
+In[1]:= M[t_] = Integrate[Exp[t*x], {x, 0, 1}]
+In[2]:= Msum[t_] = M[t]^12
+\end{sourcecode}
+$$\textbf{Out[1]}=\frac{-1+e^t}{t},\qquad\textbf{Out[2]}=\frac{(-1+e^t)^{12}}{t^{12}}.$$
+\item 计算$\sum_{i=1}^{12}X_i-6$的矩母函数的四阶导数.它太长，不适合打印出来.
+\begin{sourcecode}
+In[3]:= g[t_]=D[Exp[-6*t]*Msum[t],{t,4}];
+\end{sourcecode}
+\item 值g[0]就是四阶矩.但是直接代入0会导致除以零，因此必须用极限进行计算.
+\begin{sourcecode}
+In[4]:= g[0]
+\end{sourcecode}
+\noindent Power:infy: Infinite expression $\frac{1}{0^{16}}$ encountered.
+\begin{sourcecode}
+In[5]:= Limit[g[t],t->0]
+\end{sourcecode}
+$$\textbf{Out[5]}=\frac{29}{10}.$$
+\end{enumerate}
+\end{example}
+
+\needspace{5\baselineskip}\medskip\noindent\textit{\hyperref[sec:7]{第7章}}\footnote{译注：此处原小标题为“Chapter 7”，但正文引用的是第10章的例与图，以下保留原小标题.}
+\begin{example}[伽马均值的渐近相对效率]\label{ex:12.6.7}
+\autoref{ex:10.1.18}中得到\autoref{fig:10.1.1}的计算是在Mathematica中完成的.下面的代码会生成其中一条渐近相对效率（ARE）曲线.
+\begin{enumerate}[label=(\arabic*)]
+\item 用符号方法求对数似然的二阶导数.
+\begin{sourcecode}
+In[1]:= Needs["Statistics`ContinuousDistributions`"]
+Clear[m, b, x]
+f[x_, m_, b_] = PDF[GammaDistribution[m/b, b], x];
+loglike2[m_, b_, x_] = D[Log[f[x, m, b]], {m, 2}];
+\end{sourcecode}
+\item 对二阶导数按该密度积分，求出渐近方差.
+\begin{sourcecode}
+In[5]:= var[m_, b_] := 1/(-Integrate[loglike2[m, b, x]*f[x, m, b],
+ {x, 0, Infinity}])
+\end{sourcecode}
+\sourcepageanchor{533}
+\item 以下代码设置绘图.
+\begin{sourcecode}
+In[6]:=
+mu = {1, 2, 3, 4, 6, 8, 10};
+beta = 5;
+mlevar = Table[var[mu[[i]], beta], {i, 1, 7}];
+momvar = Table[mu[[i]]*beta, {i, 1, 7}];
+ARE = momvar/mlevar
+Out[10] = {5.25348, 2.91014, 2.18173, 1.83958, 1.52085, 1.37349, 1.28987}
+In[11]:=ListPlot[Transpose[{mu, ARE}], PlotJoined -> True,
+ PlotRange -> {{0, mu[[7]]}, {0, 8}}, AxesLabel -> {"Gamma mean",
+ "ARE"}]
+\end{sourcecode}
+\end{enumerate}
+\end{example}
+
+\needspace{5\baselineskip}\medskip\noindent\textit{\hyperref[sec:9]{第9章}}
+\begin{example}[卡方矩母函数的极限]\label{ex:12.6.8}
+计算\hyperref[exercise:9.30]{习题9.30(b)}中的极限分布需要小心，但在Mathematica中相当直接.
+\begin{enumerate}[label=(\arabic*)]
+\item 先计算自由度为$n$的卡方随机变量的矩母函数.（当然，这一步其实不必要.）\footnote{译注：此处Out[3]中外部的$2^{n/2}$因子和中间项的正指数均与卡方矩母函数不符，原页照录.满足条件时应为$(1-2t)^{-n/2}$；下面作者定义M[t\_]时使用了这个正确形式.}
+\begin{sourcecode}
+In[1]:= Needs["Statistics`ContinuousDistributions`"]
+f[x_] = PDF[ChiSquareDistribution[n], x];
+Integrate[Exp[t*x]*f[x], {x, 0, Infinity}]
+\end{sourcecode}
+\begin{equation*}\begin{aligned}
+\textbf{Out[3]}={}&\frac{2^{n/2}}{\operatorname{Gamma}[n/2]}\operatorname{If}\Biggl[\operatorname{Re}[n]>0\mathbin{\&\&}\operatorname{Re}[t]<\frac12,\\
+&\left(\frac12-t\right)^{n/2}\operatorname{Gamma}[n/2],\int_0^\infty e^{-x/2+tx}x^{-1+n/2}\,dx\Biggr].
+\end{aligned}\end{equation*}
+
+\item 因为检验条件得到满足，$\chi_n^2$的矩母函数就是中间项.现在求$\frac{\chi_n^2-n}{\sqrt{2n}}$的矩母函数的极限.
+\begin{sourcecode}
+In[4]:M[t_] = (1 - 2*t)^(-n/2);
+Limit[Exp[-n*t/Sqrt[2*n]]*M[t/Sqrt[2*n]], n -> Infinity]
+\end{sourcecode}
+$$\textbf{Out[5]}=e^{t^2/2}.$$
+\end{enumerate}
+\end{example}

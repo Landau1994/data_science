@@ -1,0 +1,44 @@
+294                                                 POINT ESTIMATION
+7.38 For each of the following distributions, let X1,...,Xn be a random sample. Is there a function of θ, say
+      g(θ), for which there exists an unbiased estimator whose variance attains the Cram´er–Rao Lower Bound?
+       If so, find it. If not, show why not.
+                < x < 1,  θ > 0.       (a)  f(x|θ) = θxθ−1,  0                       log(θ)
+      (b)  f(x|θ) = θ−1 θx,  0 < x < 1,  θ > 1.
+7.39 Prove Lemma 7.3.11.
+7.40 Let X1,...,Xn be iid Bernoulli(p). Show that the variance of ¯X attains the Cram´er–Rao Lower Bound,
+     and hence ¯X is the best unbiased estimator of p.
+7.41 Let X1,...,Xn be a random sample from a population with mean µ and variance σ2.
+       (a) Show that the estimator ∑ni=1 aiXi is an unbiased estimator of µ if ∑ni=1 ai = 1.
+      (b) Among all unbiased estimators of this form (called linear unbiased estimators) find the one with
+       minimum variance, and calculate the variance.
+7.42 Let W1,...,Wk be unbiased estimators of a parameter θ with VarWi = σ2i and Cov(Wi,Wj) = 0 if  i̸ = j.
+       (a) Show that, of all estimators of the form ∑aiWi where the ais are constant and Eθ(∑aiWi) = θ, the
+                        ∑Wi/σ i2                               has minimum variance.          estimator W ∗=                          ∑(1/σ i2 )
+                                   1      (b) Show that VarW ∗=                                                     2 ).                              ∑(1/σ                                                                                               i
+7.43 Exercise 7.42 established that the optimal weights are q∗i = (1/σ2i )/(∑j 1/σ2j ). A result due to Tukey
+      (see Bloch and Moses 1988) states that if W = ∑i qiWi is an estimator based on another sets of weights
+       qi ≥0, ∑i qi = 1, then               VarW      1
+                                   VarW ∗≤                                 1−λ 2
+     where λ satisfies (1 + λ)/(1 −λ) = bmax/bmin, and bmax and bmin are the largest and smallest of bi =
+      qi/q∗i .
+       (a) Prove Tukey’s inequality.
+      (b) Use the inequality to assess the performance of the usual mean ∑iWi/k as a function of σ2max/σ2min.
+7.44 Let X1,...,Xn be iid n(θ,1). Show that the best unbiased estimator of θ2 is ¯X2 −(1/n). Calculate its      variance (use Stein’s Identity from Section 3.6), and show that it is greater than the Cram´er–Rao Lower
+     Bound.
+7.45 Let X1,X2,...,Xn be iid from a distribution with mean µ and variance σ2, and let S2 be the usual unbiased
+      estimator of σ2. In Example 7.3.4 we saw that, under normality, the MLE has smaller MSE than S2. In
+       this exercise, we will explore variance estimates some more.
+       (a) Show that, for any estimator of the form aS2, where a is a constant,
+
+                              =                       MSE(aS2) = E[aS2 −σ2]2                                               a2Var(S2)+(a−1)2σ4.
+      (b) Show that
+                                           1                                       Var(S2) =   κ                    ,                                           n  −n−3                                      n−1σ4
+        where κ = E[X −µ]4 is the kurtosis. (You may have already done this in Exercise 5.8b.)
+       (c) Show that, under normality the kurtosis is 3σ4 and establish that, in this case, the estimator of the
+        form aS2 with the minimum MSE is n−1n+1S2. (Lemma 3.6.5 may be helpful.)
+      (d)  If normality is not assumed, show that MSE(aS2) is minimized at a =      n−1         , which is                                                                               (n+1)+ (κ−1)(n−1)n
+          useless as it depends on a parameter.
+       (e) Show that
+               (i) for distributions with κ > 3, the optimal a will satisfy a < n−1n+1;
+               (ii) for distributions with κ < 3, the optimal a will satisfy n−1n+1 < a < 1.
+     See Searls and Intarapanich (1990) for more details.

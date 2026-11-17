@@ -1,0 +1,43 @@
+320                                             HYPOTHESIS TESTING
+In this section we discuss these bounds and give examples in which the bounds are sharp, that is,
+the size of the test is equal to the bound.
+    First consider UITs. Recall that, in this situation, we are testing a null hypothesis of the form
+H0: θ ∈Θ0 where Θ0 =  γ∈Γ Θγ. To be specific, let λγ(x) be the LRT statistic for testing H0γ : θ ∈Θγ
+versus H1γ : θ ∈Θc                         γ and let λ(x) be the LRT statistic for testing H0 : θ ∈Θ0 versus H1 : θ ∈Θc0.Then we have the following relationships between the overall LRT and the UIT based on λγ(x).
+Theorem 8.3.21  Consider testing H0: θ ∈Θ0 versus H1: θ ∈Θc0, where Θ0 =  γ∈Γ Θγ and λγ(x)
+is defined in the previous paragraph. Define T(x) = infγ∈Γλγ(x), and form the UIT with rejection
+region
+                      {x: λγ(x) < c for some γ ∈Γ} = {x: T(x) < c}.
+Also consider the usual LRT with rejection region {x: λ(x) < c}. Then
+a. T(x) ≥λ(x) for every x;
+b.  if βT(θ) and βλ(θ) are the power functions for the tests based on T and λ, respectively, then
+  βT(θ) ≤βλ(θ) for every θ ∈Θ; and
+c.  if the LRT is a level α test then the UIT is a level α test.
+Proof: Since Θ0 =     Θγ       for any γ, from Definition 8.2.1 we see that for any x,                    γ∈Γ  ⊂Θγ
+                              λγ(x) ≥λ(x)   for each γ ∈Γ,
+because the region of maximization is bigger for the individual λγ. Thus T(x) = infγ∈Γ λγ(x) ≥λ(x),
+proving (a). By (a), {x: T(x) < c} ⊂{x: λ(x) < c}, so
+                   βT(θ) = Pθ (T(X) < c) ≤Pθ (λ(X) < c) = βλ(θ),
+proving (b). Since (b) holds for every θ,supθ∈Θ0 βT(θ) ≤supθ∈Θ0 βλ(θ) ≤α, proving (c).   2
+Example 8.3.22 (An equivalence)   In some situations, T(x) = λ(x) in Theorem 8.3.21. The UIT
+built up from individual LRTs is the same as the overall LRT. This was the case in Example 8.2.8.
+There the UIT formed from two one-sided t tests was equivalent to the two-sided LRT.         ∥
+   Since the LRT is uniformly more powerful than the UIT in Theorem 8.3.21, we might ask why
+should we use the UIT. One reason is that the UIT has a smaller Type I Error probability for every
+θ ∈Θ0. Furthermore, if H0 is rejected, we may wish to look at the individual tests of H0γ to seewhy. As yet, we have not discussed inferences for the individual H0γ. The error probabilities for such
+inferences would have to be examined before such an inference procedure were adopted. But the
+possibility of gaining additional information by looking at the H0γ individually, rather than looking
+only at the overall LRT, is evident.
+  Now we investigate the sizes of IUTs. A simple bound for the size of an IUT is related to the
+sizes of the individual tests that are used to define the IUT. Recall that in this situation the null
+hypothesis is expressible as a union, that is, we are testing
+
+                                                                 0,  where Θ0 =   Θγ.              H0 : θ ∈Θ0     versus    H1 : θ ∈Θc
+                                                                    γ∈Γ
+An IUT has a rejection region of the form R =  γ∈ΓRγ where Rγ is the rejection region for a test of
+H0γ : θ ∈Θγ.
+Theorem 8.3.23   Let αγ be the size of the test of H0γ with rejection region Rγ. Then the IUT with
+rejection region R =  γ∈ΓRγ is a level α = supγ∈Γαγ test.
+Proof: Let θ ∈Θ0. Then θ ∈Θγ for some γ and
+                        Pθ(X ∈R) ≤Pθ(X ∈Rγ) ≤αγ ≤α.
+Since θ ∈Θ0 was arbitrary, the IUT is a level α test.                        2

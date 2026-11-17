@@ -1,0 +1,47 @@
+THE SUFFICIENCY PRINCIPLE                                                227
+Thus, we have the factorization
+
+                                                              n
+                                                 IN (xi)   .                            f(x|θ) = θ −nINθ (T(x)) ∏i=1
+The first factor depends on x1,...,xn only through the value of T(x) = maxi xi and the second factor
+does not depend on θ. By the Factorization Theorem, T(X) = maxi Xi is a sufficient statistic for θ.
+∥
+    In all the previous examples, the sufficient statistic is a real-valued function of the sample. All
+the information about θ in the sample x is summarized in the single number T(x). Sometimes, the
+information cannot be summarized in one number and several numbers are required instead. In such
+cases, a sufficient statistic is a vector, say T(X) = (T1(X),...,Tr(X)). This situation often occurs
+when the parameter is also a vector, say θ = (θ1,...,θs), and it is usually the case that the sufficient
+statistic and the parameter vectors are of equal length, that is, r = s. Different combinations of
+lengths are possible, however, as the exercises and Examples 6.2.15, 6.2.18, and 6.2.20 illustrate.
+The Factorization Theorem may be used to find a vector-valued sufficient statistic, as in Example
+6.2.9.
+Example 6.2.9 (Normal sufficient statistic, both parameters unknown)   Again assume  that
+X1,...,Xn are iid n(µ,σ2) but, unlike Example 6.2.4, assume that both µ and σ2 are unknown
+so the parameter vector is θ = (µ,σ2). Now when using the Factorization Theorem, any part of
+the joint pdf that depends on either µ or σ2 must be included in the g function. From (6.2.1)
+it is clear that the pdf depends on the sample x only through the two values T1(x) = x and
+                                = 1 andT2(x) = s2 = ∑ni=1(xi −x)2/(n−1). Thus, we can define h(x)
+                g(t|θ) =  g(t1,t2|µ,σ2)
+             =  (2πσ2)−n/2 exp     n(t1                /(2σ2)  .                        −    −µ)2 +(n−1)t2
+Then it can be seen that
+                     =                                       g(T1(x),T2(x)|µ,σ2)h(x).                        (6.2.5)                          f(x|µ,σ2)
+Thus, by the Factorization Theorem, T(X) = (T1(X),T2(X)) = (X,S2) is a sufficient statistic for
+(µ,σ2) in this normal model.                                                       ∥
+   Example 6.2.9 demonstrates that, for the normal model, the common practice of summariz-
+ing a data set by reporting only the sample mean and variance is justified. The sufficient statistic
+(X,S2) contains all the information about (µ,σ2) that is available in the sample. The experimenter
+should remember, however, that the definition of a sufficient statistic is model-dependent. For an-
+other model, that is, another family of densities, the sample mean and variance may not be a suffi-
+cient statistic for the population mean and variance. The experimenter who calculates only X and S2
+and totally ignores the rest of the data would be placing strong faith in the normal model assumption.
+     It is easy to find a sufficient statistic for an exponential family of distributions using the Factor-
+ization Theorem. The proof of the following important result is left as Exercise 6.4.
+Theorem 6.2.10  Let X1,...,Xn be iid observations from a pdf or pmf f(x|θ), which belongs to anexponential family given by
+
+                                                                   k
+                                                                                                    ,                           f(x|θ) = h(x)c(θ)exp  i=1∑ wi(θ)ti(x)
+where θ = (θ1,θ2,...,θd), d ≤k. Then
+                                              n               n
+                       T(X) = ∑ t1(Xj),..., ∑ tk(Xj)
+                                           j=1            j=1
+is a sufficient statistic for θ.

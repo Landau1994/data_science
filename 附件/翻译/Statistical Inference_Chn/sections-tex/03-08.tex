@@ -1,0 +1,77 @@
+\subsection{杂录}\label{sec:3.8}
+\subsubsection{Poisson公设}\label{sec:3.8.1}
+Poisson分布可从一组基本假设推导出来，这些假设有时称为Poisson公设（Poisson postulates）. 它们与所考察过程的物理性质有关. 一般而言，这些假设并不容易验证，但它们为实验人员判断Poisson是否能提供合理模型给出了一组指导原则. 关于Poisson公设更完整的论述，见\hyperref[bib:source118]{Feller（1968）}或\hyperref[bib:source12]{Barr和Zehna（1983）}的经典著作.
+
+\begin{theorem}\label{thm:3.8.1}\index{SI0374@基本假设}\index{SI0818@泊松基本假设}
+对每个$t\ge0$，设$N_t$为具有下列性质的整数值随机变量. （把$N_t$理解为从时刻0到时刻$t$这一时间段内的到达次数.）
+\begin{enumerate}
+\item[(i)]\phantomsection\label{itm:thm:3.8.1:i} $N_0=0$. \hfill（开始时没有到达）
+\item[(ii)] $s<t\Rightarrow N_s$与$N_t-N_s$独立. \hfill（不相交时间段内的到达独立）
+\item[(iii)] $N_s$与$N_{t+s}-N_t$同分布. \hfill（到达次数只依赖时间段长度）
+\item[(iv)] $\displaystyle\lim_{t\to0}\frac{P(N_t=1)}t=\lambda$. \hfill（时间段很短时，到达概率与其长度成比例）
+\item[(v)]\phantomsection\label{itm:thm:3.8.1:v} $\displaystyle\lim_{t\to0}\frac{P(N_t>1)}t=0$. \hfill（没有同时到达）
+\end{enumerate}
+若\hyperref[itm:thm:3.8.1:i]{(i)}至\hyperref[itm:thm:3.8.1:v]{(v)}成立，则对任意整数$n$，
+$$P(N_t=n)=e^{-\lambda t}\frac{(\lambda t)^n}{n!},$$
+即$N_t\sim\operatorname{Poisson}(\lambda t)$.
+\end{theorem}
+\sourcepageanchor{143}
+
+这些公设也可解释为描述对象的空间行为（例如昆虫的运动），从而给出Poisson在空间分布方面的应用.
+
+\subsubsection{Chebyshev及其推广}\label{sec:3.8.2}
+\hyperref[bib:source140]{Ghosh和Meeden（1977）}讨论了Chebyshev不等式非常保守，而且几乎从不取到等号这一事实. 若用$\bar X_n$表示随机变量$X_1,X_2,\ldots,X_n$的均值，则Chebyshev不等式给出\footnote{译注：这里以及后面的可达性结论，需要样本的相应假设，通常是$X_1,\ldots,X_n$独立同分布，具有共同均值$\mu$和方差$\sigma^2$. 原段未明说；若只给任意随机变量，则$\operatorname{Var}(\bar X_n)=\sigma^2/n$一般不成立.}
+$$P(|\bar X_n-\mu|\ge k\sigma)\le\frac1{nk^2}.$$
+
+他们证明了下述定理.
+
+\begin{theorem}\label{thm:3.8.2}\index{SI0565@切比雪夫}
+若$0<\sigma<\infty$，则
+\begin{enumerate}
+\item[(a)] 若$n=1$，则当$k\ge1$时不等式可取到等号，当$0<k<1$时不可取到等号.
+\item[(b)] 若$n=2$，则不等式可取到等号，当且仅当$k=1$.
+\item[(c)] 若$n\ge3$，则不等式不可取到等号.
+\end{enumerate}
+\end{theorem}
+对于不等式取到等号的情形，他们给出了例子. 其大部分技术论证基于以下称为Markov不等式的结果.
+
+\begin{lemma}[Markov不等式]\label{lem:3.8.3}\index{SI0572@马尔可夫}
+若$P(Y\ge0)=1$且$P(Y=0)<1$，则对任意$r>0$，
+$$P(Y\ge r)\le\frac{EY}r,$$
+其中等号成立，当且仅当$P(Y=r)=p=1-P(Y=0)$，$0<p\le1$.
+\end{lemma}
+随后可把Markov不等式用于
+$$Y=\frac{(\bar X_n-\mu)^2}{\sigma^2},$$
+得到上述结果.
+
+Chebyshev不等式如此宽松的一个原因，是它没有对底层分布施加限制. 加上单峰性（unimodality）的限制后，就可以得到更紧的界，以及Gauss不等式和Vysochanski\u{i}--Petunin不等式. （这些不等式的细节及基于初等微积分的证明见\mbox{\hyperref[bib:source248]{Pukelsheim（1994）}.）}
+
+\begin{theorem}[Gauss不等式]\label{thm:3.8.4}\index{SI0567@高斯}
+设$X\sim f$，其中$f$为众数在$\nu$处的单峰分布，定义$\tau^2=E(X-\nu)^2$. 则
+$$P(|X-\nu|>\varepsilon)\le\begin{cases}\dfrac{4\tau^2}{9\varepsilon^2},&\text{对所有 }\varepsilon\ge\sqrt{4/3}\,\tau,\\[4pt]1-\dfrac\varepsilon{\sqrt3\tau},&\text{对所有 }\varepsilon\le\sqrt{4/3}\,\tau.\end{cases}$$
+\end{theorem}
+虽然这个界比Chebyshev更紧，但对众数的依赖限制了它的用途. Vysochanski\u{i}--Petunin的推广消除了这一限制.
+
+\begin{theorem}[Vysochanski\u{i}--Petunin不等式]\label{thm:3.8.5}\index{SI0579@Vysochanskiĭ–Petunin}
+设$X\sim f$，其中$f$为单峰分布，并对任意点$\alpha$定义$\xi^2=E(X-\alpha)^2$. 则\footnote{译注：原式第二分支的分母印为$9\varepsilon^2$. 在$\varepsilon=\sqrt{8/3}\,\xi$处，它给出$-1/6$，不可能是一般概率上界，并且与第一分支的$1/6$不一致. 该分支疑应为$4\xi^2/(3\varepsilon^2)-1/3$；原式保留，需与所引\hyperref[bib:source248]{Pukelsheim（1994）}原论文进一步核实.}
+$$P(|X-\alpha|>\varepsilon)\le\begin{cases}\dfrac{4\xi^2}{9\varepsilon^2},&\text{对所有 }\varepsilon\ge\sqrt{8/3}\,\xi,\\[4pt]\dfrac{4\xi^2}{9\varepsilon^2}-\dfrac13,&\text{对所有 }\varepsilon\le\sqrt{8/3}\,\xi.\end{cases}$$
+\end{theorem}
+
+\sourcepageanchor{144}
+
+Pukelsheim指出，取$\alpha=\mu=E(X)$及$\varepsilon=3\sigma$，其中$\sigma^2=\operatorname{Var}(X)$，得到
+$$P(|X-\mu|>3\sigma)\le\frac4{81}<.05,$$
+这就是所谓的三西格玛规则（three sigma rule）：$X$与总体均值相差超过三个标准差的概率小于5\%.
+
+\subsubsection{关于指数族的进一步讨论}\label{sec:3.8.3}\index{SI0438@对数正态}
+对数正态分布属于指数族吗？\eqref{eq:3.3.21}给出的密度可以写成\eqref{eq:3.4.1}规定的形式，因此我们把对数正态纳入了指数族.
+
+按照\hyperref[bib:source50]{Brown（1986}，第1.1节），定义一个指数分布族时，先从非负函数$\nu(x)$出发，定义集合$\mathcal N$为
+$$\mathcal N=\left\{\theta:\int_{\mathcal X}e^{\theta x}\nu(x)\,dx<\infty\right\}.$$
+令$\lambda(\theta)=\int_{\mathcal X}e^{\theta x}\nu(x)\,dx$，由
+$$f(x\mid\theta)=\frac{e^{\theta x}\nu(x)}{\lambda(\theta)},\qquad x\in\mathcal X,\quad\theta\in\mathcal N$$
+定义的概率密度集合，就是一个指数族. $f(x\mid\theta)$的矩母函数为
+$$M_X(t)=\int_{\mathcal X}e^{tx}f(x\mid\theta)\,dx=\frac{\lambda(t+\theta)}{\lambda(\theta)},$$
+因而根据构造它存在. 若参数空间$\Theta$等于集合$\mathcal N$，则称该指数族为满族. 当$\Theta$为$\mathcal N$的较低维子集时，就得到弯曲指数族.
+
+回到对数正态分布，我们知道它没有矩母函数，所以它不能满足Brown关于指数族的定义. 不过，对数正态满足\autoref{thm:3.4.2}的期望恒等式，也具有\autoref{sec:6.2.1}（\autoref{thm:6.2.10}）中详述的充分性性质. 对本书的目的而言，这些就是所需的主要性质，也是把一个分布识别为指数族成员的主要理由. 更高级的性质可能需要矩母函数存在，但我们不在这里研究这些性质.\footnote{译注：本段比较时需区分观测值$X$与指数表示中的充分统计量. 对数正态密度确实可按\eqref{eq:3.4.1}写成以$\log X$、$(\log X)^2$为统计量的指数族；$X$本身没有正参数邻域上的矩母函数，并不否定这一点. 这里显示的$e^{\theta x}$形式使用$x$本身作为自然统计量，较为特殊. 此外，$\lambda(t+\theta)/\lambda(\theta)$在$0$的邻域内有限，需要$\theta$处于相应自然参数空间的内点；仅有$\theta\in\mathcal N$不足以保证双侧邻域存在. 原文关于Brown定义的具体归属仍需核对所引专著.}

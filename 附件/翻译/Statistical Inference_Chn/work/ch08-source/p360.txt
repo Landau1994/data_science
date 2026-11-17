@@ -1,0 +1,40 @@
+EXERCISES                                                                  329
+
+8.20 Let X be a random variable whose pmf under H0 and H1 is given by
+                              x      1    2    3    4    5    6    7
+                            f(x|H0)   .01   .01   .01   .01   .01   .01   .94
+                            f(x|H1)   .06   .05   .04   .03   .02   .01   .79
+     Use the Neyman–Pearson Lemma to find the most powerful test for H0 versus H1 with size α = .04.
+     Compute the probability of Type II Error for this test.
+8.21 In the proof of Theorem 8.3.12 (Neyman–Pearson Lemma), it was stated that the proof, which was given
+      for continuous random variables, can easily be adapted to cover discrete random variables. Provide the
+       details, that is, prove the Neyman–Pearson Lemma for discrete random variables. Assume that the α
+      level is attainable.
+8.22 Let X1,...,X10 be iid Bernoulli(p).
+       (a) Find the most powerful test of size α = .0547 of the hypotheses H0 : p = 12 versus H1 : p = 14. Find
+          the power of this test.
+                                2 versus H1 : p > 2, find the size and sketch the power function of the test that      (b) For testing H0 : p ≤1                  1
+           rejects H0 if ∑10i=1 Xi ≥6.
+       (c) For what α levels does there exist a UMP test of the hypotheses in part (a)?
+8.23 Suppose X is one observation from a population with beta(θ,1) pdf.
+       (a) For testing H0 : θ                             1≤1 versus H1 : θ > 1, find the size and sketch the power function of the test that           rejects H0 if X > 2.
+      (b) Find the most powerful level α test of H0 : θ = 1 versus H1 : θ = 2.
+       (c)  Is there a UMP test of H0 : θ ≤1 versus H1 : θ > 1? If so, find it. If not, prove so.
+8.24 Find the LRT of a simple H0 versus a simple H1. Is this test equivalent to the one obtained from the
+     Neyman–Pearson Lemma? (This relationship is treated in some detail by Solomon (1975).)
+8.25 Show that each of the following families has an MLR.
+       (a) n(θ,σ2) family with σ2 known
+      (b) Poisson(θ) family
+       (c) binomial(n,θ) family with n known
+8.26  (a) Show that if a family of pdfs {f(x|θ): θ ∈Θ} has an MLR, then the corresponding family of cdfs is          stochastically increasing in θ. (See the Miscellanea section.)
+      (b) Show that the converse of part (a) is false, that is, give an example of a family of cdfs that is stochas-
+            tically increasing in θ for which the corresponding family of pdfs does not have an MLR.
+8.27 Suppose g(t|θ) = h(t)c(θ)ew(θ)t is a one-parameter exponential family for the random variable T. Show       that this family has an MLR if w(θ) is an increasing function of θ. Give three examples of such a family.
+8.28 Let f(x|θ) be the logistic location pdf
+                                        e(x−θ)
+                          f(x|θ) =              2 , −∞< x < ∞, −∞< θ < ∞.                               1+e(x−θ)
+
+       (a) Show that this family has MLR.
+      (b) Based on one observation, X, find the most powerful size α test of H0 : θ = 0 versus H1 : θ = 1. For
+       α = .2, find the size of the Type II Error.
+       (c) Show that the test in part (b) is UMP size α for testing H0 : θ ≤0 versus H1 : θ > 0. What can be          said about UMP tests in general for the logistic location family?

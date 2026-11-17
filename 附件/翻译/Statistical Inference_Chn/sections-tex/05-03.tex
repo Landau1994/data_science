@@ -1,0 +1,208 @@
+% 原书印刷177–184页，PDF物理208–215页.
+\subsection{从正态分布抽样}\label{sec:5.3}
+本节讨论从正态总体抽取的样本量的性质；正态总体仍然是应用最广的统计模型之一.从正态总体抽样会使样本统计量具有许多有用的性质，也会产生许多熟知的抽样分布.
+\sourcepageanchor{209}
+\subsubsection{样本均值与方差的性质}\label{sec:5.3.1}
+前面已经看到，一般情形下如何计算$\bar X$与$S^2$的均值和方差.现在加上正态性假设，就可以推导它们的完整分布以及更多结论.下面的定理概括了$\bar X$与$S^2$的性质.
+\begin{theorem}\label{thm:5.3.1}\index{SI0926@正态}\index{SI0940@正态}
+设$X_1,\ldots,X_n$为来自$n(\mu,\sigma^2)$分布的随机样本，$\bar X=(1/n)\sum_{i=1}^nX_i$，$S^2=[1/(n-1)]\sum_{i=1}^n(X_i-\bar X)^2$.则
+\begin{enumerate}[label=\textbf{\alph*.}]
+\item\label{item:5.3.1a} $\bar X$与$S^2$是独立随机变量；
+\item\label{item:5.3.1b} $\bar X$服从$n(\mu,\sigma^2/n)$分布；
+\item\label{item:5.3.1c} $(n-1)S^2/\sigma^2$服从自由度为$n-1$的卡方分布（chi squared distribution）.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+首先，由\autoref{sec:3.5}关于位置–尺度族的结论，不失一般性，可以假定$\mu=0$、$\sigma=1$.（另见\autoref{thm:5.2.11}之前的讨论.）此外，\hyperref[item:5.3.1b]{(b)}已在\autoref{ex:5.2.8}中证明，所以只须证明\hyperref[item:5.3.1a]{(a)}和\hyperref[item:5.3.1c]{(c)}.
+
+为证明\hyperref[item:5.3.1a]{(a)}，将应用\autoref{thm:4.6.12}，说明$\bar X$与$S^2$是独立随机向量的函数.注意$S^2$可写成$n-1$个离差的函数：
+\begin{align*}
+S^2&=\frac1{n-1}\sum_{i=1}^n(X_i-\bar X)^2\\
+&=\frac1{n-1}\left((X_1-\bar X)^2+\sum_{i=2}^n(X_i-\bar X)^2\right)\\
+&=\frac1{n-1}\left(\left[\sum_{i=2}^n(X_i-\bar X)\right]^2+\sum_{i=2}^n(X_i-\bar X)^2\right),
+\end{align*}
+因为$\sum_{i=1}^n(X_i-\bar X)=0$.所以$S^2$可写成仅依赖于$(X_2-\bar X,\ldots,X_n-\bar X)$的函数.下面说明这些随机变量与$\bar X$独立.样本$X_1,\ldots,X_n$的联合pdf为
+$$f(x_1,\ldots,x_n)=\frac1{(2\pi)^{n/2}}e^{-(1/2)\sum_{i=1}^n x_i^2},\qquad -\infty<x_i<\infty.$$
+作变换
+$$\begin{aligned}
+y_1&=\bar x,\\y_2&=x_2-\bar x,\\&\ \vdots\\y_n&=x_n-\bar x.
+\end{aligned}$$
+这是Jacobian等于$1/n$的线性变换.有
+\begin{align*}
+&f(y_1,\ldots,y_n)\\
+&\quad=\frac n{(2\pi)^{n/2}}e^{-(1/2)(y_1-\sum_{i=2}^n y_i)^2}e^{-(1/2)\sum_{i=2}^n(y_i+y_1)^2},\qquad -\infty<y_i<\infty\\
+&\quad=\left[\left(\frac n{2\pi}\right)^{1/2}e^{-ny_1^2/2}\right]
+\left[\frac{n^{1/2}}{(2\pi)^{(n-1)/2}}e^{-(1/2)[\sum_{i=2}^n y_i^2+(\sum_{i=2}^n y_i)^2]}\right],\quad -\infty<y_i<\infty.
+\end{align*}
+由于$Y_1,\ldots,Y_n$的联合pdf可以这样分解，由\autoref{thm:4.6.11}可知$Y_1$与$Y_2,\ldots,Y_n$独立，再由\autoref{thm:4.6.12}可知$\bar X$与$S^2$独立.
+\end{proof}
+为完成定理的证明，还须推导$S^2$的分布.但在此之前，先稍作离题，讨论卡方分布；其性质在推导$S^2$的pdf时起着重要作用.
+\sourcepageanchor{210}
+回顾\autoref{sec:3.3}，卡方pdf是gamma pdf的特例，表达式为
+$$f(x)=\frac1{\Gamma(p/2)2^{p/2}}x^{(p/2)-1}e^{-x/2},\qquad 0<x<\infty,$$
+其中$p$称为自由度（degrees of freedom）.现概括卡方分布的一些相关事实.
+\begin{lemma}[关于卡方随机变量的事实]\label{lem:5.3.2}\index{SI0282@性质}
+以$\chi_p^2$表示自由度为$p$的卡方随机变量.
+\begin{enumerate}[label=\textbf{\alph*.}]
+\item\label{item:5.3.2a} 若$Z$是$n(0,1)$随机变量，则$Z^2\sim\chi_1^2$，即标准正态随机变量的平方是卡方随机变量.
+\item\label{item:5.3.2b} 若$X_1,\ldots,X_n$独立且$X_i\sim\chi_{p_i}^2$，则$X_1+\cdots+X_n\sim\chi_{p_1+\cdots+p_n}^2$，即独立卡方变量之和仍是卡方变量，自由度也相加.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+这些事实前面已经遇到过.\hyperref[item:5.3.2a]{(a)}已在\autoref{ex:2.1.7}中证明.\hyperref[item:5.3.2b]{(b)}是\autoref{ex:4.6.8}中独立gamma随机变量之和的特例.由于$\chi_p^2$随机变量就是$\operatorname{gamma}(p/2,2)$，应用该例即可得到\hyperref[item:5.3.2b]{(b)}.
+\end{proof}
+\begin{proof}[{\autoref{thm:5.3.1}\hyperref[item:5.3.1c]{(c)}的证明}]
+用归纳法确定$S^2$的分布，以$\bar X_k$和$S_k^2$表示基于前$k$个观测的样本均值和方差.（观测的实际次序无关紧要；只是为了方便证明而把它们看作有序.）容易证明（见\autoref{exercise:5.15}）
+\begin{equation}\label{eq:5.3.1}
+(n-1)S_n^2=(n-2)S_{n-1}^2+\left(\frac{n-1}{n}\right)(X_n-\bar X_{n-1})^2.
+\end{equation}
+先考虑$n=2$.定义$0\times S_1^2=0$，则由\eqref{eq:5.3.1}有
+$$S_2^2=\frac12(X_2-X_1)^2.$$
+由于$(X_2-X_1)/\sqrt2$服从$n(0,1)$，\autoref{lem:5.3.2}\hyperref[item:5.3.2a]{(a)}表明$S_2^2\sim\chi_1^2$.继续归纳，假设$n=k$时$(k-1)S_k^2\sim\chi_{k-1}^2$.当$n=k+1$时，由\eqref{eq:5.3.1}，
+\begin{equation}\label{eq:5.3.2}
+kS_{k+1}^2=(k-1)S_k^2+\left(\frac k{k+1}\right)(X_{k+1}-\bar X_k)^2.
+\end{equation}
+由归纳假设，$(k-1)S_k^2\sim\chi_{k-1}^2$.若能证明$(k/(k+1))(X_{k+1}-\bar X_k)^2\sim\chi_1^2$且与$S_k^2$独立，则由\autoref{lem:5.3.2}\hyperref[item:5.3.2b]{(b)}可得$kS_{k+1}^2\sim\chi_k^2$，定理即得证.
+
+$(X_{k+1}-\bar X_k)^2$与$S_k^2$的独立性再次由\autoref{thm:4.6.12}得到.向量$(X_{k+1},\bar X_k)$与$S_k^2$独立，故向量的任何函数也与$S_k^2$独立.此外，$X_{k+1}-\bar X_k$是均值为0、方差为
+$$\operatorname{Var}(X_{k+1}-\bar X_k)=\frac{k+1}{k}$$
+的正态随机变量，所以$(k/(k+1))(X_{k+1}-\bar X_k)^2\sim\chi_1^2$，定理得证.
+\end{proof}
+证明$\bar X$与$S^2$独立，还可以采用不同于\autoref{thm:5.3.1}证明的方法.不必验证联合pdf能分解，可以使用下面这个把正态样本的独立性与相关性联系起来的引理.
+\sourcepageanchor{211}
+\begin{lemma}\label{lem:5.3.3}\index{SI0362@线性组合}
+设$X_j\sim n(\mu_j,\sigma_j^2)$，$j=1,\ldots,n$，相互独立.对常数$a_{ij},b_{rj}$（$j=1,\ldots,n$；$i=1,\ldots,k$；$r=1,\ldots,m$），其中$k+m\le n$，定义
+$$\begin{aligned}
+U_i&=\sum_{j=1}^n a_{ij}X_j,\qquad i=1,\ldots,k,\\
+V_r&=\sum_{j=1}^n b_{rj}X_j,\qquad r=1,\ldots,m.
+\end{aligned}$$
+\begin{enumerate}[label=\textbf{\alph*.}]
+\item\label{item:5.3.3a} 随机变量$U_i$与$V_r$独立，当且仅当$\operatorname{Cov}(U_i,V_r)=0$.此外，$\operatorname{Cov}(U_i,V_r)=\sum_{j=1}^n a_{ij}b_{rj}\sigma_j^2$.
+\item\label{item:5.3.3b} 随机向量$(U_1,\ldots,U_k)$与$(V_1,\ldots,V_m)$独立，当且仅当所有配对$i,r$（$i=1,\ldots,k$；$r=1,\ldots,m$）的$U_i$与$V_r$均独立.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+只须证明$\mu_i=0$、$\sigma_i^2=1$时的结论，一般形式就能很快得到.此外，由独立性推出协方差为零是直接的（\autoref{thm:4.5.5}），协方差表达式也容易验证（\autoref{exercise:5.14}）.还应注意，\autoref{cor:4.6.10}表明$U_i$与$V_r$都服从正态分布.
+
+所以，只需证明：若常数满足上述限制（等价地，协方差为零），则在正态性假设下有独立性.这里只证明$n=2$的情形；一般$n$的证明类似，但需要详尽的$n$元变换.
+
+为证明\hyperref[item:5.3.3a]{(a)}，从$X_1$与$X_2$的联合pdf出发：
+$$f_{X_1,X_2}(x_1,x_2)=\frac1{2\pi}e^{-(1/2)(x_1^2+x_2^2)},\qquad -\infty<x_1,x_2<\infty.$$
+作变换（$n=2$时可省略双下标）
+$$u=a_1x_1+a_2x_2,\qquad v=b_1x_1+b_2x_2,$$
+于是
+$$x_1=\frac{b_2u-a_2v}{a_1b_2-b_1a_2},\qquad x_2=\frac{a_1v-b_1u}{a_1b_2-b_1a_2},$$
+Jacobian为
+$$J=\begin{vmatrix}\dfrac{\partial x_1}{\partial u}&\dfrac{\partial x_1}{\partial v}\\[4pt]\dfrac{\partial x_2}{\partial u}&\dfrac{\partial x_2}{\partial v}\end{vmatrix}=\frac1{a_1b_2-b_1a_2}.$$
+因此，$U$与$V$的pdf为
+\begin{align*}
+f_{U,V}(u,v)&=f_{X_1,X_2}\left(\frac{b_2u-a_2v}{a_1b_2-b_1a_2},\frac{a_1v-b_1u}{a_1b_2-b_1a_2}\right)|J|\\
+&=\frac1{2\pi}\exp\left\{\frac{-1}{2(a_1b_2-b_1a_2)^2}[(b_2u-a_2v)^2+(a_1v-b_1u)^2]\right\}|J|,
+\end{align*}
+其中$-\infty<u,v<\infty$.展开指数中的平方，得
+$$\begin{aligned}
+&(b_2u-a_2v)^2+(a_1v-b_1u)^2\\
+&\quad=(b_1^2+b_2^2)u^2+(a_1^2+a_2^2)v^2-2(a_1b_1+a_2b_2)uv.
+\end{aligned}$$
+常数所满足的假设表明交叉项恒等于零.因此pdf可分解，由\autoref{lem:4.2.7}，$U$与$V$独立，\hyperref[item:5.3.3a]{(a)}得证.
+
+类似论证可用于\hyperref[item:5.3.3b]{(b)}，这里不详述.作适当变换便可得到向量$(U_1,\ldots,U_k)$与$(V_1,\ldots,V_m)$的联合pdf.由\autoref{thm:4.6.11}，联合pdf可分解时，这两个向量独立.根据正态pdf的形式，这当且仅当所有配对$i,r$（$i=1,\ldots,k$；$r=1,\ldots,m$）的$U_i$与$V_r$独立时成立.
+\end{proof}
+\sourcepageanchor{212}
+这个引理说明，对于独立正态随机变量的线性函数，协方差为零与独立性等价.因此，只须检查协方差项，就能验证这些正态变量的独立性；计算简单得多.这并没有什么神奇之处，只是正态pdf形式的结果.此外，\hyperref[item:5.3.3b]{(b)}允许仅通过两两独立性推断正态向量整体的独立性，这一性质对一般随机变量并不成立.
+
+利用\autoref{lem:5.3.3}可以给出正态抽样中$\bar X$与$S^2$独立的另一证明.由于$S^2$可写成$n-1$个离差$(X_2-\bar X,\ldots,X_n-\bar X)$的函数，只须证明这些随机变量与$\bar X$不相关.正态性假设结合\autoref{lem:5.3.3}便能推出独立性.
+
+为说明\autoref{lem:5.3.3}的应用，写成
+$$\begin{aligned}
+\bar X&=\sum_{i=1}^n\left(\frac1n\right)X_i,\\
+X_j-\bar X&=\sum_{i=1}^n\left(\delta_{ij}-\frac1n\right)X_i,
+\end{aligned}$$
+其中$i=j$时$\delta_{ij}=1$，否则$\delta_{ij}=0$.于是容易证明
+$$\operatorname{Cov}(\bar X,X_j-\bar X)=\sum_{i=1}^n\left(\frac1n\right)\left(\delta_{ij}-\frac1n\right)=0,$$
+说明$\bar X$与$X_j-\bar X$独立（只要各$X_i$的方差相同）.
+\subsubsection{导出分布：Student的\texorpdfstring{$t$}{t}与Snedecor的\texorpdfstring{$F$}{F}}\label{sec:5.3.2}
+从某种意义上说，\autoref{sec:5.3.1}推导的分布是在正态性假设下进行统计分析的第一步.特别地，实际情形中方差$\sigma^2$大多未知，因此，要了解$\bar X$（作为$\mu$的估计）的变异程度，就必须估计这一方差.W. S. Gosset（以Student为笔名发表论文）在20世纪初首次研究这个问题.\index{SI0461@Gosset，W. S.}\semanticindexanchor{461:212}Student的奠基性工作产生了Student的$t$分布，简称$t$分布.
+
+若$X_1,\ldots,X_n$为来自$n(\mu,\sigma^2)$的随机样本，已知
+\begin{equation}\label{eq:5.3.3}\frac{\bar X-\mu}{\sigma/\sqrt n}\end{equation}
+服从$n(0,1)$分布.若知道$\sigma$的值，并测得$\bar X$，则可用\eqref{eq:5.3.3}作为关于$\mu$推断的依据，因为这时$\mu$是唯一未知量.但多数时候$\sigma$未知.Student做了一个自然的尝试，考察
+\begin{equation}\label{eq:5.3.4}\frac{\bar X-\mu}{S/\sqrt n},\end{equation}
+这个量可在$\sigma$未知时用作推断$\mu$的依据.
+
+只要先注意一些简化步骤，\eqref{eq:5.3.4}的分布就容易推导.将它乘以$\sigma/\sigma$并稍加整理，得到
+\begin{equation}\label{eq:5.3.5}
+\frac{\bar X-\mu}{S/\sqrt n}=\frac{(\bar X-\mu)/(\sigma/\sqrt n)}{\sqrt{S^2/\sigma^2}}.
+\end{equation}
+\eqref{eq:5.3.5}的分子是$n(0,1)$随机变量，分母是$\sqrt{\chi_{n-1}^2/(n-1)}$，且与分子独立.因此，求\eqref{eq:5.3.4}的分布可简化为求$U/\sqrt{V/p}$的分布，其中$U\sim n(0,1)$、$V\sim\chi_p^2$且$U$、$V$独立.由此得到Student的$t$分布.
+\sourcepageanchor{213}
+\begin{definition}\label{def:5.3.4}\index{SI0381@t}
+设$X_1,\ldots,X_n$为来自$n(\mu,\sigma^2)$分布的随机样本，则$(\bar X-\mu)/(S/\sqrt n)$服从自由度为$n-1$的Student $t$分布.等价地，若随机变量$T$具有pdf
+\begin{equation}\label{eq:5.3.6}
+f_T(t)=\frac{\Gamma\left(\frac{p+1}2\right)}{\Gamma\left(\frac p2\right)}\frac1{(p\pi)^{1/2}}\frac1{(1+t^2/p)^{(p+1)/2}},\qquad -\infty<t<\infty,
+\end{equation}
+则称它服从自由度为$p$的Student $t$分布，记作$T\sim t_p$.
+\end{definition}
+注意，$p=1$时，\eqref{eq:5.3.6}就是Cauchy分布的pdf，这出现在样本容量为2时.Cauchy分布再次出现在一个普通情形中.
+
+$t$的pdf的推导很直接.从上面定义的$U$和$V$出发，由\eqref{eq:5.3.5}，其联合pdf为
+$$f_{U,V}(u,v)=\frac1{(2\pi)^{1/2}}e^{-u^2/2}\frac1{\Gamma(p/2)2^{p/2}}v^{(p/2)-1}e^{-v/2},\quad -\infty<u<\infty,\quad 0<v<\infty.$$
+（记住$U$、$V$独立.）现在作变换
+$$t=\frac u{\sqrt{v/p}},\qquad w=v.$$
+变换的Jacobian为$(w/p)^{1/2}$，$T$的边际pdf为
+\begin{align*}
+f_T(t)&=\int_0^\infty f_{U,V}\left(t\left(\frac wp\right)^{1/2},w\right)\left(\frac wp\right)^{1/2}\,dw\\
+&=\frac1{(2\pi)^{1/2}}\frac1{\Gamma(p/2)2^{p/2}}\int_0^\infty e^{-(1/2)t^2w/p}w^{(p/2)-1}e^{-w/2}\left(\frac wp\right)^{1/2}\,dw\\
+&=\frac1{(2\pi)^{1/2}}\frac1{\Gamma(p/2)2^{p/2}p^{1/2}}\int_0^\infty e^{-(1/2)(1+t^2/p)w}w^{((p+1)/2)-1}\,dw.
+\end{align*}
+识别出被积函数是$\operatorname{gamma}((p+1)/2,2/(1+t^2/p))$的pdf核，因而
+$$f_T(t)=\frac1{(2\pi)^{1/2}}\frac1{\Gamma(p/2)2^{p/2}p^{1/2}}\Gamma\left(\frac{p+1}2\right)\left[\frac2{1+t^2/p}\right]^{(p+1)/2},$$
+它等于\eqref{eq:5.3.6}.
+
+Student的$t$分布没有矩母函数，因为它并非所有阶矩都存在.事实上，自由度为$p$时，仅有$p-1$个矩.所以$t_1$没有均值，$t_2$没有方差，依此类推.容易验证（见\autoref{exercise:5.18}），若$T_p$服从$t_p$分布，则
+\begin{equation}\label{eq:5.3.7}
+\begin{aligned}ET_p&=0,&&p>1,\\ \operatorname{Var}T_p&=\frac p{p-2},&&p>2.\end{aligned}
+\end{equation}
+另一个重要导出分布是Snedecor的$F$分布，其推导与Student的$t$分布很相似，但动机有所不同.$F$分布以纪念Ronald Fisher爵士而命名，自然地作为方差比的分布出现.
+\begin{example}[方差比的分布]\label{ex:5.3.5}
+设$X_1,\ldots,X_n$为来自$n(\mu_X,\sigma_X^2)$总体的随机样本，$Y_1,\ldots,Y_m$为来自独立的$n(\mu_Y,\sigma_Y^2)$总体的随机样本.若要比较两个总体的变异程度，感兴趣的量之一是比值$\sigma_X^2/\sigma_Y^2$.
+\sourcepageanchor{214}
+样本方差之比$S_X^2/S_Y^2$包含关于该比值的信息.$F$分布给出
+\begin{equation}\label{eq:5.3.8}
+\frac{S_X^2/S_Y^2}{\sigma_X^2/\sigma_Y^2}=\frac{S_X^2/\sigma_X^2}{S_Y^2/\sigma_Y^2}
+\end{equation}
+的分布，从而可以比较这些量.考察\eqref{eq:5.3.8}便能看出如何推导$F$分布.比值$S_X^2/\sigma_X^2$和$S_Y^2/\sigma_Y^2$各自都是按比例缩放的卡方变量，而且相互独立.
+\end{example}
+\begin{definition}\label{def:5.3.6}\index{SI0301@F}
+设$X_1,\ldots,X_n$为来自$n(\mu_X,\sigma_X^2)$总体的随机样本，$Y_1,\ldots,Y_m$为来自独立的$n(\mu_Y,\sigma_Y^2)$总体的随机样本.随机变量$F=(S_X^2/\sigma_X^2)/(S_Y^2/\sigma_Y^2)$服从自由度为$n-1$和$m-1$的Snedecor $F$分布.等价地，若随机变量$F$具有pdf
+\begin{equation}\label{eq:5.3.9}
+f_F(x)=\frac{\Gamma\left(\frac{p+q}2\right)}{\Gamma\left(\frac p2\right)\Gamma\left(\frac q2\right)}\left(\frac pq\right)^{p/2}\frac{x^{(p/2)-1}}{[1+(p/q)x]^{(p+q)/2}},\qquad 0<x<\infty,
+\end{equation}
+则它服从自由度为$p$和$q$的$F$分布.
+\end{definition}
+$F$分布可以在比这里更一般的条件下导出.即使母总体不是正态，方差比也可能服从$F$分布.\hyperref[bib:source188]{Kelker（1970）}证明，只要母总体具有某种对称性（球对称性，spherical symmetry），方差比就服从$F$分布.
+
+从正态分布出发推导$F$的pdf，与推导Student的$t$分布类似.事实上，在一个特例中，$F$就是$t$的变换（见\autoref{thm:5.3.8}）.与$t$的情形类似，可将推导$F$的pdf化为求$(U/p)/(V/q)$的pdf，其中$U$、$V$独立，$U\sim\chi_p^2$、$V\sim\chi_q^2$（见\autoref{exercise:5.17}）.
+\begin{example}[续\autoref{ex:5.3.5}]\label{ex:5.3.7}
+为说明如何用$F$分布推断真实的总体方差比，考虑如下情形.$(S_X^2/\sigma_X^2)/(S_Y^2/\sigma_Y^2)$服从$F_{n-1,m-1}$分布.（一般用$F_{p,q}$表示自由度为$p$和$q$的$F$随机变量.）计算得
+\begin{align*}
+EF_{n-1,m-1}&=E\left(\frac{\chi_{n-1}^2/(n-1)}{\chi_{m-1}^2/(m-1)}\right)&&\text{（定义）}\\
+&=E\left(\frac{\chi_{n-1}^2}{n-1}\right)E\left(\frac{m-1}{\chi_{m-1}^2}\right)&&\text{（独立性）}\\
+&=\left(\frac{n-1}{n-1}\right)\left(\frac{m-1}{m-3}\right)&&\text{（卡方分布的计算）}\\
+&=\frac{m-1}{m-3}.
+\end{align*}
+注意，最后这个表达式仅在$m>3$时为有限正数.有
+$$E\left(\frac{S_X^2/\sigma_X^2}{S_Y^2/\sigma_Y^2}\right)=EF_{n-1,m-1}=\frac{m-1}{m-3},$$
+去掉期望，当$m$足够大时，有
+$$\frac{S_X^2/S_Y^2}{\sigma_X^2/\sigma_Y^2}\approx\frac{m-1}{m-3}\approx1,$$
+正如所预期的那样.\footnote{译注：原文由期望接近1直接写出随机比值接近1，这只是启发式表述.仅令$m$增大而固定$n$，分子的随机波动一般不会消失；要论证该比值集中在1附近，还需控制两个样本方差的波动，例如同时增大两组样本容量.}
+\end{example}
+\sourcepageanchor{215}
+$F$分布具有许多有趣性质，并与多种其他分布相关.下面的定理概括其中一些事实，其证明留作习题（见\autoref{exercise:5.17}和\autoref{exercise:5.18}）.
+\begin{theorem}\label{thm:5.3.8}\index{SI0258@与F的关系}\index{SI0302@倒数}\index{SI0303@与贝塔的关系}\index{SI0304@与t的关系}\index{SI0383@与F的关系}\leavevmode
+\begin{enumerate}[label=\textbf{\alph*.}]
+\item 若$X\sim F_{p,q}$，则$1/X\sim F_{q,p}$；即$F$随机变量的倒数仍是$F$随机变量.
+\item 若$X\sim t_q$，则$X^2\sim F_{1,q}$.
+\item 若$X\sim F_{p,q}$，则$(p/q)X/(1+(p/q)X)\sim\operatorname{beta}(p/2,q/2)$.
+\end{enumerate}
+\end{theorem}

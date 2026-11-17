@@ -1,0 +1,43 @@
+148                                      MULTIPLE RANDOM VARIABLES
+Definition 4.6.2  Let n and m be positive integers, and let p1,..., pn be numbers satisfying 0 ≤pi ≤1, i = 1,...,n, and ∑ni=1pi = 1. Then the random vector (X1,...,Xn) has a multinomial distribution
+with m trials and cell probabilities p1,..., pn if the joint pmf of (X1,...,Xn) is
+                                 m!                        n  pxii                                                                 n = m! ∏                        f(x1,...,xn) =             px11 ·····pxn                                          x1!·····xn!                  i=1 xi!
+on the set of (x1,...,xn) such that each xi is a nonnegative integer and ∑ni=1xi = m.
+   The multinomial distribution is a model for the following kind of experiment. The experiment
+consists of m independent trials. Each trial results in one of n distinct possible outcomes. The prob-
+ability of the ith outcome is pi on every trial. And Xi is the count of the number of times the ith
+outcome occurred in the m trials. For n = 2, this is just a binomial experiment in which each trial
+has n = 2 possible outcomes and X1 counts the number of “successes” and X2 = m−X1 counts thenumber of “failures” in m trials. In a general multinomial experiment, there are n different possible
+outcomes to count.
+Example 4.6.3 (Multivariate pmf)   Consider tossing a six-sided die ten times. Suppose the die
+is unbalanced so that the probability of observing a 1 is  21,1  the probability of observing a 2
+is 21,2  and, in general, the probability of observing an i is 21.i  Now consider the random vector
+(X1,...,X6) where Xi counts the number of times i comes up in the ten tosses. Then (X1,...,X6)
+has a multinomial distribution with m = 10 trials, n = 6 possible outcomes, and cell probabilities
+p1 = 21,1  p2    2             6      = 21,..., p6 = 21. The formula in Definition 4.6.2 may be used to calculate the proba-
+bility of rolling four 6s, three 5s, two 4s, and one 3 to be
+
+                               10!      1   0   2   0   3   1   4   2   5   3   6   4
+       f(0,0,1,2,3,4) =
+                             0!0!1!2!3!4!  21    21    21    21    21    21
+             =  .0059.
+
+                                                                              ∥
+   The factor m!/(x1!·····xn!) is called a multinomial coefficient. It is the number of ways that mobjects can be divided into n groups with x1 in the first group, x2 in the second group, ..., and xn in
+the nth group. A generalization of the Binomial Theorem 3.2.2 is the Multinomial Theorem.
+Theorem 4.6.4 (Multinomial Theorem)   Let m and n be positive integers. Let A be the set of
+vectors x = (x1,...,xn) such that each xi is a nonnegative integer and ∑ni=1xi = m. Then, for any
+real numbers p1,..., pn,
+
+                                         m!
+                      =                                                                            n .                  ∑             px11 ·····pxn                        (p1 +···+ pn)m                                     x∈A x1!·····xn!
+
+   Theorem 4.6.4 shows that a multinomial pmf sums to 1. The set A  is the set of points with
+positive probability in Definition 4.6.2. The sum of the pmf over all those points is, by Theorem
+4.6.4, (p1 +···+ pn)m = 1m = 1.  Now we consider some marginal and conditional distributions for the multinomial model. Con-
+sider a single coordinate Xi. If the occurrence of the ith outcome is labeled a “success” and anything
+else is labeled a “failure,” then Xi is the count of the number of successes in m independent trials
+where the probability of a success is pi on each trial. Thus, Xi should have a binomial(m, pi) distri-
+bution. To verify this the marginal distribution of Xi should be computed using (4.6.5). For example,
+consider the marginal pmf of Xn. For a fixed value of xn ∈{0,1,...,n}, to compute the marginal
+pmf f(xn), we must sum over all possible values of (x1,...,xn−1). That is, we must sum over all

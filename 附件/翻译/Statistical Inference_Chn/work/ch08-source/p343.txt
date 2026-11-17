@@ -1,0 +1,48 @@
+312                                             HYPOTHESIS TESTING
+
+
+                  1
+
+
+
+                                                       b(q)
+
+
+
+
+
+                  0                                                           q
+                                          q0
+
+                                                            q0 + 2s/√n
+
+                             Figure 8.3.2 Power function for Example 8.3.3
+
+
+Example 8.3.4 (Continuation of Example 8.3.3)   Suppose the experimenter wishes to have a
+maximum Type I Error probability of .1. Suppose, in addition, the experimenter wishes to have
+a maximum Type II Error probability of .2 if θ ≥θ0 + σ. We now show how to choose c and n to                                        > c. As noted above,achieve these goals, using a test that rejects H0 : θ ≤θ0 if (X −θ0)/(σ/√n)the power function of such a test is
+
+                                                 θ0                           β(θ) = P Z > c+  −θ    .                                   σ/√n
+
+Because β(θ) is increasing in θ, the requirements will be met if
+
+                           β(θ0) = .1  and  β(θ0 +σ) = .8.
+
+By choosing c = 1.28, we achieve β(θ0) = P(Z > 1.28) = .1, regardless of n. Now we wish to
+choose n so that β(θ0 + σ) = P(Z > 1.28    = .8. P(Z >    = .8, so setting 1.28   =                          −√n)           −.84)           −√n
+−.84 and solving for n yields n = 4.49. Of course n must be an integer, so setting c = 1.28 and n = 5
+yields a test with error probabilities controlled as specified by the experimenter.               ∥
+   For a fixed sample size, it is usually impossible to make both types of error probabilities arbi-
+trarily small. In searching for a good test, it is common to restrict consideration to tests that control
+the Type I Error probability at a specified level. Within this class of tests we then search for tests
+that have Type II Error probability that is as small as possible. The following two terms are useful
+when discussing tests that control Type I Error probabilities.
+Definition 8.3.5  For 0 ≤α ≤1, a test with power function β(θ) is a size α test if supθ∈Θ0 β(θ) =α.
+Definition 8.3.6  For 0 ≤α ≤1, a test with power function β(θ) is a level α test if supθ∈Θ0 β(θ) ≤α.
+
+   Some authors do not make the distinction between the terms size and level that we have made,
+and sometimes these terms are used interchangeably. But according to our definitions, the set of level
+α tests contains the set of size α tests. Moreover, the distinction becomes important in complicated
+models and complicated testing situations, where it is often computationally impossible to construct
+a size α test. In such situations, an experimenter must be satisfied with a level α test, realizing

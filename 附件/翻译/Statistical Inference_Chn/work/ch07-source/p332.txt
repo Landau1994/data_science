@@ -1,0 +1,17 @@
+MISCELLANEA                                                              301
+          applied these types of methods to solve practical problems. A comprehensive treatment
+           of empirical Bayes is Carlin and Louis (1996), and less technical introductions are found
+           in Casella (1985, 1992).
+        3. Hierarchical Bayes Analysis  Another way of dealing with the specification above,
+          without giving a prior value to τ2, is with a hierarchical specification, that is, a speci-
+            fication of a second-stage prior on τ2. For example, we could use
+                        X|θ ∼  n(θ,1),
+                           θ|τ2 ∼  n(0,τ2),                             τ2      uniform(0,∞)  (improper prior).                   ∼
+             Hierarchical modeling, both Bayes and non-Bayes, is a very effective tool and usu-
+            ally gives answers that are reasonably robust to the underlying model. Their usefulness
+         was demonstrated by Lindley and Smith (1972) and, since then, their use and develop-
+         ment has been quite widespread. The seminal paper of Gelfand and Smith (1990) tied
+           hierarchical models to computing algorithms, and the applicability of Bayesian methods
+          exploded. Lehmann and Casella (1999, Section 4.5) give an introduction to the theory of
+           hierarchical Bayes, and Robert and Casella (1999) cover applications and connections to
+          computational algorithms.

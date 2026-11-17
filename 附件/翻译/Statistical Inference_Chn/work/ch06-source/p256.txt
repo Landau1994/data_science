@@ -1,0 +1,45 @@
+THE SUFFICIENCY PRINCIPLE                                                225
+a good deal of intuition and the second sometimes requires some tedious analysis. Fortunately, the
+next theorem, due to Halmos and Savage (1949), allows us to find a sufficient statistic by simple
+inspection of the pdf or pmf of the sample.1
+Theorem 6.2.6 (Factorization Theorem)   Let f(x|θ) denote the joint pdf or pmf of a sample X.
+A statistic T(X) is a sufficient statistic for θ if and only if there exist functions g(t|θ) and h(x) suchthat, for all sample points x and all parameter points θ,
+                                  f(x|θ) = g(T(x)|θ)h(x).                                (6.2.3)
+Proof: We give the proof only for discrete distributions.
+   Suppose T(X) is a sufficient statistic. Choose g(t|θ) = Pθ(T(X) = t) and h(x) = P(X =
+x|T(X) = T(x)). Because T(X) is sufficient, the conditional probability defining h(x) does not
+depend on θ. Thus, this choice of h(x) and g(t|θ) is legitimate, and for this choice we have
+                    f(x|θ) =  Pθ(X = x)                =  Pθ(X = x and T(X) = T(x))
+                =  Pθ(T(X) = T(x))P(X = x|T(X) = T(x))         (sufficiency)
+                =  g(T(x)|θ)h(x).
+So factorization (6.2.3) has been exhibited. We also see from the last two lines above that
+                          Pθ(T(X) = T(x)) = g(T(x)|θ),
+so g(T(x)|θ) is the pmf of T(X).
+  Now assume the factorization (6.2.3) exists. Let q(t|θ) be the pmf of T(X). To show that T(X)
+is sufficient we examine the ratio f(x|θ)/q(T(x)|θ). Define AT(x) = {y : T(y) = T(x)}. Then
+                      f(x|θ)  =  g(T(x)|θ)h(x)                   (since (6.2.3) is satisfied)
+                   q(T(x)|θ)        q(T(x)|θ)
+                  =     g(T(x)|θ)h(x)               (definition of the pmf of T)
+                                    ΣAT(x)g(T(y)|θ)h(y)
+                  =     g(T(x)|θ)h(x)            (since T is constant on AT(x))
+                                    g(T(x)|θ)ΣAT(x)h(y)
+                                      h(x)
+                  =   ΣAT(x)h(y).
+
+Since the ratio does not depend on θ, by Theorem 6.2.2, T(X) is a sufficient statistic for θ.
+2
+
+   To use the Factorization Theorem to find a sufficient statistic, we factor the joint pdf of the
+sample into two parts, with one part not depending on θ. The part that does not depend on θ
+constitutes the h(x) function. The other part, the one that depends on θ, usually depends on the
+sample x only through some function T(x) and this function is a sufficient statistic for θ. This is
+illustrated in the following example.
+Example 6.2.7 (Continuation of Example 6.2.4)  For the normal model described earlier, we saw
+that the pdf could be factored as
+
+                                          n
+                                                (xi −x)2/(2σ2)  exp(−n(x−µ)2/(2σ2)).        (6.2.4)        f(x|µ) = (2πσ2)−n/2 exp − i=1∑
+
+   1Although, according to Halmos and Savage, their theorem “may be recast in a form more akin in spirit to previous
+investigations of the concept of sufficiency.” The investigations are those of Neyman (1935). (This was pointed out by Prof.
+J. Beder, U. of Wisconsin, Milwaukee.)

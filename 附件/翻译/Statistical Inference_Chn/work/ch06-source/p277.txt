@@ -1,0 +1,52 @@
+246                                       PRINCIPLES OF DATA REDUCTION
+
+6.21 Let X be one observation from the pdf
+                              θ    |x|
+                                = −1,0,1,  0 ≤θ ≤1.                         f(x|θ) =  2    (1−θ)1−|x|,   x
+
+       (a)  Is X a complete sufficient statistic?
+      (b)  Is |X| a complete sufficient statistic?
+       (c) Does f(x|θ) belong to the exponential class?
+6.22 Let X1,...,Xn be a random sample from a population with pdf
+
+                              < x < 1,  θ > 0.                                   f(x|θ) = θxθ−1,  0
+       (a)  Is ΣXi sufficient for θ?
+      (b) Find a complete sufficient statistic for θ.
+6.23 Let X1,...,Xn be a random sample from a uniform distribution on the interval (θ,2θ), θ > 0. Find a
+     minimal sufficient statistic for θ. Is the statistic complete?
+6.24 Consider the following family of distributions:
+                                  = 0,1,2,...;λ = 0 or 1}.        P = {Pλ (X = x) : Pλ (X = x) = λ xe−λ /x!;x
+     This is a Poisson family with λ restricted to be 0 or 1. Show that the family P is not complete, demon-
+       strating that completeness can be dependent on the range of the parameter. (See Exercises 6.15 and 6.18.)
+6.25 We have seen a number of theorems concerning sufficiency and related concepts for exponential fam-
+        ilies. Theorem 5.2.11 gave the distribution of a statistic whose sufficiency is characterized in Theorem
+      6.2.10 and completeness in Theorem 6.2.25. But if the family is curved, the open set condition of Theo-
+     rem 6.2.25 is not satisfied. In such cases, is the sufficient statistic of Theorem 6.2.10 also minimal? By
+      applying Theorem 6.2.13 to T(x) of Theorem 6.2.10, establish the following:
+       (a) The statistic (∑Xi,∑X2i ) is sufficient, but not minimal sufficient, in the n(µ,µ) family.
+      (b) The statistic ∑X2i  is minimal sufficient in the n(µ,µ) family.
+       (c) The statistic (∑Xi,∑X2i ) is minimal sufficient in the n(µ,µ2) family.
+      (d) The statistic (∑Xi,∑X2i ) is minimal sufficient in the n(µ,σ2) family.
+6.26 Use Theorem 6.6.5 to establish that, given a sample X1,X2,...,Xn, the following statistics are minimal
+       sufficient.
+
+                                             Statistic              Distribution
+                                (a)               ¯X                 n(θ,1)
+                              (b)        ∑Xi        gamma(α,β), α known
+                                (c)       maxXi            uniform(0,θ)
+                              (d)   X(1),X(2),...,X(n)       Cauchy(θ,1)
+                                (e)   X(1),X(2),...,X(n)        logistic(µ,β)
+
+6.27 Let X1,X2,...,Xn be a random sample from the inverse Gaussian distribution with pdf
+
+                                                                          −λ(x−µ)2                                    λ    1/2
+                      =                                                    e                             f(x|µ,λ)    2πx3           2µ2x   ,  0 < x < ∞.
+
+       (a) Show that the statistics
+                                   1  n                   n
+                                =                                                  ¯X =                  ∑ Xi   and  T                                   n i=1                                                ∑ni=1 Xi1 −1¯X
+          are sufficient and complete.
+      (b) For n = 2, show that ¯X has an inverse Gaussian distribution, nλ/T has a χ2   distribution, and they
+                                                                         n−1          are independent. (Schwarz and Samanta 1991 do the general case.)
+     The inverse Gaussian distribution has many applications, particularly in modeling of lifetimes. See the
+     books by Chhikara and Folks (1989) or Seshadri (1993).

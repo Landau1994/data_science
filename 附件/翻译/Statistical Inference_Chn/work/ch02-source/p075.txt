@@ -1,0 +1,44 @@
+44                              TRANSFORMATIONS AND EXPECTATIONS
+    FX(x)                                                  FX(x)
+
+  1                                          1
+
+
+
+
+
+   .5                                                        .5
+    y                                                     y
+
+
+  0                                                x   0                                                 x
+    0        .2       .4       .6       .8      1       0        .2       .4  x1   x2        .8      1
+                      x = FX–1(y)
+
+                              (a)                                                        (b)
+
+                    Figure 2.1.2 (a) F(x) strictly increasing; (b) F(x) nondecreasing
+
+
+However, if FX is constant on some interval, then F−1X   is not well defined by (2.1.12), as Figure
+2.1.2 illustrates. Any x satisfying x1 ≤x ≤x2 satisfies FX(x) = y.   This problem is avoided by defining F−1X  (y) for 0 < y < 1, by
+
+                          F−1X  (y) = inf{x: FX(x) ≥y},                           (2.1.13)
+a definition that agrees with (2.1.12) when FX is nonconstant and provides an F−1X   that is single-
+valued even when FX is not strictly increasing. Using this definition, in Figure 2.1.2(b), we have
+F−1X  (y) = x1. At the endpoints of the range of y, F−1X  (y) can also be defined. F−1X  (1) = ∞if FX(x) <
+1 for all x and, for any FX, F−1X  (0) = −∞.
+Proof of Theorem 2.1.10: For Y = FX(X) we have, for 0 < y < 1,
+
+                       P(Y ≤y) =  P(FX(X) ≤y)                                                        X  (y))       (F−1X   is increasing)                     =  P(F−1X  [FX(X)] ≤F−1
+                                               X  (y))                (see paragraph below)                     =  P(X ≤F−1                     =  FX F−1X  (y)                          (definition of FX)
+                     =   y.                                  (continuity of FX)
+
+At the endpoints we have P(Y ≤y) = 1 for y ≥1 and P(Y ≤y) = 0 for y ≤0, showing that Y has auniform distribution.
+   The reasoning behind the equality
+
+                                                          X  (y))                 P F−1X  (FX(X)) ≤F−1                                         X  (y) = P(X ≤F−1
+
+is somewhat subtle and deserves additional attention. If FX is strictly increasing, then it is true that
+                                                 = x.F−1X  (FX(x)) = x. (Refer to Figure 2.1.2(a).) However, if FX is flat, it may be that F−1X  (FX(x))̸
+                                                          X  (FX(x)) = x1 for any x in thisSuppose FX is as in Figure 2.1.2(b) and let x ∈[x1,x2]. Then F−1

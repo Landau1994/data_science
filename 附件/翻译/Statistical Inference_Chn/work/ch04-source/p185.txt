@@ -1,0 +1,38 @@
+154                                      MULTIPLE RANDOM VARIABLES
+Recalling the definition of the correlation coefficient, ρ, we have proved that 0 ≤ρ2 ≤1. Further-more, the condition for equality in Lemma 4.7.1 still carries over, and equality is attained here only
+if X −µX = c(Y −µY), for some constant c. That is, the correlation is ±1 if and only if X and Y arelinearly related. Compare the ease of this proof to the one used in Theorem 4.5.7, before we had the
+Cauchy–Schwarz Inequality.                                                       ∥
+   Some other special cases of H¨older’s Inequality are often useful. If we set Y ≡1 in (4.7.3) weget
+                                                                            ,  1 < p < ∞.                          (4.7.5)                           E|X| ≤{E(|X|p)}1/p
+For 1 < r < p, if we replace |X| by |X|r in (4.7.5) we obtain
+
+                                                                                        .                                   E|X|r ≤{E(|X|pr)}1/p
+Now write s = pr (note that s > r) and rearrange terms to get
+
+                                                                              ,  1 < r < s < ∞,                     (4.7.6)                         {E|X|r}1/r ≤{E(|X|s)}1/s
+which is known as Liapounov’s Inequality.
+   Our next named inequality is similar in spirit to H¨older’s Inequality and, in fact, follows from it.
+Theorem 4.7.5 (Minkowski’s Inequality)   Let X and Y be any two random variables. Then for
+1 ≤p < ∞,
+                          [E|X +Y|p]1/p ≤[E|X|p]1/p +[E|Y|p]1/p.                       (4.7.7)
+Proof: Write
+                E|X +Y|p                 =  E  |X +Y||X +Y|p−1
+                                                                                                                ,              (4.7.8)                 ≤  E  |X||X +Y|p−1 +E  |Y||X +Y|p−1
+where we have used the fact that |X +Y| ≤|X| + |Y| (the triangle inequality; see Exercise 4.64).Now apply H¨older’s Inequality to each expectation on the right-hand side of (4.7.8) to get
+               E(|X +Y|p)  ≤ E(|X|p) 1/p E|X +Y|q(p−1) 1/q
+                                +[E(|Y|p)]1/p E|X +Y|q(p−1) 1/q,
+where q satisfies 1/p + 1/q = 1. Now divide through by                       1/q. Noting that                                                       E(|X +Y|q(p−1))
+q(p−1) = p and 1−1/q = 1/p, we obtain (4.7.7).                        2
+   The preceding theorems also apply to numerical sums where there is no explicit reference to an
+expectation. For example, for numbers ai,bi,i = 1,...,n, the inequality
+
+                                              1/p          1/q
+                           n             n             n          1   1
+                                                                                       ,   + = 1,                  (4.7.9)         ∑    ∑ api   ∑ bqi                         i=1 |aibi| ≤   i=1          i=1         p   q
+
+is a version of H¨older’s Inequality. To establish (4.7.9) we can formally set up an expectation with
+respect to random variables taking values a1,...,an and b1,...,bn. (This is done in Example 4.7.8.)
+  An important special case of (4.7.9) occurs when bi ≡1, p = q = 2. We then have
+                                                       2
+                               1    n            n
+                                                                                       .                 ∑    ∑ a2i                               n   i=1 |ai|  ≤ i=1

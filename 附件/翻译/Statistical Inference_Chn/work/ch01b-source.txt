@@ -1,0 +1,891 @@
+16                                                                              PROBABILITY THEORY
+      0.1
+
+
+
+
+  0.08
+
+
+
+
+  0.06
+
+
+
+
+  0.04
+
+
+
+
+  0.02
+
+
+
+
+                        2               4               6              8              10              12
+
+       Figure 1.2.2 Histogram of averages of samples with replacement from the four numbers {2, 4, 4, 9}
+
+
+samples. In general, if there are k places, and we have m different numbers repeated k1 , k2 , . . . , km
+                                                           k!
+times, then the number of ordered samples is                            . This type of counting is related to
+                                                    k1 !k2 ! · · · km !
+the multinomial distribution, which we will see in Section 4.6. Figure 1.2.2 is a histogram of the
+probability distribution of the sample averages, reflecting the multinomial counting of the samples.
+    There is also one further refinement that is reflected in Figure 1.2.2. It is possible that two
+different unordered samples will result in the same mean. For example, the unordered samples
+{4, 4, 12, 12} and {2, 9, 9, 12} both result in an average value of 8. The first sample has probability
+3/128 and the second has probability 3/64, giving the value 8 a probability of 9/128 = .07. See
+Example 12.6.1 for details on constructing such a histogram. The calculation that we have done
+in this example is an elementary version of a very important statistical technique known as the
+bootstrap (Efron and Tibshirani 1993). We will return to the bootstrap in Section 10.1.4.                   ∥
+
+
+1.3     Conditional Probability and Independence
+All of the probabilities that we have dealt with thus far have been unconditional probabilities. A
+sample space was defined and all probabilities were calculated with respect to that sample space. In
+many instances, however, we are in a position to update the sample space based on new information.
+In such cases, we want to be able to update probability calculations or to calculate conditional
+probabilities.
+Example 1.3.1 (Four aces) Four cards are dealt from the top of a well-shuffled deck. What is
+the probability that they are the four aces? We can calculate this probability by the methods of the
+previous section. The number of distinct groups of four cards is
+                                           
+                                            52
+                                                = 270, 725.
+                                             4
+Only one of these groups consists of the four aces and every group is equally likely, so the proba-
+bility of being dealt all four aces is 1/270,725.
+CONDITIONAL PROBABILITY AND INDEPENDENCE                                                                17
+    We can also calculate this probability by an “updating” argument, as follows. The probability
+that the first card is an ace is 4/52. Given that the first card is an ace, the probability that the second
+card is an ace is 3/51 (there are three aces and 51 cards left). Continuing this argument, we get the
+desired probability as
+
+                                   4   3   2   1   1
+                                     ×   ×   ×   =      .                                                 ∥
+                                   52 51 50 49 270, 725
+
+
+    In our second method of solving the problem, we updated the sample space after each draw of a
+card; we calculated conditional probabilities.
+Definition 1.3.2 If A and B are events in S, and P(B) > 0, then the conditional probability of A
+given B, written P(A|B), is
+                                                P(A ∩ B)
+                                     P(A|B) =            .                               (1.3.1)
+                                                 P(B)
+
+
+     Note that what happens in the conditional probability calculation is that B becomes the sample
+space: P(B|B) = 1. The intuition is that our original sample space, S, has been updated to B. All
+further occurrences are then calibrated with respect to their relation to B. In particular, note what
+happens to conditional probabilities of disjoint sets. Suppose A and B are disjoint, so P(A ∩ B) = 0.
+It then follows that P(A|B) = P(B|A) = 0.
+Example 1.3.3 (Continuation of Example 1.3.1) Although the probability of getting all four
+aces is quite small, let us see how the conditional probabilities change given that some aces have
+already been obtained. Four cards will again be dealt from a well-shuffled deck, and we now calcu-
+late
+                          P(4 aces in 4 cards | i aces in i cards), i = 1, 2, 3.
+The event {4 aces in 4 cards} is a subset of the event {i aces in i cards}. Thus, from the definition
+of conditional probability, (1.3.1), we know that
+
+                        P(4 aces in 4 cards | i aces in i cards)
+                                  P({4 aces in 4 cards} ∩ {i aces in i cards})
+                             =
+                                                P(i aces in i cards)
+                                  P(4 aces in 4 cards)
+                             =                           .
+                                  P(i aces in i cards)
+
+The numerator has already been calculated, and the denominator
+                                                              can be calculated with a similar
+argument. The number of distinct groups of i cards is 52i , and
+                                                           
+                                                                       4
+                                                                       i
+                                      P(i aces in i cards) =   .
+                                                                   52
+                                                                    i
+
+Therefore, the conditional probability is given by
+                                                          
+                                                              52
+                                                               i           (4 − i)!48!     1
+            P(4 aces in 4 cards | i aces in i cards) =     =                       =      .
+                                                         52        4        (52 − i)!     52−i
+                                                          4        i                       4−i
+
+For i = 1, 2, and 3, the conditional probabilities are .00005, .00082, and .02041, respectively.         ∥
+18                                                                          PROBABILITY THEORY
+    For any B for which P(B) > 0, it is straightforward to verify that the probability function P(·|B)
+satisfies Kolmogorov’s Axioms (see Exercise 1.35). You may suspect that requiring P(B) > 0 is
+redundant. Who would want to condition on an event of probability zero? Interestingly, sometimes
+this is a particularly useful way of thinking of things. However, we will defer these considerations
+until Chapter 4.
+    Conditional probabilities can be particularly slippery entities and sometimes require careful
+thought. Consider the following often-told tale.
+Example 1.3.4 (Three prisoners) Three prisoners, A, B, and C, are on death row. The governor
+decides to pardon one of the three and chooses at random the prisoner to pardon. He informs the
+warden of his choice but requests that the name be kept secret for a few days.
+    The next day, A tries to get the warden to tell him who has been pardoned. The warden refuses.
+A then asks which of B or C will be executed. The warden thinks for a while, then tells A that B is
+to be executed.
+Warden’s reasoning: Each prisoner has a 13 chance of being pardoned. Clearly, either B or C must
+   be executed, so I have given A no information about whether A will be pardoned.
+A’s reasoning: Given that B will be executed, then either A or C will be pardoned. My chance of
+   being pardoned has risen to 12 .
+    It should be clear that the warden’s reasoning is correct, but let us see why. Let A, B, and C denote
+the events that A, B, and C is pardoned, respectively. We know that P(A) = P(B) = P(C) = 13 . Let
+W denote the event that the warden says B will die. Using (1.3.1), A can update his probability of
+being pardoned to
+                                                     P(A ∩ W )
+                                        P(A|W ) =               .
+                                                       P(W )
+What is happening can be summarized in this table:
+
+                       Prisoner pardoned        Warden tells A
+                                                           
+                               A                    B dies       each with equal
+                               A                    C dies         probability
+                               B                    C dies
+                               C                    B dies
+Using this table, we can calculate
+
+                      P(W ) = P(warden says B dies)
+                            = P(warden says B dies and A pardoned)
+                                      + P(warden says B dies and C pardoned)
+                                      + P(warden says B dies and B pardoned)
+                                     1 1           1
+                               =      + +0 = .
+                                     6 3           2
+Thus, using the warden’s reasoning,
+                              P(A ∩ W )
+             P(A|W ) =
+                               P(W )
+                              P(warden says B dies and A pardoned)   1/6   1
+                         =                                         =     = .                     (1.3.2)
+                                     P(warden says B dies)           1/2   3
+However, A falsely interprets the event W as equal to the event Bc and calculates
+                                                P(A ∩ Bc ) 1/3 1
+                                   P(A|Bc ) =             =    = .
+                                                 P(Bc )     2/3 2
+CONDITIONAL PROBABILITY AND INDEPENDENCE                                                           19
+   We see that conditional probabilities can be quite slippery and require careful interpretation. For
+some other variations of this problem, see Exercise 1.37.                                            ∥
+   Re-expressing (1.3.1) gives a useful form for calculating intersection probabilities,
+                                      P(A ∩ B) = P(A|B)P(B),                                   (1.3.3)
+which is essentially the formula that was used in Example 1.3.1. We can take advantage of the
+symmetry of (1.3.3) and also write
+                                      P(A ∩ B) = P(B|A)P(A).                                   (1.3.4)
+When faced with seemingly difficult calculations, we can break up our calculations according to
+(1.3.3) or (1.3.4), whichever is easier. Furthermore, we can equate the right-hand sides of these
+equations to obtain (after rearrangement)
+                                                            P(A)
+                                      P(A|B) = P(B|A)            ,                             (1.3.5)
+                                                            P(B)
+which gives us a formula for “turning around” conditional probabilities. Equation (1.3.5) is often
+called Bayes’ Rule for its discoverer, Sir Thomas Bayes [although see Stigler (1983)].
+     Bayes’ Rule has a more general form than (1.3.5), one that applies to partitions of a sample
+space. We therefore take the following as the definition of Bayes’ Rule.
+Theorem 1.3.5 (Bayes’ Rule) Let A1 , A2 , . . . be a partition of the sample space, and let B be any
+set. Then, for each i = 1, 2, . . . ,
+                                                   P(B|Ai )P(Ai )
+                                  P(Ai |B) =     ∞                     .
+                                                ∑ j=1 P(B|A j )P(A j )
+
+Example 1.3.6 (Coding) When coded messages are sent, there are sometimes errors in transmis-
+sion. In particular, Morse code uses “dots” and “dashes,” which are known to occur in the proportion
+of 3:4. This means that for any given symbol
+                                            3                          4
+                            P(dot sent) =         and    P(dash sent) = .
+                                            7                          7
+Suppose there is interference on the transmission line, and with probability 18 a dot is mistakenly
+received as a dash, and vice versa. If we receive a dot, can we be sure that a dot was sent? Using
+Bayes’ Rule, we can write
+                                                                             P(dot sent)
+               P(dot sent | dot received) = P(dot received | dot sent)                     .
+                                                                           P(dot received)
+Now, from the information given, we know that P(dot sent) = 37 and P(dot received| dot sent) = 78 .
+Furthermore, we can also write
+          P(dot received) = P(dot received ∩ dot sent) + P(dot received ∩ dash sent)
+                          = P(dot received | dot sent)P(dot sent)
+                             + P(dot received | dash sent)P(dash sent)
+                            7 3 1 4               25
+                          =   × + ×           =      .
+                            8 7 8 7               56
+Combining these results, we have that the probability of correctly receiving a dot is
+                                                         (7/8) × (3/7) 21
+                         P(dot sent | dot received) =                 = .                            ∥
+                                                            25/56      25
+20                                                                         PROBABILITY THEORY
+   In some cases it may happen that the occurrence of a particular event, B, has no effect on the
+probability of another event, A. Symbolically, we are saying that
+                                          P(A|B) = P(A).                                      (1.3.6)
+If this holds, then by Bayes’ Rule (1.3.5) and using (1.3.6) we have
+                                              P(B)          P(B)
+                            P(B|A) = P(A|B)         = P(A)        = P(B),                     (1.3.7)
+                                              P(A)          P(A)
+so the occurrence of A has no effect on B. Moreover, since P(B|A)P(A) = P(A ∩ B), it then follows
+that
+                                      P(A ∩ B) = P(A)P(B),
+which we take as the definition of statistical independence.
+Definition 1.3.7   Two events, A and B, are statistically independent if
+                                        P(A ∩ B) = P(A)P(B).                                  (1.3.8)
+
+    Note that independence could have been equivalently defined by either (1.3.6) or (1.3.7) (as long
+as either P(A) > 0 or P(B) > 0). The advantage of (1.3.8) is that it treats the events symmetrically
+and will be easier to generalize to more than two events.
+    Many gambling games provide models of independent events. The spins of a roulette wheel and
+the tosses of a pair of dice are both series of independent events.
+Example 1.3.8 (Chevalier de Meré) The gambler introduced at the start of the chapter, the
+Chevalier de Meré, was particularly interested in the event that he could throw at least one 6 in
+four rolls of a die. We have
+                   P(at least one 6 in four rolls)   =   1 − P(no 6 in four rolls)
+                                                                4
+                                                     =   1 − ∏ P(no 6 on roll i),
+                                                               i=1
+
+where the last equality follows by independence of the rolls. On any roll, the probability of not
+rolling a 6 is 56 , so
+                                                               4
+                                                               5
+                        P(at least one 6 in four rolls) = 1 −      = .518.                      ∥
+                                                               6
+
+
+    Independence of A and B implies independence of the complements also. In fact, we have the
+following theorem.
+Theorem 1.3.9 If A and B are independent events, then the following pairs are also independent:
+ a. A and Bc
+ b. Ac and B
+ c. Ac and Bc
+Proof: We will prove only (a), leaving the rest as Exercise 1.40. To prove (a) we must show P(A ∩
+Bc ) = P(A)P(Bc ). From Theorem 1.2.9(a) we have
+                       P(A ∩ Bc )   =    P(A) − P(A ∩ B)
+
+                                    =    P(A) − P(A)P(B)                    (A and B are independent)
+
+                                    =    P(A)(1 − P(B))
+
+                                    =    P(A)P(Bc ).                                               
+CONDITIONAL PROBABILITY AND INDEPENDENCE                                                                         21
+   Independence of more than two events can be defined in a manner similar to (1.3.8), but we
+must be careful. For example, we might think that we could say A, B, and C are independent if
+P(A ∩ B ∩C) = P(A)P(B)P(C). However, this is not the correct condition.
+Example 1.3.10 (Tossing two dice)               Let an experiment consist of tossing two dice. For this exper-
+iment the sample space is
+
+                 S = {(1, 1), (1, 2), . . . , (1, 6), (2, 1), . . . , (2, 6), . . . , (6, 1), . . . , (6, 6)},
+
+that is, S consists of the 36 ordered pairs formed from the numbers 1 to 6. Define the following
+events:
+
+               A = {doubles appear} = {(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6)},
+               B = {the sum is between 7 and 10},
+               C = {the sum is 2 or 7 or 8}.
+
+The probabilities can be calculated by counting among the 36 possible outcomes. We have
+                                      1                 1                            1
+                                P(A) = ,          P(B) = ,            and      P(C) = .
+                                      6                 2                            3
+Furthermore,
+
+                   P(A ∩ B ∩C) = P(the sum is 8, composed of double fours)
+                                  1
+                               =
+                                 36
+                                 1 1 1
+                               =    × ×
+                                 6 2 3
+                               = P(A)P(B)P(C).
+
+However,
+                                                         11
+                          P(B ∩C) = P(sum equals 7 or 8) =   ̸= P(B)P(C).
+                                                         36
+Similarly, it can be shown that P(A ∩ B) ̸= P(A)P(B); therefore, the requirement P(A ∩ B ∩ C) =
+P(A)P(B)P(C) is not a strong enough condition to guarantee pairwise independence.             ∥
+    A second attempt at a general definition of independence, in light of the previous example, might
+be to define A, B, and C to be independent if all the pairs are independent. Alas, this condition also
+fails.
+Example 1.3.11 (Letters) Let the sample space S consist of the 3! permutations of the letters a,
+b, and c along with the three triples of each letter. Thus,
+                                                           
+                                            aaa bbb ccc 
+                                      S = abc bca cba .
+                                                           
+                                             acb bac cab
+
+Furthermore, let each element of S have probability 19 . Define
+
+                               Ai = {ith place in the triple is occupied by a}.
+
+It is then easy to count that
+                                                      1
+                                              P(Ai ) = ,          i = 1, 2, 3,
+                                                      3
+and
+                                                                         1
+                                P(A1 ∩ A2 ) = P(A1 ∩ A3 ) = P(A2 ∩ A3 ) = ,
+                                                                         9
+22                                                                            PROBABILITY THEORY
+so the Ai s are pairwise independent. But
+                                                   1
+                              P(A1 ∩ A2 ∩ A3 ) =     ̸= P(A1 )P(A2 )P(A3 ),
+                                                   9
+so the Ai s do not satisfy the probability requirement.                                                   ∥
+    The preceding two examples show that simultaneous (or mutual) independence of a collection
+of events requires an extremely strong definition. The following definition works.
+Definition 1.3.12 A collection of events A1 , . . . , An are mutually independent if for any subcollec-
+tion Ai1 , . . . , Aik , we have             
+                                       k
+                                                       k     
+                                   P      Ai j = ∏ P Ai j .
+                                            j=1         j=1
+
+
+Example 1.3.13 (Three coin tosses–I) Consider the experiment of tossing a coin three times. A
+sample point for this experiment must indicate the result of each toss. For example, HHT could
+indicate two heads then a tail were observed. The sample space for this experiment has eight points,
+namely,
+                         {HHH, HHT, HTH, THH, TTH, THT, HTT, TTT}.
+Let Hi , i = 1, 2, 3, denote the event that the ith toss is a head. For example,
+                                    H1 = {HHH, HHT, HTH, HTT}.                                      (1.3.9)
+If we assign probability 18 to each sample point, then using enumerations such as (1.3.9), we see that
+P(H1 ) = P(H2 ) = P(H3 ) = 12 . This says that the coin is fair and has an equal probability of landing
+heads or tails on each toss.
+    Under this probability model, the events H1 , H2 , and H3 are also mutually independent. To verify
+this we note that
+                                                     1 1 1 1
+               P(H1 ∩ H2 ∩ H3 ) = P({HHH}) =          = · · = P(H1 )P(H2 )P(H3 ).
+                                                     8 2 2 2
+To verify the condition in Definition 1.3.12, we also must check each pair. For example,
+                                                           2 1 1
+                    P(H1 ∩ H2 ) = P({HHH, HHT}) =           = · = P(H1 )P(H2 ).
+                                                           8 2 2
+The equality is also true for the other two pairs. Thus, H1 , H2 , and H3 are mutually independent.
+That is, the occurrence of a head on any toss has no effect on any of the other tosses.
+   It can be verified that the assignment of probability 18 to each sample point is the only probability
+model that has P(H1 ) = P(H2 ) = P(H3 ) = 12 and H1 , H2 , and H3 mutually independent.                ∥
+
+1.4   Random Variables
+In many experiments it is easier to deal with a summary variable than with the original probability
+structure. For example, in an opinion poll, we might decide to ask 50 people whether they agree or
+disagree with a certain issue. If we record a “1” for agree and “0” for disagree, the sample space for
+this experiment has 250 elements, each an ordered string of 1s and 0s of length 50. We should be
+able to reduce this to a reasonable size! It may be that the only quantity of interest is the number of
+people who agree (equivalently, disagree) out of 50 and, if we define a variable X = number of 1s
+recorded out of 50, we have captured the essence of the problem. Note that the sample space for X
+is the set of integers {0, 1, 2, . . . , 50} and is much easier to deal with than the original sample space.
+     In defining the quantity X, we have defined a mapping (a function) from the original sample
+space to a new sample space, usually a set of real numbers. In general, we have the following
+definition.
+RANDOM VARIABLES                                                                                      23
+Definition 1.4.1   A random variable is a function from a sample space S into the real numbers.
+
+Example 1.4.2 (Random variables)          In some experiments random variables are implicitly used;
+some examples follow.
+
+                                   Examples of Random Variables
+
+                   Experiment                     Random variable
+
+                   Toss two dice                  X = sum of the numbers
+
+                   Toss a coin 25 times           X = number of heads in 25 tosses
+                   Apply different levels of
+                    fertilizer to corn plants     X = yield/acre
+                                                                                                        ∥
+
+
+    In defining a random variable, we have also defined a new sample space (the range of the random
+variable). We must now check formally that our probability function, which is defined on the original
+sample space, can be used for the random variable.
+    Suppose we have a sample space
+                                          S = {s1 , . . . , sn }
+with a probability function P and we define a random variable X with range X = {x1 , . . . , xm }. We
+can define a probability function PX on X in the following way. We will observe X = xi if and only
+if the outcome of the random experiment is an s j ∈ S such that X(s j ) = xi . Thus,
+
+                               PX (X = xi ) = P ({s j ∈ S : X(s j ) = xi }) .                    (1.4.1)
+
+     Note that the left-hand side of (1.4.1), the function PX , is an induced probability function on X ,
+defined in terms of the original function P. Equation (1.4.1) formally defines a probability function,
+PX , for the random variable X. Of course, we have to verify that PX satisfies the Kolmogorov Ax-
+ioms, but that is not a very difficult job (see Exercise 1.45). Because of the equivalence in (1.4.1),
+we will simply write P(X = xi ) rather than PX (X = xi ).
+A note on notation: Random variables will always be denoted with uppercase letters and the realized
+values of the variable (or its range) will be denoted by the corresponding lowercase letter. Thus, the
+random variable X can take the value x.
+Example 1.4.3 (Three coin tosses–II) Consider again the experiment of tossing a fair coin three
+times from Example 1.3.13. Define the random variable X to be the number of heads obtained in
+the three tosses. A complete enumeration of the value of X for each point in the sample space is
+
+                s      HHH      HHT      HTH       THH        HTT    HTH        THH   TTT
+               X(s)     3        2        2         2          1      1          1     0
+
+   The range for the random variable X is X = {0, 1, 2, 3}. Assuming that all eight points in S have
+probability 18 , by simply counting in the above display we see that the induced probability function
+on X is given by
+                                          x        0 1 2 3
+                                                     1    3    3     1
+                                     PX (X = x)      8    8    8     8
+
+For example, PX (X = 1) = P({HTT, THT, TTH}) = 38 .                                                    ∥
+24                                                                          PROBABILITY THEORY
+Example 1.4.4 (Distribution of a random variable) It may be possible to determine PX even if
+a complete listing, as in Example 1.4.3, is not possible. Let S be the 250 strings of 50 zeros and
+ones, X = number of ones, and X = {0, 1, 2, . . . , 50}, as mentioned at the beginning of this section.
+Suppose that each of the 250 strings is equally likely. The probability that X = 27 can be obtained
+by counting all of the strings with 27 ones in the original sample space. Since each string is equally
+likely, it follows that                                               
+                                                                       50
+                                        # strings with 27 ones    27
+                          PX (X = 27) =                        = 50 .
+                                               # strings         2
+In general, for any i ∈ X ,
+                                                        
+                                                         50
+                                                          i
+                                        PX (X = i) =          .                                      ∥
+                                                        250
+
+
+   The previous illustrations had both a finite S and finite X , and the definition of PX was straight-
+forward. Such is also the case if X is countable. If X is uncountable, we define the induced
+probability function, PX , in a manner similar to (1.4.1). For any set A ⊂ X ,
+
+                                 PX (X ∈ A) = P({s ∈ S : X(s) ∈ A})                             (1.4.2)
+
+This does define a legitimate probability function for which the Kolmogorov Axioms can be verified.
+(To be precise, we use (1.4.2) to define probabilities only for a certain sigma algebra of subsets of
+X . But we will not concern ourselves with these technicalities.)
+
+
+1.5   Distribution Functions
+With every random variable X, we associate a function called the cumulative distribution function
+of X.
+Definition 1.5.1 The cumulative distribution function, or cdf , of a random variable X, denoted by
+FX (x), is defined by
+                               FX (x) = PX (X ≤ x), for all x.
+
+
+Example 1.5.2 (Tossing three coins) Consider the experiment of tossing three fair coins, and let
+X = number of heads observed. The cdf of X is
+                                         
+                                          0 if −∞ < x < 0
+                                         
+                                           1
+                                          8 if 0 ≤ x < 1
+                                         
+                                   FX (x) =     1                                               (1.5.1)
+                                                2   if 1 ≤ x < 2
+                                              
+                                              
+                                              
+                                               7
+                                                    if 2 ≤ x < 3
+                                              8
+                                                1   if 3 ≤ x < ∞.
+The step function FX (x) is graphed in Figure 1.5.1. There are several points to note from Figure
+1.5.1. FX is defined for all values of x, not just those in X = {0, 1, 2, 3}. Thus, for example,
+
+                                                                     7
+                          FX (2.5) = P(X ≤ 2.5) = P(X = 0, 1, or 2) = .
+                                                                     8
+Note that FX has jumps at the values of xi ∈ X , and the size of the jump at xi is equal to P(X = xi ).
+Also, FX (x) = 0 for x < 0 since X cannot be negative, and FX (x) = 1 for x ≥ 3 since X is certain to
+be less than such a value.                                                                           ∥
+DISTRIBUTION FUNCTIONS                                                                              25
+            FX(x)
+
+         1.000
+
+
+         .875
+
+
+         .750
+
+
+         .625
+
+
+         .500
+
+
+         .375
+
+
+         .250
+
+
+         .125
+
+            0
+                                                                                                    x
+                 0                      1                        2                         3
+
+                                   Figure 1.5.1 Cdf of Example 1.5.2
+
+
+     As is apparent from Figure 1.5.1, FX can be discontinuous, with jumps at certain values of
+x. By the way in which FX is defined, however, at the jump points FX takes the value at the top
+of the jump. (Note the different inequalities in (1.5.1).) This is known as right-continuity – the
+function is continuous when a point is approached from the right. The property of right-continuity
+is a consequence of the definition of the cdf. In contrast, if we had defined FX (x) = PX (X < x) (note
+strict inequality), FX would then be left-continuous. The size of the jump at any point x is equal to
+P(X = x).
+     Every cdf satisfies certain properties, some of which are obvious when we think of the definition
+of FX (x) in terms of probabilities.
+Theorem 1.5.3 The function F(x) is a cdf if and only if the following three conditions hold:
+ a. limx→−∞ F(x) = 0 and limx→∞ F(x) = 1.
+ b. F(x) is a nondecreasing function of x.
+ c. F(x) is right-continuous. That is, for every number x0 , limx↓x0 F(x) = F(x0 ).
+Outline of proof: To prove necessity, the three properties can be verified by writing F in terms
+of the probability function (Exercise 1.48). To prove sufficiency, that if a function F satisfies the
+three conditions of the theorem then it is a cdf for some random variable, is much harder. It must be
+established that there exists a sample space S, a probability function P on S, and a random variable
+X defined on S such that F is the cdf of X.                                                        
+
+Example 1.5.4 (Tossing for a head) Suppose we do an experiment that consists of tossing a coin
+until a head appears. Let p = probability of a head on any given toss and define a random variable
+X = number of tosses required to get a head. Then, for any x = 1, 2, . . . ,
+
+                                      P(X = x) = (1 − p)x−1 p,                                  (1.5.2)
+26                                                                                   PROBABILITY THEORY
+since we must get x − 1 tails followed by a head for the event to occur and all trials are independent.
+From (1.5.2) we calculate, for any positive integer x,
+                                                x                  x
+                               P(X ≤ x) = ∑ P(X = i) = ∑ (1 − p)i−1 p.                             (1.5.3)
+                                              i=1                 i=1
+
+The partial sum of the geometric series is
+                                         n
+                                                       1 − tn
+                                         ∑ t k−1 = 1 − t ,        t ̸= 1,                          (1.5.4)
+                                        k=1
+
+a fact that can be established by induction (see Exercise 1.50). Applying (1.5.4) to our probability,
+we find that the cdf of the random variable X is
+                               FX (x) = P(X ≤ x)
+                                        1 − (1 − p)x
+                                      =               p
+                                         1 − (1 − p)
+                                      = 1 − (1 − p)x , x = 1, 2, . . . .
+The cdf FX (x) is flat between the nonnegative integers, as in Example 1.5.2.
+   It is easy to show that if 0 < p < 1, then FX (x) satisfies the conditions of Theorem 1.5.3. First,
+                                                lim FX (x) = 0
+                                                x→−∞
+
+since FX (x) = 0 for all x < 0, and
+                                   lim FX (x) = lim 1 − (1 − p)x = 1,
+                                  x→∞               x→∞
+
+where x goes only through integer values when this limit is taken. To verify property (b), we simply
+note that the sum in (1.5.3) contains more positive terms as x increases. Finally, to verify (c), note
+that, for any x, FX (x + ε) = FX (x) if ε > 0 is sufficiently small. Hence,
+                                          lim FX (x + ε) = FX (x),
+                                          ε↓0
+
+so FX (x) is right-continuous. FX (x) is the cdf of a distribution called the geometric distribution (after
+the series) and is pictured in Figure 1.5.2.                                                              ∥
+
+Example 1.5.5 (Continuous cdf)          An example of a continuous cdf is the function
+                                                             1
+                                              FX (x) =            ,                                (1.5.5)
+                                                          1 + e−x
+which satisfies the conditions of Theorem 1.5.3. For example,
+
+                                  lim FX (x) = 0          since        lim e−x = ∞
+                                 x→−∞                              x→−∞
+
+and
+
+                                   lim FX (x) = 1         since    lim e−x = 0.
+                                   x→∞                             x→∞
+
+Differentiating FX (x) gives
+                                      d              e−x
+                                         FX (x) =             > 0,
+                                      dx          (1 + e−x )2
+showing that FX (x) is increasing. FX is not only right-continuous but also continuous. This is a
+special case of the logistic distribution.                                                      ∥
+DISTRIBUTION FUNCTIONS                                                                                 27
+           FX(x)
+
+          1
+
+          .9
+
+          .8
+
+          .7
+
+          .6
+
+          .5
+
+          .4
+
+          .3
+
+          .2
+
+          .1
+
+          .0                                                                                   x
+               0   1   2    3    4     5    6    7     8    9   10    11   12   13   14   15
+
+                                     Figure 1.5.2 Geometric cdf, p = .3
+
+
+Example 1.5.6 (Cdf with jumps) If FX is not a continuous function of x, it is possible for it to
+be a mixture of continuous pieces and jumps. For example, if we modify FX (x) of (1.5.5) to be, for
+some ε, 1 > ε > 0,                           1−ε
+                                                            if y < 0,
+                                               1 + e−y
+                                   FY (y) =                                                     (1.5.6)
+                                             ε + (1 − ε) if y ≥ 0,
+                                                   1 + e−y
+then FY (y) is the cdf of a random variable Y (see Exercise 1.47). The function FY has a jump of height
+ε at y = 0, and otherwise is continuous. This model might be appropriate if we were observing the
+reading from a gauge, a reading that could (theoretically) be anywhere between −∞ and ∞. This
+particular gauge, however, sometimes sticks at 0. We could then model our observations with FY
+where ε is the probability that the gauge sticks.                                                     ∥
+
+    Whether a cdf is continuous or has jumps corresponds to the associated random variable being
+continuous or not. In fact, the association is such that it is convenient to define continuous random
+variables in this way.
+Definition 1.5.7 A random variable X is continuous if FX (x) is a continuous function of x. A
+random variable X is discrete if FX (x) is a step function of x.
+
+     We close this section with a theorem formally stating that FX completely determines the prob-
+ability distribution of a random variable X. This is true if P(X ∈ A) is defined only for events A in
+B 1 , the smallest sigma algebra containing all the intervals of real numbers of the form (a, b), [a, b),
+(a, b], and [a, b]. If probabilities are defined for a larger class of events, it is possible for two ran-
+dom variables to have the same distribution function but not the same probability for every event.
+(See Chung (1974), page 27.) In this book, as in most statistical applications, we are concerned
+only with events that are intervals, countable unions or intersections of intervals, etc. So we do not
+consider such pathological cases. We first need the notion of two random variables being identically
+distributed.
+28                                                                        PROBABILITY THEORY
+Definition 1.5.8 The random variables X and Y are identically distributed if, for every set A ∈ B 1 ,
+P(X ∈ A) = P(Y ∈ A).
+
+   Note that two random variables that are identically distributed are not necessarily equal. That is,
+Definition 1.5.8 does not say that X = Y .
+Example 1.5.9 (Identically distributed random variables) Consider the experiment of tossing
+a fair coin three times as in Example 1.4.3. Define the random variables X and Y by
+
+                                   X   =    number of heads observed
+and
+                                   Y   =    number of tails observed.
+
+The distribution of X is given in Example 1.4.3, and it is easily verified that the distribution of Y
+is exactly the same. That is, for each k = 0, 1, 2, 3, we have P(X = k) = P(Y = k). So X and Y are
+identically distributed. However, for no sample points do we have X(s) = Y (s).                     ∥
+Theorem 1.5.10     The following two statements are equivalent:
+ a. The random variables X and Y are identically distributed.
+ b. FX (x) = FY (x) for every x.
+Proof: To show equivalence we must show that each statement implies the other. We first show that
+(a) ⇒ (b).
+    Because X and Y are identically distributed, for any set A ∈ B 1 , P(X ∈ A) = P(Y ∈ A). In
+particular, for every x, the set (−∞, x] is in B 1 , and
+
+                        FX (x) = P(X ∈ (−∞, x]) = P(Y ∈ (−∞, x]) = FY (x).
+
+    The converse implication, that (b) ⇒ (a), is much more difficult to prove. The above argument
+showed that if the X and Y probabilities agreed on all sets, then they agreed on intervals. We now
+must prove the opposite, that is, if the X and Y probabilities agree on all intervals, then they agree
+on all sets. To show this requires heavy use of sigma algebras; we will not go into these details here.
+Suffice it to say that it is necessary to prove only that the two probability functions agree on all
+intervals (Chung 1974, Section 2.2).                                                                 
+
+
+1.6   Density and Mass Functions
+Associated with a random variable X and its cdf FX is another function, called either the probability
+density function (pdf) or probability mass function (pmf). The terms pdf and pmf refer, respectively,
+to the continuous and discrete cases. Both pdfs and pmfs are concerned with “point probabilities”
+of random variables.
+Definition 1.6.1   The probability mass function (pmf ) of a discrete random variable X is given by
+
+                                       fX (x) = P(X = x)   for all x.
+
+
+
+Example 1.6.2 (Geometric probabilities) For the geometric distribution of Example 1.5.4, we
+have the pmf                           
+                                               x−1
+                   fX (x) = P(X = x) = (1 − p) p for x = 1, 2, . . .
+                                         0           otherwise.
+Recall that P(X = x) or, equivalently, fX (x) is the size of the jump in the cdf at x. We can use the
+pmf to calculate probabilities. Since we can now measure the probability of a single point, we need
+DENSITY AND MASS FUNCTIONS                                                                         29
+only sum over all of the points in the appropriate event. Hence, for positive integers a and b, with
+a ≤ b, we have
+                                                b                  b
+                            P(a ≤ X ≤ b) = ∑ fX (k) = ∑ (1 − p)k−1 p .
+                                               k=a               k=a
+As a special case of this we get
+                                                     b
+                                   P(X ≤ b) = ∑ fX (k) = FX (b).                            (1.6.1) ∥
+                                                    k=1
+
+
+    A widely accepted convention, which we will adopt, is to use an uppercase letter for the cdf and
+the corresponding lowercase letter for the pmf or pdf.
+    We must be a little more careful in our definition of a pdf in the continuous case. If we naively
+try to calculate P(X = x) for a continuous random variable, we get the following. Since {X = x} ⊂
+{x − ε < X ≤ x} for any ε > 0, we have from Theorem 1.2.9(c) that
+
+                        P(X = x) ≤ P(x − ε < X ≤ x) = FX (x) − FX (x − ε),
+
+for any ε > 0. Therefore,
+
+                            0 ≤ P(X = x) ≤ lim [FX (x) − FX (x − ε)] = 0,
+                                               ε↓0
+
+by the continuity of FX . However, if we understand the purpose of the pdf, its definition will become
+clear.
+    From Example 1.6.2, we see that a pmf gives us “point probabilities.” In the discrete case, we can
+sum over values of the pmf to get the cdf (as in (1.6.1)). The analogous procedure in the continuous
+case is to substitute integrals for sums, and we get
+                                                              x
+                                   P(X ≤ x) = FX (x) =                 fX (t) dt.
+                                                                 −∞
+
+Using the Fundamental Theorem of Calculus, if fX (x) is continuous, we have the further relationship
+                                          d
+                                             FX (x) = fX (x).                                  (1.6.2)
+                                          dx
+Note that the analogy with the discrete case is almost exact. We “add up” the “point probabilities”
+fX (x) to obtain interval probabilities.
+Definition 1.6.3 The probability density function or pdf , fX (x), of a continuous random variable
+X is the function that satisfies
+                                               x
+                                   FX (x) =          fX (t) dt     for all x.                  (1.6.3)
+                                               −∞
+
+
+
+A note on notation: The expression “X has a distribution given by FX (x)” is abbreviated symbolically
+by “X ∼ FX (x),” where we read the symbol “∼” as “is distributed as.” We can similarly write
+X ∼ fX (x) or, if X and Y have the same distribution, X ∼ Y .
+     In the continuous case we can be somewhat cavalier about the specification of interval probabil-
+ities. Since P(X = x) = 0 if X is a continuous random variable,
+
+                 P(a < X < b) = P(a < X ≤ b) = P(a ≤ X < b) = P(a ≤ X ≤ b).
+
+    It should be clear that the pdf (or pmf) contains the same information as the cdf. This being the
+case, we can use either one to solve problems and should try to choose the simpler one.
+30                                                                                               PROBABILITY THEORY
+                                                                                     e–x
+                                                                     fX(x) =
+                                                                               (1 + e–x)2
+
+
+
+                                                                                       P (a ≤ X ≤ b) = ∫ab fX(x)dx
+
+                                                                                                      = FX(b) – FX(a)
+
+
+
+
+                                                                                                                x
+           –4       –3        –2          –1          0            1 a          2     b      3          4
+
+                                   Figure 1.6.1 Area under logistic curve
+
+
+Example 1.6.4 (Logistic probabilities)             For the logistic distribution of Example 1.5.5 we have
+                                                                  1
+                                                FX (x) =
+                                                               1 + e−x
+and, hence,
+                                                   d              e−x
+                                        fX (x) =      FX (x) =             .
+                                                   dx          (1 + e−x )2
+The area under the curve fX (x) gives us interval probabilities (see Figure 1.6.1):
+
+                            P(a < X < b)        =     FX (b) − FX (a)
+                                                       b                       a
+                                                =              fX (x) dx −            fX (x) dx
+                                                          −∞                   −∞
+                                                       b
+                                                =              fX (x) dx.                                               ∥
+                                                          a
+
+
+
+   There are really only two requirements for a pdf (or pmf), both of which are immediate conse-
+quences of the definition.
+Theorem 1.6.5     A function fX (x) is a pdf (or pmf) of a random variable X if and only if
+ a. fX (x) ≥ 0 for all x.
+                                   ∞
+ b. ∑x fX (x) = 1 (pmf)      or    −∞ f X (x) dx = 1 (pdf).
+Proof: If fX (x) is a pdf (or pmf), then the two properties are immediate from the definitions. In
+particular, for a pdf, using (1.6.3) and Theorem 1.5.3, we have that
+                                                                  ∞
+                                        1 = lim FX (x) =               fX (t) dt.
+                                               x→∞                −∞
+
+The converse implication is equally easy to prove. Once we have fX (x) we can define FX (x) and
+appeal to Theorem 1.5.3.                                                                      
+EXERCISES                                                                                                   31
+    From a purely mathematical viewpoint, any nonnegative function with a finite positive integral
+(or sum) can be turned into a pdf or pmf. For example, if h(x) is any nonnegative function that is
+positive on a set A, 0 elsewhere, and
+                                            
+                                                     h(x) dx = K < ∞
+                                             {x∈A}
+
+for some constant K > 0, then the function fX (x) = h(x)/K is a pdf of a random variable X taking
+values in A.
+     Actually, the relationship (1.6.3) does not always hold because FX (x) may be continuous but not
+differentiable. In fact, there exist continuous random variables for which the integral relationship
+does not exist for any fX (x). These cases are rather pathological and we will ignore them. Thus, in
+this text, we will assume that (1.6.3) holds for any continuous random variable. In more advanced
+texts (for example, Billingsley 1995, Section 31) a random variable is called absolutely continuous
+if (1.6.3) holds.
+
+
+1.7   Exercises
+ 1.1 For each of the following experiments, describe the sample space.
+      (a) Toss a coin four times.
+      (b) Count the number of insect-damaged leaves on a plant.
+      (c) Measure the lifetime (in hours) of a particular brand of light bulb.
+      (d) Record the weights of ten-day-old rats.
+      (e) Observe the proportion of defectives in a shipment of electronic components.
+ 1.2 Verify the following identities.
+      (a) A\B = A\(A ∩ B) = A ∩ Bc
+      (b) B = (B ∩ A) ∪ (B ∩ Ac )
+      (c) B\A = B ∩ Ac
+      (d) A ∪ B = A ∪ (B ∩ Ac )
+ 1.3 Finish the proof of Theorem 1.1.4. For any events A, B, and C defined on a sample space S, show that
+      (a) A ∪ B = B ∪ A and A ∩ B = B ∩ A.                                                   (Commutativity)
+      (b) A ∪ (B ∪C) = (A ∪ B) ∪C and A ∩ (B ∩C) = (A ∩ B) ∩C.                                 (Associativity)
+      (c) (A ∪ B)c = Ac ∩ Bc and (A ∩ B)c = Ac ∪ Bc .                                     (DeMorgan’s Laws)
+ 1.4 For events A and B, find formulas for the probabilities of the following events in terms of the quantities
+     P(A), P(B), and P(A ∩ B).
+      (a) either A or B or both
+      (b) either A or B but not both
+      (c) at least one of A or B
+      (d) at most one of A or B
+ 1.5 Approximately one-third of all human twins are identical (one-egg) and two-thirds are fraternal (two-
+     egg) twins. Identical twins are necessarily the same sex, with male and female being equally likely.
+     Among fraternal twins, approximately one-fourth are both female, one-fourth are both male, and half are
+     one male and one female. Finally, among all U.S. births, approximately 1 in 90 is a twin birth. Define
+     the following events:
+
+                                A       =   {a U.S. birth results in twin females}
+                                B       =   {a U.S. birth results in identical twins}
+                                C       =   {a U.S. birth results in twins}
+
+      (a) State, in words, the event A ∩ B ∩C.
+      (b) Find P(A ∩ B ∩C).
+

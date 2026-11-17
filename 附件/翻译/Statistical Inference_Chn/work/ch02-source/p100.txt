@@ -1,0 +1,41 @@
+MISCELLANEA                                                               69
+       Characteristic function  Perhaps the most useful of all of these types of functions is the
+        characteristic function. The characteristic function of X is defined by
+
+                                        φX(t) = EeitX,
+
+      where i is the complex number      so the above expectation requires complex integration.                          √−1,      The characteristic function does much more than the mgf does. When the moments of FX
+        exist, φX can be used to generate them, much like an mgf. The characteristic function always
+        exists and it completely determines the distribution. That is, every cdf has a unique charac-
+         teristic function. So we can state a theorem like Theorem 2.3.11, for example, but without
+        qualification.
+     Theorem 2.6.1 (Convergence of Characteristic Functions) Suppose Xk, k = 1,2,..., is a
+       sequence of random variables, each with characteristic function φXk(t). Furthermore, sup-
+       pose that
+                      k→∞φXk(t)lim    = φX(t), for all t in a neighborhood of 0
+      and φX(t) is a characteristic function. Then, for all X where FX(x) is continuous,
+                                   k→∞FXk(x)lim    = FX(x).
+
+
+      A full treatment of generating functions is given by Feller (1968). Characteristic functions
+      can be found in almost any advanced probability text; see Billingsley (1995) or Resnick
+       (1999).
+ 2.6.3 Does the Moment Generating Function Characterize a Distribution?
+       In an article with the above title, McCullagh (1994) looks at a pair of densities similar to
+       those in Example 2.3.10 but having mgfs
+
+                                                   1
+                                f1 = n(0,1)  and   f2 = f1(x) 1+  sin(2πx)
+                                                   2
+
+       with cumulant generating functions
+
+                                                    1
+                                                                                                                        .                 K1(t) = t2/2  and  K2(t) = K1(t)+log 1+ 2e−2π2 sin(2πt)
+
+     He notes that although the densities are visibly dissimilar, the cgfs are virtually identical,
+       with maximum difference less than 1.34 × 10−9 over the entire range (less than the size of      one pixel). So the answer to the question posed in the title is “yes for mathematical purposes
+       but a resounding no for numerical purposes.” In constrast, Waller (1995) illustrates that al-
+      though the mgfs fail to numerically distinguish the distributions, the characteristic functions
+      do a fine job. (Waller et al. (1995) and Luce˜no (1997) further investigate the usefulness of
+       the characteristic function in numerically obtaining the cdfs.) See Exercise 2.37 for details.

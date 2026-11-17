@@ -1,0 +1,89 @@
+\sourcepageanchor{329}
+\subsection{杂录}\label{sec:7.5}
+\subsubsection{矩估计量与MLE}\label{sec:7.5.1}\index{SI0680@与矩估计法的关系}\index{SI0810@与最大似然估计量的关系}
+一般说来，矩估计量不是充分统计量的函数，因此总可以通过对充分统计量取条件期望加以改进.不过，对指数族而言，修正的矩方法与最大似然估计之间可能存在对应关系.\hyperref[bib:source93]{Davidson和Solomon（1974）}详细讨论了这种对应关系，并介绍了一些有趣的历史.
+
+设有随机样本$\boldsymbol X=(X_1,\ldots,X_n)$，其pdf属于指数族（见\autoref{thm:5.2.11}）
+$$f(x\mid\boldsymbol\theta)=h(x)c(\boldsymbol\theta)\exp\left(\sum_{i=1}^kw_i(\boldsymbol\theta)t_i(x)\right),$$
+其中$f(x\mid\boldsymbol\theta)$的取值范围不依赖于$\boldsymbol\theta$.（注意$\boldsymbol\theta$可以是向量.）似然函数具有形式
+$$L(\boldsymbol\theta\mid\boldsymbol x)=H(\boldsymbol x)[c(\boldsymbol\theta)]^n\exp\left(\sum_{i=1}^kw_i(\boldsymbol\theta)\sum_{j=1}^nt_i(x_j)\right),$$
+而修正的矩方法用下面$k$个方程的解$\widehat w_i(\boldsymbol\theta)$估计$w_i(\boldsymbol\theta)$，$i=1,\ldots,k$：
+$$\sum_{j=1}^nt_i(x_j)=E_{\boldsymbol\theta}\left(\sum_{j=1}^nt_i(X_j)\right),\qquad i=1,\ldots,k.$$
+Davidson和Solomon推广了\hyperref[bib:source173]{Huzurbazar（1949）}的工作，证明估计量$\widehat w_i(\boldsymbol\theta)$实际上就是$w_i(\boldsymbol\theta)$的MLE.若定义$\eta_i=w_i(\boldsymbol\theta)$，$i=1,\ldots,k$，则对任何一一函数$g$，$g(\eta_i)$的MLE等于$g(\widehat\eta_i)=g(\widehat w_i(\boldsymbol\theta))$.利用下列事实，可以简化上述期望的计算（\hyperref[bib:source198]{Lehmann，1986}，第2.7节）.\footnote{译注：按本段所写的密度形式，规范化因子为$c(\boldsymbol\theta)$而非其倒数，下面两个导数式右侧都应带负号.例如泊松族$c(\lambda)=e^{-\lambda}$、$w(\lambda)=\log\lambda$，则$\partial\log c/\partial w=-\lambda$，不能等于$E(X)=\lambda$.原式保留.}
+\begin{align*}
+E_{\boldsymbol\theta}(t_i(X_j))
+&=\frac{\partial}{\partial w_i(\boldsymbol\theta)}\log(c(\boldsymbol\theta)),\qquad i=1,\ldots,k,\quad j=1,\ldots,n;\\
+\operatorname{Cov}_{\boldsymbol\theta}(t_i(X_j),t_{i'}(X_j))
+&=\frac{\partial^2}{\partial w_i(\boldsymbol\theta)\partial w_{i'}(\boldsymbol\theta)}\log(c(\boldsymbol\theta)),\\[-2pt]
+&\hspace{2cm}i,i'=1,\ldots,k,\quad j=1,\ldots,n.
+\end{align*}
+\subsubsection{无偏贝叶斯估计}\label{sec:7.5.2}\index{SI0082@与无偏估计量的关系}\index{SI1058@与贝叶斯估计量的关系}
+如\autoref{sec:7.2.3}所见，进行贝叶斯计算时，通常取后验分布的均值作为点估计量.具体说来，若$X$的pdf为$f(x\mid\theta)$，满足$E_\theta(X)=\theta$，并有先验分布$\pi(\theta)$，则后验均值这一$\theta$的贝叶斯点估计量为
+$$E(\theta\mid x)=\int\theta\pi(\theta\mid x)\,d\theta.$$
+可以问：$E(\theta\mid X)$能否是$\theta$的无偏估计量，从而满足方程
+$$E_\theta[E(\theta\mid X)]=\int\left[\int\theta\pi(\theta\mid x)\,d\theta\right]f(x\mid\theta)\,dx=\theta.$$
+\sourcepageanchor{330}
+答案是否定的.也就是说，后验均值从来都不是无偏估计量.如果是，对$X$与$\theta$的联合分布取期望，便可写成\footnote{译注：本段结论须在存在适当先验及相应可积性条件下理解，且排除参数可由数据完全确定的退化情形；不能推广到非正常先验，例如正态位置模型的平坦非正常先验给出无偏后验均值$\bar X$.此外，下方第二组计算直接假设$E(\theta\mid X)=X$，这不等同于上一段的$E_\theta[E(\theta\mid X)]=\theta$.要论证一般情形，可令$T=E(\theta\mid X)$；若$E_\theta T=\theta$且相关二阶矩有限，则$E(T^2)=E(T\theta)=E(\theta^2)$，故$E[(T-\theta)^2]=0$.原文推导保留.}
+\begin{align*}
+E[(X-\theta)^2]&=E[X^2-2X\theta+\theta^2]&&\text{（展开平方）}\\
+&=E\bigl(E((X^2-2X\theta+\theta^2)\mid\theta)\bigr)&&\text{（迭代取期望）}\\
+&=E\bigl(E(X^2\mid\theta)-2\theta^2+\theta^2\bigr)&&\text{（$E(X\mid\theta)=E_\theta X=\theta$）}\\
+&=E\bigl(E(X^2\mid\theta)-\theta^2\bigr)\\
+&=E(X^2)-E(\theta^2),&&\text{（期望的性质）}
+\end{align*}
+这是按一种方式取条件期望.类似地，对$X$取条件期望可得
+\begin{align*}
+E[(X-\theta)^2]&=E\bigl(E[(X^2-2X\theta+\theta^2)\mid X]\bigr)\\
+&=E\bigl(X^2-2X^2+E(\theta^2\mid X)\bigr)&&\text{（由假设$E(\theta\mid X)=X$）}\\
+&=E(\theta^2)-E(X^2).
+\end{align*}
+比较两次计算可知，只有$E(X^2)=E(\theta^2)$时才不会矛盾；这又意味着$E(X-\theta)^2=0$，从而$X=\theta$.只有$P(X=\theta)=1$时才会如此，这是一个无甚意义的情形，因此我们得到了矛盾.于是，要么$E(X\mid\theta)\ne\theta$，要么$E(\theta\mid X)\ne X$，这说明后验均值不可能是无偏估计量.注意，我们隐含地假设了$E(X^2)<\infty$，但事实上，这个结果在更一般的条件下仍成立.\hyperref[bib:source32]{Bickel和Mallows（1988）}对这一主题作了更深入的讨论.\hyperref[bib:source234]{Noorbaloochi和Meeden（1983）}从更高的理论层次刻画了这种联系.
+
+\subsubsection{Lehmann--Scheffé定理}\label{sec:7.5.3}
+Lehmann--Scheffé定理是数理统计的一项重大成果，它将充分性、完备性和唯一性联系起来.正文的论述与Lehmann--Scheffé定理有某种互补关系，因此我们一直没有以经典形式陈述它（这一形式与\autoref{thm:7.3.23}相似）.事实上，Lehmann--Scheffé定理包含在\autoref{thm:7.3.19}和\autoref{thm:7.3.23}之中.
+\begin{theorem}[Lehmann--Scheffé]\label{thm:7.5.1}\index{SI0617@Lehmann–Scheffé定理}
+基于完备充分统计量的无偏估计量是唯一的.
+\end{theorem}
+\begin{proof}
+设$T$是完备充分统计量，$\varphi(T)$是一个满足$E_\theta\varphi(T)=\tau(\theta)$的估计量.由\autoref{thm:7.3.23}，$\varphi(T)$是$\tau(\theta)$的最佳无偏估计量；由\autoref{thm:7.3.19}，最佳无偏估计量是唯一的.
+\end{proof}
+这个定理也可以不借助\hyperref[ex:7.3.3]{定理7.3.3}，仅用完备性的推论来证明，并由此给出通向\autoref{thm:7.3.23}的一条略有不同的路径.\footnote{译注：原文写“定理7.3.3”，本章该编号对应的是例，而非定理，疑为引用编号误植.此外，上述唯一性指对同一待估函数、在各参数下几乎处处相等；若两个基于$T$的估计量均无偏，则它们之差的期望恒为零，由完备性立即得到这一结论.}
+
+\subsubsection{关于EM算法的进一步讨论}\label{sec:7.5.4}\index{SI0007@EM}\index{SI0395@EM算法（见算法：EM）}
+EM算法源于20世纪50年代的工作（\hyperref[bib:source159]{Hartley 1958）}，但真正受到统计学界广泛重视，是在\hyperref[bib:source97]{Dempster、Laird和Rubin（1977）}的奠基性工作之后；他们详细说明了算法的基本结构，并通过多种应用展示了其用法.
+
+EM算法的一个优点是，人们知道它收敛到不完全数据MLE的条件，尽管这一主题也衍生出一些流传的说法.\hyperref[bib:source97]{Dempster、Laird和Rubin（1977）}最初的收敛性证明有一个缺陷，后来\hyperref[bib:source47]{Boyles（1983）}和\hyperref[bib:source335]{Wu（1983）}给出了正确证明；另见\hyperref[bib:source122]{Finch等（1989）}.
+
+我们的论述止于\autoref{thm:7.2.20}，该定理保证每次迭代都会增加似然值.不过，这可能不足以断定序列$\{\widehat{\boldsymbol\theta}^{(r)}\}$收敛到最大似然估计量.要作出这样的保证，还需要
+\sourcepageanchor{331}
+进一步的条件.下面由\hyperref[bib:source335]{Wu（1983）}给出的定理保证收敛到一个驻点，该点可能是局部极大值点，也可能是鞍点.
+\begin{theorem}\label{thm:7.5.2}\index{SI0010@收敛}
+若完全数据对数似然的期望$E[\log L(\boldsymbol\theta\mid\boldsymbol y,\boldsymbol x)\mid\boldsymbol\theta',\boldsymbol y]$关于$\boldsymbol\theta$和$\boldsymbol\theta'$都连续，则EM序列$\{\widehat{\boldsymbol\theta}^{(r)}\}$的所有极限点都是$L(\boldsymbol\theta\mid\boldsymbol y)$的驻点，并且$L(\widehat{\boldsymbol\theta}^{(r)}\mid\boldsymbol y)$单调收敛到某个驻点$\widehat{\boldsymbol\theta}$处的$L(\widehat{\boldsymbol\theta}\mid\boldsymbol y)$.
+\end{theorem}
+在指数族中，计算变得较为简单，因为对数似然对于缺失数据是线性的.计算有所简化，因为我们可以写成\footnote{译注：原文前两句有重复且第二句缺主语，译文保留其内容.按指数族的一般形式，对数似然实际是关于充分统计量$T_i$线性的，不必关于原始缺失数据线性；下面第二行的$E_{\boldsymbol\theta'}[\log h(\boldsymbol y,\boldsymbol X)]$似漏写条件$\mid\boldsymbol y$.}
+\begin{align*}
+&E[\log L(\boldsymbol\theta\mid\boldsymbol y,\boldsymbol x)\mid\boldsymbol\theta',\boldsymbol y]\\
+&\quad=E_{\boldsymbol\theta'}\left[\left.\log\left(h(\boldsymbol y,\boldsymbol X)e^{\sum\eta_i(\boldsymbol\theta)T_i-B(\boldsymbol\theta)}\right)\right|\boldsymbol y\right]\\
+&\quad=E_{\boldsymbol\theta'}[\log h(\boldsymbol y,\boldsymbol X)]+\sum\eta_i(\boldsymbol\theta)E_{\boldsymbol\theta'}[T_i\mid\boldsymbol y]-B(\boldsymbol\theta).
+\end{align*}
+因此，计算完全数据MLE只涉及较简单的期望$E_{\boldsymbol\theta'}[T_i\mid\boldsymbol y]$.\hyperref[bib:source208]{Little和Rubin（1987）}、\hyperref[bib:source312]{Tanner（1996）}以及\hyperref[bib:source274]{Sheaffer（1997）}\footnote{译注：原文作者写 Sheaffer；书末与此处主题、年份相符的书目为 Schafer（1997）的《Analysis of Incomplete Multivariate Data》. 保留原拼写，并链接至该书目.}提供了很好的EM算法综述；另见\hyperref[bib:source200]{Lehmann和Casella（1998}，第6.4节）.\hyperref[bib:source216]{McLachlan和Krishnan（1997）}则用一整本书论述EM算法.
+
+\subsubsection{其他似然}\label{sec:7.5.5}
+本章使用了最大似然法，并且看到它不仅提供了寻找估计量的方法，还带来了一套对推断很有用的大样本理论.
+
+似然有许多修正形式.有的用于处理干扰参数（如剖面似然，profile likelihood）；有的用于需要更稳健的设定时（如拟似然，quasi likelihood）；还有的适用于删失数据（如部分似然，partial likelihood）.
+
+此外还有许多变体，它们都能对这里介绍的普通似然作出某种改进.\hyperref[bib:source166]{Hinkley（1980）}的综述，或\hyperref[bib:source167]{Hinkley、Reid和Snell（1991）}编辑的综述文集，可作为进入这个丰富的似然世界的入口.
+
+\subsubsection{其他贝叶斯分析}\label{sec:7.5.6}
+\begin{enumerate}[label=\arabic*.]
+\item \textbf{稳健贝叶斯分析（robust Bayes analysis）.}\index{SI0768@稳健}\semanticindexanchor{768:331}贝叶斯法则可能对先验分布的（主观）选择相当敏感，这使许多贝叶斯统计学家感到担忧.\hyperref[bib:source17]{Berger（1984）}的论文提出了稳健贝叶斯分析的思想.这种贝叶斯分析寻求对一系列先验分布都具有良好性质的估计量.也就是说，我们寻找一个估计量$\delta^*$，其表现具有稳健性，即不敏感于某个先验类中究竟哪个先验$\pi$是正确的先验.稳健贝叶斯估计量还可能具有良好的频率学性质，因而成为颇有吸引力的方法.Berger（\hyperref[bib:source19]{1990}，\hyperref[bib:source20]{1994}）与\hyperref[bib:source327]{Wasserman（1994）}\footnote{译注：原文在此写 Wasserman（1994），书末对应稳健贝叶斯综述列为1992年；保留原年份，链接至该条文献.}的综述可作为这一主题的入门读物.
+\item \textbf{经验贝叶斯分析（empirical Bayes analysis）.}\index{SI0396@经验贝叶斯估计量}\semanticindexanchor{396:331}\index{SI0766@经验}\semanticindexanchor{766:331}标准贝叶斯分析中，先验分布通常含有需要实验者指定的参数.例如，考虑如下设定：
+$$\begin{aligned}X\mid\theta&\sim n(\theta,1),\\\theta\mid\tau^2&\sim n(0,\tau^2).\end{aligned}$$
+贝叶斯实验者会事先指定$\tau^2$的值，从而进行贝叶斯分析.然而，由于$X$的边缘分布为$n(0,\tau^2+1)$，它包含关于$\tau$的信息，可以用来估计$\tau$.这种从边缘分布估计先验参数的思想，是经验贝叶斯分析的特征.经验贝叶斯方法有助于构造改进的方法，\hyperref[bib:source225]{Morris（1983）}以及\hyperref[bib:source68]{Casella和Hwang（1987）}给出了这方面的例子.\hyperref[bib:source141]{Gianola和Fernando（1986）}已成功地
+\sourcepageanchor{332}
+将这类方法应用于解决实际问题.\hyperref[bib:source57]{Carlin和Louis（1996）}全面论述了经验贝叶斯方法，而Casella（\hyperref[bib:source63]{1985}，\hyperref[bib:source65]{1992}）提供了技术性较弱的入门介绍.
+\item \textbf{层次贝叶斯分析（hierarchical Bayes analysis）.}\index{SI0470@分层贝叶斯估计量}\semanticindexanchor{470:332}\index{SI0767@分层}\semanticindexanchor{767:332}处理上述设定的另一种方法，是不为$\tau^2$事先指定一个值，而采用层次设定，即再为$\tau^2$指定第二层先验.例如，可以采用\footnote{译注：这里的$\operatorname{uniform}(0,\infty)$只是对$\tau^2$取常数密度的非正常先验记号，不是概率分布.而且对于本例单个观测$X$，积分掉$\theta$后，$\tau^2$的后验核为$(1+\tau^2)^{-1/2}\exp\{-x^2/[2(1+\tau^2)]\}$，其在无穷远处的积分发散，因此这一具体层次设定不能产生正常后验.原例保留.}
+$$\begin{aligned}X\mid\theta&\sim n(\theta,1),\\\theta\mid\tau^2&\sim n(0,\tau^2),\\\tau^2&\sim\operatorname{uniform}(0,\infty)\qquad\text{（非正常先验）}.\end{aligned}$$
+层次建模，无论贝叶斯还是非贝叶斯，都是十分有效的工具，通常给出对于底层模型相当稳健的答案.\hyperref[bib:source207]{Lindley和Smith（1972）}展示了其用途，此后层次模型得到了广泛应用与发展.\hyperref[bib:source134]{Gelfand和Smith（1990）}的奠基性论文将层次模型与计算算法联系起来，贝叶斯方法的适用范围由此迅速扩大.\hyperref[bib:source200]{Lehmann和Casella（1999，第4.5节）}\footnote{译注：此处原文写1999年，书末该书第二版列为1998年；原年份保留.}介绍了层次贝叶斯理论，\hyperref[bib:source256]{Robert和Casella（1999）}则讨论其应用以及与计算算法的联系.
+\end{enumerate}

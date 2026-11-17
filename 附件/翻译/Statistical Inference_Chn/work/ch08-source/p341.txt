@@ -1,0 +1,42 @@
+310                                             HYPOTHESIS TESTING
+8.3  Methods of Evaluating Tests
+In deciding to accept or reject the null hypothesis H0, an experimenter might be making a mistake.
+Usually, hypothesis tests are evaluated and compared through their probabilities of making mistakes.
+In this section, we discuss how these error probabilities can be controlled. In some cases, it can even
+be determined which tests have the smallest possible error probabilities.
+
+8.3.1  Error Probabilities and the Power Function
+                                                       0 might make one of two types of errors. TheseA hypothesis test of H0 : θ ∈Θ0 versus H1 : θ ∈Θctwo types of errors traditionally have been given the non-mnemonic names, Type I Error and Type
+II Error. If θ ∈Θ0 but the hypothesis test incorrectly decides to reject H0, then the test has made a
+                                            0 but the test decides to accept H0, a Type II Error has beenType I Error. If, on the other hand, θ ∈Θcmade. These two different situations are depicted in Table 8.3.1.
+
+
+                          Table 8.3.1 Two types of errors in hypothesis testing
+
+                                                    Decision
+                                           Accept H0   Reject H0
+                                 H0     Correct     Type I
+                                 Truth         Decision      Error
+                                 H1    Type II      Correct
+                                                  Error      Decision
+
+   Suppose R denotes the rejection region for a test. Then for θ ∈Θ0, the test will make a mistake
+if x ∈R so the probability of a Type I Error is Pθ(X ∈R). For θ ∈Θc0, the probability of a Type II
+Error is Pθ(X ∈Rc). This switching from R to Rc is a bit confusing, but, if we realize that Pθ(X ∈
+Rc) = 1−Pθ(X ∈R), then the function of θ,Pθ(X ∈R), contains all the information about the testwith rejection region R. We have
+                            probability of a Type I Error,                          if θ         Pθ(X   =                                 ∈Θ0           ∈R)    one minus the probability of a Type II Error       if θ      0.                                                 ∈Θc
+This consideration leads to the following definition.
+Definition 8.3.1  The power function of a hypothesis test with rejection region R is the function of
+θ defined by β(θ) = Pθ(X ∈R).
+   The ideal power function is zero for all θ ∈Θ0 and one for all θ ∈Θc0. Except in trivial situations,
+                                                                                                          0this ideal cannot be attained. Qualitatively, a good test has power function near one for most θ ∈Θc
+and near zero for most θ ∈Θ0.
+Example 8.3.2 (Binomial                                                                                                          2                    power function)  Let X ∼binomial(5,θ). Consider testing H0 : θ ≤1                  1versus H1 : θ > 2. Consider first the test that rejects H0 if and only if all “successes” are observed.
+The power function for this test is
+                         β1(θ) = Pθ(X ∈R) = Pθ(X = 5) = θ 5.
+The graph of β1(θ) is in Figure 8.3.1. In examining this power function, we might decide that
+although the probability of a Type I Error is acceptably low (β1(θ)     1                                       ≤( 2)5 = .03121     for all θ ≤12),the probability of a Type II Error is too high (β1(θ) is too small) for most θ > 2. The probability of
+a Type II Error is less than 12 only if θ     1                   > ( 2)1/5 = .87. To achieve smaller Type II Error probabilities,
+we might consider using the test that rejects H0 if X = 3, 4, or 5. The power function for this test is
+                               5               5               5
+                            +                                      +     β2(θ) = Pθ(X = 3,4, or 5) =                                θ 3(1−θ)2                                               θ 4(1−θ)1                                                              θ 5(1−θ)0.                               3                                              4                                                              5

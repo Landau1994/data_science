@@ -1,0 +1,49 @@
+52                              TRANSFORMATIONS AND EXPECTATIONS
+where Γ(α) denotes the gamma function, some of whose properties are given in Section 3.3. The
+mgf is given by
+                                   1     ∞
+                      MX(t) =        α    etxxα−1e−x/β dx                               Γ(α)β    0
+                                   1     ∞            1                                                                           β −t)x dx                        (2.3.5)                  =             xα−1e−(
+                               Γ(α)β α  0
+                                   1     ∞              β  )
+                  =                                                xα−1e−x/( 1−βt dx.                                         α                               Γ(α)β    0
+
+  We now recognize the integrand in (2.3.5) as the kernel of another gamma pdf. (The kernel of
+a function is the main part of the function, the part that remains when constants are disregarded.)
+Using the fact that, for any positive constants a and b,
+
+                                      1                                    f(x) =        xa−1e−x/b
+                                       Γ(a)ba
+
+is a pdf, we have that
+                            ∞   1                                           xa−1e−x/b dx = 1
+                                       0  Γ(a)ba
+and, hence,                             ∞
+                                     xa−1e−x/b dx = Γ(a)ba.                              (2.3.6)
+                                        0
+Applying (2.3.6) to (2.3.5), we have
+
+                                            α            α                        1          β           1              1
+              MX(t) =       α Γ(α)       =                       if t <    .
+                    Γ(α)β      1−βt      1−βt           β
+If t ≥1/β, then the quantity (1/β) −t, in the integrand of (2.3.5), is nonpositive and the integralin (2.3.6) is infinite. Thus, the mgf of the gamma distribution exists only if t < 1/β. (In Section 3.3
+we will explore the gamma function in more detail.)
+   The mean of the gamma distribution is given by
+
+                           d            αβ
+                EX =   MX(t)  =         = αβ.
+                                                               t=0                                 dt       t=0   (1−βt)α+1
+Other moments can be calculated in a similar manner.                                   ∥
+
+Example 2.3.9 (Binomial mgf)   For a second illustration of calculating a moment generating
+function, we consider a discrete distribution, the binomial distribution. The binomial(n, p) pmf is
+given in (2.1.3). So
+
+                               n     n                     n   n
+                           =               MX(t) = ∑ etx                      ∑                          x=0     x  px(1−p)n−x   x=0  x  (pet)x(1−p)n−x.
+
+The binomial formula (see Theorem 3.2.2) gives
+
+                                         n   n                           = (u+v)n.                              (2.3.7)              ∑     uxvn−x                                  x=0  x
+Hence, letting u = pet and v = 1−p, we have
+                             MX(t) = [pet +(1−p)]n.                             ∥

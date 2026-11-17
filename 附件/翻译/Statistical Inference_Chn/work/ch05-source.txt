@@ -1,0 +1,2370 @@
+
+===== PDF 200, printed 169 =====
+                                   Chapter 5
+
+        Properties of a Random Sample
+
+
+
+
+
+  “I’m afraid that I rather give myself away when I explain,” said he. “Results without causes
+   are much more impressive.”
+                                                                  Sherlock Holmes
+                                                         The Stockbroker’s Clerk
+
+5.1  Basic Concepts of Random Samples
+Often, the data collected in an experiment consist of several observations on a variable of interest.
+We discussed examples of this at the beginning of Chapter 4. In this chapter, we present a model for
+data collection that is often used to describe this situation, a model referred to as random sampling.
+The following definition explains mathematically what is meant by the random sampling method of
+data collection.
+Definition 5.1.1  The random variables X1,...,Xn are called a random sample of size n from the
+population f(x) if X1,...,Xn are mutually independent random variables and the marginal pdf or
+pmf of each Xi is the same function f(x). Alternatively, X1,...,Xn are called independent and iden-
+tically distributed random variables with pdf or pmf f(x). This is commonly abbreviated to iid
+random variables.
+
+   The random sampling model describes a type of experimental situation in which the variable of
+interest has a probability distribution described by f(x). If only one observation X is made on this
+variable, then probabilities regarding X can be calculated using f(x). In most experiments there are
+n > 1 (a fixed, positive integer) repeated observations made on the variable, the first observation is
+X1, the second is X2, and so on. Under the random sampling model each Xi is an observation on the
+same variable and each Xi has a marginal distribution given by f(x). Furthermore, the observations
+are taken in such a way that the value of one observation has no effect on or relationship with
+any of the other observations; that is, X1,...,Xn are mutually independent. (See Exercise 5.4 for a
+generalization of independence.)
+   From Definition 4.6.5, the joint pdf or pmf of X1,...,Xn is given by
+
+                                                                       n
+                         f(x1,...,xn) =           = ∏ f(xi).                                       f(x1)f(x2)·····f(xn)   i=1                          (5.1.1)
+This joint pdf or pmf can be used to calculate probabilities involving the sample. Since X1,...,Xn
+are identically distributed, all the marginal densities f(x) are the same function. In particular, if the
+population pdf or pmf is a member of a parametric family, say one of those introduced in Chapter
+3, with pdf or pmf given by f(x|θ), then the joint pdf or pmf is
+                                                          n
+                                  f(x1,...,xn|θ) = ∏i=1 f(xi|θ),                              (5.1.2)
+
+
+
+DOI: 10.1201/9781003456285-5                                                               169
+===== PDF 201, printed 170 =====
+170                                    PROPERTIES OF A RANDOM SAMPLE
+where the same parameter value θ is used in each of the terms in the product. If, in a statistical
+setting, we assume that the population we are observing is a member of a specified parametric
+family but the true parameter value is unknown, then a random sample from this population has a
+joint pdf or pmf of the above form with the value of θ unknown. By considering different possible
+values of θ, we can study how a random sample would behave for different populations.
+Example 5.1.2 (Sample pdf–exponential)    Let  X1,...,Xn  be  a random  sample  from  an
+exponential(β) population. Specifically, X1,...,Xn might correspond to the times until failure (mea-
+sured in years) for n identical circuit boards that are put on test and used until they fail. The joint
+pdf of the sample is
+
+                                       n              n 1         1
+                        =                                                        e−xi/β =                                                                         e−(x1+···+xn)/β.                 ∏                                               β n                 f(x1,...,xn|β) = ∏i=1 f(xi|β)                                                   i=1 β
+
+   This pdf can be used to answer questions about the sample. For example, what is the probability
+that all the boards last more than two years? We can compute
+
+                     P(X1 > 2,...,Xn > 2)
+                            ∞    ∞  n 1
+               =       ...               ∏  e−xi/βdx1                                       2      2  i=1 β          ···dxn
+                                ∞    ∞  n 1
+                                                                                     (integrate out x1)               =  e−2/β    ∏   e−xi/β dx2   dxn                                             2  ···  2  i=2 β            ···
+                                                                                                                                                                      ...                   (integrate out the remaining xis successively)
+               =  (e−2/β)n
+               =  e−2n/β.
+
+
+If β, the average lifelength of a circuit board, is large relative to n, we see that this probability is
+near 1.
+   The previous calculation illustrates how the pdf of a random sample defined by (5.1.1) or, more
+specifically, by (5.1.2), can be used to calculate probabilities about the sample. Realize that the
+independent and identically distributed property of a random sample can also be used directly in
+such calculations. For example, the above calculation can be done like this:
+
+                           P(X1 > 2,...,Xn > 2)
+                    =  P(X1 > 2)···P(Xn > 2)               (independence)                    =  [P(X1 > 2)]n                     (identical distributions)
+                    =  (e−2/β)n                      (exponential calculation)
+                    =  e−2n/β.
+   The random sampling model in Definition 5.1.1 is sometimes called sampling from an infinite
+population. Think of obtaining the values of X1,...,Xn sequentially. First, the experiment is per-∥
+formed and X1 = x1 is observed. Then, the experiment is repeated and X2 = x2 is observed. The
+assumption of independence in random sampling implies that the probability distribution for X2 is
+unaffected by the fact that X1 = x1 was observed first. “Removing” x1 from the infinite population
+does not change the population, so X2 = x2 is still a random observation from the same population.
+   When sampling is from a finite population, Definition 5.1.1 may or may not be relevant depend-
+ing on how the data collection is done. A finite population is a finite set of numbers, {x1,...,xN}.A sample X1,...,Xn is to be drawn from this population. Four ways of drawing this sample are
+described in Section 1.2.3. We will discuss the first two.
+   Suppose a value is chosen from the population in such a way that each of the N values is equally
+likely (probability = 1/N) to be chosen. (Think of drawing numbers from a hat.) This value is
+recorded as X1 = x1. Then the process is repeated. Again, each of the N values is equally likely
+===== PDF 202, printed 171 =====
+BASIC CONCEPTS OF RANDOM SAMPLES                                      171
+to be chosen. The second value chosen is recorded as X2 = x2. (If the same number is chosen,
+then x1 = x2.) This process of drawing from the N values is repeated n times, yielding the sample
+X1,...,Xn. This kind of sampling is called with replacement because the value chosen at any stage
+is “replaced” in the population and is available for choice again at the next stage. For this kind
+of sampling, the conditions of Definition 5.1.1 are met. Each Xi is a discrete random variable that
+takes on each of the values x1,...,xN with equal probability. The random variables X1,...,Xn are
+independent because the process of choosing any Xi is the same, regardless of the values that are
+chosen for any of the other variables. (This type of sampling is used in the bootstrap; see Section
+10.1.4.)
+  A second method for drawing a random sample from a finite population is called sampling
+without replacement. Sampling without replacement is done as follows. A value is chosen from
+{x1,...,xN} in such a way that each of the N values has probability 1/N of being chosen. This value
+is recorded as X1 = x1. Now a second value is chosen from the remaining N −1 values. Each of the
+N −1 values has probability 1/(N −1) of being chosen. The second chosen value is recorded asX2 = x2. Choice of the remaining values continues in this way, yielding the sample X1,...,Xn. But
+once a value is chosen, it is unavailable for choice at any later stage.
+  A sample drawn from a finite population without replacement does not satisfy all the con-
+ditions of Definition 5.1.1. The random variables X1,...,Xn are not mutually independent. To
+see this, let x and y be distinct elements of {x1,...,xN}. Then P(X2 = y|X1 = y) = 0, since thevalue y cannot be chosen at the second stage  if  it was already chosen at the  first. However,
+P(X2 = y|X1 = x) = 1/(N −1). The probability distribution for X2 depends on the value of X1 that isobserved and, hence, X1 and X2 are not independent. However, it is interesting to note that X1,...,Xn
+are identically distributed. That is, the marginal distribution of Xi is the same for each i = 1,...,n.
+For X1 it is clear that the marginal distribution is P(X1 = x) = 1/N for each x ∈{x1,...,xN}. Tocompute the marginal distribution for X2, use Theorem 1.2.11(a) and the definition of conditional
+probability to write
+                                 N
+                         =   = xi)P(X1 = xi).                      P(X2 = x) = ∑ P(X2                                         i=1        x|X1
+For one value of the index, say k, x = xk and P(X2 = x|X1 = xk) = 0. For all other   j̸ = k, P(X2 =
+x|X1 = x j) = 1/(N −1). Thus,
+                                            1   1     1
+                        P(X2 = x) = (N −1) N   N = N .                        (5.1.3)                               −1
+Similar arguments can be used to show that each of the Xis has the same marginal distribution.
+   Sampling without replacement from a finite population is sometimes called simple random sam-
+pling. It is important to realize that this is not the same sampling situation as that described in Defi-
+nition 5.1.1. However, if the population size N is large compared to the sample size n, X1,...,Xn are
+nearly independent and some approximate probability calculations can be made assuming they are
+independent. By saying they are “nearly independent” we simply mean that the conditional distri-
+bution of Xi given X1,...,Xi−1 is not too different from the marginal distribution of Xi. For example,
+the conditional distribution of X2 given X1 is
+
+                                                        1
+          P(X2 = x1|X1 = x1) = 0  and  P(X2 = x|X1 = x1) = N       for x̸ = x1.                                       −1
+This is not too different from the marginal distribution of X2 given in (5.1.3) if N is large. The
+nonzero probabilities in the conditional distribution of Xi given X1,...,Xi−1 are 1/(N −i+1), which
+are close to 1/N if i ≤n is small compared with N.
+Example 5.1.3 (Finite population model)  As an example of an approximate calculation using
+independence, suppose {1,...,1,000} is the finite population, so N = 1,000. A sample of size n = 10
+===== PDF 203, printed 172 =====
+172                                    PROPERTIES OF A RANDOM SAMPLE
+is drawn without replacement. What is the probability that all ten sample values are greater than 200?
+If X1,...,X10 were mutually independent we would have
+              P(X1 > 200,...,X10 > 200) =  P(X1 > 200)·····P(X10 > 200)
+                                            800   10
+                        =        = .107374.                  (5.1.4)
+                                               1,000
+To calculate this probability exactly, let Y be a random variable that counts the number of items in
+the sample that are greater than 200. Then Y has a hypergeometric (N = 1,000,M = 800,K = 10)
+distribution. So
+
+                  P(X1 > 200,...,X10 > 200) =  P(Y = 10)
+                                                800     200
+                                                10       0
+                           =
+                                                        1,000
+                                                     10
+                           =  .106164.
+Thus, (5.1.4) is a reasonable approximation to the true value.                              ∥
+   Throughout the remainder of the book, we will use Definition 5.1.1 as our definition of a random
+sample from a population.
+
+5.2  Sums of Random Variables from a Random Sample
+When a sample X1,...,Xn is drawn, some summary of the values is usually computed. Any well-
+defined summary may be expressed mathematically as a function T(x1,...,xn) whose domain in-
+cludes the sample space of the random vector (X1,...,Xn). The function T may be real-valued or
+vector-valued; thus the summary is a random variable (or vector), Y = T(X1,...,Xn). This definition
+of a random variable as a function of others was treated in detail in Chapter 4, and the techniques in
+Chapter 4 can be used to describe the distribution of Y in terms of the distribution of the population
+from which the sample was obtained. Since the random sample X1,...,Xn has a simple probabilistic
+structure (because the Xis are independent and identically distributed) the distribution of Y is par-
+ticularly tractable. Because this distribution is usually derived from the distribution of the variables
+in the random sample, it is called the sampling distribution of Y. This distinguishes the probability
+distribution of Y from the distribution of the population, that is, the marginal distribution of each Xi.
+In this section, we will discuss some properties of sampling distributions, especially for functions
+T(x1,...,xn) defined by sums of random variables.
+Definition 5.2.1  Let X1,...,Xn be a random sample of  size n from a population and  let
+T(x1,...,xn) be a real-valued or vector-valued function whose domain includes the sample space of
+(X1,...,Xn). Then the random variable or random vector Y = T(X1,...,Xn) is called a statistic. The
+probability distribution of a statistic Y is called the sampling distribution of Y.
+
+   The definition of a statistic is very broad, with the only restriction being that a statistic cannot
+be a function of a parameter. The sample summary given by a statistic can include many types of
+information. For example, it may give the smallest or largest value in the sample, the average sample
+value, or a measure of the variability in the sample observations. Three statistics that are often used,
+and provide good summaries of the sample, are now defined.
+Definition 5.2.2  The sample mean is the arithmetic average of the values in a random sample. It
+is usually denoted by
+                                 X1           1  n                                              ¯X =   +···+Xn =                       ∑ Xi.                                     n        n i=1
+===== PDF 204, printed 173 =====
+SUMS OF RANDOM VARIABLES FROM A RANDOM SAMPLE                     173
+Definition 5.2.3  The sample variance is the statistic defined by
+
+                                    1    n                                  S2 =                   ∑ (Xi −¯X)2.                                                   i=1                         n−1
+The sample standard deviation is the statistic defined by S = √S2.
+
+   As is commonly done, we have suppressed the functional notation in the above definitions of
+these statistics. That is, we have written S rather than S(X1,...,Xn). The dependence of the statistic
+on the sample is understood. As before, we will denote observed values of statistics with lowercase
+letters. So ¯x, s2, and s denote observed values of ¯X, S2, and S.
+   The sample mean is certainly familiar to all. The sample variance and standard deviation are
+measures of variability in the sample that are related to the population variance and standard devia-
+tion in ways that we shall see below. We begin by deriving some properties of the sample mean and
+variance. In particular, the relationship for the sample variance given in Theorem 5.2.4 is related to
+(2.3.1), a similar relationship for the population variance.
+Theorem 5.2.4  Let x1,...,xn be any numbers and ¯x = (x1 +···+xn)/n. Then
+  a. mina ∑ni=1(xi −a)2            = ∑ni=1(xi −¯x)2
+  b. (n−1)s2 = ∑ni=1(xi −¯x)2                = ∑ni=1 x2i −n¯x2
+Proof: To prove part (a), add and subtract ¯x to get
+
+                    n                   n
+                =              ∑ (xi       ∑ (xi −a)2                             −¯x+ ¯x−a)2                  i=1                                     i=1
+                                        n                n                     n
+                =                           +2                    ∑ (xi              ∑ (xi −¯x)2                            ∑ (¯x−a)2                                     i=1                                                     i=1                                              −¯x)(¯x−a)+ i=1
+                                        n              n
+                =                        +                                                                                (cross term is zero)              ∑ (xi −¯x)2                   ∑ (¯x−a)2.                                     i=1                                                    i=1
+
+It is now clear that the right-hand side is minimized at a = ¯x. (Notice the similarity to Example 2.2.6
+and Exercise 4.13.)
+   To prove part (b), take a = 0 in the above.                            2
+
+   The expression in Theorem 5.2.4(b) is useful both computationally and theoretically because it
+allows us to express s2 in terms of sums that are easy to handle.
+  We will begin our study of sampling distributions by considering the expected values of some
+statistics. The following result is quite useful.
+Lemma 5.2.5  Let X1,...,Xn be a random sample from a population and let g(x) be a function such
+that Eg(X1) and Varg(X1) exist. Then
+
+                                            n
+                       E                          = n(Eg(X1))                              (5.2.1)               ∑ g(Xi)
+                                         i=1
+
+and
+                                           n
+                            Var                          = n(Varg(X1)).                           (5.2.2)               ∑ g(Xi)
+                                        i=1
+Proof: To prove (5.2.1), note that
+
+                                    n              n
+                      =                   E                             = n(Eg(X1)).             ∑ g(Xi)                  ∑ Eg(Xi)
+                                  i=1           i=1
+===== PDF 205, printed 174 =====
+174                                    PROPERTIES OF A RANDOM SAMPLE
+Since the Xis are identically distributed, the second equality is true because Eg(Xi) is the same for
+all i. Note that the independence of X1,...,Xn is not needed for (5.2.1) to hold. Indeed, (5.2.1) is
+true for any collection of n identically distributed random variables.
+   To prove (5.2.2), note that
+
+                                                                         2                       n                     n               n
+                 =  E                                                                                (definition of variance)            Var        ∑ g(Xi)                ∑     ∑ g(Xi)                     i=1                   i=1 g(Xi)−E  i=1
+                                                                   2
+                                             n                            expectation property and                 =  E                                   .                ∑                                     (g(Xi)−Eg(Xi))           rearrangement of terms                                          i=1
+
+                                           = 1,...,n, andIn this last expression there are n2 terms. First, there are n terms (g(Xi)−Eg(Xi))2, ifor each, we have
+
+                        =  Varg(Xi)                 (definition of variance)                   E(g(Xi)−Eg(Xi))2                        =  Varg(X1).               (identically distributed)
+
+The remaining n(n−1) terms are all of the form g(Xi)−Eg(Xi)  g(Xj)−Eg(Xj)  , with  i̸ = j. Foreach term,
+                E  g(Xi)−Eg(Xi)  g(Xj)−Eg(Xj)                                                                                        definition of
+              =  Cov(g(Xi),g(Xj))                                 covariance
+                                                                        independence              =   0.                                                                Theorem 4.5.5
+
+Thus, we obtain Equation (5.2.2).                                  2
+Theorem 5.2.6  Let X1,...,Xn be a random sample from a population with mean µ and variance
+σ2 < ∞. Then
+  a. E¯X = µ,
+          σ2  b. Var ¯X =      ,
+            n
+  c. ES2 = σ2.
+Proof: To prove (a), let g(Xi) = Xi/n, so Eg(Xi) = µ/n. Then, by Lemma 5.2.5,
+
+                            1  n       1     n       1
+                       =                               =    = µ.                E¯X = E  ∑ Xi                    ∑ Xi                            n i=1     nE  i=1      nnEX1
+
+Similarly for (b), we have
+
+                          1  n       1        n       1         σ2
+                      =   Var                               =   nVarX1 =      .               Var ¯X = Var  ∑ Xi                     ∑ Xi                          n i=1       n2      i=1       n2          n
+
+For the sample variance, using Theorem 5.2.4, we have
+
+                1     n                   1
+                      =       nEX21       ¯X2     ES2 = E    ∑ X2i     ¯X2                          i=1  −n                −nE          n−1               n−1
+                                        1                σ2
+                      =        n(σ2 + µ2)−n   n + µ2  = σ2,                            n−1
+establishing part (c) and proving the theorem.                            2
+===== PDF 206, printed 175 =====
+SUMS OF RANDOM VARIABLES FROM A RANDOM SAMPLE                     175
+   The relationships (a) and (c) in Theorem 5.2.6, relationships between a statistic and a population
+parameter, are examples of unbiased statistics. These are discussed in Chapter 7. The statistic ¯X is
+an unbiased estimator of µ and S2 is an unbiased estimator of σ2. The use of n−1 in the definitionof S2 may have seemed unintuitive. Now we see that, with this definition, ES2 = σ2. If S2 were
+defined as the usual average of the squared deviations with n rather than n−1 in the denominator,then ES2 would be n−1n σ2 and S2 would not be an unbiased estimator of σ2.
+  We now discuss in more detail the sampling distribution of ¯X. The methods from Sections 4.3
+and 4.6 can be used to derive this sampling distribution from the population distribution. But be-
+cause of the special probabilistic structure of a random sample (iid random variables), the resulting
+sampling distribution of ¯X is simply expressed.
+    First we note some simple relationships. Since ¯X = 1n(X1 +  + Xn), if f(y) is the pdf of Y =                                                                         ···                                       ¯X (x) = n f(nx) is the pdf of ¯X (see Exercise 5.5). Thus, a result about the pdf(X1 +···+Xn), then fof Y is easily transformed into a result about the pdf of ¯X. A similar relationship holds for mgfs:
+
+                                                             ¯X          M¯X (t) = Eet = Eet(X1+···+Xn)/n = Ee(t/n)Y = MY(t/n).
+
+Since X1,...,Xn are identically distributed, MXi(t) is the same function for each i. Thus, by Theo-
+rem 4.6.7, we have the following.
+Theorem 5.2.7  Let X1,...,Xn be a random sample from a population with mgf MX(t). Then the
+mgf of the sample mean is
+                   M¯X (t) = [MX(t/n)]n.
+
+
+   Of course, Theorem 5.2.7 is useful only if the expression for M¯X (t) is a familiar mgf. Cases
+when this is true are somewhat limited, but the following example illustrates that, when this method
+works, it provides a very slick derivation of the sampling distribution of ¯X.
+Example 5.2.8 (Distribution of the mean)   Let X1,...,Xn be a random sample from a n(µ,σ2)
+population. Then the mgf of the sample mean is
+
+                                                            n                                                       t   σ2(t/n)2
+        M¯X (t) =   exp  µ +                               n      2
+                                                          t   σ2(t/n)2                (σ2/n)t2
+             =  exp  n  µ +         =exp  µt +                 .
+                                n      2                    2
+
+Thus, ¯X has a n(µ,σ2/n) distribution.
+   Another simple example is given by a gamma(α,β) random sample (see Example 4.6.8). Here,
+we can also easily derive the distribution of the sample mean. The mgf of the sample mean is
+
+                                           α  n                 nα                                 1                 1
+           M¯X (t) =           =                          ,
+                           1−β(t/n)        1−(β/n)t
+which we recognize as the mgf of a gamma(nα,β/n), the distribution of ¯X.                                                                              ∥
+     If Theorem 5.2.7 is not applicable, either because the resulting mgf of ¯X is unrecognizable or
+the population mgf does not exist, then the transformation method of Sections 4.3 and 4.6 might be
+used to find the pdf of Y = (X1 +···+Xn) and ¯X. In such cases, the following convolution formulais useful.
+Theorem 5.2.9   If X and Y are independent continuous random variables with pdfs fX(x) and
+fY(y), then the pdf of Z = X +Y is
+
+                                 ∞
+                                  fZ(z) = −∞fX(w) fY(z−w)dw.                            (5.2.3)
+===== PDF 207, printed 176 =====
+176                                    PROPERTIES OF A RANDOM SAMPLE
+Proof: Let W = X. The Jacobian of the transformation from (X,Y) to (Z,W) is 1. So using (4.3.2),
+we obtain the joint pdf of (Z,W) as
+
+                         fZ,W(z,w) = fX,Y(w,z−w) = fX(w) fY(z−w).
+Integrating out w, we obtain the marginal pdf of Z as given in 5.2.3.                2
+
+   The limits of integration in (5.2.3) might be modified if fX or fY or both are positive only for
+some values. For example, if fX and  fY are positive only for positive values, then the limits of
+integration are 0 and z because the integrand is zero for values of w outside this range. Equations
+similar to the convolution formula of (5.2.3) can be derived for operations other than summing; for
+example, formulas for differences, products, and quotients are also obtainable (see Exercise 5.6).
+Example 5.2.10 (Sum of Cauchy random variables)  As an example of a situation where the
+mgf technique fails, consider sampling from a Cauchy distribution. We will eventually derive the
+distribution of Z, the mean of Z1,...,Zn, iid Cauchy(0,1) observations. We start, however, with the
+distribution of the sum of two independent Cauchy random variables and apply formula (5.2.3).
+   Let U and V  be independent Cauchy random  variables, U ∼Cauchy(0,σ) and V ∼Cauchy(0,τ), that is,
+
+                  1     1                 1     1              u < ∞,           fU(u) =                       ,     fV(v) =                      ,   −∞<              πσ 1+(u/σ)2           πτ 1+(v/τ)2            v < ∞.                                   −∞<
+Based on formula (5.2.3), the pdf of Z = U +V is given by
+
+                   ∞  1      1     1        1
+               fZ(z) =                                                       dw, −∞< z < ∞.        (5.2.4)                  πσ 1+(w/σ)2 πτ                 −∞               1+((z−w)/τ)2
+This integral is somewhat involved, but can be solved by a partial fraction decomposition and some
+careful antidifferentiation (see Exercise 5.7). The result is
+
+                             1          1
+                        fZ(z) =                                                                                     , −∞< z < ∞.                  (5.2.5)                        π(σ +τ) 1+(z/(σ +τ))2
+
+Thus, the sum of two independent Cauchy random variables is again a Cauchy, with the scale pa-
+rameters adding. It therefore follows that if Z1,...,Zn are iid Cauchy(0,1) random variables, then
+∑Zi is Cauchy(0,n) and also Z is Cauchy(0,1)! The sample mean has the same distribution as
+the individual observations. (See Example12.6.5 in the Computer Algebra appendix for a computer
+algebra version of this calculation.)                                                  ∥
+     If we are sampling from a location–scale family or if we are sampling from certain types of
+exponential families, the sampling distribution of sums of random variables, and in particular of ¯X,
+is easy to derive. We will close this section by discussing these two situations.
+  We first treat the location–scale case discussed in Section 3.5. Suppose X1,...,Xn is a random
+sample from (1/σ)f((x −µ)/σ), a member of a location–scale family. Then the distribution of ¯Xhas a simple relationship to the distribution of Z, the sample mean from a random sample from the
+standard pdf f(z). To see the nature of this relationship, note that from Theorem 3.5.6 there exist
+random variables Z1,...,Zn such that Xi = σZi + µ and the pdf of each Zi is f(z). Furthermore, we
+see that Z1,...,Zn are mutually independent. Thus, Z1,...,Zn is a random sample from f(z). The
+sample means ¯X and Z are related by
+
+                  1  n     1  n            1      n
+                =                                    = σZ + µ.                       ¯X = ∑ Xi              ∑ (σZi                      + µ) =   σ ∑ Zi +nµ                  n i=1     n i=1           n     i=1
+===== PDF 208, printed 177 =====
+SAMPLING FROM THE NORMAL DISTRIBUTION                                177
+Thus, again applying Theorem 3.5.6, we find that if g(z) is the pdf of Z, then (1/σ)g((x−µ)/σ) isthe pdf of ¯X. It may be easier to work first with Z1,...,Zn and f(z) to find the pdf g(z) of Z. If this
+is done, the parameters µ and σ do not have to be dealt with, which may make the computations
+less messy. Then we immediately know that the pdf of ¯X is (1/σ)g((x−µ)/σ).    In Example 5.2.10, we found that if Z1,...,Zn is a random sample from a Cauchy(0,1) distribu-
+tion, then Z also has a Cauchy(0,1) distribution. Now we can conclude that if X1,...,Xn is a random
+sample from a Cauchy(µ,σ) distribution, then ¯X also has a Cauchy(µ,σ) distribution. It is impor-
+tant to note that the dispersion in the distribution of ¯X, as measured by σ, is the same, regardless
+of the sample size n. This is in sharp contrast to the more common situation in Theorem 5.2.6 (the
+population has finite variance) where Var ¯X = σ2/n decreases as the sample size increases.
+   When sampling is from an exponential family, some sums from a random sample have sam-
+pling distributions that are easy to derive. The statistics T1,...,Tk in the next theorem are important
+summary statistics, as will be seen in Section 6.2.
+Theorem 5.2.11   Suppose X1,...,Xn is a random sample from a pdf or pmf f(x|θ), where
+                                                                   k
+                            f(x|θ) = h(x)c(θ)exp  i=1∑ wi(θ)ti(x)
+
+is a member of an exponential family. Define statistics T1,...,Tk by
+
+                                                   n
+                                                                                    i = 1,...,k.                            Ti(X1,...,Xn) = ∑ ti(Xj),
+                                               j=1
+If the set {(w1(θ),w2(θ),...,wk(θ)),θ ∈Θ} contains an open subset of ℜk, then the distributionof (T1,...,Tk) is an exponential family of the form
+
+                                                                                 k
+                                                                                                                 .              (5.2.6)                   fT(u1,...,uk|θ) = H(u1,...,uk)[c(θ)]n exp  i=1∑ wi(θ)ui
+
+
+   The open set condition eliminates a density such as the n(θ,θ 2) and, in general, eliminates
+curved exponential families from Theorem 5.2.11. Note that in the pdf or pmf of (T1,...,Tk), the
+functions c(θ) and wi(θ) are the same as in the original family although the function H(u1,...,uk)
+is, of course, different from h(x). We will not prove this theorem but will only illustrate the result in
+a simple case.
+Example 5.2.12 (Sum of Bernoulli random variables)  Suppose X1,...,Xn is a random sample
+from a Bernoulli(p) distribution. From Example 3.4.1 (with n = 1) we see that a Bernoulli(p) dis-
+tribution is an exponential family with k = 1,c(p) = (1−p),w1(p) = log(p/(1−p)), and t1(x) = x.
+Thus, in the previous theorem, T1 = T1(X1,...,Xn) = X1 + ··· + Xn. From the definition of the bi-nomial distribution in Section 3.2, we know that T1 has a binomial(n, p) distribution. From Exam-
+ple 3.4.1 we also see that a binomial(n, p) distribution is an exponential family with the same w1(p)
+and c(p) = (1−p)n. Thus, expression (5.2.6) is verified for this example.                   ∥
+
+5.3  Sampling from the Normal Distribution
+This section deals with the properties of sample quantities drawn from a normal population – still
+one of the most widely used statistical models. Sampling from a normal population leads to many
+useful properties of sample statistics, and also to many well-known sampling distributions.
+===== PDF 209, printed 178 =====
+178                                    PROPERTIES OF A RANDOM SAMPLE
+5.3.1  Properties of the Sample Mean and Variance
+We have already seen how to calculate the means and variances of ¯X and S2 in general. Now,
+under the additional assumption of normality, we can derive their full distributions, and more. The
+properties of ¯X and S2 are summarized in the following theorem.
+Theorem 5.3.1  Let X1,...,Xn be a random sample from a n(µ,σ2) distribution, and let ¯X =
+(1/n)∑ni=1Xi and S2 = [1/(n−1)]∑ni=1(Xi −¯X)2. Then
+  a.  ¯X and S2 are independent random variables,
+  b.  ¯X has a n(µ,σ2/n) distribution,
+  c. (n−1)S2/σ2 has a chi squared distribution with n−1 degrees of freedom.
+Proof: First note that, from Section 3.5 on location–scale families, we can assume, without loss of
+generality, that µ = 0 and σ = 1. (Also see the discussion preceding Theorem 5.2.11.) Furthermore,
+part (b) has already been established in Example 5.2.8, leaving us to prove parts (a) and (c).
+   To prove part (a) we will apply Theorem 4.6.12, and show that ¯X and S2 are functions of inde-
+pendent random vectors. Note that we can write S2 as a function of n−1 deviations as follows:
+                    1    n            S2 =           ∑ (Xi −¯X)2                             i=1             n−1
+                    1                   n
+         =                     +                           (X1 −¯X)2                                             i=2                               ∑ (Xi −¯X)2              n−1
+                    1        n                 n                                   since         =                        +                                                = 0                   ∑ (Xi −¯X)2                                                   i=2             i=2            ∑ (Xi −¯X)2                                                           ∑ni=1(Xi −¯X)             n−1                                                                                                                                                     .
+Thus, S2 can be written as a function only of (X2 −¯X,...,Xn −¯X). We will now show that theserandom variables are independent of ¯X. The joint pdf of the sample X1,...,Xn is given by
+
+                                  1                                                 e−(1/2)Σni=1x2                       f(x1,...,xn) =                                                                                                                                           i , −∞< xi < ∞.                                    (2π)n/2
+
+Make the transformation
+
+                                         y1 =    ¯x,
+                                      y2 =  x2 −¯x,
+                                                                                                                                                                                                                                  ...
+                                         yn =  xn −¯x.
+This is a linear transformation with a Jacobian equal to 1/n. We have
+
+         f(y1,...,yn)
+                n
+      =                                                                                   yi < ∞                         e−(1/2)(y1−Σni=2yi)2e−(1/2)Σni=2(yi+y1)2, −∞<               (2π)n/2
+                                          n1/2                                                      e−(1/2)[Σni=2y2      =              e(−ny21)/2                                                                                                                                                    i +(Σni=2yi)2]   ,          yi < ∞.               2π                                     (2π)(n−1)/2                 −∞<                     1/2                 n
+Since the joint pdf of Y1,...,Yn factors, it follows from Theorem 4.6.11 that Y1 is independent of
+Y2,...,Yn, and hence, from Theorem 4.6.12, that ¯X is independent of S2.             2
+   To finish the proof of the theorem we must now derive the distribution of S2. Before doing
+so, however, we digress a little and discuss the chi squared distribution, whose properties play an
+===== PDF 210, printed 179 =====
+SAMPLING FROM THE NORMAL DISTRIBUTION                                179
+important part in the derivation of the pdf of S2. Recall from Section 3.3 that the chi squared pdf is
+a special case of the gamma pdf, and is given by
+
+                               1                         f(x) =             x(p/2)−1e−x/2,  0 < x < ∞,
+                            Γ(p/2)2p/2
+
+where p is called the degrees of freedom. We now summarize some pertinent facts about the chi
+squared distribution.
+Lemma 5.3.2 (Facts about chi squared random variables)  We use the notation χ2p to denote a
+chi squared random variable with p degrees of freedom.
+  a.  If Z is a n(0,1) random variable, then Z2 ∼χ21, that is, the square of a standard normal random   variable is a chi squared random variable.
+  b.  If X1,...,Xn are independent, and Xi ∼χ2pi, then X1 +···+Xn ∼χ2p1+···+pn, that is, independent   chi squared variables add to a chi squared variable, and the degrees of freedom also add.
+Proof: We have encountered these facts already. Part (a) was established in Example 2.1.7. Part
+(b) is a special case of Example 4.6.8, which has to do with sums of independent gamma random
+variables. Since a χ2p random variable is a gamma(p/2,2), application of the example gives part (b).
+2
+
+Proof of Theorem 5.3.1(c): We will employ an induction argument to establish the distribution of
+S2, using the notation ¯Xk and S2k to denote the sample mean and variance based on the first k obser-
+vations. (Note that the actual ordering of the observations is immaterial – we are just considering
+them to be ordered to facilitate the proof.) It is straightforward to establish (see Exercise 5.15) that
+                                   n =       + n−1  (Xn                             (5.3.1)                  (n−1)S2  (n−2)S2n−1     n       −¯Xn−1)2.
+
+                                       1 = 0, we have from (5.3.1) thatNow consider n = 2. Defining 0×S2
+                                     1
+                                     S22 = 2(X2 −X1)2.
+Since the distribution of (X2    √ 2 is n(0,1), part (a) of Lemma 5.3.2 shows that S22     1.                     −X1)/                                ∼χ2
+                                                                           kProceeding with the induction, assume that for n = k,(k−1)S2                                      ∼χ2k−1. For n = k+1 we have from(5.3.1)
+                                               k
+                         kS2k+1 = (k −1)S2k +  k +1  (Xk+1 −¯Xk)2.                      (5.3.2)
+
+                                                         kAccording to the induction hypothesis, (k−1)S2                             ∼χ2k−1. If we can establish that (k/(k +1))(Xk+1−
+                                                                                                             k , and the                                                                            k+1¯Xk)2 ∼χ21, independent of S2k, it will follow from part (b) of Lemma 5.3.2 that kS2                                                  ∼χ2theorem will be proved.
+                                                         k again follows from Theorem 4.6.12. The vector   The independence of (Xk+1 −¯Xk)2 and S2
+(Xk+1, ¯Xk) is independent of S2k and so is any function of the vector. Furthermore, Xk+1 −¯Xk is anormal random variable with mean 0 and variance
+                                                  k +1
+                                Var(Xk+1 −¯Xk) =   k   ,
+
+                                                    2and therefore (k/(k +1))(Xk+1 −¯Xk)2 ∼χ21, and the theorem is established.
+   The independence of ¯X and S2 can be established in a manner different from that used in the
+proof of Theorem 5.3.1. Rather than show that the joint pdf factors, we can use the following lemma,
+which ties together independence and correlation for normal samples.
+===== PDF 211, printed 180 =====
+180                                    PROPERTIES OF A RANDOM SAMPLE
+                                                               j ), j = 1,...,n, independent. For constants aij, br j ( j = 1,...,n;i =Lemma 5.3.3  Let Xj ∼n(µ j,σ2
+1,...,k; and r = 1,...,m), where k +m ≤n, define
+                                              n
+                                                                             i = 1,...,k,                             Ui = ∑ ai jXj,
+                                           j=1
+                                              n
+                                                       r = 1,...,m.                              Vr = ∑ br jXj,
+                                           j=1
+  a. The random variables Ui and Vr are independent if and only if Cov(Ui,Vr) = 0. Furthermore,
+   Cov(Ui,Vr) = ∑nj=1 ai jbr jσ2j .
+  b. The random vectors (U1,...,Uk) and (V1,...,Vm) are independent if and only if Ui is indepen-
+   dent of Vr for all pairs i,r (i = 1,...,k;r = 1,...,m).
+Proof: It is sufficient to prove the lemma for µi = 0 and σ2i = 1, since the general statement of the
+lemma then follows quickly. Furthermore, the implication from independence to zero covariance is
+immediate (Theorem 4.5.5) and the expression for the covariance is easily verified (Exercise 5.14).
+Note also that Corollary 4.6.10 shows that Ui and Vr are normally distributed.
+   Thus, we are left with proving that if the constants satisfy the above restriction (equivalently,
+the covariance is zero), then we have independence under normality. We prove the lemma only for
+n = 2, since the proof for general n is similar, but necessitates a detailed n-variate transformation.
+   To prove part (a) start with the joint pdf of X1 and X2
+                                1
+                                                                x1,x2 < ∞.                        fX1,X2(x1,x2) =                                             e−(1/2)(x21+x22), −∞<                              2π
+Make the transformation (we can suppress the double subscript in the n = 2 case)
+
+                       u = a1x1 +a2x2,       v = b1x1 +b2x2,
+
+so
+                           x1 = b2u−a2v  ,        x2 = a1v−b1u  ,
+                             a1b2 −b1a2             a1b2 −b1a2
+with Jacobian
+                                ∂x1   ∂x1
+                            ∂u   ∂v        1                              J =       =                   .
+                                ∂x2   ∂x2    a1b2 −b1a2
+                            ∂u   ∂v
+Thus, the pdf of U and V is
+          fU,V(u,v) =   fX1,X2   b2u−a2v  , a1v−b1u                               a1b2        a1b2           |J|                              −b1a2     −b1a2
+                      1            =     exp      −1                     2π      2(a1b2         (b2u−a2v)2 +(a1v−b1u)2    |J|,                                   −b1a2)2
+−∞< u,v < ∞. Expanding the squares in the exponent, we can write
+         (b2u−a2v)2 +(a1v−b1u)2                    = (b21 +b22)u2 +(a21 +a22)v2 −2(a1b1 +a2b2)uv.
+The assumption on the constants shows that the cross-term is identically zero. Hence, the pdf factors
+so, by Lemma 4.2.7, U and V are independent and part (a) is established.
+  A similar type of argument will work for part (b), the details of which we will not go into. If the
+appropriate transformation is made, the joint pdf of the vectors (U1,...,Uk) and (V1,...,Vm) can be
+obtained. By an application of Theorem 4.6.11, the vectors are independent, if the joint pdf factors.
+From the form of the normal pdf, this will happen if and only if Ui is independent, of Vr for all pairs
+i,r (i = 1,...,k;r = 1,...,m).                                    2
+===== PDF 212, printed 181 =====
+SAMPLING FROM THE NORMAL DISTRIBUTION                                181
+   This lemma shows that, if we start with independent normal random variables, covariance and
+independence are equivalent for linear functions of these random variables. Thus, we can check
+independence for normal variables by merely checking the covariance term, a much simpler calcu-
+lation. There is nothing magic about this, it just follows from the form of the normal pdf. Further-
+more, part (b) allows us to infer overall independence of normal vectors by just checking pairwise
+independence, a property that does not hold for general random variables.
+  We can use Lemma 5.3.3 to provide an alternate proof of the independence of ¯X and S2 in
+normal sampling. Since we can write S2 as a function of n−1 deviations (X2 −¯X,...,Xn −¯X), wemust show that these random variables are uncorrelated with ¯X. The normality assumption, together
+with Lemma 5.3.3, will then allow us to conclude independence.
+   As an illustration of the application of Lemma 5.3.3, write
+                                                     n   1
+                                                   ¯X = ∑       Xi,                                                  i=1  n
+                                                     n
+                              Xj −¯X =   i=1∑   δij −1n   Xi,
+where δij = 1 if i = j and δi j = 0 otherwise. It is then easy to show that
+                                                    n   1
+                    Cov( ¯X,Xj   = ∑          δij                              −¯X)   i=1  n    −1n = 0,
+showing that ¯X and Xj −¯X are independent (as long as the Xis have the same variance).
+
+5.3.2  The Derived Distributions: Student’s t and Snedecor’s F
+
+The distributions derived in Section 5.3.1 are, in a sense, the first step in a statistical analysis that
+assumes normality. In particular, in most practical cases the variance, σ2, is unknown. Thus, to get
+any idea of the variability of ¯X (as an estimate of µ), it is necessary to estimate this variance. This
+topic was first addressed by W. S. Gosset (who published under the pseudonym of Student) in the
+early 1900s. The landmark work of Student resulted in Student’s t distribution or, more simply, the
+t distribution.
+     If X1,...,Xn are a random sample from a n(µ,σ2), we know that the quantity
+                                                             ¯X −µ                                          (5.3.3)                             σ/√n
+is distributed as a n(0,1) random variable. If we knew the value of σ, and we measured ¯X, then
+we could use (5.3.3) as a basis for inference about µ, since µ would then be the only unknown
+quantity. Most of the time, however, σ is unknown. Student did the obvious thing – he looked at the
+distribution of
+                                                            ¯X −µ ,                                         (5.3.4)                                S/√n
+a quantity that could be used as a basis for inference about µ when σ was unknown.
+   The distribution of (5.3.4) is easy to derive, provided that we first notice a few simplifying
+maneuvers. Multiply (5.3.4) by σ/σ and rearrange slightly to obtain
+                                               ¯X −µ = (¯X −µ)/(σ/√n) .                              (5.3.5)                        S/√n        S2/σ2
+The numerator of (5.3.5) is a n(0,1) random variable, and the denominator is   χ2n−1/(n−1), in-
+dependent of the numerator. Thus, the distribution of (5.3.4) can be found by solving the simplified
+problem of finding the distribution of U/  V/p, where U is n(0,1), V is χ2p, and U and V are
+independent. This gives us Student’s t distribution.
+===== PDF 213, printed 182 =====
+182                                    PROPERTIES OF A RANDOM SAMPLE
+Definition 5.3.4  Let X1,...,Xn be a random sample from a n(µ,σ2) distribution. The quantity
+(¯X                has Student’s t distribution with n−1 degrees of freedom. Equivalently, a random  −µ)/(S/√n)
+variable T has Student’s t distribution with p degrees of freedom, and we write T ∼tp, if it has pdf
+                   Γ  p+12      1          1
+                    fT(t) =      p                                                                                           , −∞< t < ∞.             (5.3.6)                                  (pπ)1/2 (1+t2/p)(p+1)/2                   Γ  2
+
+
+   Notice that if p = 1 then (5.3.6) becomes the pdf of the Cauchy distribution, which occurs for
+samples of size 2. Once again the Cauchy distribution has appeared in an ordinary situation.
+   The derivation of the t pdf is straightforward. Starting with U and V defined above, it follows
+from (5.3.5) that the joint pdf of U and V is
+
+                    1            1
+                                     < ∞,  0 < v < ∞.                            e−u2/2        fU,V(u,v) =                                               v(p/2)−1e−v/2, −∞< u                    (2π)1/2                        Γ  2p  2p/2
+(Recall that U and V are independent.) Now make the transformation
+                                    u
+                                                       t =           ,   w = v.
+                                   v/p
+
+The Jacobian of the transformation is (w/p)1/2, and the marginal pdf of T is given by
+
+                    ∞      w  1/2    w  1/2
+             fT(t) =       fU,V    t       ,w        dw
+                            0          p          p
+                       1       1     ∞                 w  1/2
+          =               p          e−(1/2)t2w/pw(p/2)−1e−w/2      dw
+                       (2π)1/2 Γ  2  2p/2  0                        p
+                       1        1       ∞
+          =                p               e−(1/2)(1+t2/p)ww((p+1)/2)−1 dw.
+                       (2π)1/2 Γ  2  2p/2p1/2  0
+Recognize the integrand as the kernel of a gamma((p+1)/2,2/(1+t2/p)) pdf. We therefore have
+
+                        1        1      p+1      2     (p+1)/2
+                   fT(t) =             p       Γ                                         ,
+                         (2π)1/2 Γ  2  2p/2p1/2     2    1+t2/p
+which is equal to (5.3.6).
+    Student’s t has no mgf because it does not have moments of all orders. In fact, if there are p
+degrees of freedom, then there are only p−1 moments. Hence, a t1 has no mean, a t2 has no variance,etc. It is easy to check (see Exercise 5.18) that if Tp is a random variable with a tp distribution, then
+
+                             ETp =   0,    if p > 1,
+                                                                                                 (5.3.7)
+                                        p
+                            VarTp =  p−2,    if p > 2.
+   Another important derived distribution is Snedecor’s F, whose derivation is quite similar to that
+of Student’s t. Its motivation, however, is somewhat different. The F distribution, named in honor
+of Sir Ronald Fisher, arises naturally as the distribution of a ratio of variances.
+Example 5.3.5 (Variance ratio distribution)   Let  X1,...,Xn  be  a random sample from  a
+n(µX,σ2X) population, and let Y1,...,Ym be a random sample from an independent n(µY,σY2 ) popu-
+lation. If we were interested in comparing the variability of the populations, one quantity of interest
+===== PDF 214, printed 183 =====
+SAMPLING FROM THE NORMAL DISTRIBUTION                                183
+would be the ratio σ2X/σ2Y . Information about this ratio is contained in S2X/S2Y, the ratio of sample
+variances. The F distribution allows us to compare these quantities by giving us a distribution of
+
+                                     S2X/S2Y    S2X/σ2X                         =            .                                   (5.3.8)
+                              σ2X/σ2Y    S2Y/σ2Y
+Examination of (5.3.8) shows us how the F distribution is derived. The ratios S2X/σ2X and S2Y/σ2Y are
+each scaled chi squared variates, and they are independent.                               ∥
+Definition 5.3.6  Let X1,...,Xn be a random sample from a n(µX,σ2X) population, and let Y1,...,Ym
+be a random sample from an independent n(µY,σ2Y ) population. The random variable F =
+(S2X/σ2X)/(S2Y/σ2Y ) has Snedecor’s F distribution with n −1 and m −1 degrees of freedom. Equiv-alently, the random variable F has the F distribution with p and q degrees of freedom if it has
+pdf
+                   Γ p+q2      p  p/2      x(p/2)−1                 fF(x) =    p     q                                            ,  0 < x < ∞.            (5.3.9)
+                  Γ  2 Γ  2   q     [1+(p/q)x](p+q)/2
+
+   The F distribution can be derived in a more general setting than is done here. A variance ratio
+may have an F distribution even if the parent populations are not normal. Kelker (1970) has shown
+that as long as the parent populations have a certain type of symmetry (spherical symmetry), then
+the variance ratio will have an F distribution.
+   The derivation of the F pdf, starting from normal distributions, is similar to the derivation of
+Student’s t. In fact, in one special case the F is a transform of the t. (See Theorem 5.3.8.) Similar
+to what we did for the t, we can reduce the task of deriving the F pdf to that of finding the pdf of
+                                                           p and V ∼χ2q. (See Exercise 5.17.)(U/p)/(V/q), where U and V are independent, U ∼χ2
+Example 5.3.7 (Continuation of Example 5.3.5)  To see how the F distribution may be used
+for inference about the true ratio of population variances, consider the following. The quantity
+(S2X/σ2X)/ (S2Y/σ2Y ) has an Fn−1,m−1 distribution. (In general, we use the notation Fp,q to denote
+an F random variable with p and q degrees of freedom.) We can calculate
+
+                                         χ2                      =  E   n−1/(n−1)                  (by definition)                         EFn−1,m−1         χ2                                     m−1/(m−1)
+                                        χ2                      =  E    n−1  E m−1              (independence)
+                             n−1      χ2m−1
+                                                                                    chi squared                      =   n−1  m−1
+                            n−1  m−3                     calculations
+                      = m−1
+                            m−3.
+
+Note that this last expression is finite and positive only if m > 3. We have that
+
+                                S2X/σ2X                    E      =      = m−1
+                                S2Y/σ2Y                                         EFn−1,m−1  m−3,
+and, removing expectations, we have for reasonably large m,
+
+                                    S2X/S2Y
+                             σ2X/σ2Y ≈m−1 ≈1,                          m−3
+as we might expect.                                                              ∥
+===== PDF 215, printed 184 =====
+184                                    PROPERTIES OF A RANDOM SAMPLE
+   The F distribution has many interesting properties, and is related to a number of other distri-
+butions. We summarize some of these facts in the next theorem, whose proof is left as an exercise.
+(See Exercises 5.17 and 5.18.)
+Theorem 5.3.8
+  a.  If X ∼Fp,q then 1/X ∼Fq,p, that is, the reciprocal of an F random variable is again an F  random variable.
+  b.  If X ∼tq then X2 ∼F1,q.
+  c.  If X ∼Fp,q, then (p/q)X/(1+(p/q)X) ∼beta(p/2,q/2).
+
+5.4  Order Statistics
+Sample values such as the smallest, largest, or middle observation from a random sample can pro-
+vide additional summary information. For example, the highest flood waters or the lowest winter
+temperature recorded during the last 50 years might be useful data when planning for future emer-
+gencies. The median price of houses sold during the previous month might be useful for estimating
+the cost of living. These are all examples of order statistics.
+Definition 5.4.1  The order statistics of a random sample X1,...,Xn are the sample values placed
+in ascending order. They are denoted by X(1),...,X(n).
+   The order statistics are random variables that satisfy X(1) ≤··· ≤X(n). In particular,
+                                    X(1) =  1≤i≤nXi,min
+                                    X(2) =  second smallest Xi,
+                                                                                                                                                                                                       ...
+                                    X(n) =  1≤i≤nXi.max
+Since they are random variables, we can discuss the probabilities that they take on various values.
+To calculate these probabilities we need the pdfs or pmfs of the order statistics. The formulas for the
+pdfs of the order statistics of a random sample from a continuous population will be the main topic
+later in this section, but first, we will mention some statistics that are easily defined in terms of the
+order statistics.
+   The sample range, R = X(n) −X(1), is the distance between the smallest and largest observations.It is a measure of the dispersion in the sample and should reflect the dispersion in the population.
+   The sample median, which we will denote by M, is a number such that approximately one-half
+of the observations are less than M and one-half are greater. In terms of the order statistics, M is
+defined by
+                                    X((n+1)/2)                       if n is odd             M =                                                                (5.4.1)
+                                     X(n/2) +X(n/2+1) /2       if n is even.
+The median is a measure of location that might be considered an alternative to the sample mean.
+One advantage of the sample median over the sample mean is that it is less affected by extreme
+observations. (See Section 10.2 for details.)
+   Although related, the mean and median usually measure different things. For example, in recent
+baseball salary negotiations a major point of contention was the owners’ contributions to the players’
+pension fund. The owners’ view could be paraphrased as, “The average baseball player’s annual
+salary is $433,659 so, with that kind of money, the current pension is adequate.” But the players’
+view was, “Over half of the players make less than $250,000 annually and, because of the short
+professional life of most players, need the security of a larger pension.” (These figures are for the
+1988 season, not the year of the dispute.) Both figures were correct but the owners were discussing
+===== PDF 216, printed 185 =====
+ORDER STATISTICS                                                          185
+the mean while the players were discussing the median. About a dozen players with salaries over
+$2 million can raise the average salary to $433,659 while the majority of the players make less
+than $250,000, including all rookies who make $62,500. When discussing salaries, prices, or any
+variable with a few extreme values, the median gives a better indication of “typical” values than
+the mean. Other statistics which can be defined in terms of order statistics and are less sensitive to
+extreme values (such as the α-trimmed mean discussed in Exercise 10.20) are discussed in texts
+such as Tukey (1977).
+   For any number p between 0 and 1, the (100p)th sample percentile is the observation such that
+approximately np of the observations are less than this observation and n(1−p) of the observationsare greater. The 50th sample percentile (p = .5) is the sample median. For other values of p, we can
+more precisely define the sample percentiles in terms of the order statistics in the following way.
+Definition 5.4.2  The notation {b}, when appearing in a subscript, is defined to be the number b
+rounded to the nearest integer in the usual way. More precisely, if i is an integer and i −.5 ≤b <
+i+.5, then {b} = i.
+
+                                                    2n   The (100p)th sample percentile is X({np}) if 1                          < p < .5 and X(n+1−{n(1−p)}) if .5 < p < 1−12n.
+For example, if n = 12 and the 65th percentile is wanted, we note that 12 × (1 −.65) = 4.2 and
+12+1−4 = 9. Thus, the 65th percentile is X(9). There is a restriction on the range of p because thesize of the sample limits the range of sample percentiles.
+   The cases p < .5 and p > .5 are defined separately so that the sample percentiles exhibit the
+following symmetry. If the (100p)th sample percentile is the ith smallest observation then the
+(100(1 −p))th sample percentile should be the ith largest observation and the above definitionachieves this. For example, if n = 11, the 30th sample percentile is X(3) and the 70th sample per-
+centile is X(9).
+    In addition to the median, two other sample percentiles are commonly identified. These are the
+lower quartile (25th percentile) and upper quartile (75th percentile). A measure of dispersion which
+is sometimes used is the interquartile range, the distance between the lower and upper quartiles.
+   Since the order statistics are functions of the sample, probabilities concerning order statistics can
+be computed in terms of probabilities for the sample. If X1,...,Xn are iid discrete random variables,
+then the calculation of probabilities for the order statistics is mainly a counting task. These formulas
+are derived in Theorem 5.4.3. If X1,...,Xn are a random sample from a continuous population then
+convenient expressions for the pdf of one or more order statistics are derived in Theorems 5.4.4 and
+5.4.6. These can then be used to derive the distribution of functions of the order statistics.
+Theorem 5.4.3  Let X1,...,Xn be a random sample from a discrete distribution with pmf fX(xi) = pi
+where x1 < x2 < ··· are the possible values of X in ascending order. Define
+                                  P0 =  0
+                                  P1 =  p1
+                                  P2 =  p1 + p2
+                                                                                                                                                                                                       ...
+                                          Pi =  p1 + p2 +···+ pi
+                                                                                                                                                                                                       ...
+
+Let X(1),...,X(n) denote the order statistics from the sample. Then
+                                                   n   n
+                    P X( j)   = ∑     Pki                            ≤xi    k= j  k    (1−Pi)n−k                         (5.4.2)
+and
+                                       n   n
+                                                                                                                   .             (5.4.3)            P X( j) = xi = ∑      Pki                              k= j  k     (1−Pi)n−k −Pki−1(1−Pi−1)n−k
+===== PDF 217, printed 186 =====
+186                                    PROPERTIES OF A RANDOM SAMPLE
+Proof: Fix i, and let Y be a random variable that counts the number of X1,...,Xn that are less than
+or equal to xi. For each of X1,...,Xn call the event {Xj ≤xi} a “success” and {Xj > xi} a “failure.”Then Y is the number of successes in n trials. The probability of a success is the same value, namely
+Pi = P(Xj ≤xi), for each trial, since X1,...,Xn are identically distributed. The success or failure ofthe jth trial is independent of the outcome of any other trial since Xj is independent of the other Xis.
+Thus, Y ∼binomial(n,Pi).
+                            j)              ≤xi} is equivalent to the event {Y ≥j}, that is, at least  j of the sample values   The event {X(are less than or equal to xi. Equation (5.4.2) expresses this binomial probability
+                        P X(j) ≤xi = P(Y ≥j).
+Equation (5.4.3) simply expresses the difference
+
+
+                                                                                                 j)                 P X(j) = xi = P X(j) ≤xi −P X(                                                 ≤xi−1  .
+The case i = 1 is exceptional in that P X(j) = x1 = P X( j) ≤x1  . The definition of P0 = 0 takescare of this exception in (5.4.3).                                   2
+
+     If X1,...,Xn are a random sample from a continuous population then the situation is simplified
+slightly by the fact that the probability is 0 that any two Xjs are equal, freeing us from worrying about
+ties. Thus, P X(1) < X(2) < ··· < X(n) = 1 and the sample space for  X(1),...,X(n)  is {(x1,...,xn) :
+x1 < x2 < ··· < xn}. In Theorems 5.4.4 and 5.4.6 we derive the pdf for one and the joint pdf for twoorder statistics, again using binomial arguments.
+Theorem 5.4.4  Let X(1),...,X(n) denote the order statistics of a random sample, X1,...,Xn, from
+a continuous population with cdf FX(x) and pdf fX(x). Then the pdf of X( j) is
+
+                                     n!
+                        fX(j)(x) =                                                                 (5.4.4)                               (j             fX(x)[FX(x)]j−1[1−FX(x)]n−j.                          −1)!(n−j)!
+Proof: We first find the cdf of X( j) and then differentiate it to obtain the pdf. As in Theorem 5.4.3,
+let Y be a random variable that counts the number of X1,...,Xn less than or equal to x. Then,
+defining a “success” as the event {Xj ≤x}, we see that Y ∼binomial(n,FX(x)). (Note that we canwrite Pi = FX(xi) in Theorem 5.4.3. Also, although X1,...,Xn are continuous random variables, the
+counting variable Y is discrete.) Thus,
+
+                                                  n   n
+                        FX(j)(x) = P(Y   = ∑                        ≥j)   k= j  k  [FX(x)]k[1−FX(x)]n−k,
+
+and the pdf of X( j) is
+
+                d
+       fX( j)(x) =  dxFX( j)(x)
+                      n   n
+        =        ∑       k[FX(x)]k−1               fX(x)                 k= j  k             [1−FX(x)]n−k
+                −(n−k)[FX(x)]k[1−FX(x)]n−k−1 fX(x)                           (chain rule)
+                 n
+        =            j fX(x)[FX(x)]                                j               j−1[1−FX(x)]n−j
+                          n   n
+          +         ∑                                fX(x)                   k= j+1  k  k[FX(x)]k−1[1−FX(x)]n−k
+                    n−1  n                                                   k = n term
+         ∑                                                                                                        is zero          − k=                                               j  k  (n−k)[FX(x)]k[1−FX(x)]n−k−1 fX(x)
+===== PDF 218, printed 187 =====
+ORDER STATISTICS                                                          187
+                         n!
+        =                   (j             fX(x)[FX(x)]j−1[1−FX(x)]n−j                 −1)!(n−j)!
+                    n−1   n                                          change dummy
+          +         ∑                                 (k +1)[FX(x)]k [1−FX(x)]n−k−1 fX(x)           variable                   k=                                               j  k +1
+                    n−1  n
+         ∑                                       fX(x).          − k= j  k  (n−k)[FX(x)]k [1−FX(x)]n−k−1
+
+Noting that
+                       n                    n!         n
+                                 (k +1) =        =                                 (5.4.5)                        k +1                            k  (n−k),                                  k!(n−k −1)!
+we see that the last two sums before (5.4.5) cancel. Thus, the pdf fX(j)(x) is given by the expression
+in (5.4.4).                                               2
+
+Example 5.4.5 (Uniform order statistic pdf)   Let X1,...,Xn be iid uniform(0,1), so fX(x) = 1
+for x ∈(0,1) and FX(x) = x for x ∈(0,1). Using (5.4.4), we see that the pdf of the jth order statisticis
+                                       n!
+                      fX(j)(x) =                                     for x                                 (j                           −1)!(n−j)!x j−1(1−x)n−j      ∈(0,1)
+                           Γ(n+1)
+               =          +1)x j−1(1−x)(n−j+1)−1.                         Γ(j)Γ(n−j
+Thus, the jth order statistic from a uniform(0,1) sample has a beta(j,n−j +1) distribution. Fromthis we can deduce that
+
+                                                   j                     +1)                    EX( j) =       and  VarX( j) =  j(n−j                   n+1               (n+1)2(n+2).
+
+                                                                              ∥
+   The joint distribution of two or more order statistics can be used to derive the distribution of
+some of the statistics mentioned at the beginning of this section. The joint pdf of any two order
+statistics is given in the following theorem, whose proof is left to Exercise 5.26.
+Theorem 5.4.6  Let X(1),...,X(n) denote the order statistics of a random sample, X1,...,Xn, from a
+continuous population with cdf FX(x) and pdf fX(x). Then the joint pdf of X(i) and X( j),1 ≤i < j ≤n,is
+                                              n!
+                   fX(i),X(j)(u,v) =                            fX(u) fX(v)[FX(u)]i−1         (5.4.6)
+                              (i−1)!(j −1−i)!(n−j)!
+                             ×[FX(v)−FX(u)]j−1−i[1−FX(v)]n−j
+for −∞< u < v < ∞.
+   The joint pdf of three or more order statistics could be derived using similar but even more
+involved arguments. Perhaps the other most useful pdf is fX(1),...,X(n)(x1,...,xn), the joint pdf of all
+the order statistics, which is given by
+
+                                                                    x1 <  < xn < ∞              fX(1),...,X(n)(x1,...,xn) =   n!fX(x1)·····fX(xn)  −∞<       ···                              0                       otherwise.
+
+   The n! naturally comes into this formula because, for any set of values, x1,...,xn, there are
+n! equally likely assignments for these values to X1,...,Xn that all yield the same values for the
+order statistics. This joint pdf and the techniques from Chapter 4 can be used to derive marginal and
+===== PDF 219, printed 188 =====
+188                                    PROPERTIES OF A RANDOM SAMPLE
+conditional distributions and distributions of other functions of the order statistics. (See Exercises
+5.27 and 5.28.)
+  We now use the joint pdf (5.4.6) to derive the distribution of some of the functions mentioned at
+the beginning of this section.
+Example 5.4.7 (Distribution of the midrange and range)    Let X1,...,Xn be iid uniform(0,a)
+and let X(1),...,X(n) denote the order statistics. The range was earlier defined as R = X(n) −X(1).The midrange, a measure of location like the sample median or the sample mean, is defined by
+V = (X(1) + X(n))/2. We will derive the joint pdf of R and V from the joint pdf of X(1) and X(n).
+From (5.4.6) we have that
+                                                  xn       n−2                        fX(1),X(n) (x1,xn) =  n(n−1)                                        a2     a −x1a
+                  =  n(n−1)(xn −x1)n−2 ,  0 < x1 < xn < a.                                              an
+Solving for X(1) and X(n), we obtain X(1) = V −R/2 and X(n) = V + R/2. The Jacobian for this
+transformation is −1. The transformation from  X(1),X(n)  to (R,V) maps {(x1,xn): 0 < x1 < xn <
+a} onto the set {(r,v): 0 < r < a,r/2 < v < a−r/2}. To see this note that obviously 0 < r < a and
+for a fixed value of r, v ranges from r/2 (corresponding to x1 = 0,xn = r) to a−r/2 (corresponding
+to x1 = a−r,xn = a). Thus, the joint pdf of (R,V) is
+                     fR,V(r,v) = n(n−1)rn−2 ,  0 < r < a,  r/2 < v <                                  an                        a−r/2.
+The marginal pdf of R is thus,
+
+                                         a−r/2                           fR(r) =        n(n−1)rn−2 dv
+                                              r/2         an
+                                                                                                 (5.4.7)
+                  =  n(n−1)rn−2(a−r) ,  0 < r < a.
+                                            an
+If a = 1, we see that r has a beta(n−1,2) distribution. Or, for arbitrary a, it is easy to deduce from(5.4.7) that R/a has a beta distribution. Note that the constant a is a scale parameter.
+   The set where fR,V(r,v) > 0 is shown in Figure 5.4.1, where we see that the range of integration
+of r depends on whether v > a/2 or v ≤a/2. Thus, the marginal pdf of V is given by
+                                     2v                  n(2v)n−1                     fV(v) =    n(n−1)rn−2 dr =               ,  0 < v                                 0       an              an        ≤a/2
+and
+                             2(a−v)                fV(v) =       n(n−1)rn−2 dr = n[2(a−v)]n−1 ,  a/2 < v                            0           an                an            ≤a.
+This pdf is symmetric about a/2 and has a peak at a/2.                                  ∥
+
+5.5  Convergence Concepts
+This section treats the somewhat fanciful idea of allowing the sample size to approach infinity and
+investigates the behavior of certain sample quantities as this happens. Although the notion of an
+infinite sample size is a theoretical artifact, it can often provide us with some useful approximations
+for the finite-sample case, since it usually happens that expressions become simplified in the limit.
+  We are mainly concerned with three types of convergence, and treat them in varying amounts of
+detail. (A full treatment of convergence is given in Billingsley 1995 or Resnick 1999, for example.)
+In particular, we want to look at the behavior of ¯Xn, the mean of n observations, as n →∞.
+===== PDF 220, printed 189 =====
+CONVERGENCE CONCEPTS                                                   189
+
+                      v
+
+
+
+                  a
+
+
+                                                                            r
+                                                          v = a –
+                                                           2
+
+
+
+                   a/2
+
+
+                                                                           r
+                                                             v =
+                                                          2
+
+
+                                                                                                         r
+                0                                                        a
+
+                      Figure 5.4.1 Region on which fR,V (r,v) > 0 for Example 5.4.7
+
+
+5.5.1  Convergence in Probability
+
+This type of convergence is one of the weaker types and, hence, is usually quite easy to verify.
+Definition 5.5.1 A sequence of random variables, X1,X2,..., converges in probability to a random
+variable X if, for every ε > 0,
+           n→∞P(|Xnlim    −X| ≥ε) = 0,   or, equivalently,  n→∞P(|Xnlim    −X| < ε) = 1.
+
+
+   The X1,X2,... in Definition 5.5.1 (and the other definitions in this section) are typically not
+independent and identically distributed random variables, as in a random sample. The distribution
+of Xn changes as the subscript changes, and the convergence concepts discussed in this section
+describe different ways in which the distribution of Xn converges to some limiting distribution as
+the subscript becomes large.
+    Frequently, statisticians are concerned with situations in which the limiting random variable is
+a constant and the random variables in the sequence are sample means (of some sort). The most
+famous result of this type is the following.
+Theorem 5.5.2 (Weak Law of Large Numbers)   Let X1,X2,... be iid random variables with
+EXi = µ and VarXi = σ2 < ∞. Define ¯Xn = (1/n)∑ni=1 Xi. Then, for every ε > 0,
+
+                           < ε) = 1,                             n→∞P(|lim     ¯Xn −µ|
+that is, ¯Xn converges in probability to µ.
+Proof: The proof is quite simple, being a straightforward application of Chebychev’s Inequality.
+We have, for every ε > 0,
+
+                                                                         ¯Xn         Var ¯X   σ2                      ¯Xn      = P((¯Xn               −µ)2 =    =       .              P(|  −µ| ≥ε)      −µ)2 ≥ε2) ≤E(  ε2         ε2     nε2
+
+                                                    2Hence, P(|¯Xn −µ|          < ε) = 1−P(|¯Xn −µ| ≥ε) ≥1−σ2/(nε2) →1, as n →∞.
+===== PDF 221, printed 190 =====
+190                                    PROPERTIES OF A RANDOM SAMPLE
+   The Weak Law of Large Numbers (WLLN) quite elegantly states that, under general conditions,
+the sample mean approaches the population mean as n →∞. In fact, there are more general versionsof the WLLN, where we need assume only that the mean is finite. However, the version stated in
+Theorem 5.5.2 is applicable in most practical situations.
+   The property summarized by the WLLN, that a sequence of the “same” sample quantity ap-
+proaches a constant as n →∞, is known as consistency. We will examine this property more closelyin Chapter 7.
+Example 5.5.3 (Consistency of S2)  Suppose we have a sequence X1,X2,... of iid random vari-
+ables with EXi = µ and VarXi = σ2 < ∞. If we define
+
+                                    1    n
+                                  S2n =                   ∑ (Xi −¯Xn)2,                                                  i=1                         n−1
+can we prove a WLLN for S2n? Using Chebychev’s Inequality, we have
+                                                         n         VarS2n                                   n              −σ2)2 =                          P(|S2 −σ2| ≥ε) ≤E(S2 ε2          ε2
+and thus, a sufficient condition that S2n converges in probability to σ2 is that VarS2n →0 as n →∞. ∥
+  A natural extension of Definition 5.5.1 relates to functions of random variables. That is, if the
+sequence X1,X2,... converges in probability to a random variable X, or to a constant a, can we
+make any conclusions about the sequence of random variables h(X1),h(X2),... for some reasonably
+behaved function h? This next theorem shows that we can. (See Exercise 5.39 for a proof.)
+Theorem 5.5.4 Suppose that X1,X2,... converges in probability to a random variable X, and that
+h is a continuous function. Then h(X1),h(X2),... converges in probability to h(X).
+Example 5.5.5 (Consistency of S)   If S2n is a consistent estimator of σ2, then by Theorem 5.5.4,
+the sample standard deviation Sn =    S2n = h(S2n) is a consistent estimator of σ. Note that Sn is, in
+fact, a biased estimator of σ (Exercise 5.11), but the bias disappears asymptotically.           ∥
+
+5.5.2  Almost Sure Convergence
+
+A type of convergence that is stronger than convergence in probability is almost sure convergence
+(sometimes confusingly known as convergence with probability 1). This type of convergence is
+similar to pointwise convergence of a sequence of functions, except that the convergence need not
+occur on a set with probability 0 (hence the “almost” sure).
+Definition 5.5.6 A sequence of random variables, X1,X2,..., converges almost surely to a random
+variable X if, for every ε > 0,
+                              P( n→∞|Xnlim  −X| < ε) = 1.
+
+   Notice the similarity in the statements of Definitions 5.5.1 and 5.5.6. Although they look similar,
+they are very different statements with Definition 5.5.6 much stronger. To understand almost sure
+convergence, we must recall the basic definition of a random variable as given in Definition 1.4.1. A
+random variable is a real-valued function defined on a sample space S. If a sample space S has ele-
+ments denoted by s, then Xn(s) and X(s) are all functions defined on S. Definition 5.5.6 states that Xn
+converges to X almost surely if the functions Xn(s) converge to X(s) for all s ∈S except perhaps for
+s ∈N where N ⊂S and P(N) = 0. Example 5.5.7 illustrates almost sure convergence. Example 5.5.8illustrates the difference between convergence in probability and almost sure convergence.
+===== PDF 222, printed 191 =====
+CONVERGENCE CONCEPTS                                                   191
+Example 5.5.7 (Almost sure convergence)   Let the sample space S be the closed interval [0,1]
+with the uniform probability distribution. Define random variables Xn(s) = s + sn and X(s) = s.
+For every s ∈[0,1), sn →0 as n →∞and Xn(s) →s = X(s). However, Xn(1) = 2 for every nso Xn(1) does not converge to 1 = X(1). But since the convergence occurs on the set [0,1) and
+P([0,1)) = 1,Xn converges to X almost surely.                                         ∥
+Example 5.5.8 (Convergence in probability, not almost surely)   In this example we describe a
+sequence that converges in probability, but not almost surely. Again, let the sample space S be the
+closed interval [0,1] with the uniform probability distribution. Define the sequence X1,X2,... as
+follows:
+
+
+                                                                        1                                                                                                      1               X1(s) = s+I[0,1](s),  X2(s) = s+I[0,                                                                        2 ](s),  X4(s) = s+I[0,                                                                                                      3 ](s),
+
+                                                                      1                                                                                                    1                                    X3(s) = s+I[                                                                      2 ,1](s),  X5(s) = s+I[                                                                                                    3 , 23 ](s),
+
+                                                                                                    2                                                         X6(s) = s+I[                                                                                                    3 ,1](s),
+etc. Let X(s) = s. It is straightforward to see that Xn converges to X in probability. As n →∞,P(|Xn−
+X| ≥ε) is equal to the probability of an interval of s values whose length is going to 0. However, Xn
+does not converge to X almost surely. Indeed, there is no value of s ∈S for which Xn(s) →s = X(s).For every s, the value Xn(s) alternates between the values s and s+1 infinitely often. For example,
+if s = 38,X1(s)     3             3           3           3             3           3        = 1 8,X2(s) = 1 8,X3(s) = 8,X4(s) = 8,X5(s) = 1 8,X6(s) = 8, etc. No pointwise
+convergence occurs for this sequence.                                                ∥
+   As might be guessed, convergence almost surely, being the stronger criterion, implies conver-
+gence in probability. The converse is, of course, false, as Example 5.5.8 shows. However, if a se-
+quence converges in probability, it is possible to find a subsequence that converges almost surely.
+(Resnick 1999, Section 6.3, has a thorough treatment of the connections between the two types of
+convergence.)
+   Again, statisticians are often concerned with convergence to a constant. We now state, with-
+out proof, the stronger analogue of the WLLN, the Strong Law of Large Numbers (SLLN). See
+Miscellanea 5.8.4 for an outline of a proof.
+Theorem 5.5.9 (Strong Law of Large Numbers)    Let X1,X2,... be iid random variables with
+EXi = µ and VarXi = σ2 < ∞, and define ¯Xn = (1/n)∑ni=1 Xi. Then, for every ε > 0,
+                              P( lim ¯Xn −µ|                                 n→∞|    < ε) = 1,
+that is, ¯Xn converges almost surely to µ.
+   For both the weak and strong laws of large numbers we had the assumption of a finite variance.
+Although such an assumption is true (and desirable) in most applications, it is, in fact, a stronger
+assumption than is needed. Both the weak and strong laws hold without this assumption. The only
+moment condition needed is that E|Xi| < ∞(see Resnick 1999, Chapter 7, or Billingsley 1995,Section 22).
+
+5.5.3  Convergence in Distribution
+
+We have already encountered the idea of convergence in distribution in Chapter 2. Remember the
+properties of moment generating functions (mgfs) and how their convergence implies convergence
+in distribution (Theorem 2.3.12).
+Definition 5.5.10 A sequence of random variables, X1,X2,..., converges in distribution to a ran-
+dom variable X if
+                                 n→∞FXn(x)lim    = FX(x),
+at all points x where FX(x) is continuous.
+===== PDF 223, printed 192 =====
+192                                    PROPERTIES OF A RANDOM SAMPLE
+Example 5.5.11 (Maximum of uniforms)     If  X1,X2,...  are  iid  uniform(0,1), and  X(n) =
+max1≤i≤n Xi, let us examine if (and to where) X(n) converges in distribution.
+   As n →∞, we expect X(n) to get close to 1 and, as X(n) must necessarily be less than 1 we havefor any ε > 0
+                    P(|X(n) −1| ≥ε) =  P(X(n) ≥1+ε)+P(X(n) ≤1−ε)
+                     =  0+P(X(n) ≤1−ε).
+Next using the fact that we have an iid sample, we can write
+                     P(X(n) ≤1−ε) = P(Xi ≤1−ε,i = 1,...n) = (1−ε)n,
+which goes to 0. So we have proved that X(n) converges to 1 in probability. However, if we take
+ε = t/n, we then have
+                             P(X(n) ≤1−t/n) = (1−t/n)n →e−t,
+which, upon rearranging, yields
+                            P(n(1−X(n)) ≤t) →1−e−t,
+that is, the random variable n(1−X(n)) converges in distribution to an exponential(1) random vari-
+able.                                                                          ∥
+   Note that although we talk of a sequence of random variables converging in distribution, it is
+really the cdfs that converge, not the random variables. In this very fundamental way convergence in
+distribution is quite different from convergence in probability or convergence almost surely. How-
+ever, it is implied by the other types of convergence.
+Theorem 5.5.12  If the sequence of random variables, X1,X2,..., converges in probability to a ran-
+dom variable X, the sequence also converges in distribution to X.
+   See Exercise 5.40 for a proof. Note also that, from Section 5.5.2, convergence in distribution is
+also implied by almost sure convergence.
+    In a special case, Theorem 5.5.12 has a converse that turns out to be useful. See Example 10.1.13
+for an illustration and Exercise 5.41 for a proof.
+Theorem 5.5.13 The sequence of random variables, X1,X2,..., converges in probability to a con-
+stant µ if and only if the sequence also converges in distribution to µ. That is, the statement
+                          P(|Xn −µ| > ε) →0 for every ε > 0
+is equivalent to
+                                         0    if x < µ,
+                           P(Xn ≤x) →  1    if x > µ.
+   The sample mean is one statistic whose large-sample behavior is quite important. In particular,
+we want to investigate its limiting distribution. This is summarized in one of the most startling
+theorems in statistics, the Central Limit Theorem (CLT).
+Theorem 5.5.14 (Central Limit Theorem)  Let X1,X2,... be a sequence of iid random variables
+whose mgfs exist in a neighborhood of 0 (that is, MXi(t) exists for |t| < h, for some positive h).Let EXi = µ and VarXi = σ2 > 0. (Both µ and σ2 are finite since the mgf exists.) Define ¯Xn =
+(1/n)∑ni=1 Xi. Let Gn(x) denote the cdf of √n(¯Xn         Then, for any x,       x < ∞,                                  −µ)/σ.        −∞<
+                                                           x   1                              lim    =          e−y2/2 dy,
+                                         2π                          n→∞Gn(x)   −∞ √
+that is, √n(¯Xn        has a limiting standard normal distribution.         −µ)/σ
+===== PDF 224, printed 193 =====
+CONVERGENCE CONCEPTS                                                   193
+   Before we prove this theorem (the proof is somewhat anticlimactic), we first look at its implica-
+tions. Starting from virtually no assumptions (other than independence and finite variances), we end
+up with normality! The point here is that normality comes from sums of “small” (finite variance), in-
+dependent disturbances. The assumption of finite variances is essentially necessary for convergence
+to normality. Although it can be relaxed somewhat, it cannot be eliminated. (Recall Example 5.2.10,
+dealing with the Cauchy distribution, where there is no convergence to normality.)
+   While reveling in the wonder of the CLT, it is also useful to reflect on its limitations. Although
+it gives us a useful general approximation, we have no automatic way of knowing how good the
+approximation is in general. In fact, the goodness of the approximation is a function of the original
+distribution, and so must be checked case by case. Furthermore, with the current availability of
+cheap, plentiful computing power, the importance of approximations like the Central Limit Theorem
+is somewhat lessened. However, despite its limitations, it is still a marvelous result.
+Proof of Theorem 5.5.14: We will show that, for  < h, the mgf of √n( ¯Xn        converges to                                                                      |t|                −µ)/σet2/2, the mgf of a n(0,1) random variable.
+   Define Yi = (Xi −µ)/σ, and let MY(t) denote the common mgf of the Yis, which exists for
+|t| < σh and is given by Theorem 2.3.15. Since
+                                                              n                          √n(¯Xn        1
+                                                                                                 (5.5.1)                           −µ) =                      ∑ Yi,                            σ     √n i=1
+we have, from the properties of mgfs (see Theorems 2.3.15 and 4.6.7)
+                 M√n(¯Xn−µ)/σ(t) =  MΣni=1Yi/√n(t)                                     (5.5.2)
+                    =  MΣni=1Yi                     (Theorem 2.3.15)                                                t√n
+                                                                n
+                    =   MY                .               (Theorem 4.6.7)                                               t√n
+We now expand MY(t/√n) in a Taylor series (power series) around 0. (See Definition 5.5.20.) We
+have
+                                    ∞                                               (0)(t/√n)k ,                           (5.5.3)                      MY     = ∑ M(k)Y                                  t√n     k=0            k!
+
+                                 < h, the power series expansion iswhere M(k)Y  (0) =  dk/dtk  MY(t)|t=0. Since the mgfs exist for |t|valid if t < √nσh.
+   Using the facts that M(0)Y = 1, M(1)Y = 0, and M(2)Y = 1 (by construction, the mean and variance
+of Y are 0 and 1), we have
+                                        (t/√n)2
+                   MY     = 1+      +RY            ,                       (5.5.4)                               t√n            2!          t√n
+where RY is the remainder term in the Taylor expansion,
+                                    ∞                                              (0)(t/√n)k .                          RY     = ∑ M(k)Y                                  t√n     k=3            k!
+An application of Taylor’s Theorem (Theorem 5.5.21) shows that, for fixed  t̸ = 0, we have
+                                   RY(t/√n)
+                                    lim  (t/√n)2 = 0.                             n→∞
+Since t is fixed, we also have
+                           RY(t/√n)
+                           lim (1/√n)2 = lim      t√n = 0,                        (5.5.5)                      n→∞           n→∞nRY
+===== PDF 225, printed 194 =====
+194                                    PROPERTIES OF A RANDOM SAMPLE
+and (5.5.5) is also true at t = 0 since RY(0/√n) = 0. Thus, for any fixed t, we can write
+
+                                         n                                               (t/√n)2                n
+                 lim  MY       =   lim 1+      +RY                        (5.5.6)                            t√n                        2!          t√n              n→∞                 n→∞
+                                            1   t2                    n
+                     =   lim 1+     +nRY                                            n  2         t√n                                  n→∞
+                     =   et2/2,
+by an application of Lemma 2.3.14, where we set an = (t2/2) + nRY(t/√n). (Note that (5.5.5)
+implies that an →t2/2 as n →∞.) Since et2/2 is the mgf of the n(0,1) distribution, the theorem isproved.                                                2
+   The Central Limit Theorem is valid in much more generality than is stated in Theorem 5.5.14
+(Miscellanea 5.8.1). In particular, all of the assumptions about mgfs are not needed – the use of
+characteristic functions (Miscellanea 2.6.2) can replace them. We state the next theorem without
+proof. It is a version of the Central Limit Theorem that is general enough for almost all statistical
+purposes. Notice that the only assumption on the parent distribution is that it has finite variance.
+Theorem 5.5.15 (Stronger Form of the Central Limit Theorem)   Let X1,X2,... be a sequence
+of iid random variables with EXi = µ and 0 < VarXi = σ2 < ∞. Define ¯Xn = (1/n)∑ni=1 Xi. Let
+Gn(x) denote the cdf of √n(¯Xn         Then, for any x,       x < ∞,                      −µ)/σ.        −∞<
+                                                           x   1                              lim    =          e−y2/2 dy,
+                                         2π                          n→∞Gn(x)   −∞ √
+that is, √n(¯Xn        has a limiting standard normal distribution.         −µ)/σ
+   The proof is almost identical to that of Theorem 5.5.14, except that characteristic functions
+are used instead of mgfs. Since the characteristic function of a distribution always exists, it is not
+necessary to mention them in the assumptions of the theorem. The proof is more delicate, however,
+since functions of complex variables must be dealt with. Details can be found in Billingsley (1995,
+Section 27).
+   The Central Limit Theorem provides us with an all-purpose approximation (but, remember the
+warning about the goodness of the approximation). In practice, it can always be used for a first,
+rough calculation.
+Example 5.5.16 (Normal approximation to the negative binomial)   Suppose X1,...,Xn are a
+random sample from a negative binomial(r, p) distribution. Recall that
+                    EX = r(1−p) ,  VarX = r(1−p) ,
+                                 p                  p2
+and the Central Limit Theorem tells us that
+                           √n(¯X                                −r(1−p)/p)
+                                  r(1−p)/p2
+is approximately n(0,1). The approximate probability calculations are much easier than the exact
+                          = 30, an exact calculation would becalculations. For example, if r = 10, p = 12, and n
+
+                             30
+    P(¯X     =  P ∑ Xi       ≤11)           i=1  ≤330
+                         330               1  300  1   x           ∑X is negative         =     300+x−1         ∑                              x        2      2                      binomial(nr, p)                     x=0
+         =  .8916,
+===== PDF 226, printed 195 =====
+CONVERGENCE CONCEPTS                                                   195
+which is a very difficult calculation. (Note that this calculation is difficult even with the aid of a
+computer – the magnitudes of the factorials cause great difficulty. Try it if you don’t believe it!) The
+CLT gives us the approximation
+                     √ 30(¯X     √                 P(¯X     =  P       −10)    30(11−10)                  ≤11)       √ 20   ≤   √ 20
+                  ≈  P(Z ≤1.2247) = .8888.
+See Exercise 5.37 for some a further refinement.                                        ∥
+  An approximation tool that can be used in conjunction with the Central Limit Theorem is known
+as Slutsky’s Theorem.
+Theorem 5.5.17 (Slutsky’s Theorem)    If Xn →X in distribution and Yn →a, a constant, in prob-ability, then
+  a. YnXn →aX in distribution.
+  b. Xn +Yn →X +a in distribution.
+   The proof of Slutsky’s Theorem is omitted, since it relies on a characterization of convergence in
+distribution that we have not discussed. A typical application is illustrated by the following example.
+Example 5.5.18 (Normal approximation with estimated variance)  Suppose that
+                           √n(¯Xn                           −µ)                             σ     →n(0,1)
+
+                                                                                               n = 0, thenbut the value of σ is unknown. We have seen in Example 5.5.3 that, if limn→∞VarS2
+S2n →σ2 in probability. By Exercise 5.32, σ/Sn →1 in probability. Hence, Slutsky’s Theorem tellsus
+                    √n(¯Xn      σ √n(¯Xn                      −µ) =       −µ)                               Sn        Sn    σ     →n(0,1).
+                                                                              ∥
+
+5.5.4  The Delta Method
+
+The previous section gives conditions under which a standardized random variable has a limit nor-
+mal distribution. There are many times, however, when we are not specifically interested in the
+distribution of the random variable itself, but rather some function of the random variable.
+Example 5.5.19 (Estimating the odds)   Suppose that we observe X1,X2,...,Xn, independent
+Bernoulli(p) random variables. The typical parameter of interest is p, the success probability, but
+another popular parameter is 1−p,p   the odds. For example, if the data represent the outcomes of amedical treatment with p = 2/3, then a person has odds 2 : 1 of getting better. Moreover, if there
+were another treatment with success probability r, biostatisticians often estimate the odds ratio
+  p      r   giving the relative odds of one treatment over another.1−p/ 1−r,   As we would typically estimate the success probability p with the observed success probability
+ˆp = ∑i Xi/n, we might consider using     ˆp  as an estimate of   p  But what are the properties of                                              1−ˆp                            ˆp      1−p.
+this estimator. How might we estimate the variance of 1−ˆp? Moreover, how can we approximate itssampling distribution?
+    Intuition abandons us, and exact calculation is relatively hopeless, so we have to rely on an
+approximation. The Delta Method will allow us to obtain reasonable, approximate answers to our
+questions.                                                                      ∥
+===== PDF 227, printed 196 =====
+196                                    PROPERTIES OF A RANDOM SAMPLE
+   One method of proceeding is based on using a Taylor series approximation, which allows us to
+approximate the mean and variance of a function of a random variable. We will also see that these
+rather straightforward approximations are good enough to obtain a CLT. We begin with a short
+review of Taylor series.
+Definition 5.5.20   If a function g(x) has derivatives of order r, that is, g(r)(x) = dxrdr g(x) exists, then
+for any constant a, the Taylor polynomial of order r about a is
+
+                                                               r  g(i)(a)
+                                   Tr(x) =                 ∑                                                                  i!  (x−a)i.                                              i=0
+
+
+    Taylor’s major theorem, which we will not prove here, is that the remainder from the approxi-
+mation, g(x)−Tr(x) always tends to zero faster than the highest-order explicit term.
+Theorem 5.5.21 (Taylor)   If g(r)(a) = dxrdr g(x)|x=a exists, then
+                                     g(x)−Tr(x) = 0.                                limx→a                                    (x−a)r
+
+    In general, we will not be concerned with the explicit form of the remainder. Since we are
+interested in approximations, we are just going to ignore the remainder. There are, however, many
+explicit forms, one useful one being
+
+                                                          x g(r+1)(t)
+                         g(x)−Tr(x) =  a     r!   (x−t)rdt.
+
+   For the statistical application of Taylor’s Theorem, we are most concerned with the first-order
+Taylor series, that is, an approximation using just the first derivative (taking r = 1 in the above
+formulas). Furthermore, we will also find use for a multivariate Taylor series. Since the above detail
+is univariate, some of the following will have to be accepted on faith.
+   Let T1,...,Tk be random variables with means θ1,...,θk, and define T = (T1,...,Tk) and θ =
+(θ1,...,θk). Suppose there is a differentiable function g(T) (an estimator of some parameter) for
+which we want an approximate estimate of variance. Define
+
+                                    ∂
+                                        g′i(θ) =                                                 ∂ti g(t)|t1=θ1,...,tk=θk.
+The first-order Taylor series expansion of g about θ is
+
+                                                    k
+                           g(t) = g(θ)+                ∑ g′i(θ)(ti −θi)+Remainder.                                           i=1
+
+For our statistical approximation we forget about the remainder and write
+
+                                                            k
+                                                                                                 (5.5.7)                                  g(t) ≈g(θ)+ i=1∑ g′i(θ)(ti −θi).
+
+Now, take expectations on both sides of (5.5.7) to get
+
+                                                 k
+                                                         (Ti −θi)            Eθ g(T) ≈  g(θ)+ i=1∑ g′i(θ)Eθ
+              =  g(θ).                                  (Ti has mean θi)          (5.5.8)
+===== PDF 228, printed 197 =====
+CONVERGENCE CONCEPTS                                                   197
+We can now approximate the variance of g(T) by
+              Varθ g(T) ≈  Eθ  [g(T)−g(θ)]2                (using 5.5.8)
+                                                    k                   2
+                        Eθ  ∑i=1g′i(θ)(Ti               ≈                  −θi)          (using 5.5.7)          (5.5.9)
+                                          k
+               =             ∑ [g′i(θ)]2Varθ Ti +2∑ g′i(θ)g′j(θ)Covθ(Ti,Tj),
+                                   i=1                   i> j
+where the last equality comes from expanding the square and using the definition of variance and
+covariance (similar to Exercise 4.44). Approximation (5.5.9) is very useful because it gives us a
+variance formula for a general function, using only simple variances and covariances. Here are two
+examples.
+Example 5.5.22 (Continuation of Example 5.5.19)   Recall that we are interested in the proper-
+ties of     ˆp  as an estimate of  p  where p is a binomial success probability. In our above notation,        1−ˆp    p             1−p,1take g(p) =     so g′(p) =      and
+           1−p             (1−p)2
+                                    ˆp                        1      2              p            Var                                  ˆp) =          p(1−p) =               ,                         ≈[g′(p)]2Var(                  n               1−ˆp                  (1−p)2            n(1−p)3
+giving us an approximation for the variance of our estimator.                              ∥
+Example 5.5.23 (Approximate mean and variance)  Suppose X is a random variable with EµX =
+µ̸ = 0. If we want to estimate a function g(µ), a first-order approximation would give us
+                            g(X) = g(µ)+g′(µ)(X −µ).
+If we use g(X) as an estimator of g(µ), we can say that approximately
+                           Eµg(X) ≈  g(µ),                             Varµ g(X)       [g′(µ)]2Varµ X.                        ≈
+For a specific example, take g(µ) = 1/µ. We estimate 1/µ with 1/X, and we can say
+                                1        1
+                          Eµ                       ,                          X   ≈  µ
+                                1          1   4
+                             Varµ                 VarµX.                          X   ≈   µ
+                                                                              ∥
+   Using these Taylor series approximations for the mean and variance, we get the following useful
+generalization of the Central Limit Theorem, known as the Delta Method.
+Theorem 5.5.24 (Delta Method)  Let Yn be a sequence of random variables that satisfies √n(Yn                                                  −
+θ) →n(0,σ2) in distribution. For a given function g and a specific value of θ, suppose that g′(θ)exists and is not zero. Then
+
+                                                               in distribution.               (5.5.10)                   √n[g(Yn)−g(θ)] →n(0,σ2[g′(θ)]2)
+Proof: The Taylor expansion of g(Yn) around Yn = θ is
+                         g(Yn) = g(θ)+g′(θ)(Yn −θ)+ Remainder                    (5.5.11)
+where the remainder →0 as Yn →θ. Since Yn →θ in probability it follows that the remainder →0in probability. By applying Slutsky’s Theorem (Theorem 5.5.17) to
+                         = g′(θ)√n(Yn                         √n[g(Yn)−g(θ)]                                       −θ)
+the result now follows. See Exercise 5.43 for details.                        2
+===== PDF 229, printed 198 =====
+198                                    PROPERTIES OF A RANDOM SAMPLE
+Example 5.5.25 (Continuation of Example 5.5.23)  Suppose now that we have the mean of a
+             = 0, we haverandom sample ¯X. For µ̸
+                            1               1   4                  √n                                                    0,                                                  VarµX1                                              ¯X −1µ →n                                      µ
+
+in distribution.
+     If we do not know the variance of X1, to use the above approximation requires an estimate, say
+S2. Moreover, there is the question of what to do with the 1/µ term, as we also do not know µ. We
+can estimate everything, which gives us the approximate variance
+
+                                   1      1   4                                 Var                 S2.                                                         ¯X  ≈    ¯X
+
+Furthermore, as both ¯X and S2 are consistent estimators, we can again apply Slutsky’s Theorem to
+conclude that for µ̸ = 0                                               1                       √n                                                                             ¯X   µ                         −1
+                                              1  2                                     S   →n(0,1)                                                                           ¯X
+in distribution.
+   Note how we wrote this latter quantity, dividing through by the estimated standard deviation
+and making the limiting distribution a standard normal. This is the only way that makes sense if we
+need to estimate any parameters in the limiting distribution. We also note that there is an alternative
+approach when there are parameters to estimate, and here we can actually avoid using an estimate
+for µ in the variance (see the score test in Section 10.3.2).                                ∥
+   There are two extensions of the basic Delta Method that we need to deal with to complete our
+treatment. The first concerns the possibility that g′(µ) = 0. This could happen, for example, if we
+were interested in estimating the variance of a binomial variance. (See Exercise 5.44.)
+     If g′(θ) = 0, we take one more term in the Taylor expansion to get
+
+                                                   g′′(θ)
+                                  + Remainder.                 g(Yn) = g(θ)+g′(θ)(Yn −θ)+  2   (Yn −θ)2
+If we do some rearranging (setting g′ = 0), we have
+
+                                           g′′(θ)
+                              + Remainder.                  (5.5.12)                    g(Yn)−g(θ) =   2   (Yn −θ)2
+Now recall that the square of a n(0,1) is a χ21 (Example 2.1.9), which implies that
+                                      n(Yn −θ)2      1                                 σ2   →χ2
+in distribution. Therefore, an argument similar to that use in Theorem 5.5.24 will establish the
+following theorem.
+Theorem 5.5.26 (Second-order Delta Method)   Let Yn be a sequence of random variables that
+satisfies √n(Yn                   in distribution. For a given function g and a specific value of θ,          −θ) →n(0,σ2)suppose that g′(θ) = 0 and g′′(θ) exists and is not zero. Then
+
+                                                 g′′(θ)
+                                                             1 in distribution.                   (5.5.13)                      n[g(Yn)−g(θ)] →σ2  2  χ2
+===== PDF 230, printed 199 =====
+CONVERGENCE CONCEPTS                                                   199
+   Approximation techniques are very useful when more than one parameter makes up the function
+to be estimated, and more than one random variable is used in the estimator. One common example
+is in growth studies, where a ratio of weight/height is a variable of interest. (Recall that in Chapter
+3 we saw that a ratio of two normal random variables has a Cauchy distribution. The ratio problem,
+while being important to experimenters, is nasty in theory.)
+   This brings us to the second extension of the Delta Method, to the multivariate case. As we
+already have Taylor’s Theorem for the multivariate case, this extension contains no surprises.
+Example 5.5.27 (Moments of a ratio estimator)  Suppose X and Y are random variables with
+nonzero means µX and µY, respectively. The parametric function to be estimated is g(µX,µY) =
+µX/µY. It is straightforward to calculate
+
+                              ∂                1
+                                 g(µX,µY) =
+                          ∂µX               µY
+and
+                              ∂                                 g(µX,µY) =  −µX .
+                           ∂µY               µ2Y
+
+The first-order Taylor approximations (5.5.8) and (5.5.9), give
+
+                 X        µX
+              E                         ,                  Y   ≈  µY
+and
+                 X         1       µ2X                 Var             VarX +   VarY      Cov(X,Y)                  Y   ≈  µ2Y       µ4Y    −2µXµ3Y
+                              µX   2  VarX   VarY
+                 =          +                                  .                                 µY      µ2X     µ2Y  −2Cov(X,Y)µXµY
+
+Thus, we have an approximation for the mean and variance of the ratio estimator, and the approx-
+imations only use the means, variances, and covariance of ¯X and Y. Exact calculations would be
+quite hopeless, with closed-form expressions being unattainable.                           ∥
+  We next present a CLT to cover an estimator such as the ratio estimator. Note that we must
+deal with multiple random variables although the ultimate CLT is a univariate one. Suppose
+the vector valued random variable X = (X1,...,Xp) has mean µ = (µ1,...,µp) and covariances
+cov(Xi,Xj) = σij, and we observe an independent random sample X1,...,Xn and calculate the
+means ¯Xi = ∑nk=1 Xik, i = 1,..., p. For a function g(x) = g(x1,...,xp) we can use the development
+after (5.5.7) to write
+
+                                                              p
+                           g(¯x1,..., ¯xp) = g(µ1,...,µp)+                      ∑ g′k(x)(¯xk −µk),                                                    k=1
+
+and we then have the following theorem.
+Theorem 5.5.28 (Multivariate Delta Method)  Let X1,...,Xn be a random sample with E(Xij) =
+µi and cov(Xik,Xjk) = σi j. For a given function g with continuous first partial derivatives and a
+                                                         ∂g(µ)  ∂g(µ)                                     > 0,                                                                      ∂µjspecific value of µ = (µ1,µ2,...,µp) for which τ2 = ΣΣσij  ∂µi   ·
+               √n[g(¯X1,...,                                 in distribution.                              ¯Xs)−g(µ1,...,µp)] →n(0,τ2)
+
+
+   The proof necessitates dealing with the convergence of multivariate random variables, and we
+will not deal with such multivariate intricacies here, but will take Theorem 5.5.28 on faith. The
+interested reader can find more details in Lehmann and Casella (1998, Section 1.8).
+===== PDF 231, printed 200 =====
+200                                    PROPERTIES OF A RANDOM SAMPLE
+5.6  Generating a Random Sample
+Thus far, we have been concerned with the many methods of describing the behavior of random
+variables – transformations, distributions, moment calculations, limit theorems. In practice, these
+random variables are used to describe and model real phenomena, and observations on these random
+variables are the data that we collect.
+   Thus, typically, we observe random variables X1,...,Xn from a distribution f(x|θ) and are most
+concerned with using properties of f(x|θ) to describe the behavior of the random variables. In thissection we are, in effect, going to turn that strategy around. Here we are concerned with generating
+a random sample X1,...,Xn from a given distribution f(x|θ).
+Example 5.6.1 (Exponential lifetime)  Suppose that a particular electrical component is to be
+modeled with an exponential(λ) lifetime. The manufacturer is interested in determining the proba-
+bility that, out of c components, at least t of them will last h hours. Taking this one step at a time,
+we have
+                    p1 = P(component lasts at least h hours) = P(X ≥h|λ)                (5.6.1)
+and assuming that the components are independent, we can model the outcomes of the c components
+as Bernoulli trials, so
+
+                         p2 =  P(at least t components last h hours)
+                                             c    c
+                =                                                                                                 (5.6.2)              ∑   k   pk1(1−p1)c−k.                                       k=t
+
+   Although calculation of (5.6.2) is straightforward, it can be computationally burdensome, espe-
+cially if both t and c are large numbers. Moreover, the exponential model has the advantage that p1
+can be expressed in closed form, that is,
+
+                                ∞ 1                                p1 =      e−x/λ dx = e−h/λ.                             (5.6.3)                                             h  λ
+
+However, if each component were modeled with, say, a gamma distribution, then p1 may not be
+expressible in closed form. This would make calculation of p2 even more involved.            ∥
+  A simulation approach to calculation of expressions such as (5.6.2) is to generate random vari-
+ables with the desired distribution, and then use the Law of Large Numbers (Theorem 5.5.2) to
+validate the simulation. That is, if Yi, i = 1,...,n are iid, then a consequence of that theorem (pro-
+vided the assumptions hold) is
+                               1  n
+                                                                                                 (5.6.4)                ∑ h(Yi)                               n i=1    −→Eh(Y)
+in probability, as n →∞. (Expression (5.6.4) also holds almost everywhere, a consequence of The-orem 5.5.9, the Strong Law of Large Numbers.)
+Example 5.6.2 (Continuation of Example 5.6.1)  The probability p2 can be calculated using the
+following steps. For j = 1,...,n
+  a. Generate X1,...,Xc iid ∼exponential(λ).
+  b. Set Yj = 1 if at least t Xis are ≥h, otherwise set Yj = 0.
+Then, because Yj ∼Bernoulli(p2) and EYj = p2,
+                              1  n
+                                                  as n               ∑ Yj                              n j=1  →p2   →∞.
+
+                                                                              ∥
+===== PDF 232, printed 201 =====
+GENERATING A RANDOM SAMPLE                                            201
+   Examples 5.6.1 and 5.6.2 highlight the major concerns of this section. First, we must examine
+how to generate the random variables that we need and second, we then use a version of the Law of
+Large Numbers to validate the simulation approximation.
+   Since we have to start somewhere, we start with the assumption that we can generate iid uniform
+random variablesU1,... Um. (This problem of generating uniform random numbers has been worked
+on, with great success, by computer scientists.) There exist many algorithms for generating pseudo-
+random numbers which will pass almost all tests for uniformity. Moreover, most good statistical
+packages have a reasonable uniform random number generator. (See Devroye 1985 or Ripley 1987
+for more on generating pseudo-random numbers.)
+   Since we are starting from the uniform random variables, our problem here is really not the
+problem of generating the desired random variables, but rather of transforming the uniform random
+variables to the desired distribution. In essence, there are two general methodologies for doing this,
+which we shall (noninformatively) call direct and indirect methods.
+
+
+5.6.1  Direct Methods
+
+A direct method of generating a random variable is one for which there exists a closed-form func-
+tion g(u) such that the transformed variable Y = g(U) has the desired distribution when U ∼uniform(0,1). As might be recalled, this was already accomplished for continuous random variables
+in Theorem 2.1.10, the Probability Integral Transform, where any distribution was transformed to
+the uniform. Hence the inverse transformation solves our problem.
+Example 5.6.3 (Probability Integral Transform)   If Y is a continuous random variable with cdf
+FY, then Theorem 2.1.10 implies that the random variable F−1Y  (U), where U ∼uniform(0,1), has
+distribution FY. If Y ∼exponential(λ) , then
+                           F−1Y  (U) = −λ log(1−U)
+
+is an exponential(λ) random variable (see Exercise 5.49).
+   Thus, if we generate U1,...,Un as iid uniform random variables, Yi = −λ log(1 −Ui),  i =1,...,n are iid exponential(λ) random variables. As an example, for n = 10,000, we generate
+u1,u2,...,u10,000 and calculate
+
+                     1                 1
+                 = .5019 and          = .0842.                  ∑ui               ∑(ui                     n                            −¯u)2                           n−1
+
+                                             = 1/2 and,From (5.6.4), which follows from the WLLN (Theorem 5.5.2), we know that ¯U →EU
+from Example 5.5.3, S2 →VarU = 1/12 = .0833, so our estimates are quite close to the true pa-rameters. The transformed variables Yi have an exponential(2) distribution, and we find that
+
+                    1                  1
+                 = 2.0004 and         = 4.0908,                  ∑yi                ∑(yi                    n                              −¯y)2                           n−1
+
+in close agreement with EY = 2 and VarY = 4. Figure 5.6.1 illustrates the agreement between the
+sample histogram and the population pdf.                                             ∥
+===== PDF 233, printed 202 =====
+202                                    PROPERTIES OF A RANDOM SAMPLE
+
+                     Exponential pdf
+
+
+
+                             .4
+
+
+
+                             .2
+
+
+                             .0                                                           y
+                           0       2       4       6       8
+
+  Figure 5.6.1 Histogram of 10,000 observations from an exponential pdf with λ = 2, together with the pdf
+
+
+   The relationship between the exponential and other distributions allows the quick-generation of
+many random variables. For example, if Ui are iid uniform (0,1) random variables, then
+
+                                            ν
+                     Y =                ∑ log(Uj)     2ν                        −2 j=1     ∼χ2
+                                              a
+                                         log(Uj) ∼gamma(a,β)                        (5.6.5)                     Y =  −β j=1∑
+                            ∑aj=1 log(Uj)
+                     Y =                                           ∼beta(a,b).                              ∑a+bj=1 log(Uj)
+
+Many other variations are possible (see Exercises 5.47–5.49), but all are being driven by the
+exponential-uniform transformation.
+    Unfortunately, there are limits to this transformation. For example, we cannot use it to generate
+χ2 random variables with odd degrees of freedom. Hence, we cannot get a χ21 , which would in turn
+get us a normal(0,1) – an extremely useful variable to be able to generate. We will return to this
+problem in the next subsection.
+    Recall that the basis of Example 5.6.3, and hence the transformations in (5.6.5) was the Proba-
+bility Integral Transform which, in general, can be written as
+
+                                                                   y
+                         F−1Y  (u) = y ↔u                          =  −∞fy(t)dt.                            (5.6.6)
+Application of this formula to the exponential was particularly handy, as the integral equation had
+a simple solution (see also Exercise 5.59). However, in many cases no closed-form solution for
+(5.6.6) will exist. Thus, each random variable generation will necessitate a solution of an integral
+equation which, in practice, could be prohibitively long and complicated. This would be the case,
+for example, if (5.6.6) were used to generate a χ21.
+   When no closed-form solution for (5.6.6) exists, other options should be explored. These include
+other types of generation methods, and indirect methods. As an example of the former, consider the
+following.
+Example 5.6.4 (Box-Muller, 1958)  Generate U1 and U2, two independent uniform(0,1) random
+variables, and set
+                      R =  −2logU1 and θ = 2πU2.
+Then
+                       X = Rcosθ and Y = Rsinθ
+===== PDF 234, printed 203 =====
+GENERATING A RANDOM SAMPLE                                            203
+are independent normal(0,1) random variables. Thus, although we had no quick transformation for
+generating a single n(0,1) random variable, there is such a method for generating two variables.
+(See Exercise 5.50.)                                                              ∥
+    Unfortunately, solutions such as those in Example 5.6.4 are not plentiful. Moreover, they take
+advantage of the specific structure of certain distributions and are, thus, less applicable as general
+strategies. It turns out that, for the most part, generation of other continuous distributions (than those
+already considered), is best accomplished through indirect methods. Before exploring these, we end
+this subsection with a look at where (5.6.6) is quite useful, the case of discrete random variables.
+     If Y is a discrete random variable taking on values y1 < y2 < ... < yk, then analogous to (5.6.6)
+we can write
+
+                       P[FY(yi) ≤U < FY(yi+1)] =  FY(yi+1)−FY(yi)                   (5.6.7)
+                           =  P(Y = yi+1).
+
+Implementation of (5.6.7) to generate discrete random variables is actually quite straightforward,
+and can be summarized as follows. To generate Yi ∼FY(y),
+a. Generate U ∼uniform(0,1).
+b.  If Fy(yi) ≤U < Fy(yi+1) , set Y = yi+1.
+We define y0 = −∞and FY(y0) = 0.
+Example 5.6.5 (Binomial random variable generation)  To generate a Y ∼binomial(4, 58), for
+example, generate U ∼uniform(0,1) and set
+                                 0   if 0 ≤U < .020,                             <                                 1                                                          if                                                     .152                                          .020 ≤U                             <                                                                                              .                            (5.6.8)                        Y =  2                                                          if                                          .152                                                     .481                         ≤U                                 3   if .481                                          ≤U < .847
+                                 4   if .847 ≤U ≤1                                                                                               ∥
+   The algorithm (5.6.8) also works if the range of the discrete random variable is infinite, say
+Poisson or negative binomial. Although, theoretically, this could require a large number of evalua-
+tions, in practice this does not happen because there are simple and clever ways of speeding up the
+algorithm. For example, instead of checking each yi in the order 1,2,... , it can be much faster to
+start checking yis near the mean. (See Ripley 1987, Section 3.3, and Exercise 5.55.)
+  We will see many uses of simulation methodology. To start off, consider the following explo-
+ration of the Poisson distribution, which is a version of the parametric bootstrap that we will see in
+Section 10.1.4.
+Example 5.6.6 (Distribution of the Poisson variance)    If X1,...,Xn are iid Poisson(λ) then by
+either Theorem 5.2.7 or 5.2.11 the distribution of ∑Xi is Poisson(nλ). Thus, it is quite easy to
+describe the distribution of the sample mean ¯X. However, describing the distribution of the sample
+variance, S2 =  1                ∑(Xi −¯X)2, is not a simple task.              n−1   The distribution of S2 is quite simple to simulate, however. For example, take n = 5 and generate
+1,000 samples of size 5 from a Poisson(λ) distribution. Figure 5.6.2 shows the histogram of these
+samples. Moreover, the simulated samples can also be used to calculate probabilities about S2. If S2i
+is the value calculated from the ith simulated sample, then
+
+                            1 M
+               ∑ I(S2i                 M i=1   ≥a) →Pλ(S2 ≥a)
+as M →∞.
+===== PDF 235, printed 204 =====
+204                                    PROPERTIES OF A RANDOM SAMPLE
+
+                      Relative frequency
+
+
+
+                          .04
+
+
+
+                          .02
+
+
+
+                          .00
+                         0        10       20       30       40
+                                          Poisson sample variance
+
+Figure 5.6.2 Histogram of the sample variances, S2 of 5,000 samples of size 13 from a Poisson distribution
+with λ = 18.69. The mean and standard deviation of the 5,000 values are 18.86 and 7.68.
+
+
+   To illustrate the use of such methodology consider the following sample of bay anchovy larvae
+counts taken from the Hudson River in late August 1984:
+
+                        19,32,29,13,8,12,16,20,14,17,22,18,23.                      (5.6.9)
+
+If it is assumed that the larvae are distributed randomly and uniformly in the river, then the number
+that are collected in a fixed size net should follow a Poisson distribution. Such an argument follows
+from a spatial version of the Poisson postulates (see the Miscellanea of Chapter 2). To see if such
+an assumption is tenable, we can check if the mean and variance of the observed data are consistent
+with the Poisson assumptions.
+   For the data in (5.6.9) we calculate ¯x = 18.69 and s2 = 44.90. Under the Poisson assumptions
+we expect these values to be the same. Of course, due to sampling variability, they will not be
+exactly the same, and we can use a simulation to get some idea of what to expect. In Figure 5.6.2 we
+simulated 5,000 samples of size n = 13 from a Poisson distribution with λ = 18.69, and constructed
+the relative frequency histogram of S2. Note that the observed value of S2 = 44.90 falls into the tail
+of the distribution. In fact, since 27 of the values of S2 were greater than 44.90, we can estimate
+
+                                    1   5000               27
+                = 18.69) =                              > 44.90) =                                       = .0054,                   ∑ I(S2i            P(S2 > 44.90|λ                                                        5000                                   5000 i=1
+
+which leads us to question the Poisson assumption; see Exercise 5.54. (Such findings spawned the
+extremely bad bilingual pun “Something is fishy in the Hudson–the Poisson has failed.”)       ∥
+
+5.6.2   Indirect Methods
+
+When no easily found direct transformation is available to generate the desired random variable, an
+extremely powerful indirect method, the Accept/Reject Algorithm, can often provide a solution.
+   The idea behind the Accept/Reject Algorithm is, perhaps, best explained through a simple
+example.
+Example 5.6.7 (Beta random variable generation–I)   Suppose the goal  is to generate Y ∼beta(a,b). If both a and b are integers, then the direct transformation method (5.6.5) can be used.
+However, if a and b are not integers, then that method will not work. For definiteness, set a = 2.7
+and b = 6.3. In Figure 5.6.3 we have put the beta density fY(y) inside a box with sides 1 and
+c ≥maxy fY(y). Now consider the following method of calculating P(Y ≤y). If (U,V) are indepen-
+===== PDF 236, printed 205 =====
+GENERATING A RANDOM SAMPLE                                            205
+
+                       u
+
+                  3
+                                        Maximum = 2.669
+
+
+                  2
+
+
+
+                  1
+
+                                             y
+                  0                                                              v
+                          .0          .2          .4          .6          .8          1.0
+
+Figure 5.6.3 The beta distribution with a = 2.7 and b = 6.3 with c = maxy fY (y) = 2.669. The uniform random
+variable V gives the x-coordinate, and we use U to test if we are under the density.
+
+
+dent uniform(0,1) random variables, then the probability of the shaded area is
+
+                                                                       y    fY (v)/c
+                    P(V ≤y,U ≤1c fY(V)) =    0   0     dudv
+                                             1   y
+                           =        fY(v)dv                      (5.6.10)
+                                                   c  0
+                                             1
+                           =  cP(Y ≤y).
+So we can calculate the beta probabilities from the uniform probabilities, which suggests that we
+can generate the beta random variable from the uniform random variables.
+   From (5.6.10), if we set y = 1, then we have 1c = P(U < 1c fY(V)), so
+                                                                          c fY(V))                                   P(V ≤y,U ≤1                        P(Y    =                      ≤y)        P(U    c fY(V))                             ≤1
+                     =  P(V ≤y|U ≤1c fY(V)),                      (5.6.11)
+which suggests the following algorithm.
+   To generate Y ∼beta(a,b)
+  a. Generate (U,V) independent uniform(0,1).
+  b.  If U < 1c fY(V) set Y = V; otherwise return to step a.
+This algorithm generates a beta(a,b) random variable as long as c ≥maxy fY(y) and, in fact, can be
+generalized to any density with bounded support (Exercises 5.59 and 5.60).                  ∥
+     It should be clear that the optimal choice of c is c = maxy fY(y). To see why this is so, note that
+the algorithm is open-ended in the sense that we do not know how many (U,V) pairs will be needed
+in order to get one Y variable. However, if we define the random variable
+
+               N = Number of (U,V) pairs required for one Y                  (5.6.12)
+
+                                       c fY(V)), we havethen, recalling that 1c = P(U ≤1
+                                           1
+                          P(N = 1) =
+                                                c
+                          P(N = 2) =                                 (1−1c)1c
+                                                                                                                                                                                                                          ...
+===== PDF 237, printed 206 =====
+206                                    PROPERTIES OF A RANDOM SAMPLE
+so N is a geometric random variable. Thus, to generate one Y we expect to need E(N) = c pairs
+(U,V), and in this sense minimizing c will optimize the algorithm.
+   Examining Figure 5.6.3 we see that the algorithm is wasteful in the area where U > 1c fY(V).
+This is because we are using a uniform random variable (V) to get a beta random variable (Y). To
+improve, we might start with something closer to the beta.
+   The testing step, step (b) of the algorithm, can be thought of as testing whether the random
+variable V “looks like” it could come from the density fY. Suppose that V ∼fV, and we compute
+                                                fY(y)                   M = sup    < ∞.
+                                                        y  fV(y)
+
+                                                                                       larger this ratio                                                                    1 fY(V)/ fV(V). The                                         MA generalization of step (b) is to compare U ∼uniform(0,1) to                                                                                          1is, the more V “looks like” a random density fY, and the more likely it is that U < M fY(V)/ fV(V).
+This is the basis of the general Accept/Reject Algorithm.
+
+
+5.6.3  The Accept/Reject Algorithm
+Theorem 5.6.8  Let Y ∼fY(y) and V ∼fV(V), where fY and fV have common support with
+                 M = sup fY(y)/fV(y) < ∞.
+                                                    y
+To generate a random variable Y ∼fY
+  a. Generate U ∼uniform(0,1), V ∼fV, independent.
+  b.  If U < M1 fY(V)/ fV(V) set Y = V; otherwise return to step 1.
+Proof: The generated random variable Y has cdf
+                    P(Y ≤y) =  P(V ≤y|stop)
+                                             1
+                   =  P(V ≤y|U < M fY(V)/ fV(V))
+                                                              1                                     M fY(V)/ fV(V))                                P(V ≤y,U <                   =
+                                 P(U < M1 fY(V)/ fV(V))
+                                                     y   M1 fY (v)/fV (v)                                                   0        du fV(v)dv                   =   −∞   1                                 ∞   M fY (v)/fV (v)                                                   0        du fV(v)dv                               −∞y
+                   =   −∞fY(v)dv,
+which is the desired cdf.                                       2
+
+   Note also that
+
+               M =  sup fY(y)/fV(y)
+                                                   y
+                                       1
+                  =  [P(U <   fY(V)/ fV(V)]−1
+                       M
+                                   1
+                  =
+                                   P(Stop)
+
+so the number of trials needed to generate one Y is a geometric (1/M) random variable, and M is
+the expected number of trials.
+===== PDF 238, printed 207 =====
+GENERATING A RANDOM SAMPLE                                            207
+Example 5.6.9 (Beta random variable generation–II)  To generate Y ∼beta(2.7,6.3) considerthe algorithm
+  a. Generate U ∼uniform(0,1) , V ∼beta(2,6).
+             = V; otherwise return to step 1.  b.  If U < M1  fVfY (V)(V) set Y
+This Accept/Reject Algorithm will generate the required Y as long as supy fY(y)/ fV(y) ≤M < ∞.For the given densities we have M = 1.67, so the requirement is satisfied. (See Exercise 5.63.)
+   For this algorithm EN = 1.67, while for the algorithm of Example 5.6.7, which uses the uniform
+V, we have EN = 2.67. Although this seems to indicate that the latter algorithm is faster, remember
+that generating a beta(2,6) random variable will need eight uniform random variables. Thus, com-
+parison of algorithms is not always straightforward, and will include consideration of both computer
+speed and programming ease.                                                      ∥
+   The importance of the requirement that M < ∞should be stressed. This can be interpreted as
+requiring the density of V (often called the candidate density) to have heavier tails than the density
+of Y (often called the target density). This requirement tends to insure that we will obtain a good
+representation of the values of Y, even those values that are in the tails. For example, if V ∼Cauchy
+and Y ∼n(0,1), then we expect the range of V samples to be wider than that of Y samples, and weshould get good performance from an Accept/Reject Algorithm based on these densities. However,
+it is much more difficult to change n(0,1) random variables into Cauchy random variables because
+the extremes will be underrepresented.
+   There are cases, however, where the target density has heavy tails, and it is difficult to get
+candidate densities that will result in finite values of M. In such cases the Accept/Reject Algorithm
+will no longer apply, and one is lead to another class of methods known as Markov Chain Monte
+Carlo (MCMC) methods. Special cases of such methods are known as the Gibbs Sampler and the
+Metropolis Algorithm. We state the latter:
+Metropolis Algorithm Let Y ∼fY(y) and V ∼fV(v), where fY and fV have common support. To
+generate Y ∼fY
+    0. Generate V ∼fV. Set Z0 = V.
+For i = 1,2,...
+
+    1. Generate Ui ∼uniform(0,1) , Vi ∼fV and calculate
+                                             fY(Vi)  fV(Zi−1)       .                                   ρi = min                                            fV(Vi) · fY(Zi−1),1
+    2. Set
+
+                                                Vi     if Ui                                      Zi =           ≤ρi
+                                          Zi−1   if Ui > ρi
+Then, as i →∞, Zi converges to Y in distribution.
+
+   Although the algorithm does not require a finite M, it does not produce a random variable with
+exactly the density fY, but rather a convergent sequence. In practice, after the algorithm is run for a
+while (i gets big), the Zs that are produced behave very much like variables from fY  . (See Chib and
+Greenberg for an elementary introduction to the Metropolis Algorithm.)
+===== PDF 239, printed 208 =====
+208                                    PROPERTIES OF A RANDOM SAMPLE
+   Although MCMC methods can be traced back to at least Metropolis et al. (1953), they entered
+real prominence with the work of Gelfand and Smith (1990), building on that of Geman and Geman
+(1984). See Miscellanea 5.8.5 for more details.
+
+
+5.7  Exercises
+  5.1 Color blindness appears in 1% of the people in a certain population. How large must a sample be if the
+      probability of its containing a color-blind person is to be .95 or more? (Assume that the population is
+      large enough to be considered infinite, so that sampling can be considered to be with replacement.)
+  5.2 Suppose X1,X2,... are jointly continuous and independent, each distributed with marginal pdf f(x),
+     where each Xis represents annual rainfall at a given location.
+       (a) Find the distribution of the number of years until the first year’s rainfall, X1, is exceeded for the first
+          time.
+      (b) Show that the mean number of years until X1 is exceeded for the first time is infinite.
+  5.3 Let X1,...,Xn be iid random variables with continuous cdf FX, and suppose EXi = µ. Define the random
+      variables Y1,...,Yn by
+                                         1       if Xi > µ                                                 Yi =                           .
+                                         0       if Xi ≤µ
+     Find the distribution of ∑ni=1Yi.
+  5.4 A generalization of iid random variables is exchangeable random variables, an idea due to De Finetti
+      (1972). A discussion of exchangeability can also be found in Feller (1971). The random variables
+      X1,...,Xn are exchangeable if any permutation of any subset of them of size k (k ≤n) has the same       distribution. In this exercise we will see an example of random variables that are exchangeable, but not
+       iid. Let Xi|P ∼iid Bernoulli(P), i = 1,...,n, and let P ∼uniform(0,1).
+       (a) Show that the marginal distribution of any k of the Xs is the same as
+
+                                                            1                    t!(k                      P(X1 = x1,...,Xk = xk) =          =    −t)! ,                                                           0 pt(1−p)k−tdp    (k +1)!
+        where t = ∑ki=1 xi. Hence, the Xs are exchangeable.
+      (b) Show that, marginally,
+
+                                      = xi),                            P(X1 = x1,...,Xn = xn)̸ = Πni=1P(Xi
+         so the distribution of the Xs is exchangeable, but not iid.
+     (De Finetti proved an elegant characterization theorem for an infinite sequence of exchangeable random
+      variables. He proved that any such sequence of exchangeable random variables is a mixture of iid random
+      variables.)
+  5.5 Let X1,...,Xn be iid with pdf fX(x), and let ¯X denote the sample mean. Show that
+                                                                f ¯X (x) = nfX1+···+Xn(nx),
+     even if the mgf of X does not exist.
+  5.6  If X has pdf fX(x), and Y, independent of X, has pdf fY (y), establish formulas, similar to (5.2.3), for the
+     random variable Z in each of the following situations.
+       (a) Z = X −Y
+      (b) Z = XY
+       (c) Z = X/Y
+===== PDF 240, printed 209 =====
+EXERCISES                                                                  209
+
+  5.7 In Example 5.2.10, a partial fraction decomposition is needed to derive the distribution of the sum of
+     two independent Cauchy random variables. This exercise provides the details that are skipped in that
+     example.
+       (a) Find the constants A, B, C, and D that satisfy
+
+                    1           1
+                          =
+              1+(w/σ)2 1+((z−w)/τ)2
+                      Aw        B         Cw          D
+                      +
+                     1+(w/σ)2                               1+(w/σ)2 −         −                          ,                                           1+((z−w)/τ)2  1+((z−w)/τ)2
+        where A, B, C, and D may depend on z but not on w.
+      (b) Using the facts that
+
+                                   t       1                          1                            dt =  log(1+t2)+constant and          dt = arctan(t)+constant,
+               1+t2     2                      1+t2
+
+          evaluate (5.2.4) and hence verify (5.2.5).
+     (Note that the integration in part (b) is quite delicate. Since the mean of a Cauchy does not exist, the
+      integrals  ∞    Aw  dw and  ∞     Cw   dw do not exist. However, the integral of the difference
+           −∞ 1+(w/σ)2       −∞ 1+((z−w)/τ)2     does exist, which is all that is needed.)
+  5.8 Let X1,...,Xn be a random sample, where ¯X and S2 are calculated in the usual way.
+       (a) Show that
+                                         1      n   n                                     S2 =                      ∑                        ∑ (Xi −Xj)2.                                                         i=1                                                            j=1                                   2n(n−1)
+        Assume now that the Xis have a finite fourth moment, and denote θ1 = EXi,θ j = E(Xi −θ1)j, j =          2,3,4.
+                                            2 ).      (b) Show that VarS2 = 1n(θ4 −n−3n−1θ2
+       (c) Find Cov(¯X,S2) in terms of θ1,...,θ4. Under what conditions is Cov( ¯X,S2) = 0?
+  5.9 Establish the Lagrange Identity, that for any numbers a1,a2,...,an and b1,b2,...,bn,
+
+                                                             2
+                              n         n            n          n−1   n
+                               =           ∑ a2i                         ∑                           ∑ (aibj −ajbi)2.                            i=1                                      i=1               ∑ b2i −  i=1∑ aibi                                                               i=1                                                                  j=i+1
+
+     Use the identity to show that the correlation coefficient is equal to 1 if and only if all of the sample points
+       lie on a straight line (Wright 1992). Hint: Establish the identity for n = 2 then induct.
+5.10 Let X1,...,Xn be a random sample from a n(µ,σ2) population.
+       (a) Find expressions for θ1,...,θ4, as defined in Exercise 5.8, in terms of µ and σ2.
+      (b) Use the results of Exercise 5.8, together with the results of part (a), to calculate VarS2.
+       (c) Calculate VarS2 a completely different (and easier) way: Use the fact that (n−1)S2/σ2 ∼χ2n−1.
+5.11 Suppose ¯X and S2 are calculated from a random sample X1,...,Xn drawn from a population with finite
+      variance σ2. We know that ES2 = σ2. Prove that ES ≤σ, and, if σ2 > 0, then ES < σ.
+5.12 Let X1,...,Xn be a random sample from a n(0,1) population. Define
+
+                                     1  n           1  n
+                                    Y1 =                                                                               ,  Y2 =                   ∑ Xi                          ∑ |Xi|.                                     n i=1                                                   n i=1
+
+      Calculate EY1 and EY2, and establish an inequality between them.
+5.13 Let X1,...,Xn be iid n(µ,σ2). Find a function of S2, the sample variance, say g(S2), that satisfies
+     Eg(S2) = σ. (Hint:  Try g(S2) = c√ S2, where c is a constant.)
+===== PDF 241, printed 210 =====
+210                                    PROPERTIES OF A RANDOM SAMPLE
+5.14  (a) Prove that the statement of Lemma 5.3.3 follows from the special case of µi = 0 and σ2i = 1. That
+                                                                                                                                                                                j are constants,             is, show that if Xj = σjZ j + µj and Z j ∼n(0,1), j = 1,...,n, all independent, aij,br         and
+                              n         n                  n             n
+               Cov                                                                                                                                                j are independent,           ∑ aijZj,               ∑ br jZ j                                     j=1                                     j=1                         = 0 ⇒ j=1∑ aijZj and j=1∑ br jZ
+          then
+                             n         n                  n             n
+               Cov           ∑ aijXj,               ∑ br jXj                                     j=1                                     j=1                         = 0 ⇒ j=1∑ aijXj and j=1∑ br jXj are independent.
+
+      (b) Verify the expression for Cov ∑nj=1 aijXj,∑nj=1br jXj  in Lemma 5.3.3.                                          
+5.15 Establish the following recursion relations for means and variances. Let ¯Xn and S2n be the mean and
+      variance, respectively, of X1,...,Xn. Then suppose another observation, Xn+1, becomes available. Show
+       that
+                     Xn+1 +n ¯Xn
+       (a) ¯Xn+1 =   n+1    .
+      (b) nS2n+1 = (n−1)S2n      n               + n+1 (Xn+1 −¯Xn)2.5.16 Let Xi,i = 1,2,3, be independent with n(i,i2) distributions. For each of the following situations, use the
+      Xis to construct a statistic with the indicated distribution.
+       (a) Chi squared with 3 degrees of freedom.
+      (b)  t distribution with 2 degrees of freedom.
+       (c) F distribution with 1 and 2 degrees of freedom.
+5.17 Let X be a random variable with an Fp,q distribution.
+       (a) Derive the pdf of X.
+      (b) Derive the mean and variance of X.
+       (c) Show that 1/X has an Fq,p distribution.
+      (d) Show that (p/q)X/[1+(p/q)X] has a beta distribution with parameters p/2 and q/2.
+5.18 Let X be a random variable with a Student’s t distribution with p degrees of freedom.
+       (a) Derive the mean and variance of X.
+      (b) Show that X2 has an F distribution with 1 and p degrees of freedom.
+       (c) Let f(x|p) denote the pdf of X. Show that
+                                                 1
+                       → √2π                                    p→∞f(x|p)lim                e−x2/2,
+           at each value of x, −∞< x < ∞. This correctly suggests that as p →∞,X converges in distribution           to a n(0,1) random variable. (Hint: Use Stirling’s Formula.)
+
+                                                                                                                1      (d) Use the results of parts (a) and (b) to argue that, as p →∞,X2 converges in distribution to a χ2        random variable.
+       (e) What might you conjecture about the distributional limit, as p →∞, of qFq,p?
+5.19  (a) Prove that the χ2 distribution is stochastically increasing in its degrees of freedom; that is, if p > q
+          then for any a, P(χ2p > a) ≥P(χ2q > a), with strict inequality for some a.
+      (b) Use the results of part (a) to prove that for any ν, kFk,ν is stochastically increasing in k.
+       (c) Show that for any k, ν, and α, kFα,k,ν > (k −1)Fα,k−1,ν. (The notation Fα,k−1,ν denotes a level-α           cutoff point; see Section 8.3.1. Also see Miscellanea 8.5.1 and Exercise 11.15.)
+5.20  (a) We can see that the t distribution is a mixture of normals using the following argument:
+
+                               Z                  P(Tν ≤t) = P       ≤t     0 P Z ≤t√x/√ν P χ2ν = x  dx,                                        χ2ν/ν     ∞                                                                                                =
+===== PDF 242, printed 211 =====
+EXERCISES                                                                  211
+        where Tν is a t random variable with ν degrees of freedom. Using the Fundamental Theorem of
+          Calculus, and interpreting P χ2ν = νx  as a pdf, we obtain
+                           ∞  1       √x     1
+                                  fTν (t) =          e−t2x/2ν                (x)(ν/2)−1e−x/2 dx,                                      0 √2π     √ν Γ(ν/2)2ν/2
+
+         a scale mixture of normals. Verify this formula by direct integration.
+      (b) A similar formula holds for the F distribution; that is, it can be written as a mixture of chi squareds.
+            If F1,ν is an F random variable with 1 and ν degrees of freedom, then we can write
+
+                                        ∞
+                                                                1                                            ≤ty  fν(y)dy,                                    P(F1,ν ≤νt) =  0 P χ2
+        where fν(y) is a χ2ν pdf. Use the Fundamental Theorem of Calculus to obtain an integral expression
+           for the pdf of F1,ν, and show that the integral equals the pdf.
+       (c) Verify that the generalization of part (b),
+
+                                         ∞
+                           =                        P Fm,ν                     ≤νmt                                      P χ2m ≤ty  fν(y)dy,                                                          0
+
+            is valid for all integers m > 1.
+5.21 What is the probability that the larger of two continuous iid random variables will exceed the population
+     median? Generalize this result to samples of size n.
+5.22 Let X and Y be iid n(0,1) random variables, and define Z = min(X,Y). Prove that Z2 ∼χ21.
+5.23 Let Ui,i = 1,2,..., be independent uniform(0,1) random variables, and let X have distribution
+                                                 c
+                              P(X = x) = x!,   x = 1,2,3,...
+     where c = 1/(e−1). Find the distribution of
+                                 Z = min{U1,...,UX}.
+      (Hint:  Note that the distribution of Z|X = x is that of the first order statistic from a sample of size x.)
+5.24 Let X1,...,Xn be a random sample from a population with pdf
+
+                                        1/θ       if 0 < x < θ
+                                      fX(x) =                                         0        otherwise.
+     Let X(1) < ··· < X(n) be the order statistics. Show that X(1)/X(n) and X(n) are independent random vari-      ables.
+5.25 As a generalization of the previous exercise, let X1,...,Xn be iid with pdf
+                                        a xa−1       if 0 < x < θ                                       θa                                    fX(x) =
+                                       0           otherwise.
+
+     Let X(1) < ··· < X(n) be the order statistics. Show that X(1)/X(2),X(2)/X(3),...,X(n−1)/X(n), and X(n) are      mutually independent random variables. Find the distribution of each of them.
+5.26 Complete the proof of Theorem 5.4.6.
+       (a) Let U be a random variable that counts the number of X1,...,Xn less than or equal to u and V
+         be a random variable that counts the number of X1,...,Xn greater than u and less than or equal to
+            v. Show that (U,V,n −U −V) is a multinomial random vector with n trials and cell probabilities
+        (FX(u),FX(v)−FX(u),1−FX(v)).
+===== PDF 243, printed 212 =====
+212                                    PROPERTIES OF A RANDOM SAMPLE
+
+      (b) Show that the joint cdf of X(i) and X( j) can be expressed as
+                           FX(i),X( j)(u,v) =  P(U ≥i,U +V ≥j)
+                                         j−1  n−k
+                   =                ∑                   ∑ P(U                             = k,V = m)+P(U ≥j)                                           k=i                               m=                                                  j−k
+                                         j−1  n−k         n!
+                   =                ∑ ∑                                           k=i m= j−k k!m!(n−k −m)![FX(u)]k[FX(v)−FX(u)]m
+                                ×[1−FX(v)]n−k−m +P(U ≥j).
+       (c) Find the find the joint pdf by computing the mixed partial as indicated in (4.1.3).
+         (The mixed partial of P(U ≥j) is 0 since this term depends only on u, not v. For the other terms,          there is much cancelation using relationships like (5.4.5).)
+5.27 Let X1,...,Xn be iid with pdf fX(x) and cdf FX(x), and let X(1) < ··· < X(n) be the order statistics.
+       (a) Find an expression for the conditional pdf of X(i) given X(j) in terms of fX and FX.
+      (b) Find the pdf of V|R = r, where V and R are defined in Example 5.4.7.
+5.28 Let X1,...,Xn be iid with pdf fX(x) and cdf FX(x), and let X(i1) < ··· < X(il) and X(j1) < ··· < X(jm) be     any two disjoint groups of order statistics. In terms of the pdf fX(x) and the cdf FX(x), find expressions
+      for
+       (a) The marginal cdf and pdf of X(i1),...,X(il).
+      (b) The conditional cdf and pdf of X(i1),...,X(il) given X(j1),...,X(jm).
+5.29 A manufacturer of booklets packages them in boxes of 100. It is known that, on the average, the booklets
+     weigh 1 ounce, with a standard deviation of .05 oz. The manufacturer is interested in calculating
+
+                            P(100 booklets weigh more than 100.4 oz),
+
+      a number that would help detect whether too many booklets are being put in a box. Explain how you
+     would calculate the (approximate?) value of this probability. Mention any relevant theorems or assump-
+      tions needed.
+5.30  If ¯X1 and ¯X2 are the means of two independent samples of size n from a population with variance σ2,
+      find a value for n so that P(|¯X1 −¯X2|                      < σ/5) ≈.99. Justify your calculations.
+5.31 Suppose ¯X is the mean of 100 observations from a population with mean µ and variance σ2 = 9. Find
+      limits between which ¯X −µ will lie with probability at least .90. Use both Chebychev’s Inequality and      the Central Limit Theorem, and comment on each.
+5.32 Let X1,X2,... be a sequence of random variables that converges in probability to a constant a. Assume
+       that P(Xi > 0) = 1 for all i.
+       (a) Verify that the sequences defined by Yi = √Xi and Yi′ = a/Xi converge in probability.
+      (b) Use the results in part (a) to prove the fact used in Example 5.5.18, that σ/Sn converges in probability
+           to 1.
+5.33 Let Xn be a sequence of random variables that converges in distribution to a random variable X. Let Yn
+     be a sequence of random variables with the property that for any finite number c,
+                                    n→∞P(Ynlim   > c) = 1.
+    Show that for any finite number c,
+                                 n→∞P(Xnlim    +Yn > c) = 1.
+      (This is the type of result used in the discussion of the power properties of the tests described in Section
+      10.3.2.)
+===== PDF 244, printed 213 =====
+EXERCISES                                                                  213
+5.34 Let X1,...,Xn be a random sample from a population with mean µ and variance σ2. Show that
+                        √n(¯Xn                √n( ¯Xn                     E     −µ) = 0  and  Var     −µ) = 1.
+                          σ                   σ
+     Thus, the normalization of ¯Xn in the Central Limit Theorem gives random variables that have the same
+     mean and variance as the limiting n(0,1) distribution.
+5.35  Stirling’s Formula (derived in Exercise 1.28), which gives an approximation for factorials, can be easily
+      derived using the CLT.
+       (a) Argue that, if Xi ∼exponential(1),i = 1,2,..., all independent, then for every x,
+                                                          ¯Xn                            P   −1                                1/√n ≤x →P(Z ≤x),
+
+        where Z is a standard normal random variable.
+      (b) Show that differentiating both sides of the approximation in part (a) suggests
+                      √n                        1                                                                         e−x2/2,                             Γ(n)(x√n+n)n−1e−(x√n+n) ≈ √2π
+         and that x = 0 gives Stirling’s Formula.
+5.36 Given that N = n, the conditional distribution of Y  is χ22n. The unconditional distribution of N  is
+      Poisson(θ).
+       (a) Calculate EY and VarY (unconditional moments).
+      (b) Show that, as θ      (Y    √ VarY            in distribution.              →∞,  −EY)/      →n(0,1)
+5.37 In Example 5.5.16, a normal approximation to the negative binomial distribution was given. Just as with
+      the normal approximation to the binomial distribution given in Example 3.3.2, the approximation might
+     be improved with a “continuity correction.” For Xis defined as in Example 5.5.16, let Vn = ∑ni=1 Xi. For
+     n = 10, p = .7, and r = 2, calculate P(Vn = v) for v = 0,1,...,10 using each of the following three
+     methods.
+       (a) Exact calculations
+      (b) Normal approximation as given in Example 5.5.16
+       (c) Normal approximation with continuity correction
+5.38 The following extensions of the inequalities established in Exercise 3.45 are useful in establishing a
+                                                                                                        i=1 Xi    SLLN (see Miscellanea 5.8.4). Let X1,X2,...,Xn be iid with mgf MX(t), −h < t < h, and let Sn = ∑n     and ¯Xn = Sn/n.
+       (a) Show that P(Sn > a) ≤e−at[MX(t)]n, for 0 < t < h and P(Sn ≤a) ≤e−at[MX(t)]n, for −h < t < 0.
+      (b) Use the facts that MX(0) = 1 and M′X(0) = E(X) to show that, if E(X) < 0, then there is a 0 < c < 1
+         with P(Sn > a) ≤cn. Establish a similar bound for P(Sn ≤a).
+       (c) Define Yi = Xi −µ −ε and use the above argument, with a = 0 to establish that P(¯Xn −µ                                                   > ε) ≤cn.
+      (d) Now define Yi = −Xi + µ −ε, establish an equality similar to part (c), and combine the two to get
+                                     < c < 1.                                   P(|¯Xn −µ|                         > ε) ≤2cn for some 0
+5.39 This exercise, and the two following, will look at some of the mathematical details of convergence.
+       (a) Prove Theorem 5.5.4. (Hint: Since h is continuous, given ε > 0 we can find a δ such that |h(xn) −
+          h(x)| < ε whenever |xn −x| < δ. Translate this into probability statements.)
+      (b) In Example 5.5.8, find a subsequence of the Yis that converges almost surely, that is, that converges
+          pointwise.
+5.40 Prove Theorem 5.5.12 for the case where Xn and X are continuous random variables.
+       (a) Given t and ε, show that P(X ≤t −ε) ≤P(Xn ≤t)+P(|Xn −X| ≥ε). This gives a lower bound on
+        P(Xn ≤t).
+      (b) Use a similar strategy to get and upper bound on P(Xn ≤t).
+       (c) By pinching, deduce that P(Xn ≤t) →P(X ≤t).
+===== PDF 245, printed 214 =====
+214                                    PROPERTIES OF A RANDOM SAMPLE
+
+5.41 Prove Theorem 5.5.13, that is, show that
+
+                                                               0   if x < µ,
+                 P(|Xn −µ| > ε) →0 for every ε ⇔  P(Xn ≤x) →  1   if x          .                                           ≥µ
+       (a) Set ε = |x −µ| and show that if x > µ then P(Xn ≤x) ≥P(|Xn −µ| ≤ε) while if x < µ then
+        P(Xn ≤x) ≤P(|Xn −µ| ≥ε). Deduce the ⇒implication.
+      (b) Use the fact that {x : |x−µ| > ε} = {x : x−µ < −ε}∪{x : x−µ > ε} to deduce the ⇐implication.
+      (See Billingsley 1995, Section 25, for a detailed treatment of the above results).
+5.42 Similar to Example 5.5.11, let X1,X2,... be iid f and X(n) = max1≤i≤n Xi.
+       (a)  If f is beta(1,β), find a value of ν so that nν(1−X(n)) converges in distribution.
+      (b)  If f is exponential(1), find a sequence an so that X(n) −an converges in distribution.
+5.43  Fill in the details in the proof of Theorem 5.5.24.
+       (a) Show that if √n(Yn                  in distribution, then Yn      in probability.                  −µ) →n(0,σ2)          →µ
+      (b) Give the details for the application of Slutsky’s Theorem (Theorem 5.5.17).
+                                          = n ∑ni=1 Xi.5.44 Let Xi,i = 1,2,··· be independent Bernoulli(p) random variables and let Yn    1
+       (a) Show that √n(Yn                        in distribution.                  −p) →n[0, p(1−p)]
+      (b) Show that for  p̸ = 1/2, the estimate of variance Yn(1 −Yn) satisfies √n[Yn(1−Yn)−p(1−p)] →
+        n 0,(1−2p)2p(1−p)  in distribution.
+                                                       4                                                                4 χ21  in distribution.  (If this appears strange,                         →−1       (c) Show that for p = 1/2, n Yn(1−Yn)−1          note                 that Yn(1 −Yn) ≤1/4, so the left-hand side  is always negative. An equivalent form  is               1
+        4n  4 −Yn(1−Yn) →χ21.)
+5.45 For the situation of Example 5.6.1, calculate the probability that at least 75 % of the components last 150
+      hours when
+       (a) c = 300,X ∼gamma(a,b),a = 4,b = 5.
+      (b) c = 100,X ∼gamma(a,b),a = 20,b = 5.
+       (c) c = 100,X ∼gamma(a,b),a = 20.7,b = 5.
+      Hint: In parts (a) and (b) it is possible to evaluate the gamma integral in closed form, although it probably
+       isn’t worth the effort in (b). There is no closed form expression for the integral in part (c), which has to
+     be evaluated either through numerical integration or simulation.
+5.46 Referring to Exercise 5.45, compare your answers to what is obtained from a normal approximation to
+      the binomial (see Example 3.3.2).
+5.47 Verify the distributions of the random variables in (5.6.5).
+5.48 Using strategies similar to (5.6.5), show how to generate an Fm,n random variable, where both m and n
+      are even integers.
+5.49 Let U ∼uniform(0,1).
+       (a) Show that both −logUu  and −log(1−U) are exponential random variables.      (b) Show that X = log      is a logistic(0,1) random variable.
+                         1−u       (c) Show how to generate a logistic(µ,β) random variable.
+5.50 The Box-Muller method for generating normal pseudo-random variables (Example 5.6.4) is based on
+      the transformation
+                      X1 = cos(2πU1)  −2logU2,X2 = sin(2πU1)  −2logU2,
+     where U1 and U2 are iid uniform(0,1). Prove that X1 and X2 are independent n(0,1) random variables.
+===== PDF 246, printed 215 =====
+EXERCISES                                                                  215
+
+5.51 One of the earlier methods (not one of the better ones) of generating pseudo-random standard nor-
+     mal random variables from uniform random variables is to take X = ∑12i=1Ui −6, where the Uis are       iid uniform(0,1).
+       (a) Justify the fact that X is approximately n(0,1).
+      (b) Can you think of any obvious way in which the approximation fails?
+       (c) Show how good (or bad) the approximation is by comparing the first four moments. (The fourth
+        moment is 29/10 and is a lengthy calculation – mgfs and computer algebra would help; see Example
+           12.6.6.)
+5.52 For each of the following distributions write down an algorithm for generating the indicated random
+      variables.
+       (a) Y ∼binomial(8, 23).
+      (b) Y ∼hypergeometric(N = 110,M = 8,K = 4).
+       (c) Y ∼negative binomial(5, 3).
+5.53 For each of the distributions in the previous exercise
+       (a) generate 1,000 variables from the indicated distribution.
+      (b) compare the mean, variance, and histogram of the generated random variables with the theoretical
+          values.
+5.54 Referring to Example 5.6.6 another sample of bay anchovy larvae counts yielded the data
+
+                         158,143,106,57,97,80,109,109,350,224,109,214,84.
+
+       (a) Use the technique of Example 5.6.6 to construct a simulated distribution of S2 to see if the assumption
+          of Poisson counts is tenable.
+      (b) A possible explanation of the failure of the Poisson assumptions (and increased variance) is the
+           failure of the assumption that the larvae are uniformly distributed in the river. If the larvae tend
+                                                                                                        µ2           to clump, the negative binomial(r, p) distribution (with mean µ = r 1−pp  and variance µ +  r ) is a
+          reasonable alternative model. For µ = ¯x, what values of r lead to simulated distributions that are
+          consistent with the data?
+5.55 Suppose the method of (5.6.7) is used to generate the random variable Y, where yi = i , i = 0,1,2,... .
+    Show that the expected number of comparisons is E(Y +1). (Hint: Exercise 2.14.)
+                                 < ∞.5.56 Let Y have the Cauchy distribution, fY (y) = 1+y21 ,−∞< y
+       (a) Show that FY (y) = tan−1(y) .
+      (b) Show how to simulate a Cauchy(a,b) random variable starting from a uniform(0,1) random variable.
+
+      (See Exercise 2.12 for a related result.)
+5.57 Park et al. (1996) describe a method for generating correlated binary variables based on the follow
+     scheme. Let X1,X2,X3 be independent Poisson random variables with mean λ1,λ2,λ3, respectively, and
+      create the random variables
+                                    Y1 = X1 +X3 and Y2 = X2 +X3.
+       (a) Show that Cov(Y1,Y2) = λ3.
+      (b) Define Zi = I(Yi = 0) and pi = e−(λi+λ3). Show that Zi are Bernoulli(pi) with
+                                                      p1p2(eλ3                                Corr(Z1,Z2) =           −1)          .
+                                         p1(1−p1)  p2(1−p2)
+       (c) Show that the correlation of Z1 and Z2 is not unrestricted in the range [−1,1], but
+                            Corr(Z1,Z2)         p2(1−p1)   p1(1−p2)    .                            ≤min    p1(1−p2),  p2(1−p1)
+===== PDF 247, printed 216 =====
+216                                    PROPERTIES OF A RANDOM SAMPLE
+5.58 Suppose that U1,U2,...,Un are iid uniform(0,1) random variables, and let Sn = ∑ni=1Ui. Define the
+     random variable N by
+                            N = min{k : Sk > 1}
+       (a) Show that P(Sk ≤t) = tk/k!.
+      (b) Show that P(N = n) = P(Sn−1 < 1) −P(Sn < 1) and, surprisingly, that E(N) = e, the base of the          natural logarithms.
+       (c) Use the result of part (b) to calculate the value of e by simulation.
+      (d) How large should n be so that you are 95% confident that you have the first four digits of e correct?
+      (Russell 1991, who attributes the problem to Gnedenko 1978, describes such a simulation experiment.)
+5.59 Prove that the algorithm of Example 5.6.7 generates a beta(a,b) random variable.
+5.60 Generalize the algorithm of Example 5.6.7 to apply to any continuous pdf on [0,1], that is, for an ar-
+      bitrary bounded pdf f(x) on [a,b], define c = maxa≤x≤b f(x). Let X and Y be independent, with X ∼
+     uniform(a,b) and Y ∼uniform(0,c). Let d be a number greater than b, and define a new random variable
+                                  X    if Y < f(X)
+                     W =                             .
+                                         d   if Y ≥f(X)
+       (a) Show that P(W ≤w)    w                =  a f(t)dt/[c(b−a)], for a ≤w ≤b.
+      (b) Using part (a), explain how a random variable with pdf f(x) can be generated. (Hint:  Use a geo-
+          metric argument; a picture will help.)
+5.61  (a) Suppose it is desired to generate Y ∼beta(a,b), where a and b are not integers. Show that using
+       V ∼beta([a],[b]) will result in a finite value of M = supy fY (y)/ fV (y) .
+      (b) Suppose it is desired to generate Y ∼gamma(a,b), where a and b are not integers. Show that using
+       V ∼gamma([a],b) will result in a finite value of M = supy fY (y)/fV (y) .
+       (c) Show that, in each of parts (a) and (b), if V had parameter [a]+1 then M would be infinite.
+      (d) In each of parts (a) and (b) find optimal values for the parameters of V in the sense of minimizing
+        E(N) (see (5.6.12)).
+      (Recall that [a] = greatest integer ≤a.)
+5.62 Find the values of M so that an accept/reject algorithm can generate Y ∼n(0,1) using U ∼uniform(0,1)     and
+       (a) V ∼Cauchy.
+      (b) V ∼Double Exponential.
+       (c) Compare the algorithms. Which one do you recommend?
+5.63 For generating Y ∼n(0,1) using an accept/reject algorithm, we could generate U ∼uniform, V ∼
+      exponential(λ), and attach a random sign to V (± each with equal probability). What value of λ will      optimize this algorithm?
+5.64 A technique similar to Accept-Reject is importance sampling, which is quite useful for calculating
+      features of a distribution. Suppose that X ∼f, but the pdf 1 f  is difficultf(Yi)    to simulate from. Generate      Y1,Y2,...,Y m, iid from g, and, for any function h, calculate m ∑mi=1 g(Yi) h(Yi). We assume that the sup-
+      ports of f and g are the same, and Varh(X) < ∞.
+
+                      = Eh(X).       (a) Show that E m1 ∑mi=1 g(Yi)f(Yi) h(Yi)
+      (b) Show that m1 ∑mi=1 g(Yi)f(Yi) h(Yi) →Eh(X) in probability.
+       (c) Although the estimator of part (a) has the correct expectation, in practice the estimator
+
+                               m       f(Yi)/g(Yi)
+                 ∑                       h(Yi)                                           i=1  ∑mj=1 f(Yj)/g(Yj)
+
+            is preferred. Show that this estimator converges in probability to Eh(X). Moreover, show that if h is
+          constant, this estimator is superior to the one in part (a). (Casella and Robert 1996 further explore
+          the properties of this estimator.)
+===== PDF 248, printed 217 =====
+MISCELLANEA                                                              217
+
+5.65 A variation of the importance sampling algorithm of Exercise 5.64 can actually produce an ap-
+     proximate sample from  f. Again let X ∼f and generate Y1,Y2,...,Y m, iid from g. Calculate qi =      [f(Yi)/g(Yi)]/[∑mj=1 f(Yj)/g(Yj)]. Then generate random variables X∗from the discrete distribution on
+      Y1,Y2,...,Y m where P(X∗= Yk) = qk. Show that X∗1 ,X∗2 ,...,X∗r is approximately a random sample from
+        f.
+      Hint: Show that P(X∗≤x) = ∑m                                       i=1 qiI(Yi ≤x); let m →∞and use the WLLN in the numerator and      denominator.
+      This algorithm is called the Sampling/Importance Resampling (SIR) algorithm by Rubin (1988), and is
+      referred to as the weighted bootstrap by Smith and Gelfand (1992).
+5.66  If X1,...,Xn are iid n(µ,σ2), we have seen that the distribution of the sample mean ¯X is n(µ,σ2/n). If
+    we are interested in using a more robust estimator of location, such as the median (5.4.1), it becomes a
+     more difficult task to derive its distribution.
+       (a) Show that m is the median the Xis if and only if (m−µ)/σ is the median of (Xi −µ)/σ. Thus, we         only need consider the distribution of the median from a n(0,1) sample.
+      (b) For a sample of size n = 15 from a n(0,1), simulate the distribution of the median m.
+       (c) Compare the distribution in part (b) to the asymptotic distribution of the median √n(m                                                            −µ) ∼         n[0,1/4 f 2(0)], where f is the pdf. Is n = 15 large enough for the asymptotics to be valid?
+5.67 In many instances the Metropolis algorithm is the algorithm of choice because either (i) there are no
+     obvious candidate densities that satisfy the Accept/Reject supremum condition, or (ii) the supremum
+      condition is difficult to verify, or (iii) laziness leads us to substitute computing power for brain power.
+        For each of the following situations show how to implement a Metropolis algorithm to generate a
+     sample of size 100 from the specified distribution.
+
+             σ       (a) X ∼1              f[(x−µ)/σ], f = Student’s t with ν degrees of freedom, ν, µ, and σ known.
+      (b) X ∼lognormal(µ,σ2), µ, σ2 known.
+       (c) X ∼Weibull(α,β), α, β known.
+5.68  If we use the Metropolis algorithm rather than the Accept/Reject algorithm we are freed from verifying
+      the supremum condition of the Accept/Reject algorithm. Of course, we give up the property of getting
+     random variables with exactly the distribution we want, and must settle for an approximation.
+       (a) Show how to use the Metropolis algorithm to generate a random variable with an approximate Stu-
+          dent’s t distribution with ν degrees of freedom, starting from n(0,1) random variables.
+      (b) Show how to use the Accept/Reject algorithm to generate a random variable with a Student’s t
+           distribution with ν degrees of freedom, starting from Cauchy random variables.
+       (c) Show how to use transformations to generate directly a random variable with a Student’s t distribu-
+           tion with ν degrees of freedom.
+      (d) For ν = 2,10,25 compare the methods by generating a sample of size 100. Which method do you
+          prefer? Why?
+     [Mengersen and Tweedie 1995 show that the convergence of the Metropolis Algorithm is much faster if
+      the supremum condition is satisfied, that is, if sup f/g <≤M < ∞, where f is the target density and g is      the candidate density.]
+5.69 Show that the pdf fY (y) is a stable point of the Metropolis algorithm. That is, if Zi ∼fY (y), then Zi+1 ∼       fY (y).
+
+5.8  Miscellanea
+
+ 5.8.1 More on the Central Limit Theorem
+       For the case of a sequence of iid random variables, necessary and sufficient conditions for
+       convergence to normality are known, with probably the most famous result due to Lindeberg
+      and Feller. The following special case is due to L´evy. Let X1,X2,... be an iid sequence with
+===== PDF 249, printed 218 =====
+218                                    PROPERTIES OF A RANDOM SAMPLE
+      EXi = µ < ∞, and let Vn = ∑ni=1 Xi. The sequence Vn will converge to a n(0,1) random
+        variable (when suitably normalized) if, and only if,
+
+                            > t)                             lim      t2P(|X1 −µ|              0.
+                         t→∞ E (X1 −µ)2I[−t,t](X1 −µ)                                =      Note that the condition is a variance condition. While it does not quite require that the
+       variances be finite, it does require that they be “almost” finite. This is an important point in
+       the convergence to normality – normality comes from summing up small disturbances.
+         Other types of central limit theorems abound – in particular, ones aimed at relaxing the
+       independence assumption. While this assumption cannot be done away with, it can be made
+        less restrictive (see Billingsley 1995, Section 27, or Resnick 1999, Chapter 8).
+ 5.8.2 The Bias of S2
+      Most of the calculations that we have done in this chapter have assumed that the observations
+       are independent, and calculations of some expectations have relied on this fact. H. A. David
+       (1985) pointed out that, if the observations are dependent, then S2 may be a biased estimate
+       of σ2. That is, it may not happen that ES2 = σ2. However, the range of the possible bias
+         is easily calculated. If X1,...,Xn are random variables (not necessarily independent) with
+      mean µ and variance σ2, then
+
+                                         n
+                = E              (n−1)ES2               ∑ (Xi −µ)2 −n(                                  = nσ2 −nVar X.                                    X −µ)2                    i=1
+
+      Var ¯X can vary, according to the amount and type of dependence, from 0 (if all of the vari-
+       ables are constant) to σ2 (if all of the variables are copies of X1). Substituting these values
+        in the above equation, we get the range of ES2 under dependence as
+                                           n
+                                 0 ≤ES2 ≤ n−1σ2.
+ 5.8.3 Chebychev’s Inequality Revisited
+       In Section 3.6 we looked at Chebychev’s Inequality (see also Miscellanea 3.8.2), and in
+      Example 3.6.2 we saw a particularly useful form. That form still requires knowledge of the
+      mean and variance of a random variable and in some cases we might be interested in bounds
+       using estimated values for the mean and variance.
+            If X1,...,Xn is a random sample from a population with mean µ and variance σ2, Cheby-
+       chev’s Inequality says
+                                 P(|X −µ| ≥kσ) ≤1k2 .
+     Saw et al. (1984) showed that if we substitute X for µ and S2 for σ2, we obtain
+
+                                       1       n(n+1)k2
+                 P |X −X| ≥kS ≤ n+1g                                ,                              n−1+(n+1)k2                                      
+      where
+                              ν            if ν is even
+                              g(t) =  ν            if ν is odd and t < a ,                                               ν            if ν is odd and t > a                                        −1
+      and                                            n+1                  ν = largest integer <         ,  a = (n+1)(n+1−ν) .
+                                                                     t       1+ν(n+1−ν)
+===== PDF 250, printed 219 =====
+MISCELLANEA                                                              219
+ 5.8.4 More on the Strong Law
+     As mentioned, the Strong Law of Large Numbers, Theorem 5.5.9, can be proved under the
+        less restrictive condition that the random variables only have a finite mean (see, for example,
+       Resnick 1999, Chapter 7, or Billingsley 1995, Section 22). However, under the assumptions
+       of the existence of an mgf, Koopmans (1993) has presented a proof that only uses calculus.
+        The type of convergence asserted in the SLLN is the convergence that we are most fa-
+        miliar with; it is pointwise convergence of the sequence of random variables ¯Xn to their
+     common mean µ. As we saw in Example 5.5.8, this is a stronger form of convergence than
+       convergence in probability, the convergence of the weak law.
+        The conclusion of the SLLN is that
+                               P( lim ¯Xn −µ|                                  n→∞|    < ε) = 1,
+        that is, with probability 1, the limit of the sequence of {¯Xn} is µ. Alternatively, the set where       the sequence diverges has probability 0. For the sequence to diverge, there must exist δ > 0
+                              > δ. The set of all ¯Xk that satisfy this is a       such that for every n there is a k > n with |¯Xk −µ|       divergent sequence, and is represented by the set
+
+                                       n=1                                            k=n                            Aδ = ∩∞                               ∪∞                                                     {|                                                                      ¯Xk −µ|                                > δ}.
+     We can get an upper bound on P(Aδ) by dropping the intersection term, and then the proba-
+         bility of the set where the sequence {¯Xn} diverges is bounded above by
+              P(Aδ)                      ¯Xk   >              ≤  P(∪∞∞  k=n{|  −µ|  δ})
+            ∑       ¯Xk              ≤  k=n P({|  −µ| > δ})        (Boole’s Inequality, Theorem 1.2.11)
+                         ∞
+                         2             ∑ ck,              ≤    k=n     0 < c < 1,
+      where Exercise 5.38(d) can be used to establish the last inequality. We then note that we are
+      summing the geometric series, and it follows from (1.5.4) that
+                                ∞         cn
+                        P(Aδ)  ∑ ck                    ≤2 k=n  = 2   →0 as n →∞,                               1−c
+       and, hence, the set where the sequence {¯Xn} diverges has probability zero and the SLLN is        established.
+ 5.8.5 Markov Chain Monte Carlo
+      Methods that are collectively known as Markov Chain Monte Carlo (MCMC) methods are
+       used in the generation of random variables, and have proved extremely useful for doing com-
+        plicated calculations, most notably, calculations involving integrations and maximizations.
+      The Metropolis algorithm (see Section 5.6) is an example of an MCMC method.
+       As the name suggests, these methods are based on Markov Chains, a probabilistic struc-
+        ture that we haven’t explored (see Chung 1974 or Ross 1988 for an introduction). The se-
+      quence of random variables X1,X2,... is a Markov chain if
+                         P(Xk+1 ∈A|X1,...,Xk) = P(Xk+1 ∈A|Xk);
+        that is, the distribution of the present random variable depends, at most, on the immediate
+       past random variable. Note that this is a generalization of independence.
+        The Ergodic Theorem, which is a generalization of the Law of Large Numbers, says that
+          if the Markov Chain X1,X2,... satisfies some regularity conditions (which are often satisfied
+        in statistical problems) then
+                            1  n
+                                                      as n               ∑ h(Xi)                            n i=1    →Eh(X)   →∞,
+===== PDF 251, printed 220 =====
+220                                    PROPERTIES OF A RANDOM SAMPLE
+       provided the expectation exists. Thus, the calculations of Section 5.6 can be extended to
+      Markov chains and MCMC methods.
+        To fully understand MCMC methods it is really necessary to understand more about
+      Markov chains, which we will not do here. There is already a vast literature on MCMC
+       methods, encompassing both theory and applications. Tanner (1993) provides a good intro-
+       duction to computational methods in statistics, as does Robert (1994, Chapter 9) who pro-
+       vides a more theoretical treatment with a Bayesian flavor. An easier introduction to this topic
+       via the Gibbs sampler (a particular MCMC method) is given by Casella and George (1992).
+      The Gibbs sampler is, perhaps, the MCMC method that is still the most widely used, and is
+       responsible for the popularity of this method [due to the seminal work of Gelfand and Smith
+       (1990) expanding on Geman and Geman (1984)]. The list of references involving MCMC
+      methods is prohibitively large. Some other introductions to this literature are through the
+       papers of Gelman and Rubin (1992), Geyer and Thompson (1992), and Smith and Roberts
+       (1993), with a particularly elegant theoretical introduction given by Tierney (1994). Robert
+      and Casella (1999) is a textbook-length treatment of this field.

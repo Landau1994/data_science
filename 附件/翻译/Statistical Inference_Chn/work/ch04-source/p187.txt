@@ -1,0 +1,47 @@
+156                                      MULTIPLE RANDOM VARIABLES
+
+
+                                                                                     g(x)
+
+
+
+
+
+                                                                                                        ⅼ(x) = a + bx
+
+
+
+
+
+                                                                                              x
+                                     EX
+
+                        Figure 4.7.2 Graphical illustration of Jensen’s Inequality
+
+
+     If g(x) is linear, equality follows from properties of expectations (Theorem 2.2.5). For the “only
+if” part, see Exercise 4.62.                                      2
+   One immediate application of Jensen’s Inequality shows that EX2 ≥(EX)2, since g(x) = x2 is
+convex. Also, if x is positive, then 1/x is convex, hence E(1/X) ≥1/EX, another useful application.   To check convexity of a twice differentiable function is quite easy. The function g(x) is convex if
+g′′(x) ≥0, for all x, and g(x) is concave if g′′(x) ≤0, for all x. Jensen’s Inequality applies to concave
+functions as well. If g is concave then Eg(X) ≤g(EX).
+Example 4.7.8 (An inequality for means)  Jensen’s Inequality can be used to prove an inequality
+between three different kinds of means. If a1,...,an are positive numbers, define
+
+                                  1
+                         aA =  n(a1 +a2 +···+an),               (Arithmetic mean)
+                                                                                    ,                  (Geometric mean)                         aG =   [a1a2·····an]1/n                                           1
+                         aH =                                     .            (Harmonic mean)
+                                               1   1    1          1                         +                                                                          an                                               n   a1                                                             a2 +···+
+
+An inequality relating these means is
+                                 aH ≤aG ≤aA.
+To apply Jensen’s Inequality, let X be a random variable with range a1,...,an and P(X = ai) =
+1/n,i = 1,...,n. Since logx is a concave function, Jensen’s Inequality shows that E(logX) ≤log(EX), hence
+
+                   1 n                               1  n
+                  = E(logX)      = log                                       = logaA,            logaG = ∑ logai                          ∑ ai                   n i=1             ≤log(EX)       n i=1
+so aG ≤aA. Now again use the fact that logx is concave to get
+                  1        1 n 1         1         1
+                 log  = log      = logE         log   =              ∑                 aH       n i=1 ai       X ≥E    X    −E(logX).
+Since E(logX) = logaG, it then follows that log(1/aH) ≥log(1/aG), or aG ≥aH.             ∥

@@ -1,0 +1,15 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{ctex}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[width=12cm,height=8cm,axis lines=left,tick align=outside,ymin=-.03,ymax=1.04,xmin=50.0,xmax=85.0,xlabel={温度 $x$（$^\circ$F）},ylabel={概率},title={Challenger：23次观测，重复点可能重叠},legend columns=3,legend style={draw=none,at={(.5,-.23)},anchor=north,font=\small}]
+\addplot[black,solid,line width=.9pt] table[x=x,y=y0,col sep=comma] {ch12_17.csv};
+\addlegendentry{Probit}
+\addplot[black,dashed,line width=.9pt] table[x=x,y=y1,col sep=comma] {ch12_17.csv};
+\addlegendentry{Logistic}
+\addplot[only marks,mark=o,black,mark size=2pt] coordinates {(53,1) (57,1) (58,1) (63,1) (66,0) (67,0) (67,0) (68,0) (69,0) (70,0) (70,0) (70,0) (70,1) (70,1) (72,0) (73,0) (75,0) (75,1) (76,0) (76,0) (78,0) (79,0) (81,0)};
+\addlegendentry{观测比例／结果}
+
+\end{axis}\end{tikzpicture}\end{document}

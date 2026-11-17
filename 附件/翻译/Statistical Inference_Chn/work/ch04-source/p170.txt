@@ -1,0 +1,44 @@
+COVARIANCE AND CORRELATION                                            139
+Definition 4.5.2  The correlation of X and Y is the number defined by
+
+                                     Cov(X,Y)
+                                 ρXY =                 .
+                                     σXσY
+The value ρXY is also called the correlation coefficient.
+
+     If large values of X tend to be observed with large values of Y and small values of X with small
+values of Y, then Cov(X,Y) will be positive. If X > µX, then Y > µY is likely to be true, and the
+product (X −µX)(Y −µY) will be positive. If X < µX, then Y < µY is likely to be true, and the
+product (X −µX)(Y −µY) will again be positive. Thus, Cov(X,Y) = E(X −µX)(Y −µY) > 0. Iflarge values of X tend to be observed with small values of Y and small values of X with large values
+of Y, then Cov(X,Y) will be negative because when X > µX, Y will tend to be less than µY and
+vice versa, and hence (X −µX)(Y −µY) will tend to be negative. Thus, the sign of Cov(X,Y) givesinformation regarding the relationship between X and Y.
+   But Cov(X,Y) can be any number and a given value of Cov(X,Y), say Cov(X,Y) = 3, does not
+in itself give information about the strength of the relationship between X and Y. On the other hand,
+the correlation is always between −1 and 1, with the values −1 and 1 indicating a perfect linearrelationship between X and Y. This is proved in Theorem 4.5.7.
+   Before investigating these properties of covariance and correlation, we will first calculate these
+measures in a given example. This calculation will be simplified by the following result.
+Theorem 4.5.3  For any random variables X and Y,
+                            Cov(X,Y) = EXY −µXµY.
+Proof:
+           Cov(X,Y) =  E((X −µX)(Y −µY))
+              =  E((XY −µXY −µYX + µXµY))          (expanding the product)
+              =  EXY −µXEY −µYEX + µXµY         (µX and µY are constants)
+              =  EXY −µXµY −µY µX + µXµY
+              =  EXY −µXµY.
+                                                    2
+
+Example 4.5.4 (Correlation–I)  Let the joint pdf of (X,Y) be f(x,y) = 1, 0 < x < 1,x < y < x+1.
+The marginal distribution of X is uniform(0,1) so µX = 12 and σ2X     1                                   = 12. The marginal pdf of Y is
+                        < 2, with µY = 1 and σ2Y = 6. We also havefY(y) = y, 0 < y < 1, and fY(y) = 2−y,1 ≤y                               1
+                                           1  x+1               1 1    x+1
+                 EXY =         xydydx =           dx                                                                                  x                                          0   x                 0 2xy2
+                                           1      1        7
+                 =                                          x2 + 2x  dx                             = 12.                                          0
+
+Using Theorem 4.5.3, we have Cov(X,Y) = 127     1         1                                                       2  (1) = 12. The correlation is                        −
+                           Cov(X,Y)      1/12       1
+                        =                       ρXY =
+                            σXσY                                 = √ 2 .                                         1/12  1/6
+                                                                              ∥
+    In the next three theorems we describe some of the fundamental properties of covariance and
+correlation.

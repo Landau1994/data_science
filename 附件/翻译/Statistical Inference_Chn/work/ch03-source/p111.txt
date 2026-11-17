@@ -1,0 +1,51 @@
+80                          COMMON FAMILIES OF DISTRIBUTIONS
+Geometric Distribution
+
+The geometric distribution is the simplest of the waiting time distributions, and is a special case of
+the negative binomial distribution. If we set r = 1 in (3.2.9) we have
+
+                               = 1,2,...                      P(X = x|p) = p(1−p)x−1,   x
+which defines the pmf of a geometric random variable X with success probability p. X can be
+interpreted as the trial at which the first success occurs, so we are “waiting for a success.” The fact
+that ∑∞x=1 P(X = x) = 1 follows from properties of the geometric series. For any number a with
+|a| < 1,                          ∞                                           1
+                         =                ∑ ax−1
+                                      x=1                                  1−a,
+which we have already encountered in Example 1.5.4.
+   The mean and variance of X can be calculated by using the negative binomial formulas and by
+writing X = Y +1 to obtain
+
+                                    1                  EX = EY +1 =     and  VarX = 1−p .
+                                    p                 p2
+
+   The geometric distribution has an interesting property, known as the “memoryless” property.
+For integers s > t, it is the case that
+
+                         P(X > s|X > t) = P(X > s−t);                          (3.2.11)
+that is, the geometric distribution “forgets” what has occurred. The probability of getting an addi-
+tional s −t failures, having already observed t failures, is the same as the probability of observing
+s−t failures at the start of the sequence. In other words, the probability of getting a run of failuresdepends only on the length of the run, not on its position.
+   To establish (3.2.11), we first note that for any integer n,
+
+                     P(X > n) =  P(no successes in n trials)
+                     =                                   (1−p)n,                                      (3.2.12)
+and hence
+
+                                      P(X > s and X > t)
+                     P(X > s|X > t) =      P(X > t)
+                                      P(X > s)
+                        =
+                                      P(X > t)
+                        =                                         (1−p)s−t
+                        =  P(X > s−t).
+Example 3.2.7 (Failure times)  The geometric distribution is sometimes used to model “life-
+times” or “time until failure” of components. For example, if the probability is .001 that a light
+bulb will fail on any given day, then the probability that it will last at least 30 days is
+
+                            ∞
+                P(X > 30) =                              = (.999)30 = .970.              ∑ .001(1−.001)x−1                                  x=31
+                                                                              ∥
+   The memoryless property of the geometric distribution describes a very special “lack of aging”
+property. It indicates that the geometric distribution is not applicable to modeling lifetimes for which
+the probability of failure is expected to increase with time. There are other distributions used to
+model various types of aging; see, for example, Barlow and Proschan (1975).

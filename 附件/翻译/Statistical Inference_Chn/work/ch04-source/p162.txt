@@ -1,0 +1,39 @@
+BIVARIATE TRANSFORMATIONS                                              131
+The expression (4.3.3) was used but some terms have been rearranged. Now make the univariate
+change of variable y = (u/v−u)/(1−u) so that dy = −u/[v2(1−u)]dv to obtain
+                      Γ(α +β +γ)                        1
+              fU(u) =  Γ(α)Γ(β)Γ(γ)uα−1(1−u)β+γ−1  0 yβ−1(1−y)γ−1 dy
+                      Γ(α +β +γ)                Γ(β)Γ(γ)
+            =                      Γ(α)Γ(β)Γ(γ)uα−1(1−u)β+γ−1 Γ(β +γ)
+                     Γ(α +β +γ)
+            =                               0 < u < 1.                      Γ(α)Γ(β +γ)uα−1(1−u)β+γ−1,
+To obtain the second identity, we recognized the integrand as the kernel of a beta pdf and used
+(3.2.17). Thus, we see that the marginal distribution of U is beta(α,β +γ).                  ∥
+Example 4.3.4 (Sum and difference of normal variables)  Let X andY be independent, standard
+normal random variables. Consider the transformation U = X +Y and V = X −Y. In the notation
+used above, U = g1(X,Y) where g1(x,y) = x+y and V = g2(X,Y) where g2(x,y) = x−y. The joint
+pdf of X andY is, of course, fX,Y(x,y) = (2π)−1 exp(−x2/2)exp(−y2/2),−∞< x < ∞,−∞< y < ∞.So the set A = ℜ2. To determine the set B on which fU,V(u,v) is positive, we must determine all
+the values that
+                             u = x+y  and  v = x−y                               (4.3.4)
+take on as (x,y) range over the set A = ℜ2. But we can set u to be any number and v to be any
+number and uniquely solve equations (4.3.4) for x and y to obtain
+                        u+v                      x = h1(u,v) =       and   y = h2(u,v) = u−v .                  (4.3.5)
+                                 2                       2
+This shows two things. For any (u,v) ∈ℜ2 there is an (x,y) ∈A (defined by (4.3.5)) such that
+u = x+y and v = x−y. So B, the set of all possible (u,v) values, is ℜ2. Since the solution (4.3.5)is unique, this also shows that the transformation we have considered is one-to-one. Only the (x,y)
+given in (4.3.5) will yield u = x+y and v = x−y. From (4.3.5) the partial derivatives of x and y areeasy to compute. We obtain
+                            ∂x  ∂x    1    1
+                           ∂u  ∂v    2    2                             J =      =     =                            ∂y  ∂y    1      −12.
+                           ∂u  ∂v    2  −12
+                                       = 2, we obtain the jointSubstituting the expressions (4.3.5) for x and y into fX,Y(x,y) and using |J|    1pdf of (U,V) from (4.3.2) as
+                                            1                      1             fU,V(u,v) =             =    e−((u+v)/2)2/2e−((u−v)/2)2/2                          fX,Y(h1(u,v),h2(u,v))|J|   2π                      2
+for −∞< u < ∞and −∞< v < ∞. Multiplying out the squares in the exponentials, we see that theterms involving uv cancel. Thus, after some simplification and rearrangement we obtain
+
+                                  1              1                       fU,V(u,v) =           e−u2/4             e−v2/4   .                   √ 2π √2     √2π √ 2
+The joint pdf has factored into a function of u and a function of v. By Lemma 4.2.7, U and V are
+independent. From Theorem 4.2.14, the marginal distribution of U = X +Y is n(0,2). Similarly,
+Theorem 4.2.12 could be used to find that the marginal distribution of V is also n(0,2). This impor-
+tant fact, that sums and differences of independent normal random variables are independent normal
+random variables, is true regardless of the means of X and Y, so long as VarX = VarY. This result
+is left as Exercise 4.27. Theorems 4.2.12 and 4.2.14 give us the marginal distributions of U and V.
+But the more involved analysis here is required to determine that U and V are independent.     ∥

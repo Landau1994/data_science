@@ -1,0 +1,445 @@
+% 原书印刷208–217页，PDF物理239–248页.
+\subsection{习题}\label{sec:5.7}
+\begin{exercise}\label{exercise:5.1}
+某总体有1\%的人是色盲.若要样本中包含色盲者的概率至少为.95，样本容量须多大？（假定总体大到可视为无限总体，抽样可视为有放回抽样.）
+\end{exercise}
+\begin{exercise}\label{exercise:5.2}
+设$X_1,X_2,\ldots$联合连续且独立，各自的边际pdf均为$f(x)$，每个$X_i$表示某地点的年降雨量.
+\begin{enumerate}[label=(\alph*)]
+\item 求直到第一次超过第一年降雨量$X_1$所需年数的分布.
+\item 证明直到第一次超过$X_1$所需年数的均值为无穷.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.3}
+设$X_1,\ldots,X_n$为iid随机变量，具有连续cdf $F_X$，且$EX_i=\mu$.定义随机变量$Y_1,\ldots,Y_n$为
+$$Y_i=\begin{cases}1,&X_i>\mu,\\0,&X_i\le\mu.\end{cases}$$
+求$\sum_{i=1}^nY_i$的分布.
+\end{exercise}
+\begin{exercise}\label{exercise:5.4}\index{SI0421@可交换}
+iid随机变量的一种推广是可交换随机变量（exchangeable random variables），这一概念出自\hyperref[bib:source95]{De Finetti（1972）}.\hyperref[bib:source119]{Feller（1971）}也讨论了可交换性.若随机变量$X_1,\ldots,X_n$中任意容量为$k$（$k\le n$）的子集的任意排列都具有相同分布，则称它们可交换.本题给出可交换但非iid的例子.设$X_i\mid P\sim\operatorname{Bernoulli}(P)$，$i=1,\ldots,n$，条件iid，且$P\sim\operatorname{uniform}(0,1)$.
+\begin{enumerate}[label=(\alph*)]
+\item 证明任意$k$个$X$的边际分布都与下式相同：
+$$P(X_1=x_1,\ldots,X_k=x_k)=\int_0^1p^t(1-p)^{k-t}\,dp=\frac{t!(k-t)!}{(k+1)!},$$
+其中$t=\sum_{i=1}^kx_i$.因此这些$X$可交换.
+\item 证明在边际意义下，
+$$P(X_1=x_1,\ldots,X_n=x_n)\ne\prod_{i=1}^nP(X_i=x_i),$$
+所以这些$X$的分布可交换，但并非iid.
+\end{enumerate}
+（De Finetti证明了无限可交换随机变量序列的一个优美刻画定理：任何这样的序列都是iid随机变量的混合.）
+\end{exercise}
+\begin{exercise}\label{exercise:5.5}\index{SI0927@概率密度函数}
+设$X_1,\ldots,X_n$为iid，pdf为$f_X(x)$，样本均值为$\bar X$.证明即使$X$的矩母函数不存在，也有
+$$f_{\bar X}(x)=nf_{X_1+\cdots+X_n}(nx).$$
+\end{exercise}
+\begin{exercise}\label{exercise:5.6}
+若$X$的pdf为$f_X(x)$，与$X$独立的$Y$的pdf为$f_Y(y)$，分别为下列随机变量$Z$建立类似\eqref{eq:5.2.3}的公式.
+\begin{enumerate}[label=(\alph*)]\item $Z=X-Y$.\item $Z=XY$.\item $Z=X/Y$.\end{enumerate}
+\end{exercise}
+\sourcepageanchor{240}
+\begin{exercise}\label{exercise:5.7}
+\autoref{ex:5.2.10}推导两个独立Cauchy随机变量之和的分布时，需要部分分式分解.本题补充该例省略的细节.
+\begin{enumerate}[label=(\alph*)]
+\item 求满足下式的常数$A,B,C,D$：
+$$\begin{aligned}
+&\frac1{1+(w/\sigma)^2}\frac1{1+((z-w)/\tau)^2}\\
+&\quad=\frac{Aw}{1+(w/\sigma)^2}+\frac B{1+(w/\sigma)^2}-\frac{Cw}{1+((z-w)/\tau)^2}-\frac D{1+((z-w)/\tau)^2},
+\end{aligned}$$
+其中$A,B,C,D$可以依赖$z$，但不依赖$w$.
+\item\phantomsection\label{itm:exercise:5.7:b} 利用
+$$\int\frac t{1+t^2}\,dt=\frac12\log(1+t^2)+\text{常数},\qquad\int\frac1{1+t^2}\,dt=\arctan(t)+\text{常数},$$
+计算\eqref{eq:5.2.4}，进而验证\eqref{eq:5.2.5}.
+\end{enumerate}
+（注意\hyperref[itm:exercise:5.7:b]{(b)}中的积分很微妙.Cauchy均值不存在，所以下列积分不存在：
+$$\int_{-\infty}^\infty\frac{Aw}{1+(w/\sigma)^2}\,dw,\qquad\int_{-\infty}^\infty\frac{Cw}{1+((z-w)/\tau)^2}\,dw.$$
+但二者之差的积分确实存在，而这正是所需的.）
+\end{exercise}
+\begin{exercise}\label{exercise:5.8}\index{SI0939@恒等式}
+设$X_1,\ldots,X_n$为随机样本，$\bar X$与$S^2$按通常方式计算.
+\begin{enumerate}[label=(\alph*)]
+\item\phantomsection\label{item:5.8.a} 证明
+$$S^2=\frac1{2n(n-1)}\sum_{i=1}^n\sum_{j=1}^n(X_i-X_j)^2.$$
+现在假定$X_i$具有有限四阶矩，记$\theta_1=EX_i$、$\theta_j=E(X_i-\theta_1)^j$，$j=2,3,4$.
+\item\phantomsection\label{item:5.8.b} 证明$\operatorname{Var}S^2=\frac1n(\theta_4-\frac{n-3}{n-1}\theta_2^2)$.
+\item 用$\theta_1,\ldots,\theta_4$表示$\operatorname{Cov}(\bar X,S^2)$.什么条件下$\operatorname{Cov}(\bar X,S^2)=0$？
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.9}\index{SI0542@拉格朗日}
+证明Lagrange恒等式：对任意数$a_1,a_2,\ldots,a_n$和$b_1,b_2,\ldots,b_n$，
+$$\left(\sum_{i=1}^na_i^2\right)\left(\sum_{i=1}^nb_i^2\right)-\left(\sum_{i=1}^na_ib_i\right)^2=\sum_{i=1}^{n-1}\sum_{j=i+1}^n(a_ib_j-a_jb_i)^2.$$
+利用此恒等式证明，相关系数等于1，当且仅当全部样本点位于一条直线上（\hyperref[bib:source334]{Wright 1992）}.\footnote{译注：原文写相关系数“等于1”.一般直线上的点可能具有负斜率，正确的共线刻画应是相关系数绝对值为1，并要求两组样本方差非零；等于$+1$还须正斜率.}提示：先证明$n=2$，再用归纳法.
+\end{exercise}
+\begin{exercise}\label{exercise:5.10}
+设$X_1,\ldots,X_n$为来自$n(\mu,\sigma^2)$总体的随机样本.
+\begin{enumerate}[label=(\alph*)]
+\item\phantomsection\label{itm:exercise:5.10:a} 用$\mu$与$\sigma^2$表示\autoref{exercise:5.8}定义的$\theta_1,\ldots,\theta_4$.
+\item 结合\autoref{exercise:5.8}及\hyperref[itm:exercise:5.10:a]{(a)}的结果，计算$\operatorname{Var}S^2$.
+\item 用完全不同且更容易的方法计算$\operatorname{Var}S^2$：利用$(n-1)S^2/\sigma^2\sim\chi_{n-1}^2$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.11}
+设$\bar X$与$S^2$由来自方差$\sigma^2$有限的总体的随机样本$X_1,\ldots,X_n$计算.已知$ES^2=\sigma^2$.证明$ES\le\sigma$，且若$\sigma^2>0$，则$ES<\sigma$.
+\end{exercise}
+\begin{exercise}\label{exercise:5.12}
+设$X_1,\ldots,X_n$为来自$n(0,1)$总体的随机样本.定义
+$$Y_1=\left|\frac1n\sum_{i=1}^nX_i\right|,\qquad Y_2=\frac1n\sum_{i=1}^n|X_i|.$$
+计算$EY_1$、$EY_2$，并建立它们之间的不等式.
+\end{exercise}
+\begin{exercise}\label{exercise:5.13}
+设$X_1,\ldots,X_n$为iid $n(\mu,\sigma^2)$.求样本方差$S^2$的函数$g(S^2)$，满足$Eg(S^2)=\sigma$.（提示：尝试$g(S^2)=c\sqrt{S^2}$，其中$c$为常数.）
+\end{exercise}
+\sourcepageanchor{241}
+\needspace{5\baselineskip}
+\begin{exercise}\label{exercise:5.14}\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item 证明\autoref{lem:5.3.3}的一般结论可由$\mu_i=0$、$\sigma_i^2=1$的特例推出.即证明：若$X_j=\sigma_jZ_j+\mu_j$、$Z_j\sim n(0,1)$，$j=1,\ldots,n$，全部独立，$a_{ij},b_{rj}$为常数，且
+$$\operatorname{Cov}\left(\sum_{j=1}^na_{ij}Z_j,\sum_{j=1}^nb_{rj}Z_j\right)=0\implies\sum_{j=1}^na_{ij}Z_j\text{与}\sum_{j=1}^nb_{rj}Z_j\text{独立},$$
+则
+$$\operatorname{Cov}\left(\sum_{j=1}^na_{ij}X_j,\sum_{j=1}^nb_{rj}X_j\right)=0\implies\sum_{j=1}^na_{ij}X_j\text{与}\sum_{j=1}^nb_{rj}X_j\text{独立}.$$
+\item 验证\autoref{lem:5.3.3}中$\operatorname{Cov}(\sum_{j=1}^na_{ij}X_j,\sum_{j=1}^nb_{rj}X_j)$的表达式.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.15}\index{SI0928@递推关系}\index{SI0941@递推关系}
+建立以下均值、方差的递推关系.设$\bar X_n$和$S_n^2$分别为$X_1,\ldots,X_n$的均值与方差，又取得一个观测$X_{n+1}$.证明
+\begin{enumerate}[label=(\alph*)]
+\item $\bar X_{n+1}=(X_{n+1}+n\bar X_n)/(n+1)$.
+\item $nS_{n+1}^2=(n-1)S_n^2+\frac n{n+1}(X_{n+1}-\bar X_n)^2$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.16}
+设$X_i$（$i=1,2,3$）独立且各服从$n(i,i^2)$分布.在每种情形中，用$X_i$构造具有指定分布的统计量.
+\begin{enumerate}[label=(\alph*)]\item 自由度为3的卡方分布.\item 自由度为2的$t$分布.\item 自由度为1和2的$F$分布.\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.17}
+设随机变量$X$服从$F_{p,q}$分布.
+\begin{enumerate}[label=(\alph*)]\item 推导$X$的pdf.\item 推导$X$的均值与方差.\item 证明$1/X$服从$F_{q,p}$分布.\item 证明$(p/q)X/[1+(p/q)X]$服从参数为$p/2$和$q/2$的beta分布.\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.18}\index{SI0367@与t的关系}\index{SI0384@与正态的关系}
+设$X$服从自由度为$p$的Student $t$分布.
+\begin{enumerate}[label=(\alph*)]
+\item\phantomsection\label{itm:exercise:5.18:a} 推导$X$的均值和方差.
+\item\phantomsection\label{itm:exercise:5.18:b} 证明$X^2$服从自由度为1和$p$的$F$分布.
+\item 以$f(x\mid p)$表示$X$的pdf.证明对每个$-\infty<x<\infty$，
+$$\lim_{p\to\infty}f(x\mid p)\to\frac1{\sqrt{2\pi}}e^{-x^2/2}.$$
+这正确地提示，$p\to\infty$时，$X$依分布收敛到$n(0,1)$随机变量.（提示：使用Stirling公式.）
+\item 利用\hyperref[itm:exercise:5.18:a]{(a)}、\hyperref[itm:exercise:5.18:b]{(b)}说明，$p\to\infty$时，$X^2$依分布收敛到$\chi_1^2$随机变量.
+\item 关于$p\to\infty$时$qF_{q,p}$的分布极限，可以提出什么猜想？
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.19}\index{SI0990@卡方}\index{SI0991@F}\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item\phantomsection\label{itm:exercise:5.19:a} 证明$\chi^2$分布随自由度随机递增（stochastically increasing）：若$p>q$，则对任意$a$有$P(\chi_p^2>a)\ge P(\chi_q^2>a)$，且对某个$a$严格不等号成立.
+\item 用\hyperref[itm:exercise:5.19:a]{(a)}证明，对任意$\nu$，$kF_{k,\nu}$随$k$随机递增.
+\item 证明对任意$k,\nu,\alpha$，$kF_{\alpha,k,\nu}>(k-1)F_{\alpha,k-1,\nu}$.（$F_{\alpha,k-1,\nu}$表示水平为$\alpha$的临界点；见\autoref{sec:8.3.1}.另见\autoref{sec:8.5.1}和\autoref{exercise:11.15}.）
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.20}\index{SI0345@正态–伽马}\index{SI0347@t–F}\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item 以下论证说明$t$分布是正态分布的混合：
+$$P(T_\nu\le t)=P\left(\frac Z{\sqrt{\chi_\nu^2/\nu}}\le t\right)=\int_0^\infty P(Z\le t\sqrt x/\sqrt\nu)P(\chi_\nu^2=x)\,dx,$$
+\sourcepageanchor{242}
+其中$T_\nu$为自由度为$\nu$的$t$随机变量.利用微积分基本定理，并将$P(\chi_\nu^2=\nu x)$解释为pdf，得到
+$$f_{T_\nu}(t)=\int_0^\infty\frac1{\sqrt{2\pi}}e^{-t^2x/(2\nu)}\frac{\sqrt x}{\sqrt\nu}\frac1{\Gamma(\nu/2)2^{\nu/2}}x^{(\nu/2)-1}e^{-x/2}\,dx,$$
+它是正态分布的尺度混合.用直接积分验证此公式.
+\item\phantomsection\label{itm:exercise:5.20:b} $F$分布也有类似公式，即可写成卡方分布的混合.若$F_{1,\nu}$为自由度为1和$\nu$的$F$随机变量，则
+$$P(F_{1,\nu}\le\nu t)=\int_0^\infty P(\chi_1^2\le ty)f_\nu(y)\,dy,$$
+其中$f_\nu(y)$为$\chi_\nu^2$的pdf.用微积分基本定理得到$F_{1,\nu}$的pdf的积分表达式，并证明积分等于该pdf.
+\item 验证\hyperref[itm:exercise:5.20:b]{(b)}的推广
+$$P\left(F_{m,\nu}\le\frac\nu m t\right)=\int_0^\infty P(\chi_m^2\le ty)f_\nu(y)\,dy$$
+对所有整数$m>1$成立.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.21}
+两个连续iid随机变量中较大者超过总体中位数的概率是多少？推广到容量为$n$的样本.
+\end{exercise}
+\begin{exercise}\label{exercise:5.22}
+设$X,Y$为iid $n(0,1)$随机变量，定义$Z=\min(X,Y)$.证明$Z^2\sim\chi_1^2$.
+\end{exercise}
+\begin{exercise}\label{exercise:5.23}
+设$U_i$（$i=1,2,\ldots$）是独立的$\operatorname{uniform}(0,1)$随机变量，$X$具有分布
+$$P(X=x)=\frac c{x!},\qquad x=1,2,3,\ldots,$$
+其中$c=1/(e-1)$.求$Z=\min\{U_1,\ldots,U_X\}$的分布.（提示：$Z\mid X=x$的分布是容量为$x$的样本的第一个次序统计量的分布.）
+\end{exercise}
+\begin{exercise}\label{exercise:5.24}
+设随机样本$X_1,\ldots,X_n$来自pdf为
+$$f_X(x)=\begin{cases}1/\theta,&0<x<\theta,\\0,&\text{其他情形}\end{cases}$$
+的总体，次序统计量为$X_{(1)}<\cdots<X_{(n)}$.证明$X_{(1)}/X_{(n)}$与$X_{(n)}$独立.
+\end{exercise}
+\begin{exercise}\label{exercise:5.25}
+推广上一题，设$X_1,\ldots,X_n$为iid，pdf为
+$$f_X(x)=\begin{cases}\dfrac a{\theta^a}x^{a-1},&0<x<\theta,\\0,&\text{其他情形}.\end{cases}$$
+次序统计量为$X_{(1)}<\cdots<X_{(n)}$.证明$X_{(1)}/X_{(2)},X_{(2)}/X_{(3)},\ldots,X_{(n-1)}/X_{(n)}$与$X_{(n)}$相互独立，并分别求它们的分布.
+\end{exercise}
+\begin{exercise}\label{exercise:5.26}\index{SI0733@联合累积分布函数}
+完成\autoref{thm:5.4.6}的证明.
+\begin{enumerate}[label=(\alph*)]
+\item 令$U$表示$X_1,\ldots,X_n$中不超过$u$的个数，$V$表示大于$u$且不超过$v$的个数.证明$(U,V,n-U-V)$是试验次数为$n$、单元概率为$(F_X(u),F_X(v)-F_X(u),1-F_X(v))$的多项随机向量.
+\sourcepageanchor{243}
+\item 证明$X_{(i)}$与$X_{(j)}$的联合cdf可写成
+\begin{align*}
+F_{X_{(i)},X_{(j)}}(u,v)&=P(U\ge i,U+V\ge j)\\
+&=\sum_{k=i}^{j-1}\sum_{m=j-k}^{n-k}P(U=k,V=m)+P(U\ge j)\\
+&=\sum_{k=i}^{j-1}\sum_{m=j-k}^{n-k}\frac{n!}{k!m!(n-k-m)!}[F_X(u)]^k[F_X(v)-F_X(u)]^m\\
+&\qquad\times[1-F_X(v)]^{n-k-m}+P(U\ge j).
+\end{align*}
+\item 按照\eqref{eq:4.1.3}计算混合偏导数，求联合pdf.（$P(U\ge j)$只依赖$u$而不依赖$v$，所以其混合偏导数为0.其余项可利用\eqref{eq:5.4.5}之类的关系大量相消.）
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.27}
+设$X_1,\ldots,X_n$为iid，pdf为$f_X(x)$、cdf为$F_X(x)$，次序统计量为$X_{(1)}<\cdots<X_{(n)}$.
+\begin{enumerate}[label=(\alph*)]
+\item 用$f_X$和$F_X$表示给定$X_{(j)}$时$X_{(i)}$的条件pdf.
+\item 求$V\mid R=r$的pdf，其中$V,R$见\autoref{ex:5.4.7}.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.28}
+设$X_1,\ldots,X_n$为iid，pdf为$f_X(x)$、cdf为$F_X(x)$，$X_{(i_1)}<\cdots<X_{(i_l)}$与$X_{(j_1)}<\cdots<X_{(j_m)}$是任意两组互不重叠的次序统计量.用$f_X,F_X$表示：
+\begin{enumerate}[label=(\alph*)]
+\item $X_{(i_1)},\ldots,X_{(i_l)}$的边际cdf和pdf.
+\item 给定$X_{(j_1)},\ldots,X_{(j_m)}$时，$X_{(i_1)},\ldots,X_{(i_l)}$的条件cdf和pdf.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.29}
+一家小册子制造商每箱装100本.已知小册子的平均重量为1盎司，标准差为.05盎司.制造商想计算
+$$P(\text{100本小册子的重量超过100.4盎司}),$$
+用它帮助检测一箱是否放入过多小册子.说明如何计算这个概率的（近似？）值，并列出所需定理或假设.
+\end{exercise}
+\begin{exercise}\label{exercise:5.30}
+若$\bar X_1$和$\bar X_2$是从方差为$\sigma^2$的总体取得的两个独立、容量均为$n$的样本的均值，求使$P(|\bar X_1-\bar X_2|<\sigma/5)\approx.99$的$n$.说明计算依据.
+\end{exercise}
+\begin{exercise}\label{exercise:5.31}
+设$\bar X$是从均值$\mu$、方差$\sigma^2=9$的总体取得的100个观测的均值.求使$\bar X-\mu$以至少.90的概率落在其中的界限.分别使用Chebychev不等式和中心极限定理，并评论两种方法.
+\end{exercise}
+\begin{exercise}\label{exercise:5.32}
+设随机变量序列$X_1,X_2,\ldots$依概率收敛到常数$a$，且对所有$i$都有$P(X_i>0)=1$.
+\begin{enumerate}[label=(\alph*)]\item\phantomsection\label{itm:exercise:5.32:a} 验证$Y_i=\sqrt{X_i}$与$Y'_i=a/X_i$定义的序列依概率收敛.\item 利用\hyperref[itm:exercise:5.32:a]{(a)}证明\autoref{ex:5.5.18}所用的结论：$\sigma/S_n$依概率收敛到1.\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.33}
+设随机变量序列$X_n$依分布收敛到随机变量$X$，而随机变量序列$Y_n$满足：对任意有限数$c$，
+$$\lim_{n\to\infty}P(Y_n>c)=1.$$
+证明对任意有限数$c$，$\lim_{n\to\infty}P(X_n+Y_n>c)=1$.
+
+（\autoref{sec:10.3.2}讨论检验的功效性质时，会使用这类结果.）
+\end{exercise}
+\sourcepageanchor{244}
+\begin{exercise}\label{exercise:5.34}
+设$X_1,\ldots,X_n$为来自均值$\mu$、方差$\sigma^2$的总体的随机样本.证明
+$$E\frac{\sqrt n(\bar X_n-\mu)}\sigma=0,\qquad\operatorname{Var}\frac{\sqrt n(\bar X_n-\mu)}\sigma=1.$$
+因此，中心极限定理中对$\bar X_n$的标准化，得到与极限$n(0,1)$分布具有相同均值、方差的随机变量.
+\end{exercise}
+\begin{exercise}\label{exercise:5.35}\index{SI0985@Stirling公式}
+Stirling公式给出阶乘的近似，已在\autoref{exercise:1.28}推导，也容易由中心极限定理推出.
+\begin{enumerate}[label=(\alph*)]
+\item\phantomsection\label{itm:exercise:5.35:a} 说明若$X_i\sim\operatorname{exponential}(1)$（$i=1,2,\ldots$）全部独立，则对每个$x$，
+$$P\left(\frac{\bar X_n-1}{1/\sqrt n}\le x\right)\to P(Z\le x),$$
+其中$Z$为标准正态随机变量.
+\item 说明对\hyperref[itm:exercise:5.35:a]{(a)}中近似式两边求导，提示
+$$\frac{\sqrt n}{\Gamma(n)}(x\sqrt n+n)^{n-1}e^{-(x\sqrt n+n)}\approx\frac1{\sqrt{2\pi}}e^{-x^2/2},$$
+且令$x=0$可得Stirling公式.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.36}
+给定$N=n$，$Y$的条件分布为$\chi_{2n}^2$；$N$的无条件分布为$\operatorname{Poisson}(\theta)$.
+\begin{enumerate}[label=(\alph*)]\item 计算无条件矩$EY$和$\operatorname{Var}Y$.\item 证明$\theta\to\infty$时，$(Y-EY)/\sqrt{\operatorname{Var}Y}$依分布收敛到$n(0,1)$.\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.37}
+\autoref{ex:5.5.16}给出负二项分布的正态近似.与\autoref{ex:3.3.2}中二项分布的正态近似一样，可用“连续性修正”改进.对\autoref{ex:5.5.16}中的$X_i$，令$V_n=\sum_{i=1}^nX_i$.取$n=10$、$p=.7$、$r=2$，分别用下列三种方法计算$v=0,1,\ldots,10$时的$P(V_n=v)$.
+\begin{enumerate}[label=(\alph*)]\item 精确计算.\item \autoref{ex:5.5.16}给出的正态近似.\item 带连续性修正的正态近似.\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.38}\index{SI0574@矩母函数}
+下面对\autoref{exercise:3.45}不等式的推广，可用于证明强大数定律（见\autoref{sec:5.8.4}）.设$X_1,X_2,\ldots,X_n$为iid，矩母函数为$M_X(t)$，$-h<t<h$，令$S_n=\sum_{i=1}^nX_i$、$\bar X_n=S_n/n$.
+\begin{enumerate}[label=(\alph*)]
+\item 证明$0<t<h$时$P(S_n>a)\le e^{-at}[M_X(t)]^n$；$-h<t<0$时$P(S_n\le a)\le e^{-at}[M_X(t)]^n$.
+\item 利用$M_X(0)=1$及$M'_X(0)=E(X)$证明：若$E(X)<0$，则存在$0<c<1$使$P(S_n>a)\le c^n$.为$P(S_n\le a)$建立类似界.
+\item\phantomsection\label{itm:exercise:5.38:c} 定义$Y_i=X_i-\mu-\varepsilon$，在上述论证中取$a=0$，证明$P(\bar X_n-\mu>\varepsilon)\le c^n$.
+\item\phantomsection\label{itm:exercise:5.38:d} 现在定义$Y_i=-X_i+\mu-\varepsilon$，建立类似\hyperref[itm:exercise:5.38:c]{(c)}的等式，结合两者得到：对某个$0<c<1$，
+$$P(|\bar X_n-\mu|>\varepsilon)\le2c^n.$$
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.39}
+本题及接下来两题研究收敛的若干数学细节.
+\begin{enumerate}[label=(\alph*)]
+\item 证明\autoref{thm:5.5.4}.（提示：$h$连续，给定$\varepsilon>0$，可找到$\delta$，使$|x_n-x|<\delta$时$|h(x_n)-h(x)|<\varepsilon$.将其转化为概率表述.）
+\item 在\autoref{ex:5.5.8}中，找出$Y_i$的一个几乎处处收敛、即逐点收敛的子序列.\footnote{译注：所引例子使用$X_i$，原题这里写成$Y_i$；应指该例的$X_i$序列.}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.40}
+在$X_n$与$X$都是连续随机变量的情形，证明\autoref{thm:5.5.12}.
+\begin{enumerate}[label=(\alph*)]
+\item 给定$t,\varepsilon$，证明$P(X\le t-\varepsilon)\le P(X_n\le t)+P(|X_n-X|\ge\varepsilon)$.这给出$P(X_n\le t)$的下界.
+\item 用类似策略求$P(X_n\le t)$的上界.
+\item 用夹逼法推出$P(X_n\le t)\to P(X\le t)$.
+\end{enumerate}
+\end{exercise}
+\sourcepageanchor{245}
+\begin{exercise}\label{exercise:5.41}
+证明\autoref{thm:5.5.13}，即证明\footnote{译注：右端原文写$x\ge\mu$，但依分布收敛到常数只要求在$x\ne\mu$的连续点成立；应将第二行条件改为$x>\mu$，与所引定理一致.}
+$$P(|X_n-\mu|>\varepsilon)\to0\text{（对每个$\varepsilon$）}\iff P(X_n\le x)\to\begin{cases}0,&x<\mu,\\1,&x\ge\mu.\end{cases}$$
+
+\begin{enumerate}[label=(\alph*)]
+\item 取$\varepsilon=|x-\mu|$，证明$x>\mu$时$P(X_n\le x)\ge P(|X_n-\mu|\le\varepsilon)$；$x<\mu$时$P(X_n\le x)\le P(|X_n-\mu|\ge\varepsilon)$.推出正向蕴含.
+\item 利用$\{x:|x-\mu|>\varepsilon\}=\{x:x-\mu<-\varepsilon\}\cup\{x:x-\mu>\varepsilon\}$推出反向蕴含.
+\end{enumerate}
+（上述结果的详细论述见\hyperref[bib:source33]{Billingsley 1995}，第25节.）
+\end{exercise}
+\begin{exercise}\label{exercise:5.42}
+类似\autoref{ex:5.5.11}，设$X_1,X_2,\ldots$为iid $f$，$X_{(n)}=\max_{1\le i\le n}X_i$.
+\begin{enumerate}[label=(\alph*)]\item 若$f$为$\operatorname{beta}(1,\beta)$，求使$n^\nu(1-X_{(n)})$依分布收敛的$\nu$.\item 若$f$为$\operatorname{exponential}(1)$，求使$X_{(n)}-a_n$依分布收敛的序列$a_n$.\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.43}
+补全\autoref{thm:5.5.24}证明的细节.
+\begin{enumerate}[label=(\alph*)]\item 证明若$\sqrt n(Y_n-\mu)\to n(0,\sigma^2)$（依分布），则$Y_n\to\mu$（依概率）.\item 给出应用Slutsky定理（\autoref{thm:5.5.17}）的细节.\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.44}\index{SI0253@极限}
+设$X_i$（$i=1,2,\ldots$）为独立的$\operatorname{Bernoulli}(p)$随机变量，$Y_n=n^{-1}\sum_{i=1}^nX_i$.
+\begin{enumerate}[label=(\alph*)]
+\item 证明$\sqrt n(Y_n-p)\to n[0,p(1-p)]$（依分布）.
+\item 证明$p\ne1/2$时，方差估计$Y_n(1-Y_n)$满足$\sqrt n[Y_n(1-Y_n)-p(1-p)]\to n[0,(1-2p)^2p(1-p)]$（依分布）.
+\item 证明$p=1/2$时，$n[Y_n(1-Y_n)-1/4]\to-\frac14\chi_1^2$（依分布）.（若觉得奇怪，注意$Y_n(1-Y_n)\le1/4$，所以左端总为负.等价形式为$4n[1/4-Y_n(1-Y_n)]\to\chi_1^2$.）
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.45}
+在\autoref{ex:5.6.1}的情形中，计算至少75\%的元件寿命达到150小时的概率，分别取：
+\begin{enumerate}[label=(\alph*)]\item\phantomsection\label{itm:exercise:5.45:a} $c=300$，$X\sim\operatorname{gamma}(a,b)$，$a=4,b=5$.\item\phantomsection\label{itm:exercise:5.45:b} $c=100$，$X\sim\operatorname{gamma}(a,b)$，$a=20,b=5$.\item\phantomsection\label{itm:exercise:5.45:c} $c=100$，$X\sim\operatorname{gamma}(a,b)$，$a=20.7,b=5$.\end{enumerate}
+提示：\hyperref[itm:exercise:5.45:a]{(a)}、\hyperref[itm:exercise:5.45:b]{(b)}的gamma积分可求闭式，尽管\hyperref[itm:exercise:5.45:b]{(b)}可能不值得这样费力.\hyperref[itm:exercise:5.45:c]{(c)}的积分没有闭式，须用数值积分或模拟计算.
+\end{exercise}
+\begin{exercise}\label{exercise:5.46}
+将\autoref{exercise:5.45}的答案与二项分布正态近似（见\autoref{ex:3.3.2}）所得结果比较.
+\end{exercise}
+\begin{exercise}\label{exercise:5.47}
+验证\eqref{eq:5.6.5}中各随机变量的分布.
+\end{exercise}
+\begin{exercise}\label{exercise:5.48}
+用类似\eqref{eq:5.6.5}的策略说明，如何生成$m,n$均为偶数时的$F_{m,n}$随机变量.
+\end{exercise}
+\begin{exercise}\label{exercise:5.49}
+设$U\sim\operatorname{uniform}(0,1)$.
+\begin{enumerate}[label=(\alph*)]\item 证明$-\log U$与$-\log(1-U)$都是指数随机变量.\item 证明$X=\log\frac u{1-u}$是$\operatorname{logistic}(0,1)$随机变量.\item 说明如何生成$\operatorname{logistic}(\mu,\beta)$随机变量.\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.50}\index{SI0861@随机数生成}
+生成正态伪随机变量的Box–Muller方法（\autoref{ex:5.6.4}）基于变换
+$$X_1=\cos(2\pi U_1)\sqrt{-2\log U_2},\qquad X_2=\sin(2\pi U_1)\sqrt{-2\log U_2},$$
+其中$U_1,U_2$为iid $\operatorname{uniform}(0,1)$.证明$X_1,X_2$是独立的$n(0,1)$随机变量.
+\end{exercise}
+\sourcepageanchor{246}
+\begin{exercise}\label{exercise:5.51}
+从均匀随机变量生成伪标准正态随机变量的一种较早方法（并非较好的方法），是取$X=\sum_{i=1}^{12}U_i-6$，其中$U_i$为iid $\operatorname{uniform}(0,1)$.
+\begin{enumerate}[label=(\alph*)]\item 说明$X$为何近似服从$n(0,1)$.\item 能否找出这种近似明显失效之处？\item 比较前四阶矩，说明近似有多好（或多差）.（四阶矩为$29/10$，计算较长；矩母函数和计算机代数有帮助，见\autoref{ex:12.6.6}.）\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.52}\index{SI0861@随机数生成}
+对以下各个分布，写出生成相应随机变量的算法.
+\begin{enumerate}[label=(\alph*)]\item $Y\sim\operatorname{binomial}(8,2/3)$.\item $Y\sim\operatorname{hypergeometric}(N=10,M=8,K=4)$.\item $Y\sim\operatorname{negative\ binomial}(5,1/3)$.\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.53}
+对上一题中的每个分布：
+\begin{enumerate}[label=(\alph*)]\item 生成1,000个服从该分布的变量.\item 将生成变量的均值、方差及直方图与理论值比较.\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.54}
+参见\autoref{ex:5.6.6}，另一份海湾{\upshape\CJKfontspec{SimSun}鳀}鱼幼体计数样本给出数据
+$$158,143,106,57,97,80,109,109,350,224,109,214,84.$$
+\begin{enumerate}[label=(\alph*)]
+\item 用\autoref{ex:5.6.6}的方法构造$S^2$的模拟分布，判断Poisson计数假设是否合理.
+\item Poisson假设失效（及方差增大）的一种解释，是幼体在河中均匀分布的假设不成立.若幼体倾向于聚集，则负二项$(r,p)$分布（均值$\mu=r(1-p)/p$，方差$\mu+\mu^2/r$）是合理的替代模型.取$\mu=\bar x$，哪些$r$值产生的模拟分布与数据相符？
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.55}
+设用\eqref{eq:5.6.7}的方法生成随机变量$Y$，其中$y_i=i$，$i=0,1,2,\ldots$.证明比较次数的期望为$E(Y+1)$.（提示：\autoref{exercise:2.14}.）
+\end{exercise}
+\begin{exercise}\label{exercise:5.56}
+设$Y$服从Cauchy分布，$f_Y(y)=1/(1+y^2)$，$-\infty<y<\infty$.
+\begin{enumerate}[label=(\alph*)]\item 证明$F_Y(y)=\tan^{-1}(y)$.\item 说明如何从$\operatorname{uniform}(0,1)$随机变量模拟$\operatorname{Cauchy}(a,b)$随机变量.\end{enumerate}
+（相关结果见\autoref{exercise:2.12}.）\footnote{译注：原题的pdf漏掉归一化因子$1/\pi$，cdf也漏掉缩放和加性常数.标准Cauchy的pdf应为$1/[\pi(1+y^2)]$，cdf为$1/2+\arctan(y)/\pi$.}
+\end{exercise}
+\begin{exercise}\label{exercise:5.57}\index{SI0215@二元}
+\hyperref[bib:source239]{Park等（1996）}给出如下生成相关二元变量的方法.设$X_1,X_2,X_3$为均值分别为$\lambda_1,\lambda_2,\lambda_3$的独立Poisson随机变量，构造$Y_1=X_1+X_3$及$Y_2=X_2+X_3$.
+\begin{enumerate}[label=(\alph*)]
+\item 证明$\operatorname{Cov}(Y_1,Y_2)=\lambda_3$.
+\item 定义$Z_i=I(Y_i=0)$、$p_i=e^{-(\lambda_i+\lambda_3)}$.证明$Z_i\sim\operatorname{Bernoulli}(p_i)$，且
+$$\operatorname{Corr}(Z_1,Z_2)=\frac{p_1p_2(e^{\lambda_3}-1)}{\sqrt{p_1(1-p_1)}\sqrt{p_2(1-p_2)}}.$$
+\item 证明$Z_1,Z_2$的相关系数不能在$[-1,1]$中任意取值，而满足
+$$\operatorname{Corr}(Z_1,Z_2)\le\min\left\{\sqrt{\frac{p_2(1-p_1)}{p_1(1-p_2)}},\sqrt{\frac{p_1(1-p_2)}{p_2(1-p_1)}}\right\}.$$
+\end{enumerate}
+\end{exercise}
+\sourcepageanchor{247}
+\begin{exercise}\label{exercise:5.58}
+设$U_1,U_2,\ldots,U_n$为iid $\operatorname{uniform}(0,1)$随机变量，$S_n=\sum_{i=1}^nU_i$.定义$N=\min\{k:S_k>1\}$.
+\begin{enumerate}[label=(\alph*)]
+\item 证明$P(S_k\le t)=t^k/k!$.\footnote{译注：这一公式需要$0\le t\le1$；原题未写适用范围.后续使用$t=1$，在该范围内.}
+\item\phantomsection\label{itm:exercise:5.58:b} 证明$P(N=n)=P(S_{n-1}<1)-P(S_n<1)$，并证明令人惊讶的$E(N)=e$，其中$e$为自然对数的底.
+\item 利用\hyperref[itm:exercise:5.58:b]{(b)}的结果，通过模拟计算$e$.
+\item 若希望有95\%的把握保证$e$的前四位数字正确，$n$须多大？
+\end{enumerate}
+（\hyperref[bib:source270]{Russell 1991}描述过这种模拟实验，并将问题归于\hyperref[bib:source151]{Gnedenko 1978}.）
+\end{exercise}
+\begin{exercise}\label{exercise:5.59}
+证明\autoref{ex:5.6.7}的算法生成$\operatorname{beta}(a,b)$随机变量.
+\end{exercise}
+\begin{exercise}\label{exercise:5.60}
+把\autoref{ex:5.6.7}的算法推广到$[0,1]$上的任意连续pdf，即对$[a,b]$上的任意有界pdf $f(x)$，定义$c=\max_{a\le x\le b}f(x)$.设$X,Y$独立，$X\sim\operatorname{uniform}(a,b)$、$Y\sim\operatorname{uniform}(0,c)$.取$d>b$，定义
+$$W=\begin{cases}X,&Y<f(X),\\d,&Y\ge f(X).\end{cases}$$
+\begin{enumerate}[label=(\alph*)]\item\phantomsection\label{itm:exercise:5.60:a} 证明$a\le w\le b$时，$P(W\le w)=\int_a^w f(t)\,dt/[c(b-a)]$.\item 利用\hyperref[itm:exercise:5.60:a]{(a)}说明如何生成pdf为$f(x)$的随机变量.（提示：用几何论证，画图会有帮助.）\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.61}\index{SI0255@生成}\index{SI0307@生成}\leavevmode
+\begin{enumerate}[label=(\alph*)]
+\item\phantomsection\label{itm:exercise:5.61:a} 要生成$Y\sim\operatorname{beta}(a,b)$，其中$a,b$不是整数.证明取$V\sim\operatorname{beta}([a],[b])$会使$M=\sup_y f_Y(y)/f_V(y)$有限.
+\item\phantomsection\label{itm:exercise:5.61:b} 要生成$Y\sim\operatorname{gamma}(a,b)$，其中$a,b$不是整数.证明取$V\sim\operatorname{gamma}([a],b)$会使$M=\sup_y f_Y(y)/f_V(y)$有限.
+\item 证明在\hyperref[itm:exercise:5.61:a]{(a)}、\hyperref[itm:exercise:5.61:b]{(b)}中，若$V$的参数为$[a]+1$，则$M$为无穷.
+\item 在\hyperref[itm:exercise:5.61:a]{(a)}、\hyperref[itm:exercise:5.61:b]{(b)}中分别求使$E(N)$最小的$V$的最优参数（见\eqref{eq:5.6.12}）.
+\end{enumerate}
+（回顾$[a]$是不超过$a$的最大整数.）\footnote{译注：候选beta、gamma分布的形状参数必须为正；因此\hyperref[itm:exercise:5.61:a]{(a)}需$[a],[b]\ge1$，\hyperref[itm:exercise:5.61:b]{(b)}需$[a]\ge1$.原题未明说这些条件；参数在$(0,1)$时，直接向下取整会得到无效的零形状参数.}
+\end{exercise}
+\begin{exercise}\label{exercise:5.62}
+求使接受／拒绝算法可以用$U\sim\operatorname{uniform}(0,1)$和下列$V$生成$Y\sim n(0,1)$的$M$.
+\begin{enumerate}[label=(\alph*)]\item $V\sim\operatorname{Cauchy}$.\item $V$服从双指数分布.\item 比较两种算法.你推荐哪一种？\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.63}
+用接受／拒绝算法生成$Y\sim n(0,1)$时，可生成均匀$U$及$V\sim\operatorname{exponential}(\lambda)$，再给$V$附上随机符号（正负各等概率）.什么$\lambda$使算法最优？
+\end{exercise}
+\begin{exercise}\label{exercise:5.64}\index{SI0014@重要性抽样}
+与接受／拒绝方法类似的一种技术是重要性抽样（importance sampling），它很适合计算分布的特征.设$X\sim f$，但难以从pdf $f$模拟.从$g$生成iid $Y_1,Y_2,\ldots,Y_m$，对任意函数$h$计算$m^{-1}\sum_{i=1}^m[f(Y_i)/g(Y_i)]h(Y_i)$.假定$f,g$支撑集相同，且$\operatorname{Var}h(X)<\infty$.
+\begin{enumerate}[label=(\alph*)]
+\item\phantomsection\label{itm:exercise:5.64:a} 证明$E\bigl(m^{-1}\sum_{i=1}^m[f(Y_i)/g(Y_i)]h(Y_i)\bigr)=Eh(X)$.
+\item 证明$m^{-1}\sum_{i=1}^m[f(Y_i)/g(Y_i)]h(Y_i)\to Eh(X)$（依概率）.
+\item 虽然\hyperref[itm:exercise:5.64:a]{(a)}的估计量有正确期望，实际中更常用
+$$\sum_{i=1}^m\left(\frac{f(Y_i)/g(Y_i)}{\sum_{j=1}^m f(Y_j)/g(Y_j)}\right)h(Y_i).$$
+证明它依概率收敛到$Eh(X)$.此外，证明若$h$是常数，这一估计量优于\hyperref[itm:exercise:5.64:a]{(a)}中的估计量.（\hyperref[bib:source70]{Casella和Robert 1996}进一步研究了其性质.）
+\end{enumerate}
+\end{exercise}
+\sourcepageanchor{248}
+\begin{exercise}\label{exercise:5.65}
+\autoref{exercise:5.64}的重要性抽样算法的一种变体，实际上可产生来自$f$的近似样本.仍设$X\sim f$，从$g$生成iid $Y_1,Y_2,\ldots,Y_m$，计算$q_i=[f(Y_i)/g(Y_i)]/[\sum_{j=1}^mf(Y_j)/g(Y_j)]$.然后从取值$Y_1,Y_2,\ldots,Y_m$、概率$P(X^*=Y_k)=q_k$的离散分布生成随机变量$X^*$.证明$X_1^*,X_2^*,\ldots,X_r^*$近似为来自$f$的随机样本.
+
+提示：证明$P(X^*\le x)=\sum_{i=1}^m q_iI(Y_i\le x)$；令$m\to\infty$，在分子、分母中使用弱大数定律.
+
+\hyperref[bib:source266]{Rubin（1988）}称此法为抽样／重要性再抽样（Sampling/Importance Resampling，SIR）算法；\hyperref[bib:source292]{Smith和Gelfand（1992）}称其为加权自助法（weighted bootstrap）.
+\end{exercise}
+\begin{exercise}\label{exercise:5.66}
+若$X_1,\ldots,X_n$为iid $n(\mu,\sigma^2)$，已知样本均值$\bar X$服从$n(\mu,\sigma^2/n)$.若想使用更稳健的位置估计量，例如中位数\eqref{eq:5.4.1}，其分布就更难推导.
+\begin{enumerate}[label=(\alph*)]
+\item 证明$m$是$X_i$的中位数，当且仅当$(m-\mu)/\sigma$是$(X_i-\mu)/\sigma$的中位数.所以只须考虑$n(0,1)$样本中位数的分布.
+\item\phantomsection\label{itm:exercise:5.66:b} 对来自$n(0,1)$、容量$n=15$的样本，模拟中位数$m$的分布.
+\item 将\hyperref[itm:exercise:5.66:b]{(b)}的分布与中位数的渐近分布$\sqrt n(m-\mu)\sim n[0,1/(4f^2(0))]$比较，其中$f$为pdf.$n=15$是否足以使渐近结果有效？
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.67}
+很多情况下Metropolis算法是首选，因为：(i)没有明显满足接受／拒绝上确界条件的候选密度；或(ii)难以验证上确界条件；或(iii)懒惰促使我们用计算力代替脑力.
+
+对以下各情形，说明如何实施Metropolis算法，从指定分布生成容量为100的样本.
+\begin{enumerate}[label=(\alph*)]
+\item $X\sim\sigma^{-1}f[(x-\mu)/\sigma]$，$f$为自由度$\nu$的Student $t$分布，$\nu,\mu,\sigma$已知.
+\item $X\sim\operatorname{lognormal}(\mu,\sigma^2)$，$\mu,\sigma^2$已知.
+\item $X\sim\operatorname{Weibull}(\alpha,\beta)$，$\alpha,\beta$已知.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:5.68}
+用Metropolis算法代替接受／拒绝算法，就不必验证后者的上确界条件.当然，也放弃了得到精确服从所需分布的随机变量的性质，只能接受近似.
+\begin{enumerate}[label=(\alph*)]
+\item 说明如何从$n(0,1)$随机变量出发，用Metropolis算法生成近似服从自由度$\nu$的Student $t$分布的随机变量.
+\item 说明如何从Cauchy随机变量出发，用接受／拒绝算法生成自由度$\nu$的Student $t$随机变量.
+\item 说明如何用变换直接生成自由度$\nu$的Student $t$随机变量.
+\item 对$\nu=2,10,25$，生成容量100的样本来比较各方法.你更喜欢哪一种？为什么？
+\end{enumerate}
+[\hyperref[bib:source218]{Mengersen和Tweedie 1995}\footnote{译注：正文此处引1995年，原书书后同名论文条目[218]列1996年；这里分别保留两处年份，链接至该条目.}表明，若满足上确界条件，即$\sup f/g<\!\le M<\infty$（$f$为目标密度，$g$为候选密度），Metropolis算法收敛快得多.\footnote{译注：原文此处连写“$<\!\le$”；结合前文上确界条件，可理解为$\sup f/g\le M<\infty$.}]
+\end{exercise}
+\begin{exercise}\label{exercise:5.69}
+证明pdf $f_Y(y)$是Metropolis算法的稳定点（stable point）.即若$Z_i\sim f_Y(y)$，则$Z_{i+1}\sim f_Y(y)$.
+\end{exercise}

@@ -1,0 +1,53 @@
+240                                       PRINCIPLES OF DATA REDUCTION
+Example 6.3.7 (Continuation of Example 6.3.5)  Consider again the binomial and negative bino-
+mial experiments with the two sample points x1 = 7 (7 out of 20 Heads in the binomial experiment),
+and x2 = 13 (the 7th Head occurs on the 20th flip of the coin). The likelihood functions are
+
+                           20
+                L(p|x1 = 7) =   7   p7(1−p)13   for the binomial experiment,
+
+and
+                        19
+           L(p|x2 = 13) =   6   p7(1−p)13   for the negative binomial experiment.
+These are proportional likelihood functions so the Formal Likelihood Principle states that the same
+conclusion regarding p should be made in both cases. In particular, the Formal Likelihood Principle
+asserts that the fact that in the first case sampling ended because 20 trials were completed and in
+the second case sampling stopped because the 7th Head was observed is immaterial as far as our
+conclusions about p are concerned. Lindley and Phillips (1976) give a thorough discussion of the
+binomial–negative binomial inference problem.                                        ∥
+   This point, of equivalent inferences from different experiments, may be amplified by considering
+the sufficient statistic, T, defined in the proof of Birnbaum’s Theorem and the sample points x∗1 = 7
+and x∗2 = 13. For any sample points in the mixed experiment, other than (1,7) or (2,13), T tells
+which experiment, binomial or negative binomial, was performed, and the result of the experiment.
+But for (1,7) and (2,13) we have T(1,7) = T(2,13) = (1,7). If we use only the sufficient statistic
+to make an inference and if T = (1,7), then all we know is that 7 out of 20 Heads were observed.
+We do not know whether the 7 or the 20 was the fixed quantity.
+   Many common statistical procedures violate the Formal Likelihood Principle. With these proce-
+dures, different conclusions would be reached for the two experiments discussed in Example 6.3.5.
+This violation of the Formal Likelihood Principle may seem strange because, by Birnbaum’s The-
+orem, we are then violating either the Sufficiency Principle or the Conditionality Principle. Let us
+examine these two principles more closely.
+   The Formal Sufficiency Principle is, in essence, the same as that discussed in Section 6.1. There,
+we saw that all the information about θ is contained in the sufficient statistic, and knowledge of the
+entire sample cannot add any information. Thus, basing evidence on the sufficient statistic is an
+eminently plausible principle. One shortcoming of this principle, one that invites violation, is that it
+is very model-dependent. As mentioned in the discussion after Example 6.2.9, belief in this principle
+necessitates belief in the model, something that may not be easy to do.
+   Most data analysts perform some sort of “model checking” when analyzing a set of data. Most
+model checking is, necessarily, based on statistics other than a sufficient statistic. For example,
+it is common practice to examine residuals from a model, statistics that measure variation in the
+data not accounted for by the model. (We will see residuals in more detail in Chapters 11 and 12.)
+Such a practice immediately violates the Sufficiency Principle, since the residuals are not based on
+sufficient statistics. (Of course, such a practice directly violates the Likelihood Principle also.) Thus,
+it must be realized that before considering the Sufficiency Principle (or the Likelihood Principle),
+we must be comfortable with the model.
+   The Conditionality Principle, stated informally, says that “only the experiment actually per-
+formed matters.” That is, in Example 6.3.5, if we did the binomial experiment, and not the negative
+binomial experiment, then the (not done) negative binomial experiment should in no way influence
+our conclusion about θ. This principle, also, seems to be eminently plausible.
+   How, then, can statistical practice violate the Formal Likelihood Principle, when it would mean
+violating either the Principle of Sufficiency or Conditionality? Several authors have addressed
+this question, among them Durbin (1970) and Kalbfleisch (1975). One argument, put forth by
+Kalbfleisch, is that the proof of the Formal Likelihood Principle is not compelling. This is be-
+cause the Sufficiency Principle is applied in ignorance of the Conditionality Principle. The suffi-
+cient statistic, T(J,XJ), used in the proof of Theorem 6.3.6, is defined on the mixture experiment.

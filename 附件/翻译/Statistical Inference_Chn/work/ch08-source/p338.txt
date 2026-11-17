@@ -1,0 +1,35 @@
+METHODS OF FINDING TESTS                                                307
+where ˆµ and ˆσ2 are the MLEs of µ and σ2 (Example 7.2.11). Furthermore, if ˆµ ≤µ0, then therestricted maximum is the same as the unrestricted maximum, while if ˆµ > µ0, the restricted maxi-
+mum is L(µ0, ˆσ20 |x) where ˆσ2                               0 = Σ(xi −µ0)2 /n. Thus
+                                   1                                                                        if                                                                                ˆµ                                         ≤µ0,                           λ(x) =                                                   L(µ0,                                                                      ˆσ20 |x)                                                                        if                                                                                ˆµ                               > µ0.                                                  L( ˆµ,                                                                  ˆσ2|x)
+With some algebra, it can be shown that the test based on λ(x) is equivalent to a test based on
+Student’s t statistic. Details are left to Exercise 8.37. (Exercises 8.38–8.42 also deal with nuisance
+parameter problems.)                                                             ∥
+
+8.2.2  Bayesian Tests
+
+Hypothesis testing problems may also be formulated in a Bayesian model. Recall from Section 7.2.3
+that a Bayesian model includes not only the sampling distribution f(x|θ) but also the prior distri-bution π(θ), with the prior distribution reflecting the experimenter’s opinion about the parameter θ
+prior to sampling.
+   The Bayesian paradigm prescribes that the sample information be combined with the prior in-
+formation using Bayes’ Theorem to obtain the posterior distribution π(θ|x). All inferences about θare now based on the posterior distribution.
+    In a hypothesis testing problem, the posterior distribution may be used to calculate the probabil-
+ities that H0 and H1 are true. Remember, π(θ|x) is a probability distribution for a random variable.
+Hence, the posterior probabilities P(θ ∈Θ0|x) = P(H0 is true|x) and P(θ ∈Θc0|x) = P(H1 is true|x)may be computed.
+   The probabilities P(H0 is true|x) and P(H1 is true|x) are not meaningful to the classical statisti-cian. The classical statistician considers θ to be a fixed number. Consequently, a hypothesis is either
+true or false. If θ ∈Θ0, P(H0 is true|x) = 1 and P(H1 is true |x) = 0 for all values of x. If θ ∈Θc0,these values are reversed. Since these probabilities are unknown (since θ is unknown) and do not
+depend on the sample x, they are not used by the classical statistician. In a Bayesian formulation
+of a hypothesis testing problem, these probabilities depend on the sample x and can give useful
+information about the veracity of H0 and H1.
+   One way a Bayesian hypothesis tester may choose to use the posterior distribution is to decide
+to accept H0 as true if P(θ ∈Θ0|X) ≥P(θ ∈Θc0|X) and to reject H0 otherwise. In the terminologyof the previous sections, the test                                       statistic, a function of the sample, is P(θ ∈Θc0|X) and the rejection                                 1
+region is {x : P(θ ∈Θc0|x) > 2}. Alternatively, if the Bayesian hypothesis tester wishes to guard
+against falsely rejecting H0, he may decide to reject H0 only if P(θ ∈Θc0|X) is greater than somelarge number, .99 for example.
+Example 8.2.7 (Normal Bayesian test)  Let X1,...,Xn be iid n(θ,σ2) and let the prior distribu-
+tion on θ be n(µ,τ2) where σ2,µ, and τ2 are known. Consider testing H0: θ ≤θ0 versus H1: θ > θ0.
+From Example 7.2.16, the posterior π(θ|x) is normal with mean (nτ2x+σ2µ)/(nτ2 +σ2) and vari-ance σ2τ2/(nτ2 +σ2).
+     If we decide to accept H0 if and only if P(θ ∈Θ0|X) ≥P(θ ∈Θc0|X), then we will accept H0 ifand only if
+                          1
+                          2 ≤P(θ ∈Θ0|X) = P(θ ≤θ0|X).
+Since π(θ|x) is symmetric, this is true if and only if the mean of π(θ|x) is less than or equal to θ0.Therefore H0 will be accepted as true if
+                         X   + σ2(θ0−µ)                          ≤θ0      nτ2

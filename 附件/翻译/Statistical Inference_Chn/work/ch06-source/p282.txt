@@ -1,0 +1,25 @@
+MISCELLANEA                                                              251
+     Theorem 6.6.4  A statistic is a minimal sufficient statistic if, and only if, it is a necessary
+      and sufficient statistic.
+
+      Minimal Sufficiency
+      There is an interesting development of minimal sufficiency, which actually follow from The-
+      orem 6.2.13 (see Exercise 6.28), and is extremely useful in establishing minimal sufficiency
+       outside of the exponential family.
+
+     Theorem 6.6.5 (Minimal Sufficient Statistics)  Suppose  that  the  family  of  densities
+      { f0(x), f1(x),..., fk(x)} all have common support. Then
+         a. The statistic
+                                          f1(X)  f2(X)     fk(X)
+                          T(X) =   f0(X), f0(X),..., f0(X)
+              is minimal sufficient for the family { f0(x), f1(x),..., fk(x)}.         b.  If F is a family of densities with common support, and
+                    i.  fi(x) ∈F, i = 0,1,...,k,                   ii. T(x) is sufficient for F,
+           then T(x) is minimal sufficient for F.
+
+        Although Theorem 6.6.5 can be used to establish the minimal sufficiency of ¯X in a n(θ,1)
+        family, its real usefulness comes when we venture outside of simple situations. For example,
+      Theorem 6.6.5 can be used to show that for samples from distributions like the logistic or
+       double exponential, the order statistics are minimal sufficient (Exercise 6.26). Even further,
+           it can extend to nonparametric families of distributions (Exercise 6.29).
+         For more on minimal sufficiency and completeness see Lehmann and Casella (1998, Sec-
+        tion 1.6).

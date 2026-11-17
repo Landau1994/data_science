@@ -1,0 +1,43 @@
+COVARIANCE AND CORRELATION                                            143
+
+                                                     y
+
+
+
+
+
+                                         1
+
+
+
+
+
+                                                                                       x
+                       –1                  0                  1
+
+                        Figure 4.5.2 Region where f(x,y) > 0 for Example 4.5.9
+
+
+Example 4.5.9 (Correlation–III)                                   In this example, let X have a uniform(−1,1) distribution and let                       1Z have a uniform(0, 10) distribution. Let X and Z be independent. Let Y = X2 +Z and consider the
+random vector (X,Y). As in Example 4.5.8, given X = x, Y = x2 +Z and the conditional distribution
+of Y given X = x is uniform(x2,x2 + 10).1  The joint pdf of X and Y, the product of this conditional
+pdf and the marginal pdf of X, is thus,
+
+                                                        1                              < y < x2 +                         f(x,y) = 5,  −1 < x < 1,   x2                                                            10.
+
+The set on which f(x,y) > 0 is illustrated in Figure 4.5.2. There is a strong relationship between
+X and Y, as indicated by the conditional distribution of Y given X = x. But the relationship is not
+linear. The possible values of (X,Y) cluster around a parabola rather than a straight line. The corre-
+lation does not measure this nonlinear relationship. In fact, ρXY = 0. Since X has a uniform(−1,1)distribution, EX = EX3 = 0, and since X and Z are independent, EXZ = (EX)(EZ). Thus,
+                  Cov(X,Y) =  E(X(X2 +Z))−(EX)(E(X2 +Z))
+                   =  EX3 +EXZ −0E(X2 +Z)                   =  0+(EX)(EZ) = 0(EZ) = 0,
+and ρXY = Cov(X,Y)/(σXσY) = 0.                                                  ∥
+  We close this section by introducing a very important bivariate distribution in which the corre-
+lation coefficient arises naturally as a parameter.
+Definition 4.5.10  Let −∞< µX < ∞,−∞< µY < ∞, 0 < σX, 0 < σY, and −1 < ρ < 1 be five realnumbers. The bivariate normal pdf with means µX and µY, variances σ2X and σ2Y , and correlation
+ρ is the bivariate pdf given by
+
+                          −1
+f(x,y) =  2πσXσY  1−ρ2
+                          1      x−µX   2     x−µX   y−µY +  y−µY   2             ×exp −             σX   −2ρ   σX       σY         σY                     2(1−ρ2)
+for −∞< x < ∞and −∞< y < ∞.

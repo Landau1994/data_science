@@ -1,0 +1,1407 @@
+
+
+=== PDF 498; PRINT 467 ===
+                                   Chapter 12
+
+             Regression Models
+
+
+
+
+
+  So startling would his results appear to the uninitiated that until they learned the processes
+   by which he had arrived at them they might well consider him as a necromancer.
+                                            Dr. Watson, speaking about Sherlock Holmes
+                                                   A Study in Scarlet
+
+12.1  Introduction
+Chapter 11 was concerned with what could be called “classical linear models.” Both the ANOVA
+and simple linear regression are based on an underlying linear model with normal errors. In this
+chapter we look at some extensions of this model that have proven to be useful in practical problems.
+    In Section 12.2, the linear model is extended to models with errors in the predictor, which is
+called regression with errors in variables (EIV). In this model the predictor variable X now becomes
+a random variable like the response variable Y. Estimation in this model encounters many unforseen
+difficulties, and can be very different from the simple linear regression model.
+   The linear model is further generalized in Section 12.3, where we look at logistic regression.
+Here, the response variable is discrete, a Bernoulli variable. The Bernoulli mean is a bounded func-
+tion, and a linear model on a bounded function can run into problems (especially at the boundaries).
+Because of this we transform the mean to an unbounded parameter (using the logit transformation)
+and model the transformed parameter as a linear function of the predictor variable. When a linear
+model is put on a function of a response mean, is becomes a generalized linear model.
+    Lastly, in Section 11.3, we look at robustness in the setting of linear regression. In contrast to
+the other sections in this chapter where we change the model, now we change the fitting criterion.
+The development parallels that of Section 10.2.2, where we looked at robust point estimates. That
+is, we replace the least squares criterion with one based on a ρ-function that results in estimates that
+are less sensitive to underlying observations (but retain some efficiency).
+
+12.2  Regression with Errors in Variables
+Regression with errors in variables (EIV), also known as the measurement error model, is so funda-
+mentally different from the simple linear regression of Section 11.3 that it is probably best thought
+of as a completely different topic. It is presented as a generalization of the usual regression model
+mainly for traditional reasons. However, the problems that arise with this model are very different.
+   The models of this section are generalizations of simple linear regression in that we will work
+with models of the form
+                                              Yi = α +βxi +εi,                                 (12.2.1)
+but now we do not assume that the xs are known. Instead, we can measure a random variable whose
+mean is xi. (In keeping with our notational conventions, we will speak of measuring a random
+variable Xi whose mean is not xi but ξi.)
+
+
+
+DOI: 10.1201/9781003456285-12                                                              467
+
+=== PDF 499; PRINT 468 ===
+468                                             REGRESSION MODELS
+   The intention here is to illustrate different approaches to the EIV model, showing some of the
+standard solutions and the (sometimes) unexpected difficulties that arise. For a more thorough in-
+troduction to this problem, there is the review article by Gleser (1991), books by Fuller (1987) and
+Carroll, Ruppert, and Stefanski (1995), and a volume edited by Brown and Fuller (1991). Kendall
+and Stuart (1979, Chapter 29) also treat this topic in some detail.
+    In the general EIV model we assume that we observe pairs (xi,yi), sampled from random vari-
+ables (Xi,Yi) whose means satisfy the linear relationship
+                                      EYi = α +β(EXi).                                 (12.2.2)
+
+If we define
+                                  EYi = ηi  and  EXi = ξi,
+then the relationship (12.2.2) becomes
+                                          ηi = α +βξi,                                   (12.2.3)
+a linear relationship between the means of the random variables.
+   The variables ξi and ηi are sometimes called latent variables, a term that refers to quantities
+that cannot be directly measured. Latent variables may be not only impossible to measure directly,
+but impossible to measure at all. For example, the IQ of a person is impossible to measure. We can
+measure a score on an IQ test but we can never measure the variable IQ. Relationships between IQ
+and other variables, however, are often hypothesized.
+   The model specified in (12.2.2) really makes no distinction between X andY. If we are interested
+in a regression, however, there should be a reason for choosing Y as the response and X as the
+predictor. Keeping this specification in mind, of regressing Y on X, we define the errors in variables
+model or measurement error model as this. Observe pairs (Xi,Yi),i = 1,...,n, according to
+
+                                                                                 ε ),                                  Yi =  α +βξi +εi,   εi ∼n(0,σ2
+                                                                        δ ).                      (12.2.4)                              Xi =   ξi +δi,          δi ∼n(0,σ2
+   Note that the assumption of normality, although common, is not necessary. Other distributions
+can be used. In fact, some of the problems encountered with this model are caused by the normality
+assumption. (See, for example, Solari (1969).)
+Example 12.2.1 (Estimating atmospheric pressure)  The EIV regression model arises fairly nat-
+urally in situations where the x variable is observed along with the y variable (rather than being
+controlled). For example, in the 1800s the Scottish physicist J. D. Forbes tried to use measurements
+on the boiling temperature of water to estimate altitude above sea level. To do this, he simulta-
+neously measured boiling temperature and atmospheric pressure (from which altitude can be ob-
+tained). Since barometers were quite fragile in the 1800s, it would be useful to estimate pressure, or
+more precisely, log(pressure), from temperature. The data observed at nine locales are and an EIV
+model is reasonable for this situation.                                                ∥
+
+
+                         Boiling point (◦F)   log(Pressure) (log(Hg))
+
+                             194.5                1.3179
+                             197.9                1.3502
+                             199.4                1.3646
+                             200.9                1.3782
+                             201.4                1.3806
+                             203.6                1.4004
+                             209.5                1.4547
+                             210.7                1.4630
+                             212.2                1.4780
+
+=== PDF 500; PRINT 469 ===
+REGRESSION WITH ERRORS IN VARIABLES                                    469
+  A number of special cases of the model (12.2.4) have already been seen. If δi = 0, then the
+model becomes simple linear regression (since there is now no measurement error, we can directly
+observe the ξis). If α = 0, then we have
+                                     Yi      n(ηi,σ2ε ),    i = 1,...,n,                   ∼                                 Xi      n(ξi,σ2δ ),    i = 1,...,n,                   ∼
+where, possibly, σ2 = σ2ε , a version of the Behrens–Fisher problem.                                        δ̸
+
+12.2.1  Functional and Structural Relationships
+
+There are two different types of relationship that can be specified in the EIV model, one that specifies
+a functional linear relationship and one describing a structural linear relationship. The different re-
+lationship specifications can lead to different estimators with different properties. As said by Moran
+(1971), “This is not very happy terminology, but we will stick to it because the distinction is essen-
+tial...” Some interpretations of this terminology are given in the Miscellanea section. For now we
+merely present the two models.
+
+Linear functional relationship model
+This is the model as presented in (12.2.4) where we have random variables Xi and Yi, with EXi = ξi,
+EYi = ηi, and we assume the functional relationship
+
+                                          ηi = α +βξi.
+
+We observe pairs (Xi,Yi),i = 1,...,n, according to
+
+                                                                                 ε ),                                  Yi =  α +βξi +εi,   εi ∼n(0,σ2
+                                                                        δ ),                      (12.2.5)                              Xi =   ξi +δi,          δi ∼n(0,σ2
+where ξis are fixed, unknown parameters and the εis and δis are independent. The parameters of
+main interest are α and β and inference on these parameters is made using the joint distribution of
+((X1,Y1),...,(Xn,Yn)), conditional on ξ1,...,ξn.
+
+Linear structural relationship model
+
+This model can be thought of as an extension of the functional relationship model, extended through
+the following hierarchy. As in the functional relationship model, we have random variables Xi and
+Yi, with EXi = ξi, EYi = ηi, and we assume the functional relationship ηi = α + βξi. But now we
+assume that the parameters ξ1,...,ξn are themselves a random sample from a common population.
+Thus, conditional on ξ1,...,ξn, we observe pairs (Xi,Yi),i = 1,...,n, according to
+
+                                                                                 ε ),                                  Yi =  α +βξi +εi,   εi ∼n(0,σ2
+                                                                        δ ),                      (12.2.6)                               Xi =   ξi +δi,          δi ∼n(0,σ2
+and, also,
+                                                             ξ ).                                               ξi ∼iid n(ξ,σ2
+As before, the εis and δis are independent and they are also independent of the ξis. As in the func-
+tional relationship model, the parameters of main interest are α and β. Here, however, the inference
+on these parameters is made using the joint distribution of ((X1,Y1),...,(Xn,Yn)), unconditional on
+ξ1,...,ξn. (That is, ξ1,...,ξn are integrated out according to the distribution in (12.2.6).)
+   The two models are quite similar in that statistical properties of estimators in one model (for
+example, consistency) often carry over into the other model. More precisely, estimators that are
+consistent in the functional model are also consistent in the structural model (Nussbaum (1976) or
+
+=== PDF 501; PRINT 470 ===
+470                                             REGRESSION MODELS
+
+                        4
+                                                              (x', y')
+
+
+                                             Orthogonal
+                        3                                                        least
+                                Ordinary
+                                              squares
+                                       least
+                                                  distance
+                               squares
+                                  distance
+                        2
+                                                                                                    (x^', y^')
+
+
+
+                        1
+
+
+
+
+                        0
+                          0         1         2         3         4
+
+                      Figure 12.2.1 Distance minimized by orthogonal least squares
+
+
+Gleser (1983)). This makes sense, as the functional model is a “conditional version” of the structural
+model. Estimators that are consistent in the functional model must be so for all values of the ξis,
+so are necessarily consistent in the structural model, which averages over the ξis. The converse
+implication is false. However, there is a useful implication which goes from the structural to the
+functional relationship model. If a parameter is not identifiable in the structural model, it is also not
+identifiable in the functional model. (See Definition 11.2.2.)
+   As we shall see, the models share similar problems and, in certain situations, similar likelihood
+solutions. It is probably easier to do statistical theory in the structural model, while the functional
+model often seems to be the more reasonable model for many situations. Thus, the underlying
+similarities come in handy.
+   As already mentioned, one of the major differences in the models is in the inferences about α
+and β, the parameters that describe the regression relationship. This difference is of utmost impor-
+tance and cannot be stressed too often. In the functional relationship model, this inference is made
+conditional on ξ1,...,ξn, using the joint distribution of X and Y conditional on ξ1,...,ξn. On the
+other hand, in the structural relationship model, this inference is made unconditional on ξ1,...,ξn,
+using the marginal distribution of X and Y with ξ1,...,ξn integrated out.
+
+12.2.2  A Least Squares Solution
+
+As in Section 11.3.1, we forget statistics for a while and try to find the “best” line through the
+observed points (xi,yi),i = 1,...,n. Previously, when it was assumed that the xs were measured
+without error, it made sense to consider minimization of vertical distances. This distance measure
+implicitly assumes that the x value is correct and results in ordinary least squares. Here, however,
+there is no reason to consider vertical distances since the xs now have error associated with them.
+In fact, statistically speaking, ordinary least squares has some problems in EIV models (see the
+Miscellanea section).
+   One way to take account of the fact that the xs also have error in their measurement is to perform
+orthogonal least squares, that is, to find the line that minimizes orthogonal (perpendicular to the
+line) distances, rather than vertical distances (see Figure 12.2.1). This distance measure does not
+favor the x variable, as does ordinary least squares, but rather treats both variables equitably. It is
+also known as the method of total least squares. Referring to Figure 12.2.1, for a particular data
+point (x′,y′), the point on a line y = a+bx that is closest when we measure distance orthogonally is
+
+=== PDF 502; PRINT 471 ===
+REGRESSION WITH ERRORS IN VARIABLES                                    471
+given by (Exercise 12.1)
+                             by′ +x′                  b                                         ˆx′ =     −ab ,          ˆy′ = a+       (by′ +x′                     (12.2.7)                    1+b2            1+b2       −ab).
+  Now assume that we have data (xi,yi),i = 1,...,n. The squared distance between an observed
+point (xi,yi) and the closest point on the line y = a+bx is (xi −ˆxi)2 +(yi −ˆyi)2, where ˆxi and ˆyi aredefined by (12.2.7). The total least squares problem is to minimize, over all a and b, the quantity
+
+                                        n
+                                                                                          .              ∑  (xi −ˆxi)2                                         +(yi −ˆyi)2                                     i=1
+
+It is straightforward to establish that we have
+
+                  n
+      ∑  (xi −ˆxi)2                        +(yi −ˆyi)2                i=1
+                          n      b2                     1
+         =                            +         ∑                                                [yi −(a+bxi)]2                                                                                     [yi −(a+bxi)]2                      (1+b2)2                                           (1+b2)2                        i=1
+                    1    n
+         =                                                                       .                                         (12.2.8)            ∑ (yi −(a+bxi))2               1+b2 i=1
+
+For fixed b, the term in front of the sum is a constant. Thus, the minimizing choice of a in the sum
+is a = y −bx, just as in (11.3.9). Substituting back into (12.2.8), the total least squares solution isthe one that minimizes, over all b,
+                             1    n
+                                                                                              .                         (12.2.9)                ∑ ((yi                      1+b2 i=1   −y)−b(xi −x))2
+
+As in (11.3.6) and (11.3.6), we define the sums of squares and cross-products by
+
+                       n                      n                      n
+               Sxx =                                    Syy =                                                          Sxy =                        ∑ (xi        ∑ (xi −x)2,                ∑ (yi −y)2,                                                           −x)(yi −y).         (12.2.10)                     i=1                                           i=1                                                                 i=1
+
+Expanding the square and summing shows that (12.2.9) becomes
+                              1
+                                                                                           .                                             Syy −2bSxy +b2Sxx                       1+b2
+Standard calculus methods will give the minimum (Exercise 12.20), and we find the orthogonal least
+squares line given by y = a+bx, with
+
+                                   −(Sxx −Syy)+   (Sxx −Syy)2 +4S2xy
+                 a = y−bx,  b =                2Sxy                        .            (12.2.11)
+
+As might be expected, this line is different from the least squares line. In fact, as we shall see, this
+line always lies between the ordinary regression of y on x and the ordinary regression of x on y. This
+is illustrated in Figure 12.2.2 where the data in Table 11.3.1 were used to calculate the orthogonal
+least squares line ˆy = −.49+1.88x.    In simple linear regression we saw that, under normality, the ordinary least squares solutions for
+α and β were the same as the MLEs. Here, the orthogonal least squares solution is the MLE only
+in a special case, when we make certain assumptions about the parameters.
+   The difficulties to be encountered with likelihood estimation once again illustrate the differences
+between a mathematical solution and a statistical solution. We obtained a mathematical least squares
+solution to the line fitting problem without much difficulty. This will not happen with the likelihood
+solution.
+
+=== PDF 503; PRINT 472 ===
+472                                             REGRESSION MODELS
+
+                y
+
+
+
+           5
+
+
+
+
+
+           4
+                                                                        Regression
+                                                                                        of y on x
+                                                                                                                                                               y^ = 1.86 + .68x
+
+
+
+
+           3
+
+
+
+
+
+           2
+                                                    Regression
+                  Orthogonal                              of x on y
+                                                                                                                 y^ = –2.31 + 2.82x                    regression
+                                      y^ = –.49 + 1.88x
+
+
+
+           1
+
+
+
+
+
+           0                                                                                  x
+            0               1               2               3               4
+
+                       Figure 12.2.2 Three regression lines for data in Table 11.3.1
+
+
+12.2.3  Maximum Likelihood Estimation
+
+We first consider the maximum likelihood solution of the functional linear relationship model, the
+situation for the structural relationship model being similar and, in some respects, easier. Using the
+normality assumption, the functional relationship model can be expressed as
+
+                                                                   δ ),    i = 1,...,n,                       Yi ∼n(α +βξi,σ2                                               ε )  and   Xi ∼n(ξi,σ2
+where the Xis and Yis are independent. Given observations (x,y) = ((x1,y1),...,(xn,yn)), the likeli-
+hood function is
+
+                     =      L α,β,ξ1,...,ξn,σ2δ ,σ2ε |(x,y)
+            1      1               n  (xi                  n  (yi     +βξi))2                          exp         −ξi)2  exp      −(α                .      (12.2.12)               ∑        ∑                   − i=1  2σ2δ     − i=1       2σ2ε            (2π)n (σ2δ σ2ε )n/2
+
+=== PDF 504; PRINT 473 ===
+REGRESSION WITH ERRORS IN VARIABLES                                    473
+   The problem with this likelihood function is that it does not have a finite maximum. To see
+this, take the parameter configuration ξi = xi and then let σ2δ →0. The value of the function goesto infinity, showing that there is no maximum likelihood solution. In fact, Solari (1969) has shown
+that if the equations defining the first derivative of L are set equal to zero and solved, the result is a
+saddle point, not a maximum. Notice that as long as we have total control over the parameters, we
+can always force the likelihood function to infinity. In particular, we can always take a variance to
+zero, while keeping the exponential term bounded.
+  We will make the common assumption, which is not only reasonable but also alleviates many
+problems, that σ2δ = λσ2ε , where λ > 0 is fixed and known. (See Kendall and Stuart 1979, Chapter
+29, for a discussion of other assumptions on the variances.) This assumption is one of the least
+restrictive, saying that we know only the ratio of the variances, not the individual values. Moreover,
+the resulting model is relatively well behaved.
+   Under this assumption, we can write the likelihood function as
+               L α,β,ξ1,...,ξn,σ2δ |(x,y)
+                       1   λ n/2           n  (xi     +λ(yi     +βξi))2            =           exp         −ξi)2     −(α                ,       (12.2.13)                  ∑                       (2π)n (σ2δ )n                       − i=1           2σ2δ
+
+which we can now maximize. We will perform the maximization in stages, making sure that, at each
+step, we have a maximum before proceeding to the next step. By examining the function (12.2.13),
+we can determine a reasonable order of maximization.
+    First, for each value of α,β, and σ2δ , to maximize L with respect to ξ1,...,ξn we mini-
+                                                                . (See Exercise 12.3 for details.) For each i, we havemize ∑ni=1  (xi −ξi)2 +λ(yi −(α +βξi))2a quadratic in ξi and the minimum is attained at
+
+                                                      xi +λβ(yi
+                                                                                       .                               ξi∗ =       −α)2                            1+λβ
+
+On substituting back we get
+
+                n                               λ      n
+                                                                                                                          .                                                                                          i∗ ))2 =     ∑  (xi −ξ                                                i∗ )2 +λ(yi −(α +βξ                         ∑ (yi −(α +βxi))2              i=1                                1+λβ 2 i=1
+
+The likelihood function now becomes
+           max L(α,β,ξ1,...,ξn,σ2δ |(x,y))                       ξ1,...,ξn
+                    1   λ n/2              λ      n
+                                                                                                                        .      (12.2.14)         =             exp                                                              2 ∑ (yi     +βxi))2                             1+λβ  i=1  −(α                    (2π)n (σ2δ )n                 −12σ2δ
+
+   Now, we can maximize with respect to α and β, but a little work will show that we have already
+done this in the orthogonal least squares solution! Yes, there is somewhat of a correspondence
+between orthogonal least squares and maximum likelihood in the EIV model and we are about to
+exploit it. Define
+            α∗= √ λα,  β ∗= √ λβ,   y∗i = √ λyi,    i = 1,...,n.            (12.2.15)
+
+The exponent of (12.2.14) becomes
+
+               λ     n                    1     n
+                        =                                                                                                                     ,          ∑ (yi −(α +βxi))2                       ∑ (y∗i −(α∗+β ∗xi))2          1+λβ 2 i=1                            1+β ∗2 i=1
+
+=== PDF 505; PRINT 474 ===
+474                                             REGRESSION MODELS
+which is identical to the expression in the orthogonal least squares problem. From (12.2.11) we
+know the minimizing values of α∗and β ∗and using (12.2.15) we obtain our MLEs for the slope
+and intercept
+
+                                −(Sxx −λSyy)+   (Sxx −λSyy)2 +4λS2xy                  =                                                                                                                  .          (12.2.16)                ˆα = y−ˆβ x  and    ˆβ                                               2λSxy
+
+It is clear from the formula that, at λ = 1, the MLEs agree with the orthogonal least squares solu-
+tions. This makes sense. The orthogonal least squares solution treated x and y as having the same
+magnitude of error and this translates into a variance ratio of 1. Carrying this argument further, we
+can relate this solution to ordinary least squares or maximum likelihood when the xs are assumed
+to be fixed. If the xs are fixed, their variance is zero and hence λ = 0. The maximum likelihood
+solution for general λ does reduce to ordinary least squares in this case. This relationship, among
+others, is explored in Exercise 12.4.
+    Putting (12.2.16) together with (12.2.14), we now have almost completely maximized the like-
+lihood. We have
+              max   L(α,β,ξ1,...,ξn,σ2δ |(x,y))                       α,β,ξ1,...,ξn
+                     1   λ n/2            λ      n                    2
+          =                                                                                                                     .        (12.2.17)                               exp                       ∑  yi                                                             2                                        −( ˆα + ˆβxi)                                                             i=1                     (2π)n (σ2δ )n                 −12σ2δ 1+λ ˆβ
+Now maximizing L with respect to σ2δ is very similar to finding the MLE of σ2 in ordinary normal
+sampling (Example 7.2.11), the major difference being the exponent of n, rather than n/2, on σ2δ .
+The details are left to Exercise 12.5. The resulting MLE for σ2δ is
+                             1   λ      n                    2
+                                                                                                    .                    (12.2.18)                                ˆσ2δ =                   ∑  yi                                 −(ˆα + ˆβxi)                            2n 1+λ ˆβ 2 i=1
+
+                                                  =   From the properties of MLEs, it follows that the MLE of σ2ε is given by ˆσ2ε = ˆσ2δ /λ and ˆξi
+ˆα + ˆβxi. Although the ˆξis are not usually of interest, they can sometimes be useful if prediction is
+desired. Also, the ˆξis are useful in examining the adequacy of the fit (see Fuller (1987)).
+     It is interesting to note that although ˆα and ˆβ are consistent estimators, σ2δ is not. More precisely,
+as n →∞,
+                                                 ˆα →α in probability,
+                                                        ˆβ →β in probability,
+but
+                                         ˆσ2δ        δ in probability.                 →12σ2
+General results on consistency in EIV functional relationship models have been obtained by Gleser
+(1981).
+  We now turn to the linear structural relationship model. Recall that here we assume that we
+observe pairs (Xi,Yi),i = 1,...,n, according to
+                                          Yi      n(α +βξi,σ2ε ),                     ∼                                      Xi      n(ξi,σ2δ ),                     ∼
+                                           ξi      n(ξ,σ2ξ ),                     ∼
+where the ξis are independent and, given the ξis, the Xis and Yis are independent. As mentioned
+before, inference about α and β will be made from the marginal distribution of Xi and Yi, that is, the
+
+=== PDF 506; PRINT 475 ===
+REGRESSION WITH ERRORS IN VARIABLES                                    475
+distribution obtained by integrating out ξi. If we integrate out ξi, we obtain the marginal distribution
+of (Xi,Yi) (Exercise 12.6),
+                                                         δ +σ2ξ ,σ2ε +β 2σ2ξ ,βσ2ξ ).            (12.2.19)            (Xi,Yi) ∼bivariate normal(ξ,α +βξ,σ2
+Notice the similarity of the correlation structure to that of the RCB ANOVA (Miscellanea 11.5.3.
+There, conditional on blocks, the observations were uncorrelated but, unconditionally, there was
+correlation (the intraclass correlation). Here, the functional relationship model, which is conditional
+on the ξis, has uncorrelated observations, but the structural relationship model, where we infer
+unconditional on the ξis, has correlated observations. The ξis are playing a role similar to blocks
+and the correlation that appears here is similar to the intraclass correlation. (In fact, it is identical to
+the intraclass correlation if β = 1 and σ2δ = σ2ε .)
+   To proceed with likelihood estimation in this case, given observations (x,y) = ((x1,y1),...,
+(xn,yn)), the likelihood function is that of a bivariate normal, as was encountered in Exercise 7.18.
+There, it was seen that the likelihood estimators in the bivariate normal could be found by equating
+sample quantities to population quantities. Hence, to find the MLEs of α,β,ξ,σ2ε ,σ2δ , and σ2ξ , we
+solve
+                                     y =   ˆα + ˆβ ˆξ,
+                                     x =   ˆξ,
+                              1                   2                                                               ε + ˆβ ˆσ2ξ ,                            (12.2.20)                                  nSyy =   ˆσ2
+                              1
+                                                        δ + ˆσ2ξ ,                                  nSxx =   ˆσ2
+                              1
+                                                          ξ .                                  nSxy =    ˆβ ˆσ2
+Note that we have five equations, but there are six unknowns, so the system is indeterminate. That
+is, the system of equations does not have a unique solution and there is no unique value of the
+parameter vector (α,β,ξ,σ2ε ,σ2δ ,σ2ξ ) that maximizes the likelihood.
+   Before we go on, realize that the variances of Xi and Yi here are different from the variances
+in the functional relationship model. There, we were working conditional on ξ1,...,ξn and here
+we are working marginally with respect to the ξis. So, for example, in the functional relationship
+model we write VarXi = σ2δ (where it is understood that this variance is conditional on ξ1,...,ξn)
+while in the structural model we write VarXi = σ2δ +σ2ξ (where it is understood that this variance is
+unconditional on ξ1,...,ξn). This should not be a source of confusion.
+  A solution to the equations in (12.2.20) imply a restriction on ˆβ, a restriction that we have
+already encountered in the functional relationship case (Exercise 12.4). From the above equations
+involving the variances and covariance, it is straightforward to deduce that
+
+                                                                  Sxy,                                      ˆσ2δ ≥0  only if   Sxx ≥1ˆβ
+                                     ˆσ2ε ≥0  only if   Syy ≥ˆβSxy,
+which together imply that
+                                             |Sxy|                                          Sxx ≤|ˆβ| ≤Syy                                                            |Sxy|.
+(The bounds on ˆβ are established in Exercise 12.9.)
+  We now address the identifiability problem in the structural relationship case, a problem that can
+be expected since, in (12.2.19) we have more parameters than are needed to specify the distribution.
+To make the structural linear relationship model identifiable, we must make an assumption that
+reduces the number of parameters to five. It fortunately happens that the assumption about variances
+
+=== PDF 507; PRINT 476 ===
+476                                             REGRESSION MODELS
+made for the functional relationship solves the identifiability problem here. Thus, we assume that
+σ2δ = λσ2ε , where λ is known. This reduces the number of unknown parameters to five and makes
+the model identifiable. (See Exercise 12.8.) More restrictive assumptions, such as assuming that
+σ2δ is known, may lead to MLEs of variances that have the value zero. Kendall and Stuart (1979,
+Chapter 29) have a full discussion of this.
+   Once we assume that σ2δ = λσ2ε , the maximum likelihood estimates for ˆα and ˆβ in this model are
+the same as in the functional relationship model and are given by (12.2.16). The variance estimates
+are different, however, and are given by
+                                   1
+                                     ˆσ2δ =      Sxx            ,                                   n    −Sxyˆβ
+                                                 ˆσ2δ   1                                      ˆσ2ε  =                        = n(Syy −ˆβSxy),                        (12.2.21)                                λ
+                                   1 Sxy
+                                      ˆσ2ξ =            .                                   n  ˆβ
+(Exercise 12.10 shows this and also explores the relationship between variance estimates here and in
+the functional model.) Note that, in contrast to what happened in the functional relationship model,
+these estimators are all consistent in the linear structural relationship model (when σ2δ = λσ2ε ).
+
+12.2.4  Confidence Sets
+
+As might be expected, the construction of confidence sets in the EIV model is a difficult task. A
+complete treatment of the subject needs machinery that we have not developed. In particular, we
+will concentrate here only on confidence sets for the slope, β.
+   As a first attack, we could use the approximate likelihood method of Section 10.4.1 to construct
+approximate confidence intervals. In practice this is probably what is most often done and is not
+totally unreasonable. However, these approximate intervals cannot maintain a nominal 1 −α con-fidence level. In fact, results of Gleser and Hwang (1987) yield the rather unsettling result that any
+interval estimator of the slope whose length is always finite will have confidence coefficient equal
+to zero!
+   For definiteness, in the remainder of this section we will assume that we are in the structural
+relationship case of the EIV model. The confidence set results presented are valid in both the struc-
+tural and functional cases and, in particular, the formulas remain the same. We continue to assume
+that σ2δ = λσ2ε , where λ is known.
+   Gleser and Hwang (1987) identify the parameter
+                                      σ2ξ                                        τ2 =
+                                      σ2δ
+as determining the amount of information potentially available in the data to determine the slope β.
+They show that, as τ2 →0, the coverage probability of any finite-length confidence interval on βmust also go to 0. To see why this is plausible, note that τ2 = 0 implies that the ξis do not vary and
+it would be impossible to fit a unique straight line.
+  An approximate confidence interval for β can be constructed by using the fact that the estimator
+
+                                                                    xy)                          (1+λ ˆβ 2)2(SxxSyy −S2                                     ˆσ2β =
+                                           (Sxx −λSyy)2 +4λS2xy
+is a consistent estimator of σ2β, the true variance of ˆβ . Hence, using the CLT together with Slutsky’s
+Theorem (Section 5.5), it can be shown that the interval
+                                                  ˆσβ             zα/2 ˆσβ                                                 ˆβ           +                          −zα/2√n ≤β ≤ˆβ   √n
+
+=== PDF 508; PRINT 477 ===
+REGRESSION WITH ERRORS IN VARIABLES                                    477
+is an approximate 1 −α confidence interval for β. However, since it has finite length, it cannot
+maintain 1−α coverage for all parameter values.   Gleser (1987) considers a modification of this interval and reports the infimum of its coverage
+probabilities as a function of τ2. Gleser’s modification, CG(ˆβ), is
+                            + tn−2,α/2 ˆσβ .                    (12.2.22)                                           ˆβ                            −tn−2,α/2 ˆσβ ≤β ≤ˆβ                    √n−2         √n−2
+Again using the CLT together with Slutsky’s Theorem, it can be shown that this is an approximate
+1 −α confidence interval for β. Since this interval also has finite length, it also cannot maintain
+1−α coverage for all parameter values. Gleser does some finite-sample numerical calculations andgives bounds on the infima of the coverage probabilities as a function of τ2. For reasonable values
+of n (≥10), the coverage probability of a nominal 90% interval will be at least 80% if τ2 ≥.25. Asτ2 or n increases, this performance improves.
+    In contrast to CG(ˆβ) of (12.2.22), which has finite length but no guaranteed coverage probability,
+we now look at an exact confidence set that, as it must, has infinite length. The set, known as the
+Creasy–Williams confidence set, is due to Creasy (1956) and Williams (1959) and is based on the
+fact (see Exercise 12.11) that if σ2δ = λσ2ε , then
+                           Cov(βλYi +Xi,Yi −βXi) = 0.
+Define rλ(β) to be the sample correlation coefficient between βλYi +Xi and Yi −βXi, that is,
+                     ∑ni=1 ((βλyi                                       x))         rλ(β) =               +xi)−(βλy+x))((yi −βxi)−(y−β
+                   ∑ni=1 ((βλyi +xi)−(βλy+x))2 ∑n                                                               i=1 ((yi −βxi)−(y−β x))2
+                            βλSyy        2λ)Sxy          =            +(1−β     −βSxx                .              (12.2.23)
+                      (β 2λ 2Syy +2βλSxy +Sxx)(Syy −2βSxy +β 2Sxx)
+Since βλYi +Xi and Yi −βXi are bivariate normal with correlation zero, it follows (Exercise 11.33)that
+                          √n−2rλ(β)                                            ∼tn−2,
+                             1−r2λ(β)
+for any value of β. Thus, we have identified a pivotal quantity and we conclude that the set
+                          β : (n−2)r2λ(β)                                     (12.2.24)                                               ≤F1,n−2,α                            1−r2λ(β)
+is a 1−α confidence set for β (see Exercise 12.11).
+   Although this confidence set is a 1 −α set, it suffers from defects similar to those of Fieller’sintervals. The function describing the set (12.2.24) has two minima, where the function is zero. The
+confidence set can consist of two finite disjoint intervals, one finite and two infinite disjoint intervals,
+or the entire real line. For example, the graph of the F statistic function for the data in Table 11.3.1
+with λ = 1 is in Figure 12.2.3. The confidence set is all the βs where the function is less than or
+equal to F1,22,α. For α = .05 and F1,22,.05 = 4.30, the confidence set is [−1.13,−.14] ∪[.89,7.38].
+For α = .01 and F1,22,.01 = 7.95, the confidence set is (−∞,−18.18]∪[−1.68,.06]∪[.60,∞).
+   Furthermore, for every value of β,−rλ(β) = rλ(−1/(λβ)) (see Exercise 12.12) so that if β
+is in the confidence set, so is −1/(λβ). Using this confidence set, we cannot distinguish β from
+−1/(λβ) and this confidence set always contains both positive and negative values. We can neverdetermine the sign of the slope from this confidence set!
+   The confidence set given in (12.2.24) is not exactly the one discussed by Creasy (1956) but
+rather a modification. She was actually interested in estimating φ, the angle that β makes with
+
+=== PDF 509; PRINT 478 ===
+478                                             REGRESSION MODELS
+                                          F statistic
+
+
+                                                 10
+
+
+                                                                                                           F1,22, .01
+
+
+
+
+                                               5
+                                                                                                           F1,22, .05
+
+
+
+
+
+                                                                    b
+                –20     –15     –10     –5       0  b^    5       10
+                                                   –1
+                                              lb^
+
+                 Figure 12.2.3 F statistic defining Creasy–Williams confidence set, λ = 1
+
+the x-axis, that is, β = tan(φ), and confidence sets there have fewer problems. Estimation of φ is
+perhaps more natural in EIV models (see, for example, Anderson (1976)) but we seem to be more
+inclined to estimate α and β.
+   Most of the other standard statistical analyses that can be done in the ordinary linear regression
+case have analogues in EIV models. For example, we can test hypotheses about β or estimate values
+of EYi. More about these topics can be found in Fuller (1987) or Kendall and Stuart (1979, Chapter
+29).
+
+12.3  Logistic Regression
+The conditional normal model of Section 11.3.3 is an example of a generalized linear model (GLM).
+A GLM describes a relationship between the mean of a response variable Y and an independent
+variable x. But, the relationship may be more complicated than the EYi = α +βxi of (11.3.2). Many
+different models can be expressed as GLMs. In this section, we will concentrate on a specific GLM,
+the logistic regression model.
+
+
+12.3.1  The Model
+
+A GLM consists of three components, the random component, the systematic component, and the
+link function.
+  (1) The response variables Y1,...,Yn are the random component. They are assumed to be inde-
+     pendent random variables, each with a distribution from a specified exponential family. The
+      Yis are not identically distributed, but they each have a distribution from the same family;
+     binomial, Poisson, normal, etc.
+  (2) The systematic component is the model. It is the function of the predictor variable xi, linear in
+      the parameters, that is related to the mean of Yi. So the systematic component could be α +βxi
+      or α +β/xi, for example. We will consider only α +βxi here.
+  (3) Finally, the link function g(µ) links the two components by asserting that g(µi) = α + βxi,
+     where µi = EYi.
+
+=== PDF 510; PRINT 479 ===
+LOGISTIC REGRESSION                                                      479
+   The conditional normal regression model of Section 11.3.3 is an example of a GLM. In that
+model, the responsesYis all have normal distributions. Of course, the normal family is an exponential
+family, which is the random component. The form of the regression function is α +βxi in this model,
+which is the systematic component. Finally, the relationship µi = EYi = α + βxi is assumed. This
+means the link function is g(µ) = µ. This simple link function is called the identity link.
+   Another very useful GLM is the logistic regression model. In this model, the responses Y1,...,Yn
+are independent and Yi ∼Bernoulli(πi). (The Bernoulli family is an exponential family.) Recall,EYi = πi = P(Yi = 1). In this model, πi is assumed to be related to xi by
+
+                                               πi                                   log      = α +βxi.                             (12.3.1)
+                             1−πi
+The left-hand side is the log of the odds of success for Yi. The model assumes this log-odds (or logit)
+is a linear function of the predictor x. The Bernoulli pmf can be written in exponential family form
+as
+                                                                    πi
+                    πy(1−π)1−y                    = (1−π)exp  ylog                  .                                           1−πi
+The term log(π/(1−π)) is the natural parameter of this exponential family, and in (12.3.1) the link
+function g(π) = log(π/(1−π)) is used. When the natural parameter is used in this way, it is calledthe canonical link.
+   Equation (12.3.1) can be rewritten as
+
+                                              eα+βxi
+                                            πi =                 ,
+                                    1+eα+βxi
+or more generally,
+                                          eα+βx
+                                   π(x) =                .                                (12.3.2)
+                                  1+eα+βx
+We see that 0 < π(x) < 1, which seems appropriate because π(x) is a probability. But, if it is possible
+that π(x) = 0 or 1 for some x, then this model is not appropriate. Examining π(x) more closely, its
+derivative can be written
+                             d π(x)
+                      =                                              (12.3.3)                               dx    βπ(x)(1−π(x)).
+As the term π(x)(1 −π(x)) is always positive, the derivative of π(x) is positive, 0, or negativeaccording as β is positive, 0, or negative. If β is positive, π(x) is a strictly increasing function of x;
+if β is negative, π(x) is a strictly decreasing function of x. If β = 0, π(x) = eα/(1+eα), for all x.
+As in simple linear regression, if β = 0, there is no relationship between π and x. Also, in a logistic
+regression model, π(−α/β) = 1/2, A logistic regression function exhibits this kind of symmetry;
+for any c, π((−α/β)+c) = 1−π((−α/β)−c).   The parameters α and β have meanings similar to those in simple linear regression. Setting
+x = 0 in (12.3.1) yields that α is the log-odds of success at x = 0. Evaluating (12.3.1) at x and x+1
+yields, for any x,
+
+               π(x+1)            π(x)
+            log             −log       = α +β(x+1)−α −β(x) = β.            1−π(x+1)       1−π(x)
+Thus, β  is the change in the log-odds of success corresponding to a one unit increase in x. In
+simple linear regression, β is the change in the mean of Y corresponding to a one unit increase in x.
+Exponentiating both sides of this equality yields
+                                eβ = π(x+1)/(1−π(x+1)) .                          (12.3.4)
+                                   π(x)/(1−π(x))
+
+=== PDF 511; PRINT 480 ===
+480                                             REGRESSION MODELS
+The right-hand side is the odds ratio comparing the odds of success at x+1 to the odds of success at
+x. (Recall that in Examples 5.5.19 and 5.5.22 we looked at estimating odds.) In a logistic regression
+model this ratio is constant as a function of x. Finally,
+
+                          π(x+1)         π(x)                         = eβ                                      (12.3.5)
+                       1−π(x+1)     1−π(x);
+that is, eβ is the multiplicative change in the odds of success corresponding to a one unit increase in
+x.
+   Equation (12.3.2) suggests other ways of modeling the Bernoulli success probability π(x) as
+a function of the predictor variable x. Recall that F(w) = ew/(1 + ew) is the cdf of a logistic(0,1)
+distribution. In (12.3.2) we have assumed π(x) = F(α +βx). We can define other models for π(x) by
+using other continuous cdfs. If F(w) is the standard normal cdf, the model is called probit regression
+(see Exercise 12.17). If a Gumbel cdf is used, the link function is called the log-log link.
+
+
+12.3.2  Estimation
+In linear regression, where we use a model such as Yi = α +βxi +εi, the technique of least squares
+was an option for calculating estimates of α and β. This is no longer the case here. In the model
+(12.3.1) with Yi ∼Bernoulli(πi), we no longer have a direct connection between Yi and α + βxi(which is why we need a link function). Thus, least squares is no longer an option.
+   The estimation method that is most commonly used is maximum likelihood. In the general
+model we have Yi ∼Bernoulli(πi), where π(x) = F(α + βx). If we let Fi = F(α + βxi), then thelikelihood function is
+
+                                    n                             n
+                L(α,β|y) = ∏i=1 π(xi)yi(1−π(xi))1−yi = ∏i=1 Fiyi(1−Fi)1−yi,
+
+with log likelihood
+
+                                           n                             Fi
+                   logL(α,β|y) = i=1∑  log(1−Fi)+yi log                  .                                              1−Fi
+We obtain the likelihood equations by differentiating the log likelihood with respect to α and β. Let
+d F(w)/dw = f(w), the pdf corresponding to F(w), and let  fi = f(α +βxi). Then,
+                       ∂log(1−Fi) =        fi  =      Fi fi                      ∂α    −     −                                  1−Fi     Fi(1−Fi),
+and
+                            ∂          Fi                   fi
+                                    log      =                                      (12.3.6)
+                      ∂α     1−Fi     Fi(1−Fi).
+Hence,
+                        ∂                     n                      fi
+                  ∂α logL(α,β|y) = i=1∑                                                            (yi −Fi) Fi(1−Fi).                     (12.3.7)
+A similar calculation yields
+
+                       ∂                    n                      fi
+                   ∂β logL(α,β|y) = i=1∑                                                           (yi −Fi) Fi(1−Fi)xi.                    (12.3.8)
+For logistic regression, with F(w) = ew/(1+ew), fi/[Fi(1−Fi)] = 1, and (12.3.7) and (12.3.8) aresomewhat simpler.
+
+=== PDF 512; PRINT 481 ===
+LOGISTIC REGRESSION                                                      481
+   The MLEs are obtained by setting (12.3.7) and (12.3.8) equal to zero and solving for α and β.
+These are nonlinear equations in α and β and must be solved numerically. (This will be discussed
+later.) For logistic and probit regression, the log likelihood is strictly concave. Hence, if the likeli-
+hood equations have a solution, it is unique and it is the MLE. However, for some extreme data the
+likelihood equations do not have a solution. The maximum of the likelihood occurs in some limit
+as the parameters go to ±∞. See Exercise 12.16 for an example. This is because the logistic modelassumes 0 < π(x) < 1, but, for certain data sets, the maximum of the logistic likelihood occurs in
+a limit with π(x) = 0 or 1. The probability of obtaining such data converges to zero if the logistic
+model is true.
+Example 12.3.1 (Challenger data)  A by now infamous data set is that of space shuttle O-ring
+failures, which have been linked to temperature. The data in Table 12.3.1 give the temperature at
+take off, and whether or not an O-ring failed.
+   Solving (12.3.6) and (12.3.7) using F(α +βxi) = eα+βxi/(1+eα+βxi) yields MLEs ˆα = 15.81
+and ˆβ = −.243. Figure 12.3.1 shows the fitted curve along with the data.   The space shuttle Challenger exploded during take off, killing the seven astronauts aboard. The
+explosion was the result of an O-ring failure, believed to be caused by the unusually cold weather
+(31◦F) at the time of launch. The MLE of the probability of O-ring failure at 31◦is .9997. (See
+Dalal et al. 1989 for the full story.)
+
+
+     Table 12.3.1 Temperature at flight time (degrees F) and failure of O-rings (1 = failure, 0=success)
+
+               Flight No.   14   9   23   10   1    5   13   15   4    3    8   17
+                Failure    1    1    1    1    0    0    0    0    0    0    0    0
+             Temp.    53   57   58   63   66   67   67   68   69   70   70   70
+               Flight No.   2   11   6    7   16   21   19   22   12   20   18
+                Failure    1    1    0    0    0    1    0    0    0    0    0
+             Temp.    70   70   72   73   75   75   76   76   78   79   81              ∥
+
+
+
+   1
+
+
+
+    .8
+
+
+
+    .6
+
+
+
+    .4
+
+
+
+    .2
+
+
+
+   0
+              50       55       60       65       70       75       80       85
+
+                 Figure 12.3.1 The data of Table 12.3.1 along with the fitted logistic curve
+
+=== PDF 513; PRINT 482 ===
+482                                             REGRESSION MODELS
+  We have, thus far, assumed that at each value of xi, we only observe the result of one Bernoulli
+trial. Although this is often the case, there are many situations in which there are multiple Bernoulli
+observations at each value of x. We now revisit the likelihood solution in this more general case.
+   Suppose there are J different values of the predictor x in the data set, x1,...,xJ. Let n j denote
+the number of Bernoulli observations at xj, and let Y j∗ denote the number of successes in these nj
+observations. Thus, Y j∗ ∼binomial(n j,π(x j)). Then the likelihood is
+
+                                       J                                   J
+                                                                                                                                        j =                                                                                                              j,                    ∏                                                              Fj y∗j(1−Fj)n j−y∗              L(α,β|y∗) = ∏j=1 π(xi)y∗j(1−π(xi))n j−y∗                                                              j=1
+
+and the likelihood equations are
+
+                                                  J                         f j
+                         0 =                ∑ (y∗j                                         j=1   −njFj)                                          Fj(1−Fj)
+                                                  J                         f j
+                         0 =                ∑ (y∗j                                         j=1   −njFj) Fj(1−Fj)xj.
+   As we have estimated the parameters of the logistic regression using maximum likelihood, we
+can next get approximate variances using MLE asymptotics. However, we have to proceed in a
+more general way. In Section 10.1.3 we saw how to approximate the variance of the MLE using
+the information number. We use the same strategy here, but as there are two parameters there is an
+information matrix given by the 2×2 matrix
+                                                            ∂2
+                                           1 logL(θ1,θ2|y)  − ∂θ1 ∂θ2 logL(θ1,θ2|y)                  −∂2∂θ2                                                                                            (12.3.9)          I(θ1,θ2) =                                ∂2                                               − ∂θ1 ∂θ2 logL(θ1,θ2|y)   −∂2∂θ22 logL(θ1,θ2|y)                                           .
+For logistic regression, the information matrix is given by
+
+                          ∑Jj=1             ∑Jj=1 x jn                I(α,β) =        njFj(1−Fj)          jFj(1−Fj)     ,          (12.3.10)
+                         ∑Jj=1             ∑Jj=1 x2                     xjnjFj(1−Fj)        jnjFj(1−Fj) 
+and the variances of the MLEs ˆα and ˆβ are usually approximated using this matrix. Note that the
+elements of I(α,β) do not depend on Y1∗ ,...,YJ∗ . Thus, the observed information is the same as the
+information in this case.
+    In Section 10.1.3, we used the approximation (10.1.7), namely Var(h( ˆθ)|θ) ≈[h′( ˆθ)]2/I(ˆθ),
+where I(·) was the information number. Here, we cannot do exactly the same with the informa-tion matrix, but rather we need to get the inverse of the matrix, and use the inverse elements to
+approximate the variance. Recall that the inverse of a 2×2 matrix is given by
+                          a  b          1      d                      =           −b     .                             c  d       ad            a                     −1    −bc  −c    
+   To obtain the approximate variances, the MLEs are used to estimate the parameters in the matrix
+(12.3.10), and the estimates of the variances, [se(ˆα)]2 and [se(ˆβ)]2, are the diagonal elements of the
+inverse of I(ˆα, ˆβ).
+Example 12.3.2 (Challenger data continued)  The estimated information matrix of the estimates
+from the Challenger data is given by
+
+                 ∑Jj=1           ∑Jj=1 xj                   3.15    214.75        I(ˆα, ˆβ) =          ˆFj(1−ˆFj)           ˆFj(1−ˆFj)  =                                    ,
+                ∑Jj=1 xj          ∑Jj=1 x2j            j)        214.75  14728.5                  ˆFj(1−ˆFj)          ˆFj(1−ˆFj               
+
+=== PDF 514; PRINT 483 ===
+ROBUST REGRESSION                                                        483
+where ˆFj = e ˆα+ˆβxj/(1+e ˆα+ˆβxj), and has inverse
+
+                                         59.19                               I(ˆα, ˆβ)−1 =         −.86     .
+                                    −.86   .013
+The likelihood asymptotics tell use that, for example, ˆβ ±zα/2se(ˆβ) is, for large samples, an approx-
+imate 100(1−α)% confidence interval for β. So for the Challenger data we have a 95% confidenceinterval of
+                β         √.013                ∈−.243±1.96×    ⇒  −.466 ≤β ≤−.02,
+supporting the conclusion that β < 0.                                                ∥
+     It is, perhaps, most common, in this model, to test the hypothesis H0 : β = 0, because, as in
+simple linear regression, this hypothesis states there is no relationship between the predictor and
+response variable. The Wald test statistic, Z = ˆβ/se(ˆβ) has approximately a standard normal distri-
+bution if H0 is true and the sample size is large. Thus, H0 can be rejected if |Z| ≥zα/2. Alternatively,H0 can be tested with the log LRT statistic
+                    −2logλ(y∗) = 2[logL(ˆα, ˆβ|y∗)−L(ˆα0,0|y∗)],
+where ˆα0 is the MLE of α assuming β = 0. Using standard binomial arguments (Exercise 12.20),
+it can be shown that ˆα0 = ∑ni=1 yi/n = ∑Jj=1 y∗j/∑Jj=1 n j. Therefore, under H0, −2log λ has an ap-
+proximate χ21 distribution, and we can reject H0 at level α if −2log λ ≥χ21,α.  We have introduced only the simplest logistic regression and generalized linear models. Much
+more can be found in standard texts such as Agresti (1990).
+
+12.4  Robust Regression
+As in Section 10.2, we now want to take a look at the performance of our procedures if the underly-
+ing model is not the correct one, and we will take a look at some robust alternatives to least squares
+estimation, starting with a comparison analogous to the mean/median comparison.
+    Recall that, when observing x1,x2,...,xn, we can define the mean and the median as minimizers
+of the following quantities:
+
+                                      n                                 n
+                                             median: min                  mean: min                          ∑             ∑ (xi −m)2},                                                                                         |xi −m|}.                      m {i=1                                              m { i=1
+
+   For simple linear regression, observing (y1,x1),(y2,x2),...,(yn,xn), we know that least squares
+regression estimates satisfy
+
+                                                      n
+                                 least squares: min                   ∑ [yi −(a+bxi)]2},                                                         a,b { i=1
+
+and we analogously define least absolute deviation (LAD) regression estimates by
+
+                                                             n
+                           least absolute deviation: min                      ∑                                                                           |yi −(a+bxi)|}.                                                                a,b {i=1
+
+(The LAD estimates may not be unique. See Exercise 12.25.)
+   Thus, we see that the least squares estimators are the regression analogues of the sample mean.
+This should make us wonder about their robustness performance (as listed in items (1)–(3) of Section
+10.2).
+
+=== PDF 515; PRINT 484 ===
+484                                             REGRESSION MODELS
+Example 12.4.1 (Robustness of least squares estimates)    If we observe (y1,x1), (y2,x2),  ...,
+(yn,xn), where
+                                              Yi = α +βxi +εi,
+where the εi are uncorrelated with Eεi = 0 and Varεi = σ2, we know that the least squares estimator
+b, with variance σ2/∑(xi −¯x)2, is the BLUE of β, satisfying (1) of Section 10.2.   To investigate how b performs for small deviations, we assume that
+
+                              σ2  with probability                            Var(εi) =                1−δ,                                     τ2   with probability δ.
+Writing b = ∑diYi, where di = (xi −¯x)/∑(xi −¯x)2, we now have
+                                          n                +δτ2
+                         Var(b) =                          = (1−δ)σ2          .               ∑ d2i Var(εi)                                       i=1           ∑ni=1(xi −¯x)2
+This shows that, as with the sample mean, for small perturbations b performs pretty well. (But we
+could, of course, blow things up by contaminating with a Cauchy pdf, for example.) The behavior
+of the least squares intercept a is similar (Exercise 12.22). See also Exercise 12.23 to see how bias
+contamination affects things.                                                       ∥
+  We next look at the effect of a “catastrophic” observation, and compare least squares to its
+median-analogous alternative, least absolute deviation regression.
+Example 12.4.2 (Catastrophic observations)   McPherson (1990) describes an experiment in
+which the levels of carbon dioxide (CO2) and oxygen (O2) were measured in the pouches of 24
+potoroos (a marsupial). Interest is in the regression of (CO2) on (O2), where the experimenter ex-
+pects a slope of −1. The data for 23 animals (one had missing values) is given in Table 12.4.2. Forthe original data, the least squares and LAD lines are quite close:
+                                        least squares    :  y = 18.67−0.89x
+                            least absolute deviation    :  y = 18.59−0.89x.
+However, an aberrant observation can upset least squares. When entering the data the O2 value of
+18 on Animal 15 was incorrectly entered as a 10 (we really did this). For this new (incorrect) data
+set we have
+                                        least squares    :  y = 6.41−0.23x
+                            least absolute deviation    :  y = 15.95−0.75x,
+showing that the aberrant observation had much less of an effect on LAD. See Figure 12.4.1 for a
+display of the regression lines.
+   These calculations illustrate the resistance of LAD, as opposed to least squares. Since we have
+the mean/median analogy, we can surmise that this behavior is reflected in breakdown values, which
+are 0% for least squares and 50% for LAD.                                            ∥
+
+   However, the mean/median analogy continues. Although the LAD estimator is robust to catas-
+trophic observations, it loses much in efficiency with respect to the least squares estimator (see also
+Exercise 12.25).
+Example 12.4.3 (Asymptotic normality of the LAD estimator)  We adapt the argument leading
+to (10.2.6) to derive the asymptotic distribution of the LAD estimator. Also, to simplify things, we
+only consider the model
+                                                Yi = βxi +εi,
+that is, we set α = 0. (This avoids having to deal with a bivariate limiting distribution.)
+
+=== PDF 516; PRINT 485 ===
+ROBUST REGRESSION                                                        485
+
+           Table 12.4.2 Values of CO2 and O2 in the pouches of 23 Potoroos (McPherson 1990)
+                Animal    1     2     3     4     5     6     7     8
+
+          % O2    20    19.6   19.6   19.4   18.4   19    19    18.3
+          % CO2    1     1.2    1.1    1.4    2.3    1.7    1.7    2.4
+                Animal    9     10    11    12    13    14    15    16
+
+          % O2    18.2   18.6   19.2   18.2   18.7   18.5   18    17.4
+          % CO2    2.1    2.1    1.2    2.3    1.9    2.4    2.6    2.9
+                Animal   17    18    19    20    21    22    23
+
+          % O2    16.5   17.2   17.3   17.8   17.3   18.4   16.9
+          % CO2    4.0    3.3    3.0    3.4    2.9    1.9    3.9
+
+
+
+                      y
+
+                5
+
+
+
+
+                4
+
+
+
+
+                3
+
+
+
+
+                2
+
+
+                                Least squares
+                1         LAD
+                                M-estimate
+
+
+                                                                                          x
+                  15         16         17         18         19        20
+
+Figure 12.4.1 Least squares, LAD, and M-estimate fits for the data of Table 12.4.2, for both the original data
+and the data with (18,2.6) mistyped as (10,2.6). The LAD and M-estimate lines are quite similar, while the
+least squares line reacts to the changed data.
+
+
+
+    In the terminology of M-estimators, the LAD estimator is obtained by minimizing
+
+                 n                      n
+                =              ∑      ∑ ρ(yi −βxi)                                                   |yi −βxi|               i=1                                      i=1
+                                        n
+                =              ∑ (yi −βxi)I(yi                           > βxi)−(yi −βxi)I(yi < βxi).       (12.4.1)                                      i=1
+We then calculate ψ = ρ′ and solve ∑i ψ(yi −βxi) = 0 for β, where
+                        ψ(yi −βxi) = xiI(yi > βxi)−xiI(yi < βxi).
+
+=== PDF 517; PRINT 486 ===
+486                                             REGRESSION MODELS
+If ˆβL is the solution, expand ψ in a Taylor series around β
+
+             n                   n                     d    n
+              =                                                                            +...     ∑ ψ(yi −ˆβLxi)            i=1                               i=1            ∑ ψ(yi −βxi)+(ˆβL −β) d ˆβL i=1∑ ψ(yi −ˆβLxi)                                                                                        ˆβL=β
+
+Although the left-hand side of the equation is not equal to zero, we assume that it approaches zero
+as n →∞(see Exercise 12.27). Then rearranging we obtain
+                                        −1 ∑ni=1 ψ(yi −βxi)       .                   (12.4.2)                   √n(ˆβL   =     √n                     −β)    1  d
+                                              n d ˆβL                                   ∑ni=1 ψ(yi −ˆβLxi) ˆβL=β
+
+                                     = x2i , it follows thatFirst look at the numerator. As Eβψ(Yi −ˆβLxi)                        = 0 and Varψ(Yi −ˆβLxi)
+            −1  n                            n                    = √n −1         ∑ ψ(Yi                    ∑ ψ(Yi            0,σ2x            √n i=1     −ˆβxi)        n  i=1     −ˆβxi) →n           ,           (12.4.3)
+
+                      n ∑ni=1 x2i . Turning to the denominator, we must be a bit careful as ψ has pointswhere σ2x = limn→∞1
+of nondifferentiability. We therefore first apply the Law of Large Numbers before differentiating,
+and use the approximation
+
+          1 d   n                 1  n  d
+       ∑ ψ(yi       ∑    Eβ[ψ(Yi          n dβ0 i=1    −β0xi) ≈  n i=1 dβ0        −β0xi)]
+                                 1  n  d
+                   =                               >        < β0xi)      (12.4.4)                 ∑      xiPβ(Yi                                 n i=1 dβ0          β0xi)−xiPβ(Yi
+                                 1  n
+                   =                 ∑ x2i f(β0xi                     i f(β0xi                                 n i=1       −βxi)+x2      −βxi).
+If we now evaluate the derivative at β0 = β, we have
+
+                      1  d   n                                  n
+                                                                                                       ,             ∑ ψ(yi          ∑ x2i                      n dβ0 i=1    −β0xi)    ≈2f(0)1n i=1                                              β0=β
+
+and putting this together with (12.4.2) and (12.4.3) we have
+                      √n(ˆβL             0,    1          .                         (12.4.5)                        −β) →n    4f(0)2σ2x
+    Finally, for the case of α = 0, the least squares estimator is ˆβ = ∑ni=1 xiyi/∑ni=1 x2i and satisfies
+                         √n(ˆβ             0, 1     ,                          −β) →n     σ2x
+so that the asymptotic relative efficiency of ˆβL to ˆβ is
+
+                                      1/σ2x                    ARE(ˆβL, ˆβ) =        = 4f(0)2,
+                                      1/(4 f(0)2σ2x )
+whose values are the same as those given in Table 10.2.2, comparing the median to the mean. Thus,
+for normal errors the ARE of the LAD estimator to least squares is only 64%, showing that the LAD
+estimator gives up a good bit of efficiency with respect to least squares.                     ∥
+
+=== PDF 518; PRINT 487 ===
+EXERCISES                                                                  487
+   So we are in the same situation that we encountered in Section 10.2.1. The LAD alternative to
+least squares seems to lose too much in efficiency if the errors are truly normal. The compromise,
+once again, is an M-estimator. We can construct one by minimizing a function analogous to (10.2.2),
+which would be ∑i ρi(α,β), where
+                                     12(yi                          if                 ρi(α,β) =    −α −βxi)2            |yi −α −βxi| ≤k,             (12.4.6)
+                                       k|yi −α −βxi|−12k2   if |yi −α −βxi| ≥k,
+where k is a tuning parameter.
+Example 12.4.4 (Regression M-estimator)  Using the function (12.4.6) with k = 1.5σ, we fit the
+M-estimators of α and β for the data of Table 12.4.2. The results were
+
+                     M-estimate for original data    :  y = 18.5−0.89x
+                    M-estimate for mistyped data    :  y = 14.67−0.68x,
+where we estimated σ by .23, the standard deviation of the residuals from the least squares fit.
+   Thus we see that the M-estimate is somewhat more resistant than the least squares line, behaving
+more like the LAD fit when there are outliers.                                          ∥
+   As in Section 10.2, we expect that the ARE of the M-estimator to be better than that of the LAD.
+This is the case, however, the calculations become very involved (even more so than for the LAD) so
+we will not give the details here. Huber (1981, Chapter 7) gives a detailed treatment of M-estimator
+asymptotics; see also Portnoy (1987). We content ourselves with an evaluation of the M-estimator
+through a small simulation study, reproducing a table like Table 10.2.4.
+Example 12.4.5 (Simulation of regression AREs)  For the modelYi = α +βxi+εi, i = 1,2,...,5,
+we take the xis to be (−2,−1,0,1,2), α = 0 and β = 1. We generate εi from normals, doubleexponentials, and Laplace distributions, and calculate the variance of the least squares, LAD, and
+M-estimator. These are presented in Table 12.4.3.
+
+
+ Table 12.4.3 Regression M-estimator asymptotic relative efficiencies, k = 1.5 (based on 10,000 simulations)
+                                  Normal   Logistic   Double Exponential
+                         vs. least squares    0.98      1.03            1.07
+                             vs. LAD        1.39      1.27            1.14
+
+   The M-estimator variance is similar to that of least squares for all three distributions, and is a
+uniform improvement over LAD. The dominance of the M-estimator over LAD is more striking
+than that of the Huber estimator over the median (as given in Table 10.2.4).                  ∥
+
+12.5  Exercises
+12.1 Verify the expressions in (12.2.7). (Hint:  Use the Pythagorean Theorem.)
+12.2 Show that the extrema of
+                                       1
+                                     f(b) =                                                       Syy −2bSxy +b2Sxx                              1+b2
+      are given by
+                                  −(Sxx −Syy)±   (Sxx −Syy)2 +4S2xy .                            b =
+                                                     2Sxy
+    Show that the “+” solution gives the minimum of f(b).
+
+=== PDF 519; PRINT 488 ===
+488                                             REGRESSION MODELS
+
+                   Species          Body weight (kg)   Brain weight (g)
+                                                 (x)                (y)
+
+                   Arctic fox                3.385             44.50
+              Owl monkey               .480             15.50
+                 Mountain beaver          1.350              8.10
+                 Guinea pig               1.040              5.50
+                   Chinchilla                 .425              6.40
+                Ground squirrel            .101              4.00
+                  Tree hyrax               2.000             12.30
+                 Big brown bat              .023                .30
+
+
+12.3 In maximizing the likelihood (12.2.13), we first minimized, for each value of α,β, and σ2δ , the function
+
+                                                n
+                             f(ξ1,...,ξn) =                  ∑  (xi −ξi)2 +λ(yi −(α +βξi))2                                              i=1
+     with respect to ξ1,...,ξn.
+
+       (a) Prove that this function is minimized at
+
+                                                                xi +λβ(yi
+                                                                                                    .                                      ξ i∗ =       −α)2                                 1+λβ
+
+      (b) Show that the function
+                     Dλ ((x,y),(ξ,α +βξ)) = (x−ξ)2 +λ(y−(α +βξ))2
+          defines a metric between the points (x,y) and (ξ,α +βξ). A metric is a distance measure, a function
+      D that measures the distance between two points A and B. A metric satisfies the following four
+           properties:
+                  i. D(A,A) = 0.
+                ii. D(A,B) > 0 if A̸ = B.               iii. D(A,B) = D(B,A) (reflexive).
+              iv. D(A,B) ≤D(A,C)+D(C,B) (triangle inequality).
+12.4 Consider the MLE of the slope in the EIV model
+                                  −(Sxx −λSyy)+   (Sxx −λSyy)2 +4λS2xy ,                             ˆβ(λ) =
+                                                 2λSxy
+     where λ = σ2δ /σ2ε is assumed known.
+                  = Sxy/Sxx, the slope of the ordinary regression of y on x.       (a) Show that limλ→0 ˆβ(λ)
+                  = Syy/Sxy, the reciprocal of the slope of the ordinary regression of x on y.      (b) Show that limλ→∞ˆβ(λ)
+       (c) Show that ˆβ(λ) is, in fact, monotone in λ and is increasing if Sxy > 0 and decreasing if Sxy < 0.
+      (d) Show that the orthogonal least squares line (λ = 1) is always between the lines given by the ordinary
+          regressions of y on x and of x on y.
+       (e) The data in the table were collected in a study to examine the relationship between brain weight
+         and body weight in a number of animal species. Calculate the MLE of the slope assuming the EIV
+         model. Also, calculate the least squares slopes of the regressions of y on x and of x on y, and show
+       how these quantities bound the MLE.
+12.5 In the EIV functional relationship model, where λ = σ2δ /σ2ε is assumed known, show that the MLE of
+    σ2δ is given by (12.2.18).
+
+=== PDF 520; PRINT 489 ===
+ EXERCISES                                                                  489
+ 12.6 Show that in the linear structural relationship model (12.2.6), if we integrate out ξi, the marginal distri-
+       bution of (Xi,Yi) is given by (12.2.19).
+ 12.7 Consider a linear structural relationship model where we assume that ξi has an improper distribution,
+        ξi ∼uniform(−∞,∞).
+        (a) Show that for each i,
+
+                  ∞  1    1              (xi                       (yi     +βξi))2                                 exp        −ξi)2    exp      −(α            dξi                       −    2σ2δ      −         2σ2ε                −∞ (2π) σδ σε
+                                       1       1                   (yi     +βxi))2                     =                   exp      −(α                 .                                         −12   β 2σ2δ +σ2ε                      √2π  β 2σ2δ +σ2ε
+
+          (Completing the square in the exponential makes the integration easy.)
+       (b) The result of the integration in part (a) looks like a pdf and, if we consider it a pdf of Y conditional
+         on X, then we seem to have a linear relationship between X and Y. Thus, it is sometimes said that
+            this “limiting case” of the structural relationship leads to simple linear regression and ordinary least
+           squares. Explain why this interpretation of the above function is wrong.
+ 12.8 Verify the nonidentifiability problems in the structural relationship model in the following ways.
+        (a) Produce two different sets of parameters that give the same marginal distribution to (Xi,Yi).
+       (b) Show that there are at least two distinct parameter vectors that yield the same solution to the equa-
+           tions given in (12.2.20).
+ 12.9 In the structural relationship model, the solution to the equations in (12.2.20) implies a restriction on ˆβ,
+       the same restriction seen in the functional relationship case (Exercise 12.4).
+        (a) Show that in (12.2.20), the MLE of σ2δ is nonnegative only if Sxx ≥(1/ˆβ)Sxy. Also, the MLE of σ2ε
+             is nonnegative only if Syy ≥ˆβSxy.
+       (b) Show that the restrictions in part (a), together with the rest of the equations in (12.2.20), imply that
+                                                       |Sxy|                                                  Sxx ≤|ˆβ| ≤Syy                                                                     |Sxy|.
+12.10  (a) Derive the MLEs for (α,β,σ2ε ,σ2δ ,σ2ξ ) in the structural relationship model, by solving the equations
+           (12.2.20) under the assumption that σ2δ = λσ2ε .
+       (b) Calculate the MLEs for (α,β,σ2ε ,σ2δ ,σ2ξ ) for the data of Exercise 12.4 by assuming the structural
+           relationship model holds and that σ2δ = λσ2ε .
+        (c) Verify the relationship between variance estimates in the functional and structural relationship mod-
+             els. In particular, show that
+
+                                       VarXi(structural) = 2VarXi(functional).
+
+          That is, verify
+                                        λ     n                   2
+                         =                                     Sxx                                      + ˆβxi)    .                        ∑  yi −(ˆα                             −Sxyˆβ                              1+λ ˆβ 2 i=1
+       (d) Verify the following equality which is implicit in the MLE variance estimates given in (12.2.21).
+        Show that
+                                              Sxx    = λ(Syy                                   −Sxyˆβ         −ˆβSxy).
+12.11  (a) Show that for random variables X and Y and constants a, b, c, d,
+
+                    Cov(aY +bX,cY +dX) = acVarY +(bc+ad)Cov(X,Y)+bdVarX.
+       (b) Use the result in part (a) to verify that in the structural relationship model with σ2δ = λσ2ε ,
+                                   Cov(βλYi +Xi,Yi −βXi) = 0,
+           the identity on which the Creasy–Williams confidence set is based.
+
+=== PDF 521; PRINT 490 ===
+ 490                                             REGRESSION MODELS
+
+        (c) Use the results of part (b) to show that
+                                     (n−2)rλ (β)                                                    ∼tn−2,                                                     λ (β)                                   1−r2
+            for any value of β, where rλ (β) is given in (12.2.23). Also, show that the confidence set defined in
+           (12.2.24) has constant coverage probability equal to 1−α.
+                                        = λσ2ε ), rλ (β) of (12.2.23), and12.12 Verify the following facts about ˆβ (the MLE of β when we assume σ2δ
+     Cλ (ˆβ), the Creasy–Williams confidence set of (12.2.24).
+        (a)  ˆβ and −1/(λ ˆβ) are the two roots of the quadratic equation defining the zeros of the first derivative           of the likelihood function (12.2.14).
+       (b) rλ (β) = −rλ (−1/(λβ)) for every β.
+                                                (ˆβ).        (c)  If β ∈Cλ (ˆβ), then −1/(λβ) ∈Cλ
+12.13 There is an interesting connection between the Creasy–Williams confidence set of (12.2.24) and the
+       interval CG(ˆβ ) of (12.2.22).
+        (a) Show that
+                                               (β                            CG(ˆβ) =  β :    −ˆβ)2                      ,                                                         ≤F1,n−2,α                                                           ˆσ2β                                         /(n−2)
+         where ˆβ is the MLE of β and ˆσ2β is the previously defined consistent estimator of σ2β .
+       (b) Show that the Creasy–Williams set can be written in the form
+
+                                    (β      (1+λβ ˆβ)2                           β :    −ˆβ)2                                             .                                                           ≤F1,n−2,α                                             ˆσ2β       (1+λβ 2)2                                /(n−2)
+          Hence, CG(ˆβ) can be derived by replacing the term in square brackets with 1, its probability limit.
+            (In deriving this representation, the fact that ˆβ and −1/(λ ˆβ) are roots of the numerator of rλ (β) is           of great help. In particular, the fact that
+
+                                       r2λ (β)                                     λ 2S2xy(β −ˆβ)2(β +(1/λ ˆβ))2                         =
+                                        λ (β)    (1+λβ 2)2(SxxSyy −S2xy)                         1−r2
+             is straightforward to establish.)
+12.14 Graph the logistic regression function π(x) from (12.3.2) for these three cases; α = β = 1, α = β = 2,
+      and α = β = 3.
+12.15 For the logistic regression function in (12.3.2), verify these relationships.
+        (a) π(−α/β) = 1/2.
+       (b) π((−α/β)+c) = 1−π((−α/β)−c), for any c.
+        (c) Verify (12.3.3) for d π(x)/dx.
+       (d) Verify (12.3.4) about the odds ratio.
+        (e) Verify (12.3.5) about the multiplicative change in odds.
+         (f) Verify (12.3.6) and (12.3.8) regarding the likelihood equations for a Bernoulli GLM.
+       (g) Verify that for logistic regression, fi/(Fi(1−Fi) = 1, in (12.3.7) and (12.3.8).
+12.16 Consider this logistic regression data. Only two values, x = 0 and 1, are observed. For x = 0 there are ten
+       successes in ten trials. For x = 1 there are five successes in ten trials. Show that the logistic regression
+    MLEs ˆα and ˆβ do not exist for these data by verifying the following.
+        (a) The MLEs for π(0) and π(1), not restricted by (12.3.2), are given by ˆπ(0) = 1 and ˆπ(1) = .5.
+       (b) The overall maximum of the likelihood function given by the estimates in part (a) can not be achieved
+            at any finite values of the logistic regression parameters α and β, but can be achieved in the limit as
+        β →−∞and α = −β.
+
+=== PDF 522; PRINT 491 ===
+ EXERCISES                                                                  491
+12.17 In probit regression, the link function is the standard normal cdf Φ(x) = P(Z ≤x), where Z ∼n(0,1).
+       This, in this model we observe (Y1,x1),(Y2,x2),...(Yn,xn) where Yi ∼Bernoulli(πi), and πi = Φ(α +       βxi).
+        (a) Write out the likelihood function and show how to solve for the MLEs of α and β.
+       (b)  Fit the probit model to the data of Table 12.3.1. Comment on any differences from the logistic fit.
+12.18 Brown and Rothery (1993, Chapter 4) discuss a generalization of the linear logistic model to the quadratic
+      model
+                                                    πi                                       log      = α +βxi +γx2i .
+                                 1−πi
+        (a) Write out the likelihood function and show how to solve for the MLEs of α, β, and γ.
+       (b) Using the log LRT, show how to test the hypothesis H0 : γ = 0, that is, that the model is really linear
+             logistic.
+        (c)  Fit the quadratic logistic model to the data in Table 12.5.4 on survival of sparrowhawks of different
+           ages.
+       (d) Decide whether the better model for the sparrowhawks is linear or quadratic, that is, test H0 : γ = 0.
+
+
+                          Table 12.5.4 Age structured survival of sparrowhawks
+                Age       1    2    3    4    5   6   7   8   9
+               No. of birds   77  149  182  118  78  46  27  10  4
+              No. surviving  35   89   130   79   52  28  14   3   1
+
+12.19 For the logistic regression model:
+        (a) Show that  ∑Jj=1Y j∗ ,∑Jj=1Y j∗ xj   is a sufficient statistic for (α,β).
+       (b) Verify the formula for the logistic regression information matrix in (12.3.10).
+12.20 Consider a logistic regression model and assume β = 0.
+        (a)  If 0 < ∑ni=1 yi < n, show that the MLE of π(x) (which does not depend on x in this case) is ˆπ =
+        ∑ni=1 yi/n.
+                                                                                    i=1 yi)  .       (b)  If 0 < ∑ni=1 yi < n, show that the MLE of α is ˆα0 = log (∑ni=1 yi)/(n−∑n
+        (c) Show that if ∑ni=1 yi = 0 or n, ˆα0 does not exist, but the LRT statistic for testing H0 : β = 0 is still
+          well defined.
+12.21 Let Y ∼binomial(n,π), and let ˆπ = Y/n denote the MLE of π. Let W = log(ˆπ/(1−ˆπ)) denote the sam-
+       ple logit, the MLE of log(π/(1−π)). Use the delta method to show that 1/(n ˆπ(1−ˆπ)) is a reasonable       estimate of VarW.
+12.22 In Example 12.4.1, we examined how small perturbations affected the least squares estimate of slope.
+      Perform the analogous calculation and assess the robustness (to small perturbations) of the least squares
+       estimate of intercept.
+12.23 In Example 12.4.1, in contrast to Exercise 10.2.1, when we introduced the contaminated distribution for
+         εi, we did not introduce a bias. Show that if we had, it would not have mattered. That is, if we assume
+                                          (0,σ2)  with probability                               (Eεi,Varεi) =                   1−δ,                                          (µ,τ2)  with probability δ,
+
+       then
+        (a) the least squares estimator b would still be an unbiased estimator of β.
+       (b) the least squares estimator a has expectation α + δµ, so the model may just as well be assumed to
+         be Yi = α +δµ +βxi +εi.
+12.24 For the model Yi = βxi +εi, show that the LAD estimator is given by t(k∗+1), where ti = yi/xi, t(1) ≤t(2) ≤
+                                                                                                  i=1        ...t(n) and, if x(i) is the x value paired with t(i), k∗satisfies ∑k∗i=1 |x(i)| ≤∑ni=k∗+1 |x(i)| and ∑k∗+1                                                                                                                                     |x(i)| >
+     ∑ni=k∗+2 |x(i)|.
+
+=== PDF 523; PRINT 492 ===
+ 492                                             REGRESSION MODELS
+
+12.25 A problem with the LAD regression line is that it is not always uniquely defined.
+        (a) Show that, for a data set with three observations, (x1,y1),(x1,y2), and (x3,y3) (note the first two
+           xs are the same), any line that goes through (x3,y3) and lies between (x1,y1) and (x1,y2) is a least
+           absolute deviation line.
+       (b) For three individuals, measurements are taken on heart rate (x, in beats per minute) and oxygen
+          consumption (y, in ml/kg). The (x,y) pairs are (127, 14.4), (127, 11.9), and (136, 17.9). Calculate
+           the slope and intercept of the least squares line and the range of the least absolute deviation lines.
+      There seems to be some disagreement over the value of the least absolute deviation line. It is certainly
+     more robust than least squares, but can be very difficult to compute (but see Portnoy and Koenker 1997
+       for an efficient computing algorithm). It also seems that Ellis (1998) questions its robustness, and in a
+       discussion Portnoy and Misera (1998) question Ellis.
+
+       Exercises 12.26–12.28 will look at some of the details of Example 12.4.3.
+                                      < ∞. Show that this condition is sat-12.26  (a) Throughout Example 12.4.3 we assumed that n1 ∑ni=1 x2i →σ2x            isfied by (i) xi = 1 (the case of the ordinary median)                                                     and (ii) |xi| ≤1 (the case of bounded xi).                                                              1
+       (b) Show that, under the conditions on xi in part (a), n ∑ni=1 ψ(yi −ˆβLxi) →0 in probability.
+12.27  (a) Verify that √n−1 ∑ni=1 ψ(Yi −ˆβxi) →n 0,σ2x  .
+                                                                    1                                                = 2f(0)                                                                    n ∑ni=1 x2i , and, with part (a), conclude that       (b) Verify that  1n ∑ni=1 dβ0d Eβ [ψ(Yi −β0xi)] β0=β
+                                     1                                                                   .        √n(ˆβL                                 4 f(0)2σ 2x                                                                                                                                                                                                    −β) →n  0,                          12.28 Show that the least squares estimator is given by ˆβ = ∑ni=1 xiyi/∑ni=1 x2i , and √n(ˆβ                        ).                                                       −β) →n(0,1/σ2x
+12.29 Using a Taylor series argument as in Example 12.4.3, derive the asymptotic distribution of the median in
+        iid sampling.
+12.30 For the data of Table 12.4.2, use the parametric bootstrap to assess the standard error from the LAD and
+      M-estimator fit. In particular
+        (a)  Fit the line y = α +βx to get estimates ˜α and ˜β.
+       (b) Calculate the residual mean squared error ˆσ2 =  1 ∑ni=1[yi     ˜α + ˜βxi)]2.                                                    n−2     −(
+        (c) Generate new residuals from n(0, ˆσ2) and re-estimate α and β.
+       (d) Do (c) B times and calculate the standard deviation of ˜α and ˜β.
+        (e) Repeat (a)–(d) using both the Double Exponential and Laplace distributions for the errors. Compare
+          your answers to the normal.
+12.31 For the data of Table 12.4.2, we could also use the nonparametric bootstrap to assess the standard error
+      from the LAD and M-estimator fit. Now you would
+        (a)  Fit the line y = α +βx to get estimates ˜α and ˜β.
+       (b) Generate new residuals by resampling from the fitted residuals and re-estimate α and β.
+        (c) Do (c) B times and calculate the standard deviation of ˜α and ˜β.
+
+ 12.6  Miscellanea
+
+ 12.6.1 The Meaning of Functional and Structural
+      The names functional and structural are, in themselves, a prime source of confusion in
+        the EIV model. Kendall and Stuart (1979, Chapter 29) give a detailed discussion of these
+        concepts, distinguishing among relationships between mathematical (nonrandom) variables
+       and relationships between random variables. One way to see the relationship is to write the
+       models in a hierarchy in which the structural relationship model is obtained by putting a
+         distribution on the parameters of the functional model:
+
+                                                                                      ε )             Functional                               E(Yi|ξi) = α +βξi +εi,     εi ∼n(0,σ2                                                                                 Structural
+              relationship                                                                          )                                                                                                                            δ                                                                                relationship                                                                    δi ∼n(0,σ2                              E(Xi|ξi) = ξi +δi,             model                                                                                                           )                                                                    ξi                                                                             ξ                                           ∼n(ξ,σ2        model                                 
+
+=== PDF 524; PRINT 493 ===
+MISCELLANEA                                                              493
+        The difference in the words may be understood through the following distinction, not a
+       universally accepted one. In the subject of calculus, for example, we often see the equation
+       y = f(x), an equation that describes a functional relationship, that is, a relationship that is
+      assumed to exist between variables. Thus, using the idea that a functional relationship is an
+      assumed relationship between two variables, the equation ηi = α +βξi, where ηi = E(Yi|ξi),         is a functional (hypothesized) relationship in either the functional or structural relationship
+       model.
+       On the other hand, a structural relationship is a relationship that arises from the hypoth-
+       esized structure of the problem. Thus, in the structural relationship model, the relationship
+     η = EYi = α +βξ = α +βEXi can be deduced from the structure of the model; hence it is
+       a structural relationship.
+        To make these ideas clearer, consider the case of simple linear regression where we as-
+      sume that there is no error in the xs. The equation E(Yi|xi) = α +βxi is a functional relation-
+        ship, a relationship that is hypothesized to exist between E(Yi|xi) and xi. We can, however,       also do simple linear regression under the assumption that the pair (Xi,Yi) has a bivari-
+        ate normal distribution and we operate conditional on the xis. In this case, the relationship
+        E(Yi|xi) = α +βxi follows from the structure of the hypothesized model, hence is a structural        relationship.
+         Notice that, using these meanings, the distinction in terminology becomes a matter of
+         taste. In any model we can deduce structural relations from functional relations and vice
+        versa. The important distinction is whether the nuisance parameters, the ξis, are integrated
+       out before inference is done.
+12.6.2 Consistency of Ordinary Least Squares in EIV Models
+       In general it is not a good idea to use the ordinary least squares estimator to estimate the slope
+        in EIV regression. This is because the estimator is inconsistent. Suppose that we assume a
+        linear structural relationship (12.2.6). We have
+                                 ∑ni=1(Xi                                                  ˆβ  =         −X)(Yi −Y)
+                                   ∑ni=1(Xi −X)2                                                1
+                                                n ∑ni=1(Xi −X)(Yi −Y)                    =                                                    1
+                                                    n ∑ni=1(Xi −X)2                                  Cov(X,Y)
+                →    VarX                  (as n →∞, using the WLLN)
+                                    σ2ξ                    =  β             ,                        (from (12.2.19))
+                                  σ2δ +σ2ξ
+
+      showing that ˆβ cannot be consistent. The same type of result can be obtained in the func-
+        tional relationship case.
+        The behavior of ˆβ in EIV models is treated in Cochran (1968). Carroll, Gallo, and Gleser
+       (1985) and Gleser, Carroll, and Gallo (1987) investigated conditions under which functions
+       of the ordinary least squares estimator are consistent.
+12.6.3 Instrumental Variables in EIV Models
+      The concept of instrumental variables goes back to, at least, Wald (1940), who constructed
+       a consistent estimator of the slope with their help. To see what an instrumental variable is,
+       write the EIV model in the form
+                                             Yi =  α +βξi +εi,
+                                        Xi =   ξi +δi,
+
+      and do some algebra to get
+                                           Yi = α +βXi +[εi −βδi].
+
+=== PDF 525; PRINT 494 ===
+494                                             REGRESSION MODELS
+     An instrumental variable, Zi, is a random variable that predicts Xi well, but is uncorrelated
+       with νi = εi −βδi. If such a variable can be identified, it can be used to improve predictions.       In particular, it can be used to construct a consistent estimator of β.
+        Wald (1940) showed that, under fairly general conditions, the estimator
+
+
+                                                                         (2)                                   Y (1) −Y                                                       ˆβ W =
+                                               X(1) −X(2)
+         is a consistent estimator of β in identifiable models, where the subscripts refer to two group-
+       ings of the data. A variable Zi, which takes on only two values to define the grouping, is an
+       instrumental variable. See Moran (1971) for a discussion of Wald’s estimator.
+        Although instrumental variables can be of great help, there can be some problems as-
+       sociated with their use. For example, Feldstein (1974) showed instances where the use of
+       instrumental variables can be detrimental. Moran (1971) discussed the difficulty of verify-
+       ing the conditions needed to ensure consistency of a simple estimator like ˆβ W. Fuller (1987)
+       provided an in-depth discussion of instrumental variables. A model proposed by Berkson
+       (1950) exploited a correlation structure similar to that used with instrumental variables.
+12.6.4 Logistic Likelihood Equations
+       In a logistic regression model, the likelihood equations are nonlinear in the parameters, and
+       they must be solved numerically. The most commonly used method for solving these equa-
+        tions is the Newton-Raphson method. This method begins with an initial guess ( ˆα(1), ˆβ (1))
+        for the value of the MLEs. Then the log likelihood is approximated with a quadratic function,
+          its second order Taylor’s series about the point (ˆα(1), ˆβ (1)). The next guess for the values of
+       the MLEs, (ˆα(2), ˆβ (2)), is the maximum of this quadratic function. Now another quadratic
+       approximation is used, this one centered at (ˆα(2), ˆβ (2)), and its maximum is the next guess
+        for the values of the MLEs. The Taylor’s series approximations involve the first and second
+        derivatives of the log likelihood. These are evaluated at the current guess (ˆα(t), ˆβ (t)). These
+       are the same second derivatives that appear in the information matrix in (12.3.10). Thus, a
+       byproduct of this method of solving the likelihood equations is estimates of the variances
+      and covariance of ˆα and ˆβ. The convergence of the guesses (ˆα(t), ˆβ (t)) to the MLEs (ˆα, ˆβ)
+         is usually rapid for logistic regression models. It often takes only a few iterations to obtain
+        satisfactory approximations.
+        The Newton-Raphson method is also called iteratively reweighted least squares. At each
+        stage, the next guess for (ˆα, ˆβ) can be expressed as the solution of a least squares prob-
+       lem. But, this is a least squares problem in which the different terms in the sum of squares
+                                                                                                                                                                           j  ), where       function are given different weights. In this case the weights are n jF(t)j  (1 −F(t)
+        F(t)j = F(ˆα(t) + ˆβ (t)xj) and F is the logistic cdf. This is the inverse of an approximation to
+       the variance of the  jth sample logit (Exercise 12.21). The weights are recalculated at each
+        stage, because the current guesses for the MLEs are used. That leads to the name “iteratively
+       reweighted.” Thus, the Newton-Raphson method is approximately the result of using the
+      sample logits as the data and performing a weighted least squares to estimate the parame-
+         ters.
+12.6.5 More on Robust Regression
+      Robust alternative to least squares have been an object of study for many years, and there
+         is a vast body of literature addressing a variety of problems. In Section 12.4 we saw only a
+        brief introduction to robust regression, but some of the advantages, and difficulties, should
+      be apparent. There are many good books that treat robust regression in detail, including
+       Hettmansberger and McKean (1998), Staudte and Sheather (1990), and Huber (1981). These
+       other topics have received a lot of attention.
+      Trimming and Transforming
+
+=== PDF 526; PRINT 495 ===
+MISCELLANEA                                                              495
+      The work of Carroll, Ruppert, and co-authors has addressed many facets of robust regres-
+        sion. Ruppert and Carroll (1979) is a careful treatment of the asymptotics of trimming (the
+      trimmed mean is discussed in Exercise 10.20), while Carroll and Ruppert (1985) examines
+        alternative to least squares when the errors are not identical. Later work looked at the advan-
+       tages of transformations in regression Carroll and Ruppert (1985, 1988).
+      Other Robust Alternatives
+     We only looked at the LAD estimator, and one M-estimator. There are, of course, many
+       other choices of robust estimators. One popular alternative is the Least Median of Squares
+      (LMS) estimator of Rousseeuw (1984); see also Rousseeuw and Leroy 1987), and there are
+       also R-estimators, rank-based regression estimators (see the review paper by Draper 1988).
+      More recently, there has been work on data depth (Liu 1990, Liu and Singh 1992) with
+       applications to regression in fining the deepest line (Rousseeuw and Hubert 1999).
+      Computing
+      From a practical view, computation of robust estimates can be quite challenging, as we are
+       often faced with a difficult minimization problem. The review paper by Portnoy and Koenker
+       (1997) is concerned with computation of LAD estimates. Hawkins (1993, 1994, 1995) has a
+      number of algorithms for computing LMS and related estimates.

@@ -1,0 +1,47 @@
+METHODS OF EVALUATING ESTIMATORS                                      269
+    In general, since MSE is a function of the parameter, there will not be one “best” estimator.
+Often, the MSEs of two estimators will cross each other, showing that each estimator is better (with
+respect to the other) only in a portion of the parameter space. However, even this partial information
+can sometimes provide guidelines for choosing between estimators.
+Example 7.3.5 (MSE of binomial Bayes estimator)    Let X1,...,Xn be iid Bernoulli(p). The
+MSE of ¯X, as an estimator of p, is
+                          Ep(¯X    = Varp ¯X = p(1−p) .                           −p)2              n
+Let Y = ∑Xi and recall the Bayes estimator derived in Example 7.2.14, ˆpB = α+β+n.Y+α  The MSE of
+this Bayes estimator of p is
+
+                =  Varp ˆpB +(Biasp ˆpB)2             Ep( ˆpB −p)2
+                                Y +α           Y +α           2
+                =  Varp        +  Ep                           α +β +n       α +β +n −p
+                                np+α        2                =   np(1−p) +                             .                            (α +β +n)2   α +β +n −p
+
+In the absence of good prior information about p, we might try to choose α and β to make the
+MSE of ˆpB constant. The details are not too difficult to work out (see Exercise 7.33), and the choice
+α = β =  n/4 yields
+
+                     Y +  n/4                       n
+                              ˆpB = n+√n    and  E( ˆpB −p)2                               = 4(n+√n)2 .
+
+
+
+   .075          MSE(X¯ )                           .00075          MSE(X¯ )
+
+                                                                                        MSE(pˆ B)
+   .050                                            .00050
+
+
+                                     MSE(pˆ B)   .025                                                  .00025
+
+
+
+                                      p                                                  p
+     0               .5          1                     0               .5          1
+                    n = 4                                              n = 400
+
+     Figure 7.3.1 Comparison of MSE of ¯X and ˆpB for sample sizes n = 4 and n = 400 in Example 7.3.5
+
+     If we want to choose between ˆpB and ¯X on the basis of MSE, Figure 7.3.1 is helpful. For small
+n, ˆpB is the better choice (unless there is a strong belief that p is near 0 or 1). For large n, ¯X is the
+better choice (unless there is a strong belief that p is close to 12). Even though the MSE criterion
+does not show one estimator to be uniformly better than the other, useful information is provided.
+This information, combined with the knowledge of the problem at hand, can lead to choosing the
+better estimator for the situation.                                                    ∥

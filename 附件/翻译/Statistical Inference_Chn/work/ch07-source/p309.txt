@@ -1,0 +1,44 @@
+278                                                 POINT ESTIMATION
+Example 7.3.18 (Conditioning on an insufficient statistic)  Let X1,X2 be iid n(θ,1). The statis-
+tic ¯X = 12(X1 +X2) has
+                                                  1
+                            Eθ ¯X = θ  and  Varθ ¯X =                                                        2.
+Consider conditioning on X1, which is not sufficient. Let φ(X1) = Eθ( ¯X|X1). It follows from (7.3.13)
+that Eθφ(X1) = θ and Varθ φ(X1) ≤Varθ ¯X, so φ(X1) is better than ¯X. However,
+                        φ(X1) =  Eθ(¯X|X1)                                  1           1
+                    =  2Eθ(X1|X1)+ 2Eθ(X2|X1)
+                                  1     1
+                    =  2X1 + 2θ,
+since Eθ(X2|X1) = EθX2 by independence. Hence, φ(X1) is not an estimator.                 ∥
+  We now know that, in looking for a best unbiased estimator of τ(θ), we need consider only
+estimators based on a sufficient statistic. The question now arises that if we have Eθφ = τ(θ), and
+φ is based on a sufficient statistic, that is, E(φ|T) = φ, how do we know that φ is best unbiased? Ofcourse, if φ attains the Cram´er–Rao Lower Bound then it is best unbiased, but if it does not, have
+we gained anything? For example, if φ ∗is another unbiased estimator of τ(θ), how does E(φ ∗|T)compare to φ? The next theorem answers this question in part, by showing that a best unbiased
+estimator is unique.
+Theorem 7.3.19  If W is a best unbiased estimator of τ(θ), then W is unique.
+Proof: Suppose W ′ is another best unbiased estimator, and consider the estimator W ∗= 12(W +W ′).
+Note that EθW ∗= τ(θ) and
+
+                              1         Varθ W ∗ =  Varθ(1 +      ′)                  2W  2W
+                    1        1         1
+           =  4Varθ W + 4Varθ W ′ + 2Covθ(W,W ′)                  (Exercise 4.44)
+                    1        1         1
+               W +   W ′ +       W)(Varθ W ′)]1/2    (Cauchy–Schwarz)           ≤  4Varθ     4Varθ      2[(Varθ
+           =  Varθ W.                                           (Varθ W = Varθ W ′)
+                                                                                            (7.3.14)
+
+But if the above inequality is strict then the best unbiasedness of W is contradicted, so we must have
+equality for all θ. Since the inequality is an application of Cauchy–Schwarz, we can have equality
+only if W ′ = a(θ)W + b(θ). Now using properties of covariance we have
+
+                   Covθ(W,W ′) =  Covθ[W,a(θ)W +b(θ)]
+                      =  Covθ[W,a(θ)W]
+                      =  a(θ)Varθ W,
+
+but Covθ(W,W ′) = Varθ W since we had equality in (7.3.14). Hence a(θ) = 1 and, since EθW ′ =
+τ(θ), we must have b(θ) = 0 and W = W ′, showing that W is unique.               2
+   To see when an unbiased estimator is best unbiased, we might ask how could we improve upon
+a given unbiased estimator? Suppose that W satisfies EθW = τ(θ), and we have another estimator,
+U, that satisfies EθU = 0 for all θ, that is, U is an unbiased estimator of zero. The estimator
+
+                                      φa = W +aU,

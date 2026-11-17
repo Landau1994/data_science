@@ -1,0 +1,317 @@
+\subsection{习题}\label{sec:6.5}
+\begin{exercise}\label{exercise:6.1}
+设$X$是来自$n(0,\sigma^2)$总体的一个观测.$|X|$是否为充分统计量？
+\end{exercise}
+\begin{exercise}\label{exercise:6.2}
+设$X_1,\ldots,X_n$为独立随机变量，其密度为
+$$f_{X_i}(x\mid\theta)=\begin{cases}e^{i\theta-x},&x\ge i\theta,\\0,&x<i\theta.\end{cases}$$
+证明$T=\min_i(X_i/i)$是$\theta$的充分统计量.
+\end{exercise}
+\begin{exercise}\label{exercise:6.3}
+设$X_1,\ldots,X_n$为来自下列pdf的随机样本：
+$$f(x\mid\mu,\sigma)=\frac1\sigma e^{-(x-\mu)/\sigma},\qquad\mu<x<\infty,\quad0<\sigma<\infty.$$
+求$(\mu,\sigma)$的二维充分统计量.
+\end{exercise}
+\begin{exercise}\label{exercise:6.4}
+证明\autoref{thm:6.2.10}.
+\end{exercise}
+\begin{exercise}\label{exercise:6.5}
+设$X_1,\ldots,X_n$为独立随机变量，其pdf为
+$$f(x_i\mid\theta)=\begin{cases}\dfrac1{2i\theta},&-i(\theta-1)<x_i<i(\theta+1),\\0,&\text{其他情形},\end{cases}$$
+其中$\theta>0$.求$\theta$的二维充分统计量.
+\end{exercise}
+\begin{exercise}\label{exercise:6.6}
+设$X_1,\ldots,X_n$为来自$\operatorname{gamma}(\alpha,\beta)$总体的随机样本.求$(\alpha,\beta)$的二维充分统计量.
+\end{exercise}
+\begin{exercise}\label{exercise:6.7}
+设$f(x,y\mid\theta_1,\theta_2,\theta_3,\theta_4)$是$\mathbb R^2$中左下角为$(\theta_1,\theta_2)$、右上角为$(\theta_3,\theta_4)$的矩形上均匀分布的二维pdf.参数满足$\theta_1<\theta_3$和$\theta_2<\theta_4$.设$(X_1,Y_1),\ldots,(X_n,Y_n)$为来自该pdf的随机样本.求$(\theta_1,\theta_2,\theta_3,\theta_4)$的四维充分统计量.
+\end{exercise}
+\begin{exercise}\label{exercise:6.8}\index{SI0738@充分}
+设$X_1,\ldots,X_n$为来自具有位置pdf $f(x-\theta)$的总体的随机样本.说明次序统计量$T(X_1,\ldots,X_n)=(X_{(1)},\ldots,X_{(n)})$是$\theta$的充分统计量，且不能再进一步约简.\footnote{译注：后半句对任意给定位置密度并不成立；例如已知方差的正态位置族可约简到样本均值.若$f$本身未知、考虑整个相应非参数族，则需明确这一额外范围.原题保留，参见\autoref{exercise:6.29}.}
+\end{exercise}
+\begin{exercise}\label{exercise:6.9}
+对以下每个分布，设$X_1,\ldots,X_n$为随机样本.求$\theta$的最小充分统计量.
+\begin{enumerate}[label=(\alph*)]
+\item $f(x\mid\theta)=\dfrac1{\sqrt{2\pi}}e^{-(x-\theta)^2/2}$，$-\infty<x<\infty$，$-\infty<\theta<\infty$（正态）.
+\item $f(x\mid\theta)=e^{-(x-\theta)}$，$\theta<x<\infty$，$-\infty<\theta<\infty$（位置指数）.
+\item $f(x\mid\theta)=\dfrac{e^{-(x-\theta)}}{(1+e^{-(x-\theta)})^2}$，$-\infty<x<\infty$，$-\infty<\theta<\infty$（logistic）.
+\item $f(x\mid\theta)=\dfrac1{\pi[1+(x-\theta)^2]}$，$-\infty<x<\infty$，$-\infty<\theta<\infty$（Cauchy）.
+\item $f(x\mid\theta)=\tfrac12e^{-|x-\theta|}$，$-\infty<x<\infty$，$-\infty<\theta<\infty$（双指数）.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:6.10}\index{SI1010@均匀}
+说明\autoref{ex:6.2.15}中求得的$\operatorname{uniform}(\theta,\theta+1)$的最小充分统计量不完备.
+\end{exercise}
+\sourcepageanchor{276}
+\begin{exercise}\label{exercise:6.11}\index{SI0020@位置族}
+参见\autoref{exercise:6.9}中的pdf.对每种情形，以$X_{(1)}<\cdots<X_{(n)}$表示排序后的样本，定义$Y_i=X_{(n)}-X_{(i)}$，$i=1,\ldots,n-1$.
+\begin{enumerate}[label=(\alph*)]
+\item 对\autoref{exercise:6.9}的每个pdf，验证$(Y_1,\ldots,Y_{n-1})$对$\theta$为辅助统计量.尝试像\autoref{ex:6.2.18}那样，证明一个一次处理所有这些族的一般定理.
+\item 对每种情形，确定$(Y_1,\ldots,Y_{n-1})$是否与最小充分统计量独立.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:6.12}\index{SI0022@样本量}
+许多问题中一个自然的辅助统计量是样本容量.例如，设随机变量$N$取值$1,2,\ldots$，已知概率为$p_1,p_2,\ldots$，其中$\sum p_i=1$.观测到$N=n$后，进行$n$次成功概率为$\theta$的Bernoulli试验，得到$X$次成功.
+\begin{enumerate}[label=(\alph*)]
+\item 证明$(X,N)$最小充分，且$N$对$\theta$为辅助统计量.（注意与\autoref{sec:4.4}所述某些分层模型的相似之处.）
+\item 证明估计量$X/N$对$\theta$无偏，方差为$\theta(1-\theta)E(1/N)$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:6.13}
+设$X_1$和$X_2$为来自pdf $f(x\mid\alpha)=\alpha x^{\alpha-1}e^{-x^\alpha}$、$x>0$、$\alpha>0$的iid观测.说明$(\log X_1)/(\log X_2)$是辅助统计量.
+\end{exercise}
+\begin{exercise}\label{exercise:6.14}
+设$X_1,\ldots,X_n$为来自位置族的随机样本.说明$M-\bar X$为辅助统计量，其中$M$为样本中位数.
+\end{exercise}
+\begin{exercise}\label{exercise:6.15}
+设$X_1,\ldots,X_n$为iid $n(\theta,a\theta^2)$，其中$a$是已知常数且$\theta>0$.
+\begin{enumerate}[label=(\alph*)]
+\item 说明参数空间不含二维开集.
+\item 说明统计量$T=(\bar X,S^2)$是$\theta$的充分统计量，但其分布族不完备.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:6.16}
+遗传建模中的一个著名例子（\hyperref[bib:source312]{Tanner 1996}，或\hyperref[bib:source97]{Dempster、Laird和Rubin 1977）}是遗传连锁多项模型，其中观测多项向量$(x_1,x_2,x_3,x_4)$，单元概率为$(\tfrac12+\tfrac\theta4,\tfrac14(1-\theta),\tfrac14(1-\theta),\tfrac\theta4)$.
+\begin{enumerate}[label=(\alph*)]
+\item 说明这是弯曲指数族.
+\item 求$\theta$的充分统计量.
+\item 求$\theta$的最小充分统计量.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:6.17}
+设$X_1,\ldots,X_n$为iid几何分布变量，
+$$P_\theta(X=x)=\theta(1-\theta)^{x-1},\qquad x=1,2,\ldots,\quad0<\theta<1.$$
+说明$\sum X_i$对$\theta$充分，并求$\sum X_i$的分布族.这个族是否完备？
+\end{exercise}
+\begin{exercise}\label{exercise:6.18}\index{SI0118@泊松}
+设$X_1,\ldots,X_n$为iid $\operatorname{Poisson}(\lambda)$.说明$\sum X_i$的分布族完备.不用\autoref{thm:6.2.25}证明其完备性.
+\end{exercise}
+\begin{exercise}\label{exercise:6.19}
+随机变量$X$按下列某一分布取值0、1、2：
+\begin{center}
+\begin{tabular}{lcccc}
+&$P(X=0)$&$P(X=1)$&$P(X=2)$&\\\hline
+分布1&$p$&$3p$&$1-4p$&$0<p<\tfrac14$\\
+分布2&$p$&$p^2$&$1-p-p^2$&$0<p<\tfrac12$
+\end{tabular}
+\end{center}
+对每种情形，确定$X$的分布族是否完备.
+\end{exercise}
+\begin{exercise}\label{exercise:6.20}
+对以下各pdf，设$X_1,\ldots,X_n$为iid观测.求一个完备充分统计量，或说明不存在这样的统计量.
+\begin{enumerate}[label=(\alph*)]
+\item $f(x\mid\theta)=2x/\theta^2$，$0<x<\theta$，$\theta>0$.
+\item $f(x\mid\theta)=\theta/(1+x)^{1+\theta}$，$0<x<\infty$，$\theta>0$.
+\item $f(x\mid\theta)=(\log\theta)\theta^x/(\theta-1)$，$0<x<1$，$\theta>1$.
+\item $f(x\mid\theta)=e^{-(x-\theta)}\exp(-e^{-(x-\theta)})$，$-\infty<x<\infty$，$-\infty<\theta<\infty$.
+\item $f(x\mid\theta)=\binom2x\theta^x(1-\theta)^{2-x}$，$x=0,1,2$，$0\le\theta\le1$.
+\end{enumerate}
+\end{exercise}
+\sourcepageanchor{277}
+\begin{exercise}\label{exercise:6.21}
+设$X$为来自下列pdf的一个观测：
+$$f(x\mid\theta)=\left(\frac\theta2\right)^{|x|}(1-\theta)^{1-|x|},\qquad x=-1,0,1,\quad0\le\theta\le1.$$
+\begin{enumerate}[label=(\alph*)]
+\item $X$是否为完备充分统计量？
+\item $|X|$是否为完备充分统计量？
+\item $f(x\mid\theta)$是否属于指数类？
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:6.22}
+设$X_1,\ldots,X_n$为来自具有下列pdf的总体的随机样本：
+$$f(x\mid\theta)=\theta x^{\theta-1},\qquad0<x<1,\quad\theta>0.$$
+\begin{enumerate}[label=(\alph*)]
+\item $\sum X_i$是否对$\theta$充分？
+\item 求$\theta$的完备充分统计量.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:6.23}
+设$X_1,\ldots,X_n$为来自区间$(\theta,2\theta)$上均匀分布的随机样本，$\theta>0$.求$\theta$的最小充分统计量.该统计量是否完备？
+\end{exercise}
+\begin{exercise}\label{exercise:6.24}
+考虑分布族
+$$\mathcal P=\{P_\lambda(X=x):P_\lambda(X=x)=\lambda^xe^{-\lambda}/x!;\ x=0,1,2,\ldots;\ \lambda=0\text{或}1\}.$$
+这是把$\lambda$限制为0或1的Poisson族.说明$\mathcal P$不完备，从而展示完备性可能依赖参数的取值范围.（见\autoref{exercise:6.15}和\autoref{exercise:6.18}.）
+\end{exercise}
+\begin{exercise}\label{exercise:6.25}
+我们已见到若干关于指数族充分性及相关概念的定理.\autoref{thm:5.2.11}给出了某统计量的分布，\autoref{thm:6.2.10}刻画它的充分性，\autoref{thm:6.2.25}刻画其完备性.但若该族弯曲，则\autoref{thm:6.2.25}的开集条件不满足.此时\autoref{thm:6.2.10}的充分统计量是否仍然最小？对\autoref{thm:6.2.10}中的$T(\boldsymbol x)$应用\autoref{thm:6.2.13}，建立以下结论：
+\begin{enumerate}[label=(\alph*)]
+\item 在$n(\mu,\mu)$族中，$(\sum X_i,\sum X_i^2)$充分，但非最小充分.
+\item 在$n(\mu,\mu)$族中，$\sum X_i^2$最小充分.
+\item 在$n(\mu,\mu^2)$族中，$(\sum X_i,\sum X_i^2)$最小充分.
+\item 在$n(\mu,\sigma^2)$族中，$(\sum X_i,\sum X_i^2)$最小充分.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:6.26}\index{SI1006@最小}
+利用\autoref{thm:6.6.5}证明，给定样本$X_1,X_2,\ldots,X_n$，以下统计量最小充分.
+\begin{center}
+\begin{tabular}{cll}
+&统计量&分布\\\hline
+(a)&$\bar X$&$n(\theta,1)$\\
+(b)&$\sum X_i$&$\operatorname{gamma}(\alpha,\beta)$，$\alpha$已知\\
+(c)&$\max X_i$&$\operatorname{uniform}(0,\theta)$\\
+(d)&$X_{(1)},X_{(2)},\ldots,X_{(n)}$&$\operatorname{Cauchy}(\theta,1)$\\
+(e)&$X_{(1)},X_{(2)},\ldots,X_{(n)}$&$\operatorname{logistic}(\mu,\beta)$
+\end{tabular}
+\end{center}
+\end{exercise}
+\begin{exercise}\label{exercise:6.27}\index{SI0324@逆高斯}
+设$X_1,X_2,\ldots,X_n$为来自逆高斯分布（inverse Gaussian distribution）的随机样本，其pdf为
+$$f(x\mid\mu,\lambda)=\left(\frac\lambda{2\pi x^3}\right)^{1/2}e^{-\lambda(x-\mu)^2/(2\mu^2x)},\qquad0<x<\infty.$$
+\begin{enumerate}[label=(\alph*)]
+\item 说明统计量\footnote{译注：原文$T$的分母写$\sum_i1/X_i-1/\bar X$；与后述独立性和卡方分布相符的常见统计量应为$T=n/(\sum_i1/X_i-n/\bar X)$.原式保留.另外“充分且完备”应理解为二者组成的联合统计量.}
+$$\bar X=\frac1n\sum_{i=1}^nX_i\qquad\text{及}\qquad T=\frac n{\sum_{i=1}^n\frac1{X_i}-\frac1{\bar X}}$$
+充分且完备.
+\item 当$n=2$时，说明$\bar X$服从逆高斯分布，$n\lambda/T$服从$\chi_{n-1}^2$分布，且二者独立.（\hyperref[bib:source281]{Schwarz和Samanta 1991}处理了一般情形.）
+\end{enumerate}
+逆高斯分布有许多应用，尤其用于寿命建模.参见\hyperref[bib:source74]{Chhikara和Folks（1989）}\footnote{译注：原书正文将第一作者姓氏拼作Chhikara，书后对应条目[74]作Chikkara；两处拼写分别保留，链接至该条目.}或\hyperref[bib:source286]{Seshadri（1993）}的著作.
+\end{exercise}
+\sourcepageanchor{278}
+\begin{exercise}\label{exercise:6.28}
+证明\autoref{thm:6.6.5}.提示：先由\autoref{thm:6.2.13}确立$T(\boldsymbol X)$在族
+$$\{f_0(\boldsymbol x),f_1(\boldsymbol x),\ldots,f_k(\boldsymbol x)\}$$
+中的最小充分性.然后论证，在$\mathcal F$中充分的任一统计量都必须是$T(\boldsymbol x)$的函数.\footnote{译注：最后一句的函数方向在原文中颠倒了.最小充分性要求$T$是任一充分统计量的函数；先把在$\mathcal F$中充分的统计量限制到上述有限子族，再应用该子族中$T$的最小充分性，即得所需方向.}
+\end{exercise}
+\begin{exercise}\label{exercise:6.29}
+最小充分性的概念可以推广到参数分布族之外.证明：若$X_1,X_2,\ldots,X_n$是来自未知密度$f$的随机样本，则次序统计量最小充分.
+
+提示：利用\autoref{thm:6.6.5}，取$\{f_0(\boldsymbol x),f_1(\boldsymbol x),\ldots,f_k(\boldsymbol x)\}$为logistic密度.
+\end{exercise}
+\begin{exercise}\label{exercise:6.30}\index{SI0115@指数}
+设$X_1,\ldots,X_n$为来自pdf $f(x\mid\mu)=e^{-(x-\mu)}$的随机样本，其中$-\infty<\mu<x<\infty$.
+\begin{enumerate}[label=(\alph*)]
+\item 说明$X_{(1)}=\min_iX_i$是完备充分统计量.
+\item 利用Basu定理说明$X_{(1)}$与$S^2$独立.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:6.31}\index{SI0710@巧算}
+\hyperref[bib:source42]{Boos和Hughes-Oliver（1998）}详述了应用Basu定理简化计算的若干实例.下面列出其中几个.
+\begin{enumerate}[label=(\alph*)]
+\item 设$X_1,X_2,\ldots,X_n$独立同分布于$n(\mu,\sigma^2)$，其中$\sigma^2$已知.
+\begin{enumerate}[label=(\roman*)]
+\item 说明$\bar X$对于$\mu$完备充分，而$S^2$是辅助统计量.因而由Basu定理，$\bar X$与$S^2$独立.
+\item 说明即使$\sigma^2$未知，这一独立性仍成立，因为是否知道$\sigma^2$不影响这些分布.（将此证明与较为复杂的\hyperref[thm:5.3.1]{定理5.3.1(a)}比较.）
+\end{enumerate}
+\item 蒙特卡罗巧计（Monte Carlo swindle）是一种改进方差估计的技巧.设随机变量$X_1,X_2,\ldots,X_n$独立同分布于$N(\mu,\sigma^2)$，我们希望计算中位数$M$的方差.
+\begin{enumerate}[label=(\roman*)]
+\item 说明$\operatorname{Var}(M)=\operatorname{Var}(M-\bar X)+\operatorname{Var}(\bar X)$；因此，对于$\operatorname{Var}(M)$，我们只需模拟其中的$\operatorname{Var}(M-\bar X)$部分（因为已知$\operatorname{Var}(\bar X)=\sigma^2/n$）.
+\item 通过说明$M$的渐近方差约为$2[\operatorname{Var}(M)]^2/(N-1)$，而$M-\bar X$的渐近方差约为$2[\operatorname{Var}(M-\bar X)]^2/(N-1)$，证明巧计估计更为精确，其中$N$是蒙特卡罗样本数.\footnote{译注：原文这里说“$M$的渐近方差”和“$M-\bar X$的渐近方差”，但随模拟次数$N$减小的量应指用$N$次模拟所得的相应\emph{方差估计量}的方差.所给近似式还采用了被模拟统计量近似正态的条件；对一般分布，样本方差的渐近方差涉及四阶中心矩.}
+\end{enumerate}
+\item \begin{enumerate}[label=(\roman*)]
+\item 若$X/Y$与$Y$是独立随机变量，证明
+$$E\left(\frac XY\right)^k=\frac{E(X^k)}{E(Y^k)}.$$
+\item 利用该结果及Basu定理说明，若$X_1,X_2,\ldots,X_n$独立同分布于$\operatorname{gamma}(\alpha,\beta)$，其中$\alpha$已知，则
+$$E\left(X_{(i)}\,\middle|\,\sum_iX_i\right)=\sum_iX_i\frac{E(X_{(i)})}{E(\sum_iX_i)}.$$
+\end{enumerate}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:6.32}
+证明似然原则推论.也就是说，假设形式充分性原则和条件性原则都成立，证明：若$E=(\mathcal X,\theta,\{f(\boldsymbol x\mid\theta)\})$是一个试验，则$\operatorname{Ev}(E,\boldsymbol x)$应当仅通过$L(\theta\mid\boldsymbol x)$依赖于$E$和$\boldsymbol x$.
+\end{exercise}
+\begin{exercise}\label{exercise:6.33}\index{SI0093@Birnbaum定理}\index{SI0626@Birnbaum定理}
+补全\autoref{thm:6.3.6}（Birnbaum定理）证明中的细节.
+\begin{enumerate}[label=(\alph*)]
+\item 定义$g(t\mid\theta)=g((j,\boldsymbol x_j)\mid\theta)=f^*((j,\boldsymbol x_j)\mid\theta)$及
+$$h(j,\boldsymbol x_j)=\begin{cases}C,&\text{若 }(j,\boldsymbol x_j)=(2,\boldsymbol x_2^*),\\1,&\text{其他情形}.\end{cases}$$
+通过验证对所有$(j,\boldsymbol x_j)$均有下式，说明$T(j,\boldsymbol x_j)$是$E^*$试验中的充分统计量：\footnote{译注：原文连等式中间一项在$(j,\boldsymbol x_j)=(2,\boldsymbol x_2^*)$处一般不成立；此处应为$g((1,\boldsymbol x_1^*)\mid\theta)C$.由证明中的比例关系，它仍等于最右端的$f^*((2,\boldsymbol x_2^*)\mid\theta)$，因此所需因子分解成立.}
+\begin{align*}
+g(T(j,\boldsymbol x_j)\mid\theta)h(j,\boldsymbol x_j)
+&=g((j,\boldsymbol x_j)\mid\theta)(1)\\
+&=f^*((j,\boldsymbol x_j)\mid\theta).
+\end{align*}
+\item 由于$T$充分，说明形式充分性原则蕴含\eqref{eq:6.3.4}.条件性原则也蕴含\eqref{eq:6.3.5}，由此推出形式似然原则.
+\item 为证明逆命题，先取一个试验为$E^*$试验，另一个为$E_j$，推出$\operatorname{Ev}(E^*,(j,\boldsymbol x_j))=\operatorname{Ev}(E_j,\boldsymbol x_j)$，即条件性原则.然后，若$T(\boldsymbol X)$充分且$T(\boldsymbol x)=T(\boldsymbol y)$，说明似然成比例，再利用形式似然原则推出$\operatorname{Ev}(E,\boldsymbol x)=\operatorname{Ev}(E,\boldsymbol y)$，即形式充分性原则.
+\end{enumerate}
+\end{exercise}
+\sourcepageanchor{279}
+\begin{exercise}\label{exercise:6.34}\index{SI0629@样本量}
+考虑\autoref{exercise:6.12}中的模型.说明形式似然原则意味着：关于$\theta$的任何结论，都不应依赖于样本量$n$是随机选取的这一事实.也就是说，\autoref{exercise:6.12}中样本点$(n,x)$的似然，与固定样本量的$\operatorname{binomial}(n,\theta)$试验中样本点$x$的似然成比例.
+\end{exercise}
+\begin{exercise}\label{exercise:6.35}
+一项有风险的试验性治疗最多用于三名病人.先对一名病人治疗；若成功，则对第二名病人治疗；若又成功，则对第三名病人治疗.将各病人的结果建模为相互独立的$\operatorname{Bernoulli}(p)$随机变量.确定此模型中的四个样本点，并说明，按照形式似然原则，关于$p$的推断不应依赖于样本量由数据决定这一事实.
+\end{exercise}
+\begin{exercise}\label{exercise:6.36}
+如下题所示，使用最小充分统计量的一个优点是无偏估计量将有较小的方差.设$T_1$充分，$T_2$最小充分，$U$是$\theta$的无偏估计量，并定义$U_1=E(U\mid T_1)$和$U_2=E(U\mid T_2)$.
+\begin{enumerate}[label=(\alph*)]
+\item 说明$U_2=E(U_1\mid T_2)$.
+\item 现在利用条件方差公式（\autoref{thm:4.4.7}）证明$\operatorname{Var}U_2\le\operatorname{Var}U_1$.
+\end{enumerate}
+（关于充分性与无偏性的关系，另见\hyperref[bib:source240]{Pena和Rohatgi 1994}.）
+\end{exercise}
+\begin{exercise}\label{exercise:6.37}\index{SI0725@问题}
+\hyperref[bib:source182]{Joshi和Nabar（1989）}研究了所谓“尼罗河问题”（Problem of the Nile）中参数的线性估计量的性质，其中$(X,Y)$具有联合密度
+$$f(x,y\mid\theta)=\exp\{-(\theta x+y/\theta)\},\qquad x>0,\quad y>0.$$
+\begin{enumerate}[label=(\alph*)]
+\item 对样本量为$n$的独立同分布样本，说明Fisher信息为$I(\theta)=2n/\theta^2$.
+\item 对估计量
+$$T=\sqrt{\sum Y_i/\sum X_i}\qquad\text{及}\qquad U=\sqrt{\sum X_i\sum Y_i},$$
+说明
+\begin{enumerate}[label=(\roman*)]
+\item 仅$T$所含的信息为$[2n/(2n+1)]I(\theta)$.
+\item $(T,U)$所含的信息为$I(\theta)$.
+\item $(T,U)$联合充分，但不完备.
+\end{enumerate}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:6.38}
+在\autoref{def:6.4.2}中，说明\hyperref[item:6.4.2iii]{(iii)}由\hyperref[item:6.4.2i]{(i)}和\hyperref[item:6.4.2ii]{(ii)}蕴含.
+\end{exercise}
+\begin{exercise}\label{exercise:6.39}\index{SI0401@测量}
+测量等变性要求对两个等价的数据点作出相同的推断：$\boldsymbol x$是在一种尺度下表示的测量值，$\boldsymbol y$是完全相同的测量在另一尺度下的表示.形式不变性最终则给出同一测量尺度下两个不同数据点处的推断之间的关系.
+
+假设一位实验者希望根据一次观测$X$——用摄氏度测量的水的沸点——估计$\theta$，即水的平均沸点.考虑到海拔和水中的杂质，他决定采用估计$T(x)=.5x+.5(100)$.如果测量尺度改成华氏度，实验者会采用$T^*(y)=.5y+.5(212)$，估计以华氏度表示的平均沸点.
+\begin{enumerate}[label=(\alph*)]
+\item 摄氏度与华氏度之间熟知的关系使我们用变换$\frac59(T^*(y)-32)$把华氏度转为摄氏度.说明这个方法具有测量等变性，即相同数据将得到相同答案.也就是说，$\frac59(T^*(y)-32)=T(x)$.
+\item 形式不变性要求对所有$x$均有$T(x)=T^*(x)$.说明上面定义的估计量不满足这一要求.因此，它们在等变性原则的意义下不等变.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:6.40}\index{SI0021@位置尺度族}
+设$X_1,\ldots,X_n$为来自一个位置--尺度族的独立同分布观测.设$T_1(X_1,\ldots,X_n)$和$T_2(X_1,\ldots,X_n)$是两个统计量，均对所有$x_1,\ldots,x_n$和$b$以及任意$a>0$满足
+$$T_i(ax_1+b,\ldots,ax_n+b)=aT_i(x_1,\ldots,x_n).$$
+\sourcepageanchor{280}
+\begin{enumerate}[label=(\alph*)]
+\item 说明$T_1/T_2$是辅助统计量.
+\item 设$R$是样本极差，$S$是样本标准差.验证$R$和$S$满足上述条件，从而$R/S$是辅助统计量.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:6.41}\index{SI0402@位置}\index{SI0590@位置}\index{SI0784@位置}\index{SI1054@位置}
+假设在\autoref{ex:6.4.6}的模型中，要作出的推断是对均值$\mu$的估计.设当观测到$\boldsymbol X=\boldsymbol x$时所用的估计为$T(\boldsymbol x)$.若观测到$g_a(\boldsymbol X)=\boldsymbol Y=\boldsymbol y$，则令$T^*(\boldsymbol y)$为$\mu+a$（每个$Y_i$的均值）的估计.如果用$T^*(\boldsymbol y)$估计$\mu+a$，就会用$T^*(\boldsymbol y)-a$估计$\mu$.
+\begin{enumerate}[label=(\alph*)]
+\item 说明测量等变性要求：对所有$\boldsymbol x=(x_1,\ldots,x_n)$和所有$a$，均有$T(\boldsymbol x)=T^*(\boldsymbol y)-a$.
+\item 说明形式不变性要求$T(\boldsymbol x)=T^*(\boldsymbol x)$，从而等变性原则要求：对所有$(x_1,\ldots,x_n)$和所有$a$，均有
+$$T(x_1,\ldots,x_n)+a=T(x_1+a,\ldots,x_n+a).$$
+\item 若$X_1,\ldots,X_n$独立同分布于$f(x-\theta)$，说明只要$E_0X_1=0$，估计量
+$$W(X_1,\ldots,X_n)=\bar X$$
+就是估计$\theta$的等变估计量，并满足$E_\theta W=\theta$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:6.42}\index{SI0465@位置尺度}\index{SI0785@位置尺度}
+假设$X_1,\ldots,X_n$是来自位置--尺度pdf $\frac1\sigma f((x-\theta)/\sigma)$的随机样本.我们想估计$\theta$，考虑两个变换群：
+$$\mathcal G_1=\{g_{a,c}(\boldsymbol x):-\infty<a<\infty,\ c>0\},$$
+其中$g_{a,c}(x_1,\ldots,x_n)=(cx_1+a,\ldots,cx_n+a)$，以及
+$$\mathcal G_2=\{g_a(\boldsymbol x):-\infty<a<\infty\},$$
+其中$g_a(x_1,\ldots,x_n)=(x_1+a,\ldots,x_n+a)$.
+\begin{enumerate}[label=(\alph*)]
+\item 说明形如
+$$W(x_1,\ldots,x_n)=\bar x+k,$$
+其中$k$为非零常数的估计量，关于群$\mathcal G_2$等变，但关于群$\mathcal G_1$不等变.
+\item 对每一个群，在什么条件下等变估计量$W$满足$E_\theta W=\theta$，即它对$\theta$的估计是无偏的？
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:6.43}\index{SI0467@尺度}
+仍假设$X_1,\ldots,X_n$为来自位置--尺度pdf $\frac1\sigma f((x-\theta)/\sigma)$的随机样本，不过现在我们感兴趣的是估计$\sigma^2$.可以考虑三个变换群：
+$$\mathcal G_1=\{g_{a,c}(\boldsymbol x):-\infty<a<\infty,\ c>0\},$$
+其中$g_{a,c}(x_1,\ldots,x_n)=(cx_1+a,\ldots,cx_n+a)$；
+$$\mathcal G_2=\{g_a(\boldsymbol x):-\infty<a<\infty\},$$
+其中$g_a(x_1,\ldots,x_n)=(x_1+a,\ldots,x_n+a)$；以及
+$$\mathcal G_3=\{g_c(\boldsymbol x):c>0\},$$
+其中$g_c(x_1,\ldots,x_n)=(cx_1,\ldots,cx_n)$.
+\begin{enumerate}[label=(\alph*)]
+\item 说明形如$kS^2$的$\sigma^2$估计量（$k$为正常数，$S^2$为样本方差）关于$\mathcal G_2$不变，关于另外两个群等变.
+\item 说明形如（\hyperref[bib:source48]{Brewster和Zidek，1974）}
+$$W(X_1,\ldots,X_n)=\phi\left(\frac{\bar X}S\right)S^2,$$
+其中$\phi(x)$是一个函数的、更大一类$\sigma^2$估计量，关于$\mathcal G_3$等变，但关于$\mathcal G_1$和$\mathcal G_2$均不等变，除非$\phi(x)$为常数.
+
+对这种形式估计量的考虑，使\hyperref[bib:source302]{Stein（1964）}以及\hyperref[bib:source48]{Brewster和Zidek（1974）}找到了改进的方差估计量（见\hyperref[bib:source200]{Lehmann和Casella 1998}，第3.3节）.
+\end{enumerate}
+\end{exercise}

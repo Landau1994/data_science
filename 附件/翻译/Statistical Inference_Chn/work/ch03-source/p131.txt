@@ -1,0 +1,44 @@
+100                         COMMON FAMILIES OF DISTRIBUTIONS
+Theorem 3.5.7  Let Z be a random variable with pdf f(z). Suppose EZ and VarZ exist. If X is a
+random variable with pdf (1/σ)f((x−µ)/σ), then
+                  EX = σEZ + µ   and  VarX = σ2VarZ.
+In particular, if EZ = 0 and VarZ = 1, then EX = µ and VarX = σ2.
+Proof: By Theorem 3.5.6, there is a random variable Z∗with pdf f(z) and X = σZ∗+ µ. So EX =
+σEZ∗+ µ = σEZ + µ and VarX = σ2VarZ∗= σ2VarZ.                      2
+   For any location–scale family with a finite mean and variance, the standard pdf f(z) can be
+chosen in such a way that EZ = 0 and VarZ = 1. (The proof that this choice can be made is left as
+Exercise 3.40.) This results in the convenient interpretation of µ and σ2 as the mean and variance of
+X, respectively. This is the case for the usual definition of the normal family as given in Section 3.3.
+However, this is not the choice for the usual definition of the double exponential family as given in
+Section 3.3. There, VarZ = 2.
+    Probabilities for any member of a location–scale family may be computed in terms of the stan-
+dard variable Z because
+                         X                 P(X   = P  −µ      = P Z                .                  ≤x)      σ  ≤x−µσ      ≤x−µσ
+Thus, if P(Z ≤z) is tabulated or easily calculable for the standard variable Z, then probabilities for Xmay be obtained. Calculations of normal probabilities using the standard normal table are examples
+of this.
+
+3.6  Inequalities and Identities
+Statistical theory is literally brimming with inequalities and identities – so many that entire books
+are devoted to the topic. The major work by Marshall and Olkin (1979) contains many inequalities
+using the concept of majorization. The older work by Hardy, Littlewood, and Polya (1952) is a com-
+pendium of classic inequalities. In this section, and in Section 4.7 we will mix some old and some
+new, giving some idea of the types of results that exist. This section is devoted to those identities
+and inequalities that arise from probabilistic concerns, while those in Section 4.7 rely more on basic
+properties of numbers and functions.
+
+3.6.1  Probability Inequalities
+
+The most famous, and perhaps most useful, probability inequality is Chebychev’s Inequality. Its
+usefulness comes from its wide applicability. As with many important results, its proof is almost
+trivial.
+Theorem 3.6.1 (Chebychev’s Inequality)  Let X be a random variable and let g(x) be a nonneg-
+ative function. Then, for any r > 0,
+                             P(g(X) ≥r) ≤Eg(X)r    .
+Proof:
+                                    ∞
+                        Eg(X) =   −∞g(x)fX(x)dx
+                     ≥           g(x)fX(x)dx            (g is nonnegative)                                                      {x:g(x)≥r}
+                     ≥   r          fX(x)dx                                                       {x:g(x)≥r}
+                     =  rP(g(X) ≥r).                             (definition)
+
+Rearranging now produces the desired inequality.                          2

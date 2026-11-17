@@ -1,0 +1,45 @@
+150                                      MULTIPLE RANDOM VARIABLES
+of the coordinates, is the same as the marginal distribution of the subset. Mutual independence im-
+plies that any pair, say Xi and Xj, are pairwise independent. That is, their bivariate marginal pdf or
+pmf, f(xi,x j), satisfies Definition 4.2.5. But mutual independence implies more than pairwise inde-
+pendence. As in Example 1.3.11, it is possible to specify a probability distribution for (X1,...,Xn)
+with the property that each pair, (Xi,Xj), is pairwise independent but X1,...,Xn are not mutually
+independent.
+   Mutually independent random variables have many nice properties. The proofs of the following
+theorems are analogous to the proofs of their counterparts in Sections 4.2 and 4.3.
+Theorem 4.6.6 (Generalization of Theorem 4.2.10)  Let X1,...,Xn be mutually independent ran-
+dom variables. Let g1,...,gn be real-valued functions such that gi(xi) is a function only of xi,i =
+1,...,n. Then
+                       E(g1(X1)·····gn(Xn)) = (Eg1(X1))·····(Egn(Xn)).
+
+Theorem 4.6.7 (Generalization of Theorem 4.2.12)  Let X1,...,Xn be mutually independent ran-
+dom variables with mgfs MX1(t),...,MXn(t). Let Z = X1 +···+Xn. Then the mgf of Z is
+                              MZ(t) = MX1(t)·····MXn(t).
+In particular, if X1,...,Xn all have the same distribution with mgf MX(t), then
+                                 MZ(t) = (MX(t))n .
+
+
+Example 4.6.8 (Mgf of a sum of gamma variables)  Suppose X1,...,Xn are mutually indepen-
+dent random variables, and the distribution of Xi is gamma(αi,β). From Example 2.3.8, the mgf of
+                                = X1 +···+Xn, the mgf of Z isa gamma(α,β) distribution is M(t) = (1−βt)−α. Thus, if Z
+
+                                   =       MZ(t) = MX1(t)·····MXn(t) = (1−βt)−α1·····(1−βt)−αn                                                                 (1−βt)−(α1+···+αn).
+This is the mgf of a gamma(α1 + ··· + αn,β) distribution. Thus, the sum of independent gamma
+random variables that have a common scale parameter β also has a gamma distribution.        ∥
+  A generalization of Theorem 4.6.7 is obtained if we consider a sum of linear functions of inde-
+pendent random variables.
+Corollary 4.6.9   Let X1,...,Xn be mutually independent random variables with mgfs MX1(t),...,
+MXn(t). Let a1,...,an and b1,...,bn be fixed constants. Let Z = (a1X1 + b1) + ··· + (anXn + bn).Then the mgf of Z is
+                        MZ(t) = (et(Σbi))MX1(a1t)·····MXn(ant).
+Proof: From the definition, the mgf of Z is
+
+                MZ(t) =  EetZ
+              =   EetΣ(aiXi+bi)
+                                                                       properties of exponentials
+              =                                  (et(Σbi))E(eta1X1·····etanXn)              and expectations
+              =                                (et(Σbi))MX1(a1t)·····MXn(ant),               (Theorem 4.6.6)
+
+as was to be shown.                                         2
+
+   Undoubtedly, the most important application of Corollary 4.6.9 is to the case of normal random
+variables. A linear combination of independent normal random variables is normally distributed.

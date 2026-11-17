@@ -1,0 +1,47 @@
+EXERCISES                                                                  327
+
+       (c) Show that, under H0, 2T has a chi squared distribution, and find the number of degrees of freedom.
+          (Hint:  Obtain the joint distribution of the n−1 nontrivial terms Xi/(mini Xi) conditional on mini Xi.
+         Put these n−1 terms together, and notice that the distribution of T given mini Xi does not depend on         mini Xi, so it is the unconditional distribution of T.)
+  8.6 Suppose that we have two independent random samples: X1,...,Xn are exponential(θ), and Y1,···,Ym      are exponential(µ).
+       (a) Find the LRT of H0 : θ = µ versus H1 : θ̸ = µ.
+      (b) Show that the test in part (a) can be based on the statistic
+                                                  ΣXi                                    T =                .
+                                                ΣXi +ΣYi
+       (c) Find the distribution of T when H0 is true.
+  8.7 We have already seen the usefulness of the LRT in dealing with problems with nuisance parameters. We
+    now look at some other nuisance parameter problems.
+       (a) Find the LRT of
+                             H0 : θ ≤0     versus    H1 : θ > 0,
+         based              on a sample X1,...,Xn from a population with probability density function f(x|θ,λ) =           1          λ e−(x−θ)/λ I(θ,∞)(x), where both θ and λ are unknown.
+      (b) We have previously seen that the exponential pdf is a special case of a gamma pdf. Generalizing
+           in another way, the exponential pdf can be considered as a special case of the Weibull(γ,β). The
+         Weibull pdf, which reduces to the exponential if γ = 1, is very important in modeling reliability of
+          systems. Suppose that X1,...,Xn is a random sample from a Weibull population with both γ and β
+        unknown. Find the LRT of H0 : γ = 1 versus H1 : γ̸ = 1.
+  8.8 A special case of a normal family is one in which the mean and the variance are related, the n(θ,aθ)
+      family. If we are interested in testing this relationship, regardless of the value of θ, we are again faced
+     with a nuisance parameter problem.
+       (a) Find the LRT of H0 : a = 1 versus H1 : a̸ = 1 based on a sample X1,...,Xn from a n(θ,aθ) family,        where θ is unknown.
+      (b) A similar question can be asked about a related family, the n(θ,aθ2) family. Thus, if X1,...,Xn are
+            iid n(θ,aθ2), where θ is unknown, find the LRT of H0 : a = 1 versus H1 : a̸ = 1.
+  8.9 Stefanski (1996) establishes the arithmetic-geometric-harmonic mean inequality (see Example 4.7.8 and
+      Miscellanea 4.9.2) using a proof based on likelihood ratio tests. Suppose that Y1,Y2,...,Yn are indepen-
+      dent with pdfs λie−λiyi, and we want to test H0 : λ1 = λ2 =  = λn vs. H1 : λi are not all equal.                                                                           ···
+       (a) Show that the LRT statistic is given by (¯Y)−n/(∏iYi)−1, and hence deduce the arithmetic-geometric
+        mean inequality.
+      (b) Make the transformation Xi = 1/Yi, and show that the LRT statistic based on X1,X2,...,Xn is given
+        by [n/∑i(1/Xi)]n/∏i Xi and hence deduce the geometric-harmonic mean inequality.
+8.10 Let X1,...,Xn be iid Poisson(λ), and let λ have a gamma(α,β) distribution, the conjugate family for
+      the Poisson. In Exercise 7.24 the posterior distribution of λ was found, including the posterior mean and
+      variance. Now consider a Bayesian test of H0 : λ ≤λ0 versus H1 : λ > λ0.
+       (a) Calculate expressions for the posterior probabilities of H0 and H1.
+      (b)  If α = 52 and β = 2, the prior distribution is a chi squared distribution with 5 degrees of freedom.
+         Explain how a chi squared table could be used to perform a Bayesian test.
+8.11 In Exercise 7.23 the posterior distribution of σ2, the variance of a normal population, given S2, the sample
+      variance based on a sample of size n, was found using a conjugate prior for σ2 (the inverted gamma pdf
+     with parameters α and β). Based on observing S2, a decision about the hypotheses H0 : σ ≤1 versus     H1 : σ > 1 is to be made.
+       (a) Find the region of the sample space for which P(σ ≤1|s2) > P(σ > 1|s2), the region for which a
+        Bayes test will decide that σ ≤1.
+      (b) Compare the region in part (a) with the acceptance region of an LRT. Is there any choice of prior
+         parameters for which the regions agree?

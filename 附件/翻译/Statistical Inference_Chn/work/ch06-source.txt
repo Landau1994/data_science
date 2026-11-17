@@ -1,0 +1,1436 @@
+
+===== PDF 252, printed 221 =====
+                                   Chapter 6
+
+         Principles of Data Reduction
+
+
+
+
+
+   ...we are suffering from a plethora of surmise, conjecture and hypothesis. The difficulty is
+   to detach the framework of fact – of absolute undeniable fact – from the embellishments of
+   theorists and reporters.
+                                                                  Sherlock Holmes
+                                                                                      Silver Blaze
+
+6.1  Introduction
+An experimenter uses the information in a sample X1,...,Xn to make inferences about an unknown
+parameter θ. If the sample size n is large, then the observed sample x1,...,xn is a long list of numbers
+that may be hard to interpret. An experimenter might wish to summarize the information in a sample
+by determining a few key features of the sample values. This is usually done by computing statistics,
+functions of the sample. For example, the sample mean, the sample variance, the largest observation,
+and the smallest observation are four statistics that might be used to summarize some key features of
+the sample. Recall that we use boldface letters to denote multiple variates, so X denotes the random
+variables X1,...,Xn, and x denotes the sample x1,...,xn.
+   Any statistic, T(X), defines a form of data reduction or data summary. An experimenter who
+uses only the observed value of the statistic, T(x), rather than the entire observed sample, x, will
+treat as equal two samples, x and y, that satisfy T(x) = T(y), even though the actual sample values
+may be different in some ways.
+   Data reduction in terms of a particular statistic can be thought of as a partition of the sample
+space X . Let T = {t : t = T(x) for some x ∈X } be the image of X under T(x). Then T(x) parti-
+tions the sample space into sets At,t ∈T , defined by At = {x: T(x) = t}. The statistic summarizesthe data in that, rather than reporting the entire sample x, it reports only that T(x) = t or, equiv-
+alently, x ∈At. For example, if T(x) = x1 + ··· + xn, then T(x) does not report the actual samplevalues but only the sum. There may be many different sample points that have the same sum. The
+advantages and consequences of this type of data reduction are the topics of this chapter.
+  We study three principles of data reduction. We are interested in methods of data reduction that
+do not discard important information about the unknown parameter θ and methods that success-
+fully discard information that is irrelevant as far as gaining knowledge about θ is concerned. The
+Sufficiency Principle promotes a method of data reduction that does not discard information about
+θ while achieving some summarization of the data. The Likelihood Principle describes a function
+of the parameter, determined by the observed sample, that contains all the information about θ
+that is available from the sample. The Equivariance Principle prescribes yet another method of data
+reduction that still preserves some important features of the model.
+
+6.2  The Sufficiency Principle
+A sufficient statistic for a parameter θ is a statistic that, in a certain sense, captures all the informa-
+tion about θ contained in the sample. Any additional information in the sample, besides the value
+
+DOI: 10.1201/9781003456285-6                                                               221
+===== PDF 253, printed 222 =====
+222                                       PRINCIPLES OF DATA REDUCTION
+of the sufficient statistic, does not contain any more information about θ. These considerations lead
+to the data reduction technique known as the Sufficiency Principle.
+SUFFICIENCY PRINCIPLE: If T(X) is a sufficient statistic for θ then any inference about θ should
+depend on the sample X only through the value T(X). That is, if x and y are two sample points such
+that T(x) = T(y), then the inference about θ should be the same whether X = x or X = y is observed.
+
+    In this section we investigate some aspects of sufficient statistics and the Sufficiency Principle.
+
+
+6.2.1   Sufficient Statistics
+
+A sufficient statistic is formally defined in the following way.
+
+Definition 6.2.1 A statistic T(X) is a sufficient statistic for θ if the conditional distribution of the
+sample X given the value of T(X) does not depend on θ.
+
+     If T(X) has a continuous distribution, then Pθ(T(X) = t) = 0 for all values of t. A more so-
+phisticated notion of conditional probability than that introduced in Chapter 1 is needed to fully
+understand Definition 6.2.1 in this case. A discussion of this can be found in more advanced texts
+such as Lehmann (1986). We will do our calculations in the discrete case and will point out analo-
+gous results that are true in the continuous case.
+   To understand Definition 6.2.1, let t be a possible value of T(X), that is, a value such that
+Pθ(T(X) = t) > 0. We wish to consider the conditional probability Pθ(X = x|T(X) = t). If x is a
+sample point such that T(x)̸ = t, then clearly Pθ(X = x|T(X) = t) = 0. Thus, we are interested in
+P(X = x|T(X) = T(x)). By the definition, if T(X) is a sufficient statistic this conditional probabilityis the same for all values of θ so we have omitted the subscript.
+  A sufficient statistic captures all the information about θ in this sense. Consider Experimenter
+1, who observes X = x and, of course, can compute T(X) = T(x). To make an inference about θ
+he can use the information that X = x and T(X) = T(x). Now consider Experimenter 2, who is
+not told the value of X but only that T(X) = T(x). Experimenter 2 knows P(X = y|T(X) = T(x)),
+a probability distribution on AT(x) = {y : T(y) = T(x)}, because this can be computed from themodel without knowledge of the true value of θ. Thus, Experimenter 2 can use this distribution and
+a randomization device, such as a random number table, to generate an observation Y satisfying
+P(Y = y|T(X) = T(x)) = P(X = y|T(X) = T(x)). It turns out that, for each value of θ, X and Yhave the same unconditional probability distribution, as we shall see below. So Experimenter 1, who
+knows X, and Experimenter 2, who knows Y, have equivalent information about θ. But surely the
+use of the random number table to generate Y has not added to Experimenter 2’s knowledge of θ.
+All his knowledge about θ is contained in the knowledge that T(X) = T(x). So Experimenter 2,
+who knows only T(X) = T(x), has just as much information about θ as does Experimenter 1, who
+knows the entire sample X = x.
+   To complete the above argument, we need to show that X and Y have the same unconditional
+distribution, that is, Pθ(X = x) = Pθ(Y = x) for all x and θ. Note that the events {X = x} and
+{Y = x} are both subsets of the event {T(X) = T(x)}. Also recall that
+                 P(X = x|T(X) = T(x)) = P(Y = x|T(X) = T(x))
+===== PDF 254, printed 223 =====
+THE SUFFICIENCY PRINCIPLE                                                223
+and these conditional probabilities do not depend on θ. Thus, we have
+
+      Pθ(X = x) =  Pθ(X = x and T(X) = T(x))
+                                                                                   definition of
+                                                                         conditional probability           =  P(X = x|T(X) = T(x))Pθ(T(X) = T(x))
+           =  P(Y = x|T(X) = T(x))Pθ(T(X) = T(x))           =  Pθ(Y = x and T(X) = T(x))
+           =  Pθ(Y = x).
+
+To use Definition 6.2.1 to verify that a statistic T(X) is a sufficient statistic for θ, we must verify
+that for any fixed values of x and t, the conditional probability Pθ(X = x|T(X) = t) is the same for
+all values of θ. Now, this probability is 0 for all values of θ if T(x)̸ = t. So, we must verify only that
+Pθ(X = x|T(X) = T(x)) does not depend on θ. But since {X = x} is a subset of {T(X) = T(x)},
+                                      Pθ(X = x and T(X) = T(x))
+              Pθ(X = x|T(X) = T(x)) =      Pθ(T(X) = T(x))
+                                         Pθ(X = x)
+                        =
+                                        Pθ(T(X) = T(x))
+                        =    p(x|θ)
+                                            q(T(x)|θ)
+where p(x|θ) is the joint pmf of the sample X and q(t|θ) is the pmf of T(X). Thus, T(X) is asufficient statistic for θ if, and only if, for every x the above ratio of pmfs is constant as a function
+of θ. If X and T(X) have continuous distributions, then the above conditional probabilities cannot
+be interpreted in the sense of Chapter 1. But it is still appropriate to use the above criterion to
+determine if T(X) is a sufficient statistic for θ.
+Theorem 6.2.2    If p(x|θ) is the joint pdf or pmf of X, and q(t|θ) is the pdf or pmf of T(X), then
+T(X) is a sufficient statistic for θ if for every x in the sample space the ratio p(x|θ)/q(T(x)|θ) isconstant as a function of θ.
+
+  We now use Theorem 6.2.2 to verify that certain common statistics are sufficient statistics.
+Example 6.2.3 (Binomial sufficient statistic)   Let X1,...,Xn be iid Bernoulli random variables
+with parameter θ,0 < θ < 1. We will show that T(X) = X1 +···+Xn is a sufficient statistic for θ.Note that T(X) counts the number of Xis that equal 1, so T(X) has a binomial(n,θ) distribution.
+The ratio of pmfs is thus
+                              p(x|θ)  =  Πθn xi(1−θ)1−xi                 (define t = Σxi)
+                                                                                                   t                           q(T(x)|θ)         θt(1−θ)n−t
+                                      θ                                                                                                                                               xi = θ Σxi)                       =    Σxi(1−θ)Σ(1−xi)n                        (Πθ
+                                                                                                    t                                           θt(1−θ)n−t
+                       =     nθt(1−θ)n−t
+                                                                                                   t                                           θt(1−θ)n−t                                         1
+                       =     n
+                                                                                                   t
+                                          1
+                       =             .
+                                                        n
+                                                                  Σxi
+
+Since this ratio does not depend on θ, by Theorem 6.2.2, T(X) is a sufficient statistic for θ. The
+interpretation is this: The total number of ones in this Bernoulli sample contains all the information
+about θ that is in the data. Other features of the data, such as the exact value of X3, contain no
+additional information.                                                            ∥
+===== PDF 255, printed 224 =====
+224                                       PRINCIPLES OF DATA REDUCTION
+Example 6.2.4 (Normal sufficient statistic)  Let X1,...,Xn be iid n(µ,σ2), where σ2 is known.
+We wish to show that the sample mean, T(X) = X = (X1 + ··· + Xn)/n, is a sufficient statistic forµ. The joint pdf of the sample X is
+
+                       n
+                              exp −(xi −µ)2/(2σ2)      f(x|µ) = ∏i=1 (2πσ2)−1/2
+                                             n
+        =  (2πσ2)−n/2 exp  ∑ (xi                    − i=1  −µ)2/(2σ2)
+                                             n
+        =  (2πσ2)−n/2 exp  ∑ (xi                    − i=1  −x+x−µ)2/(2σ2)       (add and subtract x)
+                                               n
+        =  (2πσ2)−n/2 exp   ∑ (xi                 /(2σ2)                    −  i=1  −x)2 +n(x−µ)2                 .              (6.2.1)
+The last equality is true because the cross-product term ∑ni=1(xi −x)(x−µ) may be rewritten as (x−                 = 0. Recall that the sample mean X has a n(µ,σ2/n) distribution.µ)∑ni=1(xi −x), and ∑ni=1(xi −x)Thus, the ratio of pdfs is
+             f(x|θ)  =  (2πσ2)−n/2 exp − ∑ni=1(xi −x)2 +n(x−µ)2 /(2σ2)
+           q(T(x)|θ)             (2πσ2/n)−1/2 exp(−n(x−µ)2/(2σ2))
+                                                                  n
+             =  n−1/2(2πσ2)−(n−1)/2 exp  ∑ (xi                              − i=1  −x)2/(2σ2)   ,
+which does not depend on µ. By Theorem 6.2.2, the sample mean is a sufficient statistic for µ.   ∥
+    In the next example we look at situations in which a substantial reduction of the sample is not
+possible.
+Example 6.2.5 (Sufficient order statistics)  Let X1,...,Xn be iid from a pdf f, where we are un-
+able to specify any more information about the pdf (as is the case in nonparametric estimation. It
+then follows that the sample density is given by
+
+                                               n           n
+                          =                                                                                                 (6.2.2)                                 f(x) = ∏ f(xi)                  ∏ f(x(i)),
+                                            i=1         i=1
+where x(i) ≤x(2) ≤··· ≤x(n) are the order statistics. By Theorem 6.2.2, we can show that the orderstatistics are a sufficient statistic. Of course, this is not much of a reduction, but we shouldn’t expect
+more with so little information about the density f.
+   However, even if we do specify more about the density, we still may not be able to get much
+                                          =                                                                                         or theof a sufficiency reduction. For example, suppose that  f is the Cauchy pdf f(x|θ)       1                                                                                        π(x−θ)2
+                             e−(x−θ)                                            2 . We then have the same reduction as in (6.2.2), and no more. Sologistic pdf f(x|θ) = (1+e−(x−θ))
+reduction to the order statistics is the most we can get in the these families (see Exercises 6.8 and
+6.9 for more examples).
+     It turns out that outside of the exponential family of distributions, it is rare to have a sufficient
+statistic of smaller dimension than the size of the sample, so in many cases it will turn out that the
+order statistics are the best that we can do. (See Lehmann and Casella 1998, Section 1.6, for further
+details.)                                                                        ∥
+     It may be unwieldy to use the definition of a sufficient statistic to find a sufficient statistic for a
+particular model. To use the definition, we must guess a statistic T(X) to be sufficient, find the pmf
+or pdf of T(X), and check that the ratio of pdfs or pmfs does not depend on θ. The first step requires
+===== PDF 256, printed 225 =====
+THE SUFFICIENCY PRINCIPLE                                                225
+a good deal of intuition and the second sometimes requires some tedious analysis. Fortunately, the
+next theorem, due to Halmos and Savage (1949), allows us to find a sufficient statistic by simple
+inspection of the pdf or pmf of the sample.1
+Theorem 6.2.6 (Factorization Theorem)   Let f(x|θ) denote the joint pdf or pmf of a sample X.
+A statistic T(X) is a sufficient statistic for θ if and only if there exist functions g(t|θ) and h(x) suchthat, for all sample points x and all parameter points θ,
+                                  f(x|θ) = g(T(x)|θ)h(x).                                (6.2.3)
+Proof: We give the proof only for discrete distributions.
+   Suppose T(X) is a sufficient statistic. Choose g(t|θ) = Pθ(T(X) = t) and h(x) = P(X =
+x|T(X) = T(x)). Because T(X) is sufficient, the conditional probability defining h(x) does not
+depend on θ. Thus, this choice of h(x) and g(t|θ) is legitimate, and for this choice we have
+                    f(x|θ) =  Pθ(X = x)                =  Pθ(X = x and T(X) = T(x))
+                =  Pθ(T(X) = T(x))P(X = x|T(X) = T(x))         (sufficiency)
+                =  g(T(x)|θ)h(x).
+So factorization (6.2.3) has been exhibited. We also see from the last two lines above that
+                          Pθ(T(X) = T(x)) = g(T(x)|θ),
+so g(T(x)|θ) is the pmf of T(X).
+  Now assume the factorization (6.2.3) exists. Let q(t|θ) be the pmf of T(X). To show that T(X)
+is sufficient we examine the ratio f(x|θ)/q(T(x)|θ). Define AT(x) = {y : T(y) = T(x)}. Then
+                      f(x|θ)  =  g(T(x)|θ)h(x)                   (since (6.2.3) is satisfied)
+                   q(T(x)|θ)        q(T(x)|θ)
+                  =     g(T(x)|θ)h(x)               (definition of the pmf of T)
+                                    ΣAT(x)g(T(y)|θ)h(y)
+                  =     g(T(x)|θ)h(x)            (since T is constant on AT(x))
+                                    g(T(x)|θ)ΣAT(x)h(y)
+                                      h(x)
+                  =   ΣAT(x)h(y).
+
+Since the ratio does not depend on θ, by Theorem 6.2.2, T(X) is a sufficient statistic for θ.
+2
+
+   To use the Factorization Theorem to find a sufficient statistic, we factor the joint pdf of the
+sample into two parts, with one part not depending on θ. The part that does not depend on θ
+constitutes the h(x) function. The other part, the one that depends on θ, usually depends on the
+sample x only through some function T(x) and this function is a sufficient statistic for θ. This is
+illustrated in the following example.
+Example 6.2.7 (Continuation of Example 6.2.4)  For the normal model described earlier, we saw
+that the pdf could be factored as
+
+                                          n
+                                                (xi −x)2/(2σ2)  exp(−n(x−µ)2/(2σ2)).        (6.2.4)        f(x|µ) = (2πσ2)−n/2 exp − i=1∑
+
+   1Although, according to Halmos and Savage, their theorem “may be recast in a form more akin in spirit to previous
+investigations of the concept of sufficiency.” The investigations are those of Neyman (1935). (This was pointed out by Prof.
+J. Beder, U. of Wisconsin, Milwaukee.)
+===== PDF 257, printed 226 =====
+226                                       PRINCIPLES OF DATA REDUCTION
+We can define
+                                                          n
+                      h(x) = (2πσ2)−n/2 exp  ∑ (xi                          − i=1  −x)2/(2σ2)   ,
+which does not depend on the unknown parameter µ. The factor in (6.2.4) that contains µ depends
+on the sample x only through the function T(x) = x, the sample mean. So we have
+                              g(t|µ) = exp −n(t −µ)2/(2σ2)
+and note that
+                                 f(x|µ) = h(x)g(T(x)|µ).
+Thus, by the Factorization Theorem, T(X) = X is a sufficient statistic for µ.                 ∥
+   The Factorization Theorem requires that the equality f(x|θ) = g(T(x)|θ)h(x) hold for all x and
+θ. If the set of x on which f(x|θ) is positive depends on θ, care must be taken in the definition of hand g to ensure that the product is 0 where f is 0. Of course, correct definition of h and g makes the
+sufficient statistic evident, as the next example illustrates.
+Example 6.2.8 (Uniform sufficient statistic)  Let X1,...,Xn be iid observations from the discrete
+uniform distribution on 1,...,θ. That is, the unknown parameter, θ, is a positive integer and the
+pmf of Xi is
+                                                 1                                            x = 1,,2,...,θ,                     =   θ                               f(x|θ)    0   otherwise.
+Thus, the joint pmf of X1,...,Xn is
+
+                            θ −n   xi              for i = 1,...,n,                =         ∈{1,...,θ}                       f(x|θ)    0     otherwise.
+The restriction “xi ∈{1,...,θ} for i = 1,...,n” can be re-expressed as “xi ∈{1,2,...} for i = 1,...,n
+(note that there is no θ in this restriction) and maxi xi ≤θ.” If we define T(x) = maxi xi,
+                              1   xi             for i = 1,...,n,                         h(x) =       ∈{1,2,...}                              0  otherwise,
+
+and
+                                    θ −n    t                     =       ≤θ,                                 g(t|θ)    0     otherwise,
+it is easily verified that f(x|θ) = g(T(x)|θ)h(x) for all x and θ. Thus, the largest order statistic,T(X) = maxi Xi, is a sufficient statistic in this problem.
+   This type of analysis can sometimes be carried out more clearly and concisely using indicator
+functions. Recall that IA(x) is the indicator function of the set A, that is, it is equal to 1 if x ∈A and
+equal to 0 otherwise. Let N = {1,2,...} be the set of positive integers and let Nθ = {1,2,...,θ}.
+Then the joint pmf of X1,···,Xn is
+                                          n                       n
+                                                           INθ (xi).                                                     (xi) = θ −n ∏                          f(x|θ) = ∏i=1 θ −1INθ                                                              i=1
+
+Defining T(x) = maxi xi, it is clear that
+
+                                  n                n
+                     =          ∏ INθ (xi)               ∏IN (xi)  INθ (T(x)).
+                                i=1             i=1
+===== PDF 258, printed 227 =====
+THE SUFFICIENCY PRINCIPLE                                                227
+Thus, we have the factorization
+
+                                                              n
+                                                 IN (xi)   .                            f(x|θ) = θ −nINθ (T(x)) ∏i=1
+The first factor depends on x1,...,xn only through the value of T(x) = maxi xi and the second factor
+does not depend on θ. By the Factorization Theorem, T(X) = maxi Xi is a sufficient statistic for θ.
+∥
+    In all the previous examples, the sufficient statistic is a real-valued function of the sample. All
+the information about θ in the sample x is summarized in the single number T(x). Sometimes, the
+information cannot be summarized in one number and several numbers are required instead. In such
+cases, a sufficient statistic is a vector, say T(X) = (T1(X),...,Tr(X)). This situation often occurs
+when the parameter is also a vector, say θ = (θ1,...,θs), and it is usually the case that the sufficient
+statistic and the parameter vectors are of equal length, that is, r = s. Different combinations of
+lengths are possible, however, as the exercises and Examples 6.2.15, 6.2.18, and 6.2.20 illustrate.
+The Factorization Theorem may be used to find a vector-valued sufficient statistic, as in Example
+6.2.9.
+Example 6.2.9 (Normal sufficient statistic, both parameters unknown)   Again assume  that
+X1,...,Xn are iid n(µ,σ2) but, unlike Example 6.2.4, assume that both µ and σ2 are unknown
+so the parameter vector is θ = (µ,σ2). Now when using the Factorization Theorem, any part of
+the joint pdf that depends on either µ or σ2 must be included in the g function. From (6.2.1)
+it is clear that the pdf depends on the sample x only through the two values T1(x) = x and
+                                = 1 andT2(x) = s2 = ∑ni=1(xi −x)2/(n−1). Thus, we can define h(x)
+                g(t|θ) =  g(t1,t2|µ,σ2)
+             =  (2πσ2)−n/2 exp     n(t1                /(2σ2)  .                        −    −µ)2 +(n−1)t2
+Then it can be seen that
+                     =                                       g(T1(x),T2(x)|µ,σ2)h(x).                        (6.2.5)                          f(x|µ,σ2)
+Thus, by the Factorization Theorem, T(X) = (T1(X),T2(X)) = (X,S2) is a sufficient statistic for
+(µ,σ2) in this normal model.                                                       ∥
+   Example 6.2.9 demonstrates that, for the normal model, the common practice of summariz-
+ing a data set by reporting only the sample mean and variance is justified. The sufficient statistic
+(X,S2) contains all the information about (µ,σ2) that is available in the sample. The experimenter
+should remember, however, that the definition of a sufficient statistic is model-dependent. For an-
+other model, that is, another family of densities, the sample mean and variance may not be a suffi-
+cient statistic for the population mean and variance. The experimenter who calculates only X and S2
+and totally ignores the rest of the data would be placing strong faith in the normal model assumption.
+     It is easy to find a sufficient statistic for an exponential family of distributions using the Factor-
+ization Theorem. The proof of the following important result is left as Exercise 6.4.
+Theorem 6.2.10  Let X1,...,Xn be iid observations from a pdf or pmf f(x|θ), which belongs to anexponential family given by
+
+                                                                   k
+                                                                                                    ,                           f(x|θ) = h(x)c(θ)exp  i=1∑ wi(θ)ti(x)
+where θ = (θ1,θ2,...,θd), d ≤k. Then
+                                              n               n
+                       T(X) = ∑ t1(Xj),..., ∑ tk(Xj)
+                                           j=1            j=1
+is a sufficient statistic for θ.
+===== PDF 259, printed 228 =====
+228                                       PRINCIPLES OF DATA REDUCTION
+6.2.2  Minimal Sufficient Statistics
+
+In the preceding section we found one sufficient statistic for each model considered. In any problem
+there are, in fact, many sufficient statistics.
+     It is always true that the complete sample, X, is a sufficient statistic. We can factor the pdf or
+pmf of X as f(x|θ) = f(T(x)|θ)h(x) where T(x) = x and h(x) = 1 for all x. By the FactorizationTheorem, T(X) = X is a sufficient statistic.
+    Also, it follows that any one-to-one function of a sufficient statistic is a sufficient statistic. Sup-
+pose T(X) is a sufficient statistic and define T ∗(x) = r(T(x)) for all x where r is a one-to-one
+function with inverse r−1. Then by the Factorization Theorem there exist g and h such that
+                       f(x|θ) = g(T(x)|θ)h(x) = g(r−1(T ∗(x))|θ)h(x).
+Defining g∗(t|θ) = g(r−1(t)|θ), we see that
+                                 f(x|θ) = g∗(T ∗(x)|θ)h(x).
+So, by the Factorization Theorem, T ∗(X) is a sufficient statistic.
+   Because of the numerous sufficient statistics in a problem, we might ask whether one sufficient
+statistic is any better than another. Recall that the purpose of a sufficient statistic is to achieve data
+reduction without loss of information about the parameter θ; thus, a statistic that achieves the most
+data reduction while still retaining all the information about θ might be considered preferable. The
+definition of such a statistic is formalized now.
+Definition 6.2.11 A sufficient statistic T(X) is called a minimal sufficient statistic if, for any other
+sufficient statistic T ′(X),T(x) is a function of T ′(x).
+   To say that T(x) is a function of T ′(x) simply means that if T ′(x) = T ′(y) then T(x) = T(y). In
+terms of the partition sets described at the beginning of the chapter, if {Bt′ : t′ ∈T ′} are partition
+sets for T ′(x), and {At : t ∈T } are the partition sets for T(x), then Definition 6.2.11 states that
+every Bt′ is a subset of some At. Thus, the partition associated with a minimal sufficient statistic is
+the coarsest possible partition for a sufficient statistic and a minimal sufficient statistic achieves the
+greatest possible data reduction for a sufficient statistic.
+Example 6.2.12 (Two normal sufficient statistics)  The model considered in Example 6.2.4 has
+X1, ..., Xn iid n(µ,σ2) with σ2 known. Using factorization (6.2.4), we concluded that T(X) = X is
+a sufficient statistic for µ. Instead, we could write down factorization (6.2.5) for this problem (σ2
+is a known value now) and correctly conclude that T ′(X) = (X,S2) is a sufficient statistic for µ in
+this problem. Clearly T(X) achieves a greater data reduction than T ′(X) since we do not know the
+sample variance if we know only T(X). We can write T(x) as a function of T ′(x) by defining the
+function r(a,b) = a. Then T(x) = x = r(x,s2) = r(T ′(x)). Since T(X) and T ′(X) are both sufficient
+statistics, they both contain the same information about µ. Thus, the additional information about the
+value of S2, the sample variance, does not add to our knowledge of µ since the population variance
+σ2 is known. Of course, if σ2 is unknown, as in Example 6.2.9, T(X) = X is not a sufficient statistic
+and T ′(X) contains more information about the parameter (µ,σ2) than does T(X).            ∥
+   Using Definition 6.2.11 to find a minimal sufficient statistic is impractical, as was using Defi-
+nition 6.2.1 to find sufficient statistics. We would need to guess that T(X) was a minimal sufficient
+statistic and then verify the condition in the definition. (Note that we did not show that X is a mini-
+mal sufficient statistic in Example 6.2.12.) Fortunately, the following result of Lehmann and Scheff´e
+(1950, Theorem 6.3) gives an easier way to find a minimal sufficient statistic.
+Theorem 6.2.13  Let f(x|θ) be the pmf or pdf of a sample X. Suppose there exists a function T(x)
+such that, for every two sample points x and y, the ratio f(x|θ)/ f(y|θ) is constant as a function ofθ if and only if T(x) = T(y). Then T(X) is a minimal sufficient statistic for θ.
+Proof: To simplify the proof, we assume f(x|θ) > 0 for all x ∈X and θ.
+===== PDF 260, printed 229 =====
+THE SUFFICIENCY PRINCIPLE                                                229
+    First we show that T(X) is a sufficient statistic. Let T = {t : t = T(x) for some x ∈X } be the
+image of X under T(x). Define the partition sets induced by T(x) as At = {x: T(x) = t}. For each
+At, choose and fix one element xt ∈At. For any x ∈X , xT(x) is the fixed element that is in the same
+set, At, as x. Since x and xT(x) are in the same set At,T(x) = T(xT(x)) and, hence, f(x|θ)/ f(xT(x)|θ)
+is constant as a function of θ. Thus, we can define a function on X by h(x) = f(x|θ)/ f(xT(x)|θ)
+and h does not depend on θ. Define a function on T by g(t|θ) = f(xt|θ). Then it can be seen that
+                 = f(xT(x)|θ)f(x|θ) =                         f(x|θ)                     g(T(x)|θ)h(x)                                       f(xT(x)|θ)
+and, by the Factorization Theorem, T(X) is a sufficient statistic for θ.
+  Now to show that T(X) is minimal, let T ′(X) be any other sufficient statistic. By the Factoriza-
+tion Theorem, there exist functions g′ and h′ such that f(x|θ) = g′(T ′(x)|θ)h′(x). Let x and y beany two sample points with T ′(x) = T ′(y). Then
+                             f(x|θ) = g′(T ′(x)|θ)h′(x) = h′(x)                                       g′(T                h′(y).                             f(y|θ)        ′(y)|θ)h′(y)
+Since this ratio does not depend on θ, the assumptions of the theorem imply that T(x) = T(y). Thus,
+T(x) is a function of T ′(x) and T(x) is minimal.                          2
+Example 6.2.14 (Normal minimal sufficient statistic)  Let X1,...,Xn be iid n(µ,σ2), both µ and
+σ2 unknown. Let x and y denote two sample points and let (x,s2x) and (y,s2y) be the sample means
+and variances corresponding to the x and y samples, respectively. Then, using (6.2.5), we see that
+the ratio of densities is
+                                                                           x /(2σ2)         f(x|µ,σ2) =  (2πσ2)−n/2 exp − n(x−µ)2 +(n−1)s2
+         f(y|µ,σ2)      (2πσ2)−n/2 exp − n(y−µ)2 +(n−1)s2y /(2σ2)
+                                                                              x                                                                            y) /(2σ2)  .            =  exp  −n(x2 −y2)+2nµ(x−y)−(n−1)(s2                                                    −s2
+This ratio will be constant as a function of µ and σ2 if and only if x = y and s2x = s2y. Thus, by
+Theorem 6.2.13, (X,S2) is a minimal sufficient statistic for (µ,σ2).                        ∥
+     If the set of xs on which the pdf or pmf is positive depends on the parameter θ, then, for the
+ratio in Theorem 6.2.13 to be constant as a function of θ, the numerator and denominator must be
+positive for exactly the same values of θ. This restriction is usually reflected in a minimal sufficient
+statistic, as the next example illustrates.
+Example 6.2.15 (Uniform minimal sufficient statistic)  Suppose X1,...,Xn are iid uniform ob-
+servations on the interval (θ,θ +1),−∞< θ < ∞. Then the joint pdf of X is
+                               1  θ < xi < θ +1, i = 1,...,n,
+                         f(x|θ) =  0  otherwise,
+
+which can be written as
+                                1  maxi xi  < θ < mini xi.                  =        −1                          f(x|θ)    0  otherwise.
+Thus, for two sample points x and y, the numerator and denominator of the ratio f(x|θ)/ f(y|θ)will be positive for the same values of θ if and only if mini xi = mini yi and maxi xi = maxi yi. And,
+if the minima and maxima are equal, then the ratio is constant and, in fact, equals 1. Thus, letting
+X(1) = mini Xi and X(n) = maxi Xi, we have that T(X) = (X(1),X(n)) is a minimal sufficient statistic.
+This is a case in which the dimension of a minimal sufficient statistic does not match the dimension
+of the parameter.                                                                 ∥
+===== PDF 261, printed 230 =====
+230                                       PRINCIPLES OF DATA REDUCTION
+  A minimal sufficient statistic is not unique. Any one-to-one function of a minimal sufficient
+statistic is also a minimal sufficient statistic. So, for example, T ′(X) = (X(n) −X(1),(X(n) +X(1))/2)
+is also a minimal sufficient statistic in Example 6.2.15 and T ′(X) = (Σni=1Xi,Σni=1X2i ) is also a min-
+imal sufficient statistic in Example 6.2.14.
+
+
+6.2.3  Ancillary Statistics
+
+In the preceding sections, we considered sufficient statistics. Such statistics, in a sense, contain all
+the information about θ that is available in the sample. In this section we introduce a different sort
+of statistic, one that has a complementary purpose.
+Definition 6.2.16 A statistic S(X) whose distribution does not depend on the parameter θ is called
+an ancillary statistic.
+
+   Alone, an ancillary statistic contains no information about θ. An ancillary statistic is an obser-
+vation on a random variable whose distribution is fixed and known, unrelated to θ. Paradoxically, an
+ancillary statistic, when used in conjunction with other statistics, sometimes does contain valuable
+information for inferences about θ. We will investigate this behavior in the next section. For now,
+we just give some examples of ancillary statistics.
+Example 6.2.17 (Uniform ancillary statistic)  As in Example 6.2.15, let X1,...,Xn be iid uniform
+observations on the interval (θ,θ + 1),−∞< θ < ∞. Let X(1) < ··· < X(n) be the order statistics
+from the sample. We show below that the range statistic, R = X(n) −X(1), is an ancillary statistic byshowing that the pdf of R does not depend on θ. Recall that the cdf of each Xi is
+                                   0      x ≤θ,
+                           F(x|θ) =  x−θ  θ < x < θ +1,
+                                   1     θ +1 ≤x.
+Thus, the joint pdf of X(1) and X(n), as given by (5.5.7), is
+
+               =  n(n−1)(x(n) −x(1))n−2  θ < x(1) < x(n) < θ +1,               g(x(1),x(n)|θ)    0                        otherwise.
+Making the transformation R = X(n) −X(1) and M = (X(1) +X(n))/2, which has the inverse transfor-
+mation X(1) = (2M −R)/2 and X(n) = (2M + R)/2 with Jacobian 1, we see that the joint pdf of Rand M is
+
+                                  0 < r < 1,θ +(r/2) < m < θ            =  n(n−1)rn−2                        +1−(r/2),            h(r,m|θ)    0              otherwise.
+(Notice the rather involved region of positivity for h(r,m|θ).) Thus, the pdf for R is
+                                          θ+1−(r/2)
+                        h(r|θ) =    θ+(r/2)   n(n−1)rn−2dm
+
+                  =                                 < r < 1.                               n(n−1)rn−2(1−r),  0
+This is a beta pdf with α = n−1 and β = 2. More importantly, the pdf is the same for all θ. Thus,
+the distribution of R does not depend on θ and R is ancillary.                              ∥
+    In Example 6.2.17 the range statistic is ancillary because the model considered there is a location
+parameter model. The ancillarity of R does not depend on the uniformity of the Xis, but rather on
+the parameter of the distribution being a location parameter. We now consider the general location
+parameter model.
+===== PDF 262, printed 231 =====
+THE SUFFICIENCY PRINCIPLE                                                231
+Example 6.2.18 (Location family ancillary statistic)   Let X1,... ,Xn be iid observations from a
+location parameter family with cdf F(x−θ),−∞< θ < ∞. We will show that the range, R = X(n) −X(1), is an ancillary statistic. We use Theorem 3.5.6 and work with Z1,...,Zn, iid observations from
+F(x) (corresponding to θ = 0) with X1 = Z1+θ,...,Xn = Zn+θ. Thus, the cdf of the range statistic,
+R, is
+                      FR(r|θ) =  Pθ(R ≤r)
+                  =  Pθ(max Xi       Xi                                                                                      i   −mini   ≤r)
+                  =  Pθ(max(Zi            (Zi +θ)                                                                                      i   +θ)−mini       ≤r)
+                  =  Pθ(max Zi       Zi +θ                                                                                      i   −mini     −θ ≤r)
+                  =  Pθ(max Zi       Zi                                                                                      i   −mini    ≤r).
+The last probability does not depend on θ because the distribution of Z1,...,Zn does not depend on
+θ. Thus, the cdf of R does not depend on θ and, hence, R is an ancillary statistic.              ∥
+Example 6.2.19 (Scale family ancillary statistic)   Scale parameter families also have certain
+kinds of ancillary statistics. Let X1,...,Xn be iid observations from a scale parameter family with
+cdf F(x/σ),σ > 0. Then any statistic that depends on the sample only through the n −1 values
+X1/Xn,...,Xn−1/Xn is an ancillary statistic. For example,
+                          X1 +···+Xn = X1       Xn−1 +1                               Xn        Xn +···+  Xn
+
+is an ancillary statistic. To see this fact, let Z1,...,Zn be iid observations from F(x) (corresponding
+to σ = 1) with Xi = σZi. The joint cdf of X1/Xn,...,Xn−1/Xn is
+            F(y1,...,yn−1|σ) =  Pσ(X1/Xn ≤y1,...,Xn−1/Xn ≤yn−1)
+                 =  Pσ(σZ1/(σZn) ≤y1,...,σZn−1/(σZn) ≤yn−1)
+                 =  Pσ(Z1/Zn ≤y1,...,Zn−1/Zn ≤yn−1).
+The last probability does not depend on σ because the distribution of Z1,...,Zn does not depend
+on σ. So the distribution of X1/Xn,...,Xn−1/Xn is independent of σ, as is the distribution of any
+function of these quantities.
+    In particular, let X1 and X2 be iid n(0,σ2) observations. From the above result, we see that
+X1/X2 has a distribution that is the same for every value of σ. But, in Example 4.3.6, we saw that, if
+σ = 1,X1/X2 has a Cauchy(0,1) distribution. Thus, for any σ > 0, the distribution of X1/X2 is this
+same Cauchy distribution.                                                         ∥
+    In this section, we have given examples, some rather general, of statistics that are ancillary for
+various models. In the next section we will consider the relationship between sufficient statistics
+and ancillary statistics.
+
+
+6.2.4   Sufficient, Ancillary, and Complete Statistics
+
+A minimal sufficient statistic is a statistic that has achieved the maximal amount of data reduction
+possible while still retaining all the information about the parameter θ. Intuitively, a minimal suffi-
+cient statistic eliminates all the extraneous information in the sample, retaining only that piece with
+information about θ. Since the distribution of an ancillary statistic does not depend on θ, it might be
+suspected that a minimal sufficient statistic is unrelated to (or mathematically speaking, functionally
+independent of) an ancillary statistic. However, this is not necessarily the case. In this section, we
+investigate this relationship in some detail.
+===== PDF 263, printed 232 =====
+232                                       PRINCIPLES OF DATA REDUCTION
+  We have already discussed a situation in which an ancillary statistic is not independent of a
+minimal sufficient statistic. Recall Example 6.2.15 in which X1,...,Xn were iid observations from
+a uniform(θ,θ + 1) distribution. At the end of Section 6.2.2, we noted that the statistic (X(n) −
+X(1),(X(n) +X(1))/2) is a minimal sufficient statistic and in Example 6.2.17 we showed that X(n) −X(1) is an ancillary statistic. Thus, in this case, the ancillary statistic is an important component of
+the minimal sufficient statistic. Certainly, the ancillary statistic and the minimal sufficient statistic
+are not independent.
+   To emphasize the point that an ancillary statistic can sometimes give important information for
+inferences about θ, we give another example.
+Example 6.2.20 (Ancillary precision)  Let X1 and X2 be iid observations from the discrete distri-
+bution that satisfies
+                                                           1
+                   Pθ(X = θ) = Pθ(X = θ +1) = Pθ(X = θ +2) = 3,
+where θ, the unknown parameter, is any integer. Let X(1) ≤X(2) be the order statistics for the sample.
+It can be shown with an argument similar to that in Example 6.2.15 that (R,M), where R = X(2) −X(1) and M = (X(1) + X(2))/2, is a minimal sufficient statistic. Since this is a location parameter
+family, by Example 6.2.17, R is an ancillary statistic. To see how R might give information about θ,
+even though it is ancillary, consider a sample point (r,m), where m is an integer. First considering
+only m, for this sample point to have positive probability, θ must be one of three values. Either
+θ = m or θ = m −1 or θ = m −2. With only the information that M = m, all three θ values arepossible values. But now suppose we get the additional information that R = 2. Then it must be the
+case that X(1) = m −1 and X(2) = m + 1. With this additional information, the only possible value
+for θ is θ = m −1. Thus, the knowledge of the value of the ancillary statistic R has increased ourknowledge about θ. Of course, the knowledge of R alone would give us no information about θ.
+(The idea that an ancillary statistic gives information about the precision of an estimate of θ is not
+new. See Cox (1971) or Efron and Hinkley (1978) for more ideas.)                         ∥
+   For many important situations, however, our intuition that a minimal sufficient statistic is inde-
+pendent of any ancillary statistic is correct. A description of situations in which this occurs relies on
+the next definition.
+Definition 6.2.21  Let f(t|θ) be a family of pdfs or pmfs for a statistic T(X). The family of prob-ability distributions is called complete if Eθg(T) = 0 for all θ implies Pθ(g(T) = 0) = 1 for all θ.
+Equivalently, T(X) is called a complete statistic.
+
+   Notice that completeness is a property of a family of probability distributions, not of a par-
+ticular distribution. For example, if X has a n(0,1) distribution, then defining g(x) = x, we have
+that Eg(X) = EX = 0. But the function g(x) = x satisfies P(g(X) = 0) = P(X = 0) = 0, not
+1. However, this is a particular distribution, not a family of distributions. If X has a n(θ,1)
+distribution,−∞< θ < ∞, we shall see that no function of X, except one that is 0 with probability
+1 for all θ, satisfies Eθg(X) = 0 for all θ. Thus, the family of n(θ,1) distributions, −∞< θ < ∞, iscomplete.
+Example 6.2.22 (Binomial complete sufficient statistic)  Suppose that T has a binomial (n, p)
+distribution, 0 < p < 1. Let g be a function such that Epg(T) = 0. Then
+
+                                                 n      n
+                                                g(t)                  0 = Epg(T) = ∑                                            t=0         t  pt(1−p)n−t
+                                                          n      n     p        t
+                     =              g(t)                                 (1−p)n t=0∑          t                                      1−p
+===== PDF 264, printed 233 =====
+THE SUFFICIENCY PRINCIPLE                                                233
+for all p, 0 < p < 1. The factor (1−p)n is not 0 for any p in this range. Thus, it must be that
+                                   n      n     p        t     n      n
+                                   g(t)        =                                                             g(t)       rt                      0 =            ∑                      ∑                                                         t=0         t                               t=0         t   1−p
+for all r, 0 < r < ∞. But the last expression is a polynomial of degree n in r where the coefficient
+of rt is g(t)( nt ). For the polynomial to be 0 for all r, each coefficient must be 0. Since none of the n
+( t ) terms is zero, this implies that g(t) = 0 for t = 0,1,...,n. Since T takes on the values 0,1,...,n
+with probability 1, this yields that Pp(g(T) = 0) = 1 for all p, the desired conclusion. Hence, T is a
+complete statistic.                                                                ∥
+Example 6.2.23 (Uniform complete sufficient statistic)  Let X1,...,Xn be iid uniform(0,θ) ob-
+servations, 0 < θ < ∞. Using an argument similar to that in Example 6.2.8, it can be shown that
+T(X) = maxi Xi is a sufficient statistic and, by Theorem 5.4.4, the pdf of T(X) is
+
+                                       ntn−1θ −n  0 < t < θ,
+                                f(t|θ) =  0          otherwise.
+
+Suppose g(t) is a function satisfying Eθg(T) = 0 for all θ. Since Eθg(T) is constant as a function
+of θ, its derivative with respect to θ is 0. Thus, we have that
+
+             d              d    θ
+         0 =   Eθg(T) =         g(t)ntn−1θ −ndt           dθ            dθ  0
+                                d    θ              d          θ
+               =  (θ −n)       ng(t)tn−1dt +    θ −n      ng(t)tn−1dt
+                              dθ  0             dθ         0
+                                                                     applying the product               =  θ −nng(θ)θ n−1 +0                                                                             rule for differentiation
+               =  θ −1ng(θ).
+
+The first term in the next-to-last line is the result of an application of the Fundamental Theorem of
+Calculus. The second term is 0 because the integral is, except for a constant, equal to Eθg(T), which
+is 0. Since θ −1ng(θ) = 0 and θ −1n̸ = 0, it must be that g(θ) = 0. This is true for every θ > 0; hence,T is a complete statistic. (On a somewhat pedantic note, realize that the Fundamental Theorem of
+Calculus does not apply to all functions, but only to functions that are Riemann-integrable. The
+equation
+                                d    θ
+                                              g(t)dt = g(θ)
+                             dθ  0
+is valid only at points of continuity of Riemann-integrable g. Thus, strictly speaking, the above argu-
+ment does not show that T is a complete statistic, since the condition of completeness applies to all
+functions, not just Riemann-integrable ones. From a more practical view, however, this distinction
+is not of concern since the condition of Riemann-integrability is so general that it includes virtually
+any function we could think of.)                                                    ∥
+  We now use completeness to state a condition under which a minimal sufficient statistic is inde-
+pendent of every ancillary statistic.
+Theorem 6.2.24 (Basu’s Theorem)     If T(X) is a complete and minimal sufficient statistic, then
+T(X) is independent of every ancillary statistic.
+Proof: We give the proof only for discrete distributions.
+   Let S(X) be any ancillary statistic. Then P(S(X) = s) does not depend on θ since S(X) is
+ancillary. Also the conditional probability,
+                P(S(X) = s|T(X) = t) = P(X ∈{x: S(x) = s}|T(X) = t),
+===== PDF 265, printed 234 =====
+234                                       PRINCIPLES OF DATA REDUCTION
+does not depend on θ because T(X) is a sufficient statistic (recall the definition!). Thus, to show
+that S(X) and T(X) are independent, it suffices to show that
+                        P(S(X) = s|T(X) = t) = P(S(X) = s)                         (6.2.6)
+for all possible values t ∈T . Now,
+                 P(S(X) = s) = ∑ P(S(X)                         = s|T(X) = t)Pθ(T(X) = t).
+                                  t∈T
+Furthermore, since ∑t∈T Pθ(T(X) = t) = 1, we can write
+                            = s)Pθ(T(X) = t).                     P(S(X) = s) = ∑ P(S(X)
+                                      t∈T
+Therefore, if we define the statistic
+                           g(t) = P(S(X) = s|T(X) = t)−P(S(X) = s),
+the above two equations show that
+
+                           = t) = 0,   for all θ.                   Eθg(T) = ∑ g(t)Pθ(T(X)
+                                 t∈T
+Since T(X) is a complete statistic, this implies that g(t) = 0 for all possible values t ∈T . Hence(6.2.6) is verified.                                          2
+
+   Basu’s Theorem is useful in that it allows us to deduce the independence of two statistics without
+ever finding the joint distribution of the two statistics. To use Basu’s Theorem, we need to show that
+a statistic is complete, which is sometimes a rather difficult analysis problem. Fortunately, most
+problems we are concerned with are covered by the following theorem. We will not prove this
+theorem but note that its proof depends on the uniqueness of a Laplace transform, a property that
+was mentioned in Section 2.3.
+Theorem 6.2.25 (Complete statistics in the exponential family)   Let X1,... ,Xn be iid observa-
+tions from an exponential family with pdf or pmf of the form
+
+                                                                   k
+                                                                                j)t j(x)   ,                       (6.2.7)                           f(x|θ) = h(x)c(θ)exp   j=1∑ w(θ
+
+where θ = (θ1,θ2,...,θk). Then the statistic
+
+                                          n          n              n
+                    T(X) = ∑ t1(Xi), ∑ t2(Xi),..., ∑ tk(Xi)
+                                       i=1       i=1           i=1
+
+is complete as long as the parameter space Θ contains an open set in ℜk.
+
+   The condition that the parameter space contain an open set is needed to avoid a situation like
+the following. The n(θ,θ 2) distribution can be written in the form (6.2.7), however the parameter
+space (θ,θ 2) does not contain a two-dimensional open set, as it consists only of the points on a
+parabola. As a result, we can find a transformation of the statistic T(X) which is an unbiased esti-
+mator of zero (see Exercise 6.15). (Recall that exponential families such as the n(θ,θ 2), where the
+parameter space is a lower-dimensional curve, are called curved exponential families; see Section
+3.4.) The relationship between sufficiency, completeness and minimality in exponential families is
+an interesting one. For a brief introduction see Miscellanea 6.6.3.
+  We now give some examples of the use of Basu’s Theorem, Theorem 6.2.25, and many of the
+earlier results in this chapter.
+===== PDF 266, printed 235 =====
+THE SUFFICIENCY PRINCIPLE                                                235
+Example 6.2.26 (Using Basu’s Theorem–I)  Let X1,...,Xn be iid exponential observations with
+parameter θ. Consider computing the expected value of
+
+                                           Xn
+                               g(X) =                    .
+                                       X1 +···+Xn
+We first note that the exponential distributions form a scale parameter family and thus, by Example
+6.2.19, g(X) is an ancillary statistic. The exponential distributions also form an exponential family
+with t(x) = x and so, by Theorem 6.2.25,
+
+                                                        n
+                               T(X) = ∑ Xi
+                                                     i=1
+
+is a complete statistic and, by Theorem 6.2.10, T(X) is a sufficient statistic. (As noted below, we
+need not verify that T(X) is minimal although it could easily be verified using Theorem 6.2.13.)
+Hence, by Basu’s Theorem, T(X) and g(X) are independent. Thus, we have
+
+              θ = EθXn = EθT(X)g(X) = (EθT(X))(Eθg(X)) = nθEθg(X).
+Hence, for any θ,Eθg(X) = n−1.                                                    ∥
+Example 6.2.27 (Using Basu’s Theorem–II)  As another example of the use of Basu’s Theorem,
+we consider the independence of X and S2, the sample mean and variance, when sampling from
+a n(µ,σ2) population. We have, of course, already shown that these statistics are independent in
+Theorem 5.3.1, but we will illustrate the use of Basu’s Theorem in this important context. First
+consider σ2 fixed and let µ vary, −∞< µ < ∞. By Example 6.2.4, X is a sufficient statistic for
+µ. Theorem 6.2.25 may be used to deduce that the family of n(µ,σ2/n) distributions, −∞< µ <∞,σ2/n known, is a complete family. Since this is the distribution of X, X is a complete statistic.
+Now consider S2. An argument similar to those used in Examples 6.2.18 and 6.2.19 could be used
+to show that in any location parameter family (remember σ2 is fixed, µ is the location parameter),
+S2 is an ancillary statistic. Or, for this normal model, we can use Theorem 5.3.1 to see that the
+distribution of S2 depends on the fixed quantity σ2 but not on the parameter µ. Either way, S2 is
+ancillary and so, by Basu’s Theorem, S2 is independent of the complete sufficient statistic X. For
+any µ and the fixed σ2, X and S2 are independent. But since σ2 was arbitrary, we have that the
+sample mean and variance are independent for any choice of µ and σ2. Note that neither X nor S2
+is ancillary in this model when both µ and σ2 are unknown. Yet, by this argument, we are still able
+to use Basu’s Theorem to deduce independence. This kind of argument is sometimes useful, but the
+fact remains that it is often harder to show that a statistic is complete than it is to show that two
+statistics are independent.                                                          ∥
+     It should be noted that the “minimality” of the sufficient statistic was not used in the proof of
+Basu’s Theorem. Indeed, the theorem is true with this word omitted, because a fundamental property
+of a complete statistic is that it is minimal.
+Theorem 6.2.28    If a minimal sufficient statistic exists, then any complete statistic is also a mini-
+mal sufficient statistic.
+
+   So even though the word “minimal” is redundant in the statement of Basu’s Theorem, it was
+stated in this way as a reminder that the statistic T(X) in the theorem is a minimal sufficient statistic.
+(More about the relationship between complete statistics and minimal sufficient statistics can be
+found in Lehmann and Scheff´e 1950 and Schervish 1995, Section 2.1.)
+   Basu’s Theorem gives one relationship between sufficient statistics and ancillary statistics using
+the concept of complete statistics. There are other possible definitions of ancillarity and complete-
+ness. Some relationships between sufficiency and ancillarity for these definitions are discussed by
+Lehmann (1981).
+===== PDF 267, printed 236 =====
+236                                       PRINCIPLES OF DATA REDUCTION
+6.3  The Likelihood Principle
+In this section we study a specific, important statistic called the likelihood function, that also can
+be used to summarize data. There are many ways to use the likelihood function, some of which are
+mentioned in this section and some in later chapters. But the main consideration in this section is an
+argument which indicates that, if certain other principles are accepted, the likelihood function must
+be used as a data reduction device.
+
+6.3.1  The Likelihood Function
+Definition 6.3.1   Let f(x|θ) denote the joint pdf or pmf of the sample X = (X1,...,Xn). Then,given that X = x is observed, the function of θ defined by
+                                    L(θ|x) = f(x|θ)
+is called the likelihood function.
+     If X is a discrete random vector then L(θ|x) = Pθ(X = x). If we compare the likelihood functionat two parameter points and find that
+                      Pθ1(X = x) = L(θ1|x) > L(θ2|x) = Pθ2(X = x),
+then the sample we actually observed is more likely to have occurred if θ = θ1 than if θ = θ2, which
+can be interpreted as saying that θ1 is a more plausible value for the true value of θ than is θ2. Many
+different ways have been proposed to use this information, but certainly it seems reasonable to
+examine the probability of the sample we actually observed under various possible values of θ. This
+is the information provided by the likelihood function.
+     If X is a continuous, real-valued random variable and if the pdf of X is continuous in x then,
+for small ε,Pθ(x −ε < X < x + ε) is approximately 2ε f(x|θ) = 2εL(θ|x) (this follows from thedefinition of a derivative). Thus,
+                         Pθ1(x−ε < X < x+ε)                      < X < x+ε) ≈L(θ1|x)                         Pθ2(x−ε                 L(θ2|x)
+and comparison of the likelihood function at two parameter values again gives an approximate
+comparison of the probability of the observed sample value, x.
+    Definition 6.3.1 almost seems to be defining the likelihood function to be the same as the pdf
+or pmf. The only distinction between these two functions is which variable is considered fixed and
+which is varying. When we consider the pdf or pmf f(x|θ), we are considering θ as fixed and x
+as the variable; when we consider the likelihood function L(θ|x), we are considering x to be theobserved sample point and θ to be varying over all possible parameter values.
+Example 6.3.2 (Negative binomial likelihood)  Let X have a negative binomial distribution with
+r = 3 and success probability p. If x = 2 is observed then the likelihood function is the fifth-degree
+polynomial on 0 ≤p ≤1 defined by
+                                            4
+                          L(p|2) = Pp(X = 2) =  2  p3(1−p)2.
+
+In general, if X = x is observed, then the likelihood function is the polynomial of degree 3+x,
+                    =  3+x−1                             L(p|x)        x     p3(1−p)x.
+
+                                                                              ∥
+===== PDF 268, printed 237 =====
+THE LIKELIHOOD PRINCIPLE                                                 237
+   The Likelihood Principle specifies how the likelihood function should be used as a data reduc-
+tion device.
+LIKELIHOOD PRINCIPLE: If x and y are two sample points such that L(θ|x) is proportional to
+L(θ|y), that is, there exists a constant C(x,y) such that
+                            L(θ|x) = C(x,y)L(θ|y)   for all θ,                          (6.3.1)
+then the conclusions drawn from x and y should be identical.
+   Note that the constant C(x,y) in (6.3.1) may be different for different (x,y) pairs but C(x,y)
+does not depend on θ.
+    In the special case of C(x,y) = 1, the Likelihood Principle states that if two sample points result
+in the same likelihood function then they contain the same information about θ. But the Likelihood
+Principle goes further. It states that even if two sample points only have proportional likelihoods
+then they contain equivalent information about θ. The rationale is this: The likelihood function is
+used to compare the plausibility of various parameter values, and, if L(θ2|x) = 2L(θ1|x) then, in
+some sense, θ2 is twice as plausible as θ1. If (6.3.1) is also true then L(θ2|y) = 2L(θ1|y). Thus,whether we observe x or y we conclude that θ2 is twice as plausible as θ1.
+  We carefully used the word “plausible” rather than “probable” in the preceding paragraph be-
+cause we often think of θ as a fixed (albeit unknown) value. Furthermore, although f(x|θ), as a
+function of x, is a pdf, there is no guarantee that L(θ|x), as a function of θ, is a pdf.   One form of inference, called fiducial inference, sometimes interprets likelihoods as probabili-
+ties for θ. That is, L(θ|x) is multiplied by M(x)    ∞                         = ( −∞L(θ|x)dθ)−1 (the integral is replaced by a
+sum if the parameter space is countable) and then M(x)L(θ|x) is interpreted as a pdf for θ (provided,
+of course, that M(x) is finite!). Clearly, L(θ|x) and L(θ|y) satisfying (6.3.1) will yield the same pdfsince the constant C(x,y) will simply be absorbed into the normalizing constant. Most statisticians
+do not subscribe to the fiducial theory of inference but it has a long history, dating back to the work
+of Fisher (1930) on what was called inverse probability (an application of the probability integral
+transform). For now, we will for history’s sake compute one fiducial distribution.
+Example 6.3.3 (Normal fiducial distribution)  Let X1,...,Xn be iid n(µ,σ2), σ2 known. Using
+expression (6.2.4) for L(µ|x), we note first that (6.3.1) is satisfied if and only if x = y, in which case
+                                         n                      n
+                C(x,y) = exp  ∑ (xi      ∑ (yi                  −i=1  −x)2/(2σ2)+ i=1  −y)2/(2σ2)   .
+Thus, the Likelihood Principle states that the same conclusion about µ should be drawn for any
+two sample points satisfying x = y. To compute the fiducial pdf for µ, we see that if we define
+M(x) = nn/2 exp ∑ni=1(xi −x)2/(2σ2)  then M(x)L(µ|x) (as a function of µ) is a n(x,σ2/n) pdf.This is the fiducial distribution of µ and a fiducialist can make the following probability calculation
+regarding µ.
+   The parameter µ has a n(x,σ2/n) distribution. Hence, (µ              has a n(0,1) distribu-                                             −x)/(σ/√n)tion. Thus, we have
+                                 µ                      .95 =  P     <   −¯x < 1.96                              −1.96  σ/√n
+               =  P(−1.96σ/√n < µ −¯x < 1.96σ/√n)
+               =                           < µ < ¯x+1.96σ/√n).                          P(¯x−1.96σ/√n
+This algebra is similar to earlier calculations but the interpretation is quite different. Here x is a
+fixed, known number, the observed data value, and µ is the variable with the normal probability
+distribution.                                                                     ∥
+  We will discuss other, more common, uses of the likelihood function in later chapters when
+we discuss specific methods of inference. But now we consider an argument that shows that the
+Likelihood Principle is a necessary consequence of two other fundamental principles.
+===== PDF 269, printed 238 =====
+238                                       PRINCIPLES OF DATA REDUCTION
+6.3.2  The Formal Likelihood Principle
+
+For discrete distributions, the Likelihood Principle can be derived from two intuitively simpler ideas.
+This is also true, with some qualifications, for continuous distributions. In this subsection we will
+deal only with discrete distributions. Berger and Wolpert (1984) provide a thorough discussion of
+the Likelihood Principle in both the discrete and continuous cases. These results were first proved
+by Birnbaum (1962) in a landmark paper, but our presentation more closely follows that of Berger
+and Wolpert.
+    Formally, we define an experiment E to be a triple (X,θ,{f(x|θ)}), where X is a random vector
+with pmf f(x|θ) for some θ in the parameter space Θ. An experimenter, knowing what experiment Ewas performed, and having observed a particular sample X = x, will make some inference or draw
+some conclusion about θ. This conclusion we denote by Ev(E,x), which stands for the evidence
+about θ arising from E and x.
+Example 6.3.4 (Evidence function)  Let E be the experiment consisting of observing X1,...,Xn
+iid n(µ,σ2),σ2 known. Since the sample mean, X, is a sufficient statistic for µ and EX = µ, we
+might use the observed value X = x as an estimate of µ. To give a measure of the accuracy of
+this estimate, it is common to report the standard deviation of X,σ/√n. Thus, we could define
+Ev(E,x) = (x,σ/√n). Here we see that the x coordinate depends on the observed sample x while
+the σ/√n coordinate depends on the knowledge of E.                                                                              ∥
+   To relate the concept of an evidence function to something familiar, we now restate the Suffi-
+ciency Principle of Section 6.2 in terms of these concepts.
+FORMAL SUFFICIENCY PRINCIPLE: Consider experiment E = (X,θ,{f(x|θ)}) and supposeT(X) is a sufficient statistic for θ. If x and y are sample points satisfying T(x) = T(y), then
+Ev(E,x) = Ev(E,y).
+   Thus, the Formal Sufficiency Principle goes slightly further than the Sufficiency Principle of
+Section 6.2. There no mention was made of the experiment. Here, we are agreeing to equate ev-
+idence if the sufficient statistics match. The Likelihood Principle can be derived from the Formal
+Sufficiency Principle and the following principle, an eminently reasonable one.
+CONDITIONALITY PRINCIPLE: Suppose  that E1 = (X1,θ,{f1(x1|θ)}) and E2 = (X2,θ,
+{f2(x2|θ)}) are two experiments, where only the unknown parameter θ need be common betweenthe two experiments. Consider the mixed experiment in which the random variable J is observed,
+where P(J = 1) = P(J = 2) = 12 (independent of θ,X1, or X2), and then experiment EJ is per-
+formed. Formally, the experiment                              performed is E∗= (X∗,θ,{f ∗(x∗|θ)}), where X∗= ( j,Xj) and                               1
+ f ∗(x∗|θ) = f ∗(( j,x j)|θ) =                               2 f j(x j|θ). Then
+                              Ev(E∗,(j,x j)) = Ev(E j,x j).                              (6.3.2)
+
+   The Conditionality Principle simply says that if one of two experiments is randomly chosen
+and the chosen experiment is done, yielding data x, the information about θ depends only on the
+experiment performed. That is, it is the same information as would have been obtained if it were
+decided (nonrandomly) to do that experiment from the beginning, and data x had been observed.
+The fact that this experiment was performed, rather than some other, has not increased, decreased,
+or changed knowledge of θ.
+Example 6.3.5 (Binomial/negative binomial experiment)  Suppose the parameter of interest is
+the probability p, 0 < p < 1, where p denotes the probability that a particular coin will land “Heads”
+when it is flipped. Let E1 be the experiment consisting of tossing the coin 20 times and recording
+the number of Heads in those 20 tosses. E1 is a binomial experiment and {f1(x1|p)} is the familyof binomial(20, p) pmfs. Let E2 be the experiment consisting of tossing the coin until the seventh
+Head occurs and recording the number of Tails before the seventh Head. E2 is a negative binomial
+experiment. Now suppose the experimenter uses a random number table to choose between these
+===== PDF 270, printed 239 =====
+THE LIKELIHOOD PRINCIPLE                                                 239
+two experiments, happens to choose E2, and collects data consisting of the seventh Head occurring
+on trial 20. The Conditionality Principle says that the information about θ that the experimenter
+now has, Ev(E∗,(2,13)), is the same as that which he would have, Ev(E2,13), if he had just chosen
+to do the negative binomial experiment and had never contemplated the binomial experiment.    ∥
+   The following Formal Likelihood Principle can now be derived from the Formal Sufficiency
+Principle and the Conditionality Principle.
+FORMAL LIKELIHOOD PRINCIPLE: Suppose that we have two experiments, E1 = (X1,θ,
+{f1(x1|θ)}) and E2 = (X2,θ,{ f2(x2|θ)}), where the unknown parameter θ is the same in both
+experiments. Suppose x∗1 and x∗2 are sample points from E1 and E2, respectively, such that
+                                   L(θ|x∗2) = CL(θ|x∗1)                                  (6.3.3)
+for all θ and for some constant C that may depend on x∗1 and x∗2 but not θ. Then
+                               Ev(E1,x∗1) = Ev(E2,x∗2).
+
+   The Formal Likelihood Principle is different from the Likelihood Principle in Section 6.3.1 be-
+cause the Formal Likelihood Principle concerns two experiments, whereas the Likelihood Principle
+concerns only one. The Likelihood Principle, however, can be derived from the Formal Likelihood
+Principle by letting E2 be an exact replicate of E1. Thus, the two-experiment setting in the Formal
+Likelihood Principle is something of an artifact and the important consequence is the following
+corollary, whose proof is left as an exercise. (See Exercise 6.32.)
+LIKELIHOOD PRINCIPLE COROLLARY: If E = (X,θ,{f(x|θ)}) is an experiment, then Ev(E,x)
+should depend on E and x only through L(θ|x).
+  Now we state Birnbaum’s Theorem and then investigate its somewhat surprising consequences.
+Theorem 6.3.6 (Birnbaum’s Theorem)   The Formal Likelihood Principle follows from the For-
+mal Sufficiency Principle and the Conditionality Principle. The converse is also true.
+Proof: We only outline the proof, leaving details to Exercise 6.33. Let E1, E2, x∗1, and x∗2 be as de-
+fined in the Formal Likelihood Principle and let E∗be the mixed experiment from the Conditionality
+Principle. On the sample space of E∗define the statistic
+
+                           (1,x∗1)   if j = 1 and x1 = x∗1 or if j = 2 and x2 = x∗2,             T(j,x j) =                           (j,x j)   otherwise.
+
+The Factorization Theorem can be used to prove that T(J,XJ) is a sufficient statistic in the E∗
+experiment. Then the Formal Sufficiency Principle implies
+
+                            Ev(E∗,(1,x∗1)) = Ev(E∗,(2,x∗2)),                           (6.3.4)
+
+the Conditionality Principle implies
+
+                            Ev(E∗,(1,x∗1)) =  Ev(E1,x∗1)                            (6.3.5)
+                            Ev(E∗,(2,x∗2)) =  Ev(E2,x∗2),
+
+and we can deduce that Ev(E1,x∗1) = Ev(E2,x∗2), the Formal Likelihood Principle.
+   To prove the converse, first let one experiment be the E∗experiment and the other Ej. It can
+be shown that Ev(E∗,(j,x j)) = Ev(Ej,x j), the Conditionality Principle. Then, if T(X) is sufficient
+and T(x) = T(y), the likelihoods are proportional and the Formal Likelihood Principle implies that
+Ev(E,x) = Ev(E,y), the Formal Sufficiency Principle.                       2
+===== PDF 271, printed 240 =====
+240                                       PRINCIPLES OF DATA REDUCTION
+Example 6.3.7 (Continuation of Example 6.3.5)  Consider again the binomial and negative bino-
+mial experiments with the two sample points x1 = 7 (7 out of 20 Heads in the binomial experiment),
+and x2 = 13 (the 7th Head occurs on the 20th flip of the coin). The likelihood functions are
+
+                           20
+                L(p|x1 = 7) =   7   p7(1−p)13   for the binomial experiment,
+
+and
+                        19
+           L(p|x2 = 13) =   6   p7(1−p)13   for the negative binomial experiment.
+These are proportional likelihood functions so the Formal Likelihood Principle states that the same
+conclusion regarding p should be made in both cases. In particular, the Formal Likelihood Principle
+asserts that the fact that in the first case sampling ended because 20 trials were completed and in
+the second case sampling stopped because the 7th Head was observed is immaterial as far as our
+conclusions about p are concerned. Lindley and Phillips (1976) give a thorough discussion of the
+binomial–negative binomial inference problem.                                        ∥
+   This point, of equivalent inferences from different experiments, may be amplified by considering
+the sufficient statistic, T, defined in the proof of Birnbaum’s Theorem and the sample points x∗1 = 7
+and x∗2 = 13. For any sample points in the mixed experiment, other than (1,7) or (2,13), T tells
+which experiment, binomial or negative binomial, was performed, and the result of the experiment.
+But for (1,7) and (2,13) we have T(1,7) = T(2,13) = (1,7). If we use only the sufficient statistic
+to make an inference and if T = (1,7), then all we know is that 7 out of 20 Heads were observed.
+We do not know whether the 7 or the 20 was the fixed quantity.
+   Many common statistical procedures violate the Formal Likelihood Principle. With these proce-
+dures, different conclusions would be reached for the two experiments discussed in Example 6.3.5.
+This violation of the Formal Likelihood Principle may seem strange because, by Birnbaum’s The-
+orem, we are then violating either the Sufficiency Principle or the Conditionality Principle. Let us
+examine these two principles more closely.
+   The Formal Sufficiency Principle is, in essence, the same as that discussed in Section 6.1. There,
+we saw that all the information about θ is contained in the sufficient statistic, and knowledge of the
+entire sample cannot add any information. Thus, basing evidence on the sufficient statistic is an
+eminently plausible principle. One shortcoming of this principle, one that invites violation, is that it
+is very model-dependent. As mentioned in the discussion after Example 6.2.9, belief in this principle
+necessitates belief in the model, something that may not be easy to do.
+   Most data analysts perform some sort of “model checking” when analyzing a set of data. Most
+model checking is, necessarily, based on statistics other than a sufficient statistic. For example,
+it is common practice to examine residuals from a model, statistics that measure variation in the
+data not accounted for by the model. (We will see residuals in more detail in Chapters 11 and 12.)
+Such a practice immediately violates the Sufficiency Principle, since the residuals are not based on
+sufficient statistics. (Of course, such a practice directly violates the Likelihood Principle also.) Thus,
+it must be realized that before considering the Sufficiency Principle (or the Likelihood Principle),
+we must be comfortable with the model.
+   The Conditionality Principle, stated informally, says that “only the experiment actually per-
+formed matters.” That is, in Example 6.3.5, if we did the binomial experiment, and not the negative
+binomial experiment, then the (not done) negative binomial experiment should in no way influence
+our conclusion about θ. This principle, also, seems to be eminently plausible.
+   How, then, can statistical practice violate the Formal Likelihood Principle, when it would mean
+violating either the Principle of Sufficiency or Conditionality? Several authors have addressed
+this question, among them Durbin (1970) and Kalbfleisch (1975). One argument, put forth by
+Kalbfleisch, is that the proof of the Formal Likelihood Principle is not compelling. This is be-
+cause the Sufficiency Principle is applied in ignorance of the Conditionality Principle. The suffi-
+cient statistic, T(J,XJ), used in the proof of Theorem 6.3.6, is defined on the mixture experiment.
+===== PDF 272, printed 241 =====
+THE EQUIVARIANCE PRINCIPLE                                              241
+If the Conditionality Principle were invoked first, then separate sufficient statistics would have to be
+defined for each experiment. In this case, the Formal Likelihood Principle would no longer follow.
+(A key argument in the proof of Birnbaum’s Theorem is that T(J,XJ) can take on the same value
+for sample points from each experiment. This cannot happen with separate sufficient statistics.)
+   At any rate, since many intuitively appealing inference procedures do violate the Likelihood
+Principle, it is not universally accepted by all statisticians. Yet it is mathematically appealing and
+does suggest a useful data reduction technique.
+
+6.4  The Equivariance Principle
+The previous two sections both describe data reduction principles in the following way. A function
+T(x) of the sample is specified and the principle states that if x and y are two sample points with
+T(x) = T(y) then the same inference about θ should be made whether x or y is observed. The
+function T(x) is a sufficient statistic when the Sufficiency Principle is used. The “value” of T(x)
+is the set of all likelihood functions proportional to L(θ|x) if the Likelihood Principle is used.The Equivariance Principle describes a data reduction technique in a slightly different way. In any
+application of the Equivariance Principle, a function T(x) is specified but, if T(x) = T(y), then
+the Equivariance Principle states that the inference made if x is observed should have a certain
+relationship to the inference made if y is observed, although the two inferences may not be the
+same. This restriction on the inference procedure sometimes leads to a simpler analysis, just as do
+the data reduction principles discussed in earlier sections.2
+   Although commonly combined into what is called the Equivariance Principle, the data reduction
+technique we will now describe actually combines two different equivariance considerations.
+   The first type of equivariance might be called measurement equivariance. It prescribes that the
+inference made should not depend on the measurement scale that is used. For example, suppose two
+foresters are going to estimate the average diameter of trees in a forest. The first uses data on tree
+diameters expressed in inches and the second uses the same data expressed in meters. Now both
+are asked to produce an estimate in inches. (The second might conveniently estimate the average
+diameter in meters and then transform the estimate to inches.) Measurement equivariance requires
+that both foresters produce the same estimates. No doubt, almost all would agree that this type of
+equivariance is reasonable.
+   The second type of equivariance, actually an invariance, might be called formal invariance. It
+states that if two inference problems have the same formal structure in terms of the mathematical
+model used, then the same inference procedure should be used in both problems. The elements of
+the model that must be the same are: Θ, the parameter space; {f(x|θ): θ ∈Θ}, the set of pdfs orpmfs for the sample; and the set of allowable inferences and consequences of wrong inferences.
+This last element has not been discussed much prior to this; for this section we will assume that the
+set of possible inferences is the same as Θ, that is, an inference is simply a choice of an element
+of Θ as an estimate or guess at the true value of θ. Formal invariance is concerned only with the
+mathematical entities involved, not the physical description of the experiment. For example, Θ may
+be Θ = {θ : θ > 0} in two problems. But in one problem θ may be the average price of a dozen eggsin the United States (measured in cents) and in another problem θ may refer to the average height of
+giraffes in Kenya (measured in meters). Yet, formal invariance equates these two parameter spaces
+since they both refer to the same set of real numbers.
+EQUIVARIANCE PRINCIPLE: If Y = g(X) is a change of measurement scale such that the model
+for Y has the same formal structure as the model for X, then an inference procedure should be both
+measurement equivariant and formally equivariant.
+
+   2As in many other texts (Schervish 1995; Lehmann and Casella 1998; Stuart, Ord, and Arnold 1999) we distinguish
+between equivariance, in which the estimate changes in a prescribed way as the data are transformed, and invariance, in
+which the estimate remains unchanged as the data are transformed.
+===== PDF 273, printed 242 =====
+242                                       PRINCIPLES OF DATA REDUCTION
+
+  We will now illustrate how these two concepts of equivariance can work together to provide
+useful data reduction.
+
+Example 6.4.1 (Binomial equivariance)  Let X have a binomial distribution with sample size n
+known and success probability p unknown. Let T(x) be the estimate of p that is used when X = x is
+observed. Rather than using the number of successes, X, to make an inference about p, we could use
+the number of failures, Y = n−X. Y also has a binomial distribution with parameters (n,q = 1−p).
+Let T ∗(y) be the estimate of q that is used when Y = y is observed so that 1−T ∗(y) is the estimate
+of p when Y = y is observed. If x successes are observed then the estimate of p is T(x). But if there
+are x successes then there are n−x failures and 1−T ∗(n−x) is also an estimate of p. Measurement
+equivariance requires that these two estimates be equal, that is, T(x) = 1 −T ∗(n −x), since the
+change from X to Y is just a change in measurement scale. Furthermore, the formal structures of the
+inference problems based on X and Y are the same. X and Y both have binomial(n,θ) distributions,
+0 ≤θ ≤1. So formal invariance requires that T(z) = T ∗(z) for all z = 0,...,n. Thus, measurement
+and formal invariance together require that
+
+                          T(x) = 1−T ∗(n−x) = 1−T(n−x).                         (6.4.1)
+
+If we consider only estimators satisfying (6.4.1) then we have greatly reduced and simplified the
+set of estimators we are willing to consider. Whereas the specification of an arbitrary estimator
+requires the specification of T(0),T(1),...,T(n), the specification of an estimator satisfying (6.4.1)
+requires the specification only of T(0),T(1),...,T([n/2]), where [n/2] is the greatest integer not
+larger than n/2. The remaining values of T(x) are determined by those already specified and (6.4.1).
+For example, T(n) = 1 −T(0) and T(n −1) = 1 −T(1). This is the type of data reduction that is
+always achieved by the Equivariance Principle. The inference to be made for some sample points
+determines the inference to be made for other sample points.
+   Two estimators that are equivariant for this problem are T1(x) = x/n and T2(x) = .9(x/n) +
+.1(.5). The estimator T1(x) uses the sample proportion of successes to estimate p. T2(x) “shrinks”
+the sample proportion toward .5, an estimator which might be sensible if there is reason to think
+that p is near .5. Condition (6.4.1) is easily verified for both of these estimators and so they are
+both equivariant. An estimator that is not equivariant is T3(x) = .8(x/n) + .2(1). Condition (6.4.1)
+is not satisfied since T3(0) = .2̸ = 0 = 1 −T3(n −0). See Exercise 6.39 for more on measurement
+vs. formal invariance.                                                             ∥
+
+  A key to the equivariance argument in Example 6.4.1 and to any equivariance argument is the
+choice of the transformations. The data transformation used in Example 6.4.1 is Y = n −X. The
+transformations (changes of measurement scale) used in any application of the Equivariance Prin-
+ciple are described by a set of functions on the sample space called a group of transformations.
+
+Definition 6.4.2 A set of functions {g(x) : g ∈G } from the sample space X onto X  is called a
+group of transformations of X  if
+  (i) (Inverse)  For every g ∈G there is a g′ ∈G such that g′(g(x)) = x for all x ∈X .
+ (ii) (Composition)  For every g ∈G and g′ ∈G there exists g′′ ∈G such that g′(g(x)) = g′′(x) for
+      all x ∈X .
+(iii) (Identity)  The identity, e(x), defined by e(x) = x is an element of G .
+
+Sometimes the third requirement is stated as part of the definition of a group. But (iii) is a conse-
+quence of (i) and (ii) and need not be verified separately. (See Exercise 6.38.)
+
+Example 6.4.3 (Continuation of Example 6.4.1)  For this problem, only two transformations are
+involved so we may set G = {g1,g2}, with g1(x) = n−x and g2(x) = x. Conditions (i) and (ii) are
+easily verified. The choice of g′ = g verifies (i), that is, each element is its own inverse. For example,
+
+                           g1(g1(x)) = g1(n−x) = n−(n−x) = x.
+===== PDF 274, printed 243 =====
+THE EQUIVARIANCE PRINCIPLE                                              243
+                     = g then g′′ = g1 satisfies the equality. For example, takeIn (ii), if g′ = g then g′′ = g2 while if g′̸
+ = g = g1. Theng′̸
+                            g2(g1(x)) = g2(n−x) = n−x = g1(x).
+                                                                              ∥
+   To use the Equivariance Principle, we must be able to apply formal invariance to the transformed
+problem. That is, after changing the measurement scale we must still have the same formal structure.
+As the structure does not change, we want the underlying model, or family of distributions, to be
+invariant. This requirement is summarized in the next definition.
+Definition 6.4.4  Let F = { f(x|θ): θ ∈Θ} be a set of pdfs or pmfs for X and let G be a group of
+transformations of the sample space X . Then F is invariant under the group G if for every θ ∈Θ
+and g ∈G there exists a unique θ ′ ∈Θ such that Y = g(X) has the distribution f(y|θ ′) if X has the
+distribution f(x|θ).
+Example 6.4.5 (Conclusion of Example 6.4.1)   In the binomial problem, we must check both g1
+and g2. If X ∼binomial(n, p) then g1(X) = n−X ∼binomial(n,1−p) so p′ = 1−p where p plays
+the role of θ in Definition 6.4.4. Also g2(X) = X ∼binomial(n, p) so p′ = p in this case. Thus, the
+set of binomial pmfs is invariant under the group G = {g1,g2}.                            ∥
+    In Example 6.4.1, the group of transformations had only two elements. In many cases, the group
+of transformations is infinite, as the next example illustrates (see also Exercises 6.41 and 6.42).
+Example 6.4.6 (Normal location invariance)  Let X1,...,Xn be iid n(µ,σ2), both µ and σ2 un-
+known. Consider the group of transformations defined by G = {ga(x), −∞< a < ∞} wherega(x1,...,xn) = (x1 +a,...,xn +a). To verify that this set of transformations is a group, conditions
+(i) and (ii) from Definition 6.4.2 must be verified. For (i) note that
+
+                      g−a(ga(x1,...,xn)) =  g−a(x1 +a,...,xn +a)
+                       =  (x1 +a−a,...,xn +a−a)
+                       =   (x1,...,xn).
+
+So if g = ga then g′ = g−a satisfies (i). For (ii) note that
+                    ga2(ga1(x1,...,xn)) =  ga2(x1 +a1,...,xn +a1)
+                      =  (x1 +a1 +a2,...,xn +a1 +a2)
+                      =  ga1+a2(x1,...,xn).
+
+So if g = ga1 and g′ = ga2 then g′′ = ga1+a2 satisfies (ii), and Definition 6.4.2 is verified. G is a group
+of transformations.
+   The set F in this problem is the set of all joint densities f(x1,...,xn|µ,σ2) for X1,...,Xn defined
+by “X1,...,Xn are iid n(µ,σ2) for some −∞< µ < ∞and σ2 > 0.” For any a,−∞< a < ∞, therandom variables Y1,...,Yn defined by
+
+                        (Y1,...,Yn) = ga(X1,...,Xn) = (X1 +a,...,Xn +a)
+
+are iid n(µ +a,σ2) random variables. Thus, the joint distribution of Y = ga(X) is in F and hence F
+is invariant under G . In terms of the notation in Definition 6.4.4, if θ = (µ,σ2) then θ ′ = (µ +a,σ2).
+∥
+   Remember, once again, that the Equivariance Principle is composed of two distinct types of
+equivariance. One type, measurement equivariance, is intuitively reasonable. When many people
+think of the Equivariance Principle, they think that it refers only to measurement equivariance.
+If this were the case, the Equivariance Principle would probably be universally accepted. But the
+===== PDF 275, printed 244 =====
+244                                       PRINCIPLES OF DATA REDUCTION
+other principle, formal invariance, is quite different. It equates any two problems with the same
+mathematical structure, regardless of the physical reality they are trying to explain. It says that one
+inference procedure is appropriate even if the physical realities are quite different, an assumption
+that is sometimes difficult to justify.
+   But like the Sufficiency Principle and the Likelihood Principle, the Equivariance Principle is a
+data reduction technique that restricts inference by prescribing what other inferences must be made
+at related sample points. All three principles prescribe relationships between inferences at different
+sample points, restricting the set of allowable inferences and, in this way, simplifying the analysis
+of the problem.
+
+6.5  Exercises
+  6.1 Let X be one observation from a n(0,σ2) population. Is |X| a sufficient statistic?
+  6.2 Let X1,...,Xn be independent random variables with densities
+                          =   eiθ−x  x ≥iθ,                                           fXi(x|θ)    0      x < iθ.
+     Prove that T = mini(Xi/i) is a sufficient statistic for θ.
+  6.3 Let X1,...,Xn be a random sample from the pdf
+
+                                    1
+                               < x < ∞, 0 < σ < ∞.                           f(x|µ,σ) = σ e−(x−µ)/σ, µ
+     Find a two-dimensional sufficient statistic for (µ,σ).
+  6.4 Prove Theorem 6.2.10.
+  6.5 Let X1,...,Xn be independent random variables with pdfs
+
+                                                 1
+                     =    2iθ  −i(θ −1) < xi < i(θ +1),                                  f(xi|θ)    0     otherwise,
+
+     where θ > 0. Find a two-dimensional sufficient statistic for θ.
+  6.6 Let X1,...,Xn be a random sample from a gamma(α,β) population. Find a two-dimensional sufficient
+       statistic for (α,β).
+  6.7 Let f(x,y|θ1,θ2,θ3,θ4) be the bivariate pdf for the uniform distribution on the rectangle with lower left      corner (θ1,θ2) and upper right corner (θ3,θ4) in ℜ2. The parameters satisfy θ1 < θ3 and θ2 < θ4. Let
+      (X1,Y1),...,(Xn,Yn) be a random sample from this pdf. Find a four-dimensional sufficient statistic for
+      (θ1,θ2,θ3,θ4).
+  6.8 Let X1,...,Xn be a random sample from a population with location pdf f(x −θ). Show that the order       statistics, T(X1,...,Xn) = (X(1),...,X(n)), are a sufficient statistic for θ, and no further reduction is
+      possible.
+  6.9 For each of the following distributions let X1,...,Xn be a random sample. Find a minimal sufficient
+       statistic for θ.
+          = √2π                         e−(x−θ)2/2, −∞< x                         < ∞, −∞< θ < ∞                             (normal)       (a)   f(x|θ)     1
+                  < x < ∞, −∞< θ < ∞                            (location exponential)      (b)   f(x|θ) = e−(x−θ),  θ
+          =       (c)   f(x|θ)        e−(x−θ)                                                , −∞< x < ∞, −∞< θ < ∞                                       (logistic)                       (1+e−(x−θ)) 2
+      (d)   f(x|θ)         1          = π[1+(x−θ)2], −∞< x < ∞, −∞< θ < ∞                              (Cauchy)
+       (e)   f(x|θ)   1          = 2e−|x−θ|, −∞< x                      < ∞, −∞< θ < ∞                        (double exponential)
+6.10 Show that the minimal sufficient statistic for the uniform(θ,θ + 1), found in Example 6.2.15, is not
+      complete.
+===== PDF 276, printed 245 =====
+EXERCISES                                                                  245
+6.11 Refer to the pdfs given in Exercise 6.9. For each, let X(1) < ··· < X(n) be the ordered sample, and define
+       Yi = X(n) −X(i),i = 1,...,n−1.
+       (a) For each of the pdfs in Exercise 6.9, verify that the set (Y1,...,Yn−1) is ancillary for θ. Try to prove         a general theorem, like Example 6.2.18, that handles all these families at once.
+      (b) In each case determine whether the set (Y1,...,Yn−1) is independent of the minimal sufficient statis-             tic.
+6.12 A natural ancillary statistic in most problems is the sample size. For example, let N be a random variable
+      taking values 1,2,... with known probabilities p1, p2,... where Σpi = 1. Having observed N = n, perform
+     n Bernoulli trials with success probability θ, getting X successes.
+       (a) Prove that the pair (X,N) is minimal sufficient and N is ancillary for θ. (Note the similarity to some
+          of the hierarchical models discussed in Section 4.4.)
+      (b) Prove that the estimator X/N is unbiased for θ and has variance θ(1−θ)E(1/N).
+                                            > 0, α > 0. Show that6.13 Suppose X1 and X2 are iid observations from the pdf f(x|α) = αxα−1e−xα ,x     (logX1)/(logX2) is an ancillary statistic.
+6.14 Let X1,...,Xn be a random sample from a location family. Show that M−X is an ancillary statistic where   M is the sample median.
+6.15 Let X1,...,Xn be iid n(θ,aθ2), where a is a known constant and θ > 0.
+       (a) Show that the parameter space does not contain a two-dimensional open set.
+      (b) Show that the statistic T = (X,S2) is a sufficient statistic for θ, but the family of distributions is not
+         complete.
+6.16 A famous example in genetic modeling (Tanner 1996 or Dempster, Laird, and Rubin 1977) is a genetic
+      linkage multinomial model, where we observe the multinomial vector (x1,x2,x3,x4) with cell probabili-
+                                                 4 ).       ties given by ( 12 + θ4 , 14(1−θ), 14(1−θ), θ
+       (a) Show that this is a curved exponential family.
+      (b) Find a sufficient statistic for θ.
+       (c) Find a minimal sufficient statistic for θ.
+6.17 Let X1,...,Xn be iid with geometric distribution
+
+                               = 1,2,...,  0 < θ < 1.                       Pθ(X = x) = θ(1−θ)x−1,   x
+    Show that ΣXi is sufficient for θ, and find the family of distributions of ΣXi. Is the family complete?
+6.18 Let X1,...,Xn be iid Poisson(λ). Show that the family of distributions of ΣXi is complete. Prove com-
+      pleteness without using Theorem 6.2.25.
+6.19 The random variable X takes the values 0, 1, 2 according to one of the following distributions:
+
+                                  P(X=0)   P(X=1)    P(X=2)
+
+                                         < p < 4                         Distribution 1     p       3p     1−4p    0        1
+                                         < p < 2                         Distribution 2     p        p2   1−p−p2   0        1
+      In each case determine whether the family of distributions of X is complete.
+6.20 For each of the following pdfs let X1,...,Xn be iid observations. Find a complete sufficient statistic, or
+     show that one does not exist.
+
+         =                                 ,  0 < x < θ,  θ > 0                    θ 2       (a)  f(x|θ)    2x
+      (b)  f(x|θ) = (1+x)1+θθ     ,  0 < x < ∞,  θ > 0
+                      (logθ)θ x
+       (c)  f(x|θ) =  θ−1   ,  0 < x < 1,  θ > 1
+                             < ∞, −∞< θ < ∞      (d)  f(x|θ) = e−(x−θ) exp(−e−(x−θ)), −∞< x
+         =   x  θx(1−θ)2−x,   x = 0,1,2,  0 ≤θ ≤1       (e)  f(x|θ)     2
+===== PDF 277, printed 246 =====
+246                                       PRINCIPLES OF DATA REDUCTION
+
+6.21 Let X be one observation from the pdf
+                              θ    |x|
+                                = −1,0,1,  0 ≤θ ≤1.                         f(x|θ) =  2    (1−θ)1−|x|,   x
+
+       (a)  Is X a complete sufficient statistic?
+      (b)  Is |X| a complete sufficient statistic?
+       (c) Does f(x|θ) belong to the exponential class?
+6.22 Let X1,...,Xn be a random sample from a population with pdf
+
+                              < x < 1,  θ > 0.                                   f(x|θ) = θxθ−1,  0
+       (a)  Is ΣXi sufficient for θ?
+      (b) Find a complete sufficient statistic for θ.
+6.23 Let X1,...,Xn be a random sample from a uniform distribution on the interval (θ,2θ), θ > 0. Find a
+     minimal sufficient statistic for θ. Is the statistic complete?
+6.24 Consider the following family of distributions:
+                                  = 0,1,2,...;λ = 0 or 1}.        P = {Pλ (X = x) : Pλ (X = x) = λ xe−λ /x!;x
+     This is a Poisson family with λ restricted to be 0 or 1. Show that the family P is not complete, demon-
+       strating that completeness can be dependent on the range of the parameter. (See Exercises 6.15 and 6.18.)
+6.25 We have seen a number of theorems concerning sufficiency and related concepts for exponential fam-
+        ilies. Theorem 5.2.11 gave the distribution of a statistic whose sufficiency is characterized in Theorem
+      6.2.10 and completeness in Theorem 6.2.25. But if the family is curved, the open set condition of Theo-
+     rem 6.2.25 is not satisfied. In such cases, is the sufficient statistic of Theorem 6.2.10 also minimal? By
+      applying Theorem 6.2.13 to T(x) of Theorem 6.2.10, establish the following:
+       (a) The statistic (∑Xi,∑X2i ) is sufficient, but not minimal sufficient, in the n(µ,µ) family.
+      (b) The statistic ∑X2i  is minimal sufficient in the n(µ,µ) family.
+       (c) The statistic (∑Xi,∑X2i ) is minimal sufficient in the n(µ,µ2) family.
+      (d) The statistic (∑Xi,∑X2i ) is minimal sufficient in the n(µ,σ2) family.
+6.26 Use Theorem 6.6.5 to establish that, given a sample X1,X2,...,Xn, the following statistics are minimal
+       sufficient.
+
+                                             Statistic              Distribution
+                                (a)               ¯X                 n(θ,1)
+                              (b)        ∑Xi        gamma(α,β), α known
+                                (c)       maxXi            uniform(0,θ)
+                              (d)   X(1),X(2),...,X(n)       Cauchy(θ,1)
+                                (e)   X(1),X(2),...,X(n)        logistic(µ,β)
+
+6.27 Let X1,X2,...,Xn be a random sample from the inverse Gaussian distribution with pdf
+
+                                                                          −λ(x−µ)2                                    λ    1/2
+                      =                                                    e                             f(x|µ,λ)    2πx3           2µ2x   ,  0 < x < ∞.
+
+       (a) Show that the statistics
+                                   1  n                   n
+                                =                                                  ¯X =                  ∑ Xi   and  T                                   n i=1                                                ∑ni=1 Xi1 −1¯X
+          are sufficient and complete.
+      (b) For n = 2, show that ¯X has an inverse Gaussian distribution, nλ/T has a χ2   distribution, and they
+                                                                         n−1          are independent. (Schwarz and Samanta 1991 do the general case.)
+     The inverse Gaussian distribution has many applications, particularly in modeling of lifetimes. See the
+     books by Chhikara and Folks (1989) or Seshadri (1993).
+===== PDF 278, printed 247 =====
+EXERCISES                                                                  247
+
+6.28 Prove Theorem  6.6.5. Hint:  First establish  that the minimal sufficiency of T(X) in the family
+     { f0(x), f1(x),..., fk(x)} follows from Theorem 6.2.13. Then argue that any statistic that is sufficient      in F must be a function of T(x).
+6.29 The concept of minimal sufficiency can be extended beyond parametric families of distributions. Show
+       that if X1,X2,...,Xn are a random sample from a density  f which is unknown, then the order statistics
+      are minimal sufficient.
+      Hint: Use Theorem 6.6.5 taking the family {f0(x), f1(x),..., fk(x)} to be logistic densities.
+                                              < x < ∞.6.30 Let X1,...,Xn be a random sample from the pdf f(x|µ) = e−(x−µ), where −∞< µ
+       (a) Show that X(1) = mini Xi is a complete sufficient statistic.
+      (b) Use Basu’s Theorem to show that X(1) and S2 are independent.
+6.31 Boos and Hughes-Oliver (1998) detail a number of instances where application of Basu’s Theorem can
+      simplify calculations. Here are a few.
+       (a) Let X1,X2,...,Xn be iid n(µ,σ2), where σ2 is known.
+             (i) Show that ¯X is complete sufficient for µ, and S2 is ancillary. Hence by Basu’s Theorem ¯X and S2
+             are independent.
+            (ii) Show that this independence carries over even if σ2 is unknown, as knowledge of σ2 has no
+             bearing on the distributions. (Compare this proof to the more involved Theorem 5.3.1(a).)
+      (b) A Monte Carlo swindle is a technique for improving variance estimates. Suppose that X1,X2,...,Xn
+          are iid N(µ,σ2), and that we want to compute the variance of the median, M.
+             (i) Show that Var(M) = Var(M −¯X)+Var(¯X); thus, we only have to simulate the Var(M −¯X) piece             of Var(M) (since we know that Var( ¯X) = σ2/n).
+            (ii) Show that the swindle estimate is more precise by showing that the asymptotic variance of M is
+            approximately 2[Var(M)]2/(N −1) and that of M −¯X is approximately 2[Var(M −¯X)]2/(N −1),           where N is the number of Monte Carlo samples.
+       (c) (i)  If X/Y and Y are independent random variables, show that
+                                   X   k   E(Xk)
+                                 E    =           .
+                                       Y      E(Y k)
+            (ii) Use this result, and Basu’s Theorem, to show that if X1,X2,...,Xn are iid gamma(α,β), where α
+                is known, then
+                                                                   E(X(i))
+                               =                            E   X(i) ∑ Xi                        ∑ Xi                                                                                                  i                  i   E(∑i Xi).
+6.32 Prove the Likelihood Principle Corollary. That is, assuming both the Formal Sufficiency Principle and
+      the Conditionality Principle, prove that if E = (X,θ,{ f(x|θ)}) is an experiment then Ev(E,x) should
+     depend on E and x only through L(θ|x).
+6.33  Fill in the gaps in the proof of Theorem 6.3.6, Birnbaum’s Theorem
+       (a) Define g(t|θ) = g(( j,xj)|θ) = f ∗(( j,x j)|θ) and
+                                C   if (j,x j) = (2,x∗2)                                    h( j,xj) =
+                                           1   otherwise.
+       Show that T( j,xj) is a sufficient statistic in the E∗experiment by verifying that
+                         g(T( j,x j)|θ)h( j,xj) = g((j,x j)|θ)(1) = f ∗((j,x j)|θ),
+           for all (j,xj).
+      (b) As T is sufficient, show that the Formal Sufficiency Principle implies (6.3.4). Also the Conditionality
+          Principle implies (6.3.5), and hence deduce the Formal Likelihood Principle.
+       (c) To prove the converse, first let one experiment be the E∗experiment and the other E j and deduce that
+         Ev(E∗,(j,x j)) = Ev(Ej,x j), the Conditionality Principle. Then, if T(X) is sufficient and T(x) =
+         T(y), show that the likelihoods are proportional and then use the Formal Likelihood Principle, to
+         deduce Ev(E,x) = Ev(E,y), the Formal Sufficiency Principle.
+===== PDF 279, printed 248 =====
+248                                       PRINCIPLES OF DATA REDUCTION
+
+6.34 Consider the model in Exercise 6.12. Show that the Formal Likelihood Principle implies that any con-
+      clusions about θ should not depend on the fact that the sample size n was chosen randomly. That is, the
+      likelihood for (n,x), a sample point from Exercise 6.12, is proportional to the likelihood for the sample
+      point x, a sample point from a fixed-sample-size binomial(n,θ) experiment.
+6.35 A risky experimental treatment is to be given to at most three patients. The treatment will be given to
+     one patient. If it is a success, then it will be given to a second. If it is a success, it will be given to a third
+       patient. Model the outcomes for the patients as independent Bernoulli(p) random variables. Identify
+      the four sample points in this model and show that, according to the Formal Likelihood Principle, the
+      inference about p should not depend on the fact that the sample size was determined by the data.
+6.36 One advantage of using a minimal sufficient statistic is that unbiased estimators will have smaller vari-
+      ance, as the following exercise will show. Suppose that T1 is sufficient and T2 is minimal sufficient, U is
+     an unbiased estimator of θ, and define U1 = E(U|T1) and U2 = E(U|T2).
+       (a) Show that U2 = E(U1|T2).
+      (b) Now use the conditional variance formula (Theorem 4.4.7) to show that VarU2 ≤VarU1.
+      (See Pena and Rohatgi 1994 for more on the relationship between sufficiency and unbiasedness.)
+6.37 Joshi and Nabar (1989) examine properties of linear estimators for the parameter in the so-called “Prob-
+     lem of the Nile,” where (X,Y) has the joint density
+                             f(x,y|θ) = exp{−(θx+y/θ)},     x > 0,   y > 0.
+       (a) For an iid sample of size n, show that the Fisher information is I(θ) = 2n/θ 2.
+      (b) For the estimators
+
+                                 =                           T =  ∑Yi/∑Xi and U                                          ∑Xi∑Yi
+        show that
+             (i) the information in T alone is [2n/(2n+1)]I(θ).
+            (ii) the information in (T,U) is I(θ).
+           (iii) (T,U) is jointly sufficient but not complete.
+6.38 In Definition 6.4.2, show that (iii) is implied by (i) and (ii).
+6.39 Measurement equivariance requires the same inference for two equivalent data points: x, measurements
+      expressed in one scale, and y, exactly the same measurements expressed in a different scale. Formal
+      invariance, in the end, leads to a relationship between the inferences at two different data points in the
+     same measurement scale.
+       Suppose an experimenter wishes to estimate θ, the mean boiling point of water, based on a single
+      observation X, the boiling point measured in degrees Celsius. Because of the altitude and impurities in
+      the water he decides to use the estimate T(x) = .5x + .5(100). If the measurement scale is changed to
+      degrees Fahrenheit, the experimenter would use T ∗(y) = .5y+.5(212) to estimate the mean boiling point
+      expressed in degrees Fahrenheit.
+
+       (a) The familiar relation between degrees Celsius and degrees Fahrenheit would lead us to convert
+          Fahrenheit to Celsius using the transformation 59(T ∗(y)−32). Show that this procedure5     is measure-
+        ment equivariant in that the same answer will be obtained for the same data. That is, 9(T ∗(y)−32) =          T(x).
+      (b) Formal invariance would require that T(x) = T ∗(x) for all x. Show that the estimators we have de-
+          fined above do not satisfy this. So they are not equivariant in the sense of the Equivariance Principle.
+
+6.40 Let X1,...,Xn be iid observations from a location–scale family. Let T1(X1,...,Xn) and T2(X1,...,Xn) be
+     two statistics that both satisfy
+
+                                   Ti(ax1 +b,...,axn +b) = aTi(x1,...,xn)
+
+      for all values of x1,...,xn and b and for any a > 0.
+===== PDF 280, printed 249 =====
+EXERCISES                                                                  249
+
+       (a) Show that T1/T2 is an ancillary statistic.
+      (b) Let R be the sample range and S be the sample standard deviation. Verify that R and S satisfy the
+         above condition so that R/S is an ancillary statistic.
+
+6.41 Suppose that for the model in Example 6.4.6, the inference to be made is an estimate of the mean µ.
+      Let T(x) be the estimate used if X = x is observed. If ga(X) = Y = y is observed, then let T ∗(y) be the
+      estimate of µ + a, the mean of each Yi. If µ + a is estimated by T ∗(y), then µ would be estimated by
+    T ∗(y)−a.
+       (a) Show that measurement equivariance requires that T(x) = T ∗(y)−a for all x = (x1,...,xn) and all           a.
+      (b) Show that formal invariance requires that T(x) = T ∗(x) and hence the Equivariance Principle re-
+          quires that T(x1,...,xn)+a = T(x1 +a,...,xn +a) for all (x1,...,xn) and all a.
+       (c)  If X1,...,Xn are iid f(x −θ), show that, as long as E0X1 = 0, the estimator W(X1,...,Xn) = ¯X is          equivariant for estimating θ and satisfies EθW = θ.
+6.42 Suppose we have a random sample X1,...,Xn from σ1 f((x −θ)/σ), a location–scale pdf. We want to      estimate θ, and we have two groups of transformations under consideration:
+                              G1 = {ga,c(x): −∞< a < ∞, c > 0},
+     where ga,c(x1,...,xn) = (cx1 +a,...,cxn +a), and
+                                  G2 = {ga(x): −∞< a < ∞},
+     where ga(x1,...,xn) = (x1 +a,...,xn +a).
+       (a) Show that estimators of the form
+
+                                          W(x1,...,xn) = ¯x+k,
+
+        where k is a nonzero constant, are equivariant with respect to the group G2 but are not equivariant
+         with respect to the group G1.
+      (b) For each group, under what conditions does an equivariant estimator W satisfy EθW = θ, that is, it
+            is unbiased for estimating θ?
+6.43 Again, suppose we have a random sample X1,...,Xn from σ1 f((x−θ)/σ), a location–scale pdf, but we
+      are now interested in estimating σ2. We can consider three groups of transformations:
+                               G1 = {ga,c(x): −∞< a < ∞, c > 0},
+     where ga,c(x1,...,xn) = (cx1 +a,...,cxn +a),
+                                  G2 = {ga(x): −∞< a < ∞},
+     where ga(x1,...,xn) = (x1 +a,...,xn +a), and
+                                     G3 = {gc(x): c > 0},
+     where gc(x1,...,xn) = (cx1,...,cxn).
+       (a) Show that estimators of σ2 of the form kS2, where k is a positive constant and S2 is the sample
+          variance, are invariant with respect to G2, and equivariant with respect to the other two groups.
+      (b) Show that the larger class of estimators of σ2 of the form (Brewster and Zidek, 1974)
+                                                                                      ¯X
+                                     W(X1,...,Xn) = φ      S2,                                                    S
+
+        where φ(x) is a function, are equivariant with respect to G3, but not with respect to either G1 or G2,
+          unless φ(x) is a constant.
+            Consideration of estimators of this form led Stein (1964) and Brewster and Zidek (1974) to find
+         improved estimators of variance (see Lehmann and Casella 1998, Section 3.3).
+===== PDF 281, printed 250 =====
+250                                       PRINCIPLES OF DATA REDUCTION
+6.6   Miscellanea
+
+ 6.6.1 The Converse of Basu’s Theorem
+     An interesting statistical fact is that the converse of Basu’s Theorem is false. That is, if
+      T(X) is independent of every ancillary statistic, it does not necessarily follow that T(X) is a
+       complete, minimal sufficient statistic. A particularly nice treatment of the topic is given by
+      Lehmann (1981). He makes the point that one reason that the converse fails is that ancillarity
+         is a property of the entire distribution of a statistic, whereas completeness is a property
+       dealing only with expectations. Consider the following modification of the definition of
+        ancillarity.
+       Definition 6.6.1  A statistic V(X) is called first-order ancillary if EθV(X) is independent
+       of θ.
+      Lehmann then proves the following theorem, which is somewhat of a converse to Basu’s
+      Theorem.
+     Theorem 6.6.2  Let T be a statistic with VarT < ∞. A necessary and sufficient condition
+        for T to be complete is that every bounded first-order ancillary V is uncorrelated (for all θ)
+       with every bounded real-valued function of T.
+
+      Lehmann also notes that a type of converse is also obtainable if, instead of modifying the
+        definition of ancillarity, the definition of completeness is modified.
+ 6.6.2 Confusion About Ancillarity One of the problems with the concept of ancillarity is that
+        there are many different definitions of ancillarity, and different properties are given in these
+        definitions. As was seen in this chapter, ancillarity is confusing enough with one definition –
+       with five or six the situation becomes hopeless.
+       As told by Buehler (1982), the concept of ancillarity goes back to Sir Ronald Fisher
+       (1925), “who left a characteristic trail of intriguing concepts but no definition.” Buehler goes
+      on to tell of at least three definitions of ancillarity, crediting, among others, Basu (1959) and
+     Cox and Hinkley (1974). Buehler gives eight properties of ancillary statistics, and lists 25
+       examples.
+        However, it is worth the effort to understand the difficult topic of ancillarity, as it can
+       play an important role in inference. Brown (1990) shows how ancillarity affects inference
+        in regression, and Reid (1995) reviews the role of ancillarity (and other conditioning) in
+        inference. The review article of Lehmann and Scholz (1992) provides a good entry to the
+        topic.
+ 6.6.3 More on Sufficiency
+        Sufficiency and Likelihood
+      There is a striking similarity between the statement of Theorem 6.2.13 and the Likelihood
+        Principle. Both relate to the ratio L(θ|x)/L(θ|y), one to describe a minimal sufficient statis-          tic, and the other to describe the Likelihood Principle. In fact, these theorems can be com-
+       bined, with a bit of care, into the fact that a statistic T(x) is a minimal sufficient statistic if,
+      and only if, it is a one-to-one function of L(θ|x) (where two sample points that satisfy (6.3.1)       are said to have the same likelihood function). Example 6.3.3 and Exercise 6.9 illustrate this
+        point.
+        Sufficiency and Necessity
+     We may ask, “If there are sufficient statistics, why aren’t there necessary statistics?” In fact,
+        there are. According to Dynkin (1951), we have the following definition.
+       Definition 6.6.3 A statistic is said to be necessary if it can be written as a function of every
+        sufficient statistic.
+      Comparing the definition of a necessary statistic and the definition of a minimal sufficient
+         statistic, it should come as no surprise that we have the following theorem.
+===== PDF 282, printed 251 =====
+MISCELLANEA                                                              251
+     Theorem 6.6.4  A statistic is a minimal sufficient statistic if, and only if, it is a necessary
+      and sufficient statistic.
+
+      Minimal Sufficiency
+      There is an interesting development of minimal sufficiency, which actually follow from The-
+      orem 6.2.13 (see Exercise 6.28), and is extremely useful in establishing minimal sufficiency
+       outside of the exponential family.
+
+     Theorem 6.6.5 (Minimal Sufficient Statistics)  Suppose  that  the  family  of  densities
+      { f0(x), f1(x),..., fk(x)} all have common support. Then
+         a. The statistic
+                                          f1(X)  f2(X)     fk(X)
+                          T(X) =   f0(X), f0(X),..., f0(X)
+              is minimal sufficient for the family { f0(x), f1(x),..., fk(x)}.         b.  If F is a family of densities with common support, and
+                    i.  fi(x) ∈F, i = 0,1,...,k,                   ii. T(x) is sufficient for F,
+           then T(x) is minimal sufficient for F.
+
+        Although Theorem 6.6.5 can be used to establish the minimal sufficiency of ¯X in a n(θ,1)
+        family, its real usefulness comes when we venture outside of simple situations. For example,
+      Theorem 6.6.5 can be used to show that for samples from distributions like the logistic or
+       double exponential, the order statistics are minimal sufficient (Exercise 6.26). Even further,
+           it can extend to nonparametric families of distributions (Exercise 6.29).
+         For more on minimal sufficiency and completeness see Lehmann and Casella (1998, Sec-
+        tion 1.6).

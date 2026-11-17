@@ -1,0 +1,45 @@
+METHODS OF EVALUATING ESTIMATORS                                      267
+7.3  Methods of Evaluating Estimators
+The methods discussed in the previous section have outlined reasonable techniques for finding point
+estimators of parameters. A difficulty that arises, however, is that since we can usually apply more
+than one of these methods in a particular situation, we are often faced with the task of choosing
+between estimators. Of course, it is possible that different methods of finding estimators will yield
+the same answer, which makes evaluation a bit easier, but, in many cases, different methods will
+lead to different estimators.
+   The general topic of evaluating statistical procedures is part of the branch of statistics known
+as decision theory, which will be treated in some detail in Section 7.3.4. However, no procedure
+should be considered until some clues about its performance have been gathered. In this section we
+will introduce some basic criteria for evaluating estimators, and examine several estimators against
+these criteria.
+
+
+7.3.1  Mean Squared Error
+
+We first investigate finite-sample measures of the quality of an estimator, beginning with its mean
+squared error.
+Definition 7.3.1  The mean squared error (MSE) of an estimatorW of a parameter θ is the function
+of θ defined by Eθ(W −θ)2.
+   Notice that the MSE measures the average squared difference between the estimator W and the
+parameter θ, a somewhat reasonable measure of performance for a point estimator. In general, any
+increasing function of the absolute distance |W −θ| would serve to measure the goodness of an
+estimator (mean absolute error, Eθ(|W −θ|) is a reasonable alternative), but MSE has at least twoadvantages over other distance measures: First, it is quite tractable analytically and, second, it has
+the interpretation
+
+                             = Varθ W +(Biasθ W)2,            (7.3.1)             Eθ(W −θ)2                = Varθ W +(EθW −θ)2
+where we define the bias of an estimator as follows.
+Definition 7.3.2  The bias of a point estimator W, of a parameter θ, is the difference between the
+expected value of W and θ. That is, Biasθ W = EθW −θ. An estimator whose bias is identically (inθ) equal to zero is called unbiased and satisfies EθW = θ for all θ.
+
+   Thus, MSE incorporates two components, one measuring the variability of the estimator (pre-
+cision), and the other measuring its bias (accuracy). An estimator that has good MSE properties
+has small combined variance and bias. To find an estimator with good MSE properties, we need to
+find estimators that control both variance and bias. Clearly, unbiased estimators do a good job of
+controlling bias.
+   For an unbiased estimator we have
+
+                          = Varθ W,                          Eθ(W −θ)2
+and so, if an estimator is unbiased, its MSE is equal to its variance.
+Example 7.3.3 (Normal MSE)   Let X1,...,Xn be iid n(µ,σ2). The statistics ¯X and S2 are both
+unbiased estimators since
+
+                   E¯X = µ,  ES2 = σ2,   for all µ and σ2.

@@ -1,0 +1,38 @@
+236                                       PRINCIPLES OF DATA REDUCTION
+6.3  The Likelihood Principle
+In this section we study a specific, important statistic called the likelihood function, that also can
+be used to summarize data. There are many ways to use the likelihood function, some of which are
+mentioned in this section and some in later chapters. But the main consideration in this section is an
+argument which indicates that, if certain other principles are accepted, the likelihood function must
+be used as a data reduction device.
+
+6.3.1  The Likelihood Function
+Definition 6.3.1   Let f(x|θ) denote the joint pdf or pmf of the sample X = (X1,...,Xn). Then,given that X = x is observed, the function of θ defined by
+                                    L(θ|x) = f(x|θ)
+is called the likelihood function.
+     If X is a discrete random vector then L(θ|x) = Pθ(X = x). If we compare the likelihood functionat two parameter points and find that
+                      Pθ1(X = x) = L(θ1|x) > L(θ2|x) = Pθ2(X = x),
+then the sample we actually observed is more likely to have occurred if θ = θ1 than if θ = θ2, which
+can be interpreted as saying that θ1 is a more plausible value for the true value of θ than is θ2. Many
+different ways have been proposed to use this information, but certainly it seems reasonable to
+examine the probability of the sample we actually observed under various possible values of θ. This
+is the information provided by the likelihood function.
+     If X is a continuous, real-valued random variable and if the pdf of X is continuous in x then,
+for small ε,Pθ(x −ε < X < x + ε) is approximately 2ε f(x|θ) = 2εL(θ|x) (this follows from thedefinition of a derivative). Thus,
+                         Pθ1(x−ε < X < x+ε)                      < X < x+ε) ≈L(θ1|x)                         Pθ2(x−ε                 L(θ2|x)
+and comparison of the likelihood function at two parameter values again gives an approximate
+comparison of the probability of the observed sample value, x.
+    Definition 6.3.1 almost seems to be defining the likelihood function to be the same as the pdf
+or pmf. The only distinction between these two functions is which variable is considered fixed and
+which is varying. When we consider the pdf or pmf f(x|θ), we are considering θ as fixed and x
+as the variable; when we consider the likelihood function L(θ|x), we are considering x to be theobserved sample point and θ to be varying over all possible parameter values.
+Example 6.3.2 (Negative binomial likelihood)  Let X have a negative binomial distribution with
+r = 3 and success probability p. If x = 2 is observed then the likelihood function is the fifth-degree
+polynomial on 0 ≤p ≤1 defined by
+                                            4
+                          L(p|2) = Pp(X = 2) =  2  p3(1−p)2.
+
+In general, if X = x is observed, then the likelihood function is the polynomial of degree 3+x,
+                    =  3+x−1                             L(p|x)        x     p3(1−p)x.
+
+                                                                              ∥

@@ -1,0 +1,47 @@
+JOINT AND MARGINAL DISTRIBUTIONS                                       117
+Then f(x,y) is nonnegative and sums to 1 so f(x,y) is the joint pmf for some bivariate random vector
+(X,Y). We can use f(x,y) to compute probabilities such as P(X = Y) = f(0,0) + f(1,1) = 12. All
+this can be done without reference to the sample space S. Indeed, there are many sample spaces and
+functions thereon that lead to this joint pmf for (X,Y). Here is one. Let S be the 36-point sample
+space for the experiment of tossing two fair dice. Let X = 0 if the first die shows at most 2 and X = 1
+if the first die shows more than 2. Let Y = 0 if the second die shows an odd number and Y = 1 if the
+second die shows an even number. It is left as Exercise 4.3 to show that this definition leads to the
+above probability distribution for (X,Y).                                              ∥
+   Even if we are considering a probability model for a random vector (X,Y), there may be prob-
+abilities or expectations of interest that involve only one of the random variables in the vector. We
+may wish to know P(X = 2), for instance. The variable X is itself a random variable, in the sense of
+Chapter 1, and its probability distribution is described by its pmf, namely, fX(x) = P(X = x). (As
+mentioned earlier, we now use the subscript to distinguish fX(x) from the joint pmf fX,Y(x,y).) We
+now call fX(x) the marginal pmf of X to emphasize the fact that it is the pmf of X but in the context
+of the probability model that gives the joint distribution of the vector (X,Y). The marginal pmf of
+X or Y is easily calculated from the joint pmf of (X,Y) as Theorem 4.1.6 indicates.
+Theorem 4.1.6   Let (X,Y) be a discrete bivariate random vector with joint pmf fX,Y(x,y). Then
+the marginal pmfs of X and Y, fX(x) = P(X = x) and fY(y) = P(Y = y), are given by
+                       fX(x) = ∑ fX,Y(x,y)                                      and   fY(y) = ∑ fX,Y(x,y).
+                           y∈ℜ                       x∈ℜ
+Proof: We will prove the result for fX(x). The proof for fY(y) is similar. For any x ∈ℜ, let Ax =
+{(x,y) : −∞< y < ∞}. That is, Ax is the line in the plane with first coordinate equal to x. Then, for
+any x ∈ℜ,
+                              fX(x) =  P(X = x)
+                    =  P(X = x,−∞< Y < ∞)     (P(−∞< Y < ∞) = 1)
+                    =  P((X,Y) ∈Ax)                        (definition of Ax)                    =                  ∑   fX,Y(x,y)
+                                                     (x,y)∈Ax
+                    =                 ∑ fX,Y(x,y).
+                                     y∈ℜ
+                                                    2
+
+Example 4.1.7 (Marginal pmf for dice)  Using the result of Theorem 4.1.6, we can compute the
+marginal distributions for X and Y from the joint distribution given in Table 4.1.1. To compute the
+marginal pmf of Y, for each possible value of Y we sum over the possible values of X. In this way
+we obtain
+
+                       fY(0) =  fX,Y(2,0)+ fX,Y(4,0)+ fX,Y(6,0)
+                   + fX,Y(8,0)+ fX,Y(10,0)+ fX,Y(12,0)
+                             1
+                =  6.
+Similarly, we obtain
+
+               fY(1) = 18,5    fY(2)    2              1              1              1                   = 9,   fY(3) = 6,   fY(4) = 9,   fY(5) = 18.
+
+Notice that fY(0)+ fY(1)+ fY(2)+ fY(3)+ fY(4)+ fY(5) = 1, as it must, since these are the only
+six possible values of Y.                                                           ∥

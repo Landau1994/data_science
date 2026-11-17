@@ -1,0 +1,36 @@
+METHODS OF EVALUATING ESTIMATORS                                      273
+     If we add the assumption of independent samples then the calculation of the lower bound is
+simplified. The expectation in the denominator becomes a univariate calculation, as the following
+corollary shows.
+Corollary 7.3.10 (Cram´er–Rao Inequality, iid case)   If the assumptions of Theorem 7.3.9 are
+satisfied and, additionally, if X1,...,Xn are iid with pdf f(x|θ), then
+                                                       d EθW(X)                                                   dθ
+                          Varθ W(X) ≥                                                           2                                   nEθ    ∂θ∂ log                                                 f(X|θ)                                      2.
+Proof: We only need to show that
+
+                Eθ                   ∂θ                             log f(X|θ)   = nEθ   ∂θ log f(X|θ)       .           ∂        2   ∂        2
+Since X1,...,Xn are independent
+
+                                        ∂       n
+         Eθ      log       =  Eθ        log ∏            ∂θ    f(X|θ)                     ∂θ     i=1 f(Xi|θ)2       ∂                       2                       n                                                   ∂
+                                                    log                     (property of logs)                   =  Eθ  ∑                     i=1 ∂θ    f(Xi|θ)2                                              n            
+                   =                ∑ Eθ                                                    log f(Xi|θ)           (expand the square)                                    ∂θ                                           i=1                       ∂        2
+                                                         ∂
+                                                                                                                             .    (7.3.11)                                       Eθ                  +∑                                      ∂θ                                                      log f(Xi|θ) ∂θ log f(Xj|θ)                                                                       ∂                                                                       i̸= j
+For  i̸ = j we have
+                                    ∂
+                   Eθ                    ∂θ                               log f(Xi|θ) ∂θ log f(Xj|θ)             ∂               
+              =  Eθ                         ∂θ                                     log f(Xi|θ)  Eθ  ∂θ log f(Xj|θ)         (independence)                ∂        ∂                     =   0.                                             (from (7.3.8))
+
+
+Therefore the second sum in (7.3.11) is zero, and the first term is
+
+        n
+   ∑ Eθ            ∂θ                   log f(Xi|θ)   = nEθ   ∂θ log f(X|θ)       ,       (identical distributions)       i=1      ∂        2   ∂        2
+
+ which establishes the corollary.                                   2
+
+   Before going on we note that although the Cram´er–Rao Lower Bound is stated for continuous
+random variables, it also applies to discrete random variables. The key condition, (7.3.4), which al-
+lows interchange of integration and differentiation, undergoes the obvious modification. If f(x|θ) isa pmf, then we must be able to interchange differentiation and summation. (Of course, this assumes
+that even though f(x|θ) is a pmf and not differentiable in x, it is differentiable in θ. This is the casefor most common pmfs.)

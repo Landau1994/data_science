@@ -1,0 +1,43 @@
+336                                             HYPOTHESIS TESTING
+          In terms of hypothesis testing, it is often the case that the distribution under the alternative
+         is stochastically greater than under the null distribution. For example, if we have a random
+      sample from a n(θ,σ2) population and are interested in testing H0 : θ ≤θ0 versus H1 : θ >        θ0, it is true that all the distributions in the alternative are stochastically greater than all those
+        in the null. Gilat (1977) uses the property of stochastic ordering, rather than MLR, to prove
+       monotonicity of power functions under general conditions.
+ 8.5.2 Likelihood Ratio as Evidence
+      The likelihood ratio L(θ1|x)/L(θ0|x) = f(x|θ1)/ f(x|θ0) plays an important role in the test-       ing of H0 : θ = θ0 versus H1 : θ = θ1. This ratio is equal to the LRT statistic λ(x) for values
+       of x that yield small values of λ. Also, the Neyman-Pearson Lemma says that the UMP level
+     α test of H0 versus H1 can be defined in terms of this ratio. This likelihood ratio also has an
+       important Bayesian interpretation. Suppose π0 and π1 are our prior probabilities for θ0 and
+        θ1. Then, the posterior odds in favor of θ1 are
+                     P(θ = θ1|x) = f(x|θ1)π1/m(x) = f(x|θ1)  π1 .                     P(θ =                                                       · π0                                θ0|x)    f(x|θ0)π0/m(x)    f(x|θ0)
+      π1/π0 are the prior odds in favor of θ1. The likelihood ratio is the amount these prior odds
+       should be adjusted, having observed the data X = x, to obtain the posterior odds. If the
+       likelihood ratio equals two, then the prior odds are doubled. The likelihood ratio does not
+      depend on the prior probabilities. Thus, it is interpreted as the evidence in the data favoring
+      H1 over H0. This kind of interpretation is discussed by Royall (1997).
+ 8.5.3 p-Values and Posterior Probabilities
+       In Section 8.2.2, where Bayes tests were discussed, we saw that the posterior probability that
+      H0 is true is a measure of the evidence the data provide against (or for) the null hypothesis.
+     We also saw, in Section 8.3.4, that p-values provide a measure of data-based evidence against
+       H0. A natural question to ask is whether these two different measures ever agree, that is, can
+       they be reconciled? Berger (James, not Roger) and Sellke (1987) contended that, in the
+       two-sided testing problem, these measures could not be reconciled, and the Bayes measure
+      was superior. Casella and Berger (Roger 1987) argued that the two-sided Bayes problem is
+         artificial, and that in the more natural one-sided problem, the measures of evidence can be
+       reconciled. This reconciliation makes little difference to Schervish (1996), who argues that,
+       as measures of evidence, p-values have serious logical flaws.
+ 8.5.4 Confidence Set p-Values
+       Berger and Boos (1994) proposed an alternative method for computing p-values. In the com-
+     mon definition of a p-value, Theorem 8.3.27, the “sup” is over the entire null space Θ0.
+       Berger and Boos proposed taking the sup over a subset of Θ0 called C. This set C = C(X) is
+       determined from the data and has the property that, if θ ∈Θ0, then Pθ(θ ∈C(X)) ≥1−β.       (See Chapter 9 for a discussion of confidence sets like C.) Then the confidence set p-value is
+                           pC(x) =  sup Pθ (W(X) ≥W(x))+β.                                         θ∈C(x)
+       Berger and Boos showed that pC is a valid p-value.
+         There are two potential advantages to pC. The computational advantage is that it may be
+        easier to compute the sup over the smaller set C than over the larger set Θ0. The statistical
+       advantage is that, having observed X, we have some idea of the value of θ; there is a good
+      chance θ ∈C. It seems irrelevant to look at values of θ that do not appear to be true. The       confidence set p-value looks at only those values of θ in Θ0 that seem plausible. Berger
+      and Boos (1994) and Silvapulle (1996) give numerous examples of confidence set p-values.
+       Berger (1996) points out that confidence set p-values can produce tests with improved power
+        in the problem of comparing two binomial probabilities.

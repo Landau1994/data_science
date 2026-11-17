@@ -1,0 +1,44 @@
+CONDITIONAL DISTRIBUTIONS AND INDEPENDENCE                          123
+     If X and Y are continuous random variables, then P(X = x) = 0 for every value of x. To compute
+a conditional probability such as P(Y > 200|X = 73), Definition 1.3.2 cannot be used since thedenominator, P(X = 73), is zero. Yet, in actuality a value of X is observed. If, to the limit of our
+measurement, we see X = 73, this knowledge might give us information about Y (as the height and
+weight example at the beginning of this section indicated). It turns out that the appropriate way to
+define a conditional probability distribution for Y given X = x, when X and Y are both continuous,
+is analogous to the discrete case with pdfs replacing pmfs (see Miscellanea 4.9.3).
+Definition 4.2.3  Let (X,Y) be a continuous bivariate random vector with joint pdf f(x,y) and
+marginal pdfs fX(x) and fY(y). For any x such that fX(x) > 0, the conditional pdf of Y given that
+X = x is the function of y denoted by f(y|x) and defined by
+                                                 f(x,y)
+                                          f(y|x) =  fX(x) .
+
+For any y such that fY(y) > 0, the conditional pdf of X given that Y = y is the function of x denoted
+by f(x|y) and defined by                                                 f(x,y)
+                                          f(x|y) =  fY(y) .
+
+   To verify that f(x|y) and f(y|x) are indeed pdfs, the same steps can be used as in the earlierverification that Definition 4.2.1 had defined true pmfs with integrals now replacing sums.
+    In addition to their usefulness for calculating probabilities, the conditional pdfs or pmfs can also
+be used to calculate expected values. Just remember that f(y|x) as a function of y is a pdf or pmf,and use it in the same way that we have previously used unconditional pdfs or pmfs. If g(Y) is a
+function of Y, then the conditional expected value of g(Y) given that X = x is denoted by E(g(Y)|x)and is given by
+
+                                                   ∞
+              =              and       =            ∑               E(g(Y)|x)     y g(y)f(y|x)        E(g(Y)|x)   −∞g(y) f(y|x)dy
+in the discrete and continuous cases, respectively. The conditional expected value has all of the
+properties of the usual expected value listed in Theorem 2.2.5. Moreover, E(Y|X) provides the bestguess at Y based on knowledge of X, extending the result in Example 2.2.6. (See Exercise 4.13.)
+Example 4.2.4 (Calculating conditional pdfs)  As in Example 4.1.12, let the continuous random
+vector (X,Y) have joint pdf f(x,y) = e−y, 0 < x < y < ∞. Suppose we wish to compute the condi-
+tional pdf of Y given X = x. The marginal pdf of X is computed as follows. If x ≤0, f(x,y) = 0 forall values of y so fX(x) = 0. If x > 0, f(x,y) > 0 only if y > x. Thus,
+
+                              ∞            ∞
+                           fX(x) =        =    e−y dy = e−x.
+                                                                  x                               −∞f(x,y)dy
+Thus, marginally, X has an exponential distribution. Using Definition 4.2.3, the conditional distribu-
+tion of Y given X = x can be computed for any x > 0 (since these are the values for which fX(x) > 0).
+For any such x,
+
+                                      f(x,y)   e−y
+                                    > x                          f(y|x) =   fX(x) = e−x = e−(y−x),    if y
+
+and
+
+                                        f(x,y)    0
+                             f(y|x) =   fX(x) = e−x = 0,    if y ≤x.

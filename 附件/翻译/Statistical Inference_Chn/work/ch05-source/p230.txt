@@ -1,0 +1,51 @@
+CONVERGENCE CONCEPTS                                                   199
+   Approximation techniques are very useful when more than one parameter makes up the function
+to be estimated, and more than one random variable is used in the estimator. One common example
+is in growth studies, where a ratio of weight/height is a variable of interest. (Recall that in Chapter
+3 we saw that a ratio of two normal random variables has a Cauchy distribution. The ratio problem,
+while being important to experimenters, is nasty in theory.)
+   This brings us to the second extension of the Delta Method, to the multivariate case. As we
+already have Taylor’s Theorem for the multivariate case, this extension contains no surprises.
+Example 5.5.27 (Moments of a ratio estimator)  Suppose X and Y are random variables with
+nonzero means µX and µY, respectively. The parametric function to be estimated is g(µX,µY) =
+µX/µY. It is straightforward to calculate
+
+                              ∂                1
+                                 g(µX,µY) =
+                          ∂µX               µY
+and
+                              ∂                                 g(µX,µY) =  −µX .
+                           ∂µY               µ2Y
+
+The first-order Taylor approximations (5.5.8) and (5.5.9), give
+
+                 X        µX
+              E                         ,                  Y   ≈  µY
+and
+                 X         1       µ2X                 Var             VarX +   VarY      Cov(X,Y)                  Y   ≈  µ2Y       µ4Y    −2µXµ3Y
+                              µX   2  VarX   VarY
+                 =          +                                  .                                 µY      µ2X     µ2Y  −2Cov(X,Y)µXµY
+
+Thus, we have an approximation for the mean and variance of the ratio estimator, and the approx-
+imations only use the means, variances, and covariance of ¯X and Y. Exact calculations would be
+quite hopeless, with closed-form expressions being unattainable.                           ∥
+  We next present a CLT to cover an estimator such as the ratio estimator. Note that we must
+deal with multiple random variables although the ultimate CLT is a univariate one. Suppose
+the vector valued random variable X = (X1,...,Xp) has mean µ = (µ1,...,µp) and covariances
+cov(Xi,Xj) = σij, and we observe an independent random sample X1,...,Xn and calculate the
+means ¯Xi = ∑nk=1 Xik, i = 1,..., p. For a function g(x) = g(x1,...,xp) we can use the development
+after (5.5.7) to write
+
+                                                              p
+                           g(¯x1,..., ¯xp) = g(µ1,...,µp)+                      ∑ g′k(x)(¯xk −µk),                                                    k=1
+
+and we then have the following theorem.
+Theorem 5.5.28 (Multivariate Delta Method)  Let X1,...,Xn be a random sample with E(Xij) =
+µi and cov(Xik,Xjk) = σi j. For a given function g with continuous first partial derivatives and a
+                                                         ∂g(µ)  ∂g(µ)                                     > 0,                                                                      ∂µjspecific value of µ = (µ1,µ2,...,µp) for which τ2 = ΣΣσij  ∂µi   ·
+               √n[g(¯X1,...,                                 in distribution.                              ¯Xs)−g(µ1,...,µp)] →n(0,τ2)
+
+
+   The proof necessitates dealing with the convergence of multivariate random variables, and we
+will not deal with such multivariate intricacies here, but will take Theorem 5.5.28 on faith. The
+interested reader can find more details in Lehmann and Casella (1998, Section 1.8).

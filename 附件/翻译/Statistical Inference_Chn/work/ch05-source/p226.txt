@@ -1,0 +1,37 @@
+CONVERGENCE CONCEPTS                                                   195
+which is a very difficult calculation. (Note that this calculation is difficult even with the aid of a
+computer – the magnitudes of the factorials cause great difficulty. Try it if you don’t believe it!) The
+CLT gives us the approximation
+                     √ 30(¯X     √                 P(¯X     =  P       −10)    30(11−10)                  ≤11)       √ 20   ≤   √ 20
+                  ≈  P(Z ≤1.2247) = .8888.
+See Exercise 5.37 for some a further refinement.                                        ∥
+  An approximation tool that can be used in conjunction with the Central Limit Theorem is known
+as Slutsky’s Theorem.
+Theorem 5.5.17 (Slutsky’s Theorem)    If Xn →X in distribution and Yn →a, a constant, in prob-ability, then
+  a. YnXn →aX in distribution.
+  b. Xn +Yn →X +a in distribution.
+   The proof of Slutsky’s Theorem is omitted, since it relies on a characterization of convergence in
+distribution that we have not discussed. A typical application is illustrated by the following example.
+Example 5.5.18 (Normal approximation with estimated variance)  Suppose that
+                           √n(¯Xn                           −µ)                             σ     →n(0,1)
+
+                                                                                               n = 0, thenbut the value of σ is unknown. We have seen in Example 5.5.3 that, if limn→∞VarS2
+S2n →σ2 in probability. By Exercise 5.32, σ/Sn →1 in probability. Hence, Slutsky’s Theorem tellsus
+                    √n(¯Xn      σ √n(¯Xn                      −µ) =       −µ)                               Sn        Sn    σ     →n(0,1).
+                                                                              ∥
+
+5.5.4  The Delta Method
+
+The previous section gives conditions under which a standardized random variable has a limit nor-
+mal distribution. There are many times, however, when we are not specifically interested in the
+distribution of the random variable itself, but rather some function of the random variable.
+Example 5.5.19 (Estimating the odds)   Suppose that we observe X1,X2,...,Xn, independent
+Bernoulli(p) random variables. The typical parameter of interest is p, the success probability, but
+another popular parameter is 1−p,p   the odds. For example, if the data represent the outcomes of amedical treatment with p = 2/3, then a person has odds 2 : 1 of getting better. Moreover, if there
+were another treatment with success probability r, biostatisticians often estimate the odds ratio
+  p      r   giving the relative odds of one treatment over another.1−p/ 1−r,   As we would typically estimate the success probability p with the observed success probability
+ˆp = ∑i Xi/n, we might consider using     ˆp  as an estimate of   p  But what are the properties of                                              1−ˆp                            ˆp      1−p.
+this estimator. How might we estimate the variance of 1−ˆp? Moreover, how can we approximate itssampling distribution?
+    Intuition abandons us, and exact calculation is relatively hopeless, so we have to rely on an
+approximation. The Delta Method will allow us to obtain reasonable, approximate answers to our
+questions.                                                                      ∥

@@ -1,0 +1,44 @@
+MISCELLANEA                                                              167
+          It then follows that the expected winning from a trade is
+
+                                  π(x)            π(x/2)    x
+                         π(x)+π(x/2)2x+ π(x)+π(x/2) 2,
+
+      and thus you should trade only if π(x/2) < 2π(x). If π is the exponential(λ) density, it is
+       optimal to trade if x < 2log2/λ.
+    (ii) A more classical approach does not assume that there is a pdf on the amount of money
+       placed in the first envelope. Christensen and Utts also offer an explanation here, noting that
+       the paradox occurs if one incorrectly assumes that P(Y = y|X = x) = 1/2, for all values of     X and Y, where X is the amount in your envelope and Y is the amount in your opponents’
+       envelope. They argue that the correct conditional distributions are P(Y = 2x|X = m) = 1 and
+      P(Y = x/2|X = 2m) = 1 and that your expected winning if you trade is E(Y) = 3m/2, and         is the same as your expected winning if you keep your envelope.
+         This paradox is often accompanied with arguments for or against the Bayesian methodol-
+      ogy of inference (see Chapter 7), but these arguments are somewhat tangential to the under-
+       lying probability calculations. For comments, criticisms, and other analyses see the Letters
+        to the Editor from Binder (1993), Ridgeway (1993) (which contains a solution by Marilyn
+       vos Savant), Ross (1994), Blachman (1996), and the accompanying responses from Christen
+      and Utts.
+ 4.9.2 More on the Arithmetic-Geometric-Harmonic Mean Inequality
+      The arithmetic-geometric-harmonic mean inequality is a special case of a general result
+       about power means, which are defined by
+
+                                                                   1/r
+                                       1  n
+                                     Ar =  ∑ xri                                       n i=1
+        for xi ≥0. Shier (1988) shows that Ar is a nondecreasing function of r, that is, Ar ≤Ar′ if
+        r ≤r′ or,                                               1/r                                     n                                                       n       1/r′                         1            1
+                                                                 for r             ∑ xri    ∑ xr′i                         n i=1    ≤  n i=1           ≤r′
+          It should be clear that A1 is the arithmetic mean and A−1 is the harmonic mean. What is less
+        clear, but true, is that A0 = limr→0 Ar is the geometric mean. Thus, the arithmetic-geometric-
+      harmonic mean inequality follows as a special case of the power mean inequality (see Exer-
+        cise 4.57).
+ 4.9.3 The Borel Paradox
+      Throughout this chapter, for continuous random variables X and Y, we have been writing
+       expressions such as E(Y|X = x) and P(Y ≤y|X = x). Thus far, we have not gotten into        trouble. However, we might have.
+         Formally, the conditioning in a conditional expectation is done with respect to a sub
+       sigma-algebra (Definition 1.2.1), and the conditional expectation E(Y|G ) is defined as a      random variable whose integral, over any set in the sub sigma-algebra G , agrees with that
+       of X. This is quite an advanced concept in probability theory (see Billingsley 1995, Section
+        34).
+         Since the conditional expectation is only defined in terms of its integral, it may not be
+       unique even if the conditioning is well-defined. However, when we condition on sets of
+        probability zero (such as {X = x}), conditioning may not be well-defined, so different con-        ditional expectations are more likely to appear. To see how this could affect us, it is easiest
+        to look at conditional distributions, which amounts to calculating E[I(Y ≤y)|X = x].

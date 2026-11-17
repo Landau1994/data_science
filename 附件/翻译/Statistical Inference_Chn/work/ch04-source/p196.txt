@@ -1,0 +1,48 @@
+EXERCISES                                                                  165
+
+4.55 A parallel system is one that functions as long as at least one component of it functions. A particular
+       parallel system is composed of three independent components, each of which has a lifelength with an
+      exponential(λ) distribution. The lifetime of the system is the maximum of the individual lifelengths.
+     What is the distribution of the lifetime of the system?
+4.56 A large number, N = mk, of people are subject to a blood test. This can be administered in two ways.
+           i. Each person can be tested separately. In this case N tests are required.
+          ii. The blood samples of k people can be pooled and analyzed together. If the test is negative, this one
+            test suffices for k people. If the test is positive, each of the k persons must be tested separately, and,
+           in all, k +1 tests are required for the k people.
+     Assume that the probability, p, that the test is positive is the same for all people and that the test results
+      for different people are statistically independent.
+       (a) What is the probability that the test for a pooled sample of k people will be positive?
+      (b) Let X = number of blood tests necessary under plan (ii). Find EX.
+       (c) In terms of minimizing the expected number of blood tests to be performed on the N people, which
+          plan [(i) or (ii)] would be preferred if it is known that p is close to 0? Justify your answer using the
+          expression derived in part (b).
+4.57 Refer to Miscellanea 4.9.2.
+       (a) Show that A1 is the arithmetic mean, A−1 is the harmonic mean, and A0 = limr→0 Ar is the geometric         mean.
+      (b) The arithmetic-geometric-harmonic mean inequality will follow if it can be established that Ar is a
+         nondecreasing function of r over the range −∞< r < ∞.
+             (i) Verify that if logAr is nondecreasing in r then it will follow that Ar is nondecreasing in r.
+             (ii) Show that
+                             d         1   r∑i xri logxi       1                                 logAr =                                                                                                                                                  i       .                              dr                                                r2      ∑i xri   −log  n ∑i xr
+             (iii) Define ai = xri /∑i xri and write the quantity in braces as log(n) −∑ai log(1/ai) where ∑ai =                 1. Now prove that this quantity is nonnegative, establishing the monotonicity of Ar and the
+              arithmetic-geometric-harmonic mean inequality as a special case.
+     The quantity ∑i ai log(1/ai) is called entropy, sometimes considered an absolute measure of uncertainty
+      (see Bernardo and Smith, 1994, Section 2.7). The result of part (iii) states that the maximum entropy is
+      attained when all probabilities are the same (randomness).
+      Hint: To prove the inequality note that the ai are a probability distribution, and we can write
+
+                                        1
+                            =                                  Elog                                                                  ai log(1/ai),                      ∑                                        a                                                                                                         i
+
+
+                                                              a     and Jensen’s inequality shows that Elog  1a ≤log E 1
+4.58 For any two random variables X and Y with finite variances, prove that
+       (a) Cov(X,Y) = Cov(X,E(Y|X)).
+      (b) X and Y −E(Y|X) are uncorrelated.
+       (c) Var(Y −E(Y|X)) = E(Var(Y|X)).
+4.59 For any three random variables X, Y, and Z with finite variances, prove (in the sprit of Theorem 4.4.7)
+      the covariance identity
+
+                       Cov(X,Y) = E(Cov(X,Y|Z))+Cov(E(X|Z),E(Y|Z)),
+     where Cov(X,Y|Z) is the covariance of X and Y under the pdf f(x,y|z).
+4.60 Referring to Miscellanea 4.9.3, find the conditional distribution of Y given that Y = X for each of the
+      three interpretations given for the condition Y = X.

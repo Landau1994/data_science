@@ -1,0 +1,15 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{ctex}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[width=12cm,height=8cm,axis lines=left,tick align=outside,ymin=-.03,ymax=1.04,xmin=1.0,xmax=9.0,xlabel={年龄},ylabel={概率},title={雀鹰存活概率},legend columns=3,legend style={draw=none,at={(.5,-.23)},anchor=north,font=\small}]
+\addplot[black,solid,line width=.9pt] table[x=x,y=y0,col sep=comma] {ch12_18.csv};
+\addlegendentry{二次 Logistic}
+\addplot[black,dashed,line width=.9pt] table[x=x,y=y1,col sep=comma] {ch12_18.csv};
+\addlegendentry{线性 Logistic}
+\addplot[only marks,mark=o,black,mark size=2pt] coordinates {(1,0.45454545454545453) (2,0.5973154362416108) (3,0.7142857142857143) (4,0.6694915254237288) (5,0.6666666666666666) (6,0.6086956521739131) (7,0.5185185185185185) (8,0.3) (9,0.25)};
+\addlegendentry{观测比例／结果}
+
+\end{axis}\end{tikzpicture}\end{document}

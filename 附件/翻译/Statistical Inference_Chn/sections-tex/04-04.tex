@@ -1,0 +1,184 @@
+\subsection{分层模型与混合分布}\label{sec:4.4}
+到目前为止，一个随机变量都只有一个分布，这个分布可能依赖于参数. 虽然一般说来，随机变量只能有一个分布，但以层次结构来思考问题，常常更容易建立模型.
+\begin{example}[二项--Poisson 层次]\label{ex:4.4.1}\index{SI0340@二项–泊松}
+下面也许是最经典的分层模型（hierarchical model）. 一只昆虫产下大量卵，每个卵存活的概率为 $p$. 平均会有多少卵存活？
+
+产卵的“大量”是一个随机变量，常假定服从 $\operatorname{Poisson}(\lambda)$ 分布. 此外，若假定各个卵独立存活，就得到了 Bernoulli 试验. 因此，令 $X=$ 存活卵数，$Y=$ 产卵数，则有
+$$\begin{aligned}X\mid Y&\sim\operatorname{binomial}(Y,p),\\Y&\sim\operatorname{Poisson}(\lambda),\end{aligned}$$
+这就是一个分层模型. 回顾 $X\mid Y\sim\operatorname{binomial}(Y,p)$ 这样的记号，表示给定 $Y=y$ 时 $X$ 的条件分布为 $\operatorname{binomial}(y,p)$.
+\end{example}
+\sourcepageanchor{165}
+
+层次结构的优点在于，可以用一系列处于不同层次的相对简单的模型，来描述复杂过程. 此外，处理层次结构，并不比处理条件分布和边缘分布更困难.
+\begin{example}[续\autoref{ex:4.4.1}]\label{ex:4.4.2}
+所关心的随机变量 $X=$ 存活卵数的分布为
+$$
+\begin{aligned}
+P(X=x)&=\sum_{y=0}^{\infty}P(X=x,Y=y)\\
+&=\sum_{y=0}^{\infty}P(X=x\mid Y=y)P(Y=y)&&\text{（条件概率的定义）}\\
+&=\sum_{y=x}^{\infty}\left[\binom yx p^x(1-p)^{y-x}\right]\left[\frac{e^{-\lambda}\lambda^y}{y!}\right],&&\text{（$y<x$ 时条件概率为 0）}
+\end{aligned}
+$$
+因为 $X\mid Y=y$ 服从 $\operatorname{binomial}(y,p)$，而 $Y$ 服从 $\operatorname{Poisson}(\lambda)$. 对最后的表达式约去可约的因子，并乘以 $\lambda^x/\lambda^x$，得到
+$$
+\begin{aligned}
+P(X=x)&=\frac{(\lambda p)^xe^{-\lambda}}{x!}\sum_{y=x}^{\infty}\frac{((1-p)\lambda)^{y-x}}{(y-x)!}\\
+&=\frac{(\lambda p)^xe^{-\lambda}}{x!}\sum_{t=0}^{\infty}\frac{((1-p)\lambda)^t}{t!}&&\text{（$t=y-x$）}\\
+&=\frac{(\lambda p)^xe^{-\lambda}}{x!}e^{(1-p)\lambda}&&\text{（和式来自 Poisson 分布的核）}\\
+&=\frac{(\lambda p)^x}{x!}e^{-\lambda p}.
+\end{aligned}
+$$
+所以 $X\sim\operatorname{Poisson}(\lambda p)$. 因而，所有关于 $X$ 的边缘推断都是针对 $\operatorname{Poisson}(\lambda p)$ 分布进行的，$Y$ 完全不参与. 在层次结构中引入 $Y$，主要是为了帮助理解模型. 还有一个额外好处：$X$ 的分布参数是两个参数的乘积，而这两个参数各自都比较容易理解.
+
+现在很容易回答最初的问题：
+$$EX=\lambda p,$$
+所以平均有 $\lambda p$ 个卵存活. 如果只关心这个均值而不需要整个分布，也可以利用条件期望的性质.
+\end{example}
+有时，下述定理能够大大简化计算. 回顾\autoref{sec:4.2}，$E(X\mid y)$ 是 $y$ 的函数，而 $E(X\mid Y)$ 是取值依赖于 $Y$ 的随机变量.
+\begin{theorem}\label{thm:4.4.3}\index{SI0428@迭代}
+若 $X$ 和 $Y$ 是任意两个随机变量，则只要有关期望存在，就有
+\begin{equation}\label{eq:4.4.1}
+EX=E(E(X\mid Y)).
+\end{equation}
+\end{theorem}
+\begin{proof}
+记 $X,Y$ 的联合 pdf 为 $f(x,y)$. 由定义，
+\begin{equation}\label{eq:4.4.2}
+EX=\iint xf(x,y)\,dx\,dy=\int\left[\int xf(x\mid y)\,dx\right]f_Y(y)\,dy,
+\end{equation}
+其中 $f(x\mid y)$ 和 $f_Y(y)$ 分别是给定 $Y=y$ 时 $X$ 的条件 pdf 与 $Y$ 的边缘 pdf. 注意，\eqref{eq:4.4.2} 中的内层积分就是条件期望 $E(X\mid y)$，所以
+$$EX=\int E(X\mid y)f_Y(y)\,dy=E(E(X\mid Y)),$$
+即所欲证. 将积分换为求和，就得到离散情形的证明.
+\end{proof}
+\sourcepageanchor{166}
+
+注意，\eqref{eq:4.4.1} 中存在记号的混用，因为同一个等式里的“$E$”代表不同的期望. 左端的 $E$ 是关于 $X$ 的边缘分布取期望；右端第一个 $E$ 是关于 $Y$ 的边缘分布取期望，第二个则是关于 $X\mid Y$ 的条件分布取期望. 不过，这其实不会引起混淆，因为这些就是符号 $E$ 在各处唯一可能的解释！
+
+现在很容易计算\autoref{ex:4.4.1} 中存活卵数的期望. 根据\autoref{thm:4.4.3}，
+$$\begin{aligned}
+EX&=E(E(X\mid Y))\\
+&=E(pY)&&\text{（因为 $X\mid Y\sim\operatorname{binomial}(Y,p)$）}\\
+&=p\lambda.&&\text{（因为 $Y\sim\operatorname{Poisson}(\lambda)$）}
+\end{aligned}$$
+本节标题中的混合分布（mixture distribution），指由分层结构产生的分布. 虽然这一术语没有统一的定义，我们将采用下面这个似乎比较常用的定义.
+\begin{definition}\label{def:4.4.4}\index{SI0336@混合}
+如果随机变量 $X$ 的分布依赖于一个本身也有分布的量，就称 $X$ 具有混合分布.
+\end{definition}
+因此，\autoref{ex:4.4.1} 中的 $\operatorname{Poisson}(\lambda p)$ 分布是混合分布，因为它是将 $\operatorname{binomial}(Y,p)$ 与 $Y\sim\operatorname{Poisson}(\lambda)$ 结合的结果. 一般说来，分层模型产生混合分布.
+
+层次结构不必止于两层，但也容易看出，理论上任何更复杂的层次结构都可以作为两层结构来处理. 不过，用多层结构为某种现象建模可能有好处，因为它更容易理解.
+\begin{example}[\autoref{ex:4.4.1} 的推广]\label{ex:4.4.5}\index{SI0341@二项–泊松–指数}
+考虑\autoref{ex:4.4.1} 的一个推广：现在有大量母虫，从中随机选择一只，而不是只有一只母虫. 我们仍然想知道平均存活卵数，但不能再明确断言，每只母虫的产卵数都服从同一个 Poisson 分布. 下列三层结构也许更合适. 令 $X=$ 一窝中的存活卵数，则
+$$\begin{aligned}
+X\mid Y&\sim\operatorname{binomial}(Y,p),\\
+Y\mid\Lambda&\sim\operatorname{Poisson}(\Lambda),\\
+\Lambda&\sim\operatorname{exponential}(\beta),
+\end{aligned}$$
+其中最后一层用于描述不同母虫之间的变异. $X$ 的均值很容易计算：
+$$\begin{aligned}
+EX&=E(E(X\mid Y))\\
+&=E(pY)&&\text{（同前）}\\
+&=E(E(pY\mid\Lambda))\\
+&=E(p\Lambda)\\
+&=p\beta,&&\text{（指数分布的期望）}
+\end{aligned}$$
+计算完成.
+\end{example}
+本例的模型与之前略有不同：其中两个随机变量是离散的，一个是连续的. 使用这类模型不会造成困难. 仍可像以前那样定义联合密度 $f(x,y,\lambda)$，条件密度 $f(x\mid y)$、$f(x\mid y,\lambda)$ 等，以及边缘密度 $f(x)$、$f(x,y)$ 等. 只需理解，计算概率或期望时，对离散变量求和，对连续变量积分.
+\sourcepageanchor{167}
+
+注意，将最后两层合并，就可以把这个三层模型看作两层结构. 若 $Y\mid\Lambda\sim\operatorname{Poisson}(\Lambda)$ 且 $\Lambda\sim\operatorname{exponential}(\beta)$，则
+$$\begin{aligned}
+P(Y=y)&=P(Y=y,0<\Lambda<\infty)\\
+&=\int_0^\infty f(y,\lambda)\,d\lambda\\
+&=\int_0^\infty f(y\mid\lambda)f(\lambda)\,d\lambda\\
+&=\int_0^\infty\left[\frac{e^{-\lambda}\lambda^y}{y!}\right]\frac1\beta e^{-\lambda/\beta}\,d\lambda\\
+&=\frac1{\beta y!}\int_0^\infty\lambda^ye^{-\lambda(1+\beta^{-1})}\,d\lambda&&\text{（Gamma pdf 的核）}\\
+&=\frac1{\beta y!}\Gamma(y+1)\left(\frac1{1+\beta^{-1}}\right)^{y+1}\\
+&=\frac1{1+\beta}\left(\frac1{1+\beta^{-1}}\right)^y.
+\end{aligned}$$
+$Y$ 的这个 pmf 就是负二项 pmf 的\hyperref[eq:3.2.10]{式 (3.1.10)} 形式.\footnote{译注：原文引用 (3.1.10)，对应公式实际编号为\eqref{eq:3.2.10}.} 因此，\autoref{ex:4.4.5} 的三层结构等价于两层结构\index{SI0339@二项–负二项}\semanticindexanchor{339:167}
+$$\begin{aligned}
+X\mid Y&\sim\operatorname{binomial}(Y,p),\\
+Y&\sim\text{负二项}\left(p=\frac1{1+\beta},r=1\right).
+\end{aligned}$$
+不过，从理解模型的角度说，三层模型要容易理解得多！
+
+一个有用的推广是 Poisson--Gamma 混合，它推广了上述模型的一部分. 若有层次结构\index{SI0346@泊松–伽马}\semanticindexanchor{346:167}
+$$\begin{aligned}Y\mid\Lambda&\sim\operatorname{Poisson}(\Lambda),\\\Lambda&\sim\operatorname{gamma}(\alpha,\beta),\end{aligned}$$
+则 $Y$ 的边缘分布是负二项分布（见\autoref{exercise:4.32}）. 负二项分布的这个模型表明，可以将它看成“变异更大”的 Poisson 分布. \hyperref[bib:source297]{Solomon (1983)} 解释了这些以及其他会产生负二项分布的生物学和数学模型（见\autoref{exercise:4.33}）.
+
+除了有助于理解，分层模型还常能简化计算. 例如，统计学中常见的一个分布是非中心卡方分布（noncentral chi squared distribution）. 自由度为 $p$、非中心参数为 $\lambda$ 时，其 pdf 为
+\begin{equation}\label{eq:4.4.3}\index{SI0342@卡方–泊松}\index{SI0357@非中心卡方}
+f(x\mid\lambda,p)=\sum_{k=0}^{\infty}\frac{x^{p/2+k-1}e^{-x/2}}{\Gamma(p/2+k)2^{p/2+k}}\frac{\lambda^ke^{-\lambda}}{k!},
+\end{equation}
+这是一个极为繁杂的表达式. 例如，计算 $EX$ 看起来颇费周折. 但仔细观察 pdf，就能发现这是一个由中心卡方密度（如\hyperref[eq:3.3.10]{式 (3.2.10)} 所给出的密度）和 Poisson 分布组成的混合分布.\footnote{译注：此处原文引用 (3.2.10)，中心卡方密度实际见\eqref{eq:3.3.10}；\eqref{eq:3.2.10} 是负二项 pmf.} 也就是说，如果建立层次结构
+$$\begin{aligned}X\mid K&\sim\chi^2_{p+2K},\\K&\sim\operatorname{Poisson}(\lambda),\end{aligned}$$
+则 $X$ 的边缘分布就是\eqref{eq:4.4.3}. 从而
+$$\begin{aligned}EX&=E(E(X\mid K))\\&=E(p+2K)\\&=p+2\lambda,\end{aligned}$$
+计算相当简单. $\operatorname{Var}X$ 也能用这种方法求出.
+\sourcepageanchor{168}
+
+本节最后再介绍一个分层模型，并再说明一种条件期望计算.
+\begin{example}[Beta--二项层次]\label{ex:4.4.6}\index{SI0337@伯努利–贝塔}
+二项分布的一种推广，是允许成功概率按某个分布变化. 描述这种情形的一个标准模型是\footnote{译注：原文第一行写为 $X\mid P\sim\operatorname{binomial}(P)$，并带有未使用的 $i=1,\ldots,n$. 由紧随其后的 $E(X\mid P)=nP$ 及\autoref{ex:4.4.8} 可知，意指 $X\mid P\sim\operatorname{binomial}(n,P)$. 此处保留原式.}
+$$\begin{aligned}X\mid P&\sim\operatorname{binomial}(P),\qquad i=1,\ldots,n,\\P&\sim\operatorname{beta}(\alpha,\beta).\end{aligned}$$
+通过迭代取期望，计算 $X$ 的均值为
+$$EX=E[E(X\mid P)]=E[nP]=n\frac\alpha{\alpha+\beta}.$$
+\end{example}
+计算 $X$ 的方差只稍微复杂一些. 我们可以使用一个条件方差公式，它与\autoref{thm:4.4.3} 的期望恒等式具有相似的思想.
+\begin{theorem}[条件方差恒等式]\label{thm:4.4.7}\index{SI1064@条件}
+对任意两个随机变量 $X$ 和 $Y$，只要有关期望存在，就有
+\begin{equation}\label{eq:4.4.4}
+\operatorname{Var}X=E(\operatorname{Var}(X\mid Y))+\operatorname{Var}(E(X\mid Y)).
+\end{equation}
+\end{theorem}
+\begin{proof}
+由定义，
+$$\operatorname{Var}X=E([X-EX]^2)=E([X-E(X\mid Y)+E(X\mid Y)-EX]^2),$$
+最后一步加上又减去了 $E(X\mid Y)$. 展开最后一个期望中的平方，得到
+\begin{equation}\label{eq:4.4.5}
+\begin{aligned}
+\operatorname{Var}X&=E([X-E(X\mid Y)]^2)+E([E(X\mid Y)-EX]^2)\\
+&\quad+2E([X-E(X\mid Y)][E(X\mid Y)-EX]).
+\end{aligned}
+\end{equation}
+然而，最后一项为 0，这可通过迭代取期望轻易看出：
+\begin{equation}\label{eq:4.4.6}
+\begin{aligned}
+&E([X-E(X\mid Y)][E(X\mid Y)-EX])\\
+&\qquad=E(E\{[X-E(X\mid Y)][E(X\mid Y)-EX]\mid Y\}).
+\end{aligned}
+\end{equation}
+在条件分布 $X\mid Y$ 中，$X$ 是随机变量. 所以在表达式
+$$E\{[X-E(X\mid Y)][E(X\mid Y)-EX]\mid Y\}$$
+中，$E(X\mid Y)$ 与 $EX$ 都是常数. 因此，\footnote{译注：下式第三行第一个因子后多出的一个右括号为原文排印错误；正确配对为 $(E(X\mid Y)-EX)(E(X\mid Y)-E(X\mid Y))$.}
+$$\begin{aligned}
+&E\{[X-E(X\mid Y)][E(X\mid Y)-EX]\mid Y\}\\
+&\quad=(E(X\mid Y)-EX)(E\{[X-E(X\mid Y)]\mid Y\})\\
+&\quad=(E(X\mid Y)-EX))(E(X\mid Y)-E(X\mid Y))\\
+&\quad=(E(X\mid Y)-EX)(0)\\
+&\quad=0.
+\end{aligned}$$
+
+因此，由\eqref{eq:4.4.6} 得到 $E((X-E(X\mid Y))(E(X\mid Y)-EX))=E(0)=0$. 再看\eqref{eq:4.4.5}，有
+$$E([X-E(X\mid Y)]^2)=E\bigl(E\{[X-E(X\mid Y)]^2\mid Y\}\bigr)=E(\operatorname{Var}(X\mid Y)),$$
+以及
+$$E([E(X\mid Y)-EX]^2)=\operatorname{Var}(E(X\mid Y)),$$
+从而证明了\eqref{eq:4.4.4}.
+\end{proof}
+\sourcepageanchor{169}
+
+\begin{example}[续\autoref{ex:4.4.6}]\label{ex:4.4.8}\index{SI0337@伯努利–贝塔}
+为计算 $X$ 的方差，由\eqref{eq:4.4.4}，
+$$\operatorname{Var}X=\operatorname{Var}(E(X\mid P))+E(\operatorname{Var}(X\mid P)).$$
+现在 $E(X\mid P)=nP$，而且 $P\sim\operatorname{beta}(\alpha,\beta)$，所以
+$$\operatorname{Var}(E(X\mid P))=\operatorname{Var}(nP)=n^2\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}.$$
+又因为 $X\mid P$ 服从 $\operatorname{binomial}(n,P)$，有 $\operatorname{Var}(X\mid P)=nP(1-P)$. 因而\footnote{译注：原文下面的积分前漏写因子 $n$；左端与下一行均包含 $n$，故应在 $\Gamma(\alpha+\beta)/(\Gamma(\alpha)\Gamma(\beta))$ 前乘以 $n$. 此处保留原式.}
+$$E[\operatorname{Var}(X\mid P)]=nE[P(1-P)]=\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}\int_0^1 p(1-p)p^{\alpha-1}(1-p)^{\beta-1}\,dp.$$
+注意，被积函数是另一个 Beta pdf 的核，其参数为 $\alpha+1$ 和 $\beta+1$. 所以
+$$E(\operatorname{Var}(X\mid P))=n\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}\left[\frac{\Gamma(\alpha+1)\Gamma(\beta+1)}{\Gamma(\alpha+\beta+2)}\right]
+=n\frac{\alpha\beta}{(\alpha+\beta)(\alpha+\beta+1)}.$$
+将两部分相加并化简，得到
+$$\operatorname{Var}X=n\frac{\alpha\beta(\alpha+\beta+n)}{(\alpha+\beta)^2(\alpha+\beta+1)}.$$
+\end{example}

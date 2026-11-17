@@ -1,0 +1,43 @@
+76                          COMMON FAMILIES OF DISTRIBUTIONS
+               = 1, recall the Taylor series expansion of ey,To see that ∑∞x=0 P(X = x|λ)
+                                      ∞  yi
+                                                                               .                                             ey = ∑                                                   i=0 i!
+
+Thus,
+                      ∞                ∞ λ x                              = e−λeλ = 1.           ∑
+                          x=0                       P(X = x|λ) = e−λ x=0∑ x!
+   The mean of X is easily seen to be
+
+                                   ∞          x
+                       EX =    xe−λλ                  ∑                                           x=0    x!
+                                   ∞          x
+                     =    xe−λλ                  ∑                                           x=1    x!
+                                        ∞  λ x−1
+                     =  λe−λ ∑
+                                                 x=1                                        ∞ (x−1)!y                                        λ
+                                                                                  (substitute y =                     =  λe−λ ∑                                                 y=0 y!                        x−1)
+                     =  λ.
+
+A similar calculation will show that
+                                 VarX = λ,
+and so the parameter λ is both the mean and the variance of the Poisson distribution.
+   The mgf can also be obtained by a straightforward calculation, again following from the Taylor
+series of ey. We have
+                                 MX(t) = eλ(et−1).
+(See Exercise 2.33 and Example 2.3.13.)
+Example 3.2.4 (Waiting time)  As an example of a waiting-for-occurrence application, consider
+a telephone operator who, on the average, handles five calls every three minutes. What is the prob-
+ability that there will be no calls in the next minute? At least two calls?
+     If we let X = number of calls in a minute, then X has a Poisson distribution with EX = λ = 53.
+So
+
+                   P(no calls in the next minute) =  P(X = 0)
+                                                          e−5/3  53  0                             =
+                                                               0!
+                             =  e−5/3 = .189;
+
+             P(at least two calls in the next minute) =  P(X ≥2)                                         = 1)                            =  1−P(X = 0)−P(X                                                                                    5  1
+                                                                                    3                            =                                           1−.189−e−5/31!
+                            =  .496.
+
+                                                                              ∥

@@ -1,0 +1,40 @@
+EXPONENTIAL FAMILIES                                                      93
+Example 3.4.3 (Binomial mean and variance)  From Example 3.4.1 we have
+
+                         d            d      p       1
+                       dpw1(p) =  dp log   =                              1−p   p(1−p)
+                       d              d                           logc(p) =          = −n                    dp           dpnlog(1−p)                                     1−p
+and thus from Theorem 3.4.2 we have
+
+                                    1          n
+                        E  p(1−p)X = 1−p
+and a bit of rearrangement yields E(X) = np. The variance identity works in a similar manner.   ∥
+   The proof of Theorem 3.4.2 is a calculus excursion, and is relegated to Exercise 3.31. See also
+Exercise 3.32 for a special case.
+  We now look at another example, and some other features of exponential families.
+Example 3.4.4 (Normal exponential family)   Let f(x|µ,σ2) be the n(µ,σ2) family of pdfs
+where θ = (µ,σ),−∞< µ < ∞, σ > 0. Then
+                                1
+                 f(x|µ,σ2)                 = √2πσ exp −(x−µ)22σ2
+                                                                                                 (3.4.6)
+                                1                        µx
+                                                                                                                  .                                     +                                                 exp                                     −x22σ2                                                       σ2                 = √2πσ exp −µ22σ2
+
+Define
+
+                            h(x)  =   1 for all x,
+                                      1                 c(θ) = c(µ,σ)  =          exp  −µ2    ,       µ < ∞, σ > 0,                     √ 2πσ     2σ2   −∞<
+                 1                        µ
+       w1(µ,σ) =      ,  σ > 0,       w2(µ,σ) =   σ > 0                σ2                         σ2
+                           = x.                 t1(x) = −x2/2,     and      t2(x)
+Then
+               = h(x)c(µ,σ)exp[w1(µ,σ)t1(x)+w2(µ,σ)t2(x)],                 f(x|µ,σ2)
+which is the form (3.4.1) with k = 2. Note again that the parameter functions are only defined over
+the range of the parameter.                                                         ∥
+    In general, the set of x values for which f(x|θ) > 0 cannot depend on θ in an exponential family.The entire definition of the pdf or pmf must be incorporated into the form (3.4.1). This is most easily
+accomplished by incorporating the range of x into the expression for f(x|θ) through the use of anindicator function.
+Definition 3.4.5  The indicator function of a set A, most often denoted by IA(x), is the function
+
+                                        1  x                                      IA(x) =     ∈A,
+                                        0     x̸ ∈A.
+An alternative notation is I(x ∈A).

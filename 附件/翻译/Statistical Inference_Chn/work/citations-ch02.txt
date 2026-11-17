@@ -1,0 +1,24 @@
+sections-tex/02-02.tex:10 前提是该积分或级数存在. 如果 $\mathrm E|g(X)|=\infty$，我们就说 $\mathrm E g(X)$ 不存在. （Ross (1988) 将此称为“无意识统计学家定律”. 我们并不觉得这有什么好笑的.）
+sections-tex/02-03.tex:192 如果随机变量具有有界支撑，就不会出现矩的唯一性问题. 此时，无穷矩序列确实唯一确定分布（例如，见 Billingsley 1995，第~30~节）. 而且，如果矩母函数在零的某个邻域内存在，无论支撑集怎样，分布都被唯一确定. 因而，所有阶矩都存在与矩母函数存在并不等价.
+sections-tex/02-03.tex:208 \autoref{thm:2.3.11}和\autoref{thm:2.3.12}的证明依赖于拉普拉斯变换（Laplace transform）理论. （经典参考文献是 Widder (1946)，Feller (1971) 也对拉普拉斯变换作了全面介绍.）$M_X(t)$ 的定义式，即
+sections-tex/02-03.tex:208 \autoref{thm:2.3.11}和\autoref{thm:2.3.12}的证明依赖于拉普拉斯变换（Laplace transform）理论. （经典参考文献是 Widder (1946)，Feller (1971) 也对拉普拉斯变换作了全面介绍.）$M_X(t)$ 的定义式，即
+sections-tex/02-04.tex:37 结论. 以下定理都是 Lebesgue 控制收敛定理（Dominated Convergence Theorem）\index{SI0616@勒贝格控制收敛定理}\semanticindexanchor{616:88}的推论（例如，见 Rudin (1976)）.
+sections-tex/02-05.tex:104 Betteley (1977) 给出了一个有趣的期望加法法则. 设 $X,Y$ 为任意两个随机变量，定义
+sections-tex/02-05.tex:202 Ruppert (1987) 用影响函数（influence function，\autoref{sec:10.6.4}）进一步研究峰度的含义，Groeneveld 
+sections-tex/02-05.tex:202 Ruppert (1987) 用影响函数（influence function，\autoref{sec:10.6.4}）进一步研究峰度的含义，Groeneveld (1991) 用它研究偏度；关于 $\alpha_4$ 的解释，还可参见 Balanda and MacGillivray (1988).
+sections-tex/02-05.tex:202 influence function，\autoref{sec:10.6.4}）进一步研究峰度的含义，Groeneveld (1991) 用它研究偏度；关于 $\alpha_4$ 的解释，还可参见 Balanda and MacGillivray (1988).
+sections-tex/02-05.tex:240 有限个矩不能唯一确定一个分布，Romano and Siegel (1986) 中的这个例子说明了这一点. 设 $X$ 具有正态分布，即密度为
+sections-tex/02-05.tex:246 （Romano and Siegel (1986) 指出，对任意有限的 $n$，都存在一个离散的、从而非正态的随机变量，其前 $n$ 阶矩与 $X$ 的对应矩相同.）
+sections-tex/02-05.tex:257 因而对所有 $r$，$\mathrm EX_1^r=\mathrm EX_2^r$. （Romano and Siegel (1986) 讨论了这个例子的极端版本，即一整类不同的密度具有相同的各阶矩. 此外，Berg (1988) 表明，正态分布的较简单变换，例如 $X^3
+sections-tex/02-05.tex:257 因而对所有 $r$，$\mathrm EX_1^r=\mathrm EX_2^r$. （Romano and Siegel (1986) 讨论了这个例子的极端版本，即一整类不同的密度具有相同的各阶矩. 此外，Berg (1988) 表明，正态分布的较简单变换，例如 $X^3$，也会出现这种矩的现象.）
+sections-tex/02-06.tex:4 一定由它的矩确定. 但如果 $\sum_{r=1}^\infty\mu^r r^k/k!$ 具有正的收敛半径，其中 $X\sim F_X$，$\mathrm EX^r=\mu'_r$，那么矩序列具有唯一性，从而分布被唯一确定（Billingsley 1995，第~30~节）.\footnote{译注：原文级数印为 $\sum_{r=1}^\infty\mu^r r^k/k!$，求和指标、幂指数与
+sections-tex/02-06.tex:6 矩序列具有唯一性的一个充分条件是 Carleman 条件（Carleman's Condition；Chung 1974）\index{SI0101@Carleman条件}\semanticindexanchor{101:99}. 若 $X\sim F_X$，
+sections-tex/02-06.tex:10 Feller (1971) 对拉普拉斯变换作了非常完整的论述，矩母函数是其特殊情形. 特别地，Feller 证明了（与 Billingsley 类似），只要
+sections-tex/02-06.tex:48 Feller (1968) 对母函数有完整论述. 几乎所有高等概率论教材都介绍特征函数，例如 Billingsley (1995) 或 Resnick (1999)
+sections-tex/02-06.tex:48 Feller (1968) 对母函数有完整论述. 几乎所有高等概率论教材都介绍特征函数，例如 Billingsley (1995) 或 Resnick (1999).
+sections-tex/02-06.tex:48 Feller (1968) 对母函数有完整论述. 几乎所有高等概率论教材都介绍特征函数，例如 Billingsley (1995) 或 Resnick (1999).
+sections-tex/02-06.tex:51 在以上述问题为题的文章中，McCullagh (1994) 考察了一对与\autoref{ex:2.3.10}类似、但具有矩母函数的密度，
+sections-tex/02-06.tex:55 两个密度明显不同，它们的累积量母函数实际上几乎相同，整个取值范围内的最大差小于 $1.34\times10^{-9}$（小于一个像素的大小）. 因此，对标题中问题的回答是：“从数学目的看，是；但从数值目的看，是响亮的否.” 相比之下，Waller (1995) 说明，尽管矩母函数不能在数值上区分这两个分布，特征函数却做得很好. （Waller et al. (1995) 和 Luce\~no (
+sections-tex/02-06.tex:55 9}$（小于一个像素的大小）. 因此，对标题中问题的回答是：“从数学目的看，是；但从数值目的看，是响亮的否.” 相比之下，Waller (1995) 说明，尽管矩母函数不能在数值上区分这两个分布，特征函数却做得很好. （Waller et al. (1995) 和 Luce\~no (1997) 进一步研究了用特征函数数值求取累积分布函数的作用.）细节见\autoref{exercise:2.3
+sections-tex/02-06.tex:55 ，对标题中问题的回答是：“从数学目的看，是；但从数值目的看，是响亮的否.” 相比之下，Waller (1995) 说明，尽管矩母函数不能在数值上区分这两个分布，特征函数却做得很好. （Waller et al. (1995) 和 Luce\~no (1997) 进一步研究了用特征函数数值求取累积分布函数的作用.）细节见\autoref{exercise:2.37}.
+backmatter/02-distributions.tex:154 \noindent\textbf{常见分布之间的关系.}实线表示变换与特例，虚线表示极限.据Leemis（1986）改编.

@@ -1,0 +1,44 @@
+160                                      MULTIPLE RANDOM VARIABLES
+
+4.23 For X and Y as in Example 4.3.3, find the distribution of XY by making the transformations given in (a)
+     and (b), and integrating out V.
+       (a) U = XY, V = Y
+      (b) U = XY, V = X/Y
+4.24 Let X and Y be independent random variables with X ∼gamma(r,1) and Y ∼gamma(s,1). Show that     Z1 = X +Y and Z2 = X/(X +Y) are independent, and find the distribution of each. (Z1 is gamma and Z2
+       is beta.)
+4.25 Use the techniques of Section 4.3 to derive the joint distribution of (X,Y) from the joint distribution of
+     (X,Z) in Examples 4.5.8 and 4.5.9.
+4.26 X and Y are independent random variables with X ∼exponential(λ) and Y ∼exponential(µ). It is      impossible to obtain direct observations of X and Y. Instead, we observe the random variables Z and W,
+     where
+                                                     1       if Z = X
+                      Z = min{X,Y}    and  W =  0       if Z = Y  .
+      (This is a situation that arises, in particular, in medical experiments. The X and Y variables are censored.)
+       (a) Find the joint distribution of Z and W.
+      (b) Prove that Z and W are independent. (Hint:  Show that P(Z ≤z|W = i) = P(Z ≤z) for i = 0 or 1.)
+4.27 Let X ∼n(µ,σ2) and let Y ∼n(γ,σ2). Suppose X and Y are independent. Define U = X +Y and V =
+    X −Y. Show that U and V are independent normal random variables. Find the distribution of each of     them.
+4.28 Let X and Y be independent standard normal random variables.
+       (a) Show that X/(X +Y) has a Cauchy distribution.
+      (b) Find the distribution of X/|Y|.
+       (c)  Is the answer to part (b) surprising? Can you formulate a general theorem?
+4.29 Jones (1999) looked at the distribution of functions of X and Y when X = Rcosθ and Y = Rsinθ, where
+     θ ∼U(0,2π) and R is a positive random variable. Here are two of the many situations that he considered.
+       (a) Show that X/Y has a Cauchy distribution.
+      (b) Show that the distribution of √ X2+Y2XY  2  is the same as the distribution of X. Specialize this result to
+         one about n(0,σ2) random variables.
+4.30 Suppose the distribution of Y, conditional on X = x, is n(x,x2) and that the marginal distribution of X is
+     uniform (0,1).
+       (a) Find EY, VarY, and Cov(X,Y).
+      (b) Prove that Y/X and X are independent.
+4.31 Suppose that the random variable Y has a binomial distribution with n trials and success probability X,
+     where n is a given constant and X is a uniform(0,1) random variable.
+       (a) Find EY and Var Y.
+      (b) Find the joint distribution of X and Y.
+       (c) Find the marginal distribution of Y.
+4.32  (a) For the hierarchical model
+                         Y|Λ ∼Poisson(Λ)  and  Λ ∼gamma(α,β),
+           find the marginal distribution, mean and variance of Y. Show that the marginal distribution of Y is
+          negative binomial if α is an integer.
+      (b) Show that the three-stage model
+                Y|N ∼binomial(N, p),  N|Λ ∼Poisson(Λ),  and  Λ ∼gamma(α,β),
+          leads to the same marginal (unconditional) distribution of Y.

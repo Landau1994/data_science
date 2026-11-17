@@ -1,0 +1,42 @@
+METHODS OF EVALUATING ESTIMATORS                                      275
+Example 7.3.13 (Unbiased estimator for the scale uniform)   Let X1,...,Xn be  iid with pdf
+    = 1/θ,0 < x < θ. Since ∂θ log f(x|θ) = −1/θ, we havef(x|θ)                             ∂
+                                 ∂                2     1
+                                                                                               .                          Eθ                                                                      2                            ∂θ                                         log f(X|θ)   = θ
+
+The Cram´er–Rao Theorem would seem to indicate that if W is any unbiased estimator of θ,
+
+                                                           2
+                                      Varθ W          .                        ≥θn
+We would now like to find an unbiased estimator with small variance. As a first guess, consider
+the sufficient statistic Y = max(X1,...,Xn), the largest order statistic. The pdf of Y is fY(y|θ) =nyn−1/θ n, 0 < y < θ, so
+                                              θ nyn       n
+                          EθY =                                        dy = n+1θ,                                               0  θ n
+showing that n+1n Y is an unbiased estimator of θ. We next calculate
+                n+1       n+1  2
+                  Varθ      Y  =            Varθ Y                       n             n
+                          n+1  2       2     n      2                    =           EθY                                     n       − n+1θ
+                          n+1  2   n    2     n      2                    =                                     n    n+2θ − n+1θ
+                                     1
+                    =  n(n+2)θ 2,
+
+which is uniformly smaller than θ 2/n. This indicates that the Cram´er–Rao Theorem is not applicable
+to this pdf. To see that this is so, we can use Leibnitz’s Rule (Section 2.4) to calculate
+
+                  d    θ                  d    θ    1
+                dθ  0 h(x)f(x|θ)dx =  dθ  0  h(x) θ dx
+                                          h(θ)     θ     ∂   1
+                       =                            +                                                         h(x)
+                                       θ                                              ∂θ  θ    dx̸                                                               0
+                                                      θ     ∂
+                       =                                                 h(x)                                        ∂θ f(x|θ)dx,                                                        0
+unless h(θ)/θ = 0 for all θ. Hence, the Cram´er–Rao Theorem does not apply. In general, if the
+range of the pdf depends on the parameter, the theorem will not be applicable.                ∥
+  A shortcoming of this approach to finding best unbiased estimators is that, even if the Cram´er–
+Rao Theorem is applicable, there is no guarantee that the bound is sharp. That is to say, the value of
+the Cram´er–Rao Lower Bound may be strictly smaller than the variance of any unbiased estimator.
+In fact, in the usually favorable case of f(x|θ) being a one-parameter exponential family, the mostthat we can say is that there exists a parameter τ(θ) with an unbiased estimator that achieves the
+Cram´er–Rao Lower Bound. However, in other typical situations, for other parameters, the bound
+may not be attainable. These situations cause concern because, if we cannot find an estimator that
+attains the lower bound, we have to decide whether no estimator can attain it or if we must look at
+more estimators.

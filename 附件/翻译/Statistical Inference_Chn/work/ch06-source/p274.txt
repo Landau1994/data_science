@@ -1,0 +1,46 @@
+THE EQUIVARIANCE PRINCIPLE                                              243
+                     = g then g′′ = g1 satisfies the equality. For example, takeIn (ii), if g′ = g then g′′ = g2 while if g′̸
+ = g = g1. Theng′̸
+                            g2(g1(x)) = g2(n−x) = n−x = g1(x).
+                                                                              ∥
+   To use the Equivariance Principle, we must be able to apply formal invariance to the transformed
+problem. That is, after changing the measurement scale we must still have the same formal structure.
+As the structure does not change, we want the underlying model, or family of distributions, to be
+invariant. This requirement is summarized in the next definition.
+Definition 6.4.4  Let F = { f(x|θ): θ ∈Θ} be a set of pdfs or pmfs for X and let G be a group of
+transformations of the sample space X . Then F is invariant under the group G if for every θ ∈Θ
+and g ∈G there exists a unique θ ′ ∈Θ such that Y = g(X) has the distribution f(y|θ ′) if X has the
+distribution f(x|θ).
+Example 6.4.5 (Conclusion of Example 6.4.1)   In the binomial problem, we must check both g1
+and g2. If X ∼binomial(n, p) then g1(X) = n−X ∼binomial(n,1−p) so p′ = 1−p where p plays
+the role of θ in Definition 6.4.4. Also g2(X) = X ∼binomial(n, p) so p′ = p in this case. Thus, the
+set of binomial pmfs is invariant under the group G = {g1,g2}.                            ∥
+    In Example 6.4.1, the group of transformations had only two elements. In many cases, the group
+of transformations is infinite, as the next example illustrates (see also Exercises 6.41 and 6.42).
+Example 6.4.6 (Normal location invariance)  Let X1,...,Xn be iid n(µ,σ2), both µ and σ2 un-
+known. Consider the group of transformations defined by G = {ga(x), −∞< a < ∞} wherega(x1,...,xn) = (x1 +a,...,xn +a). To verify that this set of transformations is a group, conditions
+(i) and (ii) from Definition 6.4.2 must be verified. For (i) note that
+
+                      g−a(ga(x1,...,xn)) =  g−a(x1 +a,...,xn +a)
+                       =  (x1 +a−a,...,xn +a−a)
+                       =   (x1,...,xn).
+
+So if g = ga then g′ = g−a satisfies (i). For (ii) note that
+                    ga2(ga1(x1,...,xn)) =  ga2(x1 +a1,...,xn +a1)
+                      =  (x1 +a1 +a2,...,xn +a1 +a2)
+                      =  ga1+a2(x1,...,xn).
+
+So if g = ga1 and g′ = ga2 then g′′ = ga1+a2 satisfies (ii), and Definition 6.4.2 is verified. G is a group
+of transformations.
+   The set F in this problem is the set of all joint densities f(x1,...,xn|µ,σ2) for X1,...,Xn defined
+by “X1,...,Xn are iid n(µ,σ2) for some −∞< µ < ∞and σ2 > 0.” For any a,−∞< a < ∞, therandom variables Y1,...,Yn defined by
+
+                        (Y1,...,Yn) = ga(X1,...,Xn) = (X1 +a,...,Xn +a)
+
+are iid n(µ +a,σ2) random variables. Thus, the joint distribution of Y = ga(X) is in F and hence F
+is invariant under G . In terms of the notation in Definition 6.4.4, if θ = (µ,σ2) then θ ′ = (µ +a,σ2).
+∥
+   Remember, once again, that the Equivariance Principle is composed of two distinct types of
+equivariance. One type, measurement equivariance, is intuitively reasonable. When many people
+think of the Equivariance Principle, they think that it refers only to measurement equivariance.
+If this were the case, the Equivariance Principle would probably be universally accepted. But the

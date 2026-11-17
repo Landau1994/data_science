@@ -1,0 +1,45 @@
+SAMPLING FROM THE NORMAL DISTRIBUTION                                183
+would be the ratio σ2X/σ2Y . Information about this ratio is contained in S2X/S2Y, the ratio of sample
+variances. The F distribution allows us to compare these quantities by giving us a distribution of
+
+                                     S2X/S2Y    S2X/σ2X                         =            .                                   (5.3.8)
+                              σ2X/σ2Y    S2Y/σ2Y
+Examination of (5.3.8) shows us how the F distribution is derived. The ratios S2X/σ2X and S2Y/σ2Y are
+each scaled chi squared variates, and they are independent.                               ∥
+Definition 5.3.6  Let X1,...,Xn be a random sample from a n(µX,σ2X) population, and let Y1,...,Ym
+be a random sample from an independent n(µY,σ2Y ) population. The random variable F =
+(S2X/σ2X)/(S2Y/σ2Y ) has Snedecor’s F distribution with n −1 and m −1 degrees of freedom. Equiv-alently, the random variable F has the F distribution with p and q degrees of freedom if it has
+pdf
+                   Γ p+q2      p  p/2      x(p/2)−1                 fF(x) =    p     q                                            ,  0 < x < ∞.            (5.3.9)
+                  Γ  2 Γ  2   q     [1+(p/q)x](p+q)/2
+
+   The F distribution can be derived in a more general setting than is done here. A variance ratio
+may have an F distribution even if the parent populations are not normal. Kelker (1970) has shown
+that as long as the parent populations have a certain type of symmetry (spherical symmetry), then
+the variance ratio will have an F distribution.
+   The derivation of the F pdf, starting from normal distributions, is similar to the derivation of
+Student’s t. In fact, in one special case the F is a transform of the t. (See Theorem 5.3.8.) Similar
+to what we did for the t, we can reduce the task of deriving the F pdf to that of finding the pdf of
+                                                           p and V ∼χ2q. (See Exercise 5.17.)(U/p)/(V/q), where U and V are independent, U ∼χ2
+Example 5.3.7 (Continuation of Example 5.3.5)  To see how the F distribution may be used
+for inference about the true ratio of population variances, consider the following. The quantity
+(S2X/σ2X)/ (S2Y/σ2Y ) has an Fn−1,m−1 distribution. (In general, we use the notation Fp,q to denote
+an F random variable with p and q degrees of freedom.) We can calculate
+
+                                         χ2                      =  E   n−1/(n−1)                  (by definition)                         EFn−1,m−1         χ2                                     m−1/(m−1)
+                                        χ2                      =  E    n−1  E m−1              (independence)
+                             n−1      χ2m−1
+                                                                                    chi squared                      =   n−1  m−1
+                            n−1  m−3                     calculations
+                      = m−1
+                            m−3.
+
+Note that this last expression is finite and positive only if m > 3. We have that
+
+                                S2X/σ2X                    E      =      = m−1
+                                S2Y/σ2Y                                         EFn−1,m−1  m−3,
+and, removing expectations, we have for reasonably large m,
+
+                                    S2X/S2Y
+                             σ2X/σ2Y ≈m−1 ≈1,                          m−3
+as we might expect.                                                              ∥

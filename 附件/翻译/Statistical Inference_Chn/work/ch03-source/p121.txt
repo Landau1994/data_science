@@ -1,0 +1,62 @@
+90                          COMMON FAMILIES OF DISTRIBUTIONS
+
+for the lognormal pdf. The moments of X can be calculated directly, using (3.3.21), or by exploiting
+the relationship to the normal and writing
+
+                          EX =  EelogX
+                       =  EeY                     (Y = logX ∼n(µ,σ2))
+                       =  eµ+(σ2/2).
+
+The last equality is obtained by recognizing the mgf of the normal distribution (set t = 1; see Exer-
+cise 2.33). We can use a similar technique to calculate EX2 and get
+
+                           VarX = e2(µ+σ2) −e2µ+σ2.
+
+   The lognormal distribution is similar in appearance to the gamma distribution, as Figure 3.3.6
+shows. The distribution is very popular in modeling applications, when the variable of interest is
+skewed to the right. For example, incomes are necessarily skewed to the right and modeling with
+a lognormal allows the use of normal-theory statistics on log(income), a very convenient circum-
+stance.
+
+Double Exponential Distribution
+
+The double exponential distribution is formed by reflecting the exponential distribution around its
+mean. The pdf is given by
+
+                    1
+          f(x|µ,σ) =    e−|x−µ|/σ, −∞< x < ∞, −∞< µ < ∞,  σ > 0.           (3.3.22)
+                 2σ
+
+The double exponential provides a symmetric distribution with “fat” tails (much fatter than the
+normal), but still retains all of its moments. It is straightforward to calculate
+
+                      EX = µ   and  VarX = 2σ2.
+
+   The double exponential distribution is not bell-shaped. In fact, it has a peak (or more formally,
+a point of nondifferentiability) at x = µ. When dealing with this distribution analytically, it is im-
+portant to remember this point. The absolute value signs can also be troublesome when performing
+integrations and it is best to divide the integral into regions around x = µ:
+
+                           Z ∞  x
+               EX =          e−|x−µ|/σ dx
+                         −∞ 2σ
+                           Z µ  x            Z ∞ x
+               =          e(x−µ)/σ dx+       e−(x−µ)/σ dx.               (3.3.23)
+                         −∞ 2σ               µ 2σ
+
+Notice that we can remove the absolute value signs over the two regions of integration. (This strategy
+is useful, in general, in dealing with integrals containing absolute values; divide up the region of
+integration so the absolute value signs can be removed.) Evaluation of (3.3.23) can be completed by
+performing integration by parts on each integral.
+   There are many other continuous distributions that have uses in different statistical applications,
+many of which will appear throughout the rest of the book. The comprehensive work by Johnson
+and Kotz (1969, 1970a, 1970b) is a valuable reference for most useful statistical distributions.
+
+
+3.4  Exponential Families
+
+A family of pdfs or pmfs is called an exponential family if it can be expressed as
+
+                                                                   k      !
+                           f(x|θ) = h(x)c(θ)exp ∑ wi(θ)ti(x)   .                       (3.4.1)
+                                                        i=1

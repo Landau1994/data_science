@@ -1,0 +1,1820 @@
+
+
+=== PDF 368; PRINT 337 ===
+                                   Chapter 9
+
+               Interval Estimation
+
+
+
+
+
+   “I fear,” said Holmes, “that if the matter is beyond humanity it is certainly beyond me. Yet we
+   must exhaust all natural explanations before we fall back upon such a theory as this.”
+                                                                  Sherlock Holmes
+                                                  The Adventure of the Devil’s Foot
+
+9.1  Introduction
+In Chapter 7, we discussed point estimation of a parameter θ, where the inference is a guess of a
+single value as the value of θ. In this chapter we discuss interval estimation and, more generally,
+set estimation. The inference in a set estimation problem is the statement that “θ ∈C” where C ⊂Θand C = C(x) is a set determined by the value of the data X = x observed. If θ is real-valued, then
+we usually prefer the set estimate C to be an interval. Interval estimators will be the main topic of
+this chapter.
+   As in the previous two chapters, this chapter is divided into two parts, the first concerned with
+finding interval estimators and the second part concerned with evaluating the worth of the estimators.
+We begin with a formal definition of interval estimator, a definition as vague as the definition of point
+estimator.
+Definition 9.1.1  An interval estimate of a real-valued parameter θ  is any pair of functions,
+L(x1,...,xn) and U(x1,...,xn), of a sample that satisfy L(x) ≤U(x) for all x ∈X . If X = x is
+observed, the inference L(x) ≤θ ≤U(x) is made. The random interval [L(X),U(X)] is called aninterval estimator.
+
+  We will use our previously defined conventions and write [L(X),U(X)] for an interval estimator
+of θ based on the random sample X = (X1,...,Xn) and [L(x),U(x)] for the realized value of the
+interval. Although in the majority of cases we will work with finite values for L and U, there is
+sometimes interest in one-sided interval estimates. For instance, if L(x) = −∞, then we have the
+one-sided interval (−∞,U(x)] and the assertion is that “θ ≤U(x),” with no mention of a lowerbound. We could similarly take U(x) = ∞and have a one-sided interval [L(x),∞).
+   Although the definition mentions a closed interval [L(x),U(x)], it will sometimes be more nat-
+ural to use an open interval (L(x),U(x)) or even a half-open and half-closed interval, as in the
+previous paragraph. We will use whichever seems most appropriate for the particular problem at
+hand although the preference will be for a closed interval.
+Example 9.1.2 (Interval estimator)  For a sample X1,X2,X3,X4 from a n(µ,1), an interval esti-
+mator of µ is [X −1,X +1]. This means that we will assert that µ is in this interval.           ∥
+   At this point, it is natural to inquire as to what is gained by using an interval estimator. Previ-
+ously, we estimated µ with X and now we have the less precise estimator [X −1,X +1]. We surelymust gain something! By giving up some precision in our estimate (or assertion about µ), we have
+gained some confidence, or assurance, that our assertion is correct.
+
+
+DOI: 10.1201/9781003456285-9                                                               337
+
+=== PDF 369; PRINT 338 ===
+338                                             INTERVAL ESTIMATION
+Example 9.1.3 (Continuation of Example 9.1.2)  When we estimate µ by X, the probability that
+we are exactly correct, that is, P(X = µ), is zero. However, with an interval estimator, we have a
+positive probability of being correct. The probability that µ is covered by the interval [X −1,X +1]can be calculated as
+            P(µ ∈[X −1,X +1]) =  P(X −1 ≤µ ≤X +1)
+                     =  P(−1 ≤X −µ ≤1)
+                     =  P      −µ                               −2 ≤X 1/4 ≤2
+                     =  P(−2 ≤Z ≤2)      √X−µ1/4 is standard normal
+                     =  .9544.
+
+Thus, we have over a 95% chance of covering the unknown parameter with our interval estimator.
+Sacrificing some precision in our estimate, in moving from a point to an interval, has resulted in
+increased confidence that our assertion is correct.                                       ∥
+   The purpose of using an interval estimator, rather than a point estimator, is to have some guar-
+antee of capturing the parameter of interest. The certainty of this guarantee is quantified in the
+following definitions.
+Definition 9.1.4  For an interval estimator [L(X),U(X)] of a parameter θ, the coverage probability
+of [L(X),U(X)] is the probability that the random interval [L(X),U(X)] covers the true parameter,
+θ. In symbols, it is denoted by either Pθ(θ ∈[L(X),U(X)]) or P(θ ∈[L(X),U(X)]|θ).
+Definition 9.1.5  For an interval estimator [L(X),U(X)] of a parameter θ, the confidence coeffi-
+cient of [L(X),U(X)] is the infimum of the coverage probabilities, infθ Pθ(θ ∈[L(X),U(X)]).
+   There are a number of things to be aware of in these definitions. One, it is important to keep in
+mind that the interval is the random quantity, not the parameter. Therefore, when we write probabil-
+ity statements such as Pθ(θ ∈[L(X),U(X)]), these probability statements refer to X, not θ. In other
+words, think of Pθ(θ ∈[L(X),U(X)]), which might look like a statement about a random θ, as the
+algebraically equivalent Pθ(L(X) ≤θ,U(X) ≥θ), a statement about a random X.    Interval estimators, together with a measure of confidence (usually a confidence coefficient) are
+sometimes known as confidence intervals. We will often use this term interchangeably with interval
+estimator. Although we are mainly concerned with confidence intervals, we occasionally will work
+with more general sets. When working in general, and not being quite sure of the exact form of our
+sets, we will speak of confidence sets. A confidence set with confidence coefficient equal to some
+value, say 1−α, is simply called a 1−α confidence set.   Another important point is concerned with coverage probabilities and confidence coefficients.
+Since we do not know the true value of θ, we can only guarantee a coverage probability equal to
+the infimum, the confidence coefficient. In some cases this does not matter because the coverage
+probability will be a constant function of θ. In other cases, however, the coverage probability can
+be a fairly variable function of θ.
+Example 9.1.6 (Scale uniform interval estimator)   Let X1,...,Xn be a random sample from a
+uniform(0,θ) population and let Y = max{X1,...,Xn}. We are interested in an interval estimator of
+θ. We consider two candidate estimators: [aY,bY],1 ≤a < b, and [Y +c,Y +d], 0 ≤c < d, where
+
+=== PDF 370; PRINT 339 ===
+METHODS OF FINDING INTERVAL ESTIMATORS                                339
+a,b,c, and d are specified constants. (Note that θ is necessarily larger than y.) For the first interval
+we have
+                        Pθ(θ ∈[aY,bY]) =  Pθ(aY ≤θ ≤bY)                                             1
+                        =  Pθ                                             b ≤Yθ ≤1a
+                                             1
+                        =  Pθ                       .              (T = Y/θ)                                             b ≤T ≤1a
+
+We previously saw (Example 7.3.13) that fY(y) = nyn−1/θ n,0 ≤y ≤θ, so the pdf of T is fT(t) =
+ntn−1, 0 ≤t ≤1. We therefore have
+                      1                  1/a           1  n    1  n
+                     Pθ        =      ntn−1 dt =                        .                      b ≤T ≤1a       1/b            a  −  b
+The coverage probability of the first interval is independent of the value of θ and thus ( 1a)n    1                                                        −( b)nis the confidence coefficient of the interval.
+   For the other interval, for θ ≥d a similar calculation yields
+           Pθ(θ ∈[Y +c,Y +d]) =  Pθ(Y +c ≤θ ≤Y +d)
+                                                                          (T = Y/θ)                   =  Pθ                         1−dθ ≤T ≤1−cθ
+                                            1−c/θ                      n              n                   =          ntn−1 dt =                                   .                                  1−cθ  − 1−dθ                                         1−d/θ
+In this case, the coverage probability depends on θ. Furthermore, it is straightforward to calculate
+that for any constants c and d,
+
+                                                  n              n
+                                = 0,                              lim                     1−cθ  − 1−dθ                       θ→∞
+showing that the confidence coefficient of this interval estimator is zero.                     ∥
+
+9.2  Methods of Finding Interval Estimators
+We present five subsections of methods of finding estimators. This might seem to indicate that there
+are five different methods for finding interval estimators. This is really not so, in fact, operationally,
+all of the methods presented in the next four subsections are the same, being based on the strategy
+of inverting a test statistic. The last subsection, dealing with Bayesian intervals, presents a different
+construction method.
+
+9.2.1  Inverting a Test Statistic
+
+There is a very strong correspondence between hypothesis testing and interval estimation. In fact,
+we can say in general that every confidence set corresponds to a test and vice versa. Consider the
+following example.
+Example 9.2.1 (Inverting a normal test)  Let X1,...,Xn be iid n(µ,σ2) and consider testing H0 :
+µ = µ0 versus H1: µ̸ = µ0. For a fixed α level, a reasonable test (in fact, the most powerful unbiasedtest) has rejection region {x : |x−µ0| > zα/2σ/√n}. Note that H0 is accepted for sample points with|x−µ0| ≤zα/2σ/√n, or equivalently,
+                            σ             σ
+                         x−zα/2 √n ≤µ0 ≤x+zα/2 √n.
+
+=== PDF 371; PRINT 340 ===
+340                                             INTERVAL ESTIMATION
+
+                                    x
+                                           x = m + za/2s /÷ ⎯n
+                                x*
+
+
+                                                                 x = m – za/2s /÷ ⎯n
+
+                              A(m0)
+
+
+
+                                                            m
+                                           m0                                                              C(x*)
+
+
+Figure 9.2.1 Relationship between confidence intervals and acceptance regions for tests. The upper line is
+¯x = µ +zα/2σ/√n and the lower line is ¯x = µ −zα/2σ/√n.
+
+Since the test has size α, this means that P(H0 is rejected|µ = µ0) = α, or, stated in another way,
+P(H0 is accepted|µ = µ0) = 1−α. Combining this with the above characterization of the acceptanceregion, we can write
+                       σ             σ
+              P X −zα/2 √n ≤µ0 ≤X +zα/2 √n|µ = µ0 = 1−α.
+But this probability statement is true for every µ0. Hence, the statement
+                          σ             σ
+                      Pµ X −zα/2 √n ≤µ ≤X +zα/2 √n = 1−α
+
+is true. The interval                                                 obtained by inverting the acceptance region of               [x−zα/2σ/√n, x+zα/2σ/√n],
+the level α test, is a 1−α confidence interval.                                         ∥
+  We have illustrated the correspondence between confidence sets and tests. The acceptance region
+of the hypothesis test, the set in the sample space for which H0 : µ = µ0 is accepted, is given by
+                                    σ             σ
+                A(µ0) =  (x1,...,xn) : µ0 −zα/2 √n ≤x ≤µ0 +zα/2 √n    ,
+and the confidence interval, the set in the parameter space with plausible values of µ, is given by
+                                  σ            σ
+                    C(x1,...,xn) =  µ : x−zα/2 √n ≤µ ≤x+zα/2 √n    .
+
+These sets are connected to each other by the tautology
+                            (x1,...,xn) ∈A(µ0) ⇔µ0 ∈C(x1,...,xn).
+   The correspondence between testing and interval estimation for the two-sided normal problem
+is illustrated in Figure 9.2.1. There it is, perhaps, more easily seen that both tests and intervals ask
+the same question, but from a slightly different perspective. Both procedures look for consistency
+between sample statistics and population parameters. The hypothesis test fixes the parameter and
+asks what sample values (the acceptance region) are consistent with that fixed value. The confidence
+set fixes the sample value and asks what parameter values (the confidence interval) make this sample
+value most plausible.
+   The correspondence between acceptance regions of tests and confidence sets holds in general.
+The next theorem gives a formal version of this correspondence.
+
+=== PDF 372; PRINT 341 ===
+METHODS OF FINDING INTERVAL ESTIMATORS                                341
+Theorem 9.2.2 For each θ0 ∈Θ, let A(θ0) be the acceptance region of a level α test of H0: θ = θ0.
+For each x ∈X , define a set C(x) in the parameter space by
+                              C(x) = {θ0 : x ∈A(θ0)}.                                (9.2.1)
+Then the random set C(X) is a 1−α confidence set. Conversely, let C(X) be a 1−α confidence set.
+For any θ0 ∈Θ, define
+                                A(θ0) = {x: θ0 ∈C(x)}.
+Then A(θ0) is the acceptance region of a level α test of H0 : θ = θ0.
+Proof: For the first part, since A(θ0) is the acceptance region of a level α test,
+                   Pθ0(X̸ ∈A(θ0)) ≤α   and, hence,  Pθ0(X ∈A(θ0)) ≥1−α.
+Since θ0 is arbitrary, write θ instead of θ0. The above inequality, together with (9.2.1), shows that
+the coverage probability of the set C(X) is given by
+                        Pθ(θ ∈C(X)) = Pθ(X ∈A(θ)) ≥1−α,
+showing that C(X) is a 1−α confidence set.   For the second part, the Type I Error probability for the test of H0 : θ = θ0 with acceptance
+region A(θ0) is
+                              Pθ0(X̸ ∈A(θ0)) = Pθ0(θ0̸ ∈C(X)) ≤α.
+So this is a level α test.                                       2
+   Although it is common to talk about inverting a test to obtain a confidence set, Theorem 9.2.2
+makes it clear that we really have a family of tests, one for each value of θ0 ∈Θ, that we invert toobtain one confidence set.
+   The fact that tests can be inverted to obtain a confidence set and vice versa is theoretically
+interesting, but the really useful part of Theorem 9.2.2 is the first part. It is a relatively easy task
+to construct a level α acceptance region. The difficult task is constructing a confidence set. So the
+method of obtaining a confidence set by inverting an acceptance region is quite useful. All of the
+techniques we have for obtaining tests can immediately be applied to constructing confidence sets.
+    In Theorem 9.2.2, we stated only the null hypothesis H0 : θ = θ0. All that is required of the
+acceptance region is
+                               Pθ0(X ∈A(θ0)) ≥1−α.
+In practice, when constructing a confidence set by test inversion, we will also have in mind an
+alternative hypothesis such as H1 : θ̸ = θ0 or H1 : θ > θ0. The alternative will dictate the form ofA(θ0) that is reasonable, and the form of A(θ0) will determine the shape of C(x). Note, however,
+that we carefully used the word set, rather than interval. This is because there is no guarantee that
+the confidence set obtained by test inversion will be an interval. In most cases, however, one-sided
+tests give one-sided intervals, two-sided tests give two-sided intervals, strange-shaped acceptance
+regions give strange-shaped confidence sets. Later examples will exhibit this.
+   The properties of the inverted test also carry over (sometimes suitably modified) to the confi-
+dence set. For example, unbiased tests, when inverted, will produce unbiased confidence sets. Also,
+and more importantly, since we know that we can confine attention to sufficient statistics when look-
+ing for a good test, it follows that we can confine attention to sufficient statistics when looking for
+good confidence sets.
+   The method of test inversion really is most helpful in situations where our intuition deserts us
+and we have no good idea as to what would constitute a reasonable set. We merely fall back on our
+all-purpose method for constructing a reasonable test.
+
+=== PDF 373; PRINT 342 ===
+342                                             INTERVAL ESTIMATION
+Example 9.2.3 (Inverting an LRT)  Suppose that we want a confidence interval for the mean,
+λ, of an exponential(λ) population. We can obtain such an interval by inverting a level α test of
+H0 : λ = λ0 versus H1 : λ̸ = λ0.     If we take a random sample X1,...,Xn, the LRT statistic is given by
+
+                            1                                                          n e−Σxi/λ0                         λ                                                ∑xi  n                                   0                                    n e−Σxi/λ0       λ10                    =                            =          ene−Σxi/λ0.                                                 1                               1                    supλ λ n e−Σxi/λ     (∑xi/n)n e−n     nλ0
+
+For fixed λ0, the acceptance region is given by
+                                     ∑xi  n                                                                                                   ,                        (9.2.2)                         A(λ0) =  x:                                                       e−Σxi/λ0 ≥k∗                                        λ0
+where k∗is a constant chosen to satisfy Pλ0(X ∈A(λ0)) = 1−α. (The constant en/nn has been ab-sorbed into k∗.) This is a set in the sample space as shown in Figure 9.2.2. Inverting this acceptance
+region gives the 1−α confidence set
+                                     ∑xi  n
+                                                                                                  .                         C(x) =  λ :                                                     e−Σxi/λ ≥k∗                                  λ
+
+This is an interval in the parameter space as shown in Figure 9.2.2.
+
+
+                                                                                           e – Σxi /l ≥k*                              e – Σxi /l0 ≥k*                            C(x) =   l: ⎛⎝ Σxil  ⎛⎝ n           A(l0) =   x: ⎛⎝ Σxi ⎛⎝ n                        l0
+
+
+
+
+
+ k*                                                           k*
+
+                                                  Σxi                                                l
+
+                    A(l0)                                                    C(x)
+
+Figure 9.2.2 Acceptance region and confidence interval for Example 9.2.3. The acceptance region is A(λ0) =
+                                                                                                                                                     . x : (∑i xi/λ0)n e−∑i xi/λ0 ≥k∗  and the confidence interval is C(x)                            xi/λ                                   =  λ : (∑i xi/λ)n e−∑i   ≥k∗
+
+
+   The expression defining C(x) depends on x only through ∑xi. So the confidence interval can be
+expressed in the form
+                         C(∑xi) = {λ : L(∑xi)) ≤λ ≤U(∑xi)}                         (9.2.3)
+where L and U are functions determined by the constraints that the set (9.2.2) has probability 1−αand
+                      ∑xi    n               ∑xi     n                                        e−Σxi/L(Σxi) =               e−Σxi/U(Σxi).                  (9.2.4)
+                     L(∑xi)               U(∑xi)
+
+=== PDF 374; PRINT 343 ===
+METHODS OF FINDING INTERVAL ESTIMATORS                                343
+If we set
+                            ∑xi              ∑xi                     = a  and      = b,                           (9.2.5)
+                            L(∑xi)          U(∑xi)
+where a > b are constants, then (9.2.4) becomes
+
+                                    ane−a = bne−b,                                     (9.2.6)
+which yields easily to numerical solution. To work out some details, let n = 2 and note that ∑Xi ∼gamma(2,λ)            and ∑Xi/λ ∼gamma(2,1). Hence, using (9.2.5), the confidence interval becomes     1
+                    b     a ∑xi ≤λ ≤1                 ∑xi}, where a and b satisfy{λ :
+                    1
+                         = P b       =                  Pλ   ∑Xi      ∑Xi                    a   ≤λ ≤1b         ≤∑Xiλ ≤a   1−α
+
+and, from (9.2.6), a2e−a = b2e−b. Then
+
+                                                        a
+                P b        =      te−t dt                 ≤∑Xiλ ≤a           b
+                                                                                       integration
+                       =                                    e−b(b+1)−e−a(a+1).          by parts
+
+To get, for example, a 90% confidence interval, we must simultaneously satisfy the probability
+condition and the constraint. To three decimal places, we get a = 5.480,b = .441, with a confidence
+coefficient of .90006. Thus,
+
+                           1              1
+                                = .90006.                        Pλ                           5.480                       ∑Xi ≤λ ≤ .441 ∑Xi
+
+                                                                              ∥
+   The region obtained by inverting the LRT of H0 : θ = θ0 versus H1 : θ̸ = θ0 (Definition 8.2.1)is of the form
+                             Accept H0 if L(θ0|x)                                         L(     ≤k(θ0),                                                        ˆθ|x)
+with the resulting confidence region
+                              θ : L(θ|x) ≥k′(x,θ)   ,                                (9.2.7)
+for some function k′ which gives 1−α confidence.    In some cases (such as the normal and the gamma distribution) the function k′ will not depend
+on θ. In such cases the likelihood region has a particularly pleasing interpretation, consisting of
+those values of θ for which the likelihood is highest. We will also see such intervals arising from
+optimality considerations in both the frequentist (Theorem 9.3.2) and Bayesian (Corollary 9.3.10)
+realms.
+   The test inversion method is completely general in that we can invert any test and obtain a
+confidence set. In Example 9.2.3, we inverted LRTs, but we could have used a test constructed by
+any method. Also, note that the inversion of a two-sided test gave a two-sided interval. In the next
+examples, we invert one-sided tests to get one-sided intervals.
+Example 9.2.4 (Normal one-sided confidence bound)  Let X1,...,Xn be a random sample from a
+n(µ,σ2) population. Consider constructing a 1−α upper confidence bound for µ. That is, we want a
+confidence interval of the form C(x) = (−∞,U(x)]. To obtain such an interval using Theorem 9.2.2,we will invert one-sided tests of H0 : µ = µ0 versus H1 : µ < µ0. (Note that we use the specification
+of H1 to determine the form of the confidence interval here. H1 specifies “large” values of µ0, so
+
+=== PDF 375; PRINT 344 ===
+344                                             INTERVAL ESTIMATION
+the confidence set will contain “small” values, values less than a bound. Thus, we will get an upper
+confidence bound.) The size α LRT of H0 versus H1 rejects H0 if
+                           X −µ0 <                            S/√n    −tn−1,α
+
+(similar to Example 8.2.6). Thus the acceptance region for this test is
+
+                                                                s
+                          A(µ0) =  x : x ≥µ0 −tn−1,α √n    ,
+and x ∈A(µ0) ⇔x+tn−1,αs/√n ≥µ0. According to (9.2.1), we define
+                                                                    s
+                  C(x) = {µ0 : x ∈A(µ0)} =  µ0 : x+tn−1,α √n ≥µ0   .
+By Theorem 9.2.2, the random set C(X) = (−∞,X +tn−1,αS/√n] is a 1 −α confidence set for µ.We see that, indeed, it is the right form for an upper confidence bound. Inverting the one-sided test
+gave a one-sided confidence interval.                                                 ∥
+Example 9.2.5 (Binomial one-sided confidence bound)  As a more difficult example of a one-
+sided confidence interval, consider putting a 1−α lower confidence bound on p, the success prob-
+ability from a sequence of Bernoulli trials. That is, we observe X1,...,Xn, where Xi ∼Bernoulli(p),
+and we want the interval to be of the form (L(x1,...,xn),1], where Pp(p ∈(L(X1,...,Xn),1]) ≥
+1−α. (The interval we obtain turns out to be open on the left, as will be seen.)   Since we want a one-sided interval that gives a lower confidence bound, we consider inverting
+the acceptance regions from tests of
+
+                    H0 :   p = p0     versus    H1 :   p > p0.
+   To simplify things, we know that we can base our test on T = ∑ni=1Xi ∼binomial(n, p), sinceT is sufficient for p. (See the Miscellanea section.) Since the binomial distribution has monotone
+likelihood ratio (Exercise 8.25), by the Karlin–Rubin Theorem (Theorem 8.3.17) the test that rejects
+H0 if T > k(p0) is the UMP test of its size. For each p0, we want to choose the constant k(p0) (it
+can be an integer) so that we have a level α test. We cannot get the size of the test to be exactly α,
+except for certain values of p0, because of the discreteness of T. But we choose k(p0) so that the
+size of the test is as close to α as possible, without being larger. Thus, k(p0) is defined to be the
+integer between 0 and n that simultaneously satisfies the inequalities
+
+                                          k(p0)  n
+              ∑       py                                  y=0   y   0(1−p0)n−y ≥1−α
+                       and                                                                 (9.2.8)
+                                      k(p0)−1  n
+                                <               ∑        py                                   y=0    y   0(1−p0)n−y  1−α.
+
+Because of the MLR property of the binomial, for any k = 0,...,n, the quantity
+
+                                                      k   n
+                     =                 ∑      py                               f(p0|k)   y=0  y   0(1−p0)n−y
+is a decreasing function of p0 (Exercise 8.26). Of course, f(0|0) = 1, so k(0) = 0 and f(p0|0)
+remains above 1−α for an interval of values. Then, at some point f(p0|0) = 1−α and for values
+of p0 greater than this value f(p0|0) < 1−α. So, at this point, k(p0) increases to one. This pattern
+
+=== PDF 376; PRINT 345 ===
+METHODS OF FINDING INTERVAL ESTIMATORS                                345
+continues. Thus, k(p0) is an integer-valued step-function. It is constant for a range of p0, then it
+jumps to the next bigger integer. Since k(p0) is a nondecreasing function of p0, this gives the lower
+confidence bound. (See Exercise 9.5 for an upper confidence bound.) Solving the inequalities in
+(9.2.8) for k(p0) gives both the acceptance region of the test and the confidence set.
+   For each p0, the acceptance region is given by A(p0) = {t : t ≤k(p0)}, where k(p0) satisfies
+(9.2.8). For each value of t the confidence set is C(t) = {p0: t ≤k(p0)}. This set, in its present form,
+however, does not do us much practical good. Although it is formally correct and a 1−α confidenceset, it is defined implicitly in terms of p0 and we want it to be defined explicitly in terms of p0.
+   Since k(p0) is nondecreasing, for a given observation T =t,k(p0) <t for all p0 less than or equal
+to some value, call it k−1(t). At k−1(t), k(p0) jumps up to equal t and k(p0) ≥t for all p0 > k−1(t).
+(Note that at p0 = k−1(t), f(p0|t −1) = 1−α. So (9.2.8) is still satisfied by k(p0) = t −1. Only for
+p0 > k−1(t) is k(p0) ≥t.) Thus, the confidence set is
+                        C(t) = {p0 : t ≤k(p0)} =  p0 : p0 > k−1(t)                       (9.2.9)
+and we have constructed a 1−α lower confidence bound of the form C(T) = (k−1(T),1].   The number k−1(t) can be defined as
+
+                                          t−1  n
+                                                                                                            .                (9.2.10)                      k−1(t) = sup  p : ∑                                       y=0  y  py(1−p)n−y ≥1−α
+
+Realize that k−1(t) is not really an inverse of k(p0) because k(p0) is not a one-to-one function.
+However, the expressions in (9.2.8) and (9.2.10) give us well-defined quantities for k and k−1.
+   The problem of binomial confidence bounds was first treated by Clopper and Pearson (1934),
+who obtained answers similar to these for the two-sided interval (Exercise 9.21), and started a line
+of research that is still active today. See Miscellanea 9.5.2.                               ∥
+
+9.2.2  Pivotal Quantities
+
+The two confidence intervals that we saw in Example 9.1.6 differed in many respects. One important
+difference was that the coverage probability of the interval {aY,bY} did not depend on the value of
+the parameter θ, while that of {Y + c,Y + d} did. This happened because the coverage probability
+of {aY,bY} could be expressed in terms of the quantity Y/θ, a random variable whose distributiondoes not depend on the parameter, a quantity known as a pivotal quantity, or pivot.
+   The use of pivotal quantities for confidence set construction, resulting in what has been called
+pivotal inference, is mainly due to G. A. Barnard (1949, 1980), but can be traced as far back as
+Fisher (1930), who used the term inverse probability. Closely related is D. A. S. Fraser’s theory of
+structural inference (Fraser 1968, 1979). An interesting discussion of the strengths and weaknesses
+of these methods is given in Berger and Wolpert (1984).
+Definition 9.2.6 A random variable Q(X,θ) = Q(X1,...,Xn,θ), is a pivotal quantity (or pivot) if
+the distribution of Q(X,θ) is independent of all parameters. That is, if X ∼F(x|θ), then Q(X,θ)has the same distribution for all values of θ.
+
+   The function Q(x,θ) will usually explicitly contain both parameters and statistics, but for any
+set A ,Pθ(Q(X,θ) ∈A ) cannot depend on θ. The technique of constructing confidence sets from
+pivots relies on being able to find a pivot and a set A so that the set {θ : Q(x,θ) ∈A } is a setestimate of θ.
+Example 9.2.7 (Location-scale pivots)   In location and scale cases there are lots of pivotal quan-
+tities. We will show a few here; more will be found in Exercise 9.8. Let X1,...,Xn be a random
+sample from the indicated pdfs and let X and S be the sample mean and standard deviation. To
+prove that the above quantities are pivots, we just have to show that their pdfs are independent of
+
+=== PDF 377; PRINT 346 ===
+346                                             INTERVAL ESTIMATION
+
+                                   Table 9.2.1 Location-scale pivots
+
+                        Form of pdf   Type of pdf      Pivotal quantity
+                       f(x−µ)      location      X −µ
+                                  1    x                       X                            σ f( σ )        scale           σ
+                                  1                            σ f( x−µσ  )     location–scale   X−µS
+
+parameters (details in Exercise 9.9). Notice that, in particular, if X1,...,Xn is a random sample from
+a n(µ,σ2) population, then the t statistic (X                  is a pivot because the t distribution does                                −µ)/(S/√n)
+not depend on the parameters µ and σ2.                                              ∥
+   Of the intervals constructed in Section 9.2.1 using the test inversion method, some turned out
+to be based on pivots (Examples 9.2.3 and 9.2.4) and some did not (Example 9.2.5). There is no
+all-purpose strategy for finding pivots. However, we can be a little clever and not rely totally on
+guesswork. For example, it is a relatively easy task to find pivots for location or scale parameters.
+In general, differences are pivotal for location problems, while ratios (or products) are pivotal for
+scale problems.
+Example 9.2.8 (Gamma pivot)  Suppose that X1,...,Xn are iid exponential(λ). Then T = ∑Xi is
+a sufficient statistic for λ and T ∼gamma(n,λ). In the gamma pdf t and λ appear together as t/λand, in fact the gamma(n,λ) pdf (Γ(n)λ n)−1tn−1e−t/λ is a scale family. Thus, if Q(T,λ) = 2T/λ,
+then
+                    Q(T,λ) ∼gamma(n,λ(2/λ)) = gamma(n,2),
+which does not depend on λ. The quantity Q(T,λ) = 2T/λ is a pivot with a gamma(n,2), or χ22n,
+distribution.                                                                     ∥
+  We can sometimes look to the form of the pdf to see if a pivot exists. In the above example, the
+quantity t/λ appeared in the pdf and this turned out to be a pivot. In the normal pdf, the quantity
+(x −µ)/σ appears and this quantity is also a pivot. In general, suppose the pdf of a statistic T,
+f(t|θ), can be expressed in the form
+                                             ∂
+                                 f(t|θ) = g(Q(t,θ)) ∂t Q(t,θ) ,                         (9.2.11)
+for some function g and some monotone function Q (monotone in t for each θ). Then Theorem
+2.1.5 can be used to show (Exercise 9.10) that Q(T,θ) is a pivot.
+   Once we have a pivot, how do we use it to construct a confidence set? That part is really quite
+simple. If Q(X,θ) is a pivot, then for a specified value of α we can find numbers a and b, which do
+not depend on θ, to satisfy
+                             Pθ(a ≤Q(X,θ) ≤b) ≥1−α.
+Then, for each θ0 ∈Θ,
+                             A(θ0) = {x: a ≤Q(x,θ0) ≤b}                          (9.2.12)
+is the acceptance region for a level α test of H0 : θ = θ0. We will use the test inversion method to
+construct the confidence set, but we are using the pivot to specify the specific form of our acceptance
+regions. Using Theorem 9.2.2, we invert these tests to obtain
+                           C(x) = {θ0 : a ≤Q(x,θ0) ≤b},                          (9.2.13)
+and C(X) is a 1 −α confidence set for θ. If θ  is a real-valued parameter and if, for each x ∈X ,Q(x,θ) is a monotone function of θ, then C(x) will be an interval. In fact, if Q(x,θ) is an
+increasing function of θ then C(x) has the form L(x,a) ≤θ ≤U(x,b). If Q(x,θ) is a decreasing
+function of θ (which is typical), then C(x) has the form L(x,b) ≤θ ≤U(x,a).
+
+=== PDF 378; PRINT 347 ===
+METHODS OF FINDING INTERVAL ESTIMATORS                                347
+Example 9.2.9 (Continuation of Example 9.2.8)   In Example 9.2.3 we obtained a confidence in-
+terval for the mean, λ, of the exponential(λ) pdf by inverting a level α LRT of H0 : λ = λ0 versus
+H1 : λ̸ = λ0. Now we also see that if we have a sample X1,...,Xn, we can define T = ∑Xi and
+Q(T,λ) = 2T/λ ∼χ22n.
+                                                         2n                                   ≤b) = 1−α, then     If we choose constants a and b to satisfy P(a ≤χ2
+
+             Pλ  a                                                                          2n                 = Pλ(a ≤Q(T,λ) ≤b) = P a ≤χ2                                      ≤b = 1−α.           ≤2Tλ ≤b
+
+
+                                                               b                                                                         a                                λ                     ≤b} gives C(t) = {λ :                                ≤λ ≤2t                                                                          }, which is a 1−α confidenceInverting the set A(λ) = {t: a ≤2t                                  2tinterval. (Notice that the lower endpoint depends on b and the upper endpoint depends on a, as
+mentioned above. Q(t,λ) = 2t/λ is decreasing in λ.) For example, if n = 10, then consulting a chi
+
+                                                                                 34.17                                                                       2T ≤λ ≤2T9.59}.         ∥squared table shows that a 95% confidence interval is given by {λ :
+   For the location problem, even if the variance is unknown, construction and calculation of pivotal
+intervals is quite easy. In fact, we have used these ideas already but have not called them by any
+formal name.
+Example 9.2.10 (Normal pivotal interval)    It follows from Theorem 5.3.1 that if X1,...,Xn are
+iid n(µ,σ2), then (X                   is a pivot. If σ2 is known, we can use this pivot to calculate a               −µ)/(σ/√n)confidence interval for µ. For any constant a,
+            P      −µ    =                              (Z is standard normal)             −a ≤Xσ/√n ≤a   P(−a ≤Z ≤a)
+
+ and (by now) familiar algebraic manipulations give us the confidence interval
+
+                             σ          σ
+                        µ : x−a √n ≤µ ≤x+a √n    .
+
+     If σ2 is unknown we can use the location–scale pivot S/√n.X−µ  Since S/√nX−µ has Student’s t distribu-
+tion,
+                  P      −µ    =                   −a ≤XS/√n ≤a   P(−a ≤Tn−1 ≤a).
+Thus, for any given α, if we take a = tn−1,α/2, we find that a 1−α confidence interval is given by
+                                              s                       s
+                    µ : x−tn−1,α/2 √n ≤µ ≤x+tn−1,α/2 √n    ,                  (9.2.14)
+which is the classic 1−α confidence interval for µ based on Student’s t distribution.
+   Continuing with this case, suppose that we also want an interval estimate for σ. Because (n −
+1)S2/σ2 ∼χ2n−1,(n−1)S2/σ2 is also a pivot. Thus, if we choose a and b to satisfy
+
+               P a          = P a       =                  ≤(n−1)S2σ2  ≤b      ≤χ2n−1 ≤b   1−α,
+we can invert this set to obtain the 1−α confidence interval
+                        σ2 : (n−1)s2                               ,                                 b   ≤σ2 ≤(n−1)s2a
+
+or equivalently,
+                     σ :   (n−1)s2         (n−1)s2    .                                 b  ≤σ ≤      a
+
+=== PDF 379; PRINT 348 ===
+348                                             INTERVAL ESTIMATION
+One choice of a and b that will produce the required interval is a = χ2        and b = χ2                                                                    n−1,1−α/2            n−1,α/2.
+This choice splits the probability equally, putting α/2 in each tail of the distribution. The χ2   dis-
+                                                                                   n−1tribution, however, is a skewed distribution and it is not immediately clear that an equal probability
+split is optimal for a skewed distribution. (It is not immediately clear that an equal probability split
+is optimal for a symmetric distribution, but our intuition makes this latter case more plausible.) In
+fact, for the chi squared distribution, the equal probability split is not optimal, as will be seen in
+Section 9.3. (See also Exercise 9.52.)
+   One final note for this problem. We now have constructed confidence intervals for µ and σ
+separately. It is entirely plausible that we would be interested in a confidence set for µ and σ si-
+multaneously. The Bonferroni Inequality is an easy (and relatively good) method for accomplishing
+this. (See Exercise 9.14.)                                                          ∥
+
+9.2.3  Pivoting the CDF
+
+In the previous section we saw that a pivot, Q, leads to a confidence set of the form (9.2.13), that is
+                           C(x) = {θ0 : a ≤Q(x,θ0) ≤b}.
+If, for every θ, the function Q(x,θ) is a monotone function of θ, then the confidence set C(x) is
+guaranteed to be an interval. The pivots that we have seen so far, which were mainly constructed
+using location and scale transformations, resulted in monotone Q functions and, hence, confidence
+intervals.
+    In this section, we work with another pivot, one that is totally general and, with minor assump-
+tions, will guarantee an interval.
+     If in doubt, or in a strange situation, we would recommend constructing a confidence set based
+on inverting an LRT, if possible. Such a set, although not guaranteed to be optimal, will never be
+very bad. However, in some cases such a tactic is too difficult, either analytically or computationally;
+inversion of the acceptance region can sometimes be quite a chore. If the method of this section can
+be applied, it is rather straightforward to implement and will usually produce a set that is reasonable.
+   To illustrate the type of trouble that could arise from the test inversion method, without extra
+conditions on the exact types of acceptance regions used, consider the following example, which
+illustrates one of the early methods of constructing confidence sets for a binomial success probabil-
+ity.
+Example 9.2.11 (Shortest length binomial set)    Sterne (1954) proposed the following method
+for constructing binomial confidence sets, a method that produces a set with the shortest length.
+Given α, for each value of p find the size α acceptance region composed of the most probable x
+values. That is, for each p, order the x = 0,...,n values from the most probable to the least probable
+and put values into the acceptance region A(p) until it has probability 1 −α. Then use (9.2.1) to
+invert these acceptance regions to get a 1 −α confidence set, which Sterne claimed had lengthoptimality properties.
+   To see the unexpected problems with this seemingly reasonable construction, consider a small
+example. Let X ∼binomial(3, p) and use confidence coefficient 1−α = .442. Table 9.2.2 gives theacceptance regions obtained by the Sterne construction and the confidence sets derived by inverting
+this family of tests.
+    Surprisingly, the confidence set is not a confidence interval. This seemingly reasonable con-
+struction has led us to an unreasonable procedure. The blame is to be put on the pmf, as it does not
+behave as we expect. (See Exercise 9.18.)                                             ∥
+  We base our confidence interval construction for a parameter θ on a real-valued statistic T
+with cdf FT(t|θ). (In practice we would usually take T to be a sufficient statistic for θ but this isnot necessary for the following theory to go through.) We will first assume that T is a continuous
+
+=== PDF 380; PRINT 349 ===
+METHODS OF FINDING INTERVAL ESTIMATORS                                349
+
+Table 9.2.2 Acceptance region and confidence  set  for Sterne’s construction, X ∼binomial(3, p) and
+1−α = .442                  p       Acceptance region = A(p)   x    Confidence set = C(x)
+                 [.000,.238]            {0}
+                (.238,.305)           {0,1}           0   [.000,.305)∪(.362,.366)
+                 [.305,.362]            {1}
+                (.362,.366)           {0,1}           1          (.238,.634]
+                 [.366,.634]            {1,2}
+                (.634,.638)           {2,3}           2          [.366,.762)
+                 [.638,.695]            {2}
+                (.695,.762)           {2,3}           3   (.634,.638)∪(.695,1.00]
+                 [.762,1.00]            {3}
+
+random variable. The situation where T is discrete is similar, but has a few additional technical
+details to consider. We, therefore, state the discrete case in a separate theorem.
+    First of all, recall Theorem 2.1.10, the probability integral transform, which tells us that the
+random variable FT(T|θ) is uniform(0,1), a pivot. Thus, if α1 + α2 = α, and α-level acceptanceregion of the hypothesis H0 : θ = θ0 is (Exercise 9.11)
+                                     {t : α1 ≤FT(t|θ0) ≤1−α2},
+with associated confidence set
+                           {θ : α1 ≤FT(t|θ) ≤1−α2}.
+  Now to guarantee that the confidence set is an interval, we need to have FT(t|θ) to be monotonein θ. But we have seem this already, in the definitions of stochastically increasing and stochastically
+decreasing. (See the Miscellanea section of Chapter 8 and Exercise 8.26, or Exercises 3.41–3.43.)
+A family of cdfs F(t|θ) is stochastically increasing in θ (stochastically decreasing in θ) if, for each
+t ∈T , the sample space of T,F(t|θ) is a decreasing (increasing) function of θ. In what follows, weneed only the fact that F is monotone, either increasing or decreasing. The more statistical concepts
+of stochastic increasing or decreasing merely serve as interpretational tools.
+Theorem 9.2.12 (Pivoting a continuous cdf)   Let T be a statistic with continuous cdf FT(t|θ).
+Let α1 +α2 = α with 0 < α < 1 be fixed values. Suppose that for each t ∈T , the functions θL(t)and θU(t) can be defined as follows.
+   i.  If FT(t|θ) is a decreasing function of θ for each t, define θL(t) and θU(t) by
+                            FT(t|θU(t)) = α1,   FT(t|θL(t)) = 1−α2.
+   ii.  If FT(t|θ) is an increasing function of θ for each t, define θL(t) and θU(t) by
+                            FT(t|θU(t)) = 1−α2,   FT(t|θL(t)) = α1.
+Then the random interval [θL(T),θU(T)] is a 1−α confidence interval for θ.Proof: We will prove only part (a). The proof of part (b) is similar and is left as Exercise 9.19.
+   Assume that we have constructed the 1−α acceptance region
+                                     {t : α1 ≤FT(t|θ0) ≤1−α2}.
+Since FT(t|θ) is a decreasing function of θ for each t and 1 −α2 > α1, θL(t) < θU(t) and the valuesθL(t) and θU(t) are unique. Also,
+                                FT(t|θ) < α1 ⇔θ > θU(t),
+                             FT(t|θ) > 1−α2 ⇔θ < θL(t),
+and hence {θ : α1 ≤FT(t|θ) ≤1−α2} = {θ : θL(T) ≤θ ≤θU(T)}.               2
+
+=== PDF 381; PRINT 350 ===
+350                                             INTERVAL ESTIMATION
+  We note that, in the absence of additional information, it is common to choose α1 = α2 = α/2.
+Although, this may not always be optimal (see Theorem 9.3.2), it is certainly a reasonable strategy in
+most situations. If a one-sided interval is desired, however, this can easily be achieved by choosing
+either α1 or α2 equal to 0.
+   The equations for the stochastically increasing case,
+                           FT(t|θU(t)) = α1,   FT(t|θL(t)) = 1−α2,                     (9.2.15)
+can also be expressed in terms of the pdf of the statistic T. The functions θU(t) and θL(t) can be
+defined to satisfy
+
+                                            t                         ∞
+                                                                                                           t  fT(u|θL(t))du = α2.                  −∞fT(u|θU(t))du = α1  and
+A similar set of equations holds for the stochastically decreasing case.
+Example 9.2.13 (Location exponential interval)   This method can be used to get a confidence
+interval for the location exponential pdf. (In Exercise 9.25 the answer here is compared to that
+obtained by likelihood and pivotal methods. See also Exercise 9.41.)
+     If X1,...,Xn are iid with pdf f(x|µ) = e−(x−µ)I[µ,∞)(x), then Y                                   = min{X1,...,Xn} is sufficientfor µ with pdf
+                                 fY(y|µ) = ne−n(y−µ)I[µ,∞)(y).
+Fix α and define µL(y) and µU(y) to satisfy
+                            y              α     ∞            α                           ne−n(u−µU(y)) du =    ,       ne−n(u−µL(y)) du =    .
+                        µU(y)                2      y                 2
+These integrals can be evaluated to give the equations
+                              α            α
+                                                                                                     ,                       =                                                                       ,   e−n(y−µL(y)) =                         1−e−n(y−µU(y))                                      2                                                       2
+which give us the solutions
+                            1                        1    α
+                  µU(y) = y+  log              ,  µL(y) = y+  log         .                            n   1−α2               n     2
+Hence, the random interval
+                               1    α           1
+                C(Y) =  µ : Y +  log        +  log                               n     2 ≤µ ≤Y   n   1−α2
+a 1−α confidence interval for µ.                                                   ∥
+   Note two things about the use of this method. First, the actual equations (9.2.15) need to be
+solved only for the value of the statistics actually observed. If T = t0 is observed, then the realized
+confidence interval on θ will be [θL(t0),θU(t0)]. Thus, we need to solve only the two equations
+                                   t0                         ∞
+                                                                                        t0  fT(u|θL(t0))du = α2                  −∞fT(u|θU(t0))du = α1  and
+for θL(t0) and θU(t0). Second, realize that even if these equations cannot be solved analytically, we
+really only need to solve them numerically since the proof that we have a 1−α confidence intervaldid not require an analytic solution.
+  We now consider the discrete case.
+Theorem 9.2.14 (Pivoting a discrete cdf)  Let T be a discrete statistic with cdf FT(t|θ) = P(T ≤
+t|θ). Let α1 +α2 = α with 0 < α < 1 be fixed values. Suppose that for each t ∈T ,θL(t) and θU(t)can be defined as follows.
+
+=== PDF 382; PRINT 351 ===
+METHODS OF FINDING INTERVAL ESTIMATORS                                351
+ i.  If FT(t|θ) is a decreasing function of θ for each t, define θL(t) and θU(t) by
+                      P(T ≤t|θU(t)) = α1,  P(T ≥t|θL(t)) = α2.
+ii.  If FT(t|θ) is an increasing function of θ for each t, define θL(t) and θU(t) by
+                      P(T ≥t|θU(t)) = α1,  P(T ≤t|θL(t)) = α2.
+Then the random interval [θL(T),θU(T)] is a 1−α confidence interval for θ.Proof: We will only sketch the proof of part (a). The details, as well as the proof of part (b), are left
+to Exercise 9.20.
+    First recall Exercise 2.10, where it was shown that FT(T|θ) is stochastically greater than a
+uniform random variable, that is, Pθ(FT(T|θ) ≤x) ≤x. Furthermore, this property is shared by
+FT(T|θ) = P(T ≥t|θ), and this implies that the set
+                       {θ : FT(T|θ) ≤α1 and FT(T|θ) ≤α2}
+is a 1−α confidence set.
+   The fact that FT(t|θ) is a decreasing function of θ for each t implies that F(t|θ) is a nonde-creasing function of θ for each t. It therefore follows that
+
+                              <                                                                                          ,                                                                  2                          θ > θU(t)  ⇒FT(t|θ)   α                                                    α                                                                                          ,                                                                  2                          θ < θL(t)  ⇒FT(t|θ) <
+and hence {θ : FT(T|θ) ≤α1 and FT(T|θ) ≤α2} = {θ : θL(T) ≤θ ≤θU(T)}.         2
+  We close this section with an example to illustrate the construction of Theorem 9.2.14. Notice
+that an alternative interval can be constructed by inverting an LRT (Exercise 9.23).
+Example 9.2.15 (Poisson interval estimator)  Let X1,...,Xn be a random sample from a Poisson
+population with parameter λ and define Y = ∑Xi. Y is sufficient for λ and Y ∼Poisson(nλ). Ap-plying the above method with α1 = α2 = α/2, if Y = y0 is observed, we are led to solve for λ in
+the equations
+                                y0      (nλ)k  α        ∞      (nλ)k  α
+                    =     and                                    =    .                (9.2.16)          ∑ e−nλ                     ∑ e−nλ                       k=0       k!     2          k=y0        k!     2
+Recall the identity, from Example 3.3.1, linking the Poisson and gamma families. Applying that
+identity to the sums in (9.2.16), we can write (remembering that y0 is the observed value of Y)
+             α     y0      (nλ)k            =    e−nλ    = P(Y     = P χ2   > 2nλ   ,                                                                     2(y0+1)          ∑                                    k!       ≤y0|λ)                2   k=0
+where χ2       is a chi squared random variable with 2(y0 +1) degrees of freedom. Thus, the solu-         2(y0+1)
+tion to the above equation is to take
+                                    1
+                                                      2(y0+1),α/2.                             λ = 2nχ2
+Similarly, applying the identity to the other equation in (9.2.16) yields
+              α    ∞      (nλ)k
+             =                                   < 2nλ  .                                                                               2y0           ∑ e−nλ                      = P(Y ≥y0|λ) = P χ2                  2                                       k!                            k=y0
+Doing some algebra, we obtain the 1−α confidence interval for λ as
+                           1
+                      λ :                                                        .                    (9.2.17)                                                                2(y0+1),α/2                         2nχ22y0,1−α/2 ≤λ ≤12nχ2
+(At y0 = 0 we define χ2   = 0.)                       0,1−α/2
+
+=== PDF 383; PRINT 352 ===
+352                                             INTERVAL ESTIMATION
+   These intervals were first derived by Garwood (1936). A graph of the coverage probabilities is
+given in Figure 9.2.5. Notice that the graph is quite jagged. The jumps occur at the endpoints of the
+different confidence intervals, where terms are added or subtracted from the sum that makes up the
+coverage probability. (See Exercise 9.24.)
+   For a numerical example, consider n = 10 and observing y0 = ∑xi = 6. A 90% confidence
+interval for λ is given by
+                             1
+                                                12,.95                                                                      14,.05,                           20χ2                        ≤λ ≤120χ2
+and from a chi squared table we get
+                                    .262 ≤λ ≤1.184.
+Similar derivations, involving the negative binomial and binomial distributions, are given in the
+exercises.                                                                      ∥
+
+9.2.4  Bayesian Intervals
+
+Thus far, when describing the interactions between the confidence interval and the parameter, we
+have carefully said that the interval covers the parameter, not that the parameter is inside the interval.
+This was done on purpose. We wanted to stress that the random quantity is the interval, not the
+parameter. Therefore, we tried to make the action verbs apply to the interval and not the parameter.
+    In Example 9.2.15, we saw that if y0 = ∑10i=1 xi = 6, then a 90% confidence interval for λ is .262
+≤λ ≤1.184. It is tempting to say (and many experimenters do) that “the probability is 90% that λis in the interval [.262, 1.184].” Within classical statistics, however, such a statement is invalid since
+the parameter is assumed fixed. Formally, the interval [.262, 1.184] is one of the possible realized
+values of the random interval [ 2nχ21   2Y,.95, 2nχ21   2(Y+1),.05] and, since the parameter λ does not move, λ
+is in the realized interval [.262,1.184] with probability either 0 or 1. When we say that the realized
+interval [.262, 1.184] has a 90% chance of coverage, we only mean that we know that 90% of the
+sample points of the random interval cover the true parameter.
+    In contrast, the Bayesian setup allows us to say that λ is inside [.262, 1.184] with some probabil-
+ity, not 0 or 1. This is because, under the Bayesian model, λ is a random variable with a probability
+distribution. All Bayesian claims of coverage are made with respect to the posterior distribution of
+the parameter.
+   To keep the distinction between Bayesian and classical sets clear, since the sets make quite
+different probability assessments, the Bayesian set estimates are referred to as credible sets rather
+than confidence sets.
+   Thus, if π(θ|x) is the posterior distribution of θ given X = x, then for any set A ⊂Θ the credibleprobability of A is
+                            P(θ ∈A|x) =  A π(θ|x)dθ,                            (9.2.18)
+and A is a credible set for θ. If π(θ|x) is a pmf, we replace integrals with sums in the aboveexpressions.
+   Notice that both the interpretation and construction of the Bayes credible set is more straightfor-
+ward than that of a classical confidence set. However, remember that nothing comes free. The ease
+of construction and interpretation comes with additional assumptions. The Bayesian model requires
+more input than the classical model.
+Example 9.2.16 (Poisson credible set)  We now construct a credible set for the problem of Ex-
+ample 9.2.15. Let X1,...,Xn be iid Poisson(λ) and assume that λ has a gamma prior pdf, λ ∼gamma(a,b). The posterior pdf of λ (Exercise 7.24) is
+                  π(λ|∑X = ∑x) = gamma(a+∑x,[n+(1/b)]−1).                 (9.2.19)
+
+=== PDF 384; PRINT 353 ===
+METHODS OF FINDING INTERVAL ESTIMATORS                                353
+  We can form a credible set for λ in many different ways, as any set A satisfying (9.2.18) will
+do. One simple way is to split the α equally between the upper an lower endpoints. From (9.2.19) it
+
+                             2(a+Σxi)follows that 2(nb+1)b  λ ∼χ2                              (assuming that a is an integer), and thus a 1−α credible interval
+is
+
+                      b                         b
+                                                                        2(Σx+a),α/2   .           (9.2.20)               λ : 2(nb+1)χ22(Σx+a),1−α/2 ≤λ ≤ 2(nb+1)χ2
+If we take a = b = 1, the posterior distribution of λ given ∑X = ∑x can then be expressed as
+                                                                                                  14,.95 = 6.571 and2(n+1)λ ∼χ22(Σx+1). As in Example 9.2.15, assume n = 10 and ∑x = 6. Since χ2
+χ214,.05 = 23.685, a 90% credible set for λ is given by [.299, 1.077].
+   The realized 90% credible set is different from the 90% confidence set obtained in Example
+9.2.15, [.262,1.184]. To better see the differences, look at Figure 9.2.3, which shows the 90% cred-
+ible intervals and 90% confidence intervals for a range of x values. Notice that the credible set has
+somewhat shorter intervals, and the upper endpoints are closer to zero. This reflects the prior, which
+is pulling the intervals toward zero.                                                  ∥
+
+
+                          x
+
+                   8
+
+
+
+                   6
+
+
+
+                   4
+
+
+
+                   2
+
+
+
+                   0                                                  l
+                                    .2       .4       .6       .8       1.0      1.2
+
+Figure 9.2.3 The 90% credible intervals (dashed lines) and 90% confidence intervals (solid lines) from Exam-
+ple 9.2.16
+
+     It is important not to confuse credible probability (the Bayes posterior probability) with cover-
+age probability (the classical probability). The probabilities are very different entities, with different
+meanings and interpretations. Credible probability comes from the posterior distribution, which in
+turn gets its probability from the prior distribution. Thus, credible probability reflects the experi-
+menter’s subjective beliefs, as expressed in the prior distribution and updated with the data to the
+posterior distribution. A Bayesian assertion of 90% coverage means that the experimenter, upon
+combining prior knowledge with data, is 90% sure of coverage.
+   Coverage probability, on the other hand, reflects the uncertainty in the sampling procedure,
+getting its probability from the objective mechanism of repeated experimental trials. A classical
+assertion of 90% coverage means that in a long sequence of identical trials, 90% of the realized
+confidence sets will cover the true parameter.
+    Statisticians sometimes argue as to which is the better way to do statistics, classical or Bayesian.
+We do not want to argue or even defend one over another. In fact, we believe that there is no one best
+way to do statistics; some problems are best solved with classical statistics and some are best solved
+with Bayesian statistics. The important point to realize is that the solutions may be quite different.
+A Bayes solution is often not reasonable under classical evaluations and vice versa.
+
+=== PDF 385; PRINT 354 ===
+354                                             INTERVAL ESTIMATION
+Example 9.2.17 (Poisson credible and coverage probabilities)  The 90% confidence and credi-
+ble sets of Example 9.2.16 maintain their respective probability guarantees, but how do they fair
+under the other criteria? First, lets look at the credible probability of the confidence set (9.2.17),
+which is given by
+                          1
+                                                             2(Σx+1),α/2   ,                    (9.2.21)                  P  2nχ22Σx,1−α/2 ≤λ ≤12nχ2
+where λ has the distribution (9.2.19). Figure 9.2.4 shows the credible probability of the set (9.2.20),
+which is constant at 1−α along with the credible probability of the confidence set (9.2.21).
+
+             Cred. Prob.
+
+
+               .98
+
+
+
+               .94
+
+
+
+               .90
+
+
+
+               .86
+
+                                                                                               x
+                           10         20         30         40         50
+
+Figure 9.2.4 Credible probabilities of the 90% credible intervals (dashed lines) and 90% confidence intervals
+(solid lines) from Example 9.2.16
+
+   This latter probability seems to be steadily decreasing, and we want to know if it remains above
+0 for all values of Σxi (for each fixed n). To do this, we evaluate the probability as Σxi →∞. Details
+are left to Exercise 9.30, but it is the case that, as Σxi →∞, the probability (9.2.21) →0 unlessb = 1/n. Thus, the confidence interval cannot maintain a nonzero credible probability.
+   The credible set (9.2.20) does not fair much better when evaluated as a confidence set. Figure
+9.2.5 suggests that the coverage probability of the credible set is going to zero as λ →∞. To evaluatethe coverage probability, write
+                                    λ
+                               λ =    χ22Y,
+                                      χ22Y
+where χ22Y is a chi squared random variable with 2Y degrees of freedom, and Y ∼Poisson (nλ).
+                       2Y                   →1/(2n), and the coverage probability of (9.2.20) becomesThen, as λ →∞, λ/χ2
+                      nb                      nb
+                                                      2Y                                                                   2(Y+a),α/2   .              (9.2.22)                            ≤ nb+1χ2              P  nb+1χ22(Y+a),1−α/2 ≤χ2
+That this probability goes to zero as λ →∞is established in Exercise 9.31.                  ∥
+   The behavior exhibited in Example 9.2.17 is somewhat typical. Here is an example where the
+calculations can be done explicitly.
+Example 9.2.18 (Coverage of a normal credible set)   Let X1, ..., Xn be iid n(θ,σ2) and let θ
+have the prior pdf n(µ,τ2), where µ, σ, and τ are all known. In Example 7.2.16 we saw that
+                                   π(θ|¯x) ∼n(δ B(¯x),Var(θ|¯x)),
+
+=== PDF 386; PRINT 355 ===
+METHODS OF FINDING INTERVAL ESTIMATORS                                355
+
+             Cov. Prob.
+
+             1.00
+
+
+
+
+
+              .90
+
+
+
+
+
+              .80
+
+
+                                                                              l
+                 0.0         0.5          1.0          1.5         2.0         2.5         3.0
+
+Figure 9.2.5 Coverage probabilities of the 90% credible intervals (dashed lines) and 90% confidence intervals
+(solid lines) from Example 9.2.16
+
+
+where
+                      σ2         nτ2                     σ2τ2              δ B(¯x) =                         µ +
+                    σ2 +nτ2                              σ2 +nτ2                                                                                      ¯x  and   Var(θ|¯x) = σ2 +nτ2 .
+It therefore follows that under the posterior distribution,
+                              θ −δ B(¯x)                                         ∼n(0,1),                                          Var(θ|¯x)
+and a 1−α credible set for θ is given by
+                 δ B(¯x)−zα/2   Var(θ|¯x) ≤θ ≤δ B(¯x)+zα/2   Var(θ|¯x).             (9.2.23)
+  We now calculate the coverage probability of the Bayesian region (9.2.23). Under the classi-
+cal model ¯X is the random variable, θ is fixed, and ¯X ∼n(θ,σ2/n). For ease of notation define
+γ = σ2/(nτ2), and using the definitions of δ B(¯X) and Var(θ|¯X) and a little algebra, the coverageprobability of (9.2.23) is
+
+            Pθ  |θ −δ B(¯X)| ≤zα/2  Var(θ|¯X)
+                                 γ       1              σ2
+        =  Pθ   θ       µ +        ¯X              −  1+γ   1+γ    ≤zα/2  n(1+γ)
+                                    γ(θ                        γ(θ        =  Pθ     1+γzα/2 +   −µ)        1+γzα/2 +   −µ)   ,             −          σ/√n ≤Z ≤           σ/√n
+where the last equality used the fact that √n(¯X     = Z                               −θ)/σ    ∼n(0,1).
+   Although we started with a 1−α credible set, we do not have a 1−α confidence set, as can beseen by considering the following parameter configuration. Fix  = µ and let τ = σ/√n, so that                                                                                                    θ̸γ = 1. Also, let σ/√n be very small      Then it is easy to see that the above probability goes to                            (→0).
+zero since if θ > µ the lower bound goes to infinity and if θ < µ the upper bound goes to −∞. Ifθ = µ, however, the coverage probability is bounded away from zero.
+
+=== PDF 387; PRINT 356 ===
+356                                             INTERVAL ESTIMATION
+                                                                   The credible  On the other hand, the usual 1−α confidence set for θ is {θ : |θ −¯x| ≤zα/2σ/√n}.
+probability of this set (now θ ∼π(θ|¯x)) is given by
+                   σ
+           P¯x  |θ −¯x| ≤zα/2 √n
+                                     σ
+      =   P¯x   [θ −δ B(¯x)]+[δ B(¯x)−¯x] ≤zα/2 √n
+      =   P¯x     1+γzα/2 +   γ(¯x−µ)          1+γzα/2 +   γ(¯x−µ)       ,          −         √1+γσ/√n ≤Z ≤         √1+γσ/√n
+where the last equality used the fact that (θ −δ B(¯x))/   Var(θ|¯x) = Z ∼n(0,1). Again, it is fairlyeasy to show that this probability is not bounded away from zero, showing that the confidence set is
+also not, in general, a credible set. Details are in Exercise 9.32.                            ∥
+
+9.3  Methods of Evaluating Interval Estimators
+We now have seen many methods for deriving confidence sets and, in fact, we can derive different
+confidence sets for the same problem. In such situations, we would, of course, want to choose a best
+one. Therefore, we now examine some methods and criteria for evaluating set estimators.
+    In set estimation, two quantities vie against one another, size and coverage probability. Naturally,
+we want our set to have small size and large coverage probability, but such sets are usually difficult
+to construct. (Clearly, we can have a large coverage probability by increasing the size of our set.
+The interval (−∞,∞) has coverage probability one!) Before we can optimize a set with respect tosize and coverage probability, we must decide how to measure these quantities.
+   The coverage probability of a confidence set will, except in special cases, be a function of the
+parameter so there is not one value to consider, but an infinite number of values. For the most
+part, however, we will measure coverage probability performance by the confidence coefficient, the
+infimum of the coverage probabilities. This is one way, but not the only available way, of summa-
+rizing the coverage probability information. (For example, we could calculate an average coverage
+probability.)
+   When we speak of the size of a confidence set we will usually mean the length of the confidence
+set, if the set is an interval. If the set is not an interval, or if we are dealing with a multidimensional
+set, then length will usually become volume. (There are also see cases where a size measure other
+than length is natural, especially if equivariance is a consideration. This topic is treated by Schervish
+1995, Chapter 6, and Berger 1985, Chapter 6.)
+
+
+9.3.1  Size and Coverage Probability
+
+We now consider what appears to be a simple, constrained minimization problem. For a given,
+specified coverage probability find the confidence interval with the shortest length. We first consider
+an example.
+Example 9.3.1 (Optimizing length)  Let X1,...,Xn be iid n(µ,σ2), where σ is known. Using the
+method of Section 9.2.2 and the fact that
+
+                                X                               Z =  −µ                               σ/√n
+
+is a pivot with a standard normal distribution, any a and b that satisfy
+                               P(a ≤Z ≤b) = 1−α
+
+=== PDF 388; PRINT 357 ===
+ METHODS OF EVALUATING INTERVAL ESTIMATORS                            357
+ will give the 1−α confidence interval
+                              σ          σ
+                         µ : x−b √n ≤µ ≤x−a √n    .
+
+ Which choice of a and b is best? More formally, what choice of a and b will minimize the length of
+ the confidence interval while maintaining 1−α coverage? Notice that the length of the confidence intervals is equal to (b                                      but, since the factor σ/√n is part of each interval length, it can               −a)σ/√n
+ be ignored and length comparisons can be based on the value of b−a. Thus, we want to find a pair
+ of numbers a and b that satisfy P(a ≤Z ≤b) = 1−α and minimize b−a.
+     In Example 9.2.1, we took a = −zα/2 and b = zα/2, but no mention was made of optimality. If
+ we take 1−α = .90, then any of the following pairs of numbers give 90% intervals: This numerical
+ study presented in Table 9.3.3 suggests that the choice a = −1.65 and b = 1.65 gives the best interval and, in fact, it does. In this case splitting the probability α equally is an optimal strategy.
+
+
+                           Table 9.3.3 Three 90% normal confidence intervals
+                  a     b                  Probability         b−a
+                    -1.34  2.33  P(Z < a) = .09,   P(Z > b) = .01    3.67
+                    -1.44  1.96  P(Z < a) = .075,  P(Z > b) = .025   3.40
+                    -1.65  1.65  P(Z < a) = .05,   P(Z > b) = .05    3.30
+                                                                               ∥
+    The strategy of splitting α equally, which is optimal in the above case, is not always optimal.
+ What makes the equal α split optimal in the above case is the fact that the height of the pdf is the
+ same at −zα/2 and zα/2. We now prove a theorem that will demonstrate this fact, a theorem that is applicable in some generality, needing only the assumption that the pdf is unimodal. Recall the
+ definition of unimodal: A pdf f(x) is unimodal if there exists x∗such that f(x) is nondecreasing for
+ x ≤x∗and f(x) is nonincreasing for x ≥x∗. (This is a rather weak requirement.)
+ Theorem 9.3.2   Let f(x) be a unimodal pdf. If the interval [a,b] satisfies
+  i.  ab f(x)dx = 1−α,
+ ii.  f(a) = f(b) > 0, and
+iii. a ≤x∗≤b, where x∗is a mode of f(x),
+ then [a,b] is the shortest among all intervals that satisfy (a).
+ Proof: Let [a′,b′] be any interval with b′   <    We will show that this implies   b′ f(x)dx <                                                                                                                                    a′                               −a′  b−a.
+ 1 −α. The result will be proved only for a′ ≤a, the proof being similar if a < a′. Also, two cases
+ need to be considered, b′ ≤a and b′ > a.
+      If b′ ≤a, then a′ ≤b′ ≤a ≤x∗and
+                                               b′
+                             f(x)dx ≤   f(b′)(b′ −a′)         (x ≤b′ ≤x∗⇒f(x) ≤f(b′))                                             a′
+                      ≤   f(a)(b′ −a′)           (b′ ≤a ≤x∗⇒f(b′) ≤f(a))
+                      <  f(a)(b−a)b                     (b′ −a′ < b−a and f(a) > 0)                                                                                             ((ii), (iii), and unimodality)                                             f(x)dx                                                                                                                      for                      ≤    a                         ⇒f(x)≥f(a)   a≤x≤b
+                      =  1−α,                                                       (i)
+
+ completing the proof in the first case.
+
+=== PDF 389; PRINT 358 ===
+358                                             INTERVAL ESTIMATION
+     If b′ > a, then a′ ≤a < b′ < b for, if b′ were greater than or equal to b, then b′ −a′ would be
+greater than or equal to b−a. In this case, we can write
+                                 b′                  b               a              b
+                     f(x)dx =                                f(x)dx+
+                                           a                                a′                                                                                  a′ f(x)dx−  b′ f(x)dx
+                                                        a              b
+                  =  (1−α)+    a′ f(x)dx−  b′ f(x)dx
+and the theorem will be proved if we show that the expression in square brackets is negative. Now,
+using the unimodality of f, the ordering a′ ≤a < b′ < b, and (b), we have
+                                               a
+                                       f(x)dx ≤  f(a)(a−a′)                                                               a′
+                       and
+                                               b
+                                       f(x)dx ≥  f(b)(b−b′).                                                               b′
+Thus,
+
+                     a              b
+                            a′ f(x)dx−  b′ f(x)dx ≤  f(a)(a−a′)−f(b)(b−b′)
+                       =   f(a) (a−a′)−(b−b′)            ( f(a) = f(b))
+                       =   f(a) (b′ −a′)−(b−a)  ,
+which is negative if (b′ −a′) < (b−a) and f(a) > 0.                        2
+     If we are willing to put more assumptions on f, for instance, that  f is continuous, then we can
+simplify the proof of Theorem 9.3.2. See Exercise 9.38.
+    Recall the discussion after Example 9.2.3 about the form of likelihood regions, which we now
+see is an optimal construction by Theorem 9.3.2 . A similar argument, given in Corollary 9.3.10,
+shows how this construction yields an optimal Bayesian region. Also, we can see now that the
+equal α split, which is optimal in Example 9.3.1, will be optimal for any symmetric unimodal pdf
+(Exercise 9.39). Theorem 9.3.2 may even apply when the optimality criterion is somewhat different
+from minimum length.
+Example 9.3.3 (Optimizing expected length)  For normal intervals based on the pivot S/√nX−µ we
+know that the shortest length 1−α confidence interval of the form
+                                            s                s
+                      x−b √n ≤µ ≤x−a √n
+has a = −tn−1,α/2 and b = tn−1,α/2. The interval length is a function of s, with general form
+                                                             s
+                                  Length(s) = (b−a) √n
+It is easy to see that if we had considered the criterion of expected length and wanted to find a 1−αinterval to minimize
+                                               σ
+                     Eσ(Length(S)) =                             = (b−a)c(n) √n,                              (b−a)EσS√n
+then Theorem 9.3.2 applies and the choice a = −tn−1,α/2 and b = tn−1,α/2 again gives the optimal
+interval. (The quantity c(n) is a constant dependent only on n. See Exercise 7.50.)             ∥
+    In some cases, especially when working outside of the location problem, we must be careful
+in the application of Theorem 9.3.2. In scale cases in particular, the theorem may not be directly
+applicable, but a variant may be.
+
+=== PDF 390; PRINT 359 ===
+METHODS OF EVALUATING INTERVAL ESTIMATORS                            359
+Example 9.3.4 (Shortest pivotal interval)  Suppose X ∼gamma(k,β). The quantity Y = X/β is
+a pivot, with Y ∼gamma(k,1), so we can get a confidence interval by finding constants a and b tosatisfy
+                              P(a ≤Y ≤b) = 1−α.                                 (9.3.1)
+However, blind application of Theorem 9.3.2 will not give the shortest confidence interval. That is,
+choosing a and b to satisfy (9.3.1) and also fY(a) = fY(b) is not optimal. This is because, based on
+(9.3.1), the interval on β is of the form
+                                         x
+                              β :                    ,                                    b ≤β ≤xa
+so the length of the interval is ( 1a −1b)x, that is, it is proportional to (1/a)−(1/b) and not to b−a.   Although Theorem 9.3.2 is not directly applicable here, a modified argument can solve this
+problem. Condition (i) in Theorem 9.3.2 defines b as a function of a, say b(a). We must solve the
+following constrained minimization problem:
+
+                                                    1    1
+                               Minimize, with respect to a:                                                    a − b(a)
+                                                                b(a)
+                                     subject to:                                                   fY(y)dy = 1−α.                                                        a
+Differentiating the first equation with respect to a, and setting it equal to zero yields the identity
+db/da = b2/a2. Substituting this in the derivative of the second equation, which must equal zero,
+gives f(b)b2 = f(a)a2 (Exercise 9.42). Equations like these also arise in interval estimation of
+the variance of a normal distribution; see Example 9.2.10 and Exercise 9.52. Note that the above
+equations define not the shortest overall interval, but the shortest pivotal interval, that is, the shortest
+interval based on the pivot X/β. For a generalization of this result, involving the Neyman-Pearson
+Lemma, see Exercise 9.43.                                                         ∥
+
+9.3.2  Test-Related Optimality
+
+Since there is a one-to-one correspondence between confidence sets and tests of hypotheses (Theo-
+rem 9.2.2), there is some correspondence between optimality of tests and optimality of confidence
+sets. Usually, test-related optimality properties of confidence sets do not directly relate to the size
+of the set but rather to the probability of the set covering false values.
+   The probability of covering false values, or the probability of false coverage, indirectly measures
+the size of a confidence set. Intuitively, smaller sets cover fewer values and, hence, are less likely
+to cover false values. Moreover, we will later see an equation that links size and probability of false
+coverage.
+  We first consider the general situation, where X ∼f(x|θ), and we construct a 1−α confidenceset for θ, C(x), by inverting an acceptance region, A(θ). The probability of coverage of C(x), that
+is, the probability of true coverage, is the function of θ given by Pθ(θ ∈C(X)). The probability offalse coverage is the function of θ and θ ′ defined by
+                    Pθ θ ′ ∈C(X)  ,θ̸ = θ ′,          if C(X) = [L(X),U(X)],
+                    Pθ θ ′ ∈C(X) ,θ ′ < θ,          if C(X) = [L(X),∞),                    (9.3.2)
+                    Pθ θ ′ ∈C(X) ,θ ′ > θ,          if C(X) = (−∞,U(X)],
+the probability of covering θ ′ when θ is the true parameter.
+     It makes sense to define the probability of false coverage differently for one-sided and two-sided
+intervals. For example, if we have a lower confidence bound, we are asserting that θ is greater than
+a certain value and false coverage would occur only if we cover values of θ that are too small. A
+similar argument leads us to the definitions used for upper confidence bounds and two-sided bounds.
+
+=== PDF 391; PRINT 360 ===
+360                                             INTERVAL ESTIMATION
+  A 1 −α confidence set that minimizes the probability of false coverage over a class of 1 −α confidence sets is called a uniformly most accurate (UMA) confidence set. Thus, for example,
+we would consider looking for a UMA confidence set among sets of the form [L(x),∞). UMA
+confidence sets are constructed by inverting the acceptance regions of UMP tests, as we will prove
+below. Unfortunately, although a UMA confidence set is a desirable set, it exists only in rather rare
+circumstances (as do UMP tests). In particular, since UMP tests are generally one-sided, so are
+UMA intervals. They make for elegant theory, however. In the next theorem we see that a UMP test
+of H0 : θ = θ0 versus H1 : θ > θ0 yields a UMA lower confidence bound.
+Theorem 9.3.5   Let X ∼f(x|θ) where θ is a real-valued parameter. For each θ0 ∈Θ, let A∗(θ0)be the UMP level α acceptance region of a test of H0 : θ = θ0 versus H1 : θ > θ0. Let C∗(x) be the
+1 −α confidence set formed by inverting the UMP acceptance regions. Then for any other 1 −αconfidence set C,
+                      Pθ θ ′ ∈C∗(X) ≤Pθ θ ′ ∈C(X)  , for all θ ′ < θ.
+Proof: Let θ ′ be any value less than θ. Let A(θ ′) be the acceptance region of the level α test of
+H0 : θ = θ ′ obtained by inverting C. Since A∗(θ ′) is the UMP acceptance region for testing H0: θ =
+θ ′ versus H1 : θ > θ ′ and since θ > θ ′, we have
+                         Pθ θ ′ ∈C∗(X)  =  Pθ X ∈A∗(θ ′)        (invert the confidence set)
+                                                                                    true for any A
+                        ≤  Pθ X ∈A(θ ′)               since A∗is UMP
+                                                                                           invert A to
+                                                                                    obtain C                        =  Pθ θ ′ ∈C(X)  .
+
+Notice that the above inequality is “≤” because we are working with probabilities of acceptance re-
+gions. This is 1−power, so UMP tests will minimize these acceptance region probabilities. There-fore, we have established that for θ ′ < θ, the probability of false coverage is minimized by the
+interval obtained from inverting the UMP test.                           2
+
+    Recall our discussion in Section 9.2.1. The UMA confidence set in the above theorem is con-
+structed by inverting the family of tests for the hypotheses
+
+                    H0 :  θ = θ0     versus    H1 :  θ > θ0,
+
+where the form of the confidence set is governed by the alternative hypothesis. The above alternative
+hypotheses, which specify that θ0 is less than a particular value, lead to lower confidence bounds,
+that is, if the sets are intervals they are of the form [L(X),∞).
+Example 9.3.6 (UMA confidence bound)  Let X1,...,Xn be iid n(µ,σ2), where σ2 is known. The
+interval
+                                        σ
+                             C(x) =  µ : µ ≥x−zα √n
+is a 1 −α UMA lower confidence bound, since it can be obtained by inverting the UMP test ofH0 : µ = µ0 versus H1 : µ > µ0.
+   The more common two-sided interval,
+
+                                σ            σ
+                     C(x) =  µ : x−zα/2 √n ≤µ ≤x+zα/2 √n    ,
+
+is not UMA, since it is obtained by inverting the two-sided acceptance region from the test of
+H0 : µ = µ0 versus H1 : µ̸ = µ0, hypotheses for which no UMP test exists.                   ∥
+
+=== PDF 392; PRINT 361 ===
+METHODS OF EVALUATING INTERVAL ESTIMATORS                            361
+    In the testing problem, when considering two-sided tests, we found the property of unbiasedness
+to be both compelling and useful. In the confidence interval problem similar ideas apply. When
+dealing with two-sided confidence intervals it is reasonable to restrict consideration to unbiased
+confidence sets. Remember that an unbiased test is one in which the power in the alternative is
+always greater than the power in the null. Keep that in mind when reading the following definition.
+Definition 9.3.7 A 1−α confidence set C(x) is unbiased if Pθ(θ ′ ∈C(X)) ≤1−α for all θ̸ = θ ′.
+
+   Thus, for an unbiased confidence set, the probability of false coverage is never more than the
+minimum probability of true coverage. Unbiased confidence sets can be obtained by inverting unbi-
+ased tests. That is, if A(θ0) is an unbiased level α acceptance region of a test of H0 : θ = θ0 versus
+H1 : θ̸ = θ0 and C(x) is the 1 −α confidence set formed by inverting the acceptance regions, then
+C(x) is an unbiased 1−α confidence set (Exercise 9.46).
+Example 9.3.8 (Continuation of Example 9.3.6)  The two-sided normal interval
+
+                                σ            σ
+                      C(x) =  µ : x−zα/2 √n ≤µ ≤x+zα/2 √n    ,
+
+is an unbiased interval. It can be obtained by inverting the unbiased test of H0 : µ = µ0 versus
+H1 : µ̸ = µ0, given in Example 8.3.20. Similarly, the interval (9.2.14) based on the t distribution, isalso an unbiased interval, since it also can be obtained by inverting an unbiased test (Exercise 8.38).
+∥
+    Sets that minimize probability of false coverage are also called Neyman-shortest. The fact that
+there is a length connotation to this name is somewhat justified by the following theorem, due to
+Pratt (1961).
+Theorem 9.3.9 (Pratt)   Let X be a real-valued random variable with X ∼f(x|θ) where θ is areal-valued parameter. Let C(x) = [L(x),U(x)] be a confidence interval for θ. If L(x) and U(x) are
+both increasing functions of x, then for any value θ ∗,
+                      Eθ∗(Length[C(X)]) =  θ̸=θ∗Pθ∗(θ ∈C(X)) dθ.                    (9.3.3)
+
+Theorem 9.3.9 says that the expected length of C(x) is equal to a sum (integral) of the probabilities
+of false coverage, the integral being taken over all false values of the parameter.
+Proof: From the definition of expected value we can write
+
+        Eθ∗(Length[C(X)]) =                     X Length[C(x)]f(x|θ ∗)dx
+                =                     X [U(x)−L(x)]f(x|θ ∗)dx                (definition of length)
+                                              U(x)                                  using θ as a                =           dθ      ∗)dx                     X    L(x)       f(x|θ                dummy variable
+                                             L−1(θ)                                                                                 invert the order of                =                  ∗)dx  dθ                                                                            integration – see below                           Θ   U−1(θ) f(x|θ
+
+                =                                      Pθ∗ U−1(θ) ≤X ≤L−1(θ)  dθ                (definition)                           Θ
+                                                                                         invert the                =                                                                         acceptance region                                     [Pθ∗(θ ∈C(X))] dθ                           Θ
+                                                                    one point does
+                                                                            not change value                =    θ̸=θ∗[Pθ∗(θ ∈C(X))] dθ.
+
+=== PDF 393; PRINT 362 ===
+362                                             INTERVAL ESTIMATION
+The string of equalities establishes the identity and proves the theorem. The interchange of integrals
+is formally justified by Fubini’s Theorem (Lehmann and Casella 1998, Section 1.2), but is easily
+seen to be justified as long as all of the integrands are finite. The inversion of the confidence interval
+is standard, where we use the relationship
+
+                                                                                                                    ,              θ ∈{θ : L(x) ≤θ ≤U(x)} ⇔x ∈  x: U−1(θ) ≤x ≤L−1(θ)
+which is valid because of the assumption that L and U are increasing. Note that the theorem could
+be modified to apply to an interval with decreasing endpoints.                   2
+   Theorem 9.3.9 shows that there is a formal relationship between the length of a confidence in-
+terval and its probability of false coverage. In the two-sided case, this implies that minimizing the
+probability of false coverage carries along some guarantee of length optimality. In the one-sided
+case, however, the analogy does not quite work. In that case, intervals that are set up to minimize
+probability of false coverage are concerned with parameters in only a portion of the parameter space
+and length optimality may not obtain. Madansky (1962) has given an example of a 1 −α UMA
+interval (one-sided) that can be beaten in the sense that another, shorter, 1−α interval can be con-structed. (See Exercise 9.45.) Also, Maatta and Casella (1987) have shown that an interval obtained
+by inverting a UMP test can be suboptimal when measured against other reasonable criteria.
+
+
+9.3.3  Bayesian Optimality
+
+The goal of obtaining a smallest confidence set with a specified coverage probability can also be
+attained using Bayesian criteria. If we have a posterior distribution π(θ|x), the posterior distributionof θ given X = x, we would like to find the set C(x) that satisfies
+
+                                              i.                                              C(x) π(θ|x)dx = 1−α
+                                             ii.       Size(C(x)) ≤Size C′(x)
+for any set C′(x) satisfying                                  C′(x)                           π(θ|x)dx ≥1−α.     If we take our measure of size to be length, then we can apply Theorem 9.3.2 and obtain the
+following result.
+Corollary 9.3.10  If the posterior density π(θ|x) is unimodal, then for a given value of α, the short-est credible interval for θ is given by
+
+               {θ : π(θ|x) ≥k}  where             π(θ|x)dθ = 1−α.                                                     {θ:π(θ|x)≥k}
+   The credible set described in Corollary 9.3.10 is called a highest posterior density (HPD) region,
+as it consists of the values of the parameter for which the posterior density is highest. Notice the
+similarity in form between the HPD region and the likelihood region.
+Example 9.3.11 (Poisson HPD region)   In Example 9.2.16, we derived a 1−α credible set for aPoisson parameter. We now construct an HPD region. By Corollary 9.3.10, this region is given by
+{λ : π(λ|∑x) ≥k}, where k is chosen so that
+                 1−α =           π(λ|∑x)dλ.                                             {λ:π(λ|Σx)≥k}
+Recall that the posterior pdf of λ is gamma(a + ∑x,[n + (1/b)]−1), so we need to find λL and λU
+such that
+                                                   λU
+                                     and          =                π(λL|∑x)π(λU|∑x)       λL π(λ|∑x)dλ  1−α.
+
+=== PDF 394; PRINT 363 ===
+METHODS OF EVALUATING INTERVAL ESTIMATORS                            363
+If we take a = b = 1 (as in Example 9.2.16), the posterior distribution of λ given ∑X = ∑x can be
+                              2(Σx+1) and, if n = 10 and ∑x = 6, the 90% HPD credible set for λ isexpressed as 2(n + 1)λ ∼χ2
+given by [.253, 1.005].
+    In Figure 9.3.1, we show three 1 −α intervals for λ, the 1 −α equal tail Bayes credible set of
+Example 9.2.16, the HPD region derived here, and the classical 1 −α confidence set of Example9.2.15.
+
+
+
+
+
+                                                  p (l | Σx)
+
+
+
+
+
+                c = .44
+
+
+
+
+
+                                                                            l
+                   0                     .5                1                     1.5
+                                                 Classical
+
+
+                                HPD
+
+
+                                          Equal tail
+
+                       Figure 9.3.1 Three interval estimators from Example 9.2.16
+
+                                                                              ∥
+   The shape of the HPD region is determined by the shape of the posterior distribution. In general,
+the HPD region is not symmetric about a Bayes point estimator but, like the likelihood region, is
+rather asymmetric. For the Poisson distribution this is clearly true, as the above example shows.
+Although it will not always happen, we can usually expect asymmetric HPD regions for scale pa-
+rameter problems and symmetric HPD regions for location parameter problems.
+Example 9.3.12 (Normal HPD region)  The equal-tailed credible set derived in Example 9.2.18
+is, in fact, an HPD region. Since the posterior distribution of θ is normal with mean δ B, it fol-
+lows that (Exercise 9.40) {θ : π(θ|¯x) ≥k} = {θ : θ ∈δ B ± k′} for some k′. So the HPD region is
+symmetric about the mean δ B(¯x).                                                   ∥
+
+9.3.4  Loss Function Optimality
+
+In the previous two sections, we looked at optimality of interval estimators by first requiring them
+to have a minimum coverage probability, and then looking for the shortest interval. However, it is
+
+=== PDF 395; PRINT 364 ===
+364                                             INTERVAL ESTIMATION
+possible to put these requirements together in one loss function, and use decision theory to search
+for an optimal estimator. In interval estimation, the action space A will consist of subsets of the
+parameter space Θ and, more formally, we might talk of “set estimation,” since an optimal rule
+may not necessarily be an interval. However, practical considerations lead us to mainly consider set
+estimators that are intervals and, happily, many optimal procedures turn out to be intervals.
+     If we use C (for confidence interval) to denote elements of A , with the meaning of the action
+C being that the interval estimate “θ ∈C” is made. A decision rule δ(x) simply specifies, for each
+x ∈X , which set C ∈A will be used as an estimate of θ if X = x is observed. Thus, we will usethe notation C(x), as before.
+   The loss function in an interval estimation problem usually includes two quantities, a measure
+of whether the set estimate correctly includes the true value θ, and a measure of the size of the set
+estimate. We will, for the most part, consider only sets C that are intervals, so a natural measure of
+size is Len(C) = length of C. To express the correctness measure, it is common to use
+
+                                       1    θ                                 IC(θ) =       ∈C,
+                                       0        θ̸ ∈C.
+That is, IC(θ) = 1 if the estimate is correct and zero otherwise. In fact, IC(θ) is just the indicator
+function for the set C. But realize that C will be a random set determined by the value of the data X.
+   The loss function should reflect the fact that a good estimate would have Len(C) small and IC(θ)
+large. One such loss function is
+                           L(θ,C) = bLength(C)−IC(θ),                            (9.3.4)
+where b is a positive constant that reflects the relative weight that we want to give to the two criteria,
+a necessary consideration since the two quantities are very different. If there is more concern with
+correct estimates then b should be small, while a large b should be used if there is more concern
+with interval length.
+   The risk function associated with (9.3.4) is particularly simple, given by
+                  R(θ,C) =  bEθ [Length(C(X))]−EθIC(X)(θ)
+                 =  bEθ [Length(C(X))]−Pθ(IC(X)(θ) = 1)
+                 =  bEθ [Length(C(X))]−Pθ(θ ∈C(X)).
+The risk has two components, the expected length of the interval and the coverage probability of the
+interval estimator. The risk reflects the fact that, simultaneously, we want the expected length to be
+small and the coverage probability to be high, just as in the previous sections. But now, instead of
+requiring a minimum coverage probability and then minimizing length, the trade-off between these
+two quantities is now specified in the risk function. Perhaps a smaller coverage probability will be
+acceptable if it results in a greatly decreased length.
+   By varying the size of b in the loss (9.3.4), we can vary the relative importance of size and
+coverage probability of interval estimators, something that could not be done previously. As an
+example of the flexibility of the present setup, consider some limiting cases. If b = 0, then size does
+not matter, only coverage probability, so the interval estimator C = (−∞,∞), which has coverageprobability 1, is the best decision rule. Similarly, if b = ∞, then coverage probability does not matter,
+so point sets are optimal. Hence, an entire range of decision rules are possible candidates. In the next
+example, for a specified finite range of b, choosing a good rule amounts to using the risk function
+to decide the confidence coefficient while, if b is outside this range, the optimal decision rule is a
+point estimator.
+Example 9.3.13 (Normal interval estimator)   Let X ∼n(µ,σ2) and assume σ2 is known. Xwould typically be a sample mean and σ2 would have the form τ2/n where τ2 is the known pop-
+ulation variance and n is the sample size. For each c ≥0, define an interval estimator for µ by
+C(x) = [x −cσ,x + cσ]. We will compare these estimators using the loss in (9.3.4). The length of
+
+=== PDF 396; PRINT 365 ===
+EXERCISES                                                                  365
+an interval, Len(C(x)) = 2cσ, does not depend on x. Thus, the first term in the risk is b(2cσ). The
+second term in the risk is
+                    Pµ(µ ∈C(X)) =  Pµ(X −cσ ≤µ ≤X +cσ)
+                      =  Pµ      −µ                                  −c ≤X σ  ≤c                                    
+                      =  2P(Z ≤c)−1,
+where Z ∼n(0,1). Thus, the risk function for an interval estimator in this class is
+                        R(µ,C) = b(2cσ)−[2P(Z ≤c)−1].                         (9.3.5)
+The risk function is constant, as it does not depend on µ, and the best interval estimator in this class
+is the one corresponding to the value c that minimizes (9.3.5).
+     If bσ > 1/√ 2π,  it can be shown that R(µ,C) is minimized at c = 0. That is, the length
+portion completely overwhelms the coverage probability portion of the loss and the best inter-
+val estimator is the point  estimator C(x) = [x,x]. But if bσ   √ 2π, the risk is minimized at                                     ≤1/
+c =       √ 2π). If we express c as zα/2 for some α, then the interval estimator that mini-     −2log(bσmizesthe risk is just the usual      confidence interval. (See Exercise 9.53 for details.)                 1−α                                                 ∥
+   The use of decision theory in interval estimation problems is not as widespread as in point
+estimation or hypothesis testing problems. One reason for this is the difficulty in choosing b in
+(9.3.4) (or in Example 9.3.13). We saw in the previous example that a choice that might seem
+reasonable could lead to unintuitive results, indicating that the loss in (9.3.4) may not be appropriate.
+Some who would use decision theoretic analysis for other problems still prefer to use only interval
+estimators with a fixed confidence coefficient (1−α). They then use the risk function to judge otherqualities like the size of the set.
+   Another difficulty is in the restriction of the shape of the allowable sets in A . Ideally, the loss
+and risk functions would be used to judge which shapes are best. But one can always add isolated
+points to an interval estimator and get an improvement in coverage probability with no loss penalty
+regarding size. In the previous example we could have used the estimator
+                    C(x) = [x−cσ,x+cσ]∪{all integer values of µ}.
+The “length” of these sets is the same as before but now the coverage probability is one for all integer
+values of µ. Some more sophisticated measure of size must be used to avoid such anomalies. (Joshi
+1969 addressed this problem by defining equivalence classes of estimators.)
+
+9.4  Exercises
+  9.1  If L(x) and U(x) satisfy Pθ(L(X) ≤θ) = 1−α1 and Pθ(U(X) ≥θ) = 1−α2, and L(x) ≤U(x) for all x,
+     show that Pθ(L(X) ≤θ ≤U(X)) = 1−α1 −α2.
+  9.2 Let X1,...,Xn be iid n(θ,1). A 95% confidence interval for θ is             Let p denote the probability                                                    x±1.96/√n.       that an additional independent observation, Xn+1, will fall in this interval. Is p greater than, less than, or
+      equal to .95? Prove your answer.
+  9.3 The independent random variables X1,...,Xn have the common distribution
+                                          0           if x ≤0,                                 P(Xi ≤x) =  (x/β)α    if 0 < x < β,                       1           if                                                          x ≥β.       (a) In Exercise 7.10 the MLEs of α and βwere found. If α is a known constant, α0, find an upper
+         confidence limit for β with confidence coefficient .95.
+      (b) Use the data of Exercise 7.10 to construct an interval estimate for β. Assume that α is known and
+         equal to its MLE.
+
+=== PDF 397; PRINT 366 ===
+366                                             INTERVAL ESTIMATION
+  9.4 Let X1,...,Xn be a random sample from a n(0,σ2X) and letY1,...,Ym be a random sample from a n(0,σ2Y ),
+      independent of the Xs. Define λ = σ2Y /σ2X.
+       (a) Find the level α LRT of H0 : λ = λ0 versus H1 : λ̸ = λ0.
+      (b) Express the rejection region of the LRT of part (a) in terms of an F random variable.
+       (c) Find a 1−α confidence interval for λ.
+  9.5 In Example 9.2.5, a lower confidence bound was put on p, the success probability from a sequence of
+      Bernoulli trials. This exercise will derive an upper confidence bound. That is, observing X1,...,Xn, where
+      Xi ∼Bernoulli(p), we want an interval of the form [0,U(x1,...,xn)), where Pp(p ∈[0,U(X1,...,Xn))) ≥
+    1−α.
+       (a) Show that inversion of the acceptance region of the test
+
+                           H0 :   p = p0     versus    H1 :   p < p0
+
+           will give a confidence interval of the desired confidence level and form.
+      (b) Find equations, similar to those given in (9.2.8), that can be used to construct the confidence interval.
+  9.6  (a) Derive a confidence interval for a binomial p by inverting the LRT of H0: p = p0 versus H1: p̸ = p0.
+      (b) Show that the interval is a highest density region from py(1−p)n−y and is not equal to the interval           in (10.4.4).
+  9.7  (a) Find the 1 −α confidence set for a that is obtained by inverting the LRT of H0 : a = a0 versus
+        H1 : a̸ = a0 based on a sample X1,...,Xn from a n(θ,aθ) family, where θ is unknown.
+      (b) A similar question can be asked about the related family, the n(θ,aθ2) family. If X1,...,Xn are
+            iid n(θ,aθ2), where θ is unknown, find the 1 −α confidence set based on inverting the LRT of
+        H0 : a = a0 versus H1 : a̸ = a0.
+  9.8 Given a sample X1,...,Xn from a pdf of the form σ1 f((x −θ)/σ), list at least five different pivotal      quantities.
+  9.9 Show that each of the three quantities listed in Example 9.2.7 is a pivot.
+9.10  (a) Suppose that T is a real-valued statistic. Suppose that Q(t,θ) is a monotone function of t for each
+          value of θ ∈Θ. Show that if the pdf of T, f(t|θ), can be expressed in the form (9.2.11) for some          function g, then Q(T,θ) is a pivot.
+      (b) Show that (9.2.11) is satisfied by taking g = 1 and Q(t,θ) = Fθ(t), the cdf of T. (This is the proba-
+            bility integral transform.)
+9.11  If T is a continuous random variable with cdf FT (t|θ), and α1 +α2 = α, show that an α-level acceptance
+      region of the hypothesis H0 : θ = θ0 is {t : α1 ≤FT (t|θ0) ≤1−α2}, with associated confidence 1 −α
+       set {θ : α1 ≤FT (t|θ) ≤1−α2}.
+9.12 Find a pivotal quantity based on a random sample of size n from a n(θ,θ) population where θ > 0. Use
+      the pivotal quantity to set up a 1−α confidence interval for θ.
+9.13 Let X be a single observation from the beta(θ,1) pdf.
+       (a) Let Y = −(logX)−1. Evaluate the confidence coefficient of the set [y/2,y].
+      (b) Find a pivotal quantity and use it to set up a confidence interval having the same confidence coeffi-
+           cient as the interval in part (a).
+       (c) Compare the two confidence intervals.
+9.14 Let X1,...,Xn be iid n(µ,σ2), where both parameters are unknown. Simultaneous inference on both µ
+     and σ can be made using the Bonferroni Inequality in a number of ways.
+       (a) Using the Bonferroni Inequality, combine the two confidence sets
+
+                                           ks
+               µ : x−ks√n ≤µ ≤x+ √n    and   σ2 : (n−1)s2b   ≤σ2 ≤(n−1)s2a
+
+           into one confidence set for (µ,σ). Show how to choose a, b, and k to make the simultaneous set a
+      1−α confidence set.
+
+=== PDF 398; PRINT 367 ===
+EXERCISES                                                                  367
+
+      (b) Using the Bonferroni Inequality, combine the two confidence sets
+
+                                  kσ               µ : x−kσ√n ≤µ ≤x+ √n    and   σ2 : (n−1)s2b   ≤σ2 ≤(n−1)s2a
+
+           into one confidence set for (µ,σ). Show how to choose a, b, and k to make the simultaneous set a
+      1−α confidence set.
+       (c) Compare the confidence sets in parts (a) and (b).
+9.15 Solve for the roots of the quadratic equation that defines Fieller’s confidence set for the ratio of normal
+     means (see Miscellanea 9.5.3). Find conditions on the random variables for which
+       (a) The parabola opens upward (the confidence set is an interval).
+      (b) The parabola opens downward (the confidence set is the complement of an interval).
+       (c) The parabola has no real roots.
+          In each case, give an interpretation of the meaning of the confidence set. For example, what would
+        you tell an experimenter if, for his data, the parabola had no real roots?
+9.16 Let X1,...,Xn be iid n(θ,σ2), where σ2 is known. For each of the following hypotheses, write out the
+      acceptance region of a level α test and the 1−α confidence interval that results from inverting the test.
+       (a) H0 : θ = θ0 versus H1 : θ̸ = θ0
+      (b) H0 : θ ≥θ0 versus H1 : θ < θ0
+       (c) H0 : θ ≤θ0 versus H1 : θ > θ0
+9.17 Find a 1−α confidence interval for θ, given X1,...,Xn iid with pdf
+                            2 < x < θ + 2.       (a)  f(x|θ)                        1         = 1, θ −1
+      (b)  f(x|θ) = 2x/θ2, 0 < x < θ, θ > 0.
+9.18 In this exercise we will investigate some more properties of binomial confidence sets and the Sterne
+      (1954) construction in particular. As in Example 9.2.11, we will again consider the binomial(3, p) distri-
+      bution.
+       (a) Draw, as a function of p, a graph of the four probability functions Pp(X = x), x = 0,...,3. Identify
+          the maxima of Pp(X = 1) and Pp(X = 2).
+      (b) Show that for small ε,Pp(X = 0) > Pp(X = 2) for p = 13 +ε.
+       (c) Show that the most probable construction is to blame for the difficulties with the Sterne sets by
+         showing that the following acceptance regions can be inverted to obtain a 1 −α = .442 confidence           interval.
+                                        p       Acc. region
+                                            [.000,.238]      {0}
+                                          (.238,.305)     {0, 1}
+                                            [.305,.362]      {1}
+                                          (.362,.634)     {1, 2}
+                                            [.634,.695]      {2}
+                                          (.695,.762)     {2, 3}
+                                            [.762,1.00]      {3}
+          (This is essentially Crow’s (1956) modification of Sterne’s construction; see Miscellanea 9.5.2.)
+9.19 Prove part (b) of Theorem 9.2.12.
+9.20 Some of the details of the proof of Theorem 9.2.14 need to be filled in, and the second part of the theorem
+     needs to be proved.
+       (a) Show that if FT (T|θ) is stochastically greater than or equal to a uniform random variable then so
+            is FT (T|θ). That is, if Pθ(FT (T|θ) ≤x) ≤x for every x,0 ≤x ≤1, then Pθ(FT (T|θ) ≤x) ≤x for
+         every x,0 ≤x ≤1.
+      (b) Show that for α1 +α2 = α, the set {θ : FT (T|θ) ≤α1 and FT (T|θ) ≤α2} is a 1−α confidence set.
+       (c)  If the cdf FT (t|θ) is a decreasing function of θ for each t, show that the function FT (t|θ) defined by
+       FT (t|θ) = P(T ≥t|θ) is a nondecreasing function of θ for each t.
+      (d) Prove part (b) of Theorem 9.2.14.
+
+=== PDF 399; PRINT 368 ===
+368                                             INTERVAL ESTIMATION
+
+9.21 In Example 9.2.15, it was shown that a confidence interval for a Poisson parameter can be expressed in
+      terms of chi squared cutoff points. Use a similar technique to show that if X ∼binomial(n, p), then a
+   1−α confidence interval for p is
+                                                         x+1
+                               1                       n−xF2(x+1),2(n−x),α/2   ,                           ≤p ≤ 1+               1+ n−x+1x                                     F2(n−x+1),2x,α/2           x+1n−xF2(x+1),2(n−x),α/2
+     where Fν1,ν 2,α is the upper α cutoff from an F distribution with ν1 and ν2 degrees of freedom, and we
+     make the endpoint adjustment that the lower endpoint is 0 if x = 0 and the upper endpoint is 1 if x = n.
+     These are the Clopper and Pearson (1934) intervals.
+      (Hint:  Recall the following identity from Exercise 2.40, which can be interpreted in the following way.
+       If X ∼binomial(n,θ), then Pθ(X ≥x) = P(Y ≤θ), where Y ∼beta(x,n−x+1). Use the properties of      the F and beta distributions from Chapter 5.)
+9.22  If X ∼negative binomial(r, p) use the relationship between the binomial and negative binomial to show
+       that a 1−α confidence interval for p is given by
+                                   1                      xF2r,2x,α/2r
+                                                                                          r              ,                             ≤p ≤ 1+ xF2r,2x,α/2                   1+ x+1r  F2(x+1),2r,α/2
+      with a suitable modification if x = 0.
+ 9.23 (a) Let X1,...,Xn be a random sample from a Poisson population with parameter λ and define Y = ∑Xi.
+          In Example 9.2.15 a confidence interval for λ was found using the method of Section 9.2.3. Construct
+          another interval for λ, by inverting an LRT, and compare the intervals.
+      (b) The following data, the number of aphids per row in nine rows of a potato field, can be assumed to
+          follow a Poisson distribution:
+
+                            155,   104,   66,   50,   36,   40,   30,   35,   42.
+
+        Use these data to construct a 90% LRT confidence interval for the mean number of aphids per row.
+          Also, construct an interval using the method of Example 9.2.15.
+9.24 For X ∼Poisson(λ), show that the coverage probability of the confidence interval [L(X),U(X)] in Ex-     ample 9.2.15 is given by
+                                          ∞              λ x
+                                                                                                                     ,                                                              I[L(x),U(x)](λ)e−λ                                                                              x!                            Pλ (λ ∈[L(X),U(X)]) = x=0∑
+     and that we can define functions xl(λ) and xu(λ) so that
+                                                                      xu(λ) e−λ λ x
+                                                                                                              .                                Pλ (λ ∈[L(X),U(X)]) = ∑     x!                                                                  x=xl(λ)
+
+     Hence, explain why the graph of the coverage probability of the Poisson intervals given in Figure 9.2.5
+      has jumps occurring at the endpoints of the different confidence intervals.
+9.25  If X1,...,Xn are iid with pdf f(x|µ) = e−(x−µ)I[µ,∞)(x), then Y                                     = min{X1,...,Xn} is sufficient for µ      with pdf
+                                                fY (y|µ) = ne−n(y−µ)I[µ,∞)(y).
+      In Example  9.2.13 a 1 −α  confidence  interval  for µ was found using  the method  of Sec-
+      tion  9.2.3. Compare  that  interval  to 1 −α  intervals obtained by likelihood and  pivotal meth-      ods.
+9.26 Let X1,...,Xn be iid observations from a beta(θ,1) pdf and assume that θ has a gamma(r,λ) prior pdf.
+     Find a 1−α Bayes credible set for θ.
+9.27  (a) Let X1,...,Xn be iid observations from an exponential(λ) pdf where λ has the conjugate IG(a,b)
+           prior, an inverted gamma with pdf
+                                      1     1  a+1
+                                       < λ < ∞.                           π(λ|a,b) = Γ(a)ba  λ      e−1/(bλ),  0
+       Show how to find a 1−α Bayes HPD credible set for λ.
+
+=== PDF 400; PRINT 369 ===
+EXERCISES                                                                  369
+      (b) Find a 1 −α Bayes HPD credible set for σ2, the variance of a normal distribution, based on the         sample variance s2 and using a conjugate IG(a,b) prior for σ2.
+       (c) Starting with the interval from part (b), find the limiting 1 −α Bayes HPD credible set for σ2 ob-
+          tained as a →0 and b →∞.
+9.28 Let X1,...,Xn be iid n(θ,σ2), where both θ and σ2 are unknown, but there is only interest on inference
+      about θ. Consider the prior pdf
+                                   1                         2)   1     1   a+1
+              π(θ,σ2|µ,τ2,a,b) = √2πτ2σ2 e−(θ−µ)2/(2τ2σ  Γ(a)ba  σ2      e−1/(bσ 2),
+      a n(µ,τ2σ2) multiplied by an IG(a,b).
+       (a) Show that this prior is a conjugate prior for this problem.
+      (b) Find the posterior distribution of θ and use it to construct a 1−α credible set for θ.
+       (c) The classical 1−α confidence set for θ can be expressed as
+                                                                       s2
+                                  θ : |θ −x|2 ≤F1,n−1,α/2 n    .
+
+           Is there any (limiting) sequence of τ2, a, and b that would allow this set to be approached by a Bayes
+           set from part (b)?
+9.29  If X1,...,Xn are a sequence of n Bernoulli(p) trials,
+       (a) Calculate a 1−α credible set for p using the conjugate beta(a,b) prior.
+      (b) Using  the  relationship between  the  beta and F  distributions,  write  the  credible  set  in a
+        form  that  is comparable to the form of the intervals in Exercise 9.21. Compare the  inter-
+           vals.
+9.30 Complete the credible probability calculation needed in Example 9.2.17.
+       (a) Assume that a is an integer, and show that T = 2(nb+1)b  λ ∼χ22(a+Σx).
+      (b) Show that
+                                                           χ2ν −ν                        √2ν  →n(0,1)
+          as ν →∞. (Use moment generating functions. The limit is difficult to evaluate – take logs and then        do a Taylor expansion. Alternatively, see Example 12.6.8.)
+       (c) Standardize the random variable T of part (a), and write the credible probability (9.2.21) in terms
+           this variable. Show that the standardized lower cutoff point →∞as Σxi →∞, and hence the credible          probability goes to zero.
+9.31 Complete the coverage probability calculation needed in Example 9.2.17.
+                                                                                          2Y ) = 2λ, Var(χ22Y ) =       (a)  If χ22Y is a chi squared random variable with Y ∼Poisson(λ), show that E(χ2
+                          +                                                                                             , and         8λ, the mgf of χ2Y is given by exp −λ    λ                                                     1−2t
+                                      χ22Y −2λ                        √8λ  →n(0,1)
+          as λ →∞. (Use moment generating functions.)
+                                                                     2Y . Show that the standardized upper limit      (b) Now evaluate (9.2.22) as λ →∞by first standardizing χ2
+         goes to −∞as λ →∞, and hence the coverage probability goes to zero.
+9.32 In this exercise we will calculate the classical coverage probability of the HPD region in (9.2.23),
+       that  is,  the coverage  probability of  the Bayes HPD region using  the  probability model X ∼     n(θ,σ2/n).
+
+=== PDF 401; PRINT 370 ===
+370                                             INTERVAL ESTIMATION
+
+       (a) Using the definitions given in Example 9.3.12, prove that
+
+                    Pθ  |θ −δ B(X)| ≤zα/2  Var(θ|X)
+                                           γ(θ                        γ(θ             =  Pθ     1+γzα/2 +   −µ)        1+γzα/2 +   −µ)   .                 −          σ/√n ≤Z ≤           σ/√n
+      (b) Show that the above set, although a 1 −α credible set, is not a 1 −α confidence set. (Fix       = µ, let τ = σ/√n, so that γ = 1. Prove that as σ2/n      the above probability goes to                θ̸                           →0           zero.)
+       (c)  If θ = µ, however, prove that the coverage probability is bounded away from zero. Find the minimum
+         and maximum of this coverage probability.
+      (d) Now we will look at the other side. The usual 1−α confidence set for θ is {θ : |θ −x| ≤zα/2σ/√n}.       Show that the credible probability of this set is given by
+                Px  |θ −x| ≤zα/2σ/√n
+           =  Px    1+γzα/2 +  γ(x−µ)          1+γzα/2 +  γ(x−µ)               −         √1+γσ/√n ≤Z ≤         √1+γσ/√n
+         and that this probability is not bounded away from zero. Hence, the 1 −α confidence set is not a
+      1−α credible set.
+9.33 Let X ∼n(µ,1) and consider the confidence interval,
+                         Ca(x) = {µ : min{0,(x−a)} ≤µ ≤max{0,(x+a)}}.
+       (a) For a = 1.645, prove that the coverage probability of Ca(x) is exactly .95 for all µ, with the exception
+          of µ = 0, where the coverage probability is 1.
+      (b) Now consider the so-called noninformative prior π(µ) = 1. Using this prior and again taking
+        a = 1.645, show that the posterior credible probability of Ca(x) is exactly .90 for −1.645 ≤x ≤1.645
+         and increases to .95 as |x| →∞.
+           This type of interval arises in the problem of bioequivalence, where the objective is to decide
+             if two treatments (different formulations of a drug, different delivery systems of a treatment) pro-
+         duce the same effect. The formulation of the problem results in “turning around” the roles of the null
+         and alternative hypotheses (Exercise 8.47), resulting in some interesting statistics. See Berger and
+        Hsu (1996) for a review of bioequivalence, and Brown, Casella, and Hwang (1995) for generaliza-
+           tions of the confidence set.
+9.34 Suppose that X1,...,Xn is a random sample from a n(µ,σ2) population.
+       (a)  If σ2 is known, find a minimum value for n to guarantee that a .95 confidence interval for µ will
+         have length no more than σ/4.
+      (b)  If σ2 is unknown, find a minimum value for n to guarantee, with probability .90, that a .95 confidence
+           interval for µ will have length no more than σ/4.
+9.35 Let X1,...,Xn be a random sample from a n(µ,σ2) population. Compare expected lengths of 1 −α      confidence intervals for µ that are computed assuming
+       (a) σ2 is known.
+      (b) σ2 is unknown.
+                                             = mini(Xi/i) is a suffi-9.36 Let X1,...,Xn be independent with pdfs fXi(x|θ) = eiθ−xI[iθ,∞)(x). Prove that T
+      cient statistic for θ. Based on T, find the 1−α confidence interval for θ of the form [T +a,T +b] that       is of minimum length.
+9.37 Let X1,...,Xn be iid uniform(0,θ). LetY be the largest order statistic. Prove thatY/θ is a pivotal quantity
+     and show that the interval
+                                                        y
+                                     θ : y ≤θ ≤ α1/n
+       is the shortest 1−α pivotal interval.
+
+=== PDF 402; PRINT 371 ===
+EXERCISES                                                                  371
+
+9.38  If, in Theorem 9.3.2, we assume that f is continuous, then we can simplify the proof. For fixed c, consider
+      the integral  aa+c f(x)dx.
+       (a) Show that dad  aa+c f(x)dx = f(a+c)−f(a).
+      (b) Prove that the unimodality of  f implies that  aa+c f(x)dx is maximized when a satisfies f(a + c)                                                        −          f(a) = 0.
+       (c) Suppose that, given α, we choose c∗and a∗to satisfy  a∗a∗+c∗ f(x)dx                                           = 1 −α and f(a∗+ c∗) −
+          f(a∗) = 0. Prove that this is the shortest 1−α interval.
+9.39 Prove a special case of Theorem 9.3.2. Let X ∼f(x),b   where  f is a symmetric unimodal pdf. For a fixed
+                                                         a f(x)dx = 1−α, the shortest is obtained by choosing      value of 1−α, ofa all intervals [a,b] that ∞satisfy                                                b f(x)dx = α/2.     a and b so that −∞f(x)dx = α/2 and
+9.40 Building on Exercise 9.39, show that if f is symmetric, the optimal interval is of the form m±k, where   m is the mode of  f and k is a constant. Hence, show that (a) symmetric likelihood functions produce
+      likelihood regions that are symmetric about the MLE if k′ does not depend on the parameter (see (9.2.7)),
+     and (b) symmetric posterior densities produce HPD regions that are symmetric about the posterior mean.
+9.41  (a) Prove the following, which is related to Theorem 9.3.2. Let X ∼f(x), where fb is a strictly decreas-
+                                                                                          a f(x)dx = 1−α, the          ing pdf on [0,∞). For a fixed value of 1−α, of all intervalsb     [a,b] that satisfy
+           shortest is obtained by choosing a = 0 and b so that  0 f(x)dx = 1−α.
+      (b) Use the result of part (a) to find the shortest 1−α confidence interval in Example 9.2.13.
+9.42 Referring to Example 9.3.4, to find the shortest pivotal interval for a gamma scale parameter, we had to
+      solve a constrained minimization problem.
+                                                   = f(a)a2.       (a) Show that the solution is given by the a and b that satisfy  ab fY (y)dy = 1−α and f(b)b2
+      (b) With one observation from a gamma(k,β) pdf with known shape parameter k, find the shortest 1−α
+           (pivotal) confidence interval of the form {β : x/b ≤β ≤x/a}.
+9.43 Juola (1993) makes the following observation. If we have a pivot Q(X,θ), a 1 −α confidence interval
+      involves finding a and b so that P(a < Q < b) = 1−α. Typically the length of the interval will be some      function               of a and b like b −a or 1/b2 −1/a2. If Q has density  f and the length can be expressed as        b
+       a g(t)dt, the shortest pivotal interval is the solution to
+
+                                           b                     b
+                           min                                           g(t)dt subject to                                                                  f(t)dt = 1−α                                          a                                                               a                                       {a,b}
+       or, more generally,
+                           min   g(t)dt subject to    f(t)dt                            C  C               C    ≥1−α.
+                                                                  C f(t)dt = 1−α. (Hint:       (a) Prove that the solution is C = {t : g(t) < λ f(t)}, where λ is chosen so that        You can adapt the proof of Theorem 8.3.12, the Neyman-Pearson Lemma.)
+      (b) Apply the result in part (a) to get the shortest intervals in Exercises 9.37 and 9.42.
+9.44  (a) Let X1,...,Xn be iid Poisson(λ). Find a UMA 1−α confidence interval based on inverting the UMP           level α test of H0 : λ = λ0 versus H1 : λ > λ0.
+      (b) Let f(x|θ) be the logistic(θ,1) location pdf. Based on one observation, x, find the UMA one-sided
+      1−α confidence interval of the form {θ : θ ≤U(x)}.
+9.45 Let X1,...,Xn be iid exponential(λ).
+       (a) Find a UMP size α hypothesis test of H0 : λ = λ0 versus H1 : λ < λ0.
+      (b) Find a UMA 1−α confidence interval based on inverting the test in part (a). Show that the interval         can be expressed as
+
+                                                                                                                .                                   C∗(x1,...,xn) =  λ : 0 ≤λ ≤2∑xiχ22n,α
+       (c) Find the expected length of C∗(x1,...,xn).
+
+=== PDF 403; PRINT 372 ===
+372                                             INTERVAL ESTIMATION
+      (d) Madansky (1962) exhibited a 1−α interval whose expected length is shorter than that of the UMA           interval. In general, Madansky’s interval is difficult to calculate, but in the following situation calcu-
+           lation is relatively simple. Let 1−α = .3 and n = 120. Madansky’s interval is
+                                                                                x(1)
+                                                                                                                    ,                               CM(x1,...,xn) =  λ : 0 ≤λ ≤− log(.99)
+        which is a 30% confidence interval. Use the fact that χ2240,.7 = 251.046 to show that the 30% UMA
+           interval satisfies
+                  E[Length(C∗(x1,...,xn))] = .956λ > E Length CM(x1,...,xn)  = .829λ.
+
+9.46 Show that if A(θ0) is an unbiased level α acceptance region of a test of H0 : θ = θ0 versus H1 : θ̸ = θ0,
+     and C(x) is the 1−α confidence set formed by inverting the acceptance regions, then C(x) is an unbiased
+   1−α confidence set.
+9.47 Let X1,...,Xn be a random sample from a n(θ,σ2) population, where σ2 is known. Show that the usual
+                                                                                    is unbiased, and so is the corresponding      one-sided 1−α upper confidence bound {θ : θ ≤x+zασ/√n}     lower confidence bound.
+9.48 Let X1,...,Xn be a random sample from a n(θ,σ2) population, where σ2 is unknown.
+       (a) Show that the interval θ ≤x+tn−1,α √ns  can be derived by inverting the acceptance region of an LRT.
+      (b) Show that the corresponding two-sided interval in (9.2.14) can also derived by inverting the accep-
+          tance region of an LRT.
+       (c) Show that the intervals in parts (a) and (b) are unbiased intervals.
+9.49 (Cox’s Paradox)  We are to test
+                         H0 :  θ = θ0     versus    H1 :  θ > θ0,
+     where θ is the mean of one of two normal distributions and θ0 is a fixed but arbitrary value of θ. We
+      observe the random variable X with distribution
+                                    n(θ,100)  with probability p,
+                       X ∼  n(θ,1)    with probability                                                1−p.
+       (a) Show that the test given by
+                                                 reject H0 if X > θ0 +zασ,
+        where σ = 1 or 10, depending on which population is sampled, is a level α test. Derive a 1 −α         confidence set by inverting the acceptance region of this test.
+      (b) Show that a more powerful level α test (for α > p) is given by
+                       reject H0 if X > θ0 +z(α−p)/(1−p) and σ = 1, otherwise always reject H0.
+         Derive a 1−α confidence set by inverting the acceptance region of this test, and show that it is the        empty set with positive probability. (Cox’s Paradox states that classic optimal procedures sometimes
+          ignore the information about conditional distributions, and provide us with a procedure that, while
+          optimal, is somehow unreasonable; see Cox 1958 or Cornfield 1969.)
+9.50 Let X ∼f(x|θ), and suppose that the interval {θ : a(X) ≤θ ≤b(X)} is a UMA confidence set for θ.
+       (a) Find a UMA confidence set for 1/θ. Note that if a(x) < 0 < b(x), this set is {1/θ : 1/b(x) ≤
+        1/θ} ∪{1/θ : 1/θ ≤1/a(x)}. Hence it is possible for the UMA confidence set to be neither an           interval nor bounded.
+      (b) Show that, if h is a strictly increasing function, the set {h(θ): h(a(X)) ≤h(θ) ≤h(b(X))} is a UMA         confidence set for h(θ). Can the condition on h be relaxed?
+9.51  If X1,...,Xn are iid from a location pdf f(x−θ), show that the confidence set
+                                 C(x1,...,xn) = {θ : x−k1 ≤θ ≤x+k2},
+     where k1 and k2 are constants, has constant coverage probability. (Hint:  The pdf of X is of the form
+     fX(x−θ).)
+
+=== PDF 404; PRINT 373 ===
+EXERCISES                                                                  373
+9.52 Let X1,...,Xn be a random sample from a n(µ,σ2) population, where both µ and σ2 are unknown. Each
+      of the following methods of finding confidence intervals for σ2 results in intervals of the form
+                             σ2 : (n−1)s2                               ,                                       b   ≤σ2 ≤(n−1)s2a
+
+      but in each case a and b will satisfy different constraints. The intervals given in this exercise are derived
+     by Tate and Klett (1959), who also tabulate some cutoff points.
+        Define fp(t) to be the pdf of a χ2p random variable with p degrees of freedom. In order to have a 1−α      confidence interval, a and b must satisfy
+
+                                                 b
+                                                a  fn−1(t)dt = 1−α,
+
+      but additional constraints are required to define a and b uniquely. Verify that each of the following con-
+       straints can be derived as stated.
+       (a) The likelihood ratio interval:  The 1 −α confidence interval obtained by inverting the LRT of
+        H0 : σ = σ0 versus H1 : σ̸ = σ0 is of the above form where a and b also satisfy fn+2(a) = fn+2(b).
+      (b) The minimum length interval:  For intervals of the above form, the 1 −α confidence interval ob-          tained by minimizing the interval length constrains a and b to satisfy fn+3(a) = fn+3(b).
+       (c) The shortest unbiased interval:  For intervals of the above form, the 1−α confidence interval ob-          tained by minimizing the probability of false coverage among all unbiased intervals constrains a
+         and b to satisfy fn+1(a) = fn+1(b). This interval can also be derived by minimizing the ratio of the
+          endpoints.
+      (d) The equal-tail interval:  For intervals of the above form, the 1−α confidence interval obtained by          requiring that the probability above and below the interval be equal constrains a and b to satisfy
+                                          a         α   ∞         α
+                                         0  fn−1(t)dt = 2 ,  b  fn−1(t)dt = 2 .
+
+          (This interval, although very common, is clearly nonoptimal no matter what length criterion is used.)
+       (e) For α = .1 and n = 3, find the numerical values of a and b for each of the above cases. Compare the
+          length of this intervals.
+9.53 Let X ∼n(µ,σ2),σ2 known. For each c ≥0, define an interval estimator for µ by C(x) = [x−cσ,x+cσ]     and consider the loss in (9.3.4).
+       (a) Show that the risk function, R(µ,C), is given by
+                               R(µ,C) = b(2cσ)−P(−c ≤Z ≤c).
+      (b) Using the Fundamental Theorem of Calculus, show that
+
+                                  d                 2
+                                dcR(µ,C) = 2bσ − √2π e−c2/2
+          and, hence, the derivative is an increasing function of c for c ≥0.       (c) Show that if bσ > 1/√ 2π, the derivative is positive for all c     and, hence, R(µ,C) is minimized                                      ≥0           at c = 0. That is, the best interval estimator is the point estimator C(x) = [x,x].
+      (d) Show that if bσ   √ 2π, the c that minimizes the risk is c =       √ 2π). Hence, if b is                ≤1/                                   −2log(bσ         chosen so that c = zα/2 for some α, then the interval estimator that minimizes the risk is just the
+          usual 1−α confidence interval.
+9.54 Let X ∼n(µ,σ2), but now consider σ2 unknown. For each c ≥0, define an interval estimator for µ by
+     C(x) = [x−cs,x+cs], where s2 is an estimator of σ2 independent of X, νS2/σ2 ∼χ2ν (for example, the      usual sample variance). Consider a modification of the loss in (9.3.4),
+
+                                           b
+                               L((µ,σ),C) =                                    σ Length(C)−IC(µ).
+
+=== PDF 405; PRINT 374 ===
+374                                             INTERVAL ESTIMATION
+
+       (a) Show that the risk function, R((µ,σ),C), is given by
+                              R((µ,σ),C) = b(2cM)−[2P(T ≤c)−1],
+        where T ∼tν and M = ES/σ.      (b)  If b   √2π, show that the c that minimizes the risk satisfies         ≤1/
+                                        1     ν     (ν+1)/2
+                                   b = √2π  ν +c2              .
+       (c) Reconcile this problem with the known σ2 case. Show that as ν →∞, the solution here converges to          the solution in the known σ2 problem. (Be careful of the rescaling done to the loss function.)
+9.55 The decision theoretic approach to set estimation can be quite useful (Exercise 9.56) but it can also give
+     some unsettling results, showing the need for thoughtful implementation. Consider again the case of X ∼
+     n(µ,σ2),σ2 unknown, and suppose that we have an interval estimator for µ by C(x) = [x −cs,x + cs],
+     where s2 is an estimator of σ2 independent of X,νS2/σ2 ∼χ2ν. This is, of course, the usual t interval,     one of the great statistical procedures that has withstood the test of time. Consider the loss
+                               L((µ,σ),C) = bLength(C)−IC(µ),
+      similar to that used in Exercise 9.54, but without scaling the length. Construct another procedure C′ as
+
+                                                                                    if s < K,                                   C′ =  [x−cs,x+cs]
+                                                                            /0                    if s ≥K,
+     where K is a positive constant. Notice that C′ does exactly the wrong thing. When s2 is big and there is a
+       lot of uncertainty, we would want the interval to be wide. But C′ is empty! Show that we can find a value
+      of K so that
+                           R((µ,σ),C′) ≤R((µ,σ),C),   for every (µ,σ),
+     with strict inequality for some (µ,σ).
+9.56 Let X ∼f(x|θ) and suppose that we want to estimate θ with an interval estimator C using the loss in       (9.3.4). If θ has the prior pdf π(θ), show that the Bayes rule is given by
+                                Cπ = {θ : π(θ|x) ≥b}.
+      (Hint:  Write Len(C) = C 1dθ and use the Neyman–Pearson Lemma.)
+
+     The following two problems relate to Miscellanea 9.5.4.
+9.57 Let X1,X2,...,Xn                     be iid n(µ,σ2), where σ2 is known. We know that a 1 −α confidence interval for µ               σ
+       is ¯x±zα/2 √n
+       (a) Show that a 1−α prediction interval for Xn+1 is ¯x±zα/2σ  1+ 1n.
+      (b) Show that a 1 −α tolerance interval for 100p% of the underlying population is given by  ¯x ±
+         zα/2σ 1+ √n1    .
+       (c) Find a 1−α prediction interval for Xn+1 if σ2 is unknown.
+       (If σ2 is unknown, the 1−α tolerance interval is quite an involved calculation.)
+9.58 Let X1,X2,...,Xn be iid observations from a population with median m. Distribution-free intervals can
+     be based on the order statistics X(1) ≤X(2) ≤··· ≤X(n) in the following way.
+       (a) Show that the one-sided intervals (−∞,x(n)] and [x(1),∞) are each confidence intervals for m
+         with confidence coefficient 1 −(1/2)n, and the confidence coefficient of the interval [x(1),x(n)] is
+        1−2(1/2)n.
+      (b) Show that the one-sided intervals of part (a) are prediction intervals with coefficient n/(n+1), and
+          the two-sided interval is a prediction interval with coefficient (n−1)/(n+1).
+       (c) The intervals in part (a) can also be used as tolerance intervals for proportion p of the underlying
+          population. Show that, when considered as tolerance intervals, the one-sided intervals have coef-
+            ficient 1 −pn and the two-sided interval has coefficient 1 −pn −n(1 −p)pn−1. Vardeman (1992)           refers to this last calculation as a “nice exercise in order statistics.”
+
+=== PDF 406; PRINT 375 ===
+MISCELLANEA                                                              375
+9.5  Miscellanea
+
+ 9.5.1 Confidence Procedures
+       Confidence sets and tests can be related formally by defining an entity called a confidence
+       procedure (Joshi 1969). If X ∼f(x|θ), where x ∈X and θ ∈Θ, then a confidence procedure
+         is a set in the space X ×Θ, the Cartesian product space. It is defined as
+                                    {(x,θ): (x,θ) ∈C},
+        for a set C ∈X ×Θ.       From the confidence procedure we can define two slices, or sections, obtained by holding
+      one of the variables constant. For fixed x, we define the θ-section or confidence set as
+                                C(x) = {θ : (x,θ) ∈C}.
+       For fixed θ we define the x-section or acceptance region as
+                               A(θ) = {x: (x,θ) ∈C}.
+      Although this development necessitates working with the product space X × Θ, which is      one reason why we do not use it here, it does provide a more straightforward way of seeing
+       the relationship between tests and sets. Figure 9.2.1 illustrates this correspondence in the
+      normal case.
+ 9.5.2 Confidence Intervals in Discrete Distributions
+      The construction of optimal (or, at least, improved) confidence intervals for parameters from
+        discrete distributions has a long history, as indicated in Example 9.2.11, where we looked
+        at the Sterne (1954) modification to the intervals of Clopper and Pearson (1934). Of course,
+       there are difficulties with the Sterne construction, but the basic idea is sound, and Crow
+       (1956), and Blyth and Still (1983), modified Sterne’s construction, with the latter producing
+       the shortest set of exact intervals. Casella (1986) gave an algorithm to find a class of shortest
+       binomial confidence intervals.
+        The history of Poisson interval research (which often includes other discrete distribu-
+        tions) is similar. The Garwood (1936) construction is exactly the Clopper-Pearson argument
+       applied to the binomial, and Crow and Gardner (1959) improved the intervals. Casella and
+       Robert (1989) found a class of shortest Poisson intervals.
+         Blyth (1986) produces very accurate approximate intervals for a binomial parameter,
+      Leemis and Trivedi (1996) compare normal and Poisson approximations, and Agresti and
+       Coull (1998) argue that requiring discrete intervals to maintain coverage above the nomi-
+       nal level may be too stringent. Blaker (2000) constructs improved intervals for binomial,
+       Poisson, and other discrete distributions that have a nesting property: For α < α′, the 1−α
+        intervals contain the corresponding 1−α′ intervals.
+ 9.5.3 Fieller’s Theorem
+        Fieller’s Theorem (Fieller 1954) is a clever argument to get an exact confidence set on a ratio
+       of normal means.
+        Given a random sample (X1,Y1),...,(Xn,Yn) from a bivariate normal distribution with pa-
+       rameters (µX,µY,σ2X,σ2Y ,ρ), a confidence set on θ = µY/µX can be formed in the following
+       way. For i = 1,...,n, define Zθi = Yi −θXi and Zθ = Y −θX. It can be shown that Zθ is      normal with mean 0 and variance
+                                1
+                            Vθ =   σ2Y        +θ 2σ2X  .                                n   −2θρσYσX
+      Vθ can be estimated with ˆVθ, given by
+                        1      n              1
+                          ˆVθ =                                                                     X  ,              ∑ (Zθi −Zθ)2                          =       S2Y −2θSYX +θ 2S2                                     i=1                   n(n−1)           n−1
+
+=== PDF 407; PRINT 376 ===
+376                                             INTERVAL ESTIMATION
+      where
+               1  n                1  n                 1  n
+                    =                                 =            S2Y = ∑ (Yi         S2X                 ∑ (Xi        SYX                           ∑ (Yi               n i=1  −Y)2,       n i=1   −X)2,        n i=1  −Y)(Xi −X).
+       Furthermore,  it also can be shown that EˆVθ = Vθ, ˆVθ  is independent of Zθ, and (n                                                  −
+       1)ˆVθ/Vθ ∼χ2n−1. Hence, Zθ/   ˆVθ ∼tn−1 and the set
+                                                 z2θ                                 θ :                                                                   ˆvθ ≤t2n−1,α/2
+       defines a 1 −α confidence set for θ, the ratio of the means. This set defines a parabola in      θ and the roots of the parabola give the endpoints of the confidence set. Writing the set in
+       terms of the original variables, we get
+
+                          t2                            t2                         t2
+          θ :  x2    n−1,α/2 S2x  θ 2            n−1,α/2 Syx  θ +  y2    n−1,α/2 S2y             .           −         −2 xy−            −       ≤0               n−1             n−1           n−1
+     One interesting feature of this set is that, depending on the roots of the parabola, it can be an
+        interval, the complement of an interval, or the entire real line (see Exercise 9.15). Further-
+       more, to maintain 1 −α confidence, this interval must be infinite with positive probability.      See Hwang (1995) for an alternative based on bootstrapping, and Tsao and Hwang (1998,
+      1999) for an alternate confidence approach.
+ 9.5.4 What About Other Intervals?
+      Vardeman (1992) asks the question in the title of this Miscellanea, arguing that mainstream
+         statistics should spend more time on intervals other than two-sided confidence intervals.
+       In particular, he lists (a) one-sided intervals, (b) distribution-free intervals, (c) prediction
+        intervals, and (d) tolerance intervals.
+      We have seen one-sided intervals, and distribution-free intervals are intervals whose prob-
+        ability guarantee holds with little (or no) assumption on the underlying cdf (see Exercise
+        9.58). The other two interval definitions, together with the usual confidence interval, pro-
+       vide use with a hierarchy of inferences, each more stringent than the previous.
+            If X1,X2,...,Xn are iid from a population with cdf F(x|θ), and C(x) = [l(x),u(x)] is an
+        interval, for a specified value 1−α it is a
+              i. confidence interval if Pθ[l(X) ≤θ ≤u(X)] ≥1−α;
+             ii. prediction interval if Pθ[l(X) ≤Xn+1 ≤u(X)] ≥1−α;
+           iii. tolerance interval if, for a specified value p, Pθ[F(u(X)|θ)−F(l(X)|θ) ≥p] ≥1−α.
+        So a confidence interval covers a mean, a prediction interval covers a new random vari-
+        able, and a tolerance interval covers a proportion of the population. Thus, each gives a dif-
+        ferent inference, with the appropriate one being dictated by the problem at hand.

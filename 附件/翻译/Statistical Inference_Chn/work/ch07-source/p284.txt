@@ -1,0 +1,48 @@
+METHODS OF FINDING ESTIMATORS                                          253
+7.2  Methods of Finding Estimators
+In some cases it is an easy task to decide how to estimate a parameter, and often intuition alone
+can lead us to very good estimators. For example, estimating a parameter with its sample analogue
+is usually reasonable. In particular, the sample mean is a good estimate for the population mean.
+In more complicated models, ones that often arise in practice, we need a more methodical way of
+estimating parameters. In this section we detail four methods of finding estimators.
+
+
+7.2.1  Method of Moments
+
+The method of moments is, perhaps, the oldest method of finding point estimators, dating back
+at least to Karl Pearson in the late 1800s. It has the virtue of being quite simple to use and almost
+always yields some sort of estimate. In many cases, unfortunately, this method yields estimators that
+may be improved upon. However, it is a good place to start when other methods prove intractable.
+   Let X1,...,Xn be a sample from a population with pdf or pmf f(x|θ1,...,θk). Method of mo-ments estimators are found by equating the first k sample moments to the corresponding k population
+moments, and solving the resulting system of simultaneous equations. More precisely, define
+
+                                   1  n
+                                                                          ,   µ′1 = EX1                         m1 =  ∑ X1i                                   n i=1
+                                   1  n
+                                                                          ,   µ′2 = EX2                         m2 =  ∑ X2i                                   n i=1
+                                                                                                                                                                                              ...                                                       (7.2.1)
+                                   1  n
+                                                                          ,   µ′k = EXk.                          mk =  ∑ Xki                                   n i=1
+
+The population moment µ′ j will typically be a function of θ1,...,θk, say µ′j(θ1,...,θk). The method
+of moments estimator (˜θ1,..., ˜θk) of (θ1,...,θk) is obtained by solving the following system of
+equations for (θ1,...,θk) in terms of (m1,...,mk):
+
+                           m1 =  µ′1(θ1,...,θk),
+                           m2 =  µ′2(θ1,...,θk),
+                                                                                                                                                                                                                                       ...                                              (7.2.2)
+                            mk =  µ′k(θ1,...,θk).
+Example 7.2.1 (Normal method of moments)  Suppose X1,...,Xn are iid n(θ,σ2). In the pre-
+ceding notation, θ1 = θ and θ2 = σ2. We have m1 = ¯X, m2 = (1/n)∑X2i , µ′1 = θ, µ′2 = θ 2 + σ2,
+and hence we must solve
+                                    1            2                           = θ +σ2.                                             ¯X = θ,   ∑X2i                                    n
+Solving for θ and σ2 yields the method of moments estimators
+
+                                    1            1
+                              =                                   ˜θ = ¯X  and   ˜σ2 =
+                                    n                                                 n                         ∑X2i −¯X2                                              ∑(Xi −¯X)2.                  ∥
+
+
+    In this simple example, the method of moments solution coincides with our intuition, and per-
+haps gives some credence to both. The method is somewhat more helpful, however, when no obvious
+estimator suggests itself.

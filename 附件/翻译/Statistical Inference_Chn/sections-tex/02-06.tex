@@ -1,0 +1,55 @@
+\sourcepageanchor{99}
+\subsection{杂录}\label{sec:2.6}
+\subsubsection{矩序列的唯一性}\label{sec:2.6.1}\index{SI0699@唯一性}
+分布不一定由它的矩确定. 但如果 $\sum_{r=1}^\infty\mu^r r^k/k!$ 具有正的收敛半径，其中 $X\sim F_X$，$\mathrm EX^r=\mu'_r$，那么矩序列具有唯一性，从而分布被唯一确定（\hyperref[bib:source33]{Billingsley 1995}，第~30~节）.\footnote{译注：原文级数印为 $\sum_{r=1}^\infty\mu^r r^k/k!$，求和指标、幂指数与后面的矩记号不一致，也未给出作为幂级数变量的量. 从上下文看，可能意指矩母函数的幂级数 $\sum_{r=0}^\infty\mu'_r t^r/r!$；此处保留原式，具体排印修正待核实.} 这个级数的收敛还意味着矩母函数在某个区间内存在，因此矩母函数确定分布.
+
+矩序列具有唯一性的一个充分条件是 Carleman 条件\index{SI0101@Carleman条件}\semanticindexanchor{101:99}（Carleman's Condition；\hyperref[bib:source78]{Chung 1974）}. 若 $X\sim F_X$，并记 $\mathrm EX^r=\mu'_r$，则当
+$$\sum_{r=1}^\infty\frac1{(\mu'_{2r})^{1/(2r)}}=+\infty$$
+时，矩序列具有唯一性. 这个条件一般不容易验证.
+
+\hyperref[bib:source119]{Feller (1971)} 对拉普拉斯变换作了非常完整的论述，矩母函数是其特殊情形. 特别地，Feller 证明了（与 Billingsley 类似），只要
+$$M_X(t)=\sum_{r=0}^\infty\frac{(-1)^r\mu'_r t^r}{r!}$$
+在区间 $-t_0\le t<t_0$（$t_0>0$）上收敛，分布 $F_X$ 就被唯一确定.\footnote{译注：本书定义 $M_X(t)=\mathrm Ee^{tX}$，其泰勒系数应为 $\mu'_r/r!$；原式含 $(-1)^r$，对应的是 $\mathrm Ee^{-tX}=M_X(-t)$ 的展开. 这不影响所述唯一性思路，但记号与前文定义不一致.} 因此，当矩母函数存在时，矩序列唯一确定分布 $F_X$.
+
+应当清楚，用矩母函数确定分布是件困难的工作. 更好的办法是使用下面介绍的特征函数. 虽然特征函数简化了分布的刻画，但需要理解复分析. 有得必有失.
+
+\subsubsection{其他母函数}\label{sec:2.6.2}
+除了矩母函数，还有其他多种母函数可用. 在多数情况下，其中最有用的是特征函数. 除了少数情形，其他母函数的用途较少，但有时它们可以简化计算.
+
+\paragraph{累积量母函数.}\index{SI0454@累积量}\semanticindexanchor{454:99}
+对随机变量 $X$，累积量母函数（cumulant generating function）是函数 $\log[M_X(t)]$. 它可用来生成 $X$ 的累积量（cumulants），累积量被定义为（颇为迂回地）累积量母函数的泰勒级数中的系数（见\autoref{exercise:2.32}）.\footnote{译注：通常第 $r$ 阶累积量定义为 $\log M_X(t)$ 在 $0$ 处的 $r$ 阶导数；它是以 $t^r/r!$ 为基底时的系数，而不是普通 $t^r$ 项的系数. 原文“泰勒级数中的系数”省略了这一阶乘约定.}
+
+\paragraph{阶乘矩母函数.}\index{SI0455@阶乘矩}\semanticindexanchor{455:99}
+若期望存在，$X$ 的阶乘矩母函数（factorial moment generating function）定义为 $\mathrm Et^X$. 这个名称来自于它满足
+$$\left.\frac{d^r}{dt^r}\mathrm Et^X\right|_{t=1}
+=\mathrm E\{X(X-1)\cdots(X-r+1)\},$$
+其中右端是一个阶乘矩. 若 $X$ 为离散随机变量，则可以写成
+$$\mathrm Et^X=\sum_x t^xP(X=x),$$
+阶乘矩母函数又称为概率母函数（probability generating function）\index{SI0456@概率}\semanticindexanchor{456:99}，因为幂级数的系数给出了概率. 也就是说，为求 $X=k$ 的概率，计算\footnote{译注：原文最后一式在 $t=1$ 处求值，应为在 $t=0$ 处求值才能抽取 $t^k$ 的系数. 这里的普通概率母函数通常还要求 $X$ 取非负整数值；任意离散取值不一定形成关于 $t$ 的普通幂级数.}
+$$\left.\frac1{k!}\frac{d^k}{dt^k}\mathrm Et^X\right|_{t=1}=P(X=k).$$
+
+
+\sourcepageanchor{100}
+\paragraph{特征函数.}\index{SI0103@特征函数}\semanticindexanchor{103:100}
+这些函数中最有用的也许是特征函数（characteristic function）. $X$ 的特征函数定义为
+$$\phi_X(t)=\mathrm Ee^{itX},$$
+其中 $i$ 是复数 $\sqrt{-1}$，所以上面的期望需要复数积分.
+
+特征函数的作用远超过矩母函数. 当 $F_X$ 的矩存在时，$\phi_X$ 可以像矩母函数一样生成这些矩. 特征函数总是存在，并且完全确定分布. 也就是说，每个累积分布函数都有唯一的特征函数. 因而，例如我们可以陈述一个类似于\autoref{thm:2.3.11}的定理，却不必附加限制条件.
+
+\begin{theorem}[特征函数的收敛]\label{thm:2.6.1}\index{SI0104@收敛}
+设 $X_k$，$k=1,2,\ldots$，是随机变量序列，每个随机变量的特征函数为 $\phi_{X_k}(t)$. 再设
+$$\lim_{k\to\infty}\phi_{X_k}(t)=\phi_X(t),\qquad\text{对 $0$ 的某个邻域内的所有 $t$},$$
+且 $\phi_X(t)$ 是一个特征函数.\footnote{译注：原文把条件写成仅在 $0$ 的某个邻域内收敛；一般特征函数不一定解析，仅有局部相同不足以确定分布，因此该条件一般不够. 通常的连续性定理要求对所有实数 $t$ 收敛，并要求极限函数在 $0$ 处连续（此处若已假设极限为特征函数，连续性自动满足）. 原文结论中的大写 $X$ 也应为自变量 $x$，这里一并保留原述.} 则对 $F_X(x)$ 连续的所有 $X$，
+$$\lim_{k\to\infty}F_{X_k}(x)=F_X(x).$$
+\end{theorem}
+
+
+\hyperref[bib:source118]{Feller (1968)} 对母函数有完整论述. 几乎所有高等概率论教材都介绍特征函数，例如 \hyperref[bib:source33]{Billingsley (1995)} 或 \hyperref[bib:source251]{Resnick (1999)}.
+
+\subsubsection{矩母函数能否刻画分布？}\label{sec:2.6.3}\index{SI0689@矩母函数}
+在以上述问题为题的文章中，\hyperref[bib:source215]{McCullagh (1994)} 考察了一对与\autoref{ex:2.3.10}类似、但具有矩母函数的密度，
+$$f_1=\mathrm n(0,1),\qquad f_2=f_1(x)\left[1+\frac12\sin(2\pi x)\right],$$
+其累积量母函数为
+$$K_1(t)=t^2/2,\qquad K_2(t)=K_1(t)+\log\left[1+\frac12e^{-2\pi^2}\sin(2\pi t)\right].$$
+他指出，虽然两个密度明显不同，它们的累积量母函数实际上几乎相同，整个取值范围内的最大差小于 $1.34\times10^{-9}$（小于一个像素的大小）. 因此，对标题中问题的回答是：“从数学目的看，是；但从数值目的看，是响亮的否.” 相比之下，\hyperref[bib:source325]{Waller (1995)} 说明，尽管矩母函数不能在数值上区分这两个分布，特征函数却做得很好. （\hyperref[bib:source326]{Waller et al. (1995)} 和 \hyperref[bib:source211]{Luce\~no (1997)} 进一步研究了用特征函数数值求取累积分布函数的作用.）细节见\autoref{exercise:2.37}.

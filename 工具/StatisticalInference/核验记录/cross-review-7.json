@@ -1,0 +1,147 @@
+{
+  "created": "2026-11-13",
+  "scope": "7题原始图像全文与数学独立复核；未查外部答案，未改变学习状态",
+  "notes": [
+    {
+      "local_id": "ST107",
+      "source_exercise": "6.27",
+      "note": "02 - 数理统计/习题/习题 ST107 - 逆高斯样本完备充分性与原卡方统计量的修正.md",
+      "review": "源分母漏n的修正正确；n=2两Jacobian分支与IG(mu,2lambda)×chi-square1归一化均独立复核通过；联合完备充分结论正确。",
+      "source_pages_viewed": [
+        277,
+        265
+      ]
+    },
+    {
+      "local_id": "ST111",
+      "source_exercise": "6.31",
+      "note": "02 - 数理统计/习题/习题 ST111 - Basu定理简化正态方差与Gamma条件期望计算.md",
+      "review": "Basu应用、四阶矩与精确方差改进式均正确；恢复英文compute与遗漏piece of Var(M)。",
+      "source_pages_viewed": [
+        278,
+        264,
+        265
+      ]
+    },
+    {
+      "local_id": "ST113",
+      "source_exercise": "6.33",
+      "note": "02 - 数理统计/习题/习题 ST113 - Birnbaum定理混合实验因子分解与双向证明.md",
+      "review": "逐点因子分解及两个方向证明正确；特殊点的g(z)中间项用f2=Cf1后成立，并非数值假等式。",
+      "source_pages_viewed": [
+        278,
+        269,
+        270
+      ]
+    },
+    {
+      "local_id": "ST117",
+      "source_exercise": "6.37",
+      "note": "02 - 数理统计/习题/习题 ST117 - 尼罗河模型中比率统计量的Fisher信息损失.md",
+      "review": "Gamma比值Jacobian、Beta(n,n)分布、2n/(2n+1)信息比例与U-EU非完备反例通过。",
+      "source_pages_viewed": [
+        279
+      ]
+    },
+    {
+      "local_id": "ST255",
+      "source_exercise": "9.7",
+      "note": "02 - 数理统计/习题/习题 ST255 - 均值方差受约束正态族的剖面似然置信集.md",
+      "review": "两模型固定a根、全参数sup、尺度不变性及最不利校准定义正确；未发现实质数学错误。",
+      "source_pages_viewed": [
+        397
+      ]
+    },
+    {
+      "local_id": "ST276",
+      "source_exercise": "9.28",
+      "note": "02 - 数理统计/习题/习题 ST276 - 正态逆Gamma共轭与经典均值区间的极限障碍.md",
+      "review": "后验shape a+n/2与t自由度正确；补n>=2并用Gamma耦合及两个Q值的半宽平方斜率严格证明正规先验序列不能逼近经典规则。",
+      "source_pages_viewed": [
+        400
+      ]
+    },
+    {
+      "local_id": "ST300",
+      "source_exercise": "9.52",
+      "note": "02 - 数理统计/习题/习题 ST300 - 正态方差四种区间的端点约束与数值比较.md",
+      "review": "四端点约束及数值正确；补全最短长度全局证明，以及未知均值下由完备性导出条件大小/矩约束的UMPU证明。",
+      "source_pages_viewed": [
+        404
+      ]
+    }
+  ],
+  "9.52_independent_numeric_check": [
+    {
+      "method": "LRT",
+      "a": 0.20648138219484427,
+      "b": 12.521444728781757,
+      "mass": 0.9,
+      "length_over_s2": 9.526377334693574,
+      "endpoint_log_density_error": 2.220446049250313e-14
+    },
+    {
+      "method": "minimum-length",
+      "a": 0.21044786240689428,
+      "b": 18.007719287832554,
+      "mass": 0.9,
+      "length_over_s2": 9.392478047040084,
+      "endpoint_log_density_error": -1.177724584522366e-12
+    },
+    {
+      "method": "unbiased-ratio",
+      "a": 0.16762957195892234,
+      "b": 7.8642918986046295,
+      "mass": 0.9,
+      "length_over_s2": 11.676755002967,
+      "endpoint_log_density_error": 2.398081733190338e-14
+    },
+    {
+      "method": "equal-tail",
+      "a": 0.10258658877510109,
+      "b": 5.991464547107979,
+      "mass": 0.8999999999999999,
+      "length_over_s2": 19.16191754552835
+    }
+  ],
+  "syntax_audit": {
+    "source_id": "DS011",
+    "checked_notes": 7,
+    "errors": [],
+    "warnings": [],
+    "scope": "只检语法结构，不代替原页逐字核对或数学证明审查；未运行Obsidian"
+  },
+  "modified_notes": [
+    "ST111",
+    "ST276",
+    "ST300"
+  ],
+  "9.52_high_precision_confirmation": {
+    "mpmath_version": "1.3.0",
+    "decimal_precision": 60,
+    "results": [
+      {
+        "method": "likelihood",
+        "a": "0.2064813821948442473309785067220644338041",
+        "b": "12.52144472878169928924218015778177654258",
+        "length_over_s2": "9.526377334693574012792625878267458614579",
+        "endpoint_ratio": "60.64200363094215310477140563269107081715"
+      },
+      {
+        "method": "shortest_length",
+        "a": "0.2104478624068946676205448162976182736532",
+        "b": "18.00771928783557129643696754863226631651",
+        "length_over_s2": "9.39247804704008522257621688875588333429",
+        "endpoint_ratio": "85.56855404412796049161523488816019697662"
+      },
+      {
+        "method": "unbiased_ratio",
+        "a": "0.1676295719589213607631471971464283883773",
+        "b": "7.864291898604580736936120489590357096585",
+        "length_over_s2": "11.67675500296706858230600610292936302101",
+        "endpoint_ratio": "46.91470488591221227867791603473158464632"
+      }
+    ],
+    "note_corrections": "最短加性长度b改为18.0077192878，无偏长度末位按11.6767550030舍入；旧一维brentq默认容差使b末8位略偏。"
+  }
+}

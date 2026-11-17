@@ -1,0 +1,44 @@
+230                                       PRINCIPLES OF DATA REDUCTION
+  A minimal sufficient statistic is not unique. Any one-to-one function of a minimal sufficient
+statistic is also a minimal sufficient statistic. So, for example, T ′(X) = (X(n) −X(1),(X(n) +X(1))/2)
+is also a minimal sufficient statistic in Example 6.2.15 and T ′(X) = (Σni=1Xi,Σni=1X2i ) is also a min-
+imal sufficient statistic in Example 6.2.14.
+
+
+6.2.3  Ancillary Statistics
+
+In the preceding sections, we considered sufficient statistics. Such statistics, in a sense, contain all
+the information about θ that is available in the sample. In this section we introduce a different sort
+of statistic, one that has a complementary purpose.
+Definition 6.2.16 A statistic S(X) whose distribution does not depend on the parameter θ is called
+an ancillary statistic.
+
+   Alone, an ancillary statistic contains no information about θ. An ancillary statistic is an obser-
+vation on a random variable whose distribution is fixed and known, unrelated to θ. Paradoxically, an
+ancillary statistic, when used in conjunction with other statistics, sometimes does contain valuable
+information for inferences about θ. We will investigate this behavior in the next section. For now,
+we just give some examples of ancillary statistics.
+Example 6.2.17 (Uniform ancillary statistic)  As in Example 6.2.15, let X1,...,Xn be iid uniform
+observations on the interval (θ,θ + 1),−∞< θ < ∞. Let X(1) < ··· < X(n) be the order statistics
+from the sample. We show below that the range statistic, R = X(n) −X(1), is an ancillary statistic byshowing that the pdf of R does not depend on θ. Recall that the cdf of each Xi is
+                                   0      x ≤θ,
+                           F(x|θ) =  x−θ  θ < x < θ +1,
+                                   1     θ +1 ≤x.
+Thus, the joint pdf of X(1) and X(n), as given by (5.5.7), is
+
+               =  n(n−1)(x(n) −x(1))n−2  θ < x(1) < x(n) < θ +1,               g(x(1),x(n)|θ)    0                        otherwise.
+Making the transformation R = X(n) −X(1) and M = (X(1) +X(n))/2, which has the inverse transfor-
+mation X(1) = (2M −R)/2 and X(n) = (2M + R)/2 with Jacobian 1, we see that the joint pdf of Rand M is
+
+                                  0 < r < 1,θ +(r/2) < m < θ            =  n(n−1)rn−2                        +1−(r/2),            h(r,m|θ)    0              otherwise.
+(Notice the rather involved region of positivity for h(r,m|θ).) Thus, the pdf for R is
+                                          θ+1−(r/2)
+                        h(r|θ) =    θ+(r/2)   n(n−1)rn−2dm
+
+                  =                                 < r < 1.                               n(n−1)rn−2(1−r),  0
+This is a beta pdf with α = n−1 and β = 2. More importantly, the pdf is the same for all θ. Thus,
+the distribution of R does not depend on θ and R is ancillary.                              ∥
+    In Example 6.2.17 the range statistic is ancillary because the model considered there is a location
+parameter model. The ancillarity of R does not depend on the uniformity of the Xis, but rather on
+the parameter of the distribution being a location parameter. We now consider the general location
+parameter model.

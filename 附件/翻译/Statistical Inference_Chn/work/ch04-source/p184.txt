@@ -1,0 +1,43 @@
+INEQUALITIES                                                               153
+Proof: Fix b, and consider the function
+                                    1     1
+                          +                                  g(a) = pap                                          qbq −ab.
+
+To minimize g(a), differentiate and set equal to 0:
+
+                        d
+                       dag(a) = 0 ⇒ap−1 −b                           = 0 ⇒b = ap−1.
+A check of the second derivative will establish that this is indeed a minimum. The value of the
+function at the minimum is
+               1     1        q             1     1             = p follows            +   ap−1       =    +             (p−1)q              pap  q       −aap−1      pap  qap −ap           from (4.7.1)
+                        =   0.                         (again from (4.7.1))
+
+
+Hence the minimum is 0 and (4.7.2) is established. Since the minimum is unique (why?), equality
+holds only if ap−1 = b, which is equivalent to ap = bq, again from (4.7.1).             2
+
+   The first of our expectation inequalities, one of the most used and most important, follows easily
+from the lemma.
+Theorem 4.7.2 (H¨older’s Inequality)  Let X and Y be any two random variables, and let p and q
+satisfy (4.7.1). Then
+                                                                                                    .                       (4.7.3)                       |EXY| ≤E|XY| ≤(E|X|p)1/p (E|Y|q)1/q
+Proof: The first inequality follows from −|XY| ≤XY ≤|XY| and Theorem 2.2.5. To prove thesecond inequality, define
+                       a =    |X|      and  b =     |Y|      .
+                                (E|X|p)1/p             (E|Y|q)1/q
+Applying Lemma 4.7.1, we get
+                      1  |X|p + 1  |Y|q           |XY|             .                      p        q    ≥                        E|X|p     E|Y|q   (E|X|p)1/p (E|Y|q)1/q
+Now take expectations of both sides. The expectation of the left-hand side is 1, and rearrangement
+gives (4.7.3).                                             2
+   Perhaps the most famous special case of H¨older’s Inequality is that for which p = q = 2. This is
+called the Cauchy–Schwarz Inequality.
+Theorem 4.7.3 (Cauchy–Schwarz Inequality)  For any two random variables X and Y,
+                       |EXY| ≤E|XY| ≤(E|X|2)1/2(E|Y|2)1/2.                        (4.7.4)
+
+Example 4.7.4 (Covariance inequality)   If X and Y have means µX,µY and variances σ2X and σ2Y ,
+respectively, we can apply the Cauchy–Schwarz Inequality to get
+
+                                                               1/2                1/2
+                                                                                                                  .               E|(X −µX)(Y −µY)| ≤  E(X −µX)2     E(Y −µY)2
+Squaring both sides, and using statistical notation, we have
+
+                                                         Y .                                (Cov(X,Y))2 ≤σ2Xσ2

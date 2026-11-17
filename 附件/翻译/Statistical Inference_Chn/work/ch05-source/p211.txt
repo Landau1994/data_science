@@ -1,0 +1,47 @@
+180                                    PROPERTIES OF A RANDOM SAMPLE
+                                                               j ), j = 1,...,n, independent. For constants aij, br j ( j = 1,...,n;i =Lemma 5.3.3  Let Xj ∼n(µ j,σ2
+1,...,k; and r = 1,...,m), where k +m ≤n, define
+                                              n
+                                                                             i = 1,...,k,                             Ui = ∑ ai jXj,
+                                           j=1
+                                              n
+                                                       r = 1,...,m.                              Vr = ∑ br jXj,
+                                           j=1
+  a. The random variables Ui and Vr are independent if and only if Cov(Ui,Vr) = 0. Furthermore,
+   Cov(Ui,Vr) = ∑nj=1 ai jbr jσ2j .
+  b. The random vectors (U1,...,Uk) and (V1,...,Vm) are independent if and only if Ui is indepen-
+   dent of Vr for all pairs i,r (i = 1,...,k;r = 1,...,m).
+Proof: It is sufficient to prove the lemma for µi = 0 and σ2i = 1, since the general statement of the
+lemma then follows quickly. Furthermore, the implication from independence to zero covariance is
+immediate (Theorem 4.5.5) and the expression for the covariance is easily verified (Exercise 5.14).
+Note also that Corollary 4.6.10 shows that Ui and Vr are normally distributed.
+   Thus, we are left with proving that if the constants satisfy the above restriction (equivalently,
+the covariance is zero), then we have independence under normality. We prove the lemma only for
+n = 2, since the proof for general n is similar, but necessitates a detailed n-variate transformation.
+   To prove part (a) start with the joint pdf of X1 and X2
+                                1
+                                                                x1,x2 < ∞.                        fX1,X2(x1,x2) =                                             e−(1/2)(x21+x22), −∞<                              2π
+Make the transformation (we can suppress the double subscript in the n = 2 case)
+
+                       u = a1x1 +a2x2,       v = b1x1 +b2x2,
+
+so
+                           x1 = b2u−a2v  ,        x2 = a1v−b1u  ,
+                             a1b2 −b1a2             a1b2 −b1a2
+with Jacobian
+                                ∂x1   ∂x1
+                            ∂u   ∂v        1                              J =       =                   .
+                                ∂x2   ∂x2    a1b2 −b1a2
+                            ∂u   ∂v
+Thus, the pdf of U and V is
+          fU,V(u,v) =   fX1,X2   b2u−a2v  , a1v−b1u                               a1b2        a1b2           |J|                              −b1a2     −b1a2
+                      1            =     exp      −1                     2π      2(a1b2         (b2u−a2v)2 +(a1v−b1u)2    |J|,                                   −b1a2)2
+−∞< u,v < ∞. Expanding the squares in the exponent, we can write
+         (b2u−a2v)2 +(a1v−b1u)2                    = (b21 +b22)u2 +(a21 +a22)v2 −2(a1b1 +a2b2)uv.
+The assumption on the constants shows that the cross-term is identically zero. Hence, the pdf factors
+so, by Lemma 4.2.7, U and V are independent and part (a) is established.
+  A similar type of argument will work for part (b), the details of which we will not go into. If the
+appropriate transformation is made, the joint pdf of the vectors (U1,...,Uk) and (V1,...,Vm) can be
+obtained. By an application of Theorem 4.6.11, the vectors are independent, if the joint pdf factors.
+From the form of the normal pdf, this will happen if and only if Ui is independent, of Vr for all pairs
+i,r (i = 1,...,k;r = 1,...,m).                                    2

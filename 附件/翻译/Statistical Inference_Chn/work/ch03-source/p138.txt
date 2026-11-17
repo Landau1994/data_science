@@ -1,0 +1,49 @@
+EXERCISES                                                                  107
+
+3.13 A truncated discrete distribution is one in which a particular class cannot be observed, and is eliminated
+     from the sample space. In particular, if X has range 0,1,2,..., and the 0 class cannot be observed (as is
+      usually the case), the 0-truncated random variable XT has pmf
+
+                                    P(X = x)
+                            P(XT = x) =             x = 1,2,....                                   P(X > 0),
+
+     Find the pmf, mean, and variance of the 0-truncated random variable starting from
+       (a) X ∼Poisson(λ).
+      (b) X ∼negative binomial(r, p), as in (3.2.10).
+3.14 Starting from the 0-truncated negative binomial (refer to Exercise 3.13), if we let r →0 we get an      interesting distribution, the logarithmic series distribution. A random variable X has a logarithmic series
+      distribution with parameter p if
+                       P(X = x) = −(1−p)x ,   x = 1,2,...,  0 < p < 1.
+                                       xlog p
+
+       (a) Verify that this defines a legitimate probability function.
+      (b) Find the mean and variance of X. (The logarithmic series distribution has proved useful in modeling
+          species abundance. See Stuart and Ord (1987) for a more detailed discussion of this distribution.)
+3.15 In Section 3.2 it was claimed that the Poisson(λ) distribution is the limit of the negative binomial(r, p)
+      distribution as r →∞, p →1, and r(1−p) →λ. Show that under these conditions the mgf of the negative      binomial converges to that of the Poisson.
+3.16 Verify these two identities regarding the gamma function that were given in the text.
+       (a) Γ(α +1) = αΓ(α)          (b) Γ( 2)1 = √π
+3.17 Establish a formula similar to (3.3.18) for the gamma distribution. If X ∼gamma(α,β), then for any      positive constant ν
+                                       β νΓ(ν +α)                                EXν =                    .
+                                            Γ(α)
+3.18 There is an interesting relationship between negative binomial and gamma random variables, which
+    may sometimes provide a useful approximation. Let Y be a negative binomial random variable with
+      parameters r and p, where p is the success probability. Show that as p →0, the mgf of the random      variable pY converges to that of a gamma distribution with parameters r and 1.
+3.19 Show that
+                       ∞  1             α−1 xye−x
+                           =                                                                                             ,  α = 1,2,3,....                     ∑   y!                                    x  Γ(α)zα−1e−zdz                                                 y=0
+      (Hint: Use integration by parts.) Express this formula as a probabilistic relationship between Poisson and
+    gamma random variables.
+3.20 Let the random variable X have the pdf
+
+                                        2                                       f(x) =      e−x2/2,  0 < x < ∞.                       √2π
+
+       (a) Find the mean and variance of X. (This distribution is sometimes called a folded normal.)
+      (b)  If X has the folded normal distribution, find the transformation g(X) = Y, and values of α and β, so
+           that Y ∼gamma(α,β).
+3.21 Write the integral that would define the mgf of the pdf
+
+                                             1   1
+                                               f(x) =              .
+                                         π 1+x2
+
+       Is the integral finite? (Do you expect it to be?)

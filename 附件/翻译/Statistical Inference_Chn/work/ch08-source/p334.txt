@@ -1,0 +1,44 @@
+METHODS OF FINDING TESTS                                                303
+  On a philosophical level, some people worry about the distinction between “rejecting H0” and
+“accepting H1.” In the first case, there is nothing implied about what state the experimenter is ac-
+cepting, only that the state defined by H0 is being rejected. Similarly, a distinction can be made
+between “accepting H0” and “not rejecting H0.” The first phrase implies that the experimenter is
+willing to assert the state of nature specified by H0, while the second phrase implies that the exper-
+imenter really does not believe H0, but does not have the evidence to reject it. For the most part,
+we will not be concerned with these issues. We view a hypothesis testing problem as a problem in
+which one of two actions is going to be taken – the actions being the assertion of H0 or H1.
+    Typically, a hypothesis test is specified in terms of a test statistic W(X1,...,Xn) = W(X), a
+function of the sample. For example, a test might specify that H0 is to be rejected if X, the sam-
+ple mean, is greater than 3. In this case W(X) = X is the test statistic and the rejection region is
+{(x1,...,xn) : x > 3}. In Section 8.2, methods of choosing test statistics and rejection regions arediscussed. Criteria for evaluating tests are introduced in Section 8.3. As with point estimators, the
+methods of finding tests carry no guarantees; the tests they yield must be evaluated before their
+worth is established.
+
+8.2  Methods of Finding Tests
+We will detail four methods of finding test procedures, procedures that are useful in different situ-
+ations, and take advantage of different aspects of a problem. We start with a very general method,
+one that is almost always applicable, and is also optimal in some cases.
+
+
+8.2.1  Likelihood Ratio Tests
+
+The likelihood ratio method of hypothesis testing is related to the maximum likelihood estimators
+discussed in Section 7.2.2, and likelihood ratio tests are as widely applicable as maximum likelihood
+estimation. Recall that if X1,...,Xn is a random sample from a population with pdf or pmf f(x|θ)(θ may be a vector), the likelihood function is defined as
+
+                                                                     n
+                        L(θ|x1,...,xn) = L(θ|x) = f(x|θ) = ∏i=1 f(xi|θ).
+
+Let Θ denote the entire parameter space. Likelihood ratio tests are defined as follows.
+                                                                                                    0 isDefinition 8.2.1  The likelihood ratio test statistic for testing H0 : θ ∈Θ0 versus H1 : θ ∈Θc
+                                         sup                                              Θ0 L(θ|x)                                 λ(x) =
+                                         sup                                    Θ L(θ|x).
+A likelihood ratio test (LRT) is any test that has a rejection region of the form {x: λ(x) ≤c}, where
+c is any number satisfying 0 ≤c ≤1.
+   The rationale behind LRTs may best be understood in the situation in which f(x|θ) is the pmfof a discrete random variable. In this case, the numerator of λ(x) is the maximum probability of
+the observed sample, the maximum being computed over parameters in the null hypothesis. (See
+Exercise 8.4.) The denominator of λ(x) is the maximum probability of the observed sample over
+all possible parameters. The ratio of these two maxima is small, if there are parameter points in the
+alternative hypothesis for which the observed sample is much more likely than for any parameter
+point in the null hypothesis. In this situation, the LRT criterion says H0 should be rejected and H1
+accepted as true. Methods for selecting the number c are discussed in Section 8.3.

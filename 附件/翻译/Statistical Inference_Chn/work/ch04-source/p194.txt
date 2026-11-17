@@ -1,0 +1,49 @@
+EXERCISES                                                                  163
+                         Γ(a+b+c)
+       (a) Show that C = Γ(a)Γ(b)Γ(c).
+      (b) Show that, marginally, both X and Y are beta.
+       (c) Find the conditional distribution                                         of Y|X = x, and show that Y/(1−x) is beta(b,c).                                        ab
+      (d) Show that E(XY) = (a+b+c+1)(a+b+c), and find their covariance.
+4.41 Show that any random variable is uncorrelated with a constant.
+4.42 Let X and Y be independent random variables with means µX,µY and variances σ2X, σ2Y . Find an expres-
+      sion for the correlation of XY and Y in terms of these means and variances.
+4.43 Let X1,X2, and X3 be uncorrelated random variables, each with mean µ and variance σ2. Find, in terms
+      of µ and σ2,Cov(X1 +X2,X2 +X3) and Cov(X1 +X2,X1 −X2).
+4.44 Prove the following generalization of Theorem 4.5.6: For any random vector (X1,...,Xn),
+
+                                        n          n
+                        =                           Var ∑ Xi                   ∑ VarXi +2 ∑  Cov(Xi,Xj).
+                                     i=1       i=1         1≤i<j≤n
+                                                      Y ,ρ), then the following are true.4.45 Show that if (X,Y) ∼bivariate normal(µX,µY ,σ2X,σ2
+       (a) The marginal distribution of X is n(µX,σ2X), and the marginal distribution of Y is n(µY ,σ2Y ).
+      (b) The conditional distribution of Y given X = x is
+
+                                                              Y                                n(µY +ρ(σY /σX)(x−µX),σ2                                                      (1−ρ2)).
+       (c) For any constants a and b, the distribution of aX +bY is
+                              n(aµX +bµY ,a2σ2X +b2σ2Y +2abρσXσY ).
+4.46 (A derivation of the bivariate normal distribution) Let Z1 and Z2 be independent n(0,1) random variables,
+     and define new random variables X and Y by
+
+                     X = aXZ1 +bXZ2 +cX,  Y = aY Z1 +bY Z2 +cY ,
+     where aX,bX,cX,aY ,bY , and cY are constants.
+       (a) Show that
+                              EX = cX,  VarX = a2X +b2X,
+                                 EY = cY ,  VarY = a2Y +b2Y ,
+                                   Cov(X,Y) = aXaY +bXbY .
+
+      (b)  If we define the constants aX,bX,cX,aY ,bY , and cY by
+                       1+ρ                          aX =       σX,  bX =  1−ρ σX,    cX = µX,                                  2                2
+                       1+ρ                             aY =       σY ,  bY =   1−ρ σY ,   cY = µY ,                                  2       −    2
+        where µX,µY ,σ2X,σ2Y , and ρ are constants, −1 ≤ρ ≤1, then show that
+                              EX = µX,  VarX = σ2X,
+                                 EY = µY ,  VarY = σ2Y ,
+                                           ρXY = ρ.
+       (c) Show that (X,Y) has the bivariate normal pdf with parameters µX,µY ,σ2X,σ2Y , and ρ.
+      (d)  If we start with bivariate normal parameters µX,µY ,σ2X,σ2Y , and ρ, we can define constants
+         aX,bX,cX,aY ,bY , and cY as the solution to the equations
+                                µX = cX,  σ2X = a2X +b2X,
+                                   µY = cY ,  σ2Y = a2Y +b2Y ,
+                               ρσXσY = aXaY +bXbY .
+
+       Show that the solution given in part (b) is not unique by exhibiting another solution to these equa-
+           tions. How many solutions are there?

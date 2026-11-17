@@ -1,0 +1,43 @@
+{
+  "checked": "2026-11-12",
+  "python": "3.10.6",
+  "randomness": "none",
+  "exercise_1.30": {
+    "values": [
+      1,
+      2,
+      7,
+      8,
+      14,
+      20
+    ],
+    "sample_size": 6,
+    "assumption": "原题未写样本量；本库明示的独立等概率有放回抽6次示例",
+    "ordered_outcomes": 46656,
+    "distinct_means": 85,
+    "mode_mean": "26/3",
+    "mode_probability": "35/648"
+  },
+  "exercise_1.51": {
+    "population": 30,
+    "defectives": 5,
+    "sample_size": 4,
+    "replacement": false,
+    "denominator": 27405,
+    "pmf": [
+      "2530/5481",
+      "2300/5481",
+      "200/1827",
+      "50/5481",
+      "1/5481"
+    ],
+    "cdf": [
+      "2530/5481",
+      "230/261",
+      "1810/1827",
+      "5480/5481",
+      "1"
+    ]
+  },
+  "boundary": "精确枚举只支持上述有限模型；图中坐标转为小数显示，CSV保留精确分数。编译与视觉检查另行执行。"
+}

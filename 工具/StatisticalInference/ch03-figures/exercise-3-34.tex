@@ -1,0 +1,17 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[UTF8,fontset=fandol]{ctex}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.18,every axis/.append style={axis lines=left,tick label style={font=\small},label style={font=\small},title style={font=\small},samples=151}}
+\begin{document}
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=3 by 1,horizontal sep=1.5cm},width=6.5cm,height=6.1cm]
+\nextgroupplot[title={(a) Poisson，$n=5$},xlabel={$\mu$},ylabel={$v$},xmin=0,xmax=5.2,ymin=0,ymax=1.1]
+\addplot[black,thick,domain=0:5]{x/5};\draw[black,fill=white] (axis cs:0,0) circle[radius=1.7pt];
+\nextgroupplot[title={(b) 二项，$n=5$},xlabel={$\mu=p$},ylabel={$v$},xmin=0,xmax=1.05,ymin=0,ymax=.055,scaled y ticks=false]
+\addplot[black,thick,domain=0:1]{x*(1-x)/5};\draw[black,fill=white] (axis cs:0,0) circle[radius=1.7pt];\draw[black,fill=white] (axis cs:1,0) circle[radius=1.7pt];
+\nextgroupplot[title={(c) 负二项，$n=5,r=2$},xlabel={$\mu$},ylabel={$v$},xmin=0,xmax=5.2,ymin=0,ymax=3.7]
+\addplot[black,thick,domain=0:5]{x*(x+2)/10};\draw[black,fill=white] (axis cs:0,0) circle[radius=1.7pt];
+\end{groupplot}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,15 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{ctex}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[width=12cm,height=8cm,axis lines=left,tick align=outside,ymin=-.03,ymax=1.04,xmin=-5.0,xmax=3.0,xlabel={$x$},ylabel={概率},title={Logistic 回归函数},legend columns=3,legend style={draw=none,at={(.5,-.23)},anchor=north,font=\small}]
+\addplot[black,solid,line width=.9pt] table[x=x,y=y0,col sep=comma] {ch12_14.csv};
+\addlegendentry{$\alpha=\beta=1$}
+\addplot[black,dashed,line width=.9pt] table[x=x,y=y1,col sep=comma] {ch12_14.csv};
+\addlegendentry{$\alpha=\beta=2$}
+\addplot[black,densely dotted,line width=.9pt] table[x=x,y=y2,col sep=comma] {ch12_14.csv};
+\addlegendentry{$\alpha=\beta=3$}
+\addplot[only marks,mark=*,forget plot] coordinates {(-1,.5)};
+\end{axis}\end{tikzpicture}\end{document}

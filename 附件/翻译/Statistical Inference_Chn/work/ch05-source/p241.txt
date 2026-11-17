@@ -1,0 +1,42 @@
+210                                    PROPERTIES OF A RANDOM SAMPLE
+5.14  (a) Prove that the statement of Lemma 5.3.3 follows from the special case of µi = 0 and σ2i = 1. That
+                                                                                                                                                                                j are constants,             is, show that if Xj = σjZ j + µj and Z j ∼n(0,1), j = 1,...,n, all independent, aij,br         and
+                              n         n                  n             n
+               Cov                                                                                                                                                j are independent,           ∑ aijZj,               ∑ br jZ j                                     j=1                                     j=1                         = 0 ⇒ j=1∑ aijZj and j=1∑ br jZ
+          then
+                             n         n                  n             n
+               Cov           ∑ aijXj,               ∑ br jXj                                     j=1                                     j=1                         = 0 ⇒ j=1∑ aijXj and j=1∑ br jXj are independent.
+
+      (b) Verify the expression for Cov ∑nj=1 aijXj,∑nj=1br jXj  in Lemma 5.3.3.                                          
+5.15 Establish the following recursion relations for means and variances. Let ¯Xn and S2n be the mean and
+      variance, respectively, of X1,...,Xn. Then suppose another observation, Xn+1, becomes available. Show
+       that
+                     Xn+1 +n ¯Xn
+       (a) ¯Xn+1 =   n+1    .
+      (b) nS2n+1 = (n−1)S2n      n               + n+1 (Xn+1 −¯Xn)2.5.16 Let Xi,i = 1,2,3, be independent with n(i,i2) distributions. For each of the following situations, use the
+      Xis to construct a statistic with the indicated distribution.
+       (a) Chi squared with 3 degrees of freedom.
+      (b)  t distribution with 2 degrees of freedom.
+       (c) F distribution with 1 and 2 degrees of freedom.
+5.17 Let X be a random variable with an Fp,q distribution.
+       (a) Derive the pdf of X.
+      (b) Derive the mean and variance of X.
+       (c) Show that 1/X has an Fq,p distribution.
+      (d) Show that (p/q)X/[1+(p/q)X] has a beta distribution with parameters p/2 and q/2.
+5.18 Let X be a random variable with a Student’s t distribution with p degrees of freedom.
+       (a) Derive the mean and variance of X.
+      (b) Show that X2 has an F distribution with 1 and p degrees of freedom.
+       (c) Let f(x|p) denote the pdf of X. Show that
+                                                 1
+                       → √2π                                    p→∞f(x|p)lim                e−x2/2,
+           at each value of x, −∞< x < ∞. This correctly suggests that as p →∞,X converges in distribution           to a n(0,1) random variable. (Hint: Use Stirling’s Formula.)
+
+                                                                                                                1      (d) Use the results of parts (a) and (b) to argue that, as p →∞,X2 converges in distribution to a χ2        random variable.
+       (e) What might you conjecture about the distributional limit, as p →∞, of qFq,p?
+5.19  (a) Prove that the χ2 distribution is stochastically increasing in its degrees of freedom; that is, if p > q
+          then for any a, P(χ2p > a) ≥P(χ2q > a), with strict inequality for some a.
+      (b) Use the results of part (a) to prove that for any ν, kFk,ν is stochastically increasing in k.
+       (c) Show that for any k, ν, and α, kFα,k,ν > (k −1)Fα,k−1,ν. (The notation Fα,k−1,ν denotes a level-α           cutoff point; see Section 8.3.1. Also see Miscellanea 8.5.1 and Exercise 11.15.)
+5.20  (a) We can see that the t distribution is a mixture of normals using the following argument:
+
+                               Z                  P(Tν ≤t) = P       ≤t     0 P Z ≤t√x/√ν P χ2ν = x  dx,                                        χ2ν/ν     ∞                                                                                                =

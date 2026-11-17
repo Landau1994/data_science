@@ -1,0 +1,45 @@
+EXERCISES                                                                  213
+5.34 Let X1,...,Xn be a random sample from a population with mean µ and variance σ2. Show that
+                        √n(¯Xn                √n( ¯Xn                     E     −µ) = 0  and  Var     −µ) = 1.
+                          σ                   σ
+     Thus, the normalization of ¯Xn in the Central Limit Theorem gives random variables that have the same
+     mean and variance as the limiting n(0,1) distribution.
+5.35  Stirling’s Formula (derived in Exercise 1.28), which gives an approximation for factorials, can be easily
+      derived using the CLT.
+       (a) Argue that, if Xi ∼exponential(1),i = 1,2,..., all independent, then for every x,
+                                                          ¯Xn                            P   −1                                1/√n ≤x →P(Z ≤x),
+
+        where Z is a standard normal random variable.
+      (b) Show that differentiating both sides of the approximation in part (a) suggests
+                      √n                        1                                                                         e−x2/2,                             Γ(n)(x√n+n)n−1e−(x√n+n) ≈ √2π
+         and that x = 0 gives Stirling’s Formula.
+5.36 Given that N = n, the conditional distribution of Y  is χ22n. The unconditional distribution of N  is
+      Poisson(θ).
+       (a) Calculate EY and VarY (unconditional moments).
+      (b) Show that, as θ      (Y    √ VarY            in distribution.              →∞,  −EY)/      →n(0,1)
+5.37 In Example 5.5.16, a normal approximation to the negative binomial distribution was given. Just as with
+      the normal approximation to the binomial distribution given in Example 3.3.2, the approximation might
+     be improved with a “continuity correction.” For Xis defined as in Example 5.5.16, let Vn = ∑ni=1 Xi. For
+     n = 10, p = .7, and r = 2, calculate P(Vn = v) for v = 0,1,...,10 using each of the following three
+     methods.
+       (a) Exact calculations
+      (b) Normal approximation as given in Example 5.5.16
+       (c) Normal approximation with continuity correction
+5.38 The following extensions of the inequalities established in Exercise 3.45 are useful in establishing a
+                                                                                                        i=1 Xi    SLLN (see Miscellanea 5.8.4). Let X1,X2,...,Xn be iid with mgf MX(t), −h < t < h, and let Sn = ∑n     and ¯Xn = Sn/n.
+       (a) Show that P(Sn > a) ≤e−at[MX(t)]n, for 0 < t < h and P(Sn ≤a) ≤e−at[MX(t)]n, for −h < t < 0.
+      (b) Use the facts that MX(0) = 1 and M′X(0) = E(X) to show that, if E(X) < 0, then there is a 0 < c < 1
+         with P(Sn > a) ≤cn. Establish a similar bound for P(Sn ≤a).
+       (c) Define Yi = Xi −µ −ε and use the above argument, with a = 0 to establish that P(¯Xn −µ                                                   > ε) ≤cn.
+      (d) Now define Yi = −Xi + µ −ε, establish an equality similar to part (c), and combine the two to get
+                                     < c < 1.                                   P(|¯Xn −µ|                         > ε) ≤2cn for some 0
+5.39 This exercise, and the two following, will look at some of the mathematical details of convergence.
+       (a) Prove Theorem 5.5.4. (Hint: Since h is continuous, given ε > 0 we can find a δ such that |h(xn) −
+          h(x)| < ε whenever |xn −x| < δ. Translate this into probability statements.)
+      (b) In Example 5.5.8, find a subsequence of the Yis that converges almost surely, that is, that converges
+          pointwise.
+5.40 Prove Theorem 5.5.12 for the case where Xn and X are continuous random variables.
+       (a) Given t and ε, show that P(X ≤t −ε) ≤P(Xn ≤t)+P(|Xn −X| ≥ε). This gives a lower bound on
+        P(Xn ≤t).
+      (b) Use a similar strategy to get and upper bound on P(Xn ≤t).
+       (c) By pinching, deduce that P(Xn ≤t) →P(X ≤t).

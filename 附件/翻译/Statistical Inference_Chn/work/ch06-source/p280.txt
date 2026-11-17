@@ -1,0 +1,45 @@
+EXERCISES                                                                  249
+
+       (a) Show that T1/T2 is an ancillary statistic.
+      (b) Let R be the sample range and S be the sample standard deviation. Verify that R and S satisfy the
+         above condition so that R/S is an ancillary statistic.
+
+6.41 Suppose that for the model in Example 6.4.6, the inference to be made is an estimate of the mean µ.
+      Let T(x) be the estimate used if X = x is observed. If ga(X) = Y = y is observed, then let T ∗(y) be the
+      estimate of µ + a, the mean of each Yi. If µ + a is estimated by T ∗(y), then µ would be estimated by
+    T ∗(y)−a.
+       (a) Show that measurement equivariance requires that T(x) = T ∗(y)−a for all x = (x1,...,xn) and all           a.
+      (b) Show that formal invariance requires that T(x) = T ∗(x) and hence the Equivariance Principle re-
+          quires that T(x1,...,xn)+a = T(x1 +a,...,xn +a) for all (x1,...,xn) and all a.
+       (c)  If X1,...,Xn are iid f(x −θ), show that, as long as E0X1 = 0, the estimator W(X1,...,Xn) = ¯X is          equivariant for estimating θ and satisfies EθW = θ.
+6.42 Suppose we have a random sample X1,...,Xn from σ1 f((x −θ)/σ), a location–scale pdf. We want to      estimate θ, and we have two groups of transformations under consideration:
+                              G1 = {ga,c(x): −∞< a < ∞, c > 0},
+     where ga,c(x1,...,xn) = (cx1 +a,...,cxn +a), and
+                                  G2 = {ga(x): −∞< a < ∞},
+     where ga(x1,...,xn) = (x1 +a,...,xn +a).
+       (a) Show that estimators of the form
+
+                                          W(x1,...,xn) = ¯x+k,
+
+        where k is a nonzero constant, are equivariant with respect to the group G2 but are not equivariant
+         with respect to the group G1.
+      (b) For each group, under what conditions does an equivariant estimator W satisfy EθW = θ, that is, it
+            is unbiased for estimating θ?
+6.43 Again, suppose we have a random sample X1,...,Xn from σ1 f((x−θ)/σ), a location–scale pdf, but we
+      are now interested in estimating σ2. We can consider three groups of transformations:
+                               G1 = {ga,c(x): −∞< a < ∞, c > 0},
+     where ga,c(x1,...,xn) = (cx1 +a,...,cxn +a),
+                                  G2 = {ga(x): −∞< a < ∞},
+     where ga(x1,...,xn) = (x1 +a,...,xn +a), and
+                                     G3 = {gc(x): c > 0},
+     where gc(x1,...,xn) = (cx1,...,cxn).
+       (a) Show that estimators of σ2 of the form kS2, where k is a positive constant and S2 is the sample
+          variance, are invariant with respect to G2, and equivariant with respect to the other two groups.
+      (b) Show that the larger class of estimators of σ2 of the form (Brewster and Zidek, 1974)
+                                                                                      ¯X
+                                     W(X1,...,Xn) = φ      S2,                                                    S
+
+        where φ(x) is a function, are equivariant with respect to G3, but not with respect to either G1 or G2,
+          unless φ(x) is a constant.
+            Consideration of estimators of this form led Stein (1964) and Brewster and Zidek (1974) to find
+         improved estimators of variance (see Lehmann and Casella 1998, Section 3.3).

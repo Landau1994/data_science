@@ -1,0 +1,47 @@
+66                              TRANSFORMATIONS AND EXPECTATIONS
+       (c) Calculate α4 for each of the following pdfs and comment on the peakedness of each.
+                                          1                                      f(x) =        e−x2/2,         x < ∞                        √2π     −∞<
+                                        1
+                                      f(x) =   2,  −1 < x < 1
+                                        1
+                                   < ∞                                      f(x) =   2e−|x|, −∞< x
+     Ruppert (1987) uses influence functions (Section 10.6.4) to further explore the meaning of kurtosis and
+     Groeneveld (1991) uses them to explore skewness; see also Balanda and MacGillivray (1988) for more
+     on the interpretation of α4.
+2.29 When calculating moments of discrete distributions, it is often easier to work with the factorial moments
+      (see Miscellanea 2.6.2).
+       (a) Calculate the factorial moment E[X(X −1)] for the binomial and Poisson distributions.
+      (b) Use the results of part (a) to calculate the variances of the binomial and Poisson distribution.
+       (c) A particularly nasty discrete distribution is the beta-binomial, with pmf
+
+                                                                  n                                                                          y  a+b−1a
+                                   P(y = y) = a(y+a)
+                                                     n+a+b−1y+a
+        where n, a, and b are integers, and y = 0,1,2,...,n. Use factorial moments to calculate the variance
+          of the beta binomial. (See Exercise 4.34 for another approach to this calculation.)
+2.30 Find the moment generating function corresponding to
+                             ,  0 < x < c       (a)  f(x) = 1c
+               2x      (b)  f(x) =     ,  0 < x < c
+                  c2
+               1       (c)  f(x) =    e−|x−α|/β ,         x < ∞,      α < ∞,  β > 0              2β       −∞<     −∞<
+                         r                                             x = 0,1,...,  0 < p < 1,r > 0 an integer      (d) P(X = x) =  +x−1x     pr(1−p)x,
+2.31 Does a distribution exist for which MX(t) = t/(1−t),|t| < 1? If yes, find it. If no, prove it.
+2.32 Let MX(t) be the moment generating function of X, and define S(t) = log(MX(t)). Show that
+                           d                    d 2
+                                    S(t)  = EX  and       S(t)  = VarX.
+                                 dt     t=0                dt2     t=0
+2.33 In each of the following cases verify the expression given for the moment generating function and in
+     each case use the mgf to calculate EX and VarX.
+       (a) P(X = x) = e−λx!λ x ,  MX(t) = eλ(et−1),   x = 0,1,...;  λ > 0
+                      =                                                                               ,   x = 0,1,...;  0 < p < 1      (b) P(X = x) = p(1−p)x,  MX(t)        p                                               1−(1−p)et
+                         e−(x−µ)2/(2σ2)
+       (c)  fX(x) =  √2πσ     , MX(t) = eµt+σ 2t2/2, −∞< x                                < ∞; −∞< µ < ∞, σ > 0
+2.34 A distribution cannot be uniquely determined by a finite collection of moments, as this example from
+    Romano and Siegel (1986) shows. Let X have the normal distribution, that is, X has pdf
+                                       1                                    fX(x) =      e−x2/2,         x < ∞.                      √2π     −∞<
+      Define a discrete random variable Y by
+                   P Y = √ 3 = P Y = √ 3 = 1     P(Y = 0) = 2                           −       6,                3.
+    Show that
+                            EXr = EY r   for r = 1,2,3,4,5.
+     (Romano and Siegel (1986) point out that for any finite n there exists a discrete, and hence nonnormal,
+     random variable whose first n moments are equal to those of X.)

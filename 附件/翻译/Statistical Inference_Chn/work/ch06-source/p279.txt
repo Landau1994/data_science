@@ -1,0 +1,51 @@
+248                                       PRINCIPLES OF DATA REDUCTION
+
+6.34 Consider the model in Exercise 6.12. Show that the Formal Likelihood Principle implies that any con-
+      clusions about θ should not depend on the fact that the sample size n was chosen randomly. That is, the
+      likelihood for (n,x), a sample point from Exercise 6.12, is proportional to the likelihood for the sample
+      point x, a sample point from a fixed-sample-size binomial(n,θ) experiment.
+6.35 A risky experimental treatment is to be given to at most three patients. The treatment will be given to
+     one patient. If it is a success, then it will be given to a second. If it is a success, it will be given to a third
+       patient. Model the outcomes for the patients as independent Bernoulli(p) random variables. Identify
+      the four sample points in this model and show that, according to the Formal Likelihood Principle, the
+      inference about p should not depend on the fact that the sample size was determined by the data.
+6.36 One advantage of using a minimal sufficient statistic is that unbiased estimators will have smaller vari-
+      ance, as the following exercise will show. Suppose that T1 is sufficient and T2 is minimal sufficient, U is
+     an unbiased estimator of θ, and define U1 = E(U|T1) and U2 = E(U|T2).
+       (a) Show that U2 = E(U1|T2).
+      (b) Now use the conditional variance formula (Theorem 4.4.7) to show that VarU2 ≤VarU1.
+      (See Pena and Rohatgi 1994 for more on the relationship between sufficiency and unbiasedness.)
+6.37 Joshi and Nabar (1989) examine properties of linear estimators for the parameter in the so-called “Prob-
+     lem of the Nile,” where (X,Y) has the joint density
+                             f(x,y|θ) = exp{−(θx+y/θ)},     x > 0,   y > 0.
+       (a) For an iid sample of size n, show that the Fisher information is I(θ) = 2n/θ 2.
+      (b) For the estimators
+
+                                 =                           T =  ∑Yi/∑Xi and U                                          ∑Xi∑Yi
+        show that
+             (i) the information in T alone is [2n/(2n+1)]I(θ).
+            (ii) the information in (T,U) is I(θ).
+           (iii) (T,U) is jointly sufficient but not complete.
+6.38 In Definition 6.4.2, show that (iii) is implied by (i) and (ii).
+6.39 Measurement equivariance requires the same inference for two equivalent data points: x, measurements
+      expressed in one scale, and y, exactly the same measurements expressed in a different scale. Formal
+      invariance, in the end, leads to a relationship between the inferences at two different data points in the
+     same measurement scale.
+       Suppose an experimenter wishes to estimate θ, the mean boiling point of water, based on a single
+      observation X, the boiling point measured in degrees Celsius. Because of the altitude and impurities in
+      the water he decides to use the estimate T(x) = .5x + .5(100). If the measurement scale is changed to
+      degrees Fahrenheit, the experimenter would use T ∗(y) = .5y+.5(212) to estimate the mean boiling point
+      expressed in degrees Fahrenheit.
+
+       (a) The familiar relation between degrees Celsius and degrees Fahrenheit would lead us to convert
+          Fahrenheit to Celsius using the transformation 59(T ∗(y)−32). Show that this procedure5     is measure-
+        ment equivariant in that the same answer will be obtained for the same data. That is, 9(T ∗(y)−32) =          T(x).
+      (b) Formal invariance would require that T(x) = T ∗(x) for all x. Show that the estimators we have de-
+          fined above do not satisfy this. So they are not equivariant in the sense of the Equivariance Principle.
+
+6.40 Let X1,...,Xn be iid observations from a location–scale family. Let T1(X1,...,Xn) and T2(X1,...,Xn) be
+     two statistics that both satisfy
+
+                                   Ti(ax1 +b,...,axn +b) = aTi(x1,...,xn)
+
+      for all values of x1,...,xn and b and for any a > 0.

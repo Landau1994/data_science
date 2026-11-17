@@ -1,0 +1,40 @@
+CONVERGENCE CONCEPTS                                                   193
+   Before we prove this theorem (the proof is somewhat anticlimactic), we first look at its implica-
+tions. Starting from virtually no assumptions (other than independence and finite variances), we end
+up with normality! The point here is that normality comes from sums of “small” (finite variance), in-
+dependent disturbances. The assumption of finite variances is essentially necessary for convergence
+to normality. Although it can be relaxed somewhat, it cannot be eliminated. (Recall Example 5.2.10,
+dealing with the Cauchy distribution, where there is no convergence to normality.)
+   While reveling in the wonder of the CLT, it is also useful to reflect on its limitations. Although
+it gives us a useful general approximation, we have no automatic way of knowing how good the
+approximation is in general. In fact, the goodness of the approximation is a function of the original
+distribution, and so must be checked case by case. Furthermore, with the current availability of
+cheap, plentiful computing power, the importance of approximations like the Central Limit Theorem
+is somewhat lessened. However, despite its limitations, it is still a marvelous result.
+Proof of Theorem 5.5.14: We will show that, for  < h, the mgf of √n( ¯Xn        converges to                                                                      |t|                −µ)/σet2/2, the mgf of a n(0,1) random variable.
+   Define Yi = (Xi −µ)/σ, and let MY(t) denote the common mgf of the Yis, which exists for
+|t| < σh and is given by Theorem 2.3.15. Since
+                                                              n                          √n(¯Xn        1
+                                                                                                 (5.5.1)                           −µ) =                      ∑ Yi,                            σ     √n i=1
+we have, from the properties of mgfs (see Theorems 2.3.15 and 4.6.7)
+                 M√n(¯Xn−µ)/σ(t) =  MΣni=1Yi/√n(t)                                     (5.5.2)
+                    =  MΣni=1Yi                     (Theorem 2.3.15)                                                t√n
+                                                                n
+                    =   MY                .               (Theorem 4.6.7)                                               t√n
+We now expand MY(t/√n) in a Taylor series (power series) around 0. (See Definition 5.5.20.) We
+have
+                                    ∞                                               (0)(t/√n)k ,                           (5.5.3)                      MY     = ∑ M(k)Y                                  t√n     k=0            k!
+
+                                 < h, the power series expansion iswhere M(k)Y  (0) =  dk/dtk  MY(t)|t=0. Since the mgfs exist for |t|valid if t < √nσh.
+   Using the facts that M(0)Y = 1, M(1)Y = 0, and M(2)Y = 1 (by construction, the mean and variance
+of Y are 0 and 1), we have
+                                        (t/√n)2
+                   MY     = 1+      +RY            ,                       (5.5.4)                               t√n            2!          t√n
+where RY is the remainder term in the Taylor expansion,
+                                    ∞                                              (0)(t/√n)k .                          RY     = ∑ M(k)Y                                  t√n     k=3            k!
+An application of Taylor’s Theorem (Theorem 5.5.21) shows that, for fixed  t̸ = 0, we have
+                                   RY(t/√n)
+                                    lim  (t/√n)2 = 0.                             n→∞
+Since t is fixed, we also have
+                           RY(t/√n)
+                           lim (1/√n)2 = lim      t√n = 0,                        (5.5.5)                      n→∞           n→∞nRY

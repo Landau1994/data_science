@@ -1,0 +1,46 @@
+EXERCISES                                                                  287
+parameter space. No matter how large the sample size, the prior always has some influence on the
+estimator and tends to draw it away from the extreme values. In the above expression for E(p|y),
+you can see that even if y = 0 and n is large, the Bayes estimator is a positive number.          ∥
+
+7.4  Exercises
+  7.1 One observation is taken on a discrete random variable X with pmf f(x|θ), where θ ∈{1,2,3}. Find the   MLE of θ.
+
+                                     x    f(x|1)    f(x|2)    f(x|3)
+                                 0      13         41       0
+                                 1      13         41       0
+                                 2     0         14         41
+                                 3      16         41         21
+                                 4      16       0         14
+
+  7.2 Let X1,...,Xn be a random sample from a gamma(α,β) population.
+       (a) Find the MLE of β, assuming α is known.
+      (b)  If α and β are both unknown, there is no explicit formula for the MLEs of α and β, but the max-
+       imum can be found numerically. The result in part (a) can be used to reduce the problem to the
+         maximization of a univariate function. Find the MLEs for α and β for the data in Exercise 7.10(c).
+  7.3 Given a random sample X1,...,Xn from a population with pdf f(x|θ), show that maximizing the likeli-
+     hood function, L(θ|x), as a function of θ, is equivalent to maximizing logL(θ|x).
+  7.4 Prove the assertion in Example 7.2.8. That is, prove that ˆθ, given there, is the MLE when the range of θ
+       is restricted to the positive axis.
+  7.5 Consider estimating the binomial parameter k as in Example 7.2.9.
+       (a) Prove the assertion that the integer ˆk, that satisfies the inequalities and is the MLE, is the largest
+          integer less than or equal to 1/ˆz.
+      (b) Let p = 12, n = 4 and X1 = 0, X2 = 20, X3 = 1, and X4 = 19. What is ˆk?
+  7.6 Let X1,...,Xn be a random sample from the pdf
+                               < θ ≤x < ∞.                                     f(x|θ) = θx−2,  0
+       (a) What is a sufficient statistic for θ?
+      (b) Find the MLE of θ.
+       (c) Find the method of moments estimator of θ.
+  7.7 Let X1,...,Xn be iid with one of two pdfs. If θ = 0 then
+
+                                          1       if 0 < x < 1,
+                                       f(x|θ) =  0     otherwise,
+
+     while if θ = 1
+                                       1/(2√x)       if 0 < x < 1,
+                                   f(x|θ) =  0            otherwise.
+     Find the MLE of θ.
+  7.8 One observation, X, is taken from a n(0,σ2) population.
+       (a) Find an unbiased estimator of σ2.
+      (b) Find the MLE of σ.
+       (c) Discuss how the method of moments estimator of σ might be found.

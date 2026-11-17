@@ -1,0 +1,44 @@
+244                                       PRINCIPLES OF DATA REDUCTION
+other principle, formal invariance, is quite different. It equates any two problems with the same
+mathematical structure, regardless of the physical reality they are trying to explain. It says that one
+inference procedure is appropriate even if the physical realities are quite different, an assumption
+that is sometimes difficult to justify.
+   But like the Sufficiency Principle and the Likelihood Principle, the Equivariance Principle is a
+data reduction technique that restricts inference by prescribing what other inferences must be made
+at related sample points. All three principles prescribe relationships between inferences at different
+sample points, restricting the set of allowable inferences and, in this way, simplifying the analysis
+of the problem.
+
+6.5  Exercises
+  6.1 Let X be one observation from a n(0,σ2) population. Is |X| a sufficient statistic?
+  6.2 Let X1,...,Xn be independent random variables with densities
+                          =   eiθ−x  x ≥iθ,                                           fXi(x|θ)    0      x < iθ.
+     Prove that T = mini(Xi/i) is a sufficient statistic for θ.
+  6.3 Let X1,...,Xn be a random sample from the pdf
+
+                                    1
+                               < x < ∞, 0 < σ < ∞.                           f(x|µ,σ) = σ e−(x−µ)/σ, µ
+     Find a two-dimensional sufficient statistic for (µ,σ).
+  6.4 Prove Theorem 6.2.10.
+  6.5 Let X1,...,Xn be independent random variables with pdfs
+
+                                                 1
+                     =    2iθ  −i(θ −1) < xi < i(θ +1),                                  f(xi|θ)    0     otherwise,
+
+     where θ > 0. Find a two-dimensional sufficient statistic for θ.
+  6.6 Let X1,...,Xn be a random sample from a gamma(α,β) population. Find a two-dimensional sufficient
+       statistic for (α,β).
+  6.7 Let f(x,y|θ1,θ2,θ3,θ4) be the bivariate pdf for the uniform distribution on the rectangle with lower left      corner (θ1,θ2) and upper right corner (θ3,θ4) in ℜ2. The parameters satisfy θ1 < θ3 and θ2 < θ4. Let
+      (X1,Y1),...,(Xn,Yn) be a random sample from this pdf. Find a four-dimensional sufficient statistic for
+      (θ1,θ2,θ3,θ4).
+  6.8 Let X1,...,Xn be a random sample from a population with location pdf f(x −θ). Show that the order       statistics, T(X1,...,Xn) = (X(1),...,X(n)), are a sufficient statistic for θ, and no further reduction is
+      possible.
+  6.9 For each of the following distributions let X1,...,Xn be a random sample. Find a minimal sufficient
+       statistic for θ.
+          = √2π                         e−(x−θ)2/2, −∞< x                         < ∞, −∞< θ < ∞                             (normal)       (a)   f(x|θ)     1
+                  < x < ∞, −∞< θ < ∞                            (location exponential)      (b)   f(x|θ) = e−(x−θ),  θ
+          =       (c)   f(x|θ)        e−(x−θ)                                                , −∞< x < ∞, −∞< θ < ∞                                       (logistic)                       (1+e−(x−θ)) 2
+      (d)   f(x|θ)         1          = π[1+(x−θ)2], −∞< x < ∞, −∞< θ < ∞                              (Cauchy)
+       (e)   f(x|θ)   1          = 2e−|x−θ|, −∞< x                      < ∞, −∞< θ < ∞                        (double exponential)
+6.10 Show that the minimal sufficient statistic for the uniform(θ,θ + 1), found in Example 6.2.15, is not
+      complete.

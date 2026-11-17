@@ -1,0 +1,51 @@
+106                         COMMON FAMILIES OF DISTRIBUTIONS
+
+       (a) The probability of a twin birth is approximately 1/90, and we can assume that an elementary school
+           will have approximately 60 children entering kindergarten (three classes of 20 each). Explain how
+         our “statistically impossible” event can be thought of as the probability of five or more successes
+        from a binomial(60,1/90). Is this even rare enough to be newsworthy?
+      (b) Even if the probability in part (a) is rare enough to be newsworthy, consider that this could have
+         happened in any school in the county, and in any county in the state, and it still would have been
+          reported exactly the same. (The “law of truly large numbers” is starting to come into play.) New York
+           state has 62 counties, and it is reasonable to assume that each county has five elementary schools.
+        Does the event still qualify as a “statistical impossibility,” or is it becoming something that could be
+         expected to occur?
+       (c)  If the probability in part (b) still seems small, consider further that this event could have happened
+           in any one of the 50 states, during any of the last ten years, and still would have received the same
+        news coverage.
+
+      In addition to Diaconis and Mosteller (1989), see Hanley (1992) for more on coincidences.
+3.10 Shuster (1991) describes a number of probability calculations that he did for a court case involving the
+      sale of cocaine. A Florida Police Department seized 496 suspected packets of cocaine, of which four
+     were randomly selected and tested, and found to actually be cocaine. The police then chose two more
+      packets at random and, posing as drug dealers, sold the packets to the defendant. These last two packets
+     were lost before they could be tested to verify that they were, indeed, cocaine.
+       (a)  If the original 496 packets were composed of N packets of cocaine and M = 496 −N non-cocaine,        show that the probability of selecting four cocaine packets then two non-cocaine packets, which is
+          the probability that the defendant is innocent of buying cocaine, is
+
+                                N   M
+                                           4      2
+                            N +M    N +M −4                                       4           2
+
+      (b) Maximizing (in M and N) the probability in part (a) maximizes the defendants “innocence probabil-
+             ity.” Show that this probability is .022, attained at M = 165 and N = 331.
+3.11 The hypergeometric distribution can be approximated by either the binomial or the Poisson distribution.
+     (Of course, it can be approximated by other distributions, but in this exercise we will concentrate on only
+      these two.) Let X have the hypergeometric distribution
+
+                                 M                                                              x   N−M                      P(X =      =       K−x    ,   x = 0,1,...,K.                            x|N,M,K)       N
+                                            K
+       (a) Show that as N →∞,M →∞, and M/N →p,
+                               K
+                     P(X = x|N,M,K) →   x  px(1−p)K−x,   x = 0,1,...,K.
+
+           (Stirling’s formula (Exercise 1.23) may be helpful.)
+      (b) Use the fact that the binomial can be approximated by the Poisson to show that if N →∞,M →
+       ∞,K →∞, M/N →0, and KM/N →λ, then
+                                             λ x
+                                                                                              ,   x = 0,1,....                           P(X = x|N,M,K) →e−λx!
+
+       (c) Verify the approximation in part (b) directly, without using the Poisson approximation to the bino-
+          mial. (Lemma 2.3.14 is helpful.)
+3.12 Suppose X has a binomial(n, p) distribution and let Y have a negative binomial(r, p) distribution. Show
+       that FX(r −1) = 1−FY (n−r).

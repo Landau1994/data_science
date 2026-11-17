@@ -1,0 +1,45 @@
+sections-tex/09-02.tex:163 Clopper和Pearson（1934）最早研究了二项分布置信界问题，对双侧区间得到了类似的答案（\autoref{exercise:9.21}），并由此开创了一条至今仍活跃的研
+sections-tex/09-02.tex:168 利用枢轴量构造置信集，由此产生所谓枢轴推断（pivotal inference），主要归功于G. A. Barnard（1949，1980），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关
+sections-tex/09-02.tex:168 利用枢轴量构造置信集，由此产生所谓枢轴推断（pivotal inference），主要归功于G. A. Barnard（1949，1980），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. 
+sections-tex/09-02.tex:168 利用枢轴量构造置信集，由此产生所谓枢轴推断（pivotal inference），主要归功于G. A. Barnard（1949，1980），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. A. S. Fraser的结构推断（s
+sections-tex/09-02.tex:168 9，1980），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. A. S. Fraser的结构推断（structural inference）理论（Fraser 1968，1979）. Berger和Wolpert（1984）对这些方法的优缺点作了有趣的讨论.
+sections-tex/09-02.tex:168 0），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. A. S. Fraser的结构推断（structural inference）理论（Fraser 1968，1979）. Berger和Wolpert（1984）对这些方法的优缺点作了有趣的讨论.
+sections-tex/09-02.tex:168 Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. A. S. Fraser的结构推断（structural inference）理论（Fraser 1968，1979）. Berger和Wolpert（1984）对这些方法的优缺点作了有趣的讨论.
+sections-tex/09-02.tex:256 Sterne（1954）提出了下面构造二项置信集的方法，它产生最短长度的集合. 给定$\alpha$，对于每个$p$值，找出由概率最大的$x$值组成的大小为$\a
+sections-tex/09-02.tex:387 这些区间最初由Garwood（1936）导出. \autoref{fig:9.2.5}给出了覆盖概率的图像. 注意，图形相当参差不齐. 跳跃发生在各置信区间的端点处，此时构成覆盖
+sections-tex/09-03.tex:8 说到置信集的大小，若集合为区间，通常指其长度. 若集合不是区间，或者处理的是多维集合，那么长度通常变为体积.（也有一些情形，采用长度之外的大小度量更自然，特别是在考虑等变性时. Schervish 1995，第6章，以及Berger 1985，第6章，讨论了这个主题.）
+sections-tex/09-03.tex:8 说到置信集的大小，若集合为区间，通常指其长度. 若集合不是区间，或者处理的是多维集合，那么长度通常变为体积.（也有一些情形，采用长度之外的大小度量更自然，特别是在考虑等变性时. Schervish 1995，第6章，以及Berger 1985，第6章，讨论了这个主题.）
+sections-tex/09-03.tex:158 使错误覆盖概率最小的集合也称为Neyman最短（Neyman-shortest）集合. 这个名称包含长度的意味，Pratt（1961）的下述定理为其提供了某种依据.
+sections-tex/09-03.tex:179 这串等式建立了所需恒等式，定理得证. 积分次序的交换形式上由Fubini定理保证（Lehmann和Casella 1998，第1.2节），但只要所有被积函数有限，就容易看出交换是合理的.\footnote{译注：一般而言，仅要求被积函数处处有限不足以保证交换积分
+sections-tex/09-03.tex:183 率之间存在形式上的关系. 在双侧情形中，这意味着使错误覆盖概率最小也带来某种长度最优保证. 不过，在单侧情形中，这种类比并不完全成立. 此时，为使错误覆盖概率最小而构造的区间，只关注参数空间一部分中的参数，因而可能没有长度最优性. Madansky（1962）给出了一个可被改进的$1-\alpha$ UMA单侧区间例子：可以构造另一个更短的$1-\alpha$区间.（参见\autoref{exe
+sections-tex/09-03.tex:183 可能没有长度最优性. Madansky（1962）给出了一个可被改进的$1-\alpha$ UMA单侧区间例子：可以构造另一个更短的$1-\alpha$区间.（参见\autoref{exercise:9.45}.）此外，Maatta和Casella（1987）证明，反演UMP检验所得区间，按其他合理准则衡量时可能并非最优.
+sections-tex/09-03.tex:266 这些集合的“长度”与此前相同，但现在对$\mu$的所有整数值，覆盖概率都是$1$. 必须采用更精细的大小度量才能避免此类反常现象.（Joshi 1969通过定义估计量的等价类处理了这个问题.）
+sections-tex/09-04.tex:110 本题进一步研究二项置信集的性质，特别是Sterne（1954）的构造. 与\autoref{ex:9.2.11}一样，仍考虑$\operatorname{binomial}(3,p)$分布.
+sections-tex/09-04.tex:125 （这实质上是Crow（1956）对Sterne构造的修改，参见\autoref{sec:9.5.2}.）
+sections-tex/09-04.tex:144 其中$F_{\nu_1,\nu_2,\alpha}$为自由度$\nu_1,\nu_2$的$F$分布的上侧$\alpha$临界点，并作如下端点调整：若$x=0$，下端点为$0$；若$x=n$，上端点为$1$. 这些就是Clopper和Pearson（1934）区间.
+sections-tex/09-04.tex:250 ，其目标是确定两种处理（药物的不同制剂、治疗的不同给药系统）是否产生相同效应. 这个问题的表述导致原假设与备择假设的角色“互换”（\autoref{exercise:8.47}），从而产生一些有趣的统计问题. 生物等效性的综述见Berger和Hsu（1996），置信集的推广见Brown、Casella和Hwang（1995）.
+sections-tex/09-04.tex:250 生相同效应. 这个问题的表述导致原假设与备择假设的角色“互换”（\autoref{exercise:8.47}），从而产生一些有趣的统计问题. 生物等效性的综述见Berger和Hsu（1996），置信集的推广见Brown、Casella和Hwang（1995）.
+sections-tex/09-04.tex:307 Juola（1993）作了如下观察. 若有枢轴量$Q(\boldsymbol X,\theta)$，构造$1-\alpha$置信区间涉及寻找$a,b$使$P(a
+sections-tex/09-04.tex:330 \item Madansky（1962）展示了一个期望长度比UMA区间更短的$1-\alpha$区间. 一般而言，Madansky区间难以计算，但在以下情形中计算相对简单. 令$
+sections-tex/09-04.tex:368 反演该检验的接受域导出$1-\alpha$置信集，并证明它以正概率为空集.（Cox悖论指出，经典最优程序有时忽略条件分布的信息，给出一个虽最优、却在某种意义上不合理的程序；参见Cox 1958或Cornfield 1969.）\footnote{译注：原文“否则总是拒绝$H_0$”若按字面理解，会使检验对全部样本都拒绝. 结合所给
+sections-tex/09-04.tex:368 反演该检验的接受域导出$1-\alpha$置信集，并证明它以正概率为空集.（Cox悖论指出，经典最优程序有时忽略条件分布的信息，给出一个虽最优、却在某种意义上不合理的程序；参见Cox 1958或Cornfield 1969.）\footnote{译注：原文“否则总是拒绝$H_0$”若按字面理解，会使检验对全部样本都拒绝. 结合所给水平计算，合理意图应是：当$\
+sections-tex/09-04.tex:387 的区间，但每种情形中$a,b$满足不同约束. 本题给出的区间由Tate和Klett（1959）导出，他们还列出了部分临界点.
+sections-tex/09-04.tex:456 m \hyperref[item:9.58.a]{(a)}中的区间也可作为覆盖基础总体比例$p$的容忍区间. 证明，将它们视为容忍区间时，单侧区间的系数为$1-p^n$，双侧区间的系数为$1-p^n-n(1-p)p^{n-1}$. Vardeman（1992）将最后这一计算称为“一道漂亮的次序统计量习题”.\footnote{译注：所列精确系数通常以总体分布连续、样本无并列为前提；题干未明示这一
+sections-tex/09-05.tex:4 通过定义一种称为置信程序（confidence procedure）的对象，可以在形式上联系置信集与检验（Joshi 1969）. 若$X\sim f(x\mid\theta)$，其中$x\in\mathcal X$且$\theta\in\Theta$，则置信程序是
+sections-tex/09-05.tex:13 为离散分布的参数构造最优（或至少有所改进的）置信区间有很长的历史，\autoref{ex:9.2.11}已有所说明，其中考察了Sterne（1954）对Clopper和Pearson（1934）区间的修改. 当然，Sterne构造存在困难，但基本思想是正确的；Crow（1956）以及Bl
+sections-tex/09-05.tex:13 为离散分布的参数构造最优（或至少有所改进的）置信区间有很长的历史，\autoref{ex:9.2.11}已有所说明，其中考察了Sterne（1954）对Clopper和Pearson（1934）区间的修改. 当然，Sterne构造存在困难，但基本思想是正确的；Crow（1956）以及Blyth和Still（1983）修改了Ster
+sections-tex/09-05.tex:13 最优（或至少有所改进的）置信区间有很长的历史，\autoref{ex:9.2.11}已有所说明，其中考察了Sterne（1954）对Clopper和Pearson（1934）区间的修改. 当然，Sterne构造存在困难，但基本思想是正确的；Crow（1956）以及Blyth和Still（1983）修改了Sterne构造，后者产生了最短的一组精确区间. Casella（1986）给出了寻找一类最短
+sections-tex/09-05.tex:13 的历史，\autoref{ex:9.2.11}已有所说明，其中考察了Sterne（1954）对Clopper和Pearson（1934）区间的修改. 当然，Sterne构造存在困难，但基本思想是正确的；Crow（1956）以及Blyth和Still（1983）修改了Sterne构造，后者产生了最短的一组精确区间. Casella（1986）给出了寻找一类最短二项置信区间的算法.
+sections-tex/09-05.tex:13 1954）对Clopper和Pearson（1934）区间的修改. 当然，Sterne构造存在困难，但基本思想是正确的；Crow（1956）以及Blyth和Still（1983）修改了Sterne构造，后者产生了最短的一组精确区间. Casella（1986）给出了寻找一类最短二项置信区间的算法.
+sections-tex/09-05.tex:15 泊松区间研究（通常也包括其他离散分布）的历史类似. Garwood（1936）的构造恰好是将Clopper--Pearson论证用于二项分布，Crow和Gardner（1959）对这些区间作了改进. Casella和
+sections-tex/09-05.tex:15 泊松区间研究（通常也包括其他离散分布）的历史类似. Garwood（1936）的构造恰好是将Clopper--Pearson论证用于二项分布，Crow和Gardner（1959）对这些区间作了改进. Casella和Robert（1989）找出了一类最短泊松区间.\footnote{译注：本段讨论泊松区间，但原文称
+sections-tex/09-05.tex:15 泊松区间研究（通常也包括其他离散分布）的历史类似. Garwood（1936）的构造恰好是将Clopper--Pearson论证用于二项分布，Crow和Gardner（1959）对这些区间作了改进. Casella和Robert（1989）找出了一类最短泊松区间.\footnote{译注：本段讨论泊松区间，但原文称Garwood的构造将论证“用于二项分布”；结合\autore
+sections-tex/09-05.tex:17 Blyth（1986）给出了二项参数的非常精确的近似区间；Leemis和Trivedi（1996）比较了正态近似与泊松近似；Agresti和Coull（1998
+sections-tex/09-05.tex:17 Blyth（1986）给出了二项参数的非常精确的近似区间；Leemis和Trivedi（1996）比较了正态近似与泊松近似；Agresti和Coull（1998）认为，要求离散区间的覆盖率始终高于名义水平可能过于严格. Blaker（2
+sections-tex/09-05.tex:17 Blyth（1986）给出了二项参数的非常精确的近似区间；Leemis和Trivedi（1996）比较了正态近似与泊松近似；Agresti和Coull（1998）认为，要求离散区间的覆盖率始终高于名义水平可能过于严格. Blaker（2000）为二项、泊松及其他离散分布构造了改进区间，并具有嵌套性质
+sections-tex/09-05.tex:17 Blyth（1986）给出了二项参数的非常精确的近似区间；Leemis和Trivedi（1996）比较了正态近似与泊松近似；Agresti和Coull（1998）认为，要求离散区间的覆盖率始终高于名义水平可能过于严格. Blaker（2000）为二项、泊松及其他离散分布构造了改进区间，并具有嵌套性质：若$\alpha<\alpha'$，则$1-\alpha$区间包含相应的$1-\
+sections-tex/09-05.tex:19 Fieller定理（Fieller 1954）用巧妙的论证，得到正态均值比的精确置信集.
+sections-tex/09-05.tex:32 合有一个有趣特点：取决于抛物线的根，它可以是一个区间、一个区间的补集，或整条实数轴（参见\autoref{exercise:9.15}）. 此外，要保持$1-\alpha$的置信程度，该区间必须以正概率为无穷区间. 基于自助法的替代方法见Hwang（1995）；另一种置信方法见Tsao和Hwang（1998，1999）.
+sections-tex/09-05.tex:32 间、一个区间的补集，或整条实数轴（参见\autoref{exercise:9.15}）. 此外，要保持$1-\alpha$的置信程度，该区间必须以正概率为无穷区间. 基于自助法的替代方法见Hwang（1995）；另一种置信方法见Tsao和Hwang（1998，1999）.
+sections-tex/09-05.tex:32 间的补集，或整条实数轴（参见\autoref{exercise:9.15}）. 此外，要保持$1-\alpha$的置信程度，该区间必须以正概率为无穷区间. 基于自助法的替代方法见Hwang（1995）；另一种置信方法见Tsao和Hwang（1998，1999）.
+sections-tex/09-05.tex:34 Vardeman（1992）提出本条杂录标题中的问题，主张主流统计学应花更多时间研究双侧置信区间以外的区间. 特别地，他列出：（a）单侧区间；（b）无分布区间；（c）

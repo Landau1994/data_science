@@ -1,0 +1,44 @@
+270                                                 POINT ESTIMATION
+    In certain situations, particularly in location parameter estimation, MSE can be a helpful crite-
+rion for finding the best estimator in a class of equivariant estimators (Section 6.4). For a fixed g in
+the group G , denote the function that takes θ →θ ′ by ¯g(θ), so ¯g(θ) = θ ′. Then if W(X) estimatesθ we have
+   Measurement Equivariance:  W(x) estimates θ ⇒¯g(W(x)) estimates ¯g(θ) = θ ′.
+   Formal Invariance:  W(x) estimates θ ⇒W(g(x)) estimates ¯g(θ) = θ ′.
+Putting these two requirements together gives W(g(x)) = ¯g(W(x)).
+Example 7.3.6 (MSE of equivariant estimators)  Let X1,...,Xn be iid f(x−θ). For an estimatorW(X1,...,Xn) to satisfy W(ga(x)) = ¯ga(W(x)), we must have
+
+                       W(x1,...,xn)+a = W(x1 +a,...,xn +a),                       (7.3.2)
+
+which specifies the equivariant estimators with respect to the group of transformations defined by
+G = {ga(x): −∞< a < ∞}, where ga(x1,...,xn) = (x1 +a,...,xn +a). For these estimators we have
+            Eθ(W(X1,...,Xn)−θ)2
+          = Eθ (W(X1 +a,...,Xn +a)−a−θ)2
+          = Eθ (W(X1 −θ,...,Xn −θ))2                         (a = −θ)                   ∞     ∞                             n
+                                                                     f(xi −θ)dxi          =  −∞··· −∞(W(x1 −θ,...,xn −θ))2 ∏i=1
+                   ∞     ∞                    n
+                                                      f(ui)dui.         (ui = xi −θ)         (7.3.3)          =  −∞··· −∞(W(u1,...,un))2 ∏i=1
+This last expression does not depend on θ, hence the MSEs of these equivariant estimators are
+not functions of θ. The MSE can therefore be used to order the equivariant estimators, and an
+equivariant estimator with smallest MSE can be found. In fact, this estimator is the solution to
+the mathematical problem of finding the function W that minimizes (7.3.3) subject to (7.3.2). (See
+Exercises 7.35 and 7.36.)                                                          ∥
+
+7.3.2  Best Unbiased Estimators
+
+As noted in the previous section, a comparison of estimators based on MSE considerations may not
+yield a clear favorite. Indeed, there is no one “best MSE” estimator. Many find this troublesome or
+annoying, and rather than doing MSE comparisons of candidate estimators, they would rather have
+a “recommended” one.
+   The reason that there is no one “best MSE” estimator is that the class of all estimators is too
+large a class. (For example, the estimator ˆθ = 17 cannot be beaten in MSE at θ = 17, but is a terrible
+estimator otherwise.) One way to make the problem of finding a “best” estimator tractable is to limit
+the class of estimators. A popular way of restricting the class of estimators, the one we consider in
+this section, is to consider only unbiased estimators.
+     If W1 and W2 are both unbiased estimators of a parameter θ, that is, EθW1 = EθW2 = θ, then
+their mean squared errors are equal to their variances, so we should choose the estimator with the
+smaller variance. If we can find an unbiased estimator with uniformly smallest variance – a best
+unbiased estimator – then our task is done.
+   Before proceeding we note that, although we will be dealing with unbiased estimators, the results
+here and in the next section are actually more general. Suppose that there is an estimator W ∗of θ
+with Eθ W ∗= τ(θ)̸ = θ, and we are interested in investigating the worth of W ∗. Consider the classof estimators
+                              Cτ = {W : EθW = τ(θ)}.

@@ -1,0 +1,17 @@
+\documentclass[border=8pt]{standalone}
+\usepackage[UTF8,fontset=fandol]{ctex}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.18,every axis/.append style={axis lines=left,tick label style={font=\small},label style={font=\small},title style={font=\small},samples=151}}
+\begin{document}
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1,horizontal sep=2.2cm},width=8cm,height=6.2cm]
+\nextgroupplot[title={(a) 正态的方差缩放比较},xlabel={$\mu$},ylabel={$v$},xmin=0,xmax=4.2,ymin=0,ymax=4.3,legend style={font=\small,at={(.02,.98)},anchor=north west}]
+\addplot[black,thick,domain=0:4]{x};\addlegendentry{原式：$v=\mu=e^\theta$}
+\addplot[black,dashed,thick,domain=0:4]{x/5};\addlegendentry{3.34(a)：$v=\mu/5$}
+\draw[black,fill=white] (axis cs:0,0) circle[radius=1.7pt];
+\nextgroupplot[title={(b) Gamma：$\alpha\beta=\mu$，图取$\mu=1$},xlabel={$\alpha$},ylabel={$\beta$},xmin=0,xmax=4.2,ymin=0,ymax=4.5]
+\addplot[black,thick,domain=.23:4]{1/x};
+\end{groupplot}
+\end{tikzpicture}
+\end{document}

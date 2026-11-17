@@ -1,0 +1,392 @@
+{
+  "chapter": 10,
+  "questions": 48,
+  "lettered_subparts": 94,
+  "nested_roman_subparts": 7,
+  "ordered_sets_match": true,
+  "resolved_wikilink_occurrences": 411,
+  "source_pages_visually_checked": [
+    439,
+    440,
+    441,
+    442,
+    443,
+    444,
+    445,
+    446,
+    447,
+    448
+  ],
+  "referenced_body_pages_visually_checked": [
+    114,
+    229,
+    230,
+    234,
+    235,
+    374,
+    399,
+    406,
+    410,
+    411,
+    412,
+    413,
+    414,
+    415,
+    416,
+    417,
+    418,
+    419,
+    420,
+    421,
+    422,
+    423,
+    424,
+    425,
+    426,
+    427,
+    428,
+    429,
+    430,
+    431,
+    432,
+    433,
+    434,
+    435,
+    436,
+    437,
+    438,
+    449,
+    450
+  ],
+  "figures": {
+    "PGFPlots_sources": 5,
+    "compiled": 5,
+    "rendered_and_visually_checked": 5,
+    "obsidian_rendering_checked": false
+  },
+  "computations": {
+    "10.13": "all 256 ordered samples and 35 count vectors; 31 distinct means",
+    "10.14": "20,000 each model and bootstrap method; original samples and raw resamples retained",
+    "10.16": "1,000,000 binomial samples plus exact 25-term variance",
+    "10.17": "two explicitly distinguished data interpretations; each 1,000 nonparametric and 1,000 parametric correlations",
+    "10.30": "quadrature for 3 score functions x 2 populations x 5 tuning constants",
+    "10.34": "4 models x 10,000 LRT statistics",
+    "10.39/10.46": "4 populations x 3,000 samples of size15; 199 bootstrap resamples each; actual errors/powers/coverage retained",
+    "10.44": "exact finite binomial sums for n12/25/100, levels.9/.95, p=.001:.001:.999",
+    "10.45": "n1 exact counterexample, plus endpoint search n1..150 at alpha.1/.05/.01; finite search not a theorem"
+  },
+  "deterministic_record_checks": "work/DS011/ch10/verification.json; Gamma known-mean MLE score, all35 weighted multisets, Bernoulli variance formula over25 finite models, exact n1 coverage counterexample, reaggregation of all12000 robust-simulation records",
+  "independent_parent_review": {
+    "10.30/ST336": "Parent independently read complete note and original PDF444/447; zero-tail 0/0, arbitrarily distant roots and conditional remote-cluster threshold scope confirmed",
+    "10.45/ST351": "Parent independently read complete note, original447 and body436; corrected Wilson lower endpoint0.05462075552885 and coverage0.9454 at p0.0546 confirmed"
+  },
+  "material_source_issues": [
+    "10.5 reciprocal normal moments",
+    "10.7 differentiability missing for efficient transforms",
+    "10.8 theorem reference and information sign",
+    "10.11 ARE direction and known-mean MOM/MLE distinction",
+    "10.13/10.15 exhaustive n^n-1 denominator discrepancy",
+    "10.16 printed variance .00529 not reproduced",
+    "10.17 original 5.58 and 580.3.07 entries",
+    "10.19 negative AR sign and stationary initialization",
+    "10.24/10.26 location derivative sign",
+    "10.25 symmetry insufficient for normality",
+    "10.27 missing contamination-atom median branch",
+    "10.29 Logistic score needs x/2",
+    "10.30 zero tail limits give 0/0 and require a root-selection rule",
+    "10.33 wrong observed-information scaling",
+    "10.39/10.46 printed10.3.8 denominator",
+    "10.45 corrected score does not universally guarantee nominal coverage"
+  ],
+  "errors": [],
+  "checks": [
+    {
+      "exercise": "10.1",
+      "id": "ST307",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.2",
+      "id": "ST308",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.3",
+      "id": "ST309",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.4",
+      "id": "ST310",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.5",
+      "id": "ST311",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.6",
+      "id": "ST312",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.7",
+      "id": "ST313",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.8",
+      "id": "ST314",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.9",
+      "id": "ST315",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.10",
+      "id": "ST316",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.11",
+      "id": "ST317",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.12",
+      "id": "ST318",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.13",
+      "id": "ST319",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.14",
+      "id": "ST320",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.15",
+      "id": "ST321",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.16",
+      "id": "ST322",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.17",
+      "id": "ST323",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.18",
+      "id": "ST324",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.19",
+      "id": "ST325",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.20",
+      "id": "ST326",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.21",
+      "id": "ST327",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.22",
+      "id": "ST328",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.23",
+      "id": "ST329",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.24",
+      "id": "ST330",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.25",
+      "id": "ST331",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.26",
+      "id": "ST332",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.27",
+      "id": "ST333",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.28",
+      "id": "ST334",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.29",
+      "id": "ST335",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.30",
+      "id": "ST336",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.31",
+      "id": "ST337",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.32",
+      "id": "ST338",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.33",
+      "id": "ST339",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.34",
+      "id": "ST340",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.35",
+      "id": "ST341",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.36",
+      "id": "ST342",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.37",
+      "id": "ST343",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.38",
+      "id": "ST344",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.39",
+      "id": "ST345",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.40",
+      "id": "ST346",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.41",
+      "id": "ST347",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.42",
+      "id": "ST348",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.43",
+      "id": "ST349",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.44",
+      "id": "ST350",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.45",
+      "id": "ST351",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.46",
+      "id": "ST352",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.47",
+      "id": "ST353",
+      "passed": true,
+      "issues": []
+    },
+    {
+      "exercise": "10.48",
+      "id": "ST354",
+      "passed": true,
+      "issues": []
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+234                                       PRINCIPLES OF DATA REDUCTION
+does not depend on θ because T(X) is a sufficient statistic (recall the definition!). Thus, to show
+that S(X) and T(X) are independent, it suffices to show that
+                        P(S(X) = s|T(X) = t) = P(S(X) = s)                         (6.2.6)
+for all possible values t ∈T . Now,
+                 P(S(X) = s) = ∑ P(S(X)                         = s|T(X) = t)Pθ(T(X) = t).
+                                  t∈T
+Furthermore, since ∑t∈T Pθ(T(X) = t) = 1, we can write
+                            = s)Pθ(T(X) = t).                     P(S(X) = s) = ∑ P(S(X)
+                                      t∈T
+Therefore, if we define the statistic
+                           g(t) = P(S(X) = s|T(X) = t)−P(S(X) = s),
+the above two equations show that
+
+                           = t) = 0,   for all θ.                   Eθg(T) = ∑ g(t)Pθ(T(X)
+                                 t∈T
+Since T(X) is a complete statistic, this implies that g(t) = 0 for all possible values t ∈T . Hence(6.2.6) is verified.                                          2
+
+   Basu’s Theorem is useful in that it allows us to deduce the independence of two statistics without
+ever finding the joint distribution of the two statistics. To use Basu’s Theorem, we need to show that
+a statistic is complete, which is sometimes a rather difficult analysis problem. Fortunately, most
+problems we are concerned with are covered by the following theorem. We will not prove this
+theorem but note that its proof depends on the uniqueness of a Laplace transform, a property that
+was mentioned in Section 2.3.
+Theorem 6.2.25 (Complete statistics in the exponential family)   Let X1,... ,Xn be iid observa-
+tions from an exponential family with pdf or pmf of the form
+
+                                                                   k
+                                                                                j)t j(x)   ,                       (6.2.7)                           f(x|θ) = h(x)c(θ)exp   j=1∑ w(θ
+
+where θ = (θ1,θ2,...,θk). Then the statistic
+
+                                          n          n              n
+                    T(X) = ∑ t1(Xi), ∑ t2(Xi),..., ∑ tk(Xi)
+                                       i=1       i=1           i=1
+
+is complete as long as the parameter space Θ contains an open set in ℜk.
+
+   The condition that the parameter space contain an open set is needed to avoid a situation like
+the following. The n(θ,θ 2) distribution can be written in the form (6.2.7), however the parameter
+space (θ,θ 2) does not contain a two-dimensional open set, as it consists only of the points on a
+parabola. As a result, we can find a transformation of the statistic T(X) which is an unbiased esti-
+mator of zero (see Exercise 6.15). (Recall that exponential families such as the n(θ,θ 2), where the
+parameter space is a lower-dimensional curve, are called curved exponential families; see Section
+3.4.) The relationship between sufficiency, completeness and minimality in exponential families is
+an interesting one. For a brief introduction see Miscellanea 6.6.3.
+  We now give some examples of the use of Basu’s Theorem, Theorem 6.2.25, and many of the
+earlier results in this chapter.

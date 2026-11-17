@@ -1,0 +1,42 @@
+102                         COMMON FAMILIES OF DISTRIBUTIONS
+3.6.2   Identities
+
+In this section we present a sampling of various identities that can be useful not only in establishing
+theorems but also in easing numerical calculations. An entire class of identities can be thought of as
+“recursion relations,” a few of which we have already seen. Recall that if X is Poisson(λ), then
+
+                                      λ
+                         P(X = x+1) = x+1P(X = x),                            (3.6.2)
+allowing us to calculate Poisson probabilities recursively starting from P(X = 0) = e−λ. Relations
+like (3.6.2) exist for almost all discrete distributions (see Exercise 3.48). Sometimes they exist in a
+slightly different form for continuous distributions.
+Theorem 3.6.4  Let Xα,β denote a gamma(α,β) random variable, with pdf f(x|α,β), where α >1.Then for any constants a and b,
+            P(a < Xα,β < b) = β (f(a|α,β)−f(b|α,β))+P(a < Xα−1,β < b).         (3.6.3)
+Proof: By definition,
+
+                             1       b
+       P(a < Xα,β < b) =        α    xα−1e−x/β dx                         Γ(α)β    a
+                             1                            b
+               =                                                                                                                                 ,                                                               a +                                                   (α −1)xα−2βe−x/β dx                         Γ(α)β α  −xα−1βe−x/β|b                                                                    a
+
+where we have done an integration by parts with u = xα−1 and dv = e−x/β dx. Continuing, we have
+
+                                                (α          b         P(a < Xα,β < b) = β                     −1)     xα−2e−x/β dx.                         (f(a|α,β)−f(b|α,β))+ Γ(α)β α−1  a
+Using the fact that Γ(α) = (α −1)Γ(α −1), we see that the last term is P(a < Xα−1,β < b).   2
+     If α is an integer, repeated use of (3.6.3) will eventually lead to an integral that can be evaluated
+analytically (when α = 1, the exponential distribution). Thus, we can easily compute these gamma
+probabilities.
+   There is an entire class of identities that relies on integration by parts. The first of these is
+attributed to Charles Stein, who used it in his work on estimation of multivariate normal means
+(Stein 1973, 1981).
+Lemma 3.6.5 (Stein’s Lemma)  Let X ∼n(θ,σ2), and let g be a differentiable function satisfying
+E|g′(X)| < ∞. Then
+                            E[g(X)(X −θ)] = σ2Eg′(X).
+Proof: The left-hand side is
+                                 1    ∞
+                                                                        dx.                E[g(X)(X −θ)] = √ 2πσ  −∞g(x)(x−θ)e−(x−θ)2/(2σ2)
+Use integration by parts with u = g(x) and dv = (x−θ)e−(x−θ)2/2σ2 dx to get
+                      1                             ∞
+                                                                        dx  .    E[g(X)(X −θ)] = √ 2πσ  −σ2g(x)e−(x−θ)2/(2σ2)|∞−∞+σ2  −∞g′(x)e−(x−θ)2/(2σ2)
+The condition on g′ is enough to ensure that the first term is 0 and what remains on the right-hand
+side is σ2Eg′(X).                                           2

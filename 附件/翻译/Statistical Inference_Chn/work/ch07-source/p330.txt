@@ -1,0 +1,45 @@
+MISCELLANEA                                                              299
+      The answer is no. That is, posterior means are never unbiased estimators. If they were, then
+       taking the expectation over the joint distribution of X and θ, we could write
+                 E[(X −θ)2]                  =  E[X2 −2Xθ +θ 2]                   (expand the square)
+                  =  E E((X2 −2Xθ +θ2   2)|θ)2              (iterate the expectation)                                            = EθX = θ)                  =  E E(X2|θ)−2θ2 +θ             (E(X|θ)
+                  =  E E(X2|θ)−θ
+                  =                            E(X2)−E(θ 2),                (properties of expectations)
+
+       doing the conditioning one way, and conditioning on X we could similarly calculate
+                        E[(X −θ)2]                      =  E E[(X2 −2Xθ +θ 2)|X]
+                                               = X                      =  E X2     +E(θ              E(θ|X)                                  −2X2      2|X)         by assumption
+                      =  E(θ 2)−E(X2).
+      Comparing the two calculations, we see that the only way that there is no contradiction is
+          if E(X2) = E(θ 2), which then implies that E(X −θ)2 = 0, so X = θ. This occurs only if      P(X = θ) = 1, an uninteresting situation, so we have argued to a contradiction. Thus, either
+       E(X|θ)̸ = θ or E(θ|X)̸ = X, showing that posterior means cannot be unbiased estimators.       Notice that we have implicitly made the assumption that E(X2) < ∞, but, in fact, this result
+       holds under more general conditions. Bickel and Mallows (1988) have a more thorough
+      development of this topic. At a more advanced level, this connection is characterized by
+       Noorbaloochi and Meeden (1983).
+ 7.5.3 The Lehmann–Scheff´e Theorem
+      The Lehmann–Scheff´e Theorem represents a major achievement in mathematical statistics,
+       tying together sufficiency, completeness, and uniqueness. The development in the text is
+      somewhat complementary to the Lehmann–Scheff´e Theorem, and thus we never stated it
+        in its classical form (which is similar to Theorem 7.3.23). In fact, the Lehmann–Scheff´e
+      Theorem is contained in Theorems 7.3.19 and 7.3.23.
+     Theorem 7.5.1 (Lehmann–Scheff´e)  Unbiased estimators based on complete sufficient
+         statistics are unique.
+       Proof: Suppose T is a complete sufficient statistic, and φ(T) is an estimator with Eθφ(T) =
+       τ(θ). From Theorem 7.3.23 we know that φ(T) is the best unbiased estimator of τ(θ), and
+      from Theorem 7.3.19, best unbiased estimators are unique.                 2
+
+         This theorem can also be proved without Theorem 7.3.3, using just the consequences of
+       completeness, and provides a slightly different route to Theorem 7.3.23.
+ 7.5.4 More on the EM Algorithm
+      The EM algorithm has its roots in work done in the 1950s (Hartley 1958), but really came
+        into statistical prominence after the seminal work of Dempster, Laird, and Rubin (1977),
+      which detailed the underlying structure of the algorithm and illustrated its use in a wide
+        variety of applications.
+       One of the strengths of the EM algorithm is that conditions for convergence to the
+       incomplete-data MLEs are known, although this topic has obtained an additional bit of folk-
+        lore. Dempster, Laird, and Rubin’s (1977) original proof of convergence had a flaw, but valid
+       convergence proofs were later given by Boyles (1983) and Wu (1983); see also Finch et al.
+       (1989).
+          In our development we stopped with Theorem 7.2.20, which guarantees that the likeli-
+      hood will increase at each iteration. However, this may not be enough to conclude that the
+       sequence   ˆθ    converges to a maximum likelihood estimator. Such a guarantee requires              {  (r)}

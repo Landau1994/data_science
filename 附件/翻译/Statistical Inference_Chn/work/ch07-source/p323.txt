@@ -1,0 +1,45 @@
+292                                                 POINT ESTIMATION
+       (c) Suppose that x1 is missing. Use the fact that X1 ∼binomial(m,t1) to calculate the expected complete-          data log likelihood. Show that the EM sequence is given by
+                   (r+1)      ∑ni=1 yi                             xj +yj                        ˆβ   =              and ˆτ(r+1)j   =                                      ,     j = 1,2,...,n.
+                              mˆτ(r)1 +∑ni=2 xi                 mˆτ(r)1 +∑ni=2 xi +∑ni=1 yi
+
+      (d) Use this model to find the MLEs for the data of Table 7.4.2, first assuming that you have all the data,
+          then assuming that x1 = 3,540 is missing.
+7.30 The EM algorithm is useful in a variety of situations, and the definition of “missing data” can be stretched
+      to accommodate many different models. Suppose that we have a mixture density pf(x) + (1 −p)g(x),     where p is unknown. If we observe X = (X1,X2,...,Xn), the sample density is
+
+                                              n
+               ∏ [pf(xi)+(1−p)g(xi)],                                           i=1
+
+     which could be difficult to deal with. (Actually, a mixture of two is not terrible, but consider what the
+      likelihood would look like with a mixture ∑ki=1 pi fi(x), for large k.)
+     The EM solution is to augment the observed (or incomplete) data with Z = (Z1,Z2,...,Zn), where Zi
+       tells which component of the mixture Xi came from. That is,
+                                        Xi|zi = 1 ∼f(xi)   and    Xi|zi = 0 ∼g(xi),
+     and P(Zi = 1) = p.
+       (a) Show that the joint density of (X,Z) is given by ∏ni=1[p f(xi)zi][(1−p)g(xi)1−zi].
+      (b) Show that the missing data distribution, the distribution of Zi|xi, p is Bernoulli with success proba-
+            bility p f(xi)/(pf(xi)+(1−p)g(xi)).
+       (c) Calculate the expected complete-data log likelihood, and show that the EM sequence is given by
+
+                                     1  n               ˆp(r) f(xi)                                           ˆp(r+1) =                   ∑                                                                          ˆp(r)                                     n i=1                                                   f(xi)+(1−ˆp(r))g(xi).
+7.31 Prove Theorem 7.2.20.
+       (a) Show that, using (7.2.19), we can write
+
+                                                                                                                                        ,                   logL(ˆθ(r)|y)                  = E logL(ˆθ(r)|y,X)|ˆθ(r),y −E logk(X|ˆθ(r),y)|ˆθ(r),y
+          and, since ˆθ(r+1) is a maximum,  logL(ˆθ(r+1)|y,X)|ˆθ(r),y ≥E logL(ˆθ(r)|y,X)|ˆθ(r),y  . When is
+          the inequality an equality?
+      (b) Now use Jensen’s inequality to show that E logk(X|ˆθ (r+1),y)|ˆθ(r),y ≤E logk(X|ˆθ(r),y)|ˆθ(r),y  ,
+        which together with part (a) proves the theorem.
+      Hint: If f and g are densities, since log is a concave function, Jensen’s inequality (4.7.7) implies
+
+                             f(x)                    f(x)
+                      log        g(x)dx              g(x)dx = log     f(x)dx = 0.                           g(x)       ≤log     g(x)
+    By the property of logs, this in turn implies that  log[f(x)]g(x)dx ≤  log[g(x)]g(x)dx.
+7.32 The algorithm of Exercise 5.65 can be adapted to simulate (approximately) a sample from the poste-
+       rior distribution using only a sample from the prior distribution. Let X1,X2,...,Xn ∼f(x|θ), where θ
+      has prior distribution π. Generate θ1,θ2,...,θm from π, and calculate qi = L(θi/|x)∑j L(θj/|x), where
+     L(θ/|x) = ∏i f(xi|θ) is the likelihood function.
+       (a) Generate θ∗1 ,θ∗2 ,...,θ∗r , where P(θ∗= θi) = qi. Show that this is an (approximate) sample from the
+          posterior in the sense that P(θ∗≤t) converges to −∞π(θ|x)dθ.t
+      (b) Show that the estimator ∑rj=1 h(θ∗j )/r converges to E[h(θ)|x], where the expectation is with respect           to the posterior distribution.

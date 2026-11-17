@@ -1,0 +1,48 @@
+DISCRETE DISTRIBUTIONS                                                    73
+it passes tolerance. We sample ten parts and find that none are defective (all are within tolerance).
+What is the probability of this event if there are six defectives in the lot of 25? Applying the hyper-
+geometric distribution with N = 25,M = 6,K = 10, we have
+
+                                                    6    19
+                                                    0    10
+                         P(X = 0) =      = .028,
+                                                       25
+                                                       10
+
+showing that our observed event is quite unlikely if there are six (or more!) defectives in the lot.  ∥
+
+Binomial Distribution
+
+The binomial distribution, one of the more useful discrete distributions, is based on the idea of
+a Bernoulli trial. A Bernoulli trial (named for James Bernoulli, one of the founding fathers of
+probability theory) is an experiment with two, and only two, possible outcomes. A random variable
+X has a Bernoulli(p) distribution if
+
+                          1  with probability p                 X =                                          ,  0                              (3.2.3)                          0  with probability      ≤p ≤1.                              1−p
+The value X = 1 is often termed a “success” and p is referred to as the success probability. The
+value X = 0 is termed a “failure.” The mean and variance of a Bernoulli(p) random variable are
+easily seen to be
+
+                 EX =  1p+0(1−p) = p,
+                 VarX =  (1−p)2p+(0−p)2(1−p)                                 = p(1−p).
+   Many experiments can be modeled as a sequence of Bernoulli trials, the simplest being the
+repeated tossing of a coin; p = probability of a head, X = 1 if the coin shows heads. Other examples
+include gambling games (for example, in roulette let X = 1 if red occurs, so p = probability of red),
+election polls (X = 1 if candidate A gets a vote), and incidence of a disease (p = probability that a
+random person gets infected).
+     If n identical Bernoulli trials are performed, define the events
+
+                          Ai = {X = 1 on the ith trial},    i = 1,2,...,n.
+If we assume that the events A1,...,An are a collection of independent events (as is the case in coin
+tossing), it is then easy to derive the distribution of the total number of successes in n trials. Define
+a random variable Y by
+                     Y = total number of successes in n trials.
+The event {Y = y} will occur only if, out of the events A1,...,An, exactly y of them occur, and
+necessarily n −y of them do not occur. One particular outcome (one particular ordering of occur-
+                                                                                 3rences and nonoccurrences) of the n Bernoulli trials might be A1 ∩A2 ∩Ac                                                                 ∩··· ∩An−1 ∩Acn. Thishas probability of occurrence
+
+
+                                  3              P(A1 ∩A2 ∩Ac                         ∩···∩An−1 ∩Ac                                                n) =  pp(1−p)·····p(1−p)                           =                                               py(1−p)n−y,
+where we have used the independence of the Ais in this calculation. Notice that the calculation is
+not dependent on which set of yAis occurs, only that some set of y occurs. Furthermore, the event
+{Y = y} will occur no matter which set of yAis occurs. Putting this all together, we see that a

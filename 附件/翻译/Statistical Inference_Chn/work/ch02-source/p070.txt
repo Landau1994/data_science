@@ -1,0 +1,40 @@
+DISTRIBUTIONS OF FUNCTIONS OF A RANDOM VARIABLE                       39
+This defines the probability distribution of Y. It is straightforward to show that this probability
+distribution satisfies the Kolmogorov Axioms.
+     If X is a discrete random variable, then X  is countable. The sample space for Y = g(X) is
+Y = {y: y = g(x), x ∈X }, which is also a countable set. Thus,Y is also a discrete random variable.Using (2.1.2), the pmf for Y is
+
+                                 P(X = x) =               fY(y) = P(Y = y) = ∑                       ∑   fX(x),                                                                           for y ∈Y ,
+                                        x∈g−1(y)              x∈g−1(y)
+and fY(y) = 0 for y /∈Y . In this case, finding the pmf of Y involves simply identifying g−1(y), for
+each y ∈Y , and summing the appropriate probabilities.
+Example 2.1.1 (Binomial transformation)  A discrete random variable X has a binomial distri-
+bution if its pmf is of the form
+                                   n
+                     fX(x) = P(X = x) =                    x = 0,1,...,n,               (2.1.3)                                        x  px(1−p)n−x,
+where n is a positive integer and 0 ≤p ≤1. Values such as n and p that can be set to differentvalues, producing different probability distributions, are called parameters. Consider the random
+variable Y = g(X), where g(x) = n −x. That is, Y = n −X. Here X = {0,1,...,n} and Y =
+{y:y = g(x), x ∈X } = {0,1,...,n}. For any y ∈Y , n −x = g(x) = y if and only if x = n −y.
+Thus, g−1(y) is the single point x = n−y, and
+                             fY(y) =  ∑   fX(x)
+                                             x∈g−1(y)
+                   =  fX(n−y)                                    n
+                   =                                            pn−y(1−p)n−(n−y)                          n−y                                   n                                 Definition 1.2.17
+                   =                                                   n       n                                       y  (1−p)ypn−y.               implies  y =                                                                                       n−y
+Thus, we see that Y also has a binomial distribution, but with parameters n and 1−p.          ∥
+     If X and Y are continuous random variables, then in some cases it is possible to find simple
+formulas for the cdf and pdf of Y in terms of the cdf and pdf of X and the function g. In the
+remainder of this section, we consider some of these cases.
+   The cdf of Y = g(X) is
+                            FY(y) =  P(Y ≤y)
+                    =  P(g(X) ≤y)                                     (2.1.4)
+                    =  P({x ∈X : g(x) ≤y})
+                    =                fX(x)dx.
+                                      {x∈X : g(x)≤y}
+Sometimes there may be difficulty in identifying {x ∈X : g(x) ≤y} and carrying out the integrationof fX(x) over this region, as the next example shows.
+Example 2.1.2 (Uniform transformation)  Suppose X has a uniform distribution on the interval
+(0,2π), that is,
+                                    1/(2π)  0 < x < 2π                                fX(x) =
+                                   0        otherwise.
+Consider Y = sin2(X). Then (see Figure 2.1.1)
+                  P(Y ≤y) = P(X ≤x1)+P(x2 ≤X ≤x3)+P(X ≥x4).                (2.1.5)

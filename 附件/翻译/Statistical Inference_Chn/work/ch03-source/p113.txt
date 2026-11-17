@@ -1,0 +1,46 @@
+82                          COMMON FAMILIES OF DISTRIBUTIONS
+The parameter α is known as the shape parameter, since it most influences the peakedness of the
+distribution, while the parameter β is called the scale parameter, since most of its influence is on the
+spread of the distribution.
+   The mean of the gamma(α,β) distribution is
+                                  1     ∞                     EX =            xxα−1e−x/β dx.                           (3.3.7)
+                             Γ(α)β α  0
+To evaluate (3.3.7), notice that the integrand is the kernel of a gamma(α +1, β) pdf. From (3.3.6)
+we know that, for any α, β > 0,
+                            ∞
+                                  xα−1e−x/β dx = Γ(α)β α,                              (3.3.8)
+                                       0
+so we have
+                                     1     ∞                     EX =              xαe−x/β dx
+                                Γ(α)β α  0
+                                     1            α+1                    =        Γ(α +1)β
+                                Γ(α)β α
+                               αΓ(α)β
+                    =                                       (from (3.3.3))
+                                  Γ(α)
+                    =  αβ.
+   Note that to evaluate EX we have again used the technique of recognizing the integral as the
+kernel of another pdf. (We have already used this technique to calculate the gamma mgf in Example
+2.3.8 and, in a discrete case, to do binomial calculations in Examples 2.2.3 and 2.3.5.)
+   The variance of the gamma(α,β) distribution is calculated in a manner analogous to that used
+for the mean. In particular, in calculating EX2 we deal with the kernel of a gamma(α +2,β) distri-
+bution. The result is
+                                VarX = αβ 2.
+    In Example 2.3.8 we calculated the mgf of a gamma(α,β) distribution. It is given by
+                                              α                                      1           1
+                           MX(t) =                   ,    t <    .
+                             1−βt        β
+Example 3.3.1 (Gamma–Poisson relationship)   There is an interesting relationship between the
+gamma and Poisson distributions. If X is a gamma(α,β) random variable, where α is an integer,
+then for any x,
+                            P(X ≤x) = P(Y ≥α),                                 (3.3.9)
+where Y ∼Poisson(x/β). Equation (3.3.9) can be established by successive integrations by parts,
+as follows. Since α is an integer, we write Γ(α) = (α −1)! to get
+                           1          x         P(X    =                 tα−1e−t/β dt                                 α           ≤x)      (α            0                       −1)!β                             x                           1
+                                                                                                                             ,            =                                                             0 +                                                  (α −1)tα−2βe−t/β dt                      (α      α  −tα−1βe−t/β|x                                                                  0                       −1)!β
+where we use the integration by parts substitution u = tα−1, dv = e−t/β dt. Continuing our evalua-
+tion, we have
+                                                  1           x         P(X    =     −1     xα−1e−x/β +                 tα−2e−t/β dt           ≤x)      (α      α−1           (α      α−1  0                        −1)!β        x          −2)!β                            1
+            =                                           tα−2e−t/β dt −P(Y                                  = α −1),                       (α      α−1  0                        −2)!β
+where Y ∼Poisson(x/β). Continuing in this manner, we can establish (3.3.9). (See Exercise 3.19.)
+                                                                              ∥

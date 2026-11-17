@@ -1,0 +1,58 @@
+% 原书印刷217–220页，PDF物理248–251页.
+\subsection{杂录}\label{sec:5.8}
+\subsubsection{中心极限定理补充}\label{sec:5.8.1}\index{SI0102@中心极限定理}\index{SI0600@Lévy定理}\index{SI0643@Lindeberg–Feller条件}
+对于iid随机变量序列，收敛到正态分布的充分必要条件已经知道，其中最著名的结果或许属于Lindeberg与Feller.以下特例出自Lévy.设$X_1,X_2,\ldots$为iid序列，$EX_i=\mu<\infty$，令$V_n=\sum_{i=1}^nX_i$.
+\sourcepageanchor{249}
+序列$V_n$经适当标准化后收敛到$n(0,1)$随机变量，当且仅当
+$$\lim_{t\to\infty}\frac{t^2P(|X_1-\mu|>t)}{E((X_1-\mu)^2I_{[-t,t]}(X_1-\mu))}=0.$$
+注意这是一个方差条件.它虽不完全要求方差有限，却要求方差“几乎”有限.这是收敛到正态分布的重要一点：正态性来自小扰动之和.
+
+还有大量其他类型的中心极限定理，尤其是旨在放宽独立性假设的结果.虽然不能完全取消这一假设，但可以使其限制更弱（见\hyperref[bib:source33]{Billingsley 1995}，第27节；或\hyperref[bib:source251]{Resnick 1999}，第8章）.
+\subsubsection{\texorpdfstring{$S^2$}{S²}的偏差}\label{sec:5.8.2}\index{SI0937@偏差}
+本章多数计算假定观测相互独立，一些期望的计算也依赖这一事实.H. A. \hyperref[bib:source92]{David（1985）}指出，若观测相关，$S^2$可能是$\sigma^2$的有偏估计，即$ES^2=\sigma^2$未必成立.但可能偏差的范围很容易计算.若随机变量$X_1,\ldots,X_n$（不一定独立）都具有均值$\mu$、方差$\sigma^2$，则
+$$(n-1)ES^2=E\left(\sum_{i=1}^n(X_i-\mu)^2-n(\bar X-\mu)^2\right)=n\sigma^2-n\operatorname{Var}\bar X.$$
+依赖的程度与类型不同时，$\operatorname{Var}\bar X$可从0（所有变量都为常数时）变化到$\sigma^2$（所有变量都是$X_1$的副本时）.\footnote{译注：若固定$\sigma^2>0$，所有$X_i$为常数不符合其方差均为$\sigma^2$的假设.方差下界0可由使样本和恒定的负相关构造实现，例如$n=2$时$X_2=2\mu-X_1$；原文的括号说明应作此区分.}把这些值代入上式，得到存在依赖时$ES^2$的范围：
+$$0\le ES^2\le\frac n{n-1}\sigma^2.$$
+\subsubsection{再论Chebychev不等式}\label{sec:5.8.3}\index{SI0565@切比雪夫}
+\autoref{sec:3.6}讨论过Chebychev不等式（另见\autoref{sec:3.8.2}），\autoref{ex:3.6.2}给出一个特别有用的形式.该形式仍要求知道随机变量的均值与方差，但有时我们想用均值、方差的估计值来给出界.
+
+若$X_1,\ldots,X_n$为来自均值$\mu$、方差$\sigma^2$的总体的随机样本，Chebychev不等式为
+$$P(|X-\mu|\ge k\sigma)\le\frac1{k^2}.$$
+\hyperref[bib:source273]{Saw等（1984）}证明，用$\bar X$代替$\mu$、$S^2$代替$\sigma^2$，可得到
+$$P(|X-\bar X|\ge kS)\le\frac1{n+1}g\left(\frac{n(n+1)k^2}{n-1+(n+1)k^2}\right),$$
+其中
+$$g(t)=\begin{cases}\nu,&\nu\text{为偶数},\\\nu,&\nu\text{为奇数且$t<a$},\\\nu-1,&\nu\text{为奇数且$t>a$},\end{cases}$$
+且
+$$\nu=\text{小于}\ \frac{n+1}t\ \text{的最大整数},\qquad a=\frac{(n+1)(n+1-\nu)}{1+\nu(n+1-\nu)}.$$
+\sourcepageanchor{250}
+\subsubsection{强大数定律补充}\label{sec:5.8.4}\index{SI0202@几乎处处}\index{SI0995@强大数定律}
+如前所述，强大数定律\autoref{thm:5.5.9}可在较弱条件下证明，只要求随机变量的均值有限（例如见\hyperref[bib:source251]{Resnick 1999}，第7章；或\hyperref[bib:source33]{Billingsley 1995}，第22节）.不过，在矩母函数存在的假设下，\hyperref[bib:source191]{Koopmans（1993）}给出了只使用微积分的证明.
+
+强大数定律所断言的收敛是我们最熟悉的一种，即随机变量序列$\bar X_n$逐点收敛到共同均值$\mu$.由\autoref{ex:5.5.8}可知，它比弱大数定律的依概率收敛更强.
+
+强大数定律的结论是
+$$P\left(\lim_{n\to\infty}|\bar X_n-\mu|<\varepsilon\right)=1,$$
+即以概率1，序列$\{\bar X_n\}$的极限为$\mu$.换言之，序列发散的集合概率为0.序列要发散，必存在$\delta>0$，使每个$n$都有某个$k>n$满足$|\bar X_k-\mu|>\delta$.满足此条件的全体$\bar X_k$构成发散序列，可用集合
+$$A_\delta=\bigcap_{n=1}^\infty\bigcup_{k=n}^\infty\{|\bar X_k-\mu|>\delta\}$$
+表示.删去交集项，就得到$P(A_\delta)$的上界，因此序列$\{\bar X_n\}$发散的集合概率由下式控制：
+\begin{align*}
+P(A_\delta)&\le P\left(\bigcup_{k=n}^\infty\{|\bar X_k-\mu|>\delta\}\right)\\
+&\le\sum_{k=n}^\infty P(\{|\bar X_k-\mu|>\delta\})&&\text{（Boole不等式，\autoref{thm:1.2.11}）}\\
+&\le2\sum_{k=n}^\infty c^k,\qquad0<c<1,
+\end{align*}
+最后一个不等式可用\autoref{exercise:5.38}\hyperref[itm:exercise:5.38:d]{(d)}证明.注意这里求的是几何级数之和，由\eqref{eq:1.5.4}得到
+$$P(A_\delta)\le2\sum_{k=n}^\infty c^k=2\frac{c^n}{1-c}\to0,\qquad n\to\infty.$$
+因此，$\{\bar X_n\}$发散的集合概率为零，强大数定律得证.
+\subsubsection{马尔可夫链Monte Carlo}\label{sec:5.8.5}\index{SI0017@马尔可夫链蒙特卡洛}\index{SI0666@马尔可夫链蒙特卡洛}
+统称为马尔可夫链Monte Carlo（MCMC）的方法用于生成随机变量，在复杂计算中非常有用，尤其是涉及积分和最大化的计算.Metropolis算法（见\autoref{sec:5.6}）就是MCMC方法的例子.
+
+顾名思义，这些方法基于马尔可夫链（Markov chains），这是我们尚未研究的概率结构（入门介绍见\hyperref[bib:source78]{Chung 1974}或\hyperref[bib:source259]{Ross 1988）}.若随机变量序列$X_1,X_2,\ldots$满足
+$$P(X_{k+1}\in A\mid X_1,\ldots,X_k)=P(X_{k+1}\in A\mid X_k),$$
+则称其为马尔可夫链；即当前随机变量的分布至多依赖紧邻的前一个随机变量.注意这是独立性的推广.
+
+遍历定理（Ergodic Theorem）是大数定律的推广，\index{SI0203@遍历定理}\semanticindexanchor{203:250}\index{SI0406@遍历定理}\semanticindexanchor{406:250}它说明若马尔可夫链$X_1,X_2,\ldots$满足某些正则条件（统计问题中常常满足），则只要期望存在，
+$$\frac1n\sum_{i=1}^n h(X_i)\to Eh(X),\qquad n\to\infty.$$
+\sourcepageanchor{251}
+所以，\autoref{sec:5.6}的计算可推广到马尔可夫链和MCMC方法.
+
+要充分理解MCMC方法，确实需要了解更多马尔可夫链知识，这里不展开.MCMC的理论及应用已有大量文献.\hyperref[bib:source312]{Tanner（1993）}\footnote{译注：正文此处引1993年，原书书后同名著作条目[312]列1996年；这里分别保留两处年份，链接至该条目.}提供了统计计算方法的良好入门介绍；\hyperref[bib:source255]{Robert（1994}，第9章）也作了介绍，偏重理论且带有Bayes色彩.\hyperref[bib:source67]{Casella和George（1992）}通过Gibbs抽样器（一种特定MCMC方法）给出了更易读的入门介绍.Gibbs抽样器或许仍是应用最广的MCMC方法，也是这类方法流行的原因之一［源于\hyperref[bib:source134]{Gelfand和Smith（1990）}在\hyperref[bib:source137]{Geman和Geman（1984）}基础上的奠基性工作］.涉及MCMC的参考文献实在太多.其他入门文献包括\hyperref[bib:source136]{Gelman和Rubin（1992）}、\hyperref[bib:source138]{Geyer和Thompson（1992）}、\hyperref[bib:source293]{Smith和Roberts（1993）}的论文；\hyperref[bib:source315]{Tierney（1994）}给出了尤其优美的理论介绍.\hyperref[bib:source256]{Robert和Casella（1999）}则以一整本教材系统讨论这一领域.

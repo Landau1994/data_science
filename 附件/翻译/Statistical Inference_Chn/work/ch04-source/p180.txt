@@ -1,0 +1,42 @@
+MULTIVARIATE DISTRIBUTIONS                                              149
+(x1,...,xn−1) such that the xis are all nonnegative integers and ∑n−1                                                                    i=1 xi = m−xn. Denote this set byB. Then
+                                m!
+             f(xn) =            ∑      x1!·····xn!(p1)x1·····(pn)xn                               (x1,...,xn−1)∈B
+                                m!
+           =                                             (m−xn)! (1−pn)m−xn            ∑                 px11       n                                                       ·····pxn                               (x1,...,xn−1)∈B x1!·····xn!         (m−xn)! (1−pn)m−xn
+                       m!
+           =                 pxnn (1−pn)m−xn                     xn!(m−xn)!                                 x1
+                               (m−xn)!      p1             pn−1   xn−1 .            ∑             ×                                          ·····                                 (x1,...,xn−1)∈B x1!·····xn−1!  1−pn       1−pn
+But using the facts that x1+···+xn−1 = m−xn and p1+···+ pn−1 = 1−pn, and Theorem 4.6.4, wesee that the last summation is 1. Hence the marginal distribution of Xn is binomial(m, pn). Similar
+arguments show that each of the other coordinates is marginally binomially distributed.
+   Given that Xn = xn, there must have been m −xn trials that resulted in one of the first n −1
+outcomes. The vector (X1,...,Xn−1) counts the number of these m−xn trials that are of each type.
+Thus, it seems that given Xn = xn, (X1,...,Xn−1) might have a multinomial distribution. This is true.
+Using (4.6.6), the conditional pmf of (X1,...,Xn−1) given Xn = xn is
+                                       f(x1,...,xn)
+              f(x1,...,xn−1|xn) =      f(xn)
+                                             m!
+                  =     x1!·····xn!(p1)x1·····(pn)xnm!
+                                    xn!(m−xn)!(pn)xn(1−pn)m−xnx1
+                  =   (m−xn)!      p1             pn−1   xn−1 .                                                                       ·····                                       x1!·····xn−1!  1−pn       1−pn
+This is the pmf of a multinomial distribution with m −xn trials and cell probabilities p1/(1 −
+pn),..., pn−1/(1 −pn). In fact, the conditional distribution of any subset of the coordinates of(X1,...,Xn) given the values of the rest of the coordinates is a multinomial distribution.
+  We see from the conditional distributions that the coordinates of the vector (X1, ..., Xn) are
+related. In particular, for a fixed m, as there must be some negative correlation. In fact, all of the
+pairwise covariances are negative, and are given by (Exercise 4.39):
+
+                      Cov(Xi,Xj) = E[(Xi −pi)(Xj −pj)] = −mpipj.
+Thus, the negative correlation is bigger for variables with higher success probabilities. This makes
+sense, as the variable total is constrained at m, so if one starts to get big, the other tends not to.
+Definition 4.6.5  Let X1,...,Xn be random vectors with joint pdf or pmf f(x1,...,xn). Let fXi(xi)
+denote the marginal pdf or pmf of Xi. Then X1,...,Xn are called mutually independent random
+vectors if, for every (x1,...,xn)
+
+                                                                      n
+                        f(x1,...,xn) = fX1(x1)·····fXn(xn) = ∏i=1 fXi(xi).
+
+If the Xis are all one-dimensional, then X1,...,Xn are called mutually independent random variables.
+
+     If X1,...,Xn are mutually independent, then knowledge about the values of some coordinates
+gives us no information about the values of the other coordinates. Using Definition 4.6.5, one can
+show that the conditional distribution of any subset of the coordinates, given the values of the rest

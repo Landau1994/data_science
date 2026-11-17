@@ -1,0 +1,41 @@
+DISCRETE DISTRIBUTIONS                                                    71
+   To calculate the mean and variance of X, recall the identities (provable by induction)
+                               k     k(k +1)            k      k(k +1)(2k +1)
+                            =                         .                                        i =          and          ∑                   ∑ i2                         i=1      2             i=1          6
+We then have
+                             N               N  1  N +1
+                   EX =   xP(X =   =    x  =              ∑       ∑                                 x=1        x|N)   x=1 N     2
+and
+                                N   1   (N +1)(2N +1)
+                         =                       EX2 = ∑ x2                                     x=1  N         6
+and so
+                     VarX =  EX2 −(EX)2                  2                               (N +1)(2N +1)   N +1
+                  =                                       6    −    2
+                               (N +1)(N                  =         −1) .
+                                      12
+   This distribution can be generalized so that the sample space is any range of integers, N0,N0 +
+1,...,N1, with pmf P(X = x|N0,N1) = 1/(N1 −N0 +1).
+Hypergeometric Distribution
+
+The hypergeometric distribution has many applications in finite population sampling and is best
+understood through the classic example of the urn model.
+   Suppose we have a large urn filled with N balls that are identical in every way except that M are
+red and N −M are green. We reach in, blindfolded, and select K balls at random (the K balls aretaken all at once, a case of sampling without replacement). What is the probability that exactly x of
+the balls are red?
+   The total number of samples of size K that can be drawn from the N balls is  NK   , as was
+discussed in Section 1.2.3. It is required that x of the balls be red, and this can be accomplished in
+ M   x   ways, leaving  N−M                       ways of filling out the sample with K −x green balls. Thus, if we let                   K−x
+X denote the number of red balls in a sample of size K, then X has a hypergeometric distribution
+given by
+                              M                                                        x   N−M                 P(X =      =       K−x    ,   x = 0,1,...,K.                 (3.2.2)                       x|N,M,K)        N
+                                         K
+Note that there is, implicit in (3.2.2), an additional assumption on the range of X. Binomial coef-
+ficients, of the form   nr   , have been defined only if n ≥r, and so the range of X is additionallyrestricted by the pair of inequalities
+                M ≥x   and  N −M ≥K −x,
+which can be combined as
+                  M −(N −K) ≤x ≤M.
+In many cases K is small compared to M and N, so the range 0 ≤x ≤K will be contained in the aboverange and, hence, will be appropriate. The formula for the hypergeometric probability function is
+usually quite difficult to deal with. In fact, it is not even trivial to verify that
+
+                                  M                         K            K                                                               x   N−M
+                         P(X = x) =                                 = 1.            ∑                  ∑      N K−x                            x=0            x=0                                             K

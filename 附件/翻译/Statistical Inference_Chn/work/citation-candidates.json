@@ -1,0 +1,1268 @@
+[
+  {
+    "file": "frontmatter/00-authors.tex",
+    "line": 5,
+    "year": "1988",
+    "context": "Casella博士于1988年当选美国统计学会和数理统计学会会士，1989年当选国际统计学会会士，2009年当选西班牙皇家科学院外籍院士."
+  },
+  {
+    "file": "frontmatter/00-authors.tex",
+    "line": 5,
+    "year": "1989",
+    "context": "Casella博士于1988年当选美国统计学会和数理统计学会会士，1989年当选国际统计学会会士，2009年当选西班牙皇家科学院外籍院士."
+  },
+  {
+    "file": "frontmatter/00-authors.tex",
+    "line": 5,
+    "year": "2009",
+    "context": "Casella博士于1988年当选美国统计学会和数理统计学会会士，1989年当选国际统计学会会士，2009年当选西班牙皇家科学院外籍院士."
+  },
+  {
+    "file": "frontmatter/00-authors.tex",
+    "line": 7,
+    "year": "2004",
+    "context": "Roger L. Berger教授在普渡大学取得统计学博士学位后，先后在佛罗里达州立大学与北卡罗来纳州立大学任教. 在2004年赴亚利桑那州立大学之前，他还曾在美国国家科学基金会工作两年. Berger教授是教材《统计推断》的合著者，该书现已出版第二版，并已译成中文"
+  },
+  {
+    "file": "frontmatter/00-example-list.tex",
+    "line": 137,
+    "year": "1958",
+    "context": "例 5.6.4（Box–Muller，1958） & \\sourcepageref{233}{202} \\\\"
+  },
+  {
+    "file": "frontmatter/00-publication.tex",
+    "line": 16,
+    "year": "2001",
+    "context": "本书是Cengage Learning, Inc.于2001年首次出版的第二版的重印本."
+  },
+  {
+    "file": "frontmatter/00-publication.tex",
+    "line": 57,
+    "year": "2001",
+    "context": "本第二版最初于2001年由Cengage Learning, Inc.出版."
+  },
+  {
+    "file": "frontmatter/00-publication.tex",
+    "line": 59,
+    "year": "2024",
+    "context": "第二版于2024年由CRC Press出版：\\\\"
+  },
+  {
+    "file": "frontmatter/00-publication.tex",
+    "line": 65,
+    "year": "2024",
+    "context": "\\textcopyright\\ 2024 George Casella和Roger L. Berger."
+  },
+  {
+    "file": "frontmatter/00-publication.tex",
+    "line": 78,
+    "year": "2024",
+    "context": "说明：第二版；Boca Raton: CRC Press, 2024；丛书：CRC texts in statistical science series；含索引.\\\\"
+  },
+  {
+    "file": "frontmatter/00-publication.tex",
+    "line": 82,
+    "year": "2024",
+    "context": "分类：LCC QA279 .C375 2024（印刷本），LCC QA279（电子书）；DDC 519.5/7--dc23/eng/20231120.\\\\"
+  },
+  {
+    "file": "sections-tex/01-02.tex",
+    "line": 104,
+    "year": "1972",
+    "context": "以De Finetti（1972）为代表的一个统计学派拒绝可数可加性公理，选择以有限可加性公理取代它."
+  },
+  {
+    "file": "sections-tex/01-02.tex",
+    "line": 168,
+    "year": "1981",
+    "context": "它是邦费罗尼不等式（Bonferroni's Inequality）的一个特例［\\sourcepageref{549}{Miller（1981）}是很好的参考文献］.邦费罗尼不等式使我们可以用单个事件的概率来界定同时发生事件（即交事件）的概率."
+  },
+  {
+    "file": "sections-tex/01-02.tex",
+    "line": 380,
+    "year": "1993",
+    "context": "似值.}关于如何构造这样的直方图，见\\sourcepageref{528}{例12.6.1}.本例中的计算是一种非常重要的统计技术——\\emph{自助法}（bootstrap，\\sourcepageref{544}{Efron与Tibshirani，1993}）的初级形式.我们将在\\sourcepageref{416}{第10.1.4节}再次讨论自助法."
+  },
+  {
+    "file": "sections-tex/01-03.tex",
+    "line": 102,
+    "year": "1983",
+    "context": "这给出了“反转”条件概率的公式.式\\eqref{eq:1.3.5}通常以其发现者Thomas Bayes爵士命名，称为贝叶斯公式（Bayes' Rule）［不过，参见\\sourcepageref{552}{Stigler（1983）}］."
+  },
+  {
+    "file": "sections-tex/01-05.tex",
+    "line": 112,
+    "year": "1974",
+    "context": "$(a,b)$、$[a,b)$、$(a,b]$和$[a,b]$的实数区间的最小$\\sigma$代数.若对更大的事件类定义概率，则两个随机变量可能具有相同的分布函数，却并非对每个事件都有相同的概率（见\\sourcepageref{543}{Chung（1974），第27页}）.与大多数统计应用一样，本书只关心区间、区间的可数并或交等事件，因此不考虑这类病态情况.我们首先需要两个随机变量同分布的概念"
+  },
+  {
+    "file": "sections-tex/01-05.tex",
+    "line": 142,
+    "year": "1974",
+    "context": "点需要大量使用\\index{SI0974@生成的}\\semanticindexanchor{974:59}$\\sigma$代数，这里不展开细节.只需指出，只要证明两个概率函数在所有区间上一致就够了（\\sourcepageref{543}{Chung，1974，第2.2节}）."
+  },
+  {
+    "file": "sections-tex/01-06.tex",
+    "line": 88,
+    "year": "1995",
+    "context": "随机变量：无论选择什么$f_X(x)$，该积分关系都不成立.这些情形相当病态，我们将忽略它们.因此，本书假设每个连续随机变量都满足\\eqref{eq:1.6.3}.在更高等的教材中（例如\\sourcepageref{541}{Billingsley，1995，第31节}），若随机变量满足\\eqref{eq:1.6.3}，则称其为绝对连续（absolutely continuous）.\\index"
+  },
+  {
+    "file": "sections-tex/01-07.tex",
+    "line": 213,
+    "year": "1961",
+    "context": "Smith夫妇有两个孩子.其中至少有一个是男孩.两个孩子都是男孩的概率是多少？（关于此问题的完整讨论，见\\sourcepageref{545}{Gardner（1961）}.）"
+  },
+  {
+    "file": "sections-tex/01-07.tex",
+    "line": 238,
+    "year": "1968",
+    "context": "（提示：\\sourcepageref{545}{Feller（1968）}首先利用对数函数的单调性得到"
+  },
+  {
+    "file": "sections-tex/01-07.tex",
+    "line": 275,
+    "year": "1992",
+    "context": "\\item[(b)] 利用Stirling公式（习题\\ref{exercise:1.28}），证明$n!/n^n\\approx\\sqrt{2n\\pi}/e^n$（\\sourcepageref{546}{Hall 1992，附录I}）."
+  },
+  {
+    "file": "sections-tex/01-07.tex",
+    "line": 331,
+    "year": "1975",
+    "context": "\\sourcepageref{551}{Selvin（1975）}讨论了一个类似而略为复杂的问题，即“Monty Hall问题”.当这个形式的问题出现在一份星期日杂志上（\\sourcepageref{5"
+  },
+  {
+    "file": "sections-tex/01-07.tex",
+    "line": 331,
+    "year": "1990",
+    "context": "\\sourcepageref{551}{Selvin（1975）}讨论了一个类似而略为复杂的问题，即“Monty Hall问题”.当这个形式的问题出现在一份星期日杂志上（\\sourcepageref{553}{vos Savant 1990}），并附有正确答案但解释存在疑问时，它引起了相当大的关注.随后的争论甚至登上了星期日《纽约时报》的头版\\mbox{（\\sourcepage"
+  },
+  {
+    "file": "sections-tex/01-07.tex",
+    "line": 331,
+    "year": "1991",
+    "context": "志上（\\sourcepageref{553}{vos Savant 1990}），并附有正确答案但解释存在疑问时，它引起了相当大的关注.随后的争论甚至登上了星期日《纽约时报》的头版\\mbox{（\\sourcepageref{553}{Tierney 1991}）.}\\sourcepageref{549}{Morgan等（1991）}作了完整且颇有趣味的讨论（另见\\sourcepageref{55"
+  },
+  {
+    "file": "sections-tex/01-07.tex",
+    "line": 331,
+    "year": "1991",
+    "context": "90}），并附有正确答案但解释存在疑问时，它引起了相当大的关注.随后的争论甚至登上了星期日《纽约时报》的头版\\mbox{（\\sourcepageref{553}{Tierney 1991}）.}\\sourcepageref{549}{Morgan等（1991）}作了完整且颇有趣味的讨论（另见\\sourcepageref{553}{vos Savant 1991}\\mbox{的回应）.}\\sour"
+  },
+  {
+    "file": "sections-tex/01-07.tex",
+    "line": 331,
+    "year": "1991",
+    "context": "头版\\mbox{（\\sourcepageref{553}{Tierney 1991}）.}\\sourcepageref{549}{Morgan等（1991）}作了完整且颇有趣味的讨论（另见\\sourcepageref{553}{vos Savant 1991}\\mbox{的回应）.}\\sourcepageref{543}{Chun（1999）}给出的分析非常详尽，几乎穷尽了这一问题."
+  },
+  {
+    "file": "sections-tex/01-07.tex",
+    "line": 331,
+    "year": "1999",
+    "context": "）.}\\sourcepageref{549}{Morgan等（1991）}作了完整且颇有趣味的讨论（另见\\sourcepageref{553}{vos Savant 1991}\\mbox{的回应）.}\\sourcepageref{543}{Chun（1999）}给出的分析非常详尽，几乎穷尽了这一问题."
+  },
+  {
+    "file": "sections-tex/01-07.tex",
+    "line": 368,
+    "year": "1968",
+    "context": "杂录\\ref{sec:1.8.1}中的容斥恒等式（inclusion-exclusion identity），因其用容斥法证明而得名（\\sourcepageref{545}{Feller 1968，第IV.1节}）.这里给出细节.概率$P(\\bigcup_{i=1}^n A_i)$等于至少属于一个$A_i$的所有样本点的概率之和.容斥"
+  },
+  {
+    "file": "sections-tex/01-07.tex",
+    "line": 390,
+    "year": "1984",
+    "context": "\\item[(c)] 通常，界限中的项数越多，界限就越有用.然而，\\sourcepageref{551}{Schwager（1984）}提醒说，在某些情形下改进并不大，尤其是各$A_i$高度相关时.考察极端情形：对每个$i$，都有$A_i=A$，此时这一界限序列会怎样？（"
+  },
+  {
+    "file": "sections-tex/01-07.tex",
+    "line": 390,
+    "year": "1982",
+    "context": "pageref{551}{Schwager（1984）}提醒说，在某些情形下改进并不大，尤其是各$A_i$高度相关时.考察极端情形：对每个$i$，都有$A_i=A$，此时这一界限序列会怎样？（见\\sourcepageref{553}{Worsley（1982）}，以及\\sourcepageref{553}{Worsley（1985）}与\\sourcepageref{551}{Schwager（1"
+  },
+  {
+    "file": "sections-tex/01-07.tex",
+    "line": 390,
+    "year": "1985",
+    "context": "下改进并不大，尤其是各$A_i$高度相关时.考察极端情形：对每个$i$，都有$A_i=A$，此时这一界限序列会怎样？（见\\sourcepageref{553}{Worsley（1982）}，以及\\sourcepageref{553}{Worsley（1985）}与\\sourcepageref{551}{Schwager（1985）}之间的往来讨论.）"
+  },
+  {
+    "file": "sections-tex/01-07.tex",
+    "line": 390,
+    "year": "1985",
+    "context": "都有$A_i=A$，此时这一界限序列会怎样？（见\\sourcepageref{553}{Worsley（1982）}，以及\\sourcepageref{553}{Worsley（1985）}与\\sourcepageref{551}{Schwager（1985）}之间的往来讨论.）"
+  },
+  {
+    "file": "sections-tex/01-08.tex",
+    "line": 30,
+    "year": "1988",
+    "context": "注：此一般性断言需要附加条件.例如6个事件都等于$A$时，一阶上界是$6P(A)$，三阶上界却是$(6-15+20)P(A)=11P(A)$，反而更松.}这些界限的应用包括游程概率的近似（\\sourcepageref{548}{Karlin和Ost 1988}）以及多重比较程序（\\sourcepageref{549}{Naiman和Wynn 1992}）."
+  },
+  {
+    "file": "sections-tex/01-08.tex",
+    "line": 30,
+    "year": "1992",
+    "context": "是$(6-15+20)P(A)=11P(A)$，反而更松.}这些界限的应用包括游程概率的近似（\\sourcepageref{548}{Karlin和Ost 1988}）以及多重比较程序（\\sourcepageref{549}{Naiman和Wynn 1992}）."
+  },
+  {
+    "file": "sections-tex/02-02.tex",
+    "line": 10,
+    "year": "1988",
+    "context": "前提是该积分或级数存在. 如果 $\\mathrm E|g(X)|=\\infty$，我们就说 $\\mathrm E g(X)$ 不存在. （Ross (1988) 将此称为“无意识统计学家定律”. 我们并不觉得这有什么好笑的.）"
+  },
+  {
+    "file": "sections-tex/02-03.tex",
+    "line": 192,
+    "year": "1995",
+    "context": "如果随机变量具有有界支撑，就不会出现矩的唯一性问题. 此时，无穷矩序列确实唯一确定分布（例如，见 Billingsley 1995，第~30~节）. 而且，如果矩母函数在零的某个邻域内存在，无论支撑集怎样，分布都被唯一确定. 因而，所有阶矩都存在与矩母函数存在并不等价."
+  },
+  {
+    "file": "sections-tex/02-03.tex",
+    "line": 208,
+    "year": "1946",
+    "context": "\\autoref{thm:2.3.11}和\\autoref{thm:2.3.12}的证明依赖于拉普拉斯变换（Laplace transform）理论. （经典参考文献是 Widder (1946)，Feller (1971) 也对拉普拉斯变换作了全面介绍.）$M_X(t)$ 的定义式，即"
+  },
+  {
+    "file": "sections-tex/02-03.tex",
+    "line": 208,
+    "year": "1971",
+    "context": "\\autoref{thm:2.3.11}和\\autoref{thm:2.3.12}的证明依赖于拉普拉斯变换（Laplace transform）理论. （经典参考文献是 Widder (1946)，Feller (1971) 也对拉普拉斯变换作了全面介绍.）$M_X(t)$ 的定义式，即"
+  },
+  {
+    "file": "sections-tex/02-04.tex",
+    "line": 37,
+    "year": "1976",
+    "context": "结论. 以下定理都是 Lebesgue 控制收敛定理（Dominated Convergence Theorem）\\index{SI0616@勒贝格控制收敛定理}\\semanticindexanchor{616:88}的推论（例如，见 Rudin (1976)）."
+  },
+  {
+    "file": "sections-tex/02-05.tex",
+    "line": 104,
+    "year": "1977",
+    "context": "Betteley (1977) 给出了一个有趣的期望加法法则. 设 $X,Y$ 为任意两个随机变量，定义"
+  },
+  {
+    "file": "sections-tex/02-05.tex",
+    "line": 202,
+    "year": "1987",
+    "context": "Ruppert (1987) 用影响函数（influence function，\\autoref{sec:10.6.4}）进一步研究峰度的含义，Groeneveld "
+  },
+  {
+    "file": "sections-tex/02-05.tex",
+    "line": 202,
+    "year": "1991",
+    "context": "Ruppert (1987) 用影响函数（influence function，\\autoref{sec:10.6.4}）进一步研究峰度的含义，Groeneveld (1991) 用它研究偏度；关于 $\\alpha_4$ 的解释，还可参见 Balanda and MacGillivray (1988)."
+  },
+  {
+    "file": "sections-tex/02-05.tex",
+    "line": 202,
+    "year": "1988",
+    "context": "influence function，\\autoref{sec:10.6.4}）进一步研究峰度的含义，Groeneveld (1991) 用它研究偏度；关于 $\\alpha_4$ 的解释，还可参见 Balanda and MacGillivray (1988)."
+  },
+  {
+    "file": "sections-tex/02-05.tex",
+    "line": 240,
+    "year": "1986",
+    "context": "有限个矩不能唯一确定一个分布，Romano and Siegel (1986) 中的这个例子说明了这一点. 设 $X$ 具有正态分布，即密度为"
+  },
+  {
+    "file": "sections-tex/02-05.tex",
+    "line": 246,
+    "year": "1986",
+    "context": "（Romano and Siegel (1986) 指出，对任意有限的 $n$，都存在一个离散的、从而非正态的随机变量，其前 $n$ 阶矩与 $X$ 的对应矩相同.）"
+  },
+  {
+    "file": "sections-tex/02-05.tex",
+    "line": 257,
+    "year": "1986",
+    "context": "因而对所有 $r$，$\\mathrm EX_1^r=\\mathrm EX_2^r$. （Romano and Siegel (1986) 讨论了这个例子的极端版本，即一整类不同的密度具有相同的各阶矩. 此外，Berg (1988) 表明，正态分布的较简单变换，例如 $X^3"
+  },
+  {
+    "file": "sections-tex/02-05.tex",
+    "line": 257,
+    "year": "1988",
+    "context": "因而对所有 $r$，$\\mathrm EX_1^r=\\mathrm EX_2^r$. （Romano and Siegel (1986) 讨论了这个例子的极端版本，即一整类不同的密度具有相同的各阶矩. 此外，Berg (1988) 表明，正态分布的较简单变换，例如 $X^3$，也会出现这种矩的现象.）"
+  },
+  {
+    "file": "sections-tex/02-06.tex",
+    "line": 4,
+    "year": "1995",
+    "context": "一定由它的矩确定. 但如果 $\\sum_{r=1}^\\infty\\mu^r r^k/k!$ 具有正的收敛半径，其中 $X\\sim F_X$，$\\mathrm EX^r=\\mu'_r$，那么矩序列具有唯一性，从而分布被唯一确定（Billingsley 1995，第~30~节）.\\footnote{译注：原文级数印为 $\\sum_{r=1}^\\infty\\mu^r r^k/k!$，求和指标、幂指数与"
+  },
+  {
+    "file": "sections-tex/02-06.tex",
+    "line": 6,
+    "year": "1974",
+    "context": "矩序列具有唯一性的一个充分条件是 Carleman 条件（Carleman's Condition；Chung 1974）\\index{SI0101@Carleman条件}\\semanticindexanchor{101:99}. 若 $X\\sim F_X$，"
+  },
+  {
+    "file": "sections-tex/02-06.tex",
+    "line": 10,
+    "year": "1971",
+    "context": "Feller (1971) 对拉普拉斯变换作了非常完整的论述，矩母函数是其特殊情形. 特别地，Feller 证明了（与 Billingsley 类似），只要"
+  },
+  {
+    "file": "sections-tex/02-06.tex",
+    "line": 48,
+    "year": "1968",
+    "context": "Feller (1968) 对母函数有完整论述. 几乎所有高等概率论教材都介绍特征函数，例如 Billingsley (1995) 或 Resnick (1999)"
+  },
+  {
+    "file": "sections-tex/02-06.tex",
+    "line": 48,
+    "year": "1995",
+    "context": "Feller (1968) 对母函数有完整论述. 几乎所有高等概率论教材都介绍特征函数，例如 Billingsley (1995) 或 Resnick (1999)."
+  },
+  {
+    "file": "sections-tex/02-06.tex",
+    "line": 48,
+    "year": "1999",
+    "context": "Feller (1968) 对母函数有完整论述. 几乎所有高等概率论教材都介绍特征函数，例如 Billingsley (1995) 或 Resnick (1999)."
+  },
+  {
+    "file": "sections-tex/02-06.tex",
+    "line": 51,
+    "year": "1994",
+    "context": "在以上述问题为题的文章中，McCullagh (1994) 考察了一对与\\autoref{ex:2.3.10}类似、但具有矩母函数的密度，"
+  },
+  {
+    "file": "sections-tex/02-06.tex",
+    "line": 55,
+    "year": "1995",
+    "context": "两个密度明显不同，它们的累积量母函数实际上几乎相同，整个取值范围内的最大差小于 $1.34\\times10^{-9}$（小于一个像素的大小）. 因此，对标题中问题的回答是：“从数学目的看，是；但从数值目的看，是响亮的否.” 相比之下，Waller (1995) 说明，尽管矩母函数不能在数值上区分这两个分布，特征函数却做得很好. （Waller et al. (1995) 和 Luce\\~no ("
+  },
+  {
+    "file": "sections-tex/02-06.tex",
+    "line": 55,
+    "year": "1995",
+    "context": "9}$（小于一个像素的大小）. 因此，对标题中问题的回答是：“从数学目的看，是；但从数值目的看，是响亮的否.” 相比之下，Waller (1995) 说明，尽管矩母函数不能在数值上区分这两个分布，特征函数却做得很好. （Waller et al. (1995) 和 Luce\\~no (1997) 进一步研究了用特征函数数值求取累积分布函数的作用.）细节见\\autoref{exercise:2.3"
+  },
+  {
+    "file": "sections-tex/02-06.tex",
+    "line": 55,
+    "year": "1997",
+    "context": "，对标题中问题的回答是：“从数学目的看，是；但从数值目的看，是响亮的否.” 相比之下，Waller (1995) 说明，尽管矩母函数不能在数值上区分这两个分布，特征函数却做得很好. （Waller et al. (1995) 和 Luce\\~no (1997) 进一步研究了用特征函数数值求取累积分布函数的作用.）细节见\\autoref{exercise:2.37}."
+  },
+  {
+    "file": "sections-tex/03-01.tex",
+    "line": 4,
+    "year": "1969",
+    "context": "，我们将给出均值、方差以及许多有助于理解的其他有用或描述性的度量. 我们还会介绍这些分布的一些典型应用，以及它们之间某些有趣而有用的联系. 部分事实汇总于书末的表格中. 本章对统计分布的介绍远非全面；这一任务已由 Johnson and Kotz (1969–1972) 的多卷本著作 \\textit{Distributions in Statistics}，以及更新版 Johnson, Kotz"
+  },
+  {
+    "file": "sections-tex/03-01.tex",
+    "line": 4,
+    "year": "1972",
+    "context": "出均值、方差以及许多有助于理解的其他有用或描述性的度量. 我们还会介绍这些分布的一些典型应用，以及它们之间某些有趣而有用的联系. 部分事实汇总于书末的表格中. 本章对统计分布的介绍远非全面；这一任务已由 Johnson and Kotz (1969–1972) 的多卷本著作 \\textit{Distributions in Statistics}，以及更新版 Johnson, Kotz, and"
+  },
+  {
+    "file": "sections-tex/03-01.tex",
+    "line": 4,
+    "year": "1994",
+    "context": "绍远非全面；这一任务已由 Johnson and Kotz (1969–1972) 的多卷本著作 \\textit{Distributions in Statistics}，以及更新版 Johnson, Kotz, and Balakrishnan (1994, 1995) 和 Johnson, Kotz, and Kemp (1992) 完成."
+  },
+  {
+    "file": "sections-tex/03-01.tex",
+    "line": 4,
+    "year": "1995",
+    "context": "这一任务已由 Johnson and Kotz (1969–1972) 的多卷本著作 \\textit{Distributions in Statistics}，以及更新版 Johnson, Kotz, and Balakrishnan (1994, 1995) 和 Johnson, Kotz, and Kemp (1992) 完成."
+  },
+  {
+    "file": "sections-tex/03-01.tex",
+    "line": 4,
+    "year": "1992",
+    "context": "2) 的多卷本著作 \\textit{Distributions in Statistics}，以及更新版 Johnson, Kotz, and Balakrishnan (1994, 1995) 和 Johnson, Kotz, and Kemp (1992) 完成."
+  },
+  {
+    "file": "sections-tex/03-02.tex",
+    "line": 265,
+    "year": "1968",
+    "context": "这实际上就是负整数二项系数的定义式［完整论述见Feller（1968）］. 代入\\eqref{eq:3.2.10}得"
+  },
+  {
+    "file": "sections-tex/03-02.tex",
+    "line": 269,
+    "year": "1968",
+    "context": "$\\sum_{y=0}^\\infty P(Y=y)=1$这一事实不容易直接验证，但可由二项式定理中包含负指数的推广得到. 这里不再深入讨论. Feller（1968）对二项系数有极好的论述."
+  },
+  {
+    "file": "sections-tex/03-02.tex",
+    "line": 289,
+    "year": "1982",
+    "context": "方差是均值的二次函数. 这种关系在数据分析和理论研究中都有用（Morris 1982）."
+  },
+  {
+    "file": "sections-tex/03-02.tex",
+    "line": 342,
+    "year": "1975",
+    "context": "几何分布的无记忆性描述了一种很特殊的“不老化”性质. 它表明，几何分布不适用于对预期失效概率随时间增加的寿命建模. 还有其他分布可用于对不同类型的老化建模，例如见Barlow和Proschan（1975）."
+  },
+  {
+    "file": "sections-tex/03-03.tex",
+    "line": 116,
+    "year": "1980",
+    "context": "显然，我们也可以从Weibull分布出发，再把指数分布作为特例（$\\gamma=1$）推导出来. 这只是取舍偏好的问题. Weibull分布在失效时间数据分析中起着极为重要的作用［这一主题的全面论述见Kalbfleisch和Prentice（1980）］. 特别地，Weibull分布非常适合对风险函数（hazard function）建模［见\\autoref{exercise:3.25}"
+  },
+  {
+    "file": "sections-tex/03-03.tex",
+    "line": 305,
+    "year": "1969",
+    "context": "还有许多连续分布可用于不同的统计应用，其中很多会在本书后续内容中出现. Johnson和Kotz（1969、1970a、1970b）的综合性著作，是查阅多数常用统计分布的宝贵参考资料."
+  },
+  {
+    "file": "sections-tex/03-03.tex",
+    "line": 305,
+    "year": "1970a",
+    "context": "还有许多连续分布可用于不同的统计应用，其中很多会在本书后续内容中出现. Johnson和Kotz（1969、1970a、1970b）的综合性著作，是查阅多数常用统计分布的宝贵参考资料."
+  },
+  {
+    "file": "sections-tex/03-03.tex",
+    "line": 305,
+    "year": "1970b",
+    "context": "还有许多连续分布可用于不同的统计应用，其中很多会在本书后续内容中出现. Johnson和Kotz（1969、1970a、1970b）的综合性著作，是查阅多数常用统计分布的宝贵参考资料."
+  },
+  {
+    "file": "sections-tex/03-04.tex",
+    "line": 144,
+    "year": "1986",
+    "context": "关于指数族的进一步入门介绍，见Lehmann（1986，第2.7节），或Lehmann和Casella（1998，第1.5节及注1.10.6）. Brown（1986）的经典专著提供了更深入且全"
+  },
+  {
+    "file": "sections-tex/03-04.tex",
+    "line": 144,
+    "year": "1998",
+    "context": "关于指数族的进一步入门介绍，见Lehmann（1986，第2.7节），或Lehmann和Casella（1998，第1.5节及注1.10.6）. Brown（1986）的经典专著提供了更深入且全面的介绍."
+  },
+  {
+    "file": "sections-tex/03-04.tex",
+    "line": 144,
+    "year": "1986",
+    "context": "关于指数族的进一步入门介绍，见Lehmann（1986，第2.7节），或Lehmann和Casella（1998，第1.5节及注1.10.6）. Brown（1986）的经典专著提供了更深入且全面的介绍."
+  },
+  {
+    "file": "sections-tex/03-06.tex",
+    "line": 2,
+    "year": "1979",
+    "context": "统计理论中确实充满了不等式与恒等式，多到有整本著作专门讨论这个主题. Marshall和Olkin（1979）的重要著作包含许多使用主序（majorization）概念的不等式. 较早的Hardy、Littlewood和Polya（1952）的著作"
+  },
+  {
+    "file": "sections-tex/03-06.tex",
+    "line": 2,
+    "year": "1952",
+    "context": "统计理论中确实充满了不等式与恒等式，多到有整本著作专门讨论这个主题. Marshall和Olkin（1979）的重要著作包含许多使用主序（majorization）概念的不等式. 较早的Hardy、Littlewood和Polya（1952）的著作则是经典不等式的汇编. 本节及\\autoref{sec:4.7}将混合讨论一些新旧结果，让读者了解这些结果的类型. 本节专门讨论源于"
+  },
+  {
+    "file": "sections-tex/03-06.tex",
+    "line": 80,
+    "year": "1973",
+    "context": "有一整类恒等式依赖于分部积分. 其中第一个归功于Charles Stein，他在研究多元正态均值的估计时使用了这一恒等式（Stein 1973、1981）."
+  },
+  {
+    "file": "sections-tex/03-06.tex",
+    "line": 80,
+    "year": "1981",
+    "context": "有一整类恒等式依赖于分部积分. 其中第一个归功于Charles Stein，他在研究多元正态均值的估计时使用了这一恒等式（Stein 1973、1981）."
+  },
+  {
+    "file": "sections-tex/03-06.tex",
+    "line": 105,
+    "year": "1978",
+    "context": "许多分布都有类似的分部积分恒等式（见\\autoref{exercise:3.49}及Hudson（1978））. 也可以利用特定分布的性质得到有用的恒等式，如下一个定理所示."
+  },
+  {
+    "file": "sections-tex/03-06.tex",
+    "line": 136,
+    "year": "1982",
+    "context": "最后，用前述恒等式的几个离散对应结果结束本节. \\autoref{thm:3.6.8}中两个恒等式的一般版本归功于Hwang（1982）."
+  },
+  {
+    "file": "sections-tex/03-06.tex",
+    "line": 168,
+    "year": "1982",
+    "context": "Hwang（1982）以类似Stein的方式使用这个恒等式，证明了有关多元估计量的结果. 这个恒等式还有其他用途，特别是在矩的计算方面."
+  },
+  {
+    "file": "sections-tex/03-07.tex",
+    "line": 50,
+    "year": "1989",
+    "context": "果真如此吗？还是说，这只是Diaconis和Mosteller（1989）所称“真正大数定律”的一个例子？让我们作一些计算."
+  },
+  {
+    "file": "sections-tex/03-07.tex",
+    "line": 57,
+    "year": "1989",
+    "context": "除了Diaconis和Mosteller（1989），还可参见Hanley（1992）对巧合的进一步讨论."
+  },
+  {
+    "file": "sections-tex/03-07.tex",
+    "line": 57,
+    "year": "1992",
+    "context": "除了Diaconis和Mosteller（1989），还可参见Hanley（1992）对巧合的进一步讨论."
+  },
+  {
+    "file": "sections-tex/03-07.tex",
+    "line": 60,
+    "year": "1991",
+    "context": "Shuster（1991）描述了他为一宗涉及贩卖可卡因的案件所作的一些概率计算. 佛罗里达州一个警察部门查获496包疑似可卡因，从中随机抽取四包检验，确认确实是可卡"
+  },
+  {
+    "file": "sections-tex/03-07.tex",
+    "line": 100,
+    "year": "1987",
+    "context": "\\item[(b)] 求$X$的均值与方差. （对数级数分布已被证明在物种丰度建模中有用. 对这个分布更详细的讨论见Stuart和Ord（1987）.）"
+  },
+  {
+    "file": "sections-tex/05-03.tex",
+    "line": 183,
+    "year": "1970",
+    "context": "$F$分布可以在比这里更一般的条件下导出.即使母总体不是正态，方差比也可能服从$F$分布.Kelker（1970）证明，只要母总体具有某种对称性（球对称性，spherical symmetry），方差比就服从$F$分布."
+  },
+  {
+    "file": "sections-tex/05-04.tex",
+    "line": 28,
+    "year": "1977",
+    "context": "年薪62,500美元的新秀.讨论工资、价格或任何有少数极端值的变量时，中位数比均值更能代表“典型”值.还有其他可由次序统计量定义、对极端值较不敏感的统计量，例如\\autoref{exercise:10.20}中的$\\alpha$截尾均值；Tukey（1977）等书对此有所讨论."
+  },
+  {
+    "file": "sections-tex/05-05.tex",
+    "line": 5,
+    "year": "1995",
+    "context": "我们主要关注三种收敛，讨论的详略有所不同.（例如，Billingsley 1995或Resnick 1999对收敛有完整论述.）特别地，我们想考察$n\\to\\infty$时$n$个观测的均值$\\bar X_n$的行为."
+  },
+  {
+    "file": "sections-tex/05-05.tex",
+    "line": 5,
+    "year": "1999",
+    "context": "我们主要关注三种收敛，讨论的详略有所不同.（例如，Billingsley 1995或Resnick 1999对收敛有完整论述.）特别地，我们想考察$n\\to\\infty$时$n$个观测的均值$\\bar X_n$的行为."
+  },
+  {
+    "file": "sections-tex/05-05.tex",
+    "line": 66,
+    "year": "1999",
+    "context": "可以预料，几乎处处收敛作为更强的条件，蕴含依概率收敛.逆命题当然不成立，\\autoref{ex:5.5.8}已说明这一点.然而，如果序列依概率收敛，就可以找到一个几乎处处收敛的子序列.（Resnick 1999，第6.3节详细讨论了这两种收敛的联系.）"
+  },
+  {
+    "file": "sections-tex/05-05.tex",
+    "line": 74,
+    "year": "1999",
+    "context": "在弱大数定律与强大数定律中，都假设方差有限.虽然多数应用中这一假设成立（也很理想），但事实上它强于实际所需条件.去掉这一假设，弱定律与强定律仍然成立.唯一需要的矩条件是$E|X_i|<\\infty$（见Resnick 1999，第7章；或Billingsley 1995，第22节）."
+  },
+  {
+    "file": "sections-tex/05-05.tex",
+    "line": 74,
+    "year": "1995",
+    "context": "与强大数定律中，都假设方差有限.虽然多数应用中这一假设成立（也很理想），但事实上它强于实际所需条件.去掉这一假设，弱定律与强定律仍然成立.唯一需要的矩条件是$E|X_i|<\\infty$（见Resnick 1999，第7章；或Billingsley 1995，第22节）."
+  },
+  {
+    "file": "sections-tex/05-05.tex",
+    "line": 173,
+    "year": "1995",
+    "context": "证明与\\autoref{thm:5.5.14}几乎相同，只是用特征函数代替矩母函数.分布的特征函数总存在，所以无须在定理假设中提及.不过证明更细致，因为须处理复变量函数.详见Billingsley（1995，第27节）."
+  },
+  {
+    "file": "sections-tex/05-05.tex",
+    "line": 349,
+    "year": "1998",
+    "context": "证明需要处理多元随机变量的收敛.这里不涉及这些多元问题的细节，暂且接受\\autoref{thm:5.5.28}.感兴趣的读者可参阅Lehmann和Casella（1998，第1.8节）."
+  },
+  {
+    "file": "sections-tex/05-06.tex",
+    "line": 41,
+    "year": "1985",
+    "context": "家对均匀随机数生成问题已作了卓有成效的研究.）有许多生成伪随机数（pseudo-random numbers）的算法，产生的数可通过几乎所有均匀性检验.此外，多数优秀统计软件包都有合理的均匀随机数生成器.（关于伪随机数生成，更多内容见Devroye 1985或Ripley 1987.）"
+  },
+  {
+    "file": "sections-tex/05-06.tex",
+    "line": 41,
+    "year": "1987",
+    "context": "作了卓有成效的研究.）有许多生成伪随机数（pseudo-random numbers）的算法，产生的数可通过几乎所有均匀性检验.此外，多数优秀统计软件包都有合理的均匀随机数生成器.（关于伪随机数生成，更多内容见Devroye 1985或Ripley 1987.）"
+  },
+  {
+    "file": "sections-tex/05-06.tex",
+    "line": 81,
+    "year": "1958",
+    "context": "\\begin{example}[Box–Muller，1958]\\label{ex:5.6.4}"
+  },
+  {
+    "file": "sections-tex/05-06.tex",
+    "line": 110,
+    "year": "1987",
+    "context": "负二项分布，\\eqref{eq:5.6.8}中的算法也适用.理论上这可能需要大量求值，但实际上有简单巧妙的加速方法，因而通常不会如此.例如，不必按$1,2,\\ldots$的次序逐个检查$y_i$，从靠近均值的$y_i$开始可能快得多（见Ripley 1987，第3.3节，以及\\autoref{exercise:5.55}）."
+  },
+  {
+    "file": "sections-tex/05-06.tex",
+    "line": 123,
+    "year": "1984",
+    "context": "为说明这种方法的用途，考虑1984年8月下旬在哈德逊河取得的海湾{\\CJKfontspec{SimSun}鳀}鱼幼体计数样本："
+  },
+  {
+    "file": "sections-tex/05-06.tex",
+    "line": 237,
+    "year": "1953",
+    "context": "虽然MCMC方法至少可追溯到Metropolis等（1953），但它们真正受到广泛重视，是在Geman和Geman（1984）的基础上，随着Gelfand和Smith（1990）的工作而发生的.更多内"
+  },
+  {
+    "file": "sections-tex/05-06.tex",
+    "line": 237,
+    "year": "1984",
+    "context": "虽然MCMC方法至少可追溯到Metropolis等（1953），但它们真正受到广泛重视，是在Geman和Geman（1984）的基础上，随着Gelfand和Smith（1990）的工作而发生的.更多内容见\\autoref{sec:5.8.5}."
+  },
+  {
+    "file": "sections-tex/05-06.tex",
+    "line": 237,
+    "year": "1990",
+    "context": "虽然MCMC方法至少可追溯到Metropolis等（1953），但它们真正受到广泛重视，是在Geman和Geman（1984）的基础上，随着Gelfand和Smith（1990）的工作而发生的.更多内容见\\autoref{sec:5.8.5}."
+  },
+  {
+    "file": "sections-tex/05-07.tex",
+    "line": 19,
+    "year": "1972",
+    "context": "iid随机变量的一种推广是可交换随机变量（exchangeable random variables），这一概念出自De Finetti（1972）.Feller（1971）也讨论了可交换性.若随机变量$X_1,\\ldots,X_n$中任意容量为$k$（$k\\le n$）的子集的任意排"
+  },
+  {
+    "file": "sections-tex/05-07.tex",
+    "line": 19,
+    "year": "1971",
+    "context": "iid随机变量的一种推广是可交换随机变量（exchangeable random variables），这一概念出自De Finetti（1972）.Feller（1971）也讨论了可交换性.若随机变量$X_1,\\ldots,X_n$中任意容量为$k$（$k\\le n$）的子集的任意排列都具有相同分布，则称它们"
+  },
+  {
+    "file": "sections-tex/05-07.tex",
+    "line": 69,
+    "year": "1992",
+    "context": "利用此恒等式证明，相关系数等于1，当且仅当全部样本点位于一条直线上（Wright 1992）.\\footnote{译注：原文写相关系数“等于1”.一般直线上的点可能具有负斜率，正确的共线刻画应是相关系数绝对值为1，并要求两组样本方"
+  },
+  {
+    "file": "sections-tex/05-07.tex",
+    "line": 281,
+    "year": "1995",
+    "context": "（上述结果的详细论述见Billingsley 1995，第25节.）"
+  },
+  {
+    "file": "sections-tex/05-07.tex",
+    "line": 352,
+    "year": "1996",
+    "context": "Park等（1996）给出如下生成相关二元变量的方法.设$X_1,X_2,X_3$为均值分别为$\\lambda_1,\\lambda_2,\\lambda_3$的独"
+  },
+  {
+    "file": "sections-tex/05-07.tex",
+    "line": 370,
+    "year": "1991",
+    "context": "（Russell 1991描述过这种模拟实验，并将问题归于Gnedenko 1978.）"
+  },
+  {
+    "file": "sections-tex/05-07.tex",
+    "line": 370,
+    "year": "1978",
+    "context": "（Russell 1991描述过这种模拟实验，并将问题归于Gnedenko 1978.）"
+  },
+  {
+    "file": "sections-tex/05-07.tex",
+    "line": 403,
+    "year": "1996",
+    "context": "证明它依概率收敛到$Eh(X)$.此外，证明若$h$是常数，这一估计量优于(a)中的估计量.（Casella和Robert 1996进一步研究了其性质.）"
+  },
+  {
+    "file": "sections-tex/05-07.tex",
+    "line": 412,
+    "year": "1988",
+    "context": "Rubin（1988）称此法为抽样／重要性再抽样（Sampling/Importance Resampling，SIR）算法；Smith和Gelfand（199"
+  },
+  {
+    "file": "sections-tex/05-07.tex",
+    "line": 412,
+    "year": "1992",
+    "context": "Rubin（1988）称此法为抽样／重要性再抽样（Sampling/Importance Resampling，SIR）算法；Smith和Gelfand（1992）称其为加权自助法（weighted bootstrap）."
+  },
+  {
+    "file": "sections-tex/05-07.tex",
+    "line": 440,
+    "year": "1995",
+    "context": "[Mengersen和Tweedie 1995表明，若满足上确界条件，即$\\sup f/g<\\!\\le M<\\infty$（$f$为目标密度，$g$为候选密度），Metropolis算法"
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 10,
+    "year": "1995",
+    "context": "还有大量其他类型的中心极限定理，尤其是旨在放宽独立性假设的结果.虽然不能完全取消这一假设，但可以使其限制更弱（见Billingsley 1995，第27节；或Resnick 1999，第8章）."
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 10,
+    "year": "1999",
+    "context": "还有大量其他类型的中心极限定理，尤其是旨在放宽独立性假设的结果.虽然不能完全取消这一假设，但可以使其限制更弱（见Billingsley 1995，第27节；或Resnick 1999，第8章）."
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 12,
+    "year": "1985",
+    "context": "本章多数计算假定观测相互独立，一些期望的计算也依赖这一事实.H. A. David（1985）指出，若观测相关，$S^2$可能是$\\sigma^2$的有偏估计，即$ES^2=\\sigma^2$未必成立.但可能偏差的范围很容易计算.若"
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 21,
+    "year": "1984",
+    "context": "Saw等（1984）证明，用$\\bar X$代替$\\mu$、$S^2$代替$\\sigma^2$，可得到"
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 29,
+    "year": "1999",
+    "context": "如前所述，强大数定律\\autoref{thm:5.5.9}可在较弱条件下证明，只要求随机变量的均值有限（例如见Resnick 1999，第7章；或Billingsley 1995，第22节）.不过，在矩母函数存在的假设下，Koopmans（1993）给出了只使用微积分的证明"
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 29,
+    "year": "1995",
+    "context": "如前所述，强大数定律\\autoref{thm:5.5.9}可在较弱条件下证明，只要求随机变量的均值有限（例如见Resnick 1999，第7章；或Billingsley 1995，第22节）.不过，在矩母函数存在的假设下，Koopmans（1993）给出了只使用微积分的证明."
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 29,
+    "year": "1993",
+    "context": "如前所述，强大数定律\\autoref{thm:5.5.9}可在较弱条件下证明，只要求随机变量的均值有限（例如见Resnick 1999，第7章；或Billingsley 1995，第22节）.不过，在矩母函数存在的假设下，Koopmans（1993）给出了只使用微积分的证明."
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 49,
+    "year": "1974",
+    "context": "顾名思义，这些方法基于马尔可夫链（Markov chains），这是我们尚未研究的概率结构（入门介绍见Chung 1974或Ross 1988）.若随机变量序列$X_1,X_2,\\ldots$满足"
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 49,
+    "year": "1988",
+    "context": "顾名思义，这些方法基于马尔可夫链（Markov chains），这是我们尚未研究的概率结构（入门介绍见Chung 1974或Ross 1988）.若随机变量序列$X_1,X_2,\\ldots$满足"
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 58,
+    "year": "1993",
+    "context": "要充分理解MCMC方法，确实需要了解更多马尔可夫链知识，这里不展开.MCMC的理论及应用已有大量文献.Tanner（1993）提供了统计计算方法的良好入门介绍；Robert（1994，第9章）也作了介绍，偏重理论且带有Bayes色彩.Casella和George（"
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 58,
+    "year": "1994",
+    "context": "要充分理解MCMC方法，确实需要了解更多马尔可夫链知识，这里不展开.MCMC的理论及应用已有大量文献.Tanner（1993）提供了统计计算方法的良好入门介绍；Robert（1994，第9章）也作了介绍，偏重理论且带有Bayes色彩.Casella和George（1992）通过Gibbs抽样器（一种特定MCMC方法）给出"
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 58,
+    "year": "1992",
+    "context": "MC方法，确实需要了解更多马尔可夫链知识，这里不展开.MCMC的理论及应用已有大量文献.Tanner（1993）提供了统计计算方法的良好入门介绍；Robert（1994，第9章）也作了介绍，偏重理论且带有Bayes色彩.Casella和George（1992）通过Gibbs抽样器（一种特定MCMC方法）给出了更易读的入门介绍.Gibbs抽样器或许仍是应用最广的MCMC方法，也是这类方法流行的原因"
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 58,
+    "year": "1990",
+    "context": "绍，偏重理论且带有Bayes色彩.Casella和George（1992）通过Gibbs抽样器（一种特定MCMC方法）给出了更易读的入门介绍.Gibbs抽样器或许仍是应用最广的MCMC方法，也是这类方法流行的原因之一［源于Gelfand和Smith（1990）在Geman和Geman（1984）基础上的奠基性工作］.涉及MCMC的参考文献实在太多.其他入门文献包括Gelman和Rubin（199"
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 58,
+    "year": "1984",
+    "context": "asella和George（1992）通过Gibbs抽样器（一种特定MCMC方法）给出了更易读的入门介绍.Gibbs抽样器或许仍是应用最广的MCMC方法，也是这类方法流行的原因之一［源于Gelfand和Smith（1990）在Geman和Geman（1984）基础上的奠基性工作］.涉及MCMC的参考文献实在太多.其他入门文献包括Gelman和Rubin（1992）、Geyer和Thompson（"
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 58,
+    "year": "1992",
+    "context": "Gibbs抽样器或许仍是应用最广的MCMC方法，也是这类方法流行的原因之一［源于Gelfand和Smith（1990）在Geman和Geman（1984）基础上的奠基性工作］.涉及MCMC的参考文献实在太多.其他入门文献包括Gelman和Rubin（1992）、Geyer和Thompson（1992）、Smith和Roberts（1993）的论文；Tierney（1994）给出了尤其优美的理论介"
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 58,
+    "year": "1992",
+    "context": "方法，也是这类方法流行的原因之一［源于Gelfand和Smith（1990）在Geman和Geman（1984）基础上的奠基性工作］.涉及MCMC的参考文献实在太多.其他入门文献包括Gelman和Rubin（1992）、Geyer和Thompson（1992）、Smith和Roberts（1993）的论文；Tierney（1994）给出了尤其优美的理论介绍.Robert和Casella（1999"
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 58,
+    "year": "1993",
+    "context": "elfand和Smith（1990）在Geman和Geman（1984）基础上的奠基性工作］.涉及MCMC的参考文献实在太多.其他入门文献包括Gelman和Rubin（1992）、Geyer和Thompson（1992）、Smith和Roberts（1993）的论文；Tierney（1994）给出了尤其优美的理论介绍.Robert和Casella（1999）则以一整本教材系统讨论这一领域."
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 58,
+    "year": "1994",
+    "context": "）在Geman和Geman（1984）基础上的奠基性工作］.涉及MCMC的参考文献实在太多.其他入门文献包括Gelman和Rubin（1992）、Geyer和Thompson（1992）、Smith和Roberts（1993）的论文；Tierney（1994）给出了尤其优美的理论介绍.Robert和Casella（1999）则以一整本教材系统讨论这一领域."
+  },
+  {
+    "file": "sections-tex/05-08.tex",
+    "line": 58,
+    "year": "1999",
+    "context": "CMC的参考文献实在太多.其他入门文献包括Gelman和Rubin（1992）、Geyer和Thompson（1992）、Smith和Roberts（1993）的论文；Tierney（1994）给出了尤其优美的理论介绍.Robert和Casella（1999）则以一整本教材系统讨论这一领域."
+  },
+  {
+    "file": "sections-tex/06-02.tex",
+    "line": 13,
+    "year": "1986",
+    "context": "ol X)$有连续分布，则对所有$t$都有$P_\\theta(T(\\boldsymbol X)=t)=0$.此时要充分理解\\autoref{def:6.2.1}，需要比\\autoref{sec:1}中介绍的条件概率更精细的概念.可参阅Lehmann（1986）等更高阶教材中的讨论.我们将在离散情形下进行计算，并指出连续情形中成立的类似结果."
+  },
+  {
+    "file": "sections-tex/06-02.tex",
+    "line": 85,
+    "year": "1998",
+    "context": "事实表明，在指数分布族之外，很少能找到维数小于样本容量的充分统计量，因而许多情况下次序统计量就是我们所能做到的最好结果.（进一步细节见Lehmann和Casella 1998，第1.6节.）"
+  },
+  {
+    "file": "sections-tex/06-02.tex",
+    "line": 89,
+    "year": "1949",
+    "context": "第一步需要相当多的直觉，第二步有时需要繁琐的分析.幸而下面由Halmos和Savage（1949）给出的定理，只要观察样本的pdf或pmf就能找到充分统计量.\\footnote{不过，按Halmos和Savage的说法，他们的定理“可以"
+  },
+  {
+    "file": "sections-tex/06-02.tex",
+    "line": 89,
+    "year": "1935",
+    "context": "os和Savage（1949）给出的定理，只要观察样本的pdf或pmf就能找到充分统计量.\\footnote{不过，按Halmos和Savage的说法，他们的定理“可以改写成一种在精神上更接近先前关于充分性概念研究的形式”.这里的研究指Neyman（1935）的工作.（威斯康星大学密尔沃基分校的J. Beder教授指出了这一点.）}"
+  },
+  {
+    "file": "sections-tex/06-02.tex",
+    "line": 202,
+    "year": "1950",
+    "context": "autoref{def:6.2.1}寻找充分统计量一样.需要猜测$T(\\boldsymbol X)$最小充分，然后验证定义中的条件.（注意，\\autoref{ex:6.2.12}并未说明$\\bar X$最小充分.）幸而Lehmann和Scheffé（1950，定理6.3）的以下结果，给出了更容易的寻找方法."
+  },
+  {
+    "file": "sections-tex/06-02.tex",
+    "line": 292,
+    "year": "1971",
+    "context": "值就是$\\theta=m-1$.所以知道辅助统计量$R$的值，增进了我们对$\\theta$的了解.当然，单独知道$R$并不提供关于$\\theta$的信息.（辅助统计量能提供关于$\\theta$估计精度的信息，这一思想并非新事物.更多观点可参见Cox（1971）或Efron和Hinkley（1978）.）"
+  },
+  {
+    "file": "sections-tex/06-02.tex",
+    "line": 292,
+    "year": "1978",
+    "context": "辅助统计量$R$的值，增进了我们对$\\theta$的了解.当然，单独知道$R$并不提供关于$\\theta$的信息.（辅助统计量能提供关于$\\theta$估计精度的信息，这一思想并非新事物.更多观点可参见Cox（1971）或Efron和Hinkley（1978）.）"
+  },
+  {
+    "file": "sections-tex/09-02.tex",
+    "line": 163,
+    "year": "1934",
+    "context": "Clopper和Pearson（1934）最早研究了二项分布置信界问题，对双侧区间得到了类似的答案（\\autoref{exercise:9.21}），并由此开创了一条至今仍活跃的研"
+  },
+  {
+    "file": "sections-tex/09-02.tex",
+    "line": 168,
+    "year": "1949",
+    "context": "利用枢轴量构造置信集，由此产生所谓枢轴推断（pivotal inference），主要归功于G. A. Barnard（1949，1980），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关"
+  },
+  {
+    "file": "sections-tex/09-02.tex",
+    "line": 168,
+    "year": "1980",
+    "context": "利用枢轴量构造置信集，由此产生所谓枢轴推断（pivotal inference），主要归功于G. A. Barnard（1949，1980），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. "
+  },
+  {
+    "file": "sections-tex/09-02.tex",
+    "line": 168,
+    "year": "1930",
+    "context": "利用枢轴量构造置信集，由此产生所谓枢轴推断（pivotal inference），主要归功于G. A. Barnard（1949，1980），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. A. S. Fraser的结构推断（s"
+  },
+  {
+    "file": "sections-tex/09-02.tex",
+    "line": 168,
+    "year": "1968",
+    "context": "9，1980），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. A. S. Fraser的结构推断（structural inference）理论（Fraser 1968，1979）. Berger和Wolpert（1984）对这些方法的优缺点作了有趣的讨论."
+  },
+  {
+    "file": "sections-tex/09-02.tex",
+    "line": 168,
+    "year": "1979",
+    "context": "0），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. A. S. Fraser的结构推断（structural inference）理论（Fraser 1968，1979）. Berger和Wolpert（1984）对这些方法的优缺点作了有趣的讨论."
+  },
+  {
+    "file": "sections-tex/09-02.tex",
+    "line": 168,
+    "year": "1984",
+    "context": "Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. A. S. Fraser的结构推断（structural inference）理论（Fraser 1968，1979）. Berger和Wolpert（1984）对这些方法的优缺点作了有趣的讨论."
+  },
+  {
+    "file": "sections-tex/09-02.tex",
+    "line": 256,
+    "year": "1954",
+    "context": "Sterne（1954）提出了下面构造二项置信集的方法，它产生最短长度的集合. 给定$\\alpha$，对于每个$p$值，找出由概率最大的$x$值组成的大小为$\\a"
+  },
+  {
+    "file": "sections-tex/09-02.tex",
+    "line": 387,
+    "year": "1936",
+    "context": "这些区间最初由Garwood（1936）导出. \\autoref{fig:9.2.5}给出了覆盖概率的图像. 注意，图形相当参差不齐. 跳跃发生在各置信区间的端点处，此时构成覆盖"
+  },
+  {
+    "file": "sections-tex/09-03.tex",
+    "line": 8,
+    "year": "1995",
+    "context": "说到置信集的大小，若集合为区间，通常指其长度. 若集合不是区间，或者处理的是多维集合，那么长度通常变为体积.（也有一些情形，采用长度之外的大小度量更自然，特别是在考虑等变性时. Schervish 1995，第6章，以及Berger 1985，第6章，讨论了这个主题.）"
+  },
+  {
+    "file": "sections-tex/09-03.tex",
+    "line": 8,
+    "year": "1985",
+    "context": "说到置信集的大小，若集合为区间，通常指其长度. 若集合不是区间，或者处理的是多维集合，那么长度通常变为体积.（也有一些情形，采用长度之外的大小度量更自然，特别是在考虑等变性时. Schervish 1995，第6章，以及Berger 1985，第6章，讨论了这个主题.）"
+  },
+  {
+    "file": "sections-tex/09-03.tex",
+    "line": 158,
+    "year": "1961",
+    "context": "使错误覆盖概率最小的集合也称为Neyman最短（Neyman-shortest）集合. 这个名称包含长度的意味，Pratt（1961）的下述定理为其提供了某种依据."
+  },
+  {
+    "file": "sections-tex/09-03.tex",
+    "line": 179,
+    "year": "1998",
+    "context": "这串等式建立了所需恒等式，定理得证. 积分次序的交换形式上由Fubini定理保证（Lehmann和Casella 1998，第1.2节），但只要所有被积函数有限，就容易看出交换是合理的.\\footnote{译注：一般而言，仅要求被积函数处处有限不足以保证交换积分"
+  },
+  {
+    "file": "sections-tex/09-03.tex",
+    "line": 183,
+    "year": "1962",
+    "context": "率之间存在形式上的关系. 在双侧情形中，这意味着使错误覆盖概率最小也带来某种长度最优保证. 不过，在单侧情形中，这种类比并不完全成立. 此时，为使错误覆盖概率最小而构造的区间，只关注参数空间一部分中的参数，因而可能没有长度最优性. Madansky（1962）给出了一个可被改进的$1-\\alpha$ UMA单侧区间例子：可以构造另一个更短的$1-\\alpha$区间.（参见\\autoref{exe"
+  },
+  {
+    "file": "sections-tex/09-03.tex",
+    "line": 183,
+    "year": "1987",
+    "context": "可能没有长度最优性. Madansky（1962）给出了一个可被改进的$1-\\alpha$ UMA单侧区间例子：可以构造另一个更短的$1-\\alpha$区间.（参见\\autoref{exercise:9.45}.）此外，Maatta和Casella（1987）证明，反演UMP检验所得区间，按其他合理准则衡量时可能并非最优."
+  },
+  {
+    "file": "sections-tex/09-03.tex",
+    "line": 266,
+    "year": "1969",
+    "context": "这些集合的“长度”与此前相同，但现在对$\\mu$的所有整数值，覆盖概率都是$1$. 必须采用更精细的大小度量才能避免此类反常现象.（Joshi 1969通过定义估计量的等价类处理了这个问题.）"
+  },
+  {
+    "file": "sections-tex/09-04.tex",
+    "line": 110,
+    "year": "1954",
+    "context": "本题进一步研究二项置信集的性质，特别是Sterne（1954）的构造. 与\\autoref{ex:9.2.11}一样，仍考虑$\\operatorname{binomial}(3,p)$分布."
+  },
+  {
+    "file": "sections-tex/09-04.tex",
+    "line": 125,
+    "year": "1956",
+    "context": "（这实质上是Crow（1956）对Sterne构造的修改，参见\\autoref{sec:9.5.2}.）"
+  },
+  {
+    "file": "sections-tex/09-04.tex",
+    "line": 144,
+    "year": "1934",
+    "context": "其中$F_{\\nu_1,\\nu_2,\\alpha}$为自由度$\\nu_1,\\nu_2$的$F$分布的上侧$\\alpha$临界点，并作如下端点调整：若$x=0$，下端点为$0$；若$x=n$，上端点为$1$. 这些就是Clopper和Pearson（1934）区间."
+  },
+  {
+    "file": "sections-tex/09-04.tex",
+    "line": 250,
+    "year": "1996",
+    "context": "，其目标是确定两种处理（药物的不同制剂、治疗的不同给药系统）是否产生相同效应. 这个问题的表述导致原假设与备择假设的角色“互换”（\\autoref{exercise:8.47}），从而产生一些有趣的统计问题. 生物等效性的综述见Berger和Hsu（1996），置信集的推广见Brown、Casella和Hwang（1995）."
+  },
+  {
+    "file": "sections-tex/09-04.tex",
+    "line": 250,
+    "year": "1995",
+    "context": "生相同效应. 这个问题的表述导致原假设与备择假设的角色“互换”（\\autoref{exercise:8.47}），从而产生一些有趣的统计问题. 生物等效性的综述见Berger和Hsu（1996），置信集的推广见Brown、Casella和Hwang（1995）."
+  },
+  {
+    "file": "sections-tex/09-04.tex",
+    "line": 307,
+    "year": "1993",
+    "context": "Juola（1993）作了如下观察. 若有枢轴量$Q(\\boldsymbol X,\\theta)$，构造$1-\\alpha$置信区间涉及寻找$a,b$使$P(a"
+  },
+  {
+    "file": "sections-tex/09-04.tex",
+    "line": 330,
+    "year": "1962",
+    "context": "\\item Madansky（1962）展示了一个期望长度比UMA区间更短的$1-\\alpha$区间. 一般而言，Madansky区间难以计算，但在以下情形中计算相对简单. 令$"
+  },
+  {
+    "file": "sections-tex/09-04.tex",
+    "line": 368,
+    "year": "1958",
+    "context": "反演该检验的接受域导出$1-\\alpha$置信集，并证明它以正概率为空集.（Cox悖论指出，经典最优程序有时忽略条件分布的信息，给出一个虽最优、却在某种意义上不合理的程序；参见Cox 1958或Cornfield 1969.）\\footnote{译注：原文“否则总是拒绝$H_0$”若按字面理解，会使检验对全部样本都拒绝. 结合所给"
+  },
+  {
+    "file": "sections-tex/09-04.tex",
+    "line": 368,
+    "year": "1969",
+    "context": "反演该检验的接受域导出$1-\\alpha$置信集，并证明它以正概率为空集.（Cox悖论指出，经典最优程序有时忽略条件分布的信息，给出一个虽最优、却在某种意义上不合理的程序；参见Cox 1958或Cornfield 1969.）\\footnote{译注：原文“否则总是拒绝$H_0$”若按字面理解，会使检验对全部样本都拒绝. 结合所给水平计算，合理意图应是：当$\\"
+  },
+  {
+    "file": "sections-tex/09-04.tex",
+    "line": 387,
+    "year": "1959",
+    "context": "的区间，但每种情形中$a,b$满足不同约束. 本题给出的区间由Tate和Klett（1959）导出，他们还列出了部分临界点."
+  },
+  {
+    "file": "sections-tex/09-04.tex",
+    "line": 456,
+    "year": "1992",
+    "context": "m \\hyperref[item:9.58.a]{(a)}中的区间也可作为覆盖基础总体比例$p$的容忍区间. 证明，将它们视为容忍区间时，单侧区间的系数为$1-p^n$，双侧区间的系数为$1-p^n-n(1-p)p^{n-1}$. Vardeman（1992）将最后这一计算称为“一道漂亮的次序统计量习题”.\\footnote{译注：所列精确系数通常以总体分布连续、样本无并列为前提；题干未明示这一"
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 4,
+    "year": "1969",
+    "context": "通过定义一种称为置信程序（confidence procedure）的对象，可以在形式上联系置信集与检验（Joshi 1969）. 若$X\\sim f(x\\mid\\theta)$，其中$x\\in\\mathcal X$且$\\theta\\in\\Theta$，则置信程序是"
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 13,
+    "year": "1954",
+    "context": "为离散分布的参数构造最优（或至少有所改进的）置信区间有很长的历史，\\autoref{ex:9.2.11}已有所说明，其中考察了Sterne（1954）对Clopper和Pearson（1934）区间的修改. 当然，Sterne构造存在困难，但基本思想是正确的；Crow（1956）以及Bl"
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 13,
+    "year": "1934",
+    "context": "为离散分布的参数构造最优（或至少有所改进的）置信区间有很长的历史，\\autoref{ex:9.2.11}已有所说明，其中考察了Sterne（1954）对Clopper和Pearson（1934）区间的修改. 当然，Sterne构造存在困难，但基本思想是正确的；Crow（1956）以及Blyth和Still（1983）修改了Ster"
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 13,
+    "year": "1956",
+    "context": "最优（或至少有所改进的）置信区间有很长的历史，\\autoref{ex:9.2.11}已有所说明，其中考察了Sterne（1954）对Clopper和Pearson（1934）区间的修改. 当然，Sterne构造存在困难，但基本思想是正确的；Crow（1956）以及Blyth和Still（1983）修改了Sterne构造，后者产生了最短的一组精确区间. Casella（1986）给出了寻找一类最短"
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 13,
+    "year": "1983",
+    "context": "的历史，\\autoref{ex:9.2.11}已有所说明，其中考察了Sterne（1954）对Clopper和Pearson（1934）区间的修改. 当然，Sterne构造存在困难，但基本思想是正确的；Crow（1956）以及Blyth和Still（1983）修改了Sterne构造，后者产生了最短的一组精确区间. Casella（1986）给出了寻找一类最短二项置信区间的算法."
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 13,
+    "year": "1986",
+    "context": "1954）对Clopper和Pearson（1934）区间的修改. 当然，Sterne构造存在困难，但基本思想是正确的；Crow（1956）以及Blyth和Still（1983）修改了Sterne构造，后者产生了最短的一组精确区间. Casella（1986）给出了寻找一类最短二项置信区间的算法."
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 15,
+    "year": "1936",
+    "context": "泊松区间研究（通常也包括其他离散分布）的历史类似. Garwood（1936）的构造恰好是将Clopper--Pearson论证用于二项分布，Crow和Gardner（1959）对这些区间作了改进. Casella和"
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 15,
+    "year": "1959",
+    "context": "泊松区间研究（通常也包括其他离散分布）的历史类似. Garwood（1936）的构造恰好是将Clopper--Pearson论证用于二项分布，Crow和Gardner（1959）对这些区间作了改进. Casella和Robert（1989）找出了一类最短泊松区间.\\footnote{译注：本段讨论泊松区间，但原文称"
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 15,
+    "year": "1989",
+    "context": "泊松区间研究（通常也包括其他离散分布）的历史类似. Garwood（1936）的构造恰好是将Clopper--Pearson论证用于二项分布，Crow和Gardner（1959）对这些区间作了改进. Casella和Robert（1989）找出了一类最短泊松区间.\\footnote{译注：本段讨论泊松区间，但原文称Garwood的构造将论证“用于二项分布”；结合\\autore"
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 17,
+    "year": "1986",
+    "context": "Blyth（1986）给出了二项参数的非常精确的近似区间；Leemis和Trivedi（1996）比较了正态近似与泊松近似；Agresti和Coull（1998"
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 17,
+    "year": "1996",
+    "context": "Blyth（1986）给出了二项参数的非常精确的近似区间；Leemis和Trivedi（1996）比较了正态近似与泊松近似；Agresti和Coull（1998）认为，要求离散区间的覆盖率始终高于名义水平可能过于严格. Blaker（2"
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 17,
+    "year": "1998",
+    "context": "Blyth（1986）给出了二项参数的非常精确的近似区间；Leemis和Trivedi（1996）比较了正态近似与泊松近似；Agresti和Coull（1998）认为，要求离散区间的覆盖率始终高于名义水平可能过于严格. Blaker（2000）为二项、泊松及其他离散分布构造了改进区间，并具有嵌套性质"
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 17,
+    "year": "2000",
+    "context": "Blyth（1986）给出了二项参数的非常精确的近似区间；Leemis和Trivedi（1996）比较了正态近似与泊松近似；Agresti和Coull（1998）认为，要求离散区间的覆盖率始终高于名义水平可能过于严格. Blaker（2000）为二项、泊松及其他离散分布构造了改进区间，并具有嵌套性质：若$\\alpha<\\alpha'$，则$1-\\alpha$区间包含相应的$1-\\"
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 19,
+    "year": "1954",
+    "context": "Fieller定理（Fieller 1954）用巧妙的论证，得到正态均值比的精确置信集."
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 32,
+    "year": "1995",
+    "context": "合有一个有趣特点：取决于抛物线的根，它可以是一个区间、一个区间的补集，或整条实数轴（参见\\autoref{exercise:9.15}）. 此外，要保持$1-\\alpha$的置信程度，该区间必须以正概率为无穷区间. 基于自助法的替代方法见Hwang（1995）；另一种置信方法见Tsao和Hwang（1998，1999）."
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 32,
+    "year": "1998",
+    "context": "间、一个区间的补集，或整条实数轴（参见\\autoref{exercise:9.15}）. 此外，要保持$1-\\alpha$的置信程度，该区间必须以正概率为无穷区间. 基于自助法的替代方法见Hwang（1995）；另一种置信方法见Tsao和Hwang（1998，1999）."
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 32,
+    "year": "1999",
+    "context": "间的补集，或整条实数轴（参见\\autoref{exercise:9.15}）. 此外，要保持$1-\\alpha$的置信程度，该区间必须以正概率为无穷区间. 基于自助法的替代方法见Hwang（1995）；另一种置信方法见Tsao和Hwang（1998，1999）."
+  },
+  {
+    "file": "sections-tex/09-05.tex",
+    "line": 34,
+    "year": "1992",
+    "context": "Vardeman（1992）提出本条杂录标题中的问题，主张主流统计学应花更多时间研究双侧置信区间以外的区间. 特别地，他列出：（a）单侧区间；（b）无分布区间；（c）"
+  },
+  {
+    "file": "sections-tex/10-01.tex",
+    "line": 86,
+    "year": "1999",
+    "context": "ta))$. 在$f(x\\mid\\theta)$满足某些条件时，这意味着$\\hat\\theta$依概率收敛到$\\theta$，从而$\\tau(\\hat\\theta)$依概率收敛到$\\tau(\\theta)$. 详见Stuart、Ord和Arnold（1999，第18章）."
+  },
+  {
+    "file": "sections-tex/10-01.tex",
+    "line": 202,
+    "year": "1978",
+    "context": "此外，已有结果表明（Efron和Hinkley，1978），使用观测信息量（observed information number）优于使用期望信息量（expected information n"
+  },
+  {
+    "file": "sections-tex/10-01.tex",
+    "line": 311,
+    "year": "1999",
+    "context": "自助法基于一个简单而有力的思想（其数学细节可能相当复杂\\footnote{易读的入门介绍见Lehmann（1999，第6.5节）.}）. 在统计学中，通过抽样了解总体的特征. 因为样本代表总体，样本的相应特征应能提供总体特征的信息. 自助法通过重抽样（r"
+  },
+  {
+    "file": "sections-tex/10-01.tex",
+    "line": 317,
+    "year": "1979a",
+    "context": "自助法由Efron于20世纪70年代末提出，最初的思想见Efron（1979ab），随后有专著Efron（1982）. 较新的思考与发展另见Efron（1998）."
+  },
+  {
+    "file": "sections-tex/10-01.tex",
+    "line": 317,
+    "year": "1982",
+    "context": "自助法由Efron于20世纪70年代末提出，最初的思想见Efron（1979ab），随后有专著Efron（1982）. 较新的思考与发展另见Efron（1998）."
+  },
+  {
+    "file": "sections-tex/10-01.tex",
+    "line": 317,
+    "year": "1998",
+    "context": "自助法由Efron于20世纪70年代末提出，最初的思想见Efron（1979ab），随后有专著Efron（1982）. 较新的思考与发展另见Efron（1998）."
+  },
+  {
+    "file": "sections-tex/10-01.tex",
+    "line": 397,
+    "year": "1999",
+    "context": ":10.1.bootstrap.a]{(a)部分}可由大数定律建立（\\autoref{exercise:10.15}）. 还应注意，\\hyperref[item:10.1.bootstrap.a]{(a)部分}全部发生在样本内部. （Lehmann，1999，第6.5节把$\\operatorname{Var}_B^*(\\hat\\theta)$称为近似器，而不是估计量.）"
+  },
+  {
+    "file": "sections-tex/10-01.tex",
+    "line": 399,
+    "year": "1999",
+    "context": "证明\\hyperref[item:10.1.bootstrap.b]{(b)部分}稍微微妙一些，相合性正是在这里建立的. 独立同分布抽样时通常能够得到相合性，但在更一般的情形中未必如此（Lehmann，1999，第6.5节给出一个例子）. 关于相合性的更多细节（必然需要较高深的层次），见Shao和Tu（1995，第3.2.2节）或Shao（1999"
+  },
+  {
+    "file": "sections-tex/10-01.tex",
+    "line": 399,
+    "year": "1995",
+    "context": "trap.b]{(b)部分}稍微微妙一些，相合性正是在这里建立的. 独立同分布抽样时通常能够得到相合性，但在更一般的情形中未必如此（Lehmann，1999，第6.5节给出一个例子）. 关于相合性的更多细节（必然需要较高深的层次），见Shao和Tu（1995，第3.2.2节）或Shao（1999，第5.5.3节）."
+  },
+  {
+    "file": "sections-tex/10-01.tex",
+    "line": 399,
+    "year": "1999",
+    "context": "些，相合性正是在这里建立的. 独立同分布抽样时通常能够得到相合性，但在更一般的情形中未必如此（Lehmann，1999，第6.5节给出一个例子）. 关于相合性的更多细节（必然需要较高深的层次），见Shao和Tu（1995，第3.2.2节）或Shao（1999，第5.5.3节）."
+  },
+  {
+    "file": "sections-tex/10-02.tex",
+    "line": 7,
+    "year": "1981",
+    "context": "“稳健性”一词可以有多种解释；Huber（1981，第1.2节）的说法或许是最好的概括："
+  },
+  {
+    "file": "sections-tex/10-02.tex",
+    "line": 33,
+    "year": "1974",
+    "context": "假设$X_{(n)}=x$，其中$x\\to\\infty$. 这种观测的影响可被认为是“灾难性的”. 虽然$\\bar X$的分布性质并未改变，观测值却会变得“毫无意义”. 这说明了崩溃值（breakdown value）的概念，该思想归于Hampel（1974）."
+  },
+  {
+    "file": "sections-tex/10-02.tex",
+    "line": 65,
+    "year": "1999",
+    "context": "因此$\\sqrt n(M_n-\\mu)$渐近正态，均值为0，方差为$1/[2f(\\mu)]^2$. （细节见\\autoref{exercise:10.22}；严格且更一般的推导见Shao，1999，第5.3节.）"
+  },
+  {
+    "file": "sections-tex/10-02.tex",
+    "line": 81,
+    "year": "1964",
+    "context": "为定义稳健准则，Huber（1964）考虑了均值与中位数之间的折中. 均值准则为平方，这赋予它敏感性，但在“尾部”，平方给予大观测过多的权重. 相比之下，中位数的绝对值准则不会"
+  },
+  {
+    "file": "sections-tex/10-02.tex",
+    "line": 209,
+    "year": "1990",
+    "context": "本节并未试图将所有稳健估计量分类，而是满足于若干例子. 有许多优秀著作详细讨论稳健性；感兴趣的读者可阅读Staudte和Sheather（1990）或Hettmansberger和McKean（1998）."
+  },
+  {
+    "file": "sections-tex/10-02.tex",
+    "line": 209,
+    "year": "1998",
+    "context": "本节并未试图将所有稳健估计量分类，而是满足于若干例子. 有许多优秀著作详细讨论稳健性；感兴趣的读者可阅读Staudte和Sheather（1990）或Hettmansberger和McKean（1998）."
+  },
+  {
+    "file": "sections-tex/10-03.tex",
+    "line": 41,
+    "year": "1999",
+    "context": "\\autoref{thm:10.3.1}可推广到原假设涉及参数向量的情形. 下面的推广不予证明，它至少对大样本保证\\eqref{eq:10.3.1}成立. 完整讨论见Stuart、Ord和Arnold（1999，第22章）."
+  },
+  {
+    "file": "sections-tex/10-03.tex",
+    "line": 139,
+    "year": "1979",
+    "context": "当两个检验均适用时，例如检验$H_0:p=p_0$时，并不清楚应优先选择哪个. 它们的（实际而非近似）功效函数彼此交叉，所以每个检验都在参数空间的某一部分更有功效. （Ghosh，1979，对这个问题提供了一些见解. Robbins，1977，以及Eberhardt和Fligner，1977，讨论了相关的双样本二项问题争论. "
+  },
+  {
+    "file": "sections-tex/10-03.tex",
+    "line": 139,
+    "year": "1977",
+    "context": "当两个检验均适用时，例如检验$H_0:p=p_0$时，并不清楚应优先选择哪个. 它们的（实际而非近似）功效函数彼此交叉，所以每个检验都在参数空间的某一部分更有功效. （Ghosh，1979，对这个问题提供了一些见解. Robbins，1977，以及Eberhardt和Fligner，1977，讨论了相关的双样本二项问题争论. \\autoref{exercise:10.31}给出该"
+  },
+  {
+    "file": "sections-tex/10-03.tex",
+    "line": 139,
+    "year": "1977",
+    "context": "0:p=p_0$时，并不清楚应优先选择哪个. 它们的（实际而非近似）功效函数彼此交叉，所以每个检验都在参数空间的某一部分更有功效. （Ghosh，1979，对这个问题提供了一些见解. Robbins，1977，以及Eberhardt和Fligner，1977，讨论了相关的双样本二项问题争论. \\autoref{exercise:10.31}给出该问题的两个不同检验统计量.）"
+  },
+  {
+    "file": "sections-tex/10-03.tex",
+    "line": 174,
+    "year": "1992",
+    "context": "方差估计的选择可能很重要；相关指导见Boos（1992）或Carroll等（1995，附录A.3）."
+  },
+  {
+    "file": "sections-tex/10-03.tex",
+    "line": 174,
+    "year": "1995",
+    "context": "方差估计的选择可能很重要；相关指导见Boos（1992）或Carroll等（1995，附录A.3）."
+  },
+  {
+    "file": "sections-tex/10-03.tex",
+    "line": 191,
+    "year": "1981",
+    "context": "_{\\alpha/2}$临界值通常太小（忽略了方差估计的变动），实际大小一般大于名义大小. 不过，在一系列分布中的表现相当一致，双指数分布的情形最好. （最后这一点并不十分意外，因为Huber估计量对具有指数尾的分布享有一种最优性性质，见Huber，1981，第4章.）"
+  },
+  {
+    "file": "sections-tex/10-04.tex",
+    "line": 42,
+    "year": "1938",
+    "context": "所以这个近似精确匹配$\\mathrm n(0,1)$随机变量的前两阶矩. Wilks（1938）证明，这些区间具有渐近最优性：渐近地，它们是某类区间中最短的."
+  },
+  {
+    "file": "sections-tex/10-04.tex",
+    "line": 114,
+    "year": "1938",
+    "context": "由此得到与得分检验对应的区间，也就是\\eqref{eq:10.4.2}的似然区间；按Wilks（1938）的结果，它是最优的（见\\autoref{exercise:10.40}）."
+  },
+  {
+    "file": "sections-tex/10-04.tex",
+    "line": 140,
+    "year": "1986",
+    "context": "在端点处有显然的修正：若$\\sum x_i=0$，则区间下端点取0；若$\\sum x_i=n$，则区间上端点取1. 一些良好近似见Blyth（1986）."
+  },
+  {
+    "file": "backmatter/02-distributions.tex",
+    "line": 154,
+    "year": "1986",
+    "context": "\\noindent\\textbf{常见分布之间的关系.}实线表示变换与特例，虚线表示极限.据Leemis（1986）改编."
+  }
+]

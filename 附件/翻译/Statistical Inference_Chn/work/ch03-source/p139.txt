@@ -1,0 +1,48 @@
+108                         COMMON FAMILIES OF DISTRIBUTIONS
+
+3.22 For each of the following distributions, verify the formulas for EX and VarX given in the text.
+       (a) Verify VarX if X has a Poisson(λ) distribution. (Hint: Compute EX(X −1) = EX2 −EX.)
+      (b) Verify VarX if X has a negative binomial(r, p) distribution.
+       (c) Verify VarX if X has a gamma(α,β) distribution.
+      (d) Verify EX and VarX if X has a beta(α,β) distribution.
+       (e) Verify EX and VarX if X has a double exponential(µ,σ) distribution.
+3.23 The Pareto distribution, with parameters α and β, has pdf
+
+                           βαβ
+                                f(x) =         ,  α < x < ∞,  α > 0,  β > 0.
+                                 xβ+1
+
+       (a) Verify that f(x) is a pdf.
+      (b) Derive the mean and variance of this distribution.
+       (c) Prove that the variance does not exist if β ≤2.
+3.24 Many “named” distributions are special cases of the more common distributions already discussed. For
+     each of the following named distributions derive the form of the pdf, verify that it is a pdf, and calculate
+      the mean and variance.
+                                               > 0 is a constant.       (a)  If X ∼exponential(β), then Y = X1/γ has the Weibull(γ,β) distribution, where γ
+      (b)  If X ∼exponential(β), then Y = (2X/β)1/2 has the Rayleigh distribution.
+       (c)  If X ∼gamma(a,b), then Y = 1/X has the inverted gamma IG(a,b) distribution. (This distribution            is useful in Bayesian estimation of variances; see Exercise 7.23.)
+                    = (X/β)1/2 has the Maxwell distribution.      (d)  If X ∼gamma( 2,3 β), then Y
+       (e)  If X ∼exponential(1), then Y = α −γ logX has the Gumbel(α,γ) distribution, where −∞< α < ∞         and γ > 0. (The Gumbel distribution is also known as the extreme value distribution.)
+3.25 Suppose the random variable T is the length of life of an object (possibly the lifetime of an electrical
+     component or of a subject given a particular treatment). The hazard function hT (t), associated with the
+     random variable T, is defined by
+
+                                              P(t   < t                               hT (t) =      ≤T   +δ|T ≥t) .                                    limδ→0         δ
+     Thus, we can interpret hT (t) as the rate of change of the probability that the object survives a little past
+     time t, given that the object survives to time t. Show that if T is a continuous random variable, then
+
+                                                   fT (t)
+                              hT (t) =      =                  (t)).                                                        (t)  −ddt log(1−FT                            1−FT
+3.26 Verify that the following pdfs have the indicated hazard functions (see Exercise 3.25).
+       (a)  If T ∼exponential(β), then hT (t) = 1/β.
+      (b)  If T ∼Weibull(γ,β), then hT (t) = (γ/β)tγ−1.
+       (c)  If T ∼logistic(µ,β), that is,                                                 1
+                                       FT (t) =                      ,
+                                             1+e−(t−µ)/β
+          then hT (t) = (1/β)FT (t).
+3.27 For each of the following families, show whether all the pdfs in the family are unimodal (see Exercise
+      2.27).
+       (a) uniform(a,b)
+      (b) gamma(α,β)
+       (c) n(µ,σ2)
+      (d) beta(α,β)

@@ -1,0 +1,52 @@
+254                                                 POINT ESTIMATION
+Example 7.2.2 (Binomial method of moments)  Let X1,...,Xn be iid binomial(k, p), that is,
+
+                                      k
+                     P(Xi = x|k, p) =  x  px(1−p)k−x,   x = 0,1,...,k.
+
+   Here we assume that both k and p are unknown and we desire point estimators for both param-
+eters. (This somewhat unusual application of the binomial model has been used to estimate crime
+rates for crimes that are known to have many unreported occurrences. For such a crime, both the
+true reporting rate, p, and the total number of occurrences, k, are unknown.)
+   Equating the first two sample moments to those of the population yields the system of equations
+                                                   ¯X =  kp,
+                           1
+                      =                   ∑X2i                           n          kp(1−p)+k2p2,
+which now must be solved for k and p. After a little algebra, we obtain the method of moments
+estimators
+                                                        ¯X2                                                                 ˜k =                                 ,
+                                                     ¯X −(1/n)∑(Xi −¯X)2
+and
+                                                                  ¯X
+                                                                         ˜p =    .
+                                                                                            ˜k
+   Admittedly, these are not the best estimators for the population parameters. In particular, it is
+possible to get negative estimates of k and p, which, of course, must be positive numbers. (This
+is a case where the range of the estimator does not coincide with the range of the parameter it
+is estimating.) However, in fairness to the method of moments, note that negative estimates will
+occur only when the sample mean is smaller than the sample variance, indicating a large degree of
+variability in the data. The method of moments has, in this case, at least given us a set of candidates
+for point estimators of k and p. Although our intuition may have given us a candidate for an estimator
+of p, coming up with an estimator of k is much more difficult.                             ∥
+   The method of moments can be very useful in obtaining approximations to the distributions
+of statistics. This technique, sometimes called “moment matching,” gives us an approximation that
+is based on matching moments of distributions. In theory, the moments of the distribution of any
+statistic can be matched to those of any distribution, but, in practice, it is best to use distributions
+that are similar. The following example illustrates one of the most famous uses of this technique,
+the approximation of Satterthwaite (1946). It is still used today (see Exercise 8.42).
+Example 7.2.3 (Satterthwaite approximation)     If Yi,i = 1, ...,k, are independent χ2ri random
+variables, we have already seen (Lemma 5.3.2) that the distribution of ∑Yi is also chi squared, with
+degrees of freedom equal to ∑ri. Unfortunately, the distribution of ∑aiYi, where the ais are known
+constants, is, in general, quite difficult to obtain. It does seem reasonable, however, to assume that a
+χ2ν, for some value of ν, will provide a good approximation.
+   This is almost Satterthwaite’s problem. He was interested in approximating the denominator of
+a t statistic, and ∑aiYi represented the square of the denominator of his statistic. Hence, for given
+a1,...,ak, he wanted to find a value of ν so that
+
+                                      k
+                                                  (approximately).            ∑ aiYi     ν                               i=1   ∼χ2ν
+Since E(χ2ν/ν) = 1, to match first moments we need
+
+                                           k             k             k
+                      =                            =                    E                                 = 1,             ∑ aiYi                  ∑ aiEYi                      ∑ airi
+                                   i=1         i=1         i=1

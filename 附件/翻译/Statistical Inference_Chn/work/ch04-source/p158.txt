@@ -1,0 +1,44 @@
+CONDITIONAL DISTRIBUTIONS AND INDEPENDENCE                          127
+    Certain probabilities and expectations are easy to calculate if X and Y are independent, as the
+next theorem indicates.
+Theorem 4.2.10  Let X and Y be independent random variables.
+  a. For any A ⊂ℜand B ⊂ℜ, P(X ∈A,Y ∈B) = P(X ∈A)P(Y ∈B), that is, the events {X ∈A}
+    and {Y ∈B} are independent events.
+  b. Let g(x) be a function only of x and h(y) be a function only of y. Then
+
+                            E(g(X)h(Y)) = (Eg(X))(Eh(Y)).
+
+Proof: For continuous random variables, part (b) is proved by noting that
+                               ∞  ∞
+               E(g(X)h(Y)) =                 f(x,y)dxdy
+                             −∞∞  −∞g(x)h(y)∞
+                  =                 fX(x)fY(y)dxdy             (by (4.2.1))                             −∞∞  −∞g(x)h(y)∞
+                  =   −∞h(y)fY(y)∞        −∞g(x)fX(x)dxdy∞
+                  =     −∞g(x)fX(x)dx    −∞h(y) fY(y)dy                  =  (Eg(X))(Eh(Y)).
+
+   The result for discrete random variables is proved by replacing integrals by sums. Part (a) can
+be proved by a series of steps similar to those above or by the following argument. Let g(x) be the
+indicator function of the set A. Let h(y) be the indicator function of the set B. Note that g(x)h(y)
+is the indicator function of the set C ⊂ℜ2 defined by C = {(x,y) : x ∈A,y ∈B}. Also note that
+for an indicator function such as g(x),Eg(X) = P(X ∈A). Thus, using the expectation equality justproved, we have
+             P(X ∈A,Y ∈B) =  P((X,Y) ∈C) = E(g(X)h(Y))
+                   =  (Eg(X))(Eh(Y)) = P(X ∈A)P(Y ∈B).
+                                                    2
+
+Example 4.2.11 (Expectations of independent variables)  Let X and Y be independent exponen-
+tial(1) random variables. From Theorem 4.2.10 we have
+                P(X ≥4,Y < 3) = P(X ≥4)P(Y < 3) = e−4(1−e−3).
+Letting g(x) = x2 and h(y) = y, we see that
+            E X2Y = EX2 (EY) = VarX +(EX)2 EY = (1+12)1 = 2.
+
+                                                                              ∥
+   The following result concerning sums of independent random variables is a simple consequence
+of Theorem 4.2.10.
+Theorem 4.2.12  Let X and Y be independent random variables with moment generating functions
+MX(t) and MY(t). Then the moment generating function of the random variable Z = X +Y is given
+by
+                                MZ(t) = MX(t)MY(t).
+Proof: Using the definition of the mgf and Theorem 4.2.10, we have
+            MZ(t) = EetZ = Eet(X+Y) = E(etXetY) = (EetX)(EetY) = MX(t)MY(t).
+
+                                                    2

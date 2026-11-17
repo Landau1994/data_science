@@ -1,0 +1,41 @@
+DISTRIBUTIONS OF FUNCTIONS OF A RANDOM VARIABLE                       41
+uniquely pairs xs and ys. If g is monotone, then g−1 is single-valued, that is, g−1(y) = x if and only
+if y = g(x). If g is increasing, this implies that
+                  {x ∈X : g(x) ≤y} =    x ∈X : g−1(g(x)) ≤g−1(y)
+                                                                                                    .                       (2.1.8)                      =    x ∈X : x ≤g−1(y)
+If g is decreasing, this implies that
+
+                 {x ∈X : g(x) ≤y} =    x ∈X : g−1(g(x)) ≥g−1(y)
+                                                                                                    .                       (2.1.9)                      =    x ∈X : x ≥g−1(y)
+(A graph will illustrate why the inequality reverses in the decreasing case.) If g(x) is an increasing
+function, then using (2.1.4), we can write
+
+                                                              g−1(y)
+             FY(y) =               fX(x)dx =        fX(x)dx = FX  g−1(y)  .
+                     {x∈X : x≤g−1(y)}          −∞
+If g(x) is decreasing, we have
+
+                             ∞
+                                                                                                      .                        FY(y) =                                      fX(x)dx = 1−FX  g−1(y)                                           g−1(y)
+The continuity of X is used to obtain the second equality. We summarize these results in the follow-
+ing theorem.
+Theorem 2.1.3  Let X have cdf FX(x), let Y = g(X), and let X and Y be defined as in (2.1.7).
+  a.  If g is an increasing function on X ,FY(y) = FX  g−1(y)  for y ∈Y .
+  b.  If g is a decreasing function on X and X is a continuous random variable, FY(y) = 1 −
+  FX  g−1(y)  for y ∈Y .
+Example 2.1.4 (Uniform-exponential relationship–I)  Suppose X ∼fX(x) = 1 if 0 < x < 1 and0 otherwise, the uniform(0,1) distribution. It is straightforward to check that FX(x) = x, 0 < x < 1.
+We now make the transformation Y = g(X) = −logX. Since
+                  d       d               =       = −1 < 0,     for  0 < x < 1,                   dxg(x)   dx(−logx)    x
+g(x) is a decreasing function. As X ranges between 0 and 1, −logx ranges between 0 and ∞, that is,
+Y = (0,∞). For y > 0,y = −logx implies x = e−y, so g−1(y) = e−y. Therefore, for y > 0,
+
+                         =                                 =                                                = x)                     FY(y) = 1−FX  g−1(y)                                       1−FX(e−y)                                                  1−e−y.           (FX(x)
+Of course, FY(y) = 0 for y ≤0. Note that it was necessary only to verify that g(x) = −logx is
+monotone on (0,1), the support of X.                                                ∥
+     If the pdf of Y is continuous, it can be obtained by differentiating the cdf. The resulting expres-
+sion is given in the following theorem.
+Theorem 2.1.5   Let X have pdf fX(x) and let Y = g(X), where g is a monotone function. Let
+X and Y be defined by (2.1.7). Suppose that fX(x) is continuous on X and that g−1(y) has a
+continuous derivative on Y . Then the pdf of Y is given by
+                                  fX(g−1(y)) d          y        ,                          fY(y) =             dyg−1(y)   ∈Y                       (2.1.10)
+                              0                       otherwise.

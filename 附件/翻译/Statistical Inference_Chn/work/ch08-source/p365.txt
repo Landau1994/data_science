@@ -1,0 +1,42 @@
+334                                             HYPOTHESIS TESTING
+
+8.47 Consider two independent normal samples with equal variances, as in Exercise 8.41. Consider testing
+     H0 : µX −µY ≤−δ or µX −µY ≥δ versus H1 : −δ < µX −µY < δ, where δ is a specified positive      constant. (This is called an equivalence testing problem.)
+                                                                                                    0  if       (a) Show that the size α LRT of H−0  : µX −µY ≤−δ versus H−                                                                       1  : µX −µY > −δ rejects H−
+                               X                              T −=  −Y −(−δ)                                                         1    1  ≥tn+m−2,α.                                                                S2p  n + m
+
+      (b) Find the size α LRT of H+0  : µX −µY ≥δ versus H+                                                                1  : µX −µY < δ.
+       (c) Explain how the tests in (a) and (b) can be combined into a level α test of H0 versus H1.
+      (d) Show that the test in (c) is a size α test. (Hint: Consider σ →0.)
+     This procedure is sometimes known as the two one-sided tests procedure, and was derived by Schuirmann
+     (1987) (see also Westlake 1972) for the problem of testing bioequivalence. See also the review article by
+     Berger and Hsu (1996) and Exercise 9.33 for a confidence interval counterpart.
+8.48 Prove the assertion in Example 8.3.30 that the conditional distribution of S1 given S is hypergeometric.
+8.49 In each of the following situations, calculate the p-value of the observed data.
+                                2 versus H1 : θ > 2, 7 successes are observed out of 10 Bernoulli trials.       (a) For testing H0 : θ ≤1                  1
+      (b) For testing H0 : λ ≤1 versus H1 : λ > 1,X = 3 is observed, where X ∼Poisson(λ).
+       (c) For testing H0 : λ ≤1 versus H1 : λ > 1,X1 = 3,X2 = 5, and X3 = 1 is observed, where Xi ∼         Poisson(λ), independent.
+8.50 Let X1,...,Xn be iid n(θ,σ2), σ2 known, and let θ have a double exponential distribution, that is,
+                                                    > 0 will     π(θ) = e−|θ|/a/(2a), a known. A Bayesian test of the hypotheses H0 : θ ≤0 versus H1 : θ      decide in favor of H1 if its posterior probability is large.
+       (a) For a given constant K, calculate the posterior probability that θ > K, that is, P(θ > K|x1,...,xn,a).
+      (b) Find an expression for lima→∞P(θ > K|x1,...,xn,a).
+       (c) Compare your answer in part (b) to the p-value associated with the classical hypothesis test.
+8.51 Here is another common interpretation of p-values. Consider a problem of testing H0 versus H1. Let
+    W(X) be a test statistic. Suppose that for each α, 0 ≤α ≤1, a critical value cα can be chosen so that
+     {x : W(x) ≥cα} is the rejection region of a size α test of H0. Using this family of tests, show that      the usual p-value p(x), defined by (8.3.9), is the smallest α level at which we could reject H0, having
+     observed the data x.
+8.52 Consider testing H0 : θ      k                                  j=1 Θj. For each  j = 1,...,k, let pj(x) denote a valid p-value for testing                  ∈
+     H0j : θ ∈Θ j. Let p(x) = max1≤j≤k pj(x).
+       (a) Show that p(X) is a valid p-value for testing H0.
+      (b) Show that the α level test defined by p(X) is the same as an α level IUT defined in terms of individual
+            tests based on the pj(x)s.
+8.53 In Example 8.2.7, we saw an example of a one-sided Bayesian hypothesis test. Now we will consider a
+      similar situation, but with a two-sided test. We want to test
+                            H0 : θ = 0     versus    H1 : θ̸ = 0,
+     and we observe X1,...,Xn, a random sample from a n(θ,σ2) population, σ2 known. A type of prior
+      distribution that is often used in this situation is a mixture of a point mass on θ = 0 and a pdf spread
+      out                                                     1         over H1. A typical choice is to take P(θ = 0) = 2, and if θ̸ = 0, take the prior distribution to be       1      2n(0,τ2), where τ2 is known.
+       (a) Show that the prior defined above is proper, that is, P(−∞< θ < ∞) = 1.
+      (b) Calculate the posterior probability that H0 is true, P(θ = 0|x1,...,xn).
+       (c) Find an expression for the p-value corresponding to a value of x.
+      (d) For the special case σ2 = τ2 = 1, compare P(θ = 0|x1,...,xn) and the p-value for a range of values          of x. In particular,

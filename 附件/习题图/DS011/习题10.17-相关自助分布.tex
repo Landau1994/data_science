@@ -1,0 +1,24 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,pgfplots}
+\setCJKmainfont{SimSun}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+\begin{document}\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 2,horizontal sep=1.5cm,vertical sep=1.8cm},width=8.5cm,height=6cm,xlabel={相关系数 $r$},ylabel={密度},xmin=-1,xmax=1,ymin=0,legend style={font=\scriptsize,at={(.02,.98)},anchor=north west},title style={font=\small}]
+\nextgroupplot[title={A：保留5.58；非参数重抽}]
+\addplot[ybar interval,fill=gray!30,draw=gray] table[x=x,y=density] {10.17-0-nonparametric.dat};\addlegendentry{实际1,000次}
+\addplot[black,thick] table[x=x,y=normal] {10.17-0-curves.dat};\addlegendentry{一阶正态近似}
+\addplot[black,dashed,thick] table[x=x,y=fisher] {10.17-0-curves.dat};\addlegendentry{Fisher z推回密度}
+\nextgroupplot[title={B：明确假设558；非参数重抽}]
+\addplot[ybar interval,fill=gray!30,draw=gray] table[x=x,y=density] {10.17-1-nonparametric.dat};\addlegendentry{实际1,000次}
+\addplot[black,thick] table[x=x,y=normal] {10.17-1-curves.dat};\addlegendentry{一阶正态近似}
+\addplot[black,dashed,thick] table[x=x,y=fisher] {10.17-1-curves.dat};\addlegendentry{Fisher z推回密度}
+\nextgroupplot[title={A：保留5.58；参数重抽}]
+\addplot[ybar interval,fill=gray!30,draw=gray] table[x=x,y=density] {10.17-0-parametric.dat};\addlegendentry{实际1,000次}
+\addplot[black,thick] table[x=x,y=normal] {10.17-0-curves.dat};\addlegendentry{一阶正态近似}
+\addplot[black,dashed,thick] table[x=x,y=fisher] {10.17-0-curves.dat};\addlegendentry{Fisher z推回密度}
+\nextgroupplot[title={B：明确假设558；参数重抽}]
+\addplot[ybar interval,fill=gray!30,draw=gray] table[x=x,y=density] {10.17-1-parametric.dat};\addlegendentry{实际1,000次}
+\addplot[black,thick] table[x=x,y=normal] {10.17-1-curves.dat};\addlegendentry{一阶正态近似}
+\addplot[black,dashed,thick] table[x=x,y=fisher] {10.17-1-curves.dat};\addlegendentry{Fisher z推回密度}
+\end{groupplot}\end{tikzpicture}\end{document}

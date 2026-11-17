@@ -1,0 +1,459 @@
+\subsection{习题}\label{sec:9.4}
+\begin{exercise}\label{exercise:9.1}
+若$L(x),U(x)$满足$P_\theta(L(X)\le\theta)=1-\alpha_1$和$P_\theta(U(X)\ge\theta)=1-\alpha_2$，且对所有$x$均有$L(x)\le U(x)$，证明$P_\theta(L(X)\le\theta\le U(X))=1-\alpha_1-\alpha_2$.
+\end{exercise}
+\begin{exercise}\label{exercise:9.2}
+设$X_1,\ldots,X_n$独立同分布于$\mathrm n(\theta,1)$. $\theta$的一个$95\%$置信区间为$\bar x\pm1.96/\sqrt n$. 令$p$表示额外的独立观测$X_{n+1}$落入这个区间的概率. $p$大于、小于还是等于$.95$？证明你的答案.
+\end{exercise}
+\begin{exercise}\label{exercise:9.3}
+独立随机变量$X_1,\ldots,X_n$具有相同分布
+$$P(X_i\le x)=\begin{cases}0,&x\le0,\\(x/\beta)^\alpha,&0<x<\beta,\\1,&x\ge\beta.\end{cases}$$
+\begin{enumerate}
+\item 在\autoref{exercise:7.10}中已求出$\alpha,\beta$的MLE. 若$\alpha$是已知常数$\alpha_0$，求$\beta$的置信系数为$.95$的置信上限.
+\item 利用\autoref{exercise:7.10}的数据构造$\beta$的区间估计. 假设$\alpha$已知且等于其MLE.
+\end{enumerate}
+\end{exercise}
+\sourcepageanchor{397}
+\begin{exercise}\label{exercise:9.4}
+设$X_1,\ldots,X_n$为来自$\mathrm n(0,\sigma_X^2)$的随机样本，$Y_1,\ldots,Y_m$为来自$\mathrm n(0,\sigma_Y^2)$且与各$X$独立的随机样本. 定义$\lambda=\sigma_Y^2/\sigma_X^2$.
+\begin{enumerate}
+\item\label{item:9.4.a}求$H_0:\lambda=\lambda_0$对$H_1:\lambda\ne\lambda_0$的水平$\alpha$ LRT.
+\item 用$F$随机变量表示\hyperref[item:9.4.a]{(a)}中LRT的拒绝域.
+\item 求$\lambda$的$1-\alpha$置信区间.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.5}
+\autoref{ex:9.2.5}对一系列伯努利试验的成功概率$p$给出了置信下界. 本题将导出置信上界. 即观测$X_1,\ldots,X_n$，其中$X_i\sim\operatorname{Bernoulli}(p)$，希望得到形式为$[0,U(x_1,\ldots,x_n))$的区间，使$P_p(p\in[0,U(X_1,\ldots,X_n)))\ge1-\alpha$.
+\begin{enumerate}
+\item 证明反演检验
+$$H_0:p=p_0\qquad\text{对}\qquad H_1:p<p_0$$
+的接受域，将给出具有所需置信水平和形式的置信区间.
+\item 求类似\eqref{eq:9.2.8}的方程，用以构造置信区间.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.6}\index{SI0159@二项}\leavevmode
+\begin{enumerate}
+\item 通过反演$H_0:p=p_0$对$H_1:p\ne p_0$的LRT，导出二项参数$p$的置信区间.
+\item 证明该区间是来自$p^y(1-p)^{n-y}$的最高密度区域，且不等于\eqref{eq:10.4.4}中的区间.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.7}\leavevmode
+\begin{enumerate}
+\item 基于来自$\mathrm n(\theta,a\theta)$族的样本$X_1,\ldots,X_n$（其中$\theta$未知），求反演$H_0:a=a_0$对$H_1:a\ne a_0$的LRT所得的$a$的$1-\alpha$置信集.
+\item 对相关的$\mathrm n(\theta,a\theta^2)$族也可提出类似问题. 若$X_1,\ldots,X_n$独立同分布于$\mathrm n(\theta,a\theta^2)$，其中$\theta$未知，求基于反演$H_0:a=a_0$对$H_1:a\ne a_0$的LRT的$1-\alpha$置信集.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.8}
+给定来自形式为$\sigma^{-1}f((x-\theta)/\sigma)$的pdf的样本$X_1,\ldots,X_n$，列出至少五个不同的枢轴量.
+\end{exercise}
+\begin{exercise}\label{exercise:9.9}
+证明\autoref{ex:9.2.7}所列三个量均为枢轴量.
+\end{exercise}
+\begin{exercise}\label{exercise:9.10}\leavevmode
+\begin{enumerate}
+\item 设$T$为实值统计量，并假设对于每个$\theta\in\Theta$，$Q(t,\theta)$都是$t$的单调函数. 证明：若$T$的pdf $f(t\mid\theta)$对某个函数$g$可表示为\eqref{eq:9.2.11}的形式，则$Q(T,\theta)$为枢轴量.
+\item 证明取$g=1$及$Q(t,\theta)=F_\theta(t)$（$T$的cdf）即可满足\eqref{eq:9.2.11}.（这就是概率积分变换.）
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.11}
+若$T$为cdf为$F_T(t\mid\theta)$的连续随机变量，且$\alpha_1+\alpha_2=\alpha$，证明假设$H_0:\theta=\theta_0$的一个水平$\alpha$接受域为$\{t:\alpha_1\le F_T(t\mid\theta_0)\le1-\alpha_2\}$，其对应的$1-\alpha$置信集为$\{\theta:\alpha_1\le F_T(t\mid\theta)\le1-\alpha_2\}$.
+\end{exercise}
+\begin{exercise}\label{exercise:9.12}
+基于来自$\mathrm n(\theta,\theta)$总体、容量为$n$的随机样本寻找一个枢轴量，其中$\theta>0$. 利用该枢轴量建立$\theta$的$1-\alpha$置信区间.
+\end{exercise}
+\begin{exercise}\label{exercise:9.13}
+设$X$为来自$\operatorname{beta}(\theta,1)$密度的单个观测.
+\begin{enumerate}
+\item\label{item:9.13.a}令$Y=-(\log X)^{-1}$. 计算集合$[y/2,y]$的置信系数.
+\item 寻找一个枢轴量，并用它建立一个置信区间，使其置信系数与\hyperref[item:9.13.a]{(a)}中的区间相同.
+\item 比较两个置信区间.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.14}
+设$X_1,\ldots,X_n$独立同分布于$\mathrm n(\mu,\sigma^2)$，两个参数均未知. 可以用多种方式通过Bonferroni不等式对$\mu,\sigma$进行同时推断.
+\begin{enumerate}
+\item\label{item:9.14.a}利用Bonferroni不等式，将两个置信集
+$$\left\{\mu:\bar x-\frac{ks}{\sqrt n}\le\mu\le\bar x+\frac{ks}{\sqrt n}\right\}\quad\text{与}\quad\left\{\sigma^2:\frac{(n-1)s^2}b\le\sigma^2\le\frac{(n-1)s^2}a\right\}$$
+合并为$(\mu,\sigma)$的一个置信集. 说明如何选择$a,b,k$，使该同时置信集为$1-\alpha$置信集.
+\sourcepageanchor{398}
+\item\label{item:9.14.b}利用Bonferroni不等式，将两个置信集
+$$\left\{\mu:\bar x-\frac{k\sigma}{\sqrt n}\le\mu\le\bar x+\frac{k\sigma}{\sqrt n}\right\}\quad\text{与}\quad\left\{\sigma^2:\frac{(n-1)s^2}b\le\sigma^2\le\frac{(n-1)s^2}a\right\}$$
+合并为$(\mu,\sigma)$的一个置信集. 说明如何选择$a,b,k$，使该同时置信集为$1-\alpha$置信集.
+\item 比较\hyperref[item:9.14.a]{(a)}和\hyperref[item:9.14.b]{(b)}中的置信集.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.15}
+求解定义正态均值比的Fieller置信集的二次方程之根（见\autoref{sec:9.5.3}）. 求出随机变量满足何种条件时，
+\begin{enumerate}
+\item 抛物线开口向上（置信集为一个区间）.
+\item 抛物线开口向下（置信集为一个区间的补集）.
+\item 抛物线没有实根.
+\end{enumerate}
+在每种情形下解释置信集的含义. 例如，若某位实验者的数据导致抛物线没有实根，你会如何向他解释？
+\end{exercise}
+\begin{exercise}\label{exercise:9.16}
+设$X_1,\ldots,X_n$独立同分布于$\mathrm n(\theta,\sigma^2)$，其中$\sigma^2$已知. 对下列每组假设，写出一个水平$\alpha$检验的接受域，以及反演该检验得到的$1-\alpha$置信区间.
+\begin{enumerate}
+\item $H_0:\theta=\theta_0$对$H_1:\theta\ne\theta_0$.
+\item $H_0:\theta\ge\theta_0$对$H_1:\theta<\theta_0$.
+\item $H_0:\theta\le\theta_0$对$H_1:\theta>\theta_0$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.17}\index{SI0145@构造}
+给定独立同分布的$X_1,\ldots,X_n$，其pdf如下，求$\theta$的$1-\alpha$置信区间.
+\begin{enumerate}
+\item $f(x\mid\theta)=1$，$\theta-\tfrac12<x<\theta+\tfrac12$.
+\item $f(x\mid\theta)=2x/\theta^2$，$0<x<\theta$，$\theta>0$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.18}\index{SI0173@二项}
+本题进一步研究二项置信集的性质，特别是\hyperref[bib:source305]{Sterne（1954）}的构造. 与\autoref{ex:9.2.11}一样，仍考虑$\operatorname{binomial}(3,p)$分布.
+\begin{enumerate}
+\item 画出四个概率函数$P_p(X=x)$，$x=0,\ldots,3$，随$p$变化的图像. 确定$P_p(X=1)$和$P_p(X=2)$的最大值.
+\item 证明对于小的$\varepsilon$，当$p=\frac13+\varepsilon$时有$P_p(X=0)>P_p(X=2)$.
+\item 证明以下接受域可被反演为$1-\alpha=.442$置信\emph{区间}，从而说明Sterne集合中的困难应归咎于\emph{最大概率构造}.
+\begin{center}\begin{tabular}{cc}\toprule
+$p$&接受域\\\midrule
+$[.000,.238]$&$\{0\}$\\
+$(.238,.305)$&$\{0,1\}$\\
+$[.305,.362]$&$\{1\}$\\
+$(.362,.634)$&$\{1,2\}$\\
+$[.634,.695]$&$\{2\}$\\
+$(.695,.762)$&$\{2,3\}$\\
+$[.762,1.00]$&$\{3\}$\\\bottomrule
+\end{tabular}\end{center}
+（这实质上是\hyperref[bib:source88]{Crow（1956）}对Sterne构造的修改，参见\autoref{sec:9.5.2}.）
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.19}
+证明\autoref{thm:9.2.12}的\hyperref[item:9.2.12.ii]{(b)部分}.
+\end{exercise}
+\begin{exercise}\label{exercise:9.20}
+需要补全\autoref{thm:9.2.14}证明中的一些细节，并证明定理的第二部分.
+\begin{enumerate}
+\item 证明：若$F_T(T\mid\theta)$随机大于或等于均匀随机变量，则$\overline F_T(T\mid\theta)$也如此. 即若对每个$0\le x\le1$都有$P_\theta(F_T(T\mid\theta)\le x)\le x$，则对每个$0\le x\le1$也有$P_\theta(\overline F_T(T\mid\theta)\le x)\le x$.
+\item 证明：对于$\alpha_1+\alpha_2=\alpha$，集合$\{\theta:F_T(T\mid\theta)\le\alpha_1\text{ 且 }\overline F_T(T\mid\theta)\le\alpha_2\}$是$1-\alpha$置信集.\footnote{译注：本分题沿用了\autoref{thm:9.2.14}证明中的不等号疑误；要构造中央置信集，应排除下尾或上尾概率过小的参数值，原文两个“$\le$”的方向与此不符. 原式保留.}
+\item 若cdf $F_T(t\mid\theta)$对每个$t$均为$\theta$的递减函数，证明由$\overline F_T(t\mid\theta)=P(T\ge t\mid\theta)$定义的函数$\overline F_T(t\mid\theta)$，对每个$t$均为$\theta$的非递减函数.
+\item 证明\autoref{thm:9.2.14}的\hyperref[item:9.2.14.ii]{(b)部分}.
+\end{enumerate}
+\end{exercise}
+\sourcepageanchor{399}
+\begin{exercise}\label{exercise:9.21}\index{SI0143@与F分布的关系}
+\autoref{ex:9.2.15}表明，泊松参数的置信区间可用卡方临界点表示. 用类似技术证明，若$X\sim\operatorname{binomial}(n,p)$，则$p$的一个$1-\alpha$置信区间为
+$$\frac1{1+\frac{n-x+1}xF_{2(n-x+1),2x,\alpha/2}}\le p\le\frac{\frac{x+1}{n-x}F_{2(x+1),2(n-x),\alpha/2}}{1+\frac{x+1}{n-x}F_{2(x+1),2(n-x),\alpha/2}},$$
+其中$F_{\nu_1,\nu_2,\alpha}$为自由度$\nu_1,\nu_2$的$F$分布的上侧$\alpha$临界点，并作如下端点调整：若$x=0$，下端点为$0$；若$x=n$，上端点为$1$. 这些就是\hyperref[bib:source79]{Clopper和Pearson（1934）}区间.
+
+（提示：回顾\autoref{exercise:2.40}中的恒等式，它可解释为：若$X\sim\operatorname{binomial}(n,\theta)$，则$P_\theta(X\ge x)=P(Y\le\theta)$，其中$Y\sim\operatorname{beta}(x,n-x+1)$. 使用\autoref{sec:5}中$F$分布与贝塔分布的性质.）
+\end{exercise}
+\begin{exercise}\label{exercise:9.22}\index{SI0162@与F分布的关系}
+若$X\sim\operatorname{negative\ binomial}(r,p)$，利用二项分布与负二项分布的关系，证明$p$的一个$1-\alpha$置信区间为
+$$\frac1{1+\frac{x+1}rF_{2(x+1),2r,\alpha/2}}\le p\le\frac{\frac rxF_{2r,2x,\alpha/2}}{1+\frac rxF_{2r,2x,\alpha/2}},$$
+在$x=0$时作适当修改.
+\end{exercise}
+\begin{exercise}\label{exercise:9.23}\leavevmode
+\begin{enumerate}
+\item 设$X_1,\ldots,X_n$为来自参数为$\lambda$的泊松总体的随机样本，定义$Y=\sum X_i$. \autoref{ex:9.2.15}用\autoref{sec:9.2.3}的方法求得了$\lambda$的置信区间. 通过反演LRT构造$\lambda$的另一个区间，并比较这些区间.
+\item 以下数据是某块马铃薯田中九行作物每行的蚜虫数，可以假定它们服从泊松分布：
+$$155,\quad104,\quad66,\quad50,\quad36,\quad40,\quad30,\quad35,\quad42.$$
+用这些数据为每行的平均蚜虫数构造$90\%$ LRT置信区间. 再用\autoref{ex:9.2.15}的方法构造一个区间.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.24}
+对于$X\sim\operatorname{Poisson}(\lambda)$，证明\autoref{ex:9.2.15}中置信区间$[L(X),U(X)]$的覆盖概率为
+$$P_\lambda(\lambda\in[L(X),U(X)])=\sum_{x=0}^\infty I_{[L(x),U(x)]}(\lambda)\frac{e^{-\lambda}\lambda^x}{x!},$$
+并且可以定义函数$x_l(\lambda),x_u(\lambda)$使
+$$P_\lambda(\lambda\in[L(X),U(X)])=\sum_{x=x_l(\lambda)}^{x_u(\lambda)}\frac{e^{-\lambda}\lambda^x}{x!}.$$
+由此解释为什么\autoref{fig:9.2.5}所给泊松区间的覆盖概率图像，在各个置信区间的端点处发生跳跃.
+\end{exercise}
+\begin{exercise}\label{exercise:9.25}
+若$X_1,\ldots,X_n$独立同分布，pdf为$f(x\mid\mu)=e^{-(x-\mu)}I_{[\mu,\infty)}(x)$，则$Y=\min\{X_1,\ldots,X_n\}$对$\mu$充分，其pdf为
+$$f_Y(y\mid\mu)=ne^{-n(y-\mu)}I_{[\mu,\infty)}(y).$$
+\autoref{ex:9.2.13}用\autoref{sec:9.2.3}的方法求得$\mu$的一个$1-\alpha$置信区间. 将它与似然法、枢轴法所得的$1-\alpha$区间比较.
+\end{exercise}
+\begin{exercise}\label{exercise:9.26}
+设$X_1,\ldots,X_n$为来自$\operatorname{beta}(\theta,1)$密度的独立同分布观测，并假设$\theta$具有$\operatorname{gamma}(r,\lambda)$先验pdf. 求$\theta$的一个$1-\alpha$贝叶斯可信集.
+\end{exercise}
+\begin{exercise}\label{exercise:9.27}\leavevmode
+\begin{enumerate}
+\item 设$X_1,\ldots,X_n$为来自$\operatorname{exponential}(\lambda)$密度的独立同分布观测，其中$\lambda$具有共轭$\operatorname{IG}(a,b)$先验，即逆伽马分布，其pdf为
+$$\pi(\lambda\mid a,b)=\frac1{\Gamma(a)b^a}\left(\frac1\lambda\right)^{a+1}e^{-1/(b\lambda)},\qquad0<\lambda<\infty.$$
+说明如何寻找$\lambda$的$1-\alpha$贝叶斯HPD可信集.
+\sourcepageanchor{400}
+\item\label{item:9.27.b}基于样本方差$s^2$，并对正态分布方差$\sigma^2$采用共轭$\operatorname{IG}(a,b)$先验，求$\sigma^2$的$1-\alpha$贝叶斯HPD可信集.
+\item 从\hyperref[item:9.27.b]{(b)}的区间出发，求$a\to0$且$b\to\infty$时所得的$\sigma^2$的极限$1-\alpha$贝叶斯HPD可信集.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.28}
+设$X_1,\ldots,X_n$独立同分布于$\mathrm n(\theta,\sigma^2)$，其中$\theta,\sigma^2$均未知，但只关心关于$\theta$的推断. 考虑先验pdf
+$$\pi(\theta,\sigma^2\mid\mu,\tau^2,a,b)=\frac1{\sqrt{2\pi\tau^2\sigma^2}}e^{-(\theta-\mu)^2/(2\tau^2\sigma^2)}\frac1{\Gamma(a)b^a}\left(\frac1{\sigma^2}\right)^{a+1}e^{-1/(b\sigma^2)},$$
+即$\mathrm n(\mu,\tau^2\sigma^2)$乘以$\operatorname{IG}(a,b)$.
+\begin{enumerate}
+\item 证明这个先验是该问题的共轭先验.
+\item\label{item:9.28.b}求$\theta$的后验分布，并用它构造$\theta$的$1-\alpha$可信集.
+\item $\theta$的经典$1-\alpha$置信集可以表示为
+$$\left\{\theta:|\theta-\bar x|^2\le F_{1,n-1,\alpha/2}\frac{s^2}n\right\}.$$
+是否存在$\tau^2,a,b$的某个（极限）序列，使\hyperref[item:9.28.b]{(b)}中的贝叶斯集合逼近这个集合？\footnote{译注：原式的$F$分布上侧概率写为$\alpha/2$；由$t_{n-1,\alpha/2}^2=F_{1,n-1,\alpha}$，通常的$1-\alpha$双侧$t$区间平方后应使用$F_{1,n-1,\alpha}$. 原式保留.}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.29}
+若$X_1,\ldots,X_n$是一系列$n$次$\operatorname{Bernoulli}(p)$试验，
+\begin{enumerate}
+\item 采用共轭$\operatorname{beta}(a,b)$先验，计算$p$的$1-\alpha$可信集.
+\item 利用贝塔分布和$F$分布的关系，将可信集写成可与\autoref{exercise:9.21}的区间形式比较的形式. 比较这些区间.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.30}
+完成\autoref{ex:9.2.17}所需的可信概率计算.
+\begin{enumerate}
+\item\label{item:9.30.a}假设$a$是整数，证明$T=2(nb+1)\lambda/b\sim\chi^2_{2(a+\sum x)}$.
+\item 证明当$\nu\to\infty$时，
+$$\frac{\chi^2_\nu-\nu}{\sqrt{2\nu}}\to\mathrm n(0,1).$$
+（使用矩母函数. 这个极限难以计算：先取对数，再作Taylor展开. 或参见\autoref{ex:12.6.8}.）
+\item 将\hyperref[item:9.30.a]{(a)}中的随机变量$T$标准化，并用这个变量写出可信概率\eqref{eq:9.2.21}. 证明当$\sum x_i\to\infty$时，标准化后的下侧临界点$\to\infty$，从而可信概率趋于零.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.31}
+完成\autoref{ex:9.2.17}所需的覆盖概率计算.
+\begin{enumerate}
+\item 若$\chi^2_{2Y}$为卡方随机变量，且$Y\sim\operatorname{Poisson}(\lambda)$，证明$E(\chi^2_{2Y})=2\lambda$，$\operatorname{Var}(\chi^2_{2Y})=8\lambda$，$\chi^2_Y$的mgf为$\exp(-\lambda+\lambda/(1-2t))$，并且当$\lambda\to\infty$时，
+$$\frac{\chi^2_{2Y}-2\lambda}{\sqrt{8\lambda}}\to\mathrm n(0,1).$$
+（使用矩母函数.）\footnote{译注：本分题的mgf所对应随机变量原文写为$\chi_Y^2$，而题首和后续公式均为$\chi_{2Y}^2$；由给定mgf，其自由度下标应为$2Y$. 原文保留.}
+\item 现在先将$\chi^2_{2Y}$标准化，再计算$\lambda\to\infty$时的\eqref{eq:9.2.22}. 证明标准化后的上限在$\lambda\to\infty$时趋于$-\infty$，从而覆盖概率趋于零.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.32}\index{SI0234@正态}
+本题计算\eqref{eq:9.2.23}中HPD区域的经典覆盖概率，即在概率模型$\bar X\sim\mathrm n(\theta,\sigma^2/n)$下贝叶斯HPD区域的覆盖概率.
+\sourcepageanchor{401}
+\begin{enumerate}
+\item 利用\autoref{ex:9.3.12}中的定义，证明
+$$\begin{aligned}
+&P_\theta\left(|\theta-\delta^{\mathrm B}(\bar X)|\le z_{\alpha/2}\sqrt{\operatorname{Var}(\theta\mid\bar X)}\right)\\
+&=P_\theta\left[-\sqrt{1+\gamma}\,z_{\alpha/2}+\frac{\gamma(\theta-\mu)}{\sigma/\sqrt n}\le Z\le\sqrt{1+\gamma}\,z_{\alpha/2}+\frac{\gamma(\theta-\mu)}{\sigma/\sqrt n}\right].
+\end{aligned}$$
+\item 证明上述集合虽然是$1-\alpha$可信集，却不是$1-\alpha$置信集.（固定$\theta\ne\mu$，令$\tau=\sigma/\sqrt n$，使$\gamma=1$. 证明当$\sigma^2/n\to0$时，上述概率趋于零.）
+\item 不过，若$\theta=\mu$，证明覆盖概率有一个远离零的下界. 求此覆盖概率的最小值与最大值.
+\item 现在来看另一面. $\theta$的通常$1-\alpha$置信集为$\{\theta:|\theta-\bar x|\le z_{\alpha/2}\sigma/\sqrt n\}$. 证明这个集合的可信概率为
+$$\begin{aligned}
+&P_{\bar x}(|\theta-\bar x|\le z_{\alpha/2}\sigma/\sqrt n)\\
+&=P_{\bar x}\left[-\sqrt{1+\gamma}\,z_{\alpha/2}+\frac{\gamma(\bar x-\mu)}{\sqrt{1+\gamma}\,\sigma/\sqrt n}\le Z\le\sqrt{1+\gamma}\,z_{\alpha/2}+\frac{\gamma(\bar x-\mu)}{\sqrt{1+\gamma}\,\sigma/\sqrt n}\right],
+\end{aligned}$$
+且此概率没有远离零的下界. 因而这个$1-\alpha$置信集不是$1-\alpha$可信集.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.33}\index{SI0144@生物等效性}
+设$X\sim\mathrm n(\mu,1)$，考虑置信区间
+$$C_a(x)=\{\mu:\min\{0,(x-a)\}\le\mu\le\max\{0,(x+a)\}\}.$$
+\begin{enumerate}
+\item 对$a=1.645$，证明除$\mu=0$时覆盖概率为$1$以外，$C_a(x)$的覆盖概率对所有$\mu$都恰为$.95$.
+\item 现在考虑所谓无信息先验$\pi(\mu)=1$. 使用此先验并仍取$a=1.645$，证明$C_a(x)$的后验可信概率在$-1.645\le x\le1.645$时恰为$.90$，且当$|x|\to\infty$时上升至$.95$.
+\end{enumerate}
+这类区间出现在生物等效性（bioequivalence）问题中，其目标是确定两种处理（药物的不同制剂、治疗的不同给药系统）是否产生相同效应. 这个问题的表述导致原假设与备择假设的角色“互换”（\autoref{exercise:8.47}），从而产生一些有趣的统计问题. 生物等效性的综述见\hyperref[bib:source27]{Berger和Hsu（1996）}，置信集的推广见\hyperref[bib:source53]{Brown、Casella和Hwang（1995）}.
+\end{exercise}
+\begin{exercise}\label{exercise:9.34}
+设$X_1,\ldots,X_n$是来自$\mathrm n(\mu,\sigma^2)$总体的随机样本.
+\begin{enumerate}
+\item 若$\sigma^2$已知，求保证$\mu$的$.95$置信区间长度不超过$\sigma/4$的最小$n$.
+\item 若$\sigma^2$未知，求以$.90$的概率保证$\mu$的$.95$置信区间长度不超过$\sigma/4$的最小$n$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.35}
+设$X_1,\ldots,X_n$为来自$\mathrm n(\mu,\sigma^2)$总体的随机样本. 比较在以下假设下计算的$\mu$的$1-\alpha$置信区间的期望长度：
+\begin{enumerate}
+\item $\sigma^2$已知.
+\item $\sigma^2$未知.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.36}
+设$X_1,\ldots,X_n$相互独立，pdf为$f_{X_i}(x\mid\theta)=e^{i\theta-x}I_{[i\theta,\infty)}(x)$. 证明$T=\min_i(X_i/i)$是$\theta$的充分统计量. 基于$T$，求形式为$[T+a,T+b]$且长度最短的$\theta$的$1-\alpha$置信区间.
+\end{exercise}
+\begin{exercise}\label{exercise:9.37}
+设$X_1,\ldots,X_n$独立同分布于$\operatorname{uniform}(0,\theta)$，$Y$为最大次序统计量. 证明$Y/\theta$是枢轴量，并证明区间
+$$\left\{\theta:y\le\theta\le\frac y{\alpha^{1/n}}\right\}$$
+是最短的$1-\alpha$枢轴区间.
+\end{exercise}
+\sourcepageanchor{402}
+\begin{exercise}\label{exercise:9.38}
+若在\autoref{thm:9.3.2}中假设$f$连续，则可以简化证明. 固定$c$，考虑积分$\int_a^{a+c}f(x)\,dx$.
+\begin{enumerate}
+\item 证明$\frac d{da}\int_a^{a+c}f(x)\,dx=f(a+c)-f(a)$.
+\item 证明$f$的单峰性蕴含：当$a$满足$f(a+c)-f(a)=0$时，$\int_a^{a+c}f(x)\,dx$达到最大.
+\item 假设给定$\alpha$，选择$c^*,a^*$满足$\int_{a^*}^{a^*+c^*}f(x)\,dx=1-\alpha$及$f(a^*+c^*)-f(a^*)=0$. 证明这是最短$1-\alpha$区间.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.39}
+证明\autoref{thm:9.3.2}的一个特例. 设$X\sim f(x)$，其中$f$为对称单峰pdf. 对固定的$1-\alpha$，在所有满足$\int_a^b f(x)\,dx=1-\alpha$的区间$[a,b]$中，最短区间通过选择满足$\int_{-\infty}^a f(x)\,dx=\alpha/2$及$\int_b^\infty f(x)\,dx=\alpha/2$的$a,b$得到.
+\end{exercise}
+\begin{exercise}\label{exercise:9.40}
+在\autoref{exercise:9.39}的基础上，证明若$f$对称，则最优区间具有$m\pm k$的形式，其中$m$为$f$的众数，$k$为常数. 由此证明：
+\begin{enumerate}
+\item 若$k'$不依赖参数（见\eqref{eq:9.2.7}），则对称似然函数产生关于MLE对称的似然区域.
+\item 对称后验密度产生关于后验均值对称的HPD区域.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.41}\leavevmode
+\begin{enumerate}
+\item\label{item:9.41.a}证明下述与\autoref{thm:9.3.2}有关的结论. 设$X\sim f(x)$，其中$f$是$[0,\infty)$上严格递减的pdf. 对固定$1-\alpha$，在所有满足$\int_a^b f(x)\,dx=1-\alpha$的区间$[a,b]$中，最短区间由$a=0$且$\int_0^b f(x)\,dx=1-\alpha$确定.
+\item 利用\hyperref[item:9.41.a]{(a)}的结果，求\autoref{ex:9.2.13}中最短的$1-\alpha$置信区间.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.42}
+回顾\autoref{ex:9.3.4}，为寻找伽马尺度参数的最短枢轴区间，我们必须解一个约束极小化问题.
+\begin{enumerate}
+\item 证明解由满足$\int_a^b f_Y(y)\,dy=1-\alpha$以及$f(b)b^2=f(a)a^2$的$a,b$给出.
+\item 对来自$\operatorname{gamma}(k,\beta)$密度的一个观测，已知形状参数$k$，求形式为$\{\beta:x/b\le\beta\le x/a\}$的最短$1-\alpha$（枢轴）置信区间.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.43}
+\hyperref[bib:source184]{Juola（1993）}作了如下观察. 若有枢轴量$Q(\boldsymbol X,\theta)$，构造$1-\alpha$置信区间涉及寻找$a,b$使$P(a<Q<b)=1-\alpha$. 通常区间长度是$a,b$的某个函数，例如$b-a$或$1/b^2-1/a^2$. 若$Q$的密度为$f$，且长度可表示为$\int_a^b g(t)\,dt$，则最短枢轴区间是下述问题的解：
+$$\min_{\{a,b\}}\int_a^b g(t)\,dt\qquad\text{满足}\quad\int_a^b f(t)\,dt=1-\alpha,$$
+或更一般地，
+$$\min_C\int_C g(t)\,dt\qquad\text{满足}\quad\int_C f(t)\,dt\ge1-\alpha.$$
+\begin{enumerate}
+\item\label{item:9.43.a}证明解为$C=\{t:g(t)<\lambda f(t)\}$，其中$\lambda$选为使$\int_C f(t)\,dt=1-\alpha$.（提示：可以改编Neyman--Pearson引理\autoref{thm:8.3.12}的证明.）
+\item 应用\hyperref[item:9.43.a]{(a)}的结果，得到\autoref{exercise:9.37}和\autoref{exercise:9.42}中的最短区间.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.44}\leavevmode
+\begin{enumerate}
+\item 设$X_1,\ldots,X_n$独立同分布于$\operatorname{Poisson}(\lambda)$. 反演$H_0:\lambda=\lambda_0$对$H_1:\lambda>\lambda_0$的水平$\alpha$ UMP检验，求一个UMA $1-\alpha$置信区间.
+\item 设$f(x\mid\theta)$为$\operatorname{logistic}(\theta,1)$位置pdf. 基于一个观测$x$，求形式为$\{\theta:\theta\le U(x)\}$的UMA单侧$1-\alpha$置信区间.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.45}\index{SI0175@长度优势}
+设$X_1,\ldots,X_n$独立同分布于$\operatorname{exponential}(\lambda)$.
+\begin{enumerate}
+\item\label{item:9.45.a}求$H_0:\lambda=\lambda_0$对$H_1:\lambda<\lambda_0$的大小为$\alpha$的UMP假设检验.
+\item 反演\hyperref[item:9.45.a]{(a)}中的检验，求一个UMA $1-\alpha$置信区间. 证明该区间可表示为
+$$C^*(x_1,\ldots,x_n)=\left\{\lambda:0\le\lambda\le\frac{2\sum x_i}{\chi^2_{2n,\alpha}}\right\}.$$
+\item 求$C^*(x_1,\ldots,x_n)$的期望长度.
+\sourcepageanchor{403}
+\item \hyperref[bib:source213]{Madansky（1962）}展示了一个期望长度比UMA区间更短的$1-\alpha$区间. 一般而言，Madansky区间难以计算，但在以下情形中计算相对简单. 令$1-\alpha=.3$，$n=120$. Madansky区间为
+$$C^{\mathrm M}(x_1,\ldots,x_n)=\left\{\lambda:0\le\lambda\le-\frac{x_{(1)}}{\log(.99)}\right\},$$
+它是$30\%$置信区间. 利用$\chi^2_{240,.7}=251.046$这一事实，证明$30\%$ UMA区间满足\footnote{译注：原文的卡方上侧概率下标$.7$与数值$251.046$不符；$251.046$约为$\chi^2_{240}$的上侧$.3$临界点. 本题关于$30\%$ UMA区间的说明以及前述临界点公式因此需一并核查，原式保留.}
+$$\begin{aligned}
+E[\operatorname{Length}(C^*(x_1,\ldots,x_n))]&=.956\lambda\\
+&>E[\operatorname{Length}(C^{\mathrm M}(x_1,\ldots,x_n))]=.829\lambda.
+\end{aligned}$$
+
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.46}
+证明：若$A(\theta_0)$是$H_0:\theta=\theta_0$对$H_1:\theta\ne\theta_0$的无偏水平$\alpha$检验接受域，而$C(\boldsymbol x)$为反演这些接受域形成的$1-\alpha$置信集，则$C(\boldsymbol x)$是无偏$1-\alpha$置信集.
+\end{exercise}
+\begin{exercise}\label{exercise:9.47}\index{SI0176@正态}
+设$X_1,\ldots,X_n$为来自$\mathrm n(\theta,\sigma^2)$总体的随机样本，其中$\sigma^2$已知. 证明通常的单侧$1-\alpha$置信上界$\{\theta:\theta\le\bar x+z_\alpha\sigma/\sqrt n\}$无偏，相应置信下界也无偏.
+\end{exercise}
+\begin{exercise}\label{exercise:9.48}
+设$X_1,\ldots,X_n$为来自$\mathrm n(\theta,\sigma^2)$总体的随机样本，其中$\sigma^2$未知.
+\begin{enumerate}
+\item\label{item:9.48.a}证明区间$\theta\le\bar x+t_{n-1,\alpha}s/\sqrt n$可由反演LRT接受域导出.
+\item\label{item:9.48.b}证明\eqref{eq:9.2.14}中相应的双侧区间也可由反演LRT接受域导出.
+\item 证明\hyperref[item:9.48.a]{(a)}和\hyperref[item:9.48.b]{(b)}中的区间无偏.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}[Cox悖论]\label{exercise:9.49}\index{SI0227@Cox悖论}
+我们要检验
+$$H_0:\theta=\theta_0\qquad\text{对}\qquad H_1:\theta>\theta_0,$$
+其中$\theta$为两个正态分布之一的均值，$\theta_0$是$\theta$的一个固定但任意的值. 观测到随机变量$X$，其分布为
+$$X\sim\begin{cases}\mathrm n(\theta,100),&\text{概率为 }p,\\\mathrm n(\theta,1),&\text{概率为 }1-p.\end{cases}$$
+\begin{enumerate}
+\item 证明以下检验是水平$\alpha$检验：
+$$\text{若 }X>\theta_0+z_\alpha\sigma,\text{ 则拒绝 }H_0,$$
+其中$\sigma=1$或$10$取决于从哪个总体抽样. 反演这个检验的接受域，导出$1-\alpha$置信集.
+\item 证明一个功效更高的水平$\alpha$检验（对$\alpha>p$）为
+$$\begin{gathered}
+\text{若 }X>\theta_0+z_{(\alpha-p)/(1-p)}\text{ 且 }\sigma=1,\text{ 则拒绝 }H_0,\\
+\text{否则总是拒绝 }H_0.
+\end{gathered}$$
+反演该检验的接受域导出$1-\alpha$置信集，并证明它以正概率为空集.（Cox悖论指出，经典最优程序有时忽略条件分布的信息，给出一个虽最优、却在某种意义上不合理的程序；参见\hyperref[bib:source84]{Cox 1958}或\hyperref[bib:source83]{Cornfield 1969}.）\footnote{译注：原文“否则总是拒绝$H_0$”若按字面理解，会使检验对全部样本都拒绝. 结合所给水平计算，合理意图应是：当$\sigma=1$时使用所列阈值，而当$\sigma=10$时总是拒绝. 此处保留原文表述.}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.50}
+设$X\sim f(x\mid\theta)$，假设区间$\{\theta:a(X)\le\theta\le b(X)\}$为$\theta$的UMA置信集.
+\begin{enumerate}
+\item 求$1/\theta$的UMA置信集. 注意，若$a(x)<0<b(x)$，则此集合为$\{1/\theta:1/b(x)\le1/\theta\}\cup\{1/\theta:1/\theta\le1/a(x)\}$. 因而UMA置信集可能既非区间，也无界.
+\item 证明：若$h$严格递增，则集合$\{h(\theta):h(a(X))\le h(\theta)\le h(b(X))\}$为$h(\theta)$的UMA置信集. 对$h$的条件能否放宽？
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.51}\index{SI0157@位置}
+若$X_1,\ldots,X_n$独立同分布于位置pdf $f(x-\theta)$，证明置信集
+$$C(x_1,\ldots,x_n)=\{\theta:\bar x-k_1\le\theta\le\bar x+k_2\},$$
+其中$k_1,k_2$为常数，具有常数覆盖概率.（提示：$\bar X$的pdf具有$f_{\bar X}(\bar x-\theta)$的形式.）
+\end{exercise}
+\sourcepageanchor{404}
+\begin{exercise}\label{exercise:9.52}\index{SI0178@方差}
+设$X_1,\ldots,X_n$为来自$\mathrm n(\mu,\sigma^2)$总体的随机样本，其中$\mu,\sigma^2$均未知. 以下每种寻找$\sigma^2$置信区间的方法都给出形式为
+$$\left\{\sigma^2:\frac{(n-1)s^2}b\le\sigma^2\le\frac{(n-1)s^2}a\right\}$$
+的区间，但每种情形中$a,b$满足不同约束. 本题给出的区间由\hyperref[bib:source313]{Tate和Klett（1959）}导出，他们还列出了部分临界点.
+
+定义$f_p(t)$为自由度为$p$的$\chi_p^2$随机变量的pdf. 为获得$1-\alpha$置信区间，$a,b$必须满足
+$$\int_a^b f_{n-1}(t)\,dt=1-\alpha,$$
+但还需要额外约束才能唯一确定$a,b$. 验证下列每个约束确可按所述方式导出.
+\begin{enumerate}
+\item 似然比区间：反演$H_0:\sigma=\sigma_0$对$H_1:\sigma\ne\sigma_0$的LRT所得的$1-\alpha$置信区间具有上述形式，且$a,b$还满足$f_{n+2}(a)=f_{n+2}(b)$.
+\item 最小长度区间：对于上述形式的区间，通过极小化区间长度所得的$1-\alpha$置信区间约束$a,b$满足$f_{n+3}(a)=f_{n+3}(b)$.
+\item 最短无偏区间：对于上述形式的区间，在所有无偏区间中极小化错误覆盖概率所得的$1-\alpha$置信区间约束$a,b$满足$f_{n+1}(a)=f_{n+1}(b)$. 这个区间也可通过极小化端点之比导出.
+\item 等尾区间：对于上述形式的区间，要求区间上方和下方概率相等所得的$1-\alpha$置信区间约束$a,b$满足
+$$\int_0^a f_{n-1}(t)\,dt=\frac\alpha2,\qquad\int_b^\infty f_{n-1}(t)\,dt=\frac\alpha2.$$
+（这个区间虽然非常常见，但无论采用什么长度准则，显然都不是最优的.）
+\item 对于$\alpha=.1$且$n=3$，求上述各情形中$a,b$的数值，并比较这些区间的长度.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.53}
+设$X\sim\mathrm n(\mu,\sigma^2)$，$\sigma^2$已知. 对每个$c\ge0$，定义$\mu$的区间估计量$C(x)=[x-c\sigma,x+c\sigma]$，并考虑\eqref{eq:9.3.4}中的损失.
+\begin{enumerate}
+\item 证明风险函数$R(\mu,C)$为
+$$R(\mu,C)=b(2c\sigma)-P(-c\le Z\le c).$$
+\item 利用微积分基本定理证明
+$$\frac d{dc}R(\mu,C)=2b\sigma-\frac2{\sqrt{2\pi}}e^{-c^2/2},$$
+从而导数在$c\ge0$上是$c$的递增函数.
+\item 证明若$b\sigma>1/\sqrt{2\pi}$，则导数对所有$c\ge0$均为正，因而$R(\mu,C)$在$c=0$处最小. 即最优区间估计量是点估计量$C(x)=[x,x]$.
+\item 证明若$b\sigma\le1/\sqrt{2\pi}$，则使风险最小的$c$为$c=\sqrt{-2\log(b\sigma\sqrt{2\pi})}$. 因而，若选取$b$使$c=z_{\alpha/2}$（对某个$\alpha$），则使风险最小的区间估计量就是通常的$1-\alpha$置信区间.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.54}
+设$X\sim\mathrm n(\mu,\sigma^2)$，但现在$\sigma^2$未知. 对每个$c\ge0$，定义$\mu$的区间估计量$C(x)=[x-cs,x+cs]$，其中$s^2$是与$X$独立的$\sigma^2$估计量，$\nu S^2/\sigma^2\sim\chi^2_\nu$（例如通常的样本方差）. 考虑对\eqref{eq:9.3.4}中损失的修改：
+$$L((\mu,\sigma),C)=\frac b\sigma\operatorname{Length}(C)-I_C(\mu).$$
+\sourcepageanchor{405}
+\begin{enumerate}
+\item 证明风险函数$R((\mu,\sigma),C)$为
+$$R((\mu,\sigma),C)=b(2cM)-[2P(T\le c)-1],$$
+其中$T\sim t_\nu$，$M=ES/\sigma$.
+\item 若$b\le1/\sqrt{2\pi}$，证明使风险最小的$c$满足
+$$b=\frac1{\sqrt{2\pi}}\left(\frac\nu{\nu+c^2}\right)^{(\nu+1)/2}.$$
+\item 将这个问题与$\sigma^2$已知的情形协调起来. 证明当$\nu\to\infty$时，这里的解收敛到$\sigma^2$已知问题的解.（注意对损失函数所作的重新缩放.）
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:9.55}
+集合估计的决策论方法可能很有用（\autoref{exercise:9.56}），但也可能给出令人不安的结果，表明需要审慎实施. 再次考虑$X\sim\mathrm n(\mu,\sigma^2)$、$\sigma^2$未知的情形，假设$\mu$的区间估计量为$C(x)=[x-cs,x+cs]$，其中$s^2$是与$X$独立的$\sigma^2$估计量，$\nu S^2/\sigma^2\sim\chi^2_\nu$. 当然，这就是通常的$t$区间，是经受住时间考验的伟大统计程序之一. 考虑损失
+$$L((\mu,\sigma),C)=b\operatorname{Length}(C)-I_C(\mu),$$
+它类似于\autoref{exercise:9.54}所用的损失，只是没有对长度缩放. 构造另一个程序$C'$：
+$$C'=\begin{cases}[x-cs,x+cs],&s<K,\\\varnothing,&s\ge K,\end{cases}$$
+其中$K$为正常数. 注意，$C'$做的恰恰是错误的事：当$s^2$较大、不确定性很大时，我们希望区间宽一些，而$C'$却为空！证明能找到一个$K$值，使
+$$R((\mu,\sigma),C')\le R((\mu,\sigma),C),\qquad\text{对每个 }(\mu,\sigma),$$
+并且对某些$(\mu,\sigma)$严格不等.
+\end{exercise}
+\begin{exercise}\label{exercise:9.56}
+设$X\sim f(x\mid\theta)$，希望在\eqref{eq:9.3.4}的损失下，用区间估计量$C$估计$\theta$. 若$\theta$具有先验pdf $\pi(\theta)$，证明贝叶斯规则为
+$$C^\pi=\{\theta:\pi(\theta\mid x)\ge b\}.$$
+（提示：写成$\operatorname{Len}(C)=\int_C1\,d\theta$，并使用Neyman--Pearson引理.）
+\end{exercise}
+以下两题与\autoref{sec:9.5.4}有关.
+\begin{exercise}\label{exercise:9.57}
+设$X_1,X_2,\ldots,X_n$独立同分布于$\mathrm n(\mu,\sigma^2)$，其中$\sigma^2$已知. 已知$\mu$的一个$1-\alpha$置信区间为$\bar x\pm z_{\alpha/2}\sigma/\sqrt n$.
+\begin{enumerate}
+\item 证明$X_{n+1}$的一个$1-\alpha$预测区间为$\bar x\pm z_{\alpha/2}\sigma\sqrt{1+1/n}$.
+\item 证明基础总体中$100p\%$的一个$1-\alpha$容忍区间为$\bar x\pm z_{\alpha/2}\sigma(1+1/\sqrt n)$.\footnote{译注：原式完全不含$p$，因此不能对任意指定的总体比例$p$成立. 一般容忍区间的宽度需要依赖$p$；此处疑有漏项或遗漏对$p$的限定，保留原式待核实.}
+\item 若$\sigma^2$未知，求$X_{n+1}$的$1-\alpha$预测区间.
+\end{enumerate}
+（若$\sigma^2$未知，$1-\alpha$容忍区间的计算相当复杂.）
+\end{exercise}
+\begin{exercise}\label{exercise:9.58}
+设$X_1,X_2,\ldots,X_n$为来自中位数为$m$的总体的独立同分布观测. 可按以下方式，基于次序统计量$X_{(1)}\le X_{(2)}\le\cdots\le X_{(n)}$构造无分布区间.
+\begin{enumerate}
+\item\label{item:9.58.a}证明单侧区间$(-\infty,x_{(n)}]$和$[x_{(1)},\infty)$均为$m$的置信区间，置信系数为$1-(1/2)^n$；区间$[x_{(1)},x_{(n)}]$的置信系数为$1-2(1/2)^n$.
+\item 证明\hyperref[item:9.58.a]{(a)}中的单侧区间是系数为$n/(n+1)$的预测区间，而双侧区间是系数为$(n-1)/(n+1)$的预测区间.
+\item \hyperref[item:9.58.a]{(a)}中的区间也可作为覆盖基础总体比例$p$的容忍区间. 证明，将它们视为容忍区间时，单侧区间的系数为$1-p^n$，双侧区间的系数为$1-p^n-n(1-p)p^{n-1}$. \hyperref[bib:source321]{Vardeman（1992）}将最后这一计算称为“一道漂亮的次序统计量习题”.\footnote{译注：所列精确系数通常以总体分布连续、样本无并列为前提；题干未明示这一条件. 对含原子的分布，相关覆盖率可能更高，不能直接视为逐分布成立的等式. 原题保留.}
+\end{enumerate}
+
+\end{exercise}

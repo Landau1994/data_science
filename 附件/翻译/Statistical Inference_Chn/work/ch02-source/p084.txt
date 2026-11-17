@@ -1,0 +1,49 @@
+MOMENTS AND MOMENT GENERATING FUNCTIONS                            53
+
+
+                   1.2
+
+
+                   1.0
+
+
+                    .8
+
+                    .6                           f2(x)
+
+                    .4
+
+                    .2                                      f1(x)
+
+                0                                                                       x
+                 0                     2                     4
+
+                                           = f1(x)[1+sin(2π logx)]Figure 2.3.2 Two pdfs with the same moments: f1(x) = √2πxe−(logx)2/21           and f2(x)
+
+
+   As previously mentioned, the major usefulness of the moment generating function is not in its
+ability to generate moments. Rather, its usefulness stems from the fact that, in many cases, the
+moment generating function can characterize a distribution. There are, however, some technical
+difficulties associated with using moments to characterize a distribution, which we will now inves-
+tigate.
+     If the mgf exists, it characterizes an infinite set of moments. The natural question is whether
+characterizing the infinite set of moments uniquely determines a distribution function. The answer
+to this question, unfortunately, is no. Characterizing the set of moments is not enough to determine a
+distribution uniquely because there may be two distinct random variables having the same moments.
+Example 2.3.10 (Nonunique moments)  Consider the two pdfs given by
+                               1
+                                               0 ≤x < ∞,                        f1(x) = √2πxe−(logx)2/2,
+                        f2(x) =   f1(x)[1+sin(2π logx)],    0 ≤x < ∞.
+(The pdf f1 is a special case of a lognormal pdf.)
+     It can be shown that if X1 ∼f1(x), then
+                        EXr1 = er2/2,     r = 0,1,...,
+so X1 has all of its moments. Now suppose that X2 ∼f2(x). We have
+                              ∞
+                   EXr2 =       xr f1(x)[1+sin(2π logx)]dx
+                                          0                                    ∞
+                 =  EXr1 +     xr f1(x)sin(2π logx)dx.
+                                                  0
+However, the transformation y = logx−r shows that this last integral is that of an odd function over
+(−∞,∞) and hence is equal to 0 for r = 0,1,... . Thus, even though X1 and X2 have distinct pdfs,they have the same moments for all r. The two pdfs are pictured in Figure 2.3.2.
+   See Exercise 2.35 for details, and also Exercises 2.34, 2.36, and 2.37 for more about mgfs and
+distributions.                                                                    ∥

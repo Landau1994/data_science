@@ -1,0 +1,37 @@
+112                         COMMON FAMILIES OF DISTRIBUTIONS
+      The postulates may also be interpreted as describing the behavior of objects spatially (for
+       example, movement of insects), giving the Poisson application in spatial distributions.
+ 3.8.2 Chebychev and Beyond
+      Ghosh and Meeden (1977) discuss the fact that Chebychev’s Inequality is very conserva-
+         tive, and is almost never attained. If we write Xn for the mean of the random variables
+       X1,X2,...,Xn, then Chebychev’s Inequality states
+                         P |Xn −µ| ≥kσ ≤1nk2 .
+      They prove the following theorem.
+     Theorem 3.8.2  If 0 < σ < ∞, then
+         a.  If n = 1, the inequality is attainable for k ≥1 and unattainable for 0 < k < 1.
+        b.  If n = 2, the inequality is attainable if and only if k = 1.
+         c.  If n ≥3, the inequality is not attainable.
+      Examples are given for the cases when the inequality is attained. Most of their technical
+       arguments are based on the following inequality, known as Markov’s Inequality.
+     Lemma 3.8.3 (Markov’s Inequality)  If P(Y ≥0) = 1 and P(Y = 0) < 1, then, for any        r > 0,
+                                  P(Y ≥r) ≤EYr  ,
+       with equality if and only if P(Y = r) = p = 1−P(Y = 0),0 < p ≤1.
+      Markov’s Inequality can then be applied to the quantity
+
+                                    (Xn                               Y =    −µ)2 ,
+                                      σ2
+        to get the above results.
+       One reason why Chebychev’s Inequality is so loose is that it puts no restrictions on the
+       underlying distribution. With the additional restriction of unimodality, we can get tighter
+      bounds and the inequalities of Gauss and Vysochanski˘i-Petunin. (See Pukelsheim (1994)
+        for details and elementary calculus-based proofs of these inequalities.)
+     Theorem 3.8.4 (Gauss Inequality)  Let X ∼f, where f is unimodal with mode ν, and de-
+        fine τ2 = E(X −ν)2. Then
+                                                    4τ2        for all ε     4/3τ,                                                    9ε2                                 ≥                  > ε)             ε                      P(|X −ν|   ≤                          1− √3τ   for all ε ≤   4/3τ.
+
+      Although this is a tighter bound than Chebychev, the dependence on the mode limits its
+       usefulness. The extension of Vysochanski˘i-Petunin removes this limitation.
+     Theorem                  3.8.5 (Vysochanski˘i-Petunin Inequality)  Let X ∼f, where f is unimodal, and                 2
+        define ξ = E(X −α)2 for an arbitrary point α. Then
+                                                  4ξ 2                                                          for all ε     8/3ξ,                                                     9ε2                  > ε)          2        ≥                     P(|X −α|   ≤   4ξ
+                                                     9ε2    3                            −1   for all ε ≤   8/3ξ.

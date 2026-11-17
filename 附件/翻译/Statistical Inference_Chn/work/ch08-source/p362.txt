@@ -1,0 +1,47 @@
+EXERCISES                                                                  331
+
+8.36 We have one observation from a beta(1,θ) population.
+       (a) To test H0 : θ1 ≤θ ≤θ2 versus H1 : θ < θ1 or θ > θ2, where θ1 = 1 and θ2 = 2, a test satisfies         Eθ1φ = .5 and Eθ2φ = .3. Find a test that is as good, and explain why it is as good.
+      (b) For testing H0 : θ = θ1 versus H1 : θ̸ = θ1, with θ1 = 1, find a two-sided test (other than φ ≡.1) that
+            satisfies Eθ1φ = .1 and dθd Eθ(φ)   = 0.                                        θ=θ1
+8.37 Let X1,...,Xn be a random sample from a n(θ,σ2) population. Consider testing
+                           H0 : θ ≤θ0     versus    H1 : θ > θ0.
+       (a)  If σ2 is known, show that the test that rejects H0 when
+
+                                X > θ0 +zα  σ2/n
+
+            is a test of size α. Show that the test can be derived as an LRT.
+      (b) Show that the test in part (a) is a UMP test.
+       (c)  If σ2 is unknown, show that the test that rejects H0 when
+
+                               X > θ0 +tn−1,α  S2/n
+            is a test of size α. Show that the test can be derived as an LRT.
+8.38 Let X1,...,Xn be iid n(θ,σ2), where θ0 is a specified value of θ, and σ2 is unknown. We are interested
+      in testing
+                           H0 : θ = θ0     versus    H1 : θ̸ = θ0.
+       (a) Show that the test that rejects H0 when
+
+                                         |X −θ0| > tn−1,α/2  S2/n
+            is a test of size α.
+      (b) Show that the test in part (a) can be derived as an LRT.
+8.39 Let (X1,Y1),...,(Xn,Yn) be a random sample from a bivariate normal distribution with parameters
+     µX,µY ,σ2X,σ2Y ,ρ. We are interested in testing
+                          H0 : µX = µY     versus    H1 : µX̸ = µY .
+                                           W ).       (a) Show that the random variables Wi = Xi −Yi are iid n(µW ,σ2
+      (b) Show that the above hypothesis can be tested with the statistic
+
+                             W
+                                      TW =
+                                                              1nS2W
+        where W = 1n ∑ni=1Wi and S2W =   1                                     ∑ni=1(Wi −W)2. Furthermore, show that, under H0,TW ∼                                              (n−1)
+          Student’s t with n−1 degrees of freedom. (This test is known as the paired-sample t test.)
+8.40 Let (X1,Y1),...,(Xn,Yn) be a random sample from a bivariate normal distribution with parameters
+     µX,µY ,σ2X,σ2Y ,ρ.
+       (a) Derive the LRT of
+                           H0 : µX = µY     versus    H1 : µX̸ = µY ,
+        where σ2X,σ2Y , and ρ are unspecified and unknown.
+      (b) Show that the test derived in part (a) is equivalent to the paired t test of Exercise 8.39.
+          (Hint:  Straightforward maximization of the bivariate likelihood is possible, but somewhat nasty.
+           Filling in the gaps of the following argument gives a more elegant proof.)
+       Make the transformation u = x−y,v = x+y. Let f(x,y) denote the bivariate normal pdf, and write
+                                               f(x,y) = g(v|u)h(u),

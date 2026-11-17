@@ -1,0 +1,174 @@
+% 原书印刷172–177页，PDF物理203–208页.
+\subsection{随机样本中的随机变量之和}\label{sec:5.2}
+抽得样本$X_1,\ldots,X_n$后，通常会计算这些数值的某种概要.任何定义明确的概要，在数学上都可以表示为函数$T(x_1,\ldots,x_n)$，其定义域包含随机向量$(X_1,\ldots,X_n)$的样本空间.函数$T$可以取实数值，也可以取向量值；因此这种概要是一个随机变量（或向量）$Y=T(X_1,\ldots,X_n)$.\autoref{sec:4}详细讨论了把随机变量定义为其他随机变量的函数的方法；该章的方法可用来根据产生样本的总体分布描述$Y$的分布.由于随机样本$X_1,\ldots,X_n$具有简单的概率结构（$X_i$独立同分布），$Y$的分布尤其容易处理.由于这一分布通常从随机样本中各变量的分布推导而来，称其为$Y$的抽样分布（sampling distribution）.这个名称区分了$Y$的概率分布和总体分布，即每个$X_i$的边际分布.本节讨论抽样分布的一些性质，特别是当函数$T(x_1,\ldots,x_n)$由随机变量之和定义时的性质.
+\begin{definition}\label{def:5.2.1}\index{SI0951@抽样分布}\index{SI0981@统计量}
+设$X_1,\ldots,X_n$为来自某总体的容量为$n$的随机样本，$T(x_1,\ldots,x_n)$为实值或向量值函数，其定义域包含$(X_1,\ldots,X_n)$的样本空间.则随机变量或随机向量$Y=T(X_1,\ldots,X_n)$称为统计量（statistic）.统计量$Y$的概率分布称为$Y$的抽样分布.
+\end{definition}
+统计量的定义十分宽泛，唯一的限制是统计量不能是参数的函数.统计量给出的样本概要可包含多种信息.例如，它可以给出样本的最小值或最大值、样本平均值，或样本观测值变异程度的度量.下面定义三个常用且能很好概括样本的统计量.
+\begin{definition}\label{def:5.2.2}\index{SI0921@均值}
+样本均值（sample mean）是随机样本各数值的算术平均，通常记为
+$$\bar X=\frac{X_1+\cdots+X_n}{n}=\frac1n\sum_{i=1}^nX_i.$$
+\end{definition}
+\sourcepageanchor{204}
+\begin{definition}\label{def:5.2.3}\index{SI0935@标准差}\index{SI0936@方差}
+样本方差（sample variance）是如下定义的统计量：
+$$S^2=\frac1{n-1}\sum_{i=1}^n(X_i-\bar X)^2.$$
+样本标准差（sample standard deviation）是统计量$S=\sqrt{S^2}$.
+\end{definition}
+依照通常做法，上述定义省略了这些统计量的函数记号，即写$S$而不是$S(X_1,\ldots,X_n)$.统计量对样本的依赖是不言而喻的.与前面一样，用小写字母表示统计量的观测值；因此$\bar x$、$s^2$和$s$表示$\bar X$、$S^2$和$S$的观测值.
+
+大家当然都熟悉样本均值.样本方差和标准差是衡量样本变异程度的量，它们与总体方差和标准差的关系将在下面说明.先推导样本均值和方差的一些性质.特别地，\autoref{thm:5.2.4}给出的样本方差关系与总体方差的类似关系\eqref{eq:2.3.1}相对应.
+\begin{theorem}\label{thm:5.2.4}
+设$x_1,\ldots,x_n$为任意数，$\bar x=(x_1+\cdots+x_n)/n$.则
+\begin{enumerate}[label=\textbf{\alph*.}]
+\item\label{item:5.2.4a} $\min_a\sum_{i=1}^n(x_i-a)^2=\sum_{i=1}^n(x_i-\bar x)^2$.
+\item\label{item:5.2.4b} $(n-1)s^2=\sum_{i=1}^n(x_i-\bar x)^2=\sum_{i=1}^n x_i^2-n\bar x^2$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+为证明\hyperref[item:5.2.4a]{(a)}，加上并减去$\bar x$得到
+\begin{align*}
+\sum_{i=1}^n(x_i-a)^2&=\sum_{i=1}^n(x_i-\bar x+\bar x-a)^2\\
+&=\sum_{i=1}^n(x_i-\bar x)^2+2\sum_{i=1}^n(x_i-\bar x)(\bar x-a)+\sum_{i=1}^n(\bar x-a)^2\\
+&=\sum_{i=1}^n(x_i-\bar x)^2+\sum_{i=1}^n(\bar x-a)^2.\qquad\text{（交叉项为零）}
+\end{align*}
+现在显然右端在$a=\bar x$时取得最小值.（注意与\autoref{ex:2.2.6}及\autoref{exercise:4.13}的相似性.）
+
+在上式取$a=0$，便得到\hyperref[item:5.2.4b]{(b)}.
+\end{proof}
+\autoref{thm:5.2.4}\hyperref[item:5.2.4b]{(b)}中的表达式在计算和理论上都很有用，因为它把$s^2$表示为容易处理的和.
+
+我们从考察一些统计量的期望开始研究抽样分布.下面的结果十分有用.
+\begin{lemma}\label{lem:5.2.5}\index{SI0433@和}\index{SI1068@和}
+设$X_1,\ldots,X_n$为来自某总体的随机样本，函数$g(x)$满足$Eg(X_1)$和$\operatorname{Var}g(X_1)$存在.则
+\begin{equation}\label{eq:5.2.1}
+E\left(\sum_{i=1}^n g(X_i)\right)=n(Eg(X_1))
+\end{equation}
+并且
+\begin{equation}\label{eq:5.2.2}
+\operatorname{Var}\left(\sum_{i=1}^n g(X_i)\right)=n(\operatorname{Var}g(X_1)).
+\end{equation}
+\end{lemma}
+\begin{proof}
+为证明\eqref{eq:5.2.1}，注意
+$$E\left(\sum_{i=1}^n g(X_i)\right)=\sum_{i=1}^n Eg(X_i)=n(Eg(X_1)).$$
+\sourcepageanchor{205}
+由于$X_i$同分布，所有$i$的$Eg(X_i)$都相同，故第二个等号成立.注意，\eqref{eq:5.2.1}的成立不需要$X_1,\ldots,X_n$独立.事实上，它对任意$n$个同分布随机变量都成立.
+
+为证明\eqref{eq:5.2.2}，注意
+\begin{align*}
+\operatorname{Var}\left(\sum_{i=1}^n g(X_i)\right)
+&=E\left[\sum_{i=1}^n g(X_i)-E\left(\sum_{i=1}^n g(X_i)\right)\right]^2&&\text{（方差的定义）}\\
+&=E\left[\sum_{i=1}^n(g(X_i)-Eg(X_i))\right]^2.&&\text{（期望的性质及重排各项）}
+\end{align*}
+最后一个表达式中共有$n^2$项.首先，有$n$项$(g(X_i)-Eg(X_i))^2$，$i=1,\ldots,n$，每一项都满足
+\begin{align*}
+E(g(X_i)-Eg(X_i))^2&=\operatorname{Var}g(X_i)&&\text{（方差的定义）}\\
+&=\operatorname{Var}g(X_1).&&\text{（同分布）}
+\end{align*}
+其余$n(n-1)$项都形如$(g(X_i)-Eg(X_i))(g(X_j)-Eg(X_j))$，其中$i\ne j$.对每一项，
+\begin{align*}
+&E[(g(X_i)-Eg(X_i))(g(X_j)-Eg(X_j))]\\
+&\quad=\operatorname{Cov}(g(X_i),g(X_j))&&\text{（协方差的定义）}\\
+&\quad=0.&&\text{（独立性，\autoref{thm:4.5.5}）}
+\end{align*}
+由此得到\eqref{eq:5.2.2}.
+\end{proof}
+\begin{theorem}\label{thm:5.2.6}\index{SI0923@期望值}\index{SI0938@期望值}
+设$X_1,\ldots,X_n$为来自均值为$\mu$、方差为$\sigma^2<\infty$的总体的随机样本.则
+\begin{enumerate}[label=\textbf{\alph*.}]
+\item\label{item:5.2.6a} $E\bar X=\mu$；
+\item\label{item:5.2.6b} $\operatorname{Var}\bar X=\sigma^2/n$；
+\item\label{item:5.2.6c} $ES^2=\sigma^2$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+为证明\hyperref[item:5.2.6a]{(a)}，令$g(X_i)=X_i/n$，则$Eg(X_i)=\mu/n$.由\autoref{lem:5.2.5}，
+$$E\bar X=E\left(\frac1n\sum_{i=1}^nX_i\right)=\frac1nE\left(\sum_{i=1}^nX_i\right)=\frac1n nEX_1=\mu.$$
+类似地，对\hyperref[item:5.2.6b]{(b)}，有
+$$\operatorname{Var}\bar X=\operatorname{Var}\left(\frac1n\sum_{i=1}^n X_i\right)=\frac1{n^2}\operatorname{Var}\left(\sum_{i=1}^nX_i\right)=\frac1{n^2}n\operatorname{Var}X_1=\frac{\sigma^2}{n}.$$
+对样本方差，利用\autoref{thm:5.2.4}，有
+\begin{align*}
+ES^2&=E\left(\frac1{n-1}\left[\sum_{i=1}^nX_i^2-n\bar X^2\right]\right)=\frac1{n-1}(nEX_1^2-nE\bar X^2)\\
+&=\frac1{n-1}\left(n(\sigma^2+\mu^2)-n\left(\frac{\sigma^2}{n}+\mu^2\right)\right)=\sigma^2,
+\end{align*}
+这就证明了\hyperref[item:5.2.6c]{(c)}及整个定理.
+\end{proof}
+\sourcepageanchor{206}
+\autoref{thm:5.2.6}中的\hyperref[item:5.2.6a]{(a)}和\hyperref[item:5.2.6c]{(c)}是统计量与总体参数之间的关系，也是无偏统计量（unbiased statistics）的例子.\index{SI1044@无偏估计量}\semanticindexanchor{1044:206}\autoref{sec:7}将讨论这些概念.$\bar X$是$\mu$的无偏估计量，$S^2$是$\sigma^2$的无偏估计量.$S^2$定义中使用$n-1$可能显得不够直观；现在可以看出，这样定义使$ES^2=\sigma^2$.若按通常平均数的方式定义$S^2$，使离差平方和的分母为$n$而非$n-1$，则$ES^2$会等于$\frac{n-1}{n}\sigma^2$，$S^2$就不是$\sigma^2$的无偏估计量.
+
+下面更详细地讨论$\bar X$的抽样分布.\autoref{sec:4.3}和\autoref{sec:4.6}的方法可用来从总体分布推导这一抽样分布.但由于随机样本特有的概率结构（iid随机变量），所得$\bar X$的抽样分布具有简单的表达形式.
+
+先指出一些简单关系.由于$\bar X=(X_1+\cdots+X_n)/n$，若$f(y)$是$Y=X_1+\cdots+X_n$的pdf，则$f_{\bar X}(x)=nf(nx)$是$\bar X$的pdf（见\autoref{exercise:5.5}）.因此，关于$Y$的pdf的结果容易转化为关于$\bar X$的pdf的结果.矩母函数也有类似关系：
+$$M_{\bar X}(t)=Ee^{t\bar X}=Ee^{t(X_1+\cdots+X_n)/n}=Ee^{(t/n)Y}=M_Y(t/n).$$
+由于$X_1,\ldots,X_n$同分布，各$i$的$M_{X_i}(t)$都是同一函数.由\autoref{thm:4.6.7}可得如下结论.
+\begin{theorem}\label{thm:5.2.7}\index{SI0694@样本均值}\index{SI0925@矩母函数}
+设$X_1,\ldots,X_n$是来自矩母函数为$M_X(t)$的总体的随机样本，则样本均值的矩母函数为
+$$M_{\bar X}(t)=[M_X(t/n)]^n.$$
+\end{theorem}
+当然，只有当$M_{\bar X}(t)$的表达式是某个熟悉的矩母函数时，\autoref{thm:5.2.7}才有用.这种情况比较有限，但下面的例子表明，一旦这种方法适用，就能十分巧妙地推导出$\bar X$的抽样分布.
+\begin{example}[均值的分布]\label{ex:5.2.8}\index{SI0926@正态}
+设$X_1,\ldots,X_n$为来自$n(\mu,\sigma^2)$总体的随机样本.样本均值的矩母函数为
+\begin{align*}
+M_{\bar X}(t)&=\left[\exp\left(\mu\frac tn+\frac{\sigma^2(t/n)^2}{2}\right)\right]^n\\
+&=\exp\left(n\left(\mu\frac tn+\frac{\sigma^2(t/n)^2}{2}\right)\right)=\exp\left(\mu t+\frac{(\sigma^2/n)t^2}{2}\right).
+\end{align*}
+故$\bar X$服从$n(\mu,\sigma^2/n)$分布.
+
+另一个简单例子是$\operatorname{gamma}(\alpha,\beta)$随机样本（见\autoref{ex:4.6.8}）.同样容易推导样本均值的分布，其矩母函数为
+$$M_{\bar X}(t)=\left[\left(\frac1{1-\beta(t/n)}\right)^\alpha\right]^n=\left(\frac1{1-(\beta/n)t}\right)^{n\alpha},$$
+这正是$\operatorname{gamma}(n\alpha,\beta/n)$的矩母函数，因此$\bar X$服从该分布.
+\end{example}
+若\autoref{thm:5.2.7}不适用——或者因为无法辨认所得$\bar X$的矩母函数，或者因为总体矩母函数不存在——则可尝试用\autoref{sec:4.3}和\autoref{sec:4.6}的变换法求$Y=X_1+\cdots+X_n$及$\bar X$的pdf.这时，下面的卷积公式（convolution formula）很有用.
+\begin{theorem}\label{thm:5.2.9}\index{SI0213@卷积}
+若$X$和$Y$是独立的连续随机变量，pdf分别为$f_X(x)$及$f_Y(y)$，则$Z=X+Y$的pdf为
+\begin{equation}\label{eq:5.2.3}
+f_Z(z)=\int_{-\infty}^\infty f_X(w)f_Y(z-w)\,dw.
+\end{equation}
+\end{theorem}
+\sourcepageanchor{207}
+\begin{proof}
+令$W=X$.从$(X,Y)$到$(Z,W)$的变换的Jacobian为1.因此，由\eqref{eq:4.3.2}得到$(Z,W)$的联合pdf为
+$$f_{Z,W}(z,w)=f_{X,Y}(w,z-w)=f_X(w)f_Y(z-w).$$
+对$w$积分消去它，就得到\eqref{eq:5.2.3}给出的$Z$的边际pdf.
+\end{proof}
+若$f_X$、$f_Y$之一或二者只在某些值处为正，\eqref{eq:5.2.3}中的积分限可以相应调整.例如，若$f_X$和$f_Y$都仅在正值处为正，则积分限为0和$z$，因为$w$在此范围之外时被积函数为零.对于加法以外的运算，也可推导类似\eqref{eq:5.2.3}的卷积公式，例如差、积及商的公式（见\autoref{exercise:5.6}）.
+\begin{example}[Cauchy随机变量之和]\label{ex:5.2.10}\index{SI0922@柯西}
+作为矩母函数方法失效的例子，考虑从Cauchy分布抽样.我们最终要推导$\bar Z$的分布，其中$\bar Z$是iid $\operatorname{Cauchy}(0,1)$观测$Z_1,\ldots,Z_n$的均值.不过，先从两个独立Cauchy随机变量之和的分布入手，应用\eqref{eq:5.2.3}.
+
+设$U$和$V$是独立的Cauchy随机变量，$U\sim\operatorname{Cauchy}(0,\sigma)$，$V\sim\operatorname{Cauchy}(0,\tau)$，即
+$$f_U(u)=\frac1{\pi\sigma}\frac1{1+(u/\sigma)^2},\quad f_V(v)=\frac1{\pi\tau}\frac1{1+(v/\tau)^2},\qquad -\infty<u,v<\infty.$$
+由\eqref{eq:5.2.3}，$Z=U+V$的pdf为
+\begin{equation}\label{eq:5.2.4}
+f_Z(z)=\int_{-\infty}^\infty\frac1{\pi\sigma}\frac1{1+(w/\sigma)^2}\frac1{\pi\tau}\frac1{1+((z-w)/\tau)^2}\,dw,\quad -\infty<z<\infty.
+\end{equation}
+这个积分有些复杂，但利用部分分式分解并仔细求原函数即可算出（见\autoref{exercise:5.7}）.结果为
+\begin{equation}\label{eq:5.2.5}
+f_Z(z)=\frac1{\pi(\sigma+\tau)}\frac1{1+(z/(\sigma+\tau))^2},\qquad -\infty<z<\infty.
+\end{equation}
+因此，两个独立Cauchy随机变量之和仍服从Cauchy分布，其尺度参数相加.由此，若$Z_1,\ldots,Z_n$为iid $\operatorname{Cauchy}(0,1)$随机变量，则$\sum Z_i$服从$\operatorname{Cauchy}(0,n)$，而且$\bar Z$仍服从$\operatorname{Cauchy}(0,1)$！样本均值与单个观测具有相同的分布.（这一计算的计算机代数版本，见计算机代数附录中的\autoref{ex:12.6.5}.）
+\end{example}
+若从位置–尺度族或某些类型的指数族抽样，随机变量之和，特别是$\bar X$的抽样分布，很容易推导.本节最后讨论这两种情形.
+
+先讨论\autoref{sec:3.5}中的位置–尺度情形.\index{SI0924@位置尺度}\semanticindexanchor{924:208}设$X_1,\ldots,X_n$为来自位置–尺度族成员$(1/\sigma)\allowbreak f((x-\mu)/\sigma)$的随机样本.则$\bar X$的分布与$\bar Z$的分布有简单的关系，其中$\bar Z$是来自标准pdf $f(z)$的随机样本的样本均值.为说明这种关系，由\autoref{thm:3.5.6}，存在随机变量$Z_1,\ldots,Z_n$，满足$X_i=\sigma Z_i+\mu$，且每个$Z_i$的pdf为$f(z)$.此外，$Z_1,\ldots,Z_n$相互独立，所以构成来自$f(z)$的随机样本.样本均值$\bar X$与$\bar Z$满足
+$$\bar X=\frac1n\sum_{i=1}^nX_i=\frac1n\sum_{i=1}^n(\sigma Z_i+\mu)=\frac1n\left(\sigma\sum_{i=1}^nZ_i+n\mu\right)=\sigma\bar Z+\mu.$$
+\sourcepageanchor{208}
+因此，再次利用\autoref{thm:3.5.6}，若$g(z)$是$\bar Z$的pdf，则$(1/\sigma)g((x-\mu)/\sigma)$是$\bar X$的pdf.先利用$Z_1,\ldots,Z_n$和$f(z)$求出$\bar Z$的pdf $g(z)$，可能更容易.这样无须处理参数$\mu$和$\sigma$，计算可能不那么繁琐；随后立即可知$\bar X$的pdf为$(1/\sigma)g((x-\mu)/\sigma)$.
+
+\autoref{ex:5.2.10}说明，若$Z_1,\ldots,Z_n$为来自$\operatorname{Cauchy}(0,1)$分布的随机样本，则$\bar Z$也服从$\operatorname{Cauchy}(0,1)$分布.现在可以断定，若$X_1,\ldots,X_n$为来自$\operatorname{Cauchy}(\mu,\sigma)$分布的随机样本，则$\bar X$也服从$\operatorname{Cauchy}(\mu,\sigma)$分布.须特别注意，以$\sigma$衡量的$\bar X$分布的离散程度不随样本容量$n$改变.这与\autoref{thm:5.2.6}中更常见的情形（总体方差有限）形成鲜明对照；在后者中，$\operatorname{Var}\bar X=\sigma^2/n$随样本容量增大而减小.
+
+从指数族抽样时，随机样本中某些和的抽样分布容易推导.下一个定理中的$T_1,\ldots,T_k$是重要的样本概要统计量，这将在\autoref{sec:6.2}中看到.
+\begin{theorem}\label{thm:5.2.11}\index{SI0441@和}\index{SI0918@指数族}
+设$X_1,\ldots,X_n$为来自pdf或pmf $f(x\mid\theta)$的随机样本，其中
+$$f(x\mid\theta)=h(x)c(\theta)\exp\left(\sum_{i=1}^k w_i(\theta)t_i(x)\right)$$
+是指数族的一个成员.定义统计量$T_1,\ldots,T_k$为
+$$T_i(X_1,\ldots,X_n)=\sum_{j=1}^n t_i(X_j),\qquad i=1,\ldots,k.$$
+若集合$\{(w_1(\theta),w_2(\theta),\ldots,w_k(\theta)),\theta\in\Theta\}$包含$\mathbb R^k$的一个开子集，则$(T_1,\ldots,T_k)$的分布是形如下式的指数族：
+\begin{equation}\label{eq:5.2.6}
+f_T(u_1,\ldots,u_k\mid\theta)=H(u_1,\ldots,u_k)[c(\theta)]^n\exp\left(\sum_{i=1}^k w_i(\theta)u_i\right).
+\end{equation}
+\end{theorem}
+开集条件排除了$n(\theta,\theta^2)$这样的密度；\index{SI0299@曲线}\semanticindexanchor{299:208}一般来说，它把弯曲指数族排除在\autoref{thm:5.2.11}之外.注意，在$(T_1,\ldots,T_k)$的pdf或pmf中，函数$c(\theta)$和$w_i(\theta)$与原来族中的相同，当然函数$H(u_1,\ldots,u_k)$不同于$h(x)$.这里不证明该定理，只在一个简单例子中说明这一结果.
+\begin{example}[Bernoulli随机变量之和]\label{ex:5.2.12}
+设$X_1,\ldots,X_n$为来自$\operatorname{Bernoulli}(p)$分布的随机样本.由\autoref{ex:3.4.1}（取$n=1$），$\operatorname{Bernoulli}(p)$是指数族，且$k=1$、$c(p)=1-p$、$w_1(p)=\log(p/(1-p))$、$t_1(x)=x$.所以在前一定理中，$T_1=T_1(X_1,\ldots,X_n)=X_1+\cdots+X_n$.由\autoref{sec:3.2}中二项分布的定义可知，$T_1$服从$\operatorname{binomial}(n,p)$分布.由\autoref{ex:3.4.1}还可知，$\operatorname{binomial}(n,p)$是具有同一$w_1(p)$及$c(p)=(1-p)^n$的指数族.因此，在本例中验证了\eqref{eq:5.2.6}.
+\end{example}

@@ -1,0 +1,472 @@
+\subsection{习题}\label{sec:4.8}
+\setcounter{exercise}{0}
+\begin{exercise}\label{exercise:4.1}
+随机点 $(X,Y)$ 均匀分布在顶点为 $(1,1),(1,-1),(-1,1),(-1,-1)$ 的正方形上，即在此正方形上联合 pdf 为 $f(x,y)=1/4$. 求下列事件的概率.
+\begin{enumerate}
+\item[(a)] $X^2+Y^2<1$.
+\item[(b)] $2X-Y>0$.
+\item[(c)] $|X+Y|<2$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.2}\index{SI0424@性质}
+证明二元期望的下列性质（\autoref{thm:2.2.5} 的二元对应结果）. 对随机变量 $X,Y$，函数 $g_1(x,y),g_2(x,y)$ 及常数 $a,b,c$：
+\begin{enumerate}
+\item[(a)] $E(ag_1(X,Y)+bg_2(X,Y)+c)=aE(g_1(X,Y))+bE(g_2(X,Y))+c$.
+\item[(b)] 若 $g_1(x,y)\ge0$，则 $E(g_1(X,Y))\ge0$.
+\item[(c)] 若 $g_1(x,y)\ge g_2(x,y)$，则 $E(g_1(X,Y))\ge E(g_2(X,Y))$.
+\item[(d)] 若 $a\le g_1(x,y)\le b$，则 $a\le E(g_1(X,Y))\le b$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.3}
+利用\autoref{def:4.1.1}，说明\autoref{ex:4.1.5} 末尾定义的随机向量 $(X,Y)$ 的 pmf 正是该例给出的 pmf.
+\end{exercise}
+\sourcepageanchor{189}
+
+\begin{exercise}\label{exercise:4.4}
+一个 pdf 定义为
+$$f(x,y)=\begin{cases}C(x+2y),&0<y<1\text{ 且 }0<x<2,\\0,&\text{其他情形}.\end{cases}$$
+\begin{enumerate}
+\item[(a)] 求 $C$.
+\item[(b)] 求 $X$ 的边缘分布.
+\item[(c)] 求 $X,Y$ 的联合 cdf.
+\item[(d)] 求随机变量 $Z=9/(X+1)^2$ 的 pdf.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.5}\leavevmode
+\begin{enumerate}
+\item[(a)] 若 $X,Y$ 的联合 pdf 为 $f(x,y)=x+y$，$0\le x\le1$，$0\le y\le1$，求 $P(X>\sqrt Y)$.
+\item[(b)] 若 $X,Y$ 的联合 pdf 为 $f(x,y)=2x$，$0\le x\le1$，$0\le y\le1$，求 $P(X^2<Y<X)$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.6}
+甲乙约定下午 1 点至 2 点之间在某处见面. 假设两人在这一小时内独立、随机地到达会面地点. 求甲等待乙的时间长度的分布. 若乙先于甲到达，定义甲的等待时间为 0.
+\end{exercise}
+\begin{exercise}\label{exercise:4.7}
+一位女士在上午 8 点至 8 点半之间出发上班，路程耗时 40 至 50 分钟. 用随机变量 $X$ 表示出发时刻，$Y$ 表示路程时间. 假设二者独立且均匀分布，求她上午 9 点前到达工作地点的概率.
+\end{exercise}
+\begin{exercise}\label{exercise:4.8}
+参照\hyperref[misc:4.9.1]{杂录 4.9.1}：
+\begin{enumerate}
+\item[(a)] 证明 $P(X=m\mid M=m)=P(X=2m\mid M=m)=1/2$，并验证 $P(M=x\mid X=x)$ 和 $P(M=x/2\mid X=x)$ 的表达式.
+\item[(b)] 验证仅当 $\pi(x/2)<2\pi(x)$ 时应当交换；若 $\pi$ 是 $\operatorname{exponential}(\lambda)$ 密度，证明 $x<2\log2/\lambda$ 时交换最优.\footnote{译注：这里的阈值把 $\lambda$ 当作指数分布的速率参数，而本书通常以 $\operatorname{exponential}(\beta)$ 的参数表示尺度；若仅对原文条件作尺度换写，阈值为 $2\lambda\log2$；不过，连续先验还遗漏了换元因子，修正后的速率参数阈值为 $4\log2/\lambda$. 详见\hyperref[misc:4.9.1]{杂录 4.9.1} 的连续先验译注.}
+\item[(c)] 对经典方法，证明 $P(Y=2x\mid X=m)=1$ 和 $P(Y=x/2\mid X=2m)=1$；无论交换还是保留自己的信封，期望所得为 $E(Y)=3m/2$.\footnote{译注：原文条件式混用了随机值记号 $x$ 与固定金额 $m$；应分别理解为在 $x=m$ 与 $x=2m$ 时的另一信封金额. 保留信封的期望应记为 $E(X)=3m/2$，交换的为 $E(Y)=3m/2$.}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.9}\index{SI0238@独立性}
+证明：若 $X,Y$ 的联合 cdf 满足 $F_{X,Y}(x,y)=F_X(x)F_Y(y)$，则对任意一对区间 $(a,b)$、$(c,d)$，
+$$P(a\le X\le b,c\le Y\le d)=P(a\le X\le b)P(c\le Y\le d).$$
+\end{exercise}
+\begin{exercise}\label{exercise:4.10}
+随机对 $(X,Y)$ 的分布为
+$$\begin{array}{c|ccc}
+ &\multicolumn{3}{c}{X}\\
+Y&1&2&3\\\hline
+2&1/12&1/6&1/12\\
+3&1/6&0&1/6\\
+4&0&1/3&0
+\end{array}$$
+\begin{enumerate}
+\item[(a)] 证明 $X,Y$ 不独立.
+\item[(b)] 给出随机变量 $U,V$ 的概率表，使其边缘分布与 $X,Y$ 相同，但 $U,V$ 独立.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.11}
+反复投掷一枚公平硬币，令 $U=$ 首次出现正面所需的投掷次数，$V=$ 出现两个正面所需的投掷次数. $U,V$ 是否独立？
+\end{exercise}
+\begin{exercise}\label{exercise:4.12}
+将一根棍子随机折成三段，这三段能拼成三角形的概率是多少？关于此问题的完整讨论，见 \hyperref[bib:source132]{Gardner (1961)}.
+\end{exercise}
+\sourcepageanchor{190}
+
+\begin{exercise}\label{exercise:4.13}\index{SI0426@最小化}\index{SI0884@条件期望}
+设 $X,Y$ 为具有有限均值的随机变量.
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:exercise:4.13:a} 证明
+$$\min_{g(x)}E(Y-g(X))^2=E(Y-E(Y\mid X))^2,$$
+其中 $g(x)$ 遍历所有函数. $E(Y\mid X)$ 有时称为 $Y$ 关于 $X$ 的回归（regression），即给定 $X$ 时 $Y$ 的“最佳”预测量.
+\item[(b)] 说明\eqref{eq:2.2.4} 可作为 \hyperref[itm:exercise:4.13:a]{(a)} 的特例推出.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.14}
+设 $X,Y$ 是独立的 $n(0,1)$ 随机变量.
+\begin{enumerate}
+\item[(a)] 求 $P(X^2+Y^2<1)$.
+\item[(b)] 先验证 $X^2\sim\chi_1^2$，再求 $P(X^2<1)$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.15}\index{SI0271@与泊松的关系}\index{SI0376@与二项的关系}
+设 $X\sim\operatorname{Poisson}(\theta)$，$Y\sim\operatorname{Poisson}(\lambda)$，且二者独立. \autoref{thm:4.3.2} 已证明 $X+Y\sim\operatorname{Poisson}(\theta+\lambda)$. 证明 $X\mid X+Y$ 的分布是成功概率为 $\theta/(\theta+\lambda)$ 的二项分布. $Y\mid X+Y$ 的分布是什么？
+\end{exercise}
+\begin{exercise}\label{exercise:4.16}
+设 $X,Y$ 独立且服从相同的几何分布.
+\begin{enumerate}
+\item[(a)] 证明 $U,V$ 独立，其中 $U=\min(X,Y)$，$V=X-Y$.
+\item[(b)] 求 $Z=X/(X+Y)$ 的分布；当 $X+Y=0$ 时，定义 $Z=0$.
+\item[(c)] 求 $X$ 与 $X+Y$ 的联合 pdf.\footnote{译注：这里的变量离散，原文 pdf 应为 pmf.}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.17}
+设 $X\sim\operatorname{exponential}(1)$，定义 $Y$ 为 $X+1$ 的整数部分，即
+$$Y=i+1\quad\text{当且仅当}\quad i\le X<i+1,\qquad i=0,1,2,\ldots.$$
+\begin{enumerate}
+\item[(a)] 求 $Y$ 的分布. 它是哪一种熟知的分布？
+\item[(b)] 求给定 $Y\ge5$ 时 $X-4$ 的条件分布.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.18}
+已知 $g(x)\ge0$ 且 $\int_0^\infty g(x)\,dx=1$，证明
+$$f(x,y)=\frac{2g(\sqrt{x^2+y^2})}{\pi\sqrt{x^2+y^2}},\qquad x,y>0,$$
+是一个 pdf.
+\end{exercise}
+\begin{exercise}\label{exercise:4.19}\leavevmode
+\begin{enumerate}
+\item[(a)] 设 $X_1,X_2$ 为独立的 $n(0,1)$ 随机变量. 求 $(X_1-X_2)^2/2$ 的 pdf.
+\item[(b)] 若 $X_i$，$i=1,2$，为独立的 $\operatorname{gamma}(\alpha_i,1)$ 随机变量，求 $X_1/(X_1+X_2)$ 和 $X_2/(X_1+X_2)$ 的边缘分布.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.20}
+$X_1,X_2$ 为独立的 $n(0,\sigma^2)$ 随机变量.
+\begin{enumerate}
+\item[(a)] 求 $Y_1,Y_2$ 的联合分布，其中 $Y_1=X_1^2+X_2^2$，$Y_2=X_1/\sqrt{Y_1}$.
+\item[(b)] 证明 $Y_1,Y_2$ 独立，并从几何上解释这一结果.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.21}
+按以下极坐标方案在平面上随机生成一点. 选择半径 $R$，使 $R^2$ 的分布为自由度 2 的卡方分布. 独立地选择角度 $\theta\sim\operatorname{uniform}(0,2\pi)$. 求 $X=R\cos\theta$ 与 $Y=R\sin\theta$ 的联合分布.
+\end{exercise}
+\begin{exercise}\label{exercise:4.22}
+设 $(X,Y)$ 为联合 pdf 为 $f(x,y)$ 的二元随机向量. 令 $U=aX+b$、$V=cY+d$，其中 $a,b,c,d$ 为固定常数，且 $a>0,c>0$. 证明 $(U,V)$ 的联合 pdf 为
+$$f_{U,V}(u,v)=\frac1{ac}f\left(\frac{u-b}a,\frac{v-d}c\right).$$
+\end{exercise}
+\sourcepageanchor{191}
+
+\begin{exercise}\label{exercise:4.23}
+设 $X,Y$ 如\autoref{ex:4.3.3} 所述，分别作 \hyperref[itm:exercise:4.23:a]{(a)}、\hyperref[itm:exercise:4.23:b]{(b)} 中的变换，并将 $V$ 积掉，求 $XY$ 的分布.
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:exercise:4.23:a} $U=XY$，$V=Y$.
+\item[(b)]\phantomsection\label{itm:exercise:4.23:b} $U=XY$，$V=X/Y$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.24}\index{SI0259@与伽马的关系}\index{SI0311@与贝塔的关系}
+设 $X,Y$ 独立，$X\sim\operatorname{gamma}(r,1)$，$Y\sim\operatorname{gamma}(s,1)$. 证明 $Z_1=X+Y$ 与 $Z_2=X/(X+Y)$ 独立，并求各自分布. $Z_1$ 为 Gamma 分布，$Z_2$ 为 Beta 分布.
+\end{exercise}
+\begin{exercise}\label{exercise:4.25}
+用\autoref{sec:4.3} 的方法，在\autoref{ex:4.5.8} 和\autoref{ex:4.5.9} 中，由 $(X,Z)$ 的联合分布推导 $(X,Y)$ 的联合分布.
+\end{exercise}
+\begin{exercise}\label{exercise:4.26}\index{SI0866@删失}
+$X,Y$ 独立，$X\sim\operatorname{exponential}(\lambda)$，$Y\sim\operatorname{exponential}(\mu)$. 无法直接观测 $X,Y$，而是观测随机变量 $Z,W$，其中
+$$Z=\min\{X,Y\},\qquad W=\begin{cases}1,&Z=X,\\0,&Z=Y.\end{cases}$$
+这种情形尤其会出现在医学实验中；变量 $X,Y$ 受到删失（censoring）.
+\begin{enumerate}
+\item[(a)] 求 $Z,W$ 的联合分布.
+\item[(b)] 证明 $Z,W$ 独立. 提示：证明对 $i=0,1$，$P(Z\le z\mid W=i)=P(Z\le z)$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.27}
+设 $X\sim n(\mu,\sigma^2)$，$Y\sim n(\gamma,\sigma^2)$，且二者独立. 定义 $U=X+Y$、$V=X-Y$. 证明 $U,V$ 是独立的正态随机变量，并求各自分布.
+\end{exercise}
+\begin{exercise}\label{exercise:4.28}\index{SI0279@与正态的关系}\index{SI0365@与柯西的关系}
+设 $X,Y$ 为独立的标准正态随机变量.
+\begin{enumerate}
+\item[(a)] 证明 $X/(X+Y)$ 服从 Cauchy 分布.
+\item[(b)]\phantomsection\label{itm:exercise:4.28:b} 求 $X/|Y|$ 的分布.
+\item[(c)] \hyperref[itm:exercise:4.28:b]{(b)} 的答案是否出乎意料？你能提出一个一般定理吗？
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.29}
+\hyperref[bib:source181]{Jones (1999)} 研究了 $X=R\cos\theta$、$Y=R\sin\theta$ 时 $X,Y$ 的函数的分布，其中 $\theta\sim U(0,2\pi)$，$R$ 为正随机变量. 以下是他考虑的许多情形中的两种.\footnote{译注：\hyperref[itm:exercise:4.29:b]{(b)} 一般需要补充 $R$ 与 $\theta$ 独立；只指定均匀角度的边缘分布并不能保证该结论. 例如令 $R=1+\varepsilon\cos2\theta$，$0<\varepsilon<1$，则 $E[R^2\cos^2\theta]=1/2+\varepsilon/2+\varepsilon^2/4$，而 $E[R^2\sin^22\theta]=1/2+\varepsilon^2/8$，二阶矩不同. \hyperref[itm:exercise:4.29:a]{(a)} 中 $R$ 消去，无须此额外条件.}
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:exercise:4.29:a} 证明 $X/Y$ 服从 Cauchy 分布.
+\item[(b)]\phantomsection\label{itm:exercise:4.29:b} 证明 $2XY/\sqrt{X^2+Y^2}$ 与 $X$ 同分布. 将此结论特殊化，得到一个关于 $n(0,\sigma^2)$ 随机变量的结论.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.30}
+假设给定 $X=x$ 时 $Y$ 的分布为 $n(x,x^2)$，$X$ 的边缘分布为 $\operatorname{uniform}(0,1)$.
+\begin{enumerate}
+\item[(a)] 求 $EY$、$\operatorname{Var}Y$ 和 $\operatorname{Cov}(X,Y)$.
+\item[(b)] 证明 $Y/X$ 与 $X$ 独立.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.31}
+假设随机变量 $Y$ 服从试验次数为 $n$、成功概率为 $X$ 的二项分布，其中 $n$ 是给定常数，$X\sim\operatorname{uniform}(0,1)$.
+\begin{enumerate}
+\item[(a)] 求 $EY$ 与 $\operatorname{Var}Y$.
+\item[(b)] 求 $X,Y$ 的联合分布.
+\item[(c)] 求 $Y$ 的边缘分布.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.32}\index{SI0346@泊松–伽马}\index{SI0351@负二项}\leavevmode
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:exercise:4.32:a} 对分层模型 $Y\mid\Lambda\sim\operatorname{Poisson}(\Lambda)$，$\Lambda\sim\operatorname{gamma}(\alpha,\beta)$，求 $Y$ 的边缘分布、均值和方差. 证明当 $\alpha$ 为整数时，$Y$ 的边缘分布为负二项分布.
+\item[(b)] 证明三层模型
+$$Y\mid N\sim\operatorname{binomial}(N,p),\quad N\mid\Lambda\sim\operatorname{Poisson}(\Lambda),\quad\Lambda\sim\operatorname{gamma}(\alpha,\beta)$$
+得到 $Y$ 的同一边缘（无条件）分布.\footnote{译注：这里“同一”若指完全相同参数的分布，原文有误. 三层模型给出 $Y\mid\Lambda\sim\operatorname{Poisson}(p\Lambda)$，其边缘分布相当于 \hyperref[itm:exercise:4.32:a]{(a)} 中把尺度 $\beta$ 换为 $p\beta$；两者属于同一负二项分布族，但一般并不同分布.}
+\end{enumerate}
+\end{exercise}
+\sourcepageanchor{192}
+
+\begin{exercise}[负二项分布的另一种推导]\label{exercise:4.33}\index{SI0344@对数级数–泊松}\index{SI0876@随机停止的和}
+\hyperref[bib:source297]{Solomon (1983)} 详细描述了如下生物模型. 假设昆虫的数量 $N$ 为随机数，每只昆虫产卵 $X_i$ 个，其中 $X_i$ 独立同分布. 总产卵数为 $H=X_1+\cdots+X_N$. $H$ 的分布是什么？
+
+通常假定 $N\sim\operatorname{Poisson}(\lambda)$. 再假定每个 $X_i$ 服从成功概率为 $p$ 的对数级数分布（见\autoref{exercise:3.14}），得到分层模型
+$$\begin{aligned}
+H\mid N&=X_1+\cdots+X_N,\qquad P(X_i=t)=\frac{-1}{\log p}\frac{(1-p)^t}t,\\
+N&\sim\operatorname{Poisson}(\lambda).
+\end{aligned}$$
+证明 $H$ 的边缘分布是 $\operatorname{negative\ binomial}(r,p)$，其中 $r=-\lambda/\log p$. 最容易的方法是利用\autoref{thm:4.4.3} 和\autoref{thm:4.6.7} 计算并识别 $H$ 的 mgf. \hyperref[bib:source309]{Stuart and Ord (1987}, Section 5.21) 也提及了这种对数级数分布的推导；他们将 $H$ 称为随机停止和（randomly stopped sum\mbox{）.}
+\end{exercise}
+\begin{exercise}\label{exercise:4.34}\index{SI0260@贝塔二项}\index{SI0338@二项–贝塔}\leavevmode
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:exercise:4.34:a} 对\autoref{ex:4.4.6} 的层次结构，证明 $X$ 的边缘分布为 Beta--二项分布：
+$$P(X=x)=\binom nx\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}\frac{\Gamma(x+\alpha)\Gamma(n-x+\beta)}{\Gamma(\alpha+\beta+n)}.$$
+\item[(b)] \hyperref[itm:exercise:4.34:a]{(a)} 中分层模型的一种变体是
+$$X\mid P\sim\operatorname{negative\ binomial}(r,P),\qquad P\sim\operatorname{beta}(\alpha,\beta).$$
+求 $X$ 的边缘 pmf、均值与方差. 此分布称为 Beta--Pascal 分布.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.35}\leavevmode
+\begin{enumerate}
+\item[(a)] 对\autoref{ex:4.4.6} 的层次结构，证明 $X$ 的方差可写为
+$$\operatorname{Var}X=nEP(1-EP)+n(n-1)\operatorname{Var}P.$$
+第一项反映成功概率为 $EP$ 的二项变异，第二项常称为“超二项”（extra-binomial）变异，表明分层模型的方差大于单纯二项模型的方差.
+\item[(b)] 对\autoref{exercise:4.32} 的层次结构，证明 $Y$ 的方差可写为
+$$\operatorname{Var}Y=E\Lambda+\operatorname{Var}\Lambda=\mu+\frac1\alpha\mu^2,$$
+其中 $\mu=E\Lambda$. 指出层次结构引入的“超 Poisson”（extra-Poisson）变异.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.36}
+\autoref{ex:4.4.6} 中 Bernoulli 试验层次结构的一种推广，是允许成功概率随试验而变化，同时保持各次试验独立. 标准模型为
+$$\begin{aligned}X_i\mid P_i&\sim\operatorname{Bernoulli}(P_i),\qquad i=1,\ldots,n,\\P_i&\sim\operatorname{beta}(\alpha,\beta).\end{aligned}$$
+例如，测量药物对 $n$ 名患者的疗效时，因为患者各不相同，不愿假定成功概率恒定，这个模型可能合适. 它可视为一种经验 Bayes 模型（empirical Bayes model），见\hyperref[sec:7.5.6]{杂录 7.5.6}. 感兴趣的随机变量为总成功次数 $Y=\sum_{i=1}^nX_i$.
+\begin{enumerate}
+\item[(a)] 证明 $EY=n\alpha/(\alpha+\beta)$.
+\item[(b)] 证明 $\operatorname{Var}Y=n\alpha\beta/(\alpha+\beta)^2$，因而 $Y$ 与 $\operatorname{binomial}(n,\alpha/(\alpha+\beta))$ 随机变量具有相同均值和方差. $Y$ 的分布是什么？
+\item[(c)] 现在假设模型为
+$$\begin{aligned}X_i\mid P_i&\sim\operatorname{binomial}(n_i,P_i),\qquad i=1,\ldots,k,\\P_i&\sim\operatorname{beta}(\alpha,\beta).\end{aligned}$$
+证明对 $Y=\sum_{i=1}^kX_i$，有 $EY=\frac\alpha{\alpha+\beta}\sum_{i=1}^kn_i$，$\operatorname{Var}Y=\sum_{i=1}^k\operatorname{Var}X_i$，其中
+$$\operatorname{Var}X_i=n_i\frac{\alpha\beta(\alpha+\beta+n_i)}{(\alpha+\beta)^2(\alpha+\beta+1)}.$$
+\end{enumerate}
+\end{exercise}
+\sourcepageanchor{193}
+
+\begin{exercise}\label{exercise:4.37}\index{SI0446@强制二元选择}
+D. G. \hyperref[bib:source226]{Morrison (1978)} 描述了\autoref{exercise:4.34} 中层次结构的一个推广，建立了强迫二元选择（forced binary choice）模型. 强迫二元选择是指要求受试者必须在两个选项之间作出选择，例如品尝测试. 受试者可能实际上无法分辨两种选项（你能分清可口可乐与百事可乐吗？），但实验设计要求必须作出选择. 因此，正确辨别与正确猜中混杂在一起. Morrison 为此定义参数
+$$\begin{aligned}p&=\text{受试者确实能够分辨的概率},\\c&=\text{受试者判断正确的概率}.\end{aligned}$$
+于是
+$$c=p+\frac12(1-p)=\frac12(1+p),\qquad\frac12<c<1,$$
+其中 $\frac12(1-p)$ 是受试者猜对的概率. 进行实验并观测 $X_1,\ldots,X_n\sim\operatorname{Bernoulli}(c)$，所以
+$$P\left(\sum X_i=k\mid c\right)=\binom nk c^k(1-c)^{n-k}.$$
+然而，$p$ 很可能因人而异，因此允许 $p$ 按 Beta 分布变化：$P\sim\operatorname{beta}(a,b)$.
+\begin{enumerate}
+\item[(a)] 证明 $\sum X_i$ 的分布为 Beta--二项分布.\footnote{译注：这里 $C=(1+P)/2$ 是支撑在 $(1/2,1)$ 上的缩放平移 Beta 变量，通常不是\autoref{exercise:4.34} 所用的 $(0,1)$ 上 Beta 混合. 因而题述一般不能直接得到通常的 Beta--二项分布；其 pmf 应由 $\binom nk E[C^k(1-C)^{n-k}]$ 求得. 原文是否将这一推广也称为 Beta--二项分布，需核实 Morrison 原文.}
+\item[(b)] 求 $\sum X_i$ 的均值和方差.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}[作为指数混合的 Gamma 分布]\label{exercise:4.38}\index{SI0295@与伽马的关系}\index{SI0312@与指数的关系}\index{SI0343@指数–伽马}
+\hyperref[bib:source146]{Gleser (1989)} 证明，在某些情形下 Gamma 分布可以写为指数分布的尺度混合；对同一数据的不同分析启发了这一恒等式. 设 $f(x)$ 为 $\operatorname{gamma}(r,\lambda)$ 的 pdf.
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:exercise:4.38:a} 证明若 $r\le1$，则
+$$f(x)=\int_0^\lambda\frac1\nu e^{-x/\nu}p_\lambda(\nu)\,d\nu,$$
+其中
+$$p_\lambda(\nu)=\frac1{\Gamma(r)\Gamma(1-r)}\frac{\nu^{r-1}}{(\lambda-\nu)^r},\qquad0<\nu<\lambda.$$
+提示：作变量替换 $u=x/\nu-x/\lambda$.
+\item[(b)]\phantomsection\label{itm:exercise:4.38:b} 通过证明 $\int_0^\lambda p_\lambda(\nu)\,d\nu=1$，说明当 $r\le1$ 时 $p_\lambda(\nu)$ 是 pdf.\footnote{译注：\hyperref[itm:exercise:4.38:a]{(a)}、\hyperref[itm:exercise:4.38:b]{(b)} 所给普通密度公式实际要求 $0<r<1$；$r=1$ 时 $\Gamma(1-r)$ 无定义. 边界 $r=1$ 对应在 $\nu=\lambda$ 处的单位点质量，即一个指数分布，而非此普通密度.}
+\item[(c)] 证明限制 $r\le1$ 是 \hyperref[itm:exercise:4.38:a]{(a)} 的表示成立的必要条件，即 $r>1$ 时不存在这种表示. 提示：假设对某个 pdf $q_\lambda(\nu)$，可写成
+$$f(x)=\int_0^\infty\frac{e^{-x/\nu}}\nu q_\lambda(\nu)\,d\nu.$$
+证明 $\frac\partial{\partial x}\log f(x)>0$，而 $\frac\partial{\partial x}\log\left(\int_0^\infty\frac{e^{-x/\nu}}\nu q_\lambda(\nu)\,d\nu\right)<0$，产生矛盾.\footnote{译注：Gamma 密度的对数导数为 $(r-1)/x-1/\lambda$，只在 $0<x<\lambda(r-1)$ 时为正，而非所有 $x>0$；在该非空区间取得矛盾已足够.}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.39}\index{SI0349@协方差}
+设 $(X_1,\ldots,X_n)$ 服从试验次数为 $m$、格概率为 $p_1,\ldots,p_n$ 的多项分布（见\autoref{def:4.6.2}）. 证明对每个 $i,j$，\footnote{译注：这里需 $i\ne j$，条件分布公式还需 $p_j<1$ 及 $P(X_j=x_j)>0$；$i=j$ 时协方差应为方差 $mp_i(1-p_i)$.}
+$$\begin{aligned}X_i\mid X_j=x_j&\sim\operatorname{binomial}\left(m-x_j,\frac{p_i}{1-p_j}\right),\\X_j&\sim\operatorname{binomial}(m,p_j),\end{aligned}$$
+并且 $\operatorname{Cov}(X_i,X_j)=-mp_ip_j$.
+\end{exercise}
+\begin{exercise}\label{exercise:4.40}
+Beta 分布的一个推广是 Dirichlet 分布. 在二元版本中，$(X,Y)$ 的 pdf 为
+$$f(x,y)=Cx^{a-1}y^{b-1}(1-x-y)^{c-1},\quad0<x<1,\quad0<y<1,\quad0<y<1-x<1,$$
+其中 $a,b,c$ 为正的常数.
+\sourcepageanchor{194}
+
+\begin{enumerate}
+\item[(a)] 证明 $C=\Gamma(a+b+c)/(\Gamma(a)\Gamma(b)\Gamma(c))$.
+\item[(b)] 证明 $X,Y$ 的边缘分布都是 Beta 分布.
+\item[(c)] 求 $Y\mid X=x$ 的条件分布，并证明 $Y/(1-x)$ 服从 $\operatorname{beta}(b,c)$.
+\item[(d)] 证明 $E(XY)=ab/((a+b+c+1)(a+b+c))$，并求协方差.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.41}
+证明任意随机变量都与常数不相关.\footnote{译注：这里“不相关”应理解为在期望存在时协方差为 0；常数的标准差为 0，按\autoref{def:4.5.2} 定义的相关系数并不存在.}
+\end{exercise}
+\begin{exercise}\label{exercise:4.42}
+设 $X,Y$ 独立，均值为 $\mu_X,\mu_Y$，方差为 $\sigma_X^2,\sigma_Y^2$. 用这些均值和方差表示 $XY$ 与 $Y$ 的相关系数.
+\end{exercise}
+\begin{exercise}\label{exercise:4.43}
+设 $X_1,X_2,X_3$ 不相关，均值均为 $\mu$，方差均为 $\sigma^2$. 用 $\mu,\sigma^2$ 表示 $\operatorname{Cov}(X_1+X_2,X_2+X_3)$ 和 $\operatorname{Cov}(X_1+X_2,X_1-X_2)$.
+\end{exercise}
+\begin{exercise}\label{exercise:4.44}\index{SI1068@和}
+证明\autoref{thm:4.5.6} 的下列推广：对任意随机向量 $(X_1,\ldots,X_n)$，
+$$\operatorname{Var}\left(\sum_{i=1}^nX_i\right)=\sum_{i=1}^n\operatorname{Var}X_i+2\sum_{1\le i<j\le n}\operatorname{Cov}(X_i,X_j).$$
+\end{exercise}
+\begin{exercise}\label{exercise:4.45}\index{SI0273@二元正态}
+证明：若 $(X,Y)$ 服从参数为 $\mu_X,\mu_Y,\sigma_X^2,\sigma_Y^2,\rho$ 的二元正态分布，则：
+\begin{enumerate}
+\item[(a)] $X$ 的边缘分布为 $n(\mu_X,\sigma_X^2)$，$Y$ 的边缘分布为 $n(\mu_Y,\sigma_Y^2)$.
+\item[(b)] 给定 $X=x$ 时 $Y$ 的条件分布为
+$$n\bigl(\mu_Y+\rho(\sigma_Y/\sigma_X)(x-\mu_X),\sigma_Y^2(1-\rho^2)\bigr).$$
+\item[(c)] 对任意常数 $a,b$，$aX+bY$ 的分布为
+$$n(a\mu_X+b\mu_Y,a^2\sigma_X^2+b^2\sigma_Y^2+2ab\rho\sigma_X\sigma_Y).$$
+\end{enumerate}
+\end{exercise}
+\begin{exercise}[二元正态分布的一种推导]\label{exercise:4.46}
+设 $Z_1,Z_2$ 为独立的 $n(0,1)$ 随机变量，并定义
+$$X=a_XZ_1+b_XZ_2+c_X,\qquad Y=a_YZ_1+b_YZ_2+c_Y,$$
+其中 $a_X,b_X,c_X,a_Y,b_Y,c_Y$ 为常数.
+\begin{enumerate}
+\item[(a)] 证明
+$$\begin{gathered}EX=c_X,\quad\operatorname{Var}X=a_X^2+b_X^2,\\EY=c_Y,\quad\operatorname{Var}Y=a_Y^2+b_Y^2,\\\operatorname{Cov}(X,Y)=a_Xa_Y+b_Xb_Y.\end{gathered}$$
+\item[(b)]\phantomsection\label{itm:exercise:4.46:b} 如果将这些常数定义为
+$$\begin{aligned}
+a_X&=\sqrt{\frac{1+\rho}2}\sigma_X,&b_X&=\sqrt{\frac{1-\rho}2}\sigma_X,&c_X&=\mu_X,\\
+a_Y&=\sqrt{\frac{1+\rho}2}\sigma_Y,&b_Y&=-\sqrt{\frac{1-\rho}2}\sigma_Y,&c_Y&=\mu_Y,
+\end{aligned}$$
+其中 $\mu_X,\mu_Y,\sigma_X^2,\sigma_Y^2,\rho$ 为常数，$-1\le\rho\le1$，证明
+$$EX=\mu_X,\quad\operatorname{Var}X=\sigma_X^2,\qquad EY=\mu_Y,\quad\operatorname{Var}Y=\sigma_Y^2,\qquad\rho_{XY}=\rho.$$
+\item[(c)] 证明 $(X,Y)$ 具有参数为 $\mu_X,\mu_Y,\sigma_X^2,\sigma_Y^2,\rho$ 的二元正态 pdf.\footnote{译注：普通二元 pdf 要求 $|\rho|<1$（且两个方差为正）. \hyperref[itm:exercise:4.46:b]{(b)} 允许的 $\rho=\pm1$ 给出集中在直线上的退化联合分布，不具有\autoref{def:4.5.10} 的二维密度.}
+\item[(d)] 从二元正态参数 $\mu_X,\mu_Y,\sigma_X^2,\sigma_Y^2,\rho$ 出发，可将常数定义为以下方程的解：
+$$\begin{gathered}\mu_X=c_X,\quad\sigma_X^2=a_X^2+b_X^2,\\\mu_Y=c_Y,\quad\sigma_Y^2=a_Y^2+b_Y^2,\\\rho\sigma_X\sigma_Y=a_Xa_Y+b_Xb_Y.\end{gathered}$$
+再给出一组解，说明 \hyperref[itm:exercise:4.46:b]{(b)} 中的解并不唯一. 一共有多少组解？
+\end{enumerate}
+\end{exercise}
+\sourcepageanchor{195}
+
+\begin{exercise}[边缘正态性不蕴含二元正态性]\label{exercise:4.47}\index{SI0359@二元}
+设 $X,Y$ 为独立的 $n(0,1)$ 随机变量，定义
+$$Z=\begin{cases}X,&XY>0,\\-X,&XY<0.\end{cases}$$
+\begin{enumerate}
+\item[(a)] 证明 $Z$ 服从正态分布.
+\item[(b)] 证明 $Z,Y$ 的联合分布不是二元正态分布. 提示：说明 $Z,Y$ 总是同号.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.48}
+\hyperref[bib:source135]{Gelman and Meng (1991)} 给出了一个二元分布族的例子，它不是二元正态分布，但条件分布均为正态. 定义 $(X,Y)$ 的联合 pdf 为
+$$f(x,y)\propto\exp\left\{-\frac12[Ax^2y^2+x^2+y^2-2Bxy-2Cx-2Dy]\right\},$$
+其中 $A,B,C,D$ 为常数.
+\begin{enumerate}
+\item[(a)] 证明 $X\mid Y=y$ 服从均值为 $(By+C)/(Ay^2+1)$、方差为 $1/(Ay^2+1)$ 的正态分布. 推导 $Y\mid X=x$ 的相应结论.
+\item[(b)] 一个十分有趣的配置是 $A=1,B=0,C=D=8$. 证明这个联合分布是双峰的.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.49}
+\hyperref[bib:source15]{Behboodian (1990)} 说明了如何构造不相关但不独立的二元随机变量. 设 $f_1,f_2,g_1,g_2$ 为一元密度，均值分别为 $\mu_1,\mu_2,\xi_1,\xi_2$，二元随机变量 $(X,Y)$ 的密度为
+$$(X,Y)\sim af_1(x)g_1(y)+(1-a)f_2(x)g_2(y),$$
+其中 $0<a<1$ 已知.
+\begin{enumerate}
+\item[(a)] 证明边缘分布为 $f_X(x)=af_1(x)+(1-a)f_2(x)$，$f_Y(y)=ag_1(y)+(1-a)g_2(y)$.
+\item[(b)] 证明 $X,Y$ 独立，当且仅当 $[f_1(x)-f_2(x)][g_1(y)-g_2(y)]=0$.
+\item[(c)] 证明 $\operatorname{Cov}(X,Y)=a(1-a)[\mu_1-\mu_2][\xi_1-\xi_2]$，并据此解释如何构造不独立但不相关的随机变量.
+\item[(d)] 令 $f_1,f_2,g_1,g_2$ 为二项 pmf，给出参数组合的例子，分别产生独立的 $(X,Y)$、相关的 $(X,Y)$，以及不相关但不独立的 $(X,Y)$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.50}
+若 $(X,Y)$ 具有二元正态 pdf
+$$f(x,y)=\frac1{2\pi(1-\rho^2)^{1/2}}\exp\left(\frac{-1}{2(1-\rho^2)}(x^2-2\rho xy+y^2)\right),$$
+证明 $\operatorname{Corr}(X,Y)=\rho$，$\operatorname{Corr}(X^2,Y^2)=\rho^2$. 条件期望可以简化计算.
+\end{exercise}
+\begin{exercise}\label{exercise:4.51}
+设 $X,Y,Z$ 为独立的 $\operatorname{uniform}(0,1)$ 随机变量.
+\begin{enumerate}
+\item[(a)] 求 $P(X/Y\le t)$ 和 $P(XY\le t)$. 画图会有帮助.
+\item[(b)] 求 $P(XY/Z\le t)$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.52}
+向 $(x,y)$ 坐标系的原点射击，命中点 $(X,Y)$ 是随机变量. 假定 $X,Y$ 是独立的 $n(0,1)$ 随机变量. 若独立发射两颗子弹，两命中点间距离的分布是什么？
+\end{exercise}
+\begin{exercise}\label{exercise:4.53}
+设 $A,B,C$ 为独立的 $\operatorname{uniform}(0,1)$ 随机变量. $Ax^2+Bx+C$ 有实根的概率是多少？提示：若 $X\sim\operatorname{uniform}(0,1)$，则 $-\log X$ 为指数随机变量；两个独立指数随机变量之和为 Gamma 随机变量.
+\end{exercise}
+\begin{exercise}\label{exercise:4.54}
+求 $\prod_{i=1}^nX_i$ 的 pdf，其中 $X_i$ 为独立的 $\operatorname{uniform}(0,1)$ 随机变量. 提示：尝试计算 cdf，并记住均匀分布与指数分布的关系.
+\end{exercise}
+\sourcepageanchor{196}
+
+\begin{exercise}\label{exercise:4.55}\index{SI0749@并联系统}
+并联系统（parallel system）只要至少有一个部件工作，就能工作. 某并联系统由三个独立部件组成，每个部件的寿命都服从 $\operatorname{exponential}(\lambda)$ 分布. 系统寿命是各部件寿命的最大值. 求系统寿命的分布.
+\end{exercise}
+\begin{exercise}\label{exercise:4.56}
+大量人员 $N=mk$ 需要验血，可采用两种方案.
+\begin{enumerate}
+\item[(i)] 每人单独检测，此时需要 $N$ 次检测.
+\item[(ii)]\phantomsection\label{itm:exercise:4.56:ii} 将 $k$ 人的血样混合检测. 如果结果为阴性，这一次检测就足够覆盖这 $k$ 人；若结果为阳性，则对这 $k$ 人逐个检测，总共需要 $k+1$ 次.
+\end{enumerate}
+假设每个人检测阳性的概率均为 $p$，不同人的检测结果统计独立.
+\begin{enumerate}
+\item[(a)] $k$ 人混合样本检测阳性的概率是多少？
+\item[(b)]\phantomsection\label{itm:exercise:4.56:b} 令 $X=$ 方案 \hyperref[itm:exercise:4.56:ii]{(ii)} 所需的检测次数，求 $EX$.
+\item[(c)] 若已知 $p$ 接近 0，从最小化这 $N$ 人所需检测次数的期望来看，应选择哪种方案？利用 \hyperref[itm:exercise:4.56:b]{(b)} 的表达式说明理由.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.57}
+参照\hyperref[misc:4.9.2]{杂录 4.9.2}.
+\begin{enumerate}
+\item[(a)] 证明 $A_1$ 是算术平均，$A_{-1}$ 是调和平均，$A_0=\lim_{r\to0}A_r$ 是几何平均.
+\item[(b)] 如果能证明 $A_r$ 在 $-\infty<r<\infty$ 上关于 $r$ 非减，就能得到算术--几何--调和平均不等式.
+\begin{enumerate}
+\item[(i)] 验证：若 $\log A_r$ 关于 $r$ 非减，则 $A_r$ 关于 $r$ 非减.
+\item[(ii)] 证明
+$$\frac d{dr}\log A_r=\frac1{r^2}\left\{\frac{r\sum_i x_i^r\log x_i}{\sum_i x_i^r}-\log\left(\frac1n\sum_i x_i^r\right)\right\}.$$
+\item[(iii)]\phantomsection\label{itm:exercise:4.57:b:iii} 定义 $a_i=x_i^r/\sum_i x_i^r$，将花括号中的量写为 $\log n-\sum a_i\log(1/a_i)$，其中 $\sum a_i=1$. 证明此量非负，从而建立 $A_r$ 的单调性，并将算术--几何--调和平均不等式作为特例得到.
+\end{enumerate}
+\end{enumerate}
+量 $\sum_i a_i\log(1/a_i)$ 称为熵（entropy）\index{SI0398@熵}\semanticindexanchor{398:196}，有时视为不确定性的绝对度量，见 \hyperref[bib:source29]{Bernardo and Smith (1994}, Section 2.7). \hyperref[itm:exercise:4.57:b:iii]{(iii)} 的结论表明，当所有概率相同时（随机性），熵达到最大.
+
+提示：为证明不等式，注意 $a_i$ 构成概率分布，可以写为
+$$E\log\left(\frac1a\right)=\sum_i a_i\log(1/a_i),$$
+再由 Jensen 不等式，$E\log(1/a)\le\log(E(1/a))$.
+\end{exercise}
+\begin{exercise}\label{exercise:4.58}
+对任意具有有限方差的两个随机变量 $X,Y$，证明：
+\begin{enumerate}
+\item[(a)] $\operatorname{Cov}(X,Y)=\operatorname{Cov}(X,E(Y\mid X))$.
+\item[(b)] $X$ 与 $Y-E(Y\mid X)$ 不相关.
+\item[(c)] $\operatorname{Var}(Y-E(Y\mid X))=E(\operatorname{Var}(Y\mid X))$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.59}\index{SI0533@条件协方差}
+对任意具有有限方差的三个随机变量 $X,Y,Z$，按\autoref{thm:4.4.7} 的思路证明协方差恒等式
+$$\operatorname{Cov}(X,Y)=E(\operatorname{Cov}(X,Y\mid Z))+\operatorname{Cov}(E(X\mid Z),E(Y\mid Z)),$$
+其中 $\operatorname{Cov}(X,Y\mid Z)$ 是在 pdf $f(x,y\mid z)$ 下 $X,Y$ 的协方差.
+\end{exercise}
+\begin{exercise}\label{exercise:4.60}
+参照\hyperref[misc:4.9.3]{杂录 4.9.3}，分别对那里给出的条件 $Y=X$ 的三种解释，求给定 $Y=X$ 时 $Y$ 的条件分布.
+\end{exercise}
+\sourcepageanchor{197}
+
+\begin{exercise}\label{exercise:4.61}
+\hyperref[bib:source96]{DeGroot (1986)} 给出如下 Borel 悖论（\hyperref[misc:4.9.3]{杂录 4.9.3}）的例子. 设 $X_1,X_2$ 为独立同分布的 $\operatorname{exponential}(1)$ 随机变量，定义 $Z=(X_2-1)/X_1$. 零概率集合 $\{Z=0\}$ 与 $\{X_2=1\}$ 看似提供了相同信息，却导出不同条件分布.
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:exercise:4.61:a} 求 $X_1\mid Z=0$ 的分布，并与 $X_1\mid X_2=1$ 比较.
+\item[(b)] 对小的 $\varepsilon>0$ 及 $x_1>0,x_2>0$，考虑
+$$B_1=\left\{(x_1,x_2):-\varepsilon<\frac{x_2-1}{x_1}<\varepsilon\right\},\qquad
+B_2=\{(x_1,x_2):1-\varepsilon<x_2<1+\varepsilon\}.$$
+画出这两个集合，并说明为何 $B_1$ 提供了关于 $X_1$ 的信息，而 $B_2$ 没有.
+\item[(c)] 计算 $P(X_1\le x\mid B_1)$ 与 $P(X_1\le x\mid B_2)$，说明它们在 $\varepsilon\to0$ 时的极限与 \hyperref[itm:exercise:4.61:a]{(a)} 一致.
+\end{enumerate}
+（由俄亥俄州立大学 L. Mark Berliner 提供.）
+\end{exercise}
+\begin{exercise}\label{exercise:4.62}
+完成 Jensen 不等式（\autoref{thm:4.7.7}）中等号情形的证明. 设 $g$ 为凸函数，$a+bx$ 是它在 $x=EX$ 处的切线，且除 $x=EX$ 外都有 $g(x)>a+bx$. 则除非 $P(X=EX)=1$，否则 $Eg(X)>g(EX)$.
+\end{exercise}
+\begin{exercise}\label{exercise:4.63}
+随机变量 $X$ 由 $Z=\log X$ 定义，其中 $EZ=0$. $EX$ 大于、小于还是等于 1？
+\end{exercise}
+\begin{exercise}\label{exercise:4.64}\index{SI0578@三角}
+本题讨论著名的三角不等式（triangle inequality），它是 Minkowski 不等式的一个特例.
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:exercise:4.64:a} 不使用 Minkowski 不等式，证明对任意数 $a,b$，$|a+b|\le|a|+|b|$.
+\item[(b)] 利用 \hyperref[itm:exercise:4.64:a]{(a)} 证明，对任意具有有限期望的随机变量 $X,Y$，$E|X+Y|\le E|X|+E|Y|$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:4.65}
+推广正文中紧接协方差不等式之前的论证，证明\autoref{thm:4.7.9}.
+\end{exercise}

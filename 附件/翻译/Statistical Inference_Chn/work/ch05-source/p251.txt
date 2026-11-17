@@ -1,0 +1,16 @@
+220                                    PROPERTIES OF A RANDOM SAMPLE
+       provided the expectation exists. Thus, the calculations of Section 5.6 can be extended to
+      Markov chains and MCMC methods.
+        To fully understand MCMC methods it is really necessary to understand more about
+      Markov chains, which we will not do here. There is already a vast literature on MCMC
+       methods, encompassing both theory and applications. Tanner (1993) provides a good intro-
+       duction to computational methods in statistics, as does Robert (1994, Chapter 9) who pro-
+       vides a more theoretical treatment with a Bayesian flavor. An easier introduction to this topic
+       via the Gibbs sampler (a particular MCMC method) is given by Casella and George (1992).
+      The Gibbs sampler is, perhaps, the MCMC method that is still the most widely used, and is
+       responsible for the popularity of this method [due to the seminal work of Gelfand and Smith
+       (1990) expanding on Geman and Geman (1984)]. The list of references involving MCMC
+      methods is prohibitively large. Some other introductions to this literature are through the
+       papers of Gelman and Rubin (1992), Geyer and Thompson (1992), and Smith and Roberts
+       (1993), with a particularly elegant theoretical introduction given by Tierney (1994). Robert
+      and Casella (1999) is a textbook-length treatment of this field.

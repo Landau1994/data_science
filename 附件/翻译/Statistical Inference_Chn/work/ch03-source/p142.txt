@@ -1,0 +1,45 @@
+MISCELLANEA                                                              111
+3.45 Let X be a random variable with moment generating function MX(t), −h < t < h.
+       (a) Prove that P(X ≥a) ≤e−atMX(t),  0 < t < h. (A proof similar to that used for Chebychev’s In-          equality will work.)
+      (b) Similarly, prove that P(X ≤a) ≤e−atMX(t),  −h < t < 0.
+       (c) A special case of part (a) is that P(X ≥0) ≤EetX, for all t ≥0 for which the mgf is defined. What
+          are general conditions on a function h(t,x) such that P(X ≥0) ≤Eh(t,X), for all t ≥0 for which         Eh(t,X) exists. (In part (a) h(t,x) = etx.)
+3.46 Calculate P(|X −µX| ≥kσX) for X ∼uniform(0,1) and X ∼exponential(λ), and compare your answers      to the bound from Chebychev’s Inequality.
+3.47  If Z is a standard normal random variable, prove this companion to the inequality in Example 3.6.3:
+
+                                              2     t
+                                      P(|Z| ≥t) ≥  π 1+t2 e−t2/2.
+3.48 Derive recursion relations, similar to the one given in (3.6.2), for the binomial, negative binomial, and
+     hypergeometric distributions.
+3.49 Prove the following analogues to Stein’s Lemma, assuming appropriate conditions on the function g.
+       (a)  If X ∼gamma(α,β), then
+                                E(g(X)(X −αβ)) = βE Xg′(X)  .
+      (b)  If X ∼beta(α,β), then
+                    E g(X)  β −(α −1)(1−X)X    = E (1−X)g′(X)  .
+
+3.50 Prove the identity for the negative binomial distribution given in Theorem 3.6.8, part (b).
+
+3.8  Miscellanea
+
+ 3.8.1 The Poisson postulates
+      The Poisson distribution can be derived from a set of basic assumptions, sometimes called
+       the Poisson postulates. These assumptions relate to the physical properties of the process
+       under consideration. While, generally speaking, the assumptions are not very easy to verify,
+       they do provide an experimenter with a set of guidelines for considering whether the Poisson
+        will provide a reasonable model. For a more complete treatment of the Poisson postulates,
+       see the classic texts by Feller (1968) or Barr and Zehna (1983).
+     Theorem 3.8.1 For each t ≥0, let Nt be an integer-valued random variable with the follow-       ing properties. (Think of Nt as denoting the number of arrivals in the time period from time
+      0 to time t.)
+            i. N0 = 0                                                               (start with no arrivals)
+                                                                          arrivals in disjoint time
+           ii. s < t ⇒Ns and Nt −Ns are independent.                     periods are independent
+                                                       number of arrivals depends
+          iii. Ns and Nt+s −Nt are identically distributed.                only on period length
+               P(Nt = 1)                                     arrival probability proportional
+         iv. limt→0       t   = λ                                to period length, if length is small
+                P(Nt > 1)
+         v. limt→0        t   = 0                                  (no simultaneous arrivals)
+          If i−v hold, then for any integer n,
+                                                     (λt)n                                  P(Nt = n) = e−λt         ,
+                                                        n!
+        that is, Nt ∼Poisson(λt).

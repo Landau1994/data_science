@@ -1,0 +1,47 @@
+                                   Chapter 4
+
+         Multiple Random Variables
+
+
+
+
+
+    I confess that I have been blind as a mole, but it is better to learn wisdom late than never to
+   learn it at all.
+                                                                  Sherlock Holmes
+                                                     The Man with the Twisted Lip
+
+4.1  Joint and Marginal Distributions
+In previous chapters, we discussed probability models and computation of probability for events
+involving only one random variable. These are called univariate models. In this chapter we discuss
+probability models that involve more than one random variable – naturally enough, called multivari-
+ate models.
+    In an experimental situation, it would be very unusual to observe only the value of one random
+variable. That is, it would be an unusual experiment in which the total data collected consisted of just
+one numeric value. For example, consider an experiment designed to gain information about some
+health characteristics of a population of people. It would be a modest experiment, indeed, if the only
+datum collected was the body weight of one person. Rather, the body weights of several people in the
+population might be measured. These different weights would be observations on different random
+variables, one for each person measured. Multiple observations could also arise because several
+physical characteristics were measured on each person. For example, temperature, height, and blood
+pressure, in addition to weight, might be measured. These observations on different characteristics
+could also be modeled as observations on different random variables. Thus, we need to know how
+to describe and use probability models that deal with more than one random variable at a time. For
+the first several sections we will mainly discuss bivariate models, models involving two random
+variables.
+    Recall that, in Definition 1.4.1, a (univariate) random variable was defined to be a function from
+a sample space S into the real numbers. A random vector, consisting of several random variables, is
+defined similarly.
+Definition 4.1.1  An n-dimensional random vector is a function from a sample space S into ℜn,
+n-dimensional Euclidean space.
+
+   Suppose, for example, that with each point in a sample space we associate an ordered pair of
+numbers, that is, a point (x,y) ∈ℜ2, where ℜ2 denotes the plane. Then we have defined a two-dimensional (or bivariate) random vector (X,Y). Example 4.1.2 illustrates this.
+Example 4.1.2 (Sample space for dice)   Consider the experiment of tossing two fair dice. The
+sample space for this experiment has 36 equally likely points and was introduced in Example 1.3.10.
+For example, the sample point (3,3) denotes the outcome in which both dice show a 3; the sample
+point (4,1) denotes the outcome in which the first die shows a 4 and the second die a 1; etc. Now,
+with each of these 36 points associate two numbers, X and Y. Let
+
+           X = sum of the two dice  and  Y = |difference of the two dice|.
+114                                                 DOI: 10.1201/9781003456285-4

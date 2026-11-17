@@ -1,0 +1,49 @@
+196                                    PROPERTIES OF A RANDOM SAMPLE
+   One method of proceeding is based on using a Taylor series approximation, which allows us to
+approximate the mean and variance of a function of a random variable. We will also see that these
+rather straightforward approximations are good enough to obtain a CLT. We begin with a short
+review of Taylor series.
+Definition 5.5.20   If a function g(x) has derivatives of order r, that is, g(r)(x) = dxrdr g(x) exists, then
+for any constant a, the Taylor polynomial of order r about a is
+
+                                                               r  g(i)(a)
+                                   Tr(x) =                 ∑                                                                  i!  (x−a)i.                                              i=0
+
+
+    Taylor’s major theorem, which we will not prove here, is that the remainder from the approxi-
+mation, g(x)−Tr(x) always tends to zero faster than the highest-order explicit term.
+Theorem 5.5.21 (Taylor)   If g(r)(a) = dxrdr g(x)|x=a exists, then
+                                     g(x)−Tr(x) = 0.                                limx→a                                    (x−a)r
+
+    In general, we will not be concerned with the explicit form of the remainder. Since we are
+interested in approximations, we are just going to ignore the remainder. There are, however, many
+explicit forms, one useful one being
+
+                                                          x g(r+1)(t)
+                         g(x)−Tr(x) =  a     r!   (x−t)rdt.
+
+   For the statistical application of Taylor’s Theorem, we are most concerned with the first-order
+Taylor series, that is, an approximation using just the first derivative (taking r = 1 in the above
+formulas). Furthermore, we will also find use for a multivariate Taylor series. Since the above detail
+is univariate, some of the following will have to be accepted on faith.
+   Let T1,...,Tk be random variables with means θ1,...,θk, and define T = (T1,...,Tk) and θ =
+(θ1,...,θk). Suppose there is a differentiable function g(T) (an estimator of some parameter) for
+which we want an approximate estimate of variance. Define
+
+                                    ∂
+                                        g′i(θ) =                                                 ∂ti g(t)|t1=θ1,...,tk=θk.
+The first-order Taylor series expansion of g about θ is
+
+                                                    k
+                           g(t) = g(θ)+                ∑ g′i(θ)(ti −θi)+Remainder.                                           i=1
+
+For our statistical approximation we forget about the remainder and write
+
+                                                            k
+                                                                                                 (5.5.7)                                  g(t) ≈g(θ)+ i=1∑ g′i(θ)(ti −θi).
+
+Now, take expectations on both sides of (5.5.7) to get
+
+                                                 k
+                                                         (Ti −θi)            Eθ g(T) ≈  g(θ)+ i=1∑ g′i(θ)Eθ
+              =  g(θ).                                  (Ti has mean θi)          (5.5.8)

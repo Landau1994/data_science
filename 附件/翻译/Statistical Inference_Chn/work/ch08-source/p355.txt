@@ -1,0 +1,46 @@
+324                                             HYPOTHESIS TESTING
+Thus, S = S1 + S2 is a sufficient statistic under H0. Given the value of S = s, it is reasonable to
+use S1 as a test statistic and reject H0 in favor of H1 for large values of S1, because large values
+of S1 correspond to small values of S2 = s −S1. The conditional distribution S1 given S = s ishypergeometric(n1 +n2,n1,s) ( see Exercise 8.48). Thus, the conditional p-value in (8.3.10) is
+
+                                                       min{n1,s}
+                                    p(s1,s2) = ∑                                                             f(j|s),                                                          j=s1
+
+the sum of hypergeometric probabilities. The test defined by this p-value is called Fisher’s Exact
+Test.                                                                          ∥
+
+8.3.5  Loss Function Optimality
+
+A decision theoretic analysis, as in Section 7.3.4, may be used to compare hypothesis tests, rather
+than just comparing them via their power functions. To carry out this kind of analysis, we must
+specify the action space and loss function for our hypothesis testing problem.
+    In a hypothesis testing problem, only two actions are allowable, “accept H0” or “reject H0.”
+These two actions might be denoted a0 and a1, respectively. The action space in hypothesis testing
+is the two-point set A = {a0,a1}. A decision rule δ(x) (a hypothesis test) is a function on X that
+takes on only two values, a0 and a1. The set {x: δ(x) = a0} is the acceptance region for the test and
+the set {x: δ(x) = a1} is the rejection region, just as in Definition 8.1.3.
+   The loss function in a hypothesis testing problem should reflect the fact that, if θ ∈Θ0 and
+                                  0 and decision a0 is made, a mistake has been made. But in the otherdecision a1 is made, or if θ ∈Θctwo possible cases, the correct decision has been made. Since there are only two possible actions,
+the loss function L(θ,a) in a hypothesis testing problem is composed of only two parts. The function
+L(θ,a0) is the loss incurred for various values of θ if the decision to accept H0 is made, and L(θ,a1)
+is the loss incurred for various values of θ if the decision to reject H0 is made.
+   The simplest kind of loss in a testing problem is called 0–1 loss, and is defined by
+
+                          0  θ                        1  θ                 L(θ,a0) =      ∈Θ0,   and  L(θ,a1) =      ∈Θ0,
+                          1  θ ∈Θc0,                  0  θ ∈Θc0.
+With 0–1 loss, the value 0 is lost if a correct decision is made, and the value 1 is lost if an incorrect
+decision is made. This is a particularly simple situation in which both types of error have the same
+consequence. A slightly more realistic loss, one that gives different costs to the two types of error,
+is generalized 0–1 loss,
+
+                          0  θ                                  cI  θ                L(θ,a0) =       ∈Θ0,   and  L(θ,a1) =      ∈Θ0,           (8.3.11)
+                                         cII  θ ∈Θc0,                   0  θ ∈Θc0.
+In this loss, cI is the cost of a Type I Error, the error of falsely rejecting H0, and cII is the cost of a
+Type II Error, the error of falsely accepting H0. (Actually, in comparing tests, all that really matters
+is the ratio cII/cI, not the two individual values. If cI = cII, we essentially have 0–1 loss.)
+    In a decision theoretic analysis, the risk function (the expected loss) is used to evaluate a hy-
+pothesis testing procedure. The risk function of a test is closely related to its power function, as the
+following analysis shows.
+   Let β(θ) be the power function of the test based on the decision rule δ. That is, if R = {x :
+δ(x) = a1} denotes the rejection region of the test, then
+                        β(θ) = Pθ(X ∈R) = Pθ(δ(X) = a1).

@@ -1,0 +1,44 @@
+BIVARIATE TRANSFORMATIONS                                              129
+Example 4.3.1 (Distribution of the sum of Poisson variables)   Let X and Y be independent
+Poisson random variables with parameters θ and λ, respectively. Thus, the joint pmf of (X,Y)
+is
+                         θ xe−θ λ ye−λ
+                    fX,Y(x,y) =                     ,   x = 0,1,2,..., y = 0,1,2,....
+                                    x!     y!
+The set A  is {(x,y) : x = 0,1,2,... and y = 0,1,2,...}. Now define U = X +Y and V = Y. Thatis, g1(x,y) = x + y and g2(x,y) = y. We will describe the set B, the set of possible (u,v) values.
+The possible values for v are the nonnegative integers. The variable v = y and thus has the same
+set of possible values. For a given value of v,u = x + y = x + v must be an integer greater than or
+equal to v since x is a nonnegative integer. The set of all possible (u,v) values is thus given by
+B = {(u,v) : v = 0,1,2,... and u = v,v + 1,v + 2,...}. For any (u,v) ∈B, the only (x,y) value
+satisfying x+y = u and y = v is x = u−v and y = v. Thus, in this example, Auv always consists of
+only the single point (u−v,v). From (4.3.1) we thus obtain the joint pmf of (U,V) as
+                              θ u−ve−θ λ ve−λ    v = 0,1,2,...,
+          fU,V(u,v) = fX,Y(u−v,v) =             v!    ,  u = v,v+1,v+2,....                              (u−v)!
+In this example it is interesting to compute the marginal pmf of U. For any fixed nonnegative integer
+u, fU,V(u,v) > 0 only for v = 0,1,...,u. This gives the set of v values to sum over to obtain the
+marginal pmf of U. It is
+
+                        u θ u−ve−θ λ ve−λ              u  θ u−v  λ v
+                                                                                                  ,   u = 0,1,2,....            fU(u) = ∑                      = e−(θ+λ) ∑
+                    v=0                                                  v=0                    (u−v)!   v!                                            (u−v)! v!
+This can be simplified by noting that, if we multiply and divide each term by u!, we can use the
+Binomial Theorem to obtain
+                    e−(θ+λ)  u   u            e−(θ+λ)                         =        (θ +λ)u,  u = 0,1,2,....            fU(u) =    ∑    λ vθ u−v                        u!   v=0  v               u!
+
+This is the pmf of a Poisson random variable with parameter θ +λ. This result is significant enough
+to be stated as a theorem.                                                          ∥
+Theorem 4.3.2   If X ∼Poisson(θ) andY ∼Poisson(λ) and X andY are independent, then X +Y ∼Poisson(θ +λ).
+
+     If (X,Y) is a continuous random vector with joint pdf fX,Y(x,y), then the joint pdf of (U,V)
+can be expressed in terms of fX,Y(x,y) in a manner analogous to (2.1.8). As before, A = {(x,y) :
+fX,Y(x,y) > 0} and B = {(u,v) : u = g1(x,y) and v = g2(x,y) for some (x,y) ∈A }. The joint pdffU,V(u,v) will be positive on the set B. For the simplest version of this result we assume that the
+transformation u = g1(x,y) and v = g2(x,y) defines a one-to-one transformation of A onto B. The
+transformation is onto because of the definition of B. We are assuming that for each (u,v) ∈B there
+is only one (x,y) ∈A such that (u,v) = (g1(x,y),g2(x,y)). For such a one-to-one, onto transforma-tion, we can solve the equations u = g1(x,y) and v = g2(x,y) for x and y in terms of u and v. We will
+denote this inverse transformation by x = h1(u,v) and y = h2(u,v). The role played by a derivative
+in the univariate case is now played by a quantity called the Jacobian of the transformation. This
+function of (u,v), denoted by J, is the determinant of a matrix of partial derivatives. It is defined by
+
+                            ∂x  ∂x
+                           ∂u  ∂v   ∂x ∂y     ∂x                             J =      =                            ∂y  ∂y   ∂u ∂v −∂y∂u ∂v,
+                           ∂u  ∂v

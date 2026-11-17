@@ -1,0 +1,43 @@
+184                                    PROPERTIES OF A RANDOM SAMPLE
+   The F distribution has many interesting properties, and is related to a number of other distri-
+butions. We summarize some of these facts in the next theorem, whose proof is left as an exercise.
+(See Exercises 5.17 and 5.18.)
+Theorem 5.3.8
+  a.  If X ∼Fp,q then 1/X ∼Fq,p, that is, the reciprocal of an F random variable is again an F  random variable.
+  b.  If X ∼tq then X2 ∼F1,q.
+  c.  If X ∼Fp,q, then (p/q)X/(1+(p/q)X) ∼beta(p/2,q/2).
+
+5.4  Order Statistics
+Sample values such as the smallest, largest, or middle observation from a random sample can pro-
+vide additional summary information. For example, the highest flood waters or the lowest winter
+temperature recorded during the last 50 years might be useful data when planning for future emer-
+gencies. The median price of houses sold during the previous month might be useful for estimating
+the cost of living. These are all examples of order statistics.
+Definition 5.4.1  The order statistics of a random sample X1,...,Xn are the sample values placed
+in ascending order. They are denoted by X(1),...,X(n).
+   The order statistics are random variables that satisfy X(1) ≤··· ≤X(n). In particular,
+                                    X(1) =  1≤i≤nXi,min
+                                    X(2) =  second smallest Xi,
+                                                                                                                                                                                                       ...
+                                    X(n) =  1≤i≤nXi.max
+Since they are random variables, we can discuss the probabilities that they take on various values.
+To calculate these probabilities we need the pdfs or pmfs of the order statistics. The formulas for the
+pdfs of the order statistics of a random sample from a continuous population will be the main topic
+later in this section, but first, we will mention some statistics that are easily defined in terms of the
+order statistics.
+   The sample range, R = X(n) −X(1), is the distance between the smallest and largest observations.It is a measure of the dispersion in the sample and should reflect the dispersion in the population.
+   The sample median, which we will denote by M, is a number such that approximately one-half
+of the observations are less than M and one-half are greater. In terms of the order statistics, M is
+defined by
+                                    X((n+1)/2)                       if n is odd             M =                                                                (5.4.1)
+                                     X(n/2) +X(n/2+1) /2       if n is even.
+The median is a measure of location that might be considered an alternative to the sample mean.
+One advantage of the sample median over the sample mean is that it is less affected by extreme
+observations. (See Section 10.2 for details.)
+   Although related, the mean and median usually measure different things. For example, in recent
+baseball salary negotiations a major point of contention was the owners’ contributions to the players’
+pension fund. The owners’ view could be paraphrased as, “The average baseball player’s annual
+salary is $433,659 so, with that kind of money, the current pension is adequate.” But the players’
+view was, “Over half of the players make less than $250,000 annually and, because of the short
+professional life of most players, need the security of a larger pension.” (These figures are for the
+1988 season, not the year of the dispute.) Both figures were correct but the owners were discussing

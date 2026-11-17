@@ -1,0 +1,45 @@
+MISCELLANEA                                                              335
+
+                 i. For n = 9, plot the p-value and posterior probability as a function of ¯x, and show that the Bayes
+              probability is bigger than the p-value for moderately large values of x.
+               ii. Now, for α = .05, set ¯x = Zα/2/√n, fixing the p-value at α for all n. Show that the posterior
+              probability at ¯x = Zα/2/√n goes to 1 as n      This is Lindley’s Paradox.                               →∞.
+        Note that small values of P(θ = 0|x1,...,xn) are evidence against H0, and thus this quantity is similar           in spirit to a p-value. The fact that these two quantities can have very different values was noted by
+         Lindley (1957), and is also examined by Berger and Sellke (1987). (See the Miscellanea section.)
+8.54 The discrepancies between p-values and Bayes posterior probabilities are not as dramatic in the one-
+      sided problem, as is discussed by Casella and Berger (1987), also mentioned in the Miscellanea section.
+      Let X1,...,Xn be a random sample from a n(θ,σ2) population, and suppose that the hypotheses to be
+      tested are
+                            H0 : θ ≤0     versus    H1 : θ > 0.
+     The prior distribution on θ is n(0,τ2),τ2 known, which is symmetric about the hypotheses in the sense
+           = P(θ > 0) = 2.       that P(θ ≤0)                1
+       (a) Calculate the posterior probability that H0 is true, P(θ ≤0|x1,...,xn).
+      (b) Find an expression for the p-value corresponding to a value of x, using tests that reject for large
+          values of X.
+       (c) For the special case σ2 = τ2 = 1, compare P(θ ≤0|x1,...,xn) and the p-value for values of x > 0.       Show that the Bayes probability is always bigger than the p-value.
+      (d) Using the expression derived in parts (a) and (b), show that
+                               τ2→∞P(θlim     ≤0|x1,...,xn) = p-value,
+         an equality that does not occur in the two-sided problem.
+8.55 Let X have a n(θ,1) distribution, and consider testing H0 : θ ≥θ0 versus H1 : θ < θ0. Use the loss
+      function (8.3.13) and investigate the three tests that reject H0 if X < −zα +θ0 for α = .1,.3, and .5.
+       (a) For b = c = 1, graph and compare their risk functions.
+      (b) For b = 3,c = 1, graph and compare their risk functions.
+       (c) Graph and compare the power functions of the three tests to the risk functions in parts (a) and (b).
+8.56 Consider testing H0: p ≤1                   1                                  3 versus H1: p > 3 where X ∼binomial(5, p) using 0–1 loss. Graph and     compare the risk functions for the following two tests. Test I rejects H0 if X = 0 or 1. Test II rejects H0
+        if X = 4 or 5.
+8.57 Consider testing H0 : µ ≤0 versus H1 : µ > 0 using 0–1 loss, where X ∼n(µ,1). Let δc be the test that
+       rejects H0 if X > c. For every test in this problem, there is a δc in the class of tests {δc,−∞≤c ≤∞}       that has a uniformly smaller (in µ) risk function. Let δ be the test that rejects H0 if 1 < X < 2. Find a
+       test δc that is better than δ. (Either prove that the test is better or graph the risk functions for δ and δc
+     and carefully explain why the proposed test should be better.)
+8.58 Consider the hypothesis testing problem and loss function given in Example 8.3.31, and let σ = n = 1.
+     Consider tests that reject H0 if X < −zα +θ0. Find the value of α that minimizes the maximum value of      the risk function, that is, that yields a minimax test.
+
+8.5   Miscellanea
+
+ 8.5.1 Monotonic Power Function
+       In this chapter we used the property of MLR quite extensively, particularly in relation to
+        properties of power functions of tests. The concept of stochastic ordering can also be used
+        to obtain properties of power functions. (Recall that stochastic ordering has already been
+       encountered in previous chapters, for example, in Exercises 1.49, 3.41–3.43, and 5.19. A
+       cdf F is stochastically greater than a cdf G if F(x) ≤G(x) for all x, with strict inequality for
+      some x, which implies that if X ∼F,Y ∼G, then P(X > x) ≥P(Y > x) for all x, with strict       inequality for some x. In other words, F gives more probability to greater values.)

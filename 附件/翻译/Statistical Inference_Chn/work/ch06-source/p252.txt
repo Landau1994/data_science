@@ -1,0 +1,46 @@
+                                   Chapter 6
+
+         Principles of Data Reduction
+
+
+
+
+
+   ...we are suffering from a plethora of surmise, conjecture and hypothesis. The difficulty is
+   to detach the framework of fact – of absolute undeniable fact – from the embellishments of
+   theorists and reporters.
+                                                                  Sherlock Holmes
+                                                                                      Silver Blaze
+
+6.1  Introduction
+An experimenter uses the information in a sample X1,...,Xn to make inferences about an unknown
+parameter θ. If the sample size n is large, then the observed sample x1,...,xn is a long list of numbers
+that may be hard to interpret. An experimenter might wish to summarize the information in a sample
+by determining a few key features of the sample values. This is usually done by computing statistics,
+functions of the sample. For example, the sample mean, the sample variance, the largest observation,
+and the smallest observation are four statistics that might be used to summarize some key features of
+the sample. Recall that we use boldface letters to denote multiple variates, so X denotes the random
+variables X1,...,Xn, and x denotes the sample x1,...,xn.
+   Any statistic, T(X), defines a form of data reduction or data summary. An experimenter who
+uses only the observed value of the statistic, T(x), rather than the entire observed sample, x, will
+treat as equal two samples, x and y, that satisfy T(x) = T(y), even though the actual sample values
+may be different in some ways.
+   Data reduction in terms of a particular statistic can be thought of as a partition of the sample
+space X . Let T = {t : t = T(x) for some x ∈X } be the image of X under T(x). Then T(x) parti-
+tions the sample space into sets At,t ∈T , defined by At = {x: T(x) = t}. The statistic summarizesthe data in that, rather than reporting the entire sample x, it reports only that T(x) = t or, equiv-
+alently, x ∈At. For example, if T(x) = x1 + ··· + xn, then T(x) does not report the actual samplevalues but only the sum. There may be many different sample points that have the same sum. The
+advantages and consequences of this type of data reduction are the topics of this chapter.
+  We study three principles of data reduction. We are interested in methods of data reduction that
+do not discard important information about the unknown parameter θ and methods that success-
+fully discard information that is irrelevant as far as gaining knowledge about θ is concerned. The
+Sufficiency Principle promotes a method of data reduction that does not discard information about
+θ while achieving some summarization of the data. The Likelihood Principle describes a function
+of the parameter, determined by the observed sample, that contains all the information about θ
+that is available from the sample. The Equivariance Principle prescribes yet another method of data
+reduction that still preserves some important features of the model.
+
+6.2  The Sufficiency Principle
+A sufficient statistic for a parameter θ is a statistic that, in a certain sense, captures all the informa-
+tion about θ contained in the sample. Any additional information in the sample, besides the value
+
+DOI: 10.1201/9781003456285-6                                                               221

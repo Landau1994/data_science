@@ -1,0 +1,31 @@
+MISCELLANEA                                                              113
+      Pukelsheim points out that taking α = µ = E(X) and ε = 3σ, where σ2 = Var(X), yields
+
+                               < .05,                              P(|X −µ| > 3σ) ≤481
+       the so-called three sigma rule, that the probability is less than 5% that X is more than three
+       standard deviations from the mean of the population.
+ 3.8.3 More on exponential families
+        Is the lognormal distribution in the exponential family? The density, given in (3.3.21) can be
+       put into the form specified by (3.4.1). Hence, we have put the lognormal into the exponential
+        family.
+         According to Brown (1986, Section 1.1), to define an exponential family of distributions
+     we start with a nonnegative function ν(x) and define the set N by
+
+               N =  θ :    eθxν(x)dx < ∞   .
+                           X
+       Letting λ(θ) = X eθxν(x)dx, the set of probability densities defined by
+                                     eθxν(x)
+                              f(x|θ) =  λ(θ)  ,   x ∈X ,  θ ∈N
+         is an exponential family. The moment generating function of f(x|θ) is
+                                                        λ(t +θ)
+                              =                          MX(t) =                                                      etx f(x|θ)dx                                                λ(θ)                        X
+
+      and hence exists by construction. If the parameter space Θ is equal to the set N  the expo-
+        nential family is called full. Cases where Θ is a lower-dimensional subset of N give rise to
+       curved exponential families.
+         Returning to the lognormal distribution, we know that it does not have an mgf, so it
+        can’t satisfy Brown’s definition of an exponential family. However, the lognormal satisfies
+       the expectation identities of Theorem 3.4.2 and enjoys the sufficiency properties detailed
+        in Section 6.2.1 (Theorem 6.2.10). For our purposes, these are the major properties that
+     we need, and the main reasons for identifying a member of the exponential family. More
+      advanced properties, that we will not investigate here, may need the existence of the mgf.

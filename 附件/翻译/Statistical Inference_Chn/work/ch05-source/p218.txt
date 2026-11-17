@@ -1,0 +1,44 @@
+ORDER STATISTICS                                                          187
+                         n!
+        =                   (j             fX(x)[FX(x)]j−1[1−FX(x)]n−j                 −1)!(n−j)!
+                    n−1   n                                          change dummy
+          +         ∑                                 (k +1)[FX(x)]k [1−FX(x)]n−k−1 fX(x)           variable                   k=                                               j  k +1
+                    n−1  n
+         ∑                                       fX(x).          − k= j  k  (n−k)[FX(x)]k [1−FX(x)]n−k−1
+
+Noting that
+                       n                    n!         n
+                                 (k +1) =        =                                 (5.4.5)                        k +1                            k  (n−k),                                  k!(n−k −1)!
+we see that the last two sums before (5.4.5) cancel. Thus, the pdf fX(j)(x) is given by the expression
+in (5.4.4).                                               2
+
+Example 5.4.5 (Uniform order statistic pdf)   Let X1,...,Xn be iid uniform(0,1), so fX(x) = 1
+for x ∈(0,1) and FX(x) = x for x ∈(0,1). Using (5.4.4), we see that the pdf of the jth order statisticis
+                                       n!
+                      fX(j)(x) =                                     for x                                 (j                           −1)!(n−j)!x j−1(1−x)n−j      ∈(0,1)
+                           Γ(n+1)
+               =          +1)x j−1(1−x)(n−j+1)−1.                         Γ(j)Γ(n−j
+Thus, the jth order statistic from a uniform(0,1) sample has a beta(j,n−j +1) distribution. Fromthis we can deduce that
+
+                                                   j                     +1)                    EX( j) =       and  VarX( j) =  j(n−j                   n+1               (n+1)2(n+2).
+
+                                                                              ∥
+   The joint distribution of two or more order statistics can be used to derive the distribution of
+some of the statistics mentioned at the beginning of this section. The joint pdf of any two order
+statistics is given in the following theorem, whose proof is left to Exercise 5.26.
+Theorem 5.4.6  Let X(1),...,X(n) denote the order statistics of a random sample, X1,...,Xn, from a
+continuous population with cdf FX(x) and pdf fX(x). Then the joint pdf of X(i) and X( j),1 ≤i < j ≤n,is
+                                              n!
+                   fX(i),X(j)(u,v) =                            fX(u) fX(v)[FX(u)]i−1         (5.4.6)
+                              (i−1)!(j −1−i)!(n−j)!
+                             ×[FX(v)−FX(u)]j−1−i[1−FX(v)]n−j
+for −∞< u < v < ∞.
+   The joint pdf of three or more order statistics could be derived using similar but even more
+involved arguments. Perhaps the other most useful pdf is fX(1),...,X(n)(x1,...,xn), the joint pdf of all
+the order statistics, which is given by
+
+                                                                    x1 <  < xn < ∞              fX(1),...,X(n)(x1,...,xn) =   n!fX(x1)·····fX(xn)  −∞<       ···                              0                       otherwise.
+
+   The n! naturally comes into this formula because, for any set of values, x1,...,xn, there are
+n! equally likely assignments for these values to X1,...,Xn that all yield the same values for the
+order statistics. This joint pdf and the techniques from Chapter 4 can be used to derive marginal and

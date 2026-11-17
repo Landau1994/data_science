@@ -1,0 +1,30 @@
+266                                                 POINT ESTIMATION
+Example 7.2.19 (Conclusion of Example 7.2.17)  Let (x,y) = ((x1,y1),(x2,y2), ..., (xn,yn)) de-
+note the complete data and (x(−1),y) = (y1,(x2,y2), ..., (xn,yn)) denote the incomplete data. Theexpected complete-data log likelihood is
+     E[logL(β,τ1,τ2,...,τn|(x,y))|τ(r),(x(−1),y)]
+          ∞         n  e−βτi(βτi)yi e−τi(τi)xi    e−τ(r)                                                                       1  (τ(r)1  )x1    =      log     ∑  ∏                                   yi!          xi!        x1!            x1=0   i=1
+              n                                           n
+    =                                              +xi logτi −logxi!]            i=1     ∑ [−βτi +yi(logβ +logτi)−logyi!]+ i=2∑ [−τi
+            ∞                               e−τ(r)1  (τ(r)1  )x1      +      ∑ [−τ1                +x1 logτ1 −logx1!]      x1!        .                                 (7.2.21)              x1=0
+                n                                 n            ∞                e−τ(r)1  (τ(r)1  )x1    =     ∑      +yi(logβ +logτi)]+ ∑ [τixi logτi]+ ∑ [τ1x1 logτ1]      i=1 [−βτi                        i=2             x1=0                 x1!                                           
+                   n            n         ∞                1  (τ(r)1  )x1      ∑ logyi!+ ∑ logxi!+ ∑ logx1!e−τ(r)      −  i=1        2=1         x1=0            x1!                                       ,
+where in the last equality we have grouped together terms involving β and τi, and terms that do not
+involve these parameters. Since we are calculating this expected log likelihood for the purpose of
+maximizing it in β and τi, we can ignore the terms in the second set of parentheses. We thus have
+to maximize only the terms in the first set of parentheses, where we can write the last sum as
+                            ∞     e−τ(r)1  (τ(r)1  )x1                                                                        1  logτ1.               (7.2.22)              ∑ x1                             = −τ1 +τ(r)                  −τ1 +logτ1                                                x1!                                   x1=0
+   When substituting this back into (7.2.21), we see that the expected complete data likelihood is
+the same as the original complete data likelihood, with the exception that x1 is replaced by τ(r)1   .
+Thus, in the rth step the MLEs are only a minor variation of (7.2.12), and are given by
+    (r+1)     ∑ni=1 yi                         ˆτ(r)1 +y1              x j +yj                                                                                                       ,     j = 2,3,...,n.  (7.2.23)  ˆβ   =                     ,   ˆτ(r+1)1  =   (r+1)                                                                      ,   ˆτ(r+1)j  =   (r+1)             τ(r)1 +∑ni=2 xi                   ˆβ   +1                   ˆβ   +1
+This defines both the E-step (which results in the substitution of ˆτ(r)1  for x1) and the M-step (which
+results in the calculation in (7.2.23) for the MLEs at the rth iteration. The properties of the EM
+                                                          ˆalgorithm give us assurance that the sequence (β (r), ˆτ(r)1  , ˆτ(r)2  ,..., ˆτ(r)n  ) converges to the incomplete-
+data MLE as r →∞. See Exercise 7.27 for more.                                       ∥
+  We will not give a complete proof that the EM sequence {ˆθ(r)} converges to the incomplete-dataMLE, but the following key property suggests that this is true. The proof is left to Exercise 7.31.
+Theorem 7.2.20 (Monotonic EM sequence)  The sequence { ˆθ(r)} defined by (7.2.20) satisfies
+                               L( ˆθ (r+1)|y) ≥L(ˆθ (r)|y),                              (7.2.24)
+with equality holding if and only if successive iterations yield the same value of the maximized
+expected complete-data log likelihood, that is,
+
+                                                                                                                 .             E logL(ˆθ (r+1)|y,X)|ˆθ (r),y                         = E logL(ˆθ (r)|y,X)| ˆθ (r),y                                                              

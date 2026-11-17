@@ -1,0 +1,45 @@
+EXERCISES                                                                  245
+6.11 Refer to the pdfs given in Exercise 6.9. For each, let X(1) < ··· < X(n) be the ordered sample, and define
+       Yi = X(n) −X(i),i = 1,...,n−1.
+       (a) For each of the pdfs in Exercise 6.9, verify that the set (Y1,...,Yn−1) is ancillary for θ. Try to prove         a general theorem, like Example 6.2.18, that handles all these families at once.
+      (b) In each case determine whether the set (Y1,...,Yn−1) is independent of the minimal sufficient statis-             tic.
+6.12 A natural ancillary statistic in most problems is the sample size. For example, let N be a random variable
+      taking values 1,2,... with known probabilities p1, p2,... where Σpi = 1. Having observed N = n, perform
+     n Bernoulli trials with success probability θ, getting X successes.
+       (a) Prove that the pair (X,N) is minimal sufficient and N is ancillary for θ. (Note the similarity to some
+          of the hierarchical models discussed in Section 4.4.)
+      (b) Prove that the estimator X/N is unbiased for θ and has variance θ(1−θ)E(1/N).
+                                            > 0, α > 0. Show that6.13 Suppose X1 and X2 are iid observations from the pdf f(x|α) = αxα−1e−xα ,x     (logX1)/(logX2) is an ancillary statistic.
+6.14 Let X1,...,Xn be a random sample from a location family. Show that M−X is an ancillary statistic where   M is the sample median.
+6.15 Let X1,...,Xn be iid n(θ,aθ2), where a is a known constant and θ > 0.
+       (a) Show that the parameter space does not contain a two-dimensional open set.
+      (b) Show that the statistic T = (X,S2) is a sufficient statistic for θ, but the family of distributions is not
+         complete.
+6.16 A famous example in genetic modeling (Tanner 1996 or Dempster, Laird, and Rubin 1977) is a genetic
+      linkage multinomial model, where we observe the multinomial vector (x1,x2,x3,x4) with cell probabili-
+                                                 4 ).       ties given by ( 12 + θ4 , 14(1−θ), 14(1−θ), θ
+       (a) Show that this is a curved exponential family.
+      (b) Find a sufficient statistic for θ.
+       (c) Find a minimal sufficient statistic for θ.
+6.17 Let X1,...,Xn be iid with geometric distribution
+
+                               = 1,2,...,  0 < θ < 1.                       Pθ(X = x) = θ(1−θ)x−1,   x
+    Show that ΣXi is sufficient for θ, and find the family of distributions of ΣXi. Is the family complete?
+6.18 Let X1,...,Xn be iid Poisson(λ). Show that the family of distributions of ΣXi is complete. Prove com-
+      pleteness without using Theorem 6.2.25.
+6.19 The random variable X takes the values 0, 1, 2 according to one of the following distributions:
+
+                                  P(X=0)   P(X=1)    P(X=2)
+
+                                         < p < 4                         Distribution 1     p       3p     1−4p    0        1
+                                         < p < 2                         Distribution 2     p        p2   1−p−p2   0        1
+      In each case determine whether the family of distributions of X is complete.
+6.20 For each of the following pdfs let X1,...,Xn be iid observations. Find a complete sufficient statistic, or
+     show that one does not exist.
+
+         =                                 ,  0 < x < θ,  θ > 0                    θ 2       (a)  f(x|θ)    2x
+      (b)  f(x|θ) = (1+x)1+θθ     ,  0 < x < ∞,  θ > 0
+                      (logθ)θ x
+       (c)  f(x|θ) =  θ−1   ,  0 < x < 1,  θ > 1
+                             < ∞, −∞< θ < ∞      (d)  f(x|θ) = e−(x−θ) exp(−e−(x−θ)), −∞< x
+         =   x  θx(1−θ)2−x,   x = 0,1,2,  0 ≤θ ≤1       (e)  f(x|θ)     2

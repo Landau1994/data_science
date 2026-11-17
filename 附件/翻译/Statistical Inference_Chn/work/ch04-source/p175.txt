@@ -1,0 +1,44 @@
+144                                      MULTIPLE RANDOM VARIABLES
+   Although the formula for the bivariate normal pdf looks formidable, this bivariate distribution
+is one of the most frequently used. (In fact, the derivation of the formula need not be formidable at
+all. See Exercise 4.46.)
+   The many nice properties of this distribution include these:
+a. The marginal distribution of X is n(µX,σ2X).
+b. The marginal distribution of Y is n(µY,σ2Y ).
+c. The correlation between X and Y is ρXY = ρ.
+d. For any constants a and b, the distribution of aX + bY  is n(aµX + bµY,a2σ2X + b2σ2Y +
+  2abρσXσY).
+  We will leave the verification of properties (a), (b), and (d) as exercises (Exercise 4.45). Assum-
+ing (a) and (b) are true, we will prove (c). We have by definition
+
+                          Cov(X,Y)
+                  ρXY =
+                           σXσY
+                         E(X               =     −µX)(Y −µY)
+                              σXσY
+                        X       Y               =  E   −µX    −µY
+                              σX       σY
+                           ∞  ∞
+               =        x−µX   y−µY   f(x,y)dxdy.
+                                   σX       σY                         −∞ −∞
+Make the change of variable
+                         s =  x−µX   y−µY    and    t =  x−µX    .
+                        σX       σY                σX
+
+Then x = σXt + µX, y = (σYs/t)+ µY, and the Jacobian of the transformation is J = σXσY/t. With
+this change of variable, we obtain
+                     ∞  ∞            σYs      σXσY             ρXY =             σXt + µX,   + µY         dsdt
+                                                                         t                  t                    −∞ −∞sf                     ∞  ∞                    −1
+           =          2πσXσY  1−ρ2                    −∞ −∞s                                   1                    s  2   σXσY
+                    ×exp −              t2 −2ρs+   t           ds dt.                            2(1−ρ2)                                  |t|
+
+                                                                 2                                                   2                                                               sNoting that   = √t2  and   t2                                                                                        t                         =   s−ρt2t                     |t|           −2ρs+             +(1−ρ2)t2,
+ we can rewrite this as
+
+             ∞  1              ∞           s
+                                                                        ds  dt.                                                    exp                                                −(s−ρt2)2       ρXY =   √2π exp  −t22     √ 2π            −∞                −∞      (1−ρ2)t2       2(1−ρ2)t2
+The inner integral is ES, where S is a normal random variable with ES = ρt2 and VarS = (1−ρ2)t2.Thus, the inner integral is ρt2. Hence we have
+
+                                ∞  ρt2
+                                                                  dt.                            ρXY =   √2π exp  −t22                              −∞
+But this integral is ρET 2, where T is a n(0,1) random variable. Hence ET 2 = 1 and ρXY = ρ.

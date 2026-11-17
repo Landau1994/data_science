@@ -1,0 +1,46 @@
+\subsection{杂录}\label{sec:4.9}
+\subsubsection{交换悖论}\label{sec:4.9.1}\index{SI0420@交换悖论}\index{SI0748@交换}\label{misc:4.9.1}
+“交换悖论”（exchange paradox；\hyperref[bib:source76]{Christensen and Utts 1992）}在统计学家之间引发了长篇讨论. 问题（或悖论）如下：
+\begin{quote}
+一位大师在一个信封中放入 $m$ 美元，另一个信封中放入 $2m$ 美元. 你和对手随机各取一个信封. 你打开自己的信封，发现其中有 $x$ 美元，大师随后问你是否愿意交换信封. 你想，如果交换，就会得到 $x/2$ 或 $2x$ 美元，各有 $1/2$ 的概率. 于是交换所得的期望为 $(1/2)(x/2)+(1/2)(2x)=5x/4$，大于手中的 $x$ 美元. 所以你提出交换.
+\end{quote}
+悖论在于，对手也作了同样的计算. 怎么可能交换对你们双方都有利？
+\begin{enumerate}
+\item[(i)] Christensen and Utts 说：“交换信封总是最优的这一结论，建立在观测信封内容并未获得任何信息的假设之上.” 他们提出如下解释.
+
+设 $M\sim\pi(m)$，$\pi$ 为放进第一个信封的钱数的 pdf，$X$ 为你信封中的钱数. 则 $P(X=m\mid M=m)=P(X=2m\mid M=m)=1/2$，从而\footnote{译注：若 $\pi$ 为离散 pmf，下面的权重形式可成立；若像原文所说是连续 pdf，则 $X=2M$ 的密度须含换元因子 $1/2$. 此时两个后验概率应分别为 $2\pi(x)/(2\pi(x)+\pi(x/2))$ 与 $\pi(x/2)/(2\pi(x)+\pi(x/2))$. 相应交换条件应为 $\pi(x/2)<4\pi(x)$；若 $\pi(m)=\lambda e^{-\lambda m}$，阈值为 $x<4\log2/\lambda$；若以尺度 $\lambda$ 参数化，则为 $x<4\lambda\log2$. 原式及后面的原结论照录.}
+$$P(M=x\mid X=x)=\frac{\pi(x)}{\pi(x)+\pi(x/2)},\qquad
+P(M=x/2\mid X=x)=\frac{\pi(x/2)}{\pi(x)+\pi(x/2)}.$$
+\sourcepageanchor{198}
+
+于是，交换所得的期望为
+$$\frac{\pi(x)}{\pi(x)+\pi(x/2)}2x+\frac{\pi(x/2)}{\pi(x)+\pi(x/2)}\frac x2,$$
+所以仅当 $\pi(x/2)<2\pi(x)$ 时应交换. 若 $\pi$ 是 $\operatorname{exponential}(\lambda)$ 密度，$x<2\log2/\lambda$ 时交换最优.
+\item[(ii)] 更经典的方法不假设第一个信封中的金额服从某个 pdf. Christensen and Utts 也在这里给出解释：若错误地假设对所有 $X,Y$ 的取值都有 $P(Y=y\mid X=x)=1/2$，就会出现悖论，其中 $X$ 是你信封中的金额，$Y$ 是对手信封中的金额. 他们指出，正确的条件分布是 $P(Y=2x\mid X=m)=1$ 和 $P(Y=x/2\mid X=2m)=1$；交换的期望所得为 $E(Y)=3m/2$，与保留信封的期望所得相同.\footnote{译注：这里应将第一式的 $x$ 理解为 $m$、第二式的 $x$ 理解为 $2m$；不混用记号时，两式为 $P(Y=2m\mid X=m)=1$、$P(Y=m\mid X=2m)=1$.}
+\end{enumerate}
+这个悖论常伴随着支持或反对 Bayes 推断方法的论辩（见\autoref{sec:7}），但这些争论与底层概率计算并不直接相关. 关于评论、批评及其他分析，见 \hyperref[bib:source34]{Binder (1993)}、\hyperref[bib:source252]{Ridgeway (1993)}（其中包含 Marilyn vos Savant 的一个解答）、\hyperref[bib:source260]{Ross (1994)}、\hyperref[bib:source36]{Blachman (1996)} 的读者来信，以及 Christen 和 Utts 随附的回应.
+
+\subsubsection{再论算术--几何--调和平均不等式}\label{sec:4.9.2}\index{SI0558@算术–几何–调和平均数}\index{SI0577@幂平均数}\index{SI0821@幂平均数}\label{misc:4.9.2}
+算术--几何--调和平均不等式是关于幂平均（power means）的一般结果的特例. 对 $x_i\ge0$，幂平均定义为
+$$A_r=\left[\frac1n\sum_{i=1}^nx_i^r\right]^{1/r}.$$
+\hyperref[bib:source289]{Shier (1988)} 证明 $A_r$ 关于 $r$ 非减，即若 $r\le r'$，则 $A_r\le A_{r'}$，也就是
+$$\left[\frac1n\sum_{i=1}^nx_i^r\right]^{1/r}\le\left[\frac1n\sum_{i=1}^nx_i^{r'}\right]^{1/r'},\qquad r\le r'.$$
+显然 $A_1$ 是算术平均，$A_{-1}$ 是调和平均. 不那么显然、但仍然正确的是，$A_0=\lim_{r\to0}A_r$ 是几何平均. 因而，算术--几何--调和平均不等式是幂平均不等式的特例，见\autoref{exercise:4.57}.\footnote{译注：当允许 $x_i=0$ 时，负幂以及 $r=0$ 的原式不能直接按普通实数运算使用，需以极限作延拓. 若统一假定 $x_i>0$，则除 $r=0$ 按所述极限定义外，上述公式可直接使用.}
+
+\subsubsection{Borel 悖论}\label{sec:4.9.3}\index{SI0098@博雷尔悖论}\index{SI0747@博雷尔}\label{misc:4.9.3}
+本章一直在对连续随机变量 $X,Y$ 使用 $E(Y\mid X=x)$、$P(Y\le y\mid X=x)$ 这样的表达式. 到目前为止没有遇到麻烦，但原本可能会遇到.
+
+形式上，条件期望的条件是一个子 $\sigma$ 代数（\autoref{def:1.2.1}）. 条件期望 $E(Y\mid\mathscr G)$ 被定义为这样一个随机变量：它在子 $\sigma$ 代数 $\mathscr G$ 中任意集合上的积分，与 $X$ 的积分相同.\footnote{译注：原文最后的 $X$ 应为 $Y$. 完整定义还要求 $E(Y\mid\mathscr G)$ 对 $\mathscr G$ 可测；在 $Y$ 可积时，其在每个 $G\in\mathscr G$ 上的积分等于 $Y$ 在 $G$ 上的积分.} 这是概率论中相当深入的概念，见 \hyperref[bib:source33]{Billingsley (1995}, Section 34).
+
+由于条件期望仅通过积分来定义，即使条件明确，它也可能不唯一. 但当我们以零概率集合（如 $\{X=x\}$）为条件时，条件本身可能未明确指定，因此更可能出现不同的条件期望. 要看这会怎样影响我们，最容易的是考察条件分布，这相当于计算 $E[I(Y\le y)\mid X=x]$.
+\sourcepageanchor{199}
+
+\hyperref[bib:source247]{Proschan and Presnell (1998)} 讲述了一个统计学考试的故事，题目是：“若 $X,Y$ 是独立的标准正态随机变量，给定 $Y=X$ 时 $Y$ 的条件分布是什么？”不同学生将 $Y=X$ 解释为：
+\begin{enumerate}
+\item[(1)] $Z_1=0$，其中 $Z_1=Y-X$；
+\item[(2)] $Z_2=1$，其中 $Z_2=Y/X$；
+\item[(3)]\phantomsection\label{itm:borel:3} $Z_3=1$，其中 $Z_3=I(Y=X)$.
+\end{enumerate}
+每一种都是对条件 $Y=X$ 的正确解释，但每一种都导出不同的条件分布（\autoref{exercise:4.60}\mbox{）.}\footnote{译注：固定条件 $\sigma$ 代数时，条件期望在几乎处处意义下唯一；只在零测集上可改动. 特别是 \hyperref[itm:borel:3]{(3)} 中 $P(Z_3=1)=0$，通常的离散条件概率比值无法定义该条件分布，其在这一零概率取值处的版本可任意指定，不能仅凭事件本身得到唯一的第三个分布.}
+
+这就是 Borel 悖论（Borel paradox）：对同一个零概率条件集合的不同而正确的解释，会产生不同条件期望. 如何避免？一种方法是避免直接以零概率集合为条件，即只计算 $E(Y\mid X\in B)$，其中 $P(X\in B)>0$. 为计算 $E(Y\mid X=x)$ 这样的量，取一列 $B_n\downarrow x$，并定义 $E(Y\mid X=x)=\lim_{n\to\infty}E(Y\mid X\in B_n)$. 这样就避免了悖论，因为不同的 $E(Y\mid X=x)$ 答案来自不同的集合列，就不应感到意外了（\autoref{exercise:4.61}）.\footnote{译注：此极限法还需明确集合列、每项条件概率为正，以及极限存在；任意递减集合列并不自动保证存在或给出同一极限. 因而该方法是在说明具体的逼近机制，而非为一切零概率条件给出唯一、无条件适用的定义.}

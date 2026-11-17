@@ -1,0 +1,42 @@
+214                                    PROPERTIES OF A RANDOM SAMPLE
+
+5.41 Prove Theorem 5.5.13, that is, show that
+
+                                                               0   if x < µ,
+                 P(|Xn −µ| > ε) →0 for every ε ⇔  P(Xn ≤x) →  1   if x          .                                           ≥µ
+       (a) Set ε = |x −µ| and show that if x > µ then P(Xn ≤x) ≥P(|Xn −µ| ≤ε) while if x < µ then
+        P(Xn ≤x) ≤P(|Xn −µ| ≥ε). Deduce the ⇒implication.
+      (b) Use the fact that {x : |x−µ| > ε} = {x : x−µ < −ε}∪{x : x−µ > ε} to deduce the ⇐implication.
+      (See Billingsley 1995, Section 25, for a detailed treatment of the above results).
+5.42 Similar to Example 5.5.11, let X1,X2,... be iid f and X(n) = max1≤i≤n Xi.
+       (a)  If f is beta(1,β), find a value of ν so that nν(1−X(n)) converges in distribution.
+      (b)  If f is exponential(1), find a sequence an so that X(n) −an converges in distribution.
+5.43  Fill in the details in the proof of Theorem 5.5.24.
+       (a) Show that if √n(Yn                  in distribution, then Yn      in probability.                  −µ) →n(0,σ2)          →µ
+      (b) Give the details for the application of Slutsky’s Theorem (Theorem 5.5.17).
+                                          = n ∑ni=1 Xi.5.44 Let Xi,i = 1,2,··· be independent Bernoulli(p) random variables and let Yn    1
+       (a) Show that √n(Yn                        in distribution.                  −p) →n[0, p(1−p)]
+      (b) Show that for  p̸ = 1/2, the estimate of variance Yn(1 −Yn) satisfies √n[Yn(1−Yn)−p(1−p)] →
+        n 0,(1−2p)2p(1−p)  in distribution.
+                                                       4                                                                4 χ21  in distribution.  (If this appears strange,                         →−1       (c) Show that for p = 1/2, n Yn(1−Yn)−1          note                 that Yn(1 −Yn) ≤1/4, so the left-hand side  is always negative. An equivalent form  is               1
+        4n  4 −Yn(1−Yn) →χ21.)
+5.45 For the situation of Example 5.6.1, calculate the probability that at least 75 % of the components last 150
+      hours when
+       (a) c = 300,X ∼gamma(a,b),a = 4,b = 5.
+      (b) c = 100,X ∼gamma(a,b),a = 20,b = 5.
+       (c) c = 100,X ∼gamma(a,b),a = 20.7,b = 5.
+      Hint: In parts (a) and (b) it is possible to evaluate the gamma integral in closed form, although it probably
+       isn’t worth the effort in (b). There is no closed form expression for the integral in part (c), which has to
+     be evaluated either through numerical integration or simulation.
+5.46 Referring to Exercise 5.45, compare your answers to what is obtained from a normal approximation to
+      the binomial (see Example 3.3.2).
+5.47 Verify the distributions of the random variables in (5.6.5).
+5.48 Using strategies similar to (5.6.5), show how to generate an Fm,n random variable, where both m and n
+      are even integers.
+5.49 Let U ∼uniform(0,1).
+       (a) Show that both −logUu  and −log(1−U) are exponential random variables.      (b) Show that X = log      is a logistic(0,1) random variable.
+                         1−u       (c) Show how to generate a logistic(µ,β) random variable.
+5.50 The Box-Muller method for generating normal pseudo-random variables (Example 5.6.4) is based on
+      the transformation
+                      X1 = cos(2πU1)  −2logU2,X2 = sin(2πU1)  −2logU2,
+     where U1 and U2 are iid uniform(0,1). Prove that X1 and X2 are independent n(0,1) random variables.

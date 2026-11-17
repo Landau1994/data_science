@@ -1,0 +1,42 @@
+METHODS OF FINDING TESTS                                                309
+If tL = −tU ≥0, the union–intersection test can be more simply expressed as
+                                X −µ0                                       reject H0 if                                  S/√n  ≥tL.
+
+It turns out that this union–intersection test is also the LRT for this problem (see Exercise 8.38) and
+is called the two-sided t test.                                                       ∥
+   The union–intersection method of test construction is useful if the null hypothesis is conve-
+niently expressed as an intersection. Another method, the intersection–union method, may be useful
+if the null hypothesis is conveniently expressed as a union. Suppose we wish to test the null hypoth-
+esis
+                               H0 : θ ∈   Θγ.                                     (8.2.5)
+                                              γ∈Γ
+Suppose that for each γ ∈Γ,{x: Tγ(x) ∈Rγ} is the rejection region for a test of H0γ : θ ∈Θγ versus
+H1γ : θ ∈Θcγ. Then the rejection region for the intersection–union test of H0 versus H1 is
+                                       {x: Tγ(x) ∈Rγ}.                                   (8.2.6)
+                                    γ∈Γ
+From (8.2.5), H0 is false if and only if all of the H0γ are false, so H0 can be rejected if and only if each
+of the individual hypotheses H0γ can be rejected. Again, the test can be greatly simplified if the re-
+jection regions for the individual hypotheses are all of the form {x: Tγ(x) ≥c} (c independent of γ).In such cases, the rejection region for H0 is
+                            {x: Tγ(x) ≥c} = {x: γ∈ΓTγ(x)inf     ≥c}.                           γ∈Γ
+The intersection–union test rejects H0 for large values of the test statistic infγ∈Γ Tγ(X).
+Example 8.2.9 (Acceptance sampling)  The topic of acceptance sampling provides an extremely
+useful application of an intersection–union test, as this example will illustrate. (See Berger (1982)
+for a more detailed treatment of this problem.)
+   Two parameters that are important in assessing the quality of upholstery fabric are θ1, the mean
+breaking strength, and θ2, the probability of passing a flammability test. Standards may dictate that
+θ1 should be over 50 pounds and θ2 should be over .95, and the fabric is acceptable only if it meets
+both of these standards. This can be modeled with the hypothesis test
+          H0 : {θ1 ≤50 or θ2 ≤.95}     versus    H1 : {θ1 > 50 and θ2 > .95},
+where a batch of material is acceptable only if H1 is accepted.
+   Suppose X1,...,Xn are measurements of breaking strength for n samples, and are assumed to be
+                                        > t. Suppose that weiid n(θ1,σ2). The LRT of H01 : θ1 ≤50 will reject H01 if (X −50)/(S/√n)also have the results of m flammability tests, denoted by Y1,...,Ym, where Yi = 1 if the ith sample
+passes the test and Yi = 0 otherwise. If Y1,...,Ym are modeled as iid Bernoulli(θ2) random variables,
+                       > b (see Exercise 8.3). Putting all of this together, thethe LRT will reject H02 : θ2 ≤.95 if ∑mi=1Yirejection region for the intersection–union test is given by
+
+                                          m
+                               (x,y): x−50 > t and ∑ yi                             s/√n          i=1 > b   .
+
+Thus, the intersection–union test decides the product is acceptable, that is, H1 is true, if and only if
+it decides that each of the individual parameters meets its standard, that is, H1i is true. If more than
+two parameters define a product’s quality, individual tests for each parameter can be combined, by
+means of the intersection–union method, to yield an overall test of the product’s quality.        ∥

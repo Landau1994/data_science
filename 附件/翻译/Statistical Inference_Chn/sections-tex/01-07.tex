@@ -1,0 +1,483 @@
+% 原书印刷31–37页／PDF物理62–68页；习题1.1–1.55.
+\subsection{习题}\label{sec:1.7}
+\setcounter{exercise}{0}
+
+\begin{exercise}\label{exercise:1.1}
+对下列每个试验，描述其样本空间.
+\begin{enumerate}
+\item[(a)] 抛掷一枚硬币四次.
+\item[(b)] 数一株植物上受到虫害的叶片数.
+\item[(c)] 测量某一品牌灯泡的寿命（以小时为单位）.
+\item[(d)] 记录出生十天的大鼠的体重.
+\item[(e)] 观察一批运来的电子元件中次品所占的比例.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.2}\index{SI0965@恒等式}
+验证下列恒等式.
+\begin{enumerate}
+\item[(a)] $A\setminus B=A\setminus(A\cap B)=A\cap B^c$.
+\item[(b)] $B=(B\cap A)\cup(B\cap A^c)$.
+\item[(c)] $B\setminus A=B\cap A^c$.
+\item[(d)] $A\cup B=A\cup(B\cap A^c)$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.3}
+完成定理\ref{thm:1.1.4}的证明.对样本空间$S$上定义的任意事件$A$、$B$和$C$，证明：
+\begin{enumerate}
+\item[(a)] $A\cup B=B\cup A$且$A\cap B=B\cap A$.（交换律）
+\item[(b)] $A\cup(B\cup C)=(A\cup B)\cup C$且$A\cap(B\cap C)=(A\cap B)\cap C$.（结合律）
+\item[(c)] $(A\cup B)^c=A^c\cap B^c$且$(A\cap B)^c=A^c\cup B^c$.（De Morgan定律）
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.4}
+对事件$A$和$B$，用$P(A)$、$P(B)$和$P(A\cap B)$表示下列事件的概率.
+\begin{enumerate}
+\item[(a)] $A$发生，或$B$发生，或二者都发生.
+\item[(b)] $A$与$B$中恰有一个发生.
+\item[(c)] $A$与$B$中至少有一个发生.
+\item[(d)] $A$与$B$中至多有一个发生.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.5}
+所有人类双胞胎中，约三分之一是同卵双胞胎，三分之二是异卵双胞胎.同卵双胞胎必定性别相同，男性与女性的可能性相等.异卵双胞胎中，约四分之一都是女性，四分之一都是男性，一半是一男一女.最后，在美国全部分娩中，约每90次有1次诞下双胞胎.定义下列事件：
+$$
+\begin{aligned}
+A&=\{\text{美国的一次分娩诞下女性双胞胎}\},\\
+B&=\{\text{美国的一次分娩诞下同卵双胞胎}\},\\
+C&=\{\text{美国的一次分娩诞下双胞胎}\}.
+\end{aligned}
+$$
+\begin{enumerate}
+\item[(a)] 用文字描述事件$A\cap B\cap C$.
+\item[(b)] 求$P(A\cap B\cap C)$.
+\end{enumerate}
+\end{exercise}
+
+
+\sourcepageanchor{63}
+
+\begin{exercise}\label{exercise:1.6}
+将两枚硬币一起独立地抛掷，其中一枚满足$P(\text{正面})=u$，另一枚满足$P(\text{正面})=w$.定义
+$$
+\begin{aligned}
+p_0&=P(\text{出现0个正面}),\\
+p_1&=P(\text{出现1个正面}),\\
+p_2&=P(\text{出现2个正面}).
+\end{aligned}
+$$
+能否选择$u$和$w$，使$p_0=p_1=p_2$？证明你的答案.
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.7}
+参见例\ref{ex:1.2.7}中的飞镖游戏.假定我们不再假设击中镖盘的概率为1，而是假设该概率与镖盘面积成正比.假定镖盘安装在一面墙上，击中这面墙的概率为1，墙的面积为$A$.
+\begin{enumerate}
+\item[(a)] 利用击中某一区域的概率与其面积成正比这一事实，构造概率函数$P(\text{得}i\text{分})$，$i=0,\ldots,5$.（若未击中镖盘，则不得分.）
+\item[(b)] 证明条件概率分布$P(\text{得}i\text{分}\mid\text{击中镖盘})$恰好就是例\ref{ex:1.2.7}中的概率分布.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.8}
+再次考虑例\ref{ex:1.2.7}所说明的飞镖游戏.
+\begin{enumerate}
+\item[(a)] 推导得$i$分的概率的一般公式.
+\item[(b)] 证明$P(\text{得}i\text{分})$是$i$的减函数，即分值越高，得到该分值的概率越小.
+\item[(c)] 证明$P(\text{得}i\text{分})$是符合柯尔莫哥洛夫公理的概率函数.
+\end{enumerate}
+\end{exercise}
+
+\needspace{8\baselineskip}
+\begin{exercise}\label{exercise:1.9}\index{SI0247@德摩根律（见集合运算）}
+证明De Morgan定律的一般形式.设$\{A_\alpha:\alpha\in\Gamma\}$是一个（可能不可数的）集合族.证明：
+\begin{enumerate}
+\item[(a)] $(\bigcup_\alpha A_\alpha)^c=\bigcap_\alpha A_\alpha^c$.
+\item[(b)] $(\bigcap_\alpha A_\alpha)^c=\bigcup_\alpha A_\alpha^c$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.10}
+陈述并证明适用于有限集合族$A_1,\ldots,A_n$的De Morgan定律.
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.11}\index{SI0975@性质}
+设$S$为样本空间.
+\begin{enumerate}
+\item[(a)] 证明集合族$\mathscr{B}=\{\emptyset,S\}$是一个$\sigma$代数.
+\item[(b)] 设$\mathscr{B}=\{S\text{的所有子集，包括}S\text{本身}\}$.证明$\mathscr{B}$是一个$\sigma$代数.
+\item[(c)] 证明两个$\sigma$代数的交仍是一个$\sigma$代数.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.12}\index{SI0073@连续性公理}\index{SI0074@可数可加性公理}\index{SI0075@有限可加性公理}
+第\ref{sec:1.2.1}节曾提到，遵从De Finetti学派的统计学家不接受可列可加性公理，而坚持有限可加性公理.
+\begin{enumerate}
+\item[(a)] 证明可列可加性公理蕴含有限可加性.
+\item[(b)] 有限可加性公理本身并不蕴含可列可加性，但假定我们补充如下条件.设$A_1\supset A_2\supset\cdots\supset A_n\supset\cdots$是一个无限的嵌套集合序列，其极限为空集，记为$A_n\downarrow\emptyset$.考虑下述公理：
+$$
+\textbf{连续性公理：}\qquad
+\text{若 }A_n\downarrow\emptyset,\text{ 则 }P(A_n)\to0.
+$$
+证明连续性公理与有限可加性公理一起蕴含可列可加性.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.13}
+若$P(A)=\frac13$且$P(B^c)=\frac14$，$A$与$B$能否不相交？请解释.
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.14}
+假定样本空间$S$含有$n$个元素.证明由$S$中元素所能组成的子集数为$2^n$.
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.15}
+完成定理\ref{thm:1.2.14}的证明.以$k=2$时已经建立的结果作为归纳论证的基础.
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.16}
+若每个人有一个姓，并且有如下数量的名字，可以形成多少种不同的姓名首字母组合？
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:exercise:1.16:a} 恰好两个名字.
+\item[(b)]\phantomsection\label{itm:exercise:1.16:b} 一个或两个名字.
+\item[(c)]\phantomsection\label{itm:exercise:1.16:c} 一个、两个或三个名字.
+\end{enumerate}
+（答案：\hyperref[itm:exercise:1.16:a]{(a)} $26^3$；\hyperref[itm:exercise:1.16:b]{(b)} $26^3+26^2$；\hyperref[itm:exercise:1.16:c]{(c)} $26^4+26^3+26^2$.）
+\end{exercise}
+
+
+\sourcepageanchor{64}
+
+\begin{exercise}\label{exercise:1.17}
+在多米诺骨牌游戏中，每张骨牌上标有两个数.骨牌是对称的，因此这两个数没有次序之分（例如$(2,6)=(6,2)$）.使用数$1,2,\ldots,n$，能够构成多少张不同的骨牌？
+
+（答案：$n(n+1)/2$.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.18}
+将$n$个球随机放入$n$个格子中，求恰好有一个格子为空的概率.
+
+（答案：$\binom n2 n!/n^n$.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.19}
+若多元函数具有连续偏导数，则求导顺序不影响结果.例如，二元函数$f(x,y)$的下列三阶偏导数相等：
+$$
+\frac{\partial^3}{\partial x^2\partial y}f(x,y)
+=\frac{\partial^3}{\partial y\partial x^2}f(x,y).
+$$
+\begin{enumerate}
+\item[(a)] 三元函数有多少个四阶偏导数？
+\item[(b)] 证明$n$元函数有$\binom{n+r-1}{r}$个$r$阶偏导数.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.20}
+我的电话每周响12次，这些电话随机分布在七天之中.我每天至少接到一个电话的概率是多少？
+
+（答案：$.2285$.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.21}
+衣柜里有$n$双鞋.若随机选出$2r$只鞋（$2r<n$），样本中没有任何一双相配的鞋的概率是多少？
+
+（答案：$\binom n{2r}2^{2r}/\binom{2n}{2r}$.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.22}\leavevmode
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:exercise:1.22:a} 一次征兵抽签包含一年中的366天（包括2月29日）.不放回地抽取日期，最先抽出的180天恰好均匀分布在12个月中的概率是多少？
+\item[(b)]\phantomsection\label{itm:exercise:1.22:b} 最先抽出的30天中没有任何一天属于9月的概率是多少？
+\end{enumerate}
+（答案：\hyperref[itm:exercise:1.22:a]{(a)} $.167\times10^{-8}$；\hyperref[itm:exercise:1.22:b]{(b)} $\binom{336}{30}/\binom{366}{30}$.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.23}
+两个人各将一枚均匀硬币抛掷$n$次.求他们得到相同正面次数的概率.
+
+（答案：$(\frac14)^n\binom{2n}{n}$.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.24}
+两名玩家A和B轮流且独立地抛掷一枚硬币，先得到正面者获胜.假定玩家A先抛.
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:exercise:1.24:a} 若硬币均匀，A获胜的概率是多少？
+\item[(b)]\phantomsection\label{itm:exercise:1.24:b} 假定$P(\text{正面})=p$，不一定等于$\frac12$.A获胜的概率是多少？
+\item[(c)] 证明对所有$0<p<1$，都有$P(\mathrm{A}\text{获胜})>\frac12$.（提示：尝试用事件$E_1,E_2,\ldots$表示$P(\mathrm{A}\text{获胜})$，其中$E_i=\{\text{第}i\text{次抛掷首次出现正面}\}$.）
+\end{enumerate}
+（答案：\hyperref[itm:exercise:1.24:a]{(a)} $2/3$；\hyperref[itm:exercise:1.24:b]{(b)} $\dfrac{p}{1-(1-p)^2}$.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.25}
+Smith夫妇有两个孩子.其中至少有一个是男孩.两个孩子都是男孩的概率是多少？（关于此问题的完整讨论，见\hyperref[bib:source132]{Gardner（1961）}.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.26}
+反复掷一枚均匀骰子，直至出现6点.必须投掷超过五次的概率是多少？
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.27}\index{SI0531@二项式系数}
+对$n\ge2$，验证下列恒等式.
+\begin{enumerate}
+\item[(a)] $\sum_{k=0}^n(-1)^k\binom nk=0$.
+\item[(b)] $\sum_{k=1}^n k\binom nk=n2^{n-1}$.
+\item[(c)] $\sum_{k=1}^n(-1)^{k+1}k\binom nk=0$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.28}\index{SI0571@对数}\index{SI0985@Stirling公式}
+近似计算大数的阶乘的一种方法是使用Stirling公式（Stirling's Formula）：
+$$
+n!\approx\sqrt{2\pi}\,n^{n+(1/2)}e^{-n},
+$$
+其完整推导比较困难.作为替代，证明下述较容易的事实：
+$$
+\lim_{n\to\infty}\frac{n!}{n^{n+(1/2)}e^{-n}}=\text{某个常数}.
+$$
+（提示：\hyperref[bib:source118]{Feller（1968）}首先利用对数函数的单调性得到
+$$
+\int_{k-1}^{k}\log x\,dx<\log k<\int_k^{k+1}\log x\,dx,
+\qquad k=1,\ldots,n,
+$$
+从而
+$$
+\int_0^n\log x\,dx<\log n!<\int_1^{n+1}\log x\,dx.
+$$
+现在将$\log n!$与这两个积分的平均值比较.另一种推导见\hyperref[exercise:5.35]{习题5.35}.）
+\end{exercise}
+
+
+\sourcepageanchor{65}
+
+\begin{exercise}\label{exercise:1.29}\leavevmode
+\begin{enumerate}
+\item[(a)] 在例\ref{ex:1.2.20}的情形下，列出构成无序样本$\{4,4,12,12\}$与$\{2,9,9,12\}$的有序样本.
+\item[(b)] 假定有六个数$\{1,2,7,8,14,20\}$.有放回抽样得到无序样本$\{2,7,7,8,14,14\}$的概率是多少？
+\item[(c)] 验证：一个容量为$k$的无序样本中，$m$个不同的数分别重复$k_1,k_2,\ldots,k_m$次，则该样本包含$\dfrac{k!}{k_1!k_2!\cdots k_m!}$种有序排列，其中$k_1+k_2+\cdots+k_m=k$.
+\item[(d)] 利用上一小题的结果，建立恒等式\footnote{译注：以下等式原样保留.若$k_1,\ldots,k_m$遍历非负整数且和为$k$，多项式定理给出左端为$m^k$；右端组合数是这类重数配置的个数，并非多项系数之和.}
+$$
+\sum_{k_1,k_2,\ldots,k_m:\,k_1+k_2+\cdots+k_m=k}
+\frac{k!}{k_1!k_2!\cdots k_m!}=\binom{k+m-1}{k}.
+$$
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.30}
+从六个数$\{1,2,7,8,14,20\}$中作有放回抽样，画出所有可能样本均值的分布直方图.\footnote{译注：原题未给样本容量，因此不能唯一确定该分布；需要先补充样本容量.}
+\end{exercise}
+
+\needspace{8\baselineskip}
+\begin{exercise}\label{exercise:1.31}
+在例\ref{ex:1.2.20}的情形下，原数集$\{2,4,9,12\}$的平均值为$\frac{29}{4}$，其概率最高.
+\begin{enumerate}
+\item[(a)] 证明：一般地，从集合$\{x_1,x_2,\ldots,x_n\}$中作有放回抽样，平均值为$(x_1+x_2+\cdots+x_n)/n$的结果最有可能出现，其概率为$\dfrac{n!}{n^n}$.\footnote{译注：该值是每个原数恰出现一次的无序样本的概率，不能一般地直接当作样本均值的概率.例如从$\{0,1,2\}$有放回抽取3次，均值1还可由$\{1,1,1\}$产生，概率为$7/27$而非$6/27$.}
+\item[(b)] 利用Stirling公式（习题\ref{exercise:1.28}），证明$n!/n^n\approx\sqrt{2n\pi}/e^n$（\hyperref[bib:source154]{Hall 1992，附录I}）.
+\item[(c)] 证明某个特定的$x_i$没有出现在抽样结果中的概率为$(1-\frac1n)^n$，并且当$n\to\infty$时，该概率趋于$e^{-1}$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.32}
+雇主打算从$N$名候选人中聘用一名新员工，这些候选人的未来潜力可以按1到$N$评分.雇主按如下规则行事：
+\begin{enumerate}
+\item[i.] 按随机顺序依次面试每位候选人，并决定是否聘用该候选人.
+\item[ii.]\phantomsection\label{itm:exercise:1.32:ii} 在拒绝了$m-1$名候选人后（$m>1$），仅当第$m$名候选人优于前面的$m-1$名时，雇主才能聘用他.
+\end{enumerate}
+假定在第$i$次尝试时聘用了某位候选人.聘用到最优秀候选人的概率是多少？\footnote{译注：规则\hyperref[itm:exercise:1.32:ii]{(ii)}只给出了允许聘用的必要条件，未完全规定何时停止及聘用.若需要唯一的条件概率，还须明确决策机制；译文未替原题补写.}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.33}
+假定男性中有$5\%$、女性中有$.25\%$患有色盲.随机选择一人，发现此人患有色盲.此人为男性的概率是多少？（假定男性与女性人数相等.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.34}
+某种啮齿动物产下了两窝幼崽，一窝有两只棕毛、一只灰毛（第1窝），另一窝有三只棕毛、两只灰毛（第2窝）.我们随机选一窝，再从所选的一窝中随机选一只幼崽.
+\begin{enumerate}
+\item[(a)] 所选动物为棕毛的概率是多少？
+\item[(b)] 已知选中的是棕毛幼崽，抽样来自第1窝的概率是多少？
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.35}
+证明：若$P(\cdot)$是一个合法的概率函数，且集合$B$满足$P(B)>0$，则$P(\cdot\mid B)$也满足柯尔莫哥洛夫公理.
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.36}
+若命中目标的概率为$\frac15$，独立射击十次，则至少命中两次的概率是多少？已知至少命中一次，至少命中两次的条件概率是多少？
+\end{exercise}
+
+
+\sourcepageanchor{66}
+
+\begin{exercise}\label{exercise:1.37}\index{SI0711@蒙提霍尔问题}\index{SI1071@看守问题}
+这里考察例\ref{ex:1.3.4}的若干变式.
+\begin{enumerate}
+\item[(a)] 在例\ref{ex:1.3.4}中狱长的计算里，假定若A将获赦免，则狱长告诉A“B将被处死”或“C将被处死”的概率相等.然而，情况未必如此.狱长可以分别给这两个事件赋予概率$\gamma$和$1-\gamma$，如下表所示：
+\begin{center}
+\begin{tabular}{lll}
+\hline
+获赦免的囚犯 & 狱长告诉A & \\
+\hline
+A & B将被处死 & 概率为$\gamma$\\
+A & C将被处死 & 概率为$1-\gamma$\\
+B & C将被处死 & \\
+C & B将被处死 & \\
+\hline
+\end{tabular}
+\end{center}
+将$P(A\mid\mathscr{W})$作为$\gamma$的函数求出.$\gamma$取何值时，$P(A\mid\mathscr{W})$小于、等于或大于$\frac13$？
+\item[(b)] 再假定像例中一样，$\gamma=\frac12$.狱长告诉A，B将被处死之后，A想了一会儿，意识到自己原来的计算是错的.但随后A灵机一动，问狱长能否让自己与C交换命运.狱长认为并未传递任何信息，便同意了.证明A此时的推理正确，他的存活概率已经跃升为$\frac23$！
+\end{enumerate}
+\hyperref[bib:source285]{Selvin（1975）}讨论了一个类似而略为复杂的问题，即“Monty Hall问题”.当这个形式的问题出现在一份星期日杂志上（\hyperref[bib:source322]{vos Savant 1990}），并附有正确答案但解释存在疑问时，它引起了相当大的关注.随后的争论甚至登上了星期日《纽约时报》的头版\mbox{（\hyperref[bib:source314]{Tierney 1991}）.}\hyperref[bib:source223]{Morgan等（1991）}作了完整且颇有趣味的讨论（另见\hyperref[bib:source323]{vos Savant 1991}\mbox{的回应）.}\hyperref[bib:source77]{Chun（1999）}给出的分析非常详尽，几乎穷尽了这一问题.
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.38}\index{SI0124@性质}
+证明以下各条陈述.（假定所有作为条件的事件都具有正概率.）
+\begin{enumerate}
+\item[(a)] 若$P(B)=1$，则对任意$A$，都有$P(A\mid B)=P(A)$.
+\item[(b)] 若$A\subset B$，则$P(B\mid A)=1$且$P(A\mid B)=P(A)/P(B)$.
+\item[(c)] 若$A$与$B$互斥，则
+$$
+P(A\mid A\cup B)=\frac{P(A)}{P(A)+P(B)}.
+$$
+\item[(d)] $P(A\cap B\cap C)=P(A\mid B\cap C)P(B\mid C)P(C)$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.39}\index{SI0250@独立性}\index{SI0549@不交}
+两个事件$A$和$B$不能既互斥又独立.证明：若$P(A)>0$且$P(B)>0$，则
+\begin{enumerate}
+\item[(a)] 若$A$与$B$互斥，它们就不可能独立.
+\item[(b)] 若$A$与$B$独立，它们就不可能互斥.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.40}
+证明定理\ref{thm:1.3.9}的\hyperref[item:1.3.9b]{(b)}和\hyperref[item:1.3.9c]{(c)}两部分，完成该定理的证明.
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.41}
+如例\ref{ex:1.3.6}，考虑按$3:4$比例发送的电报信号“点”和“划”.传输中的差错使“点”以$\frac14$的概率变成“划”，使“划”以$\frac13$的概率变成“点”.
+\begin{enumerate}
+\item[(a)] 若收到的是“划”，发送的也是“划”的概率是多少？
+\item[(b)] 假定各信号彼此独立.若收到的消息是“点—点”，则四种可能发送的消息的概率分布是什么？
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.42}\index{SI0540@容斥}
+杂录\ref{sec:1.8.1}中的容斥恒等式（inclusion-exclusion identity），因其用容斥法证明而得名（\hyperref[bib:source118]{Feller 1968，第IV.1节}）.这里给出细节.概率$P(\bigcup_{i=1}^n A_i)$等于至少属于一个$A_i$的所有样本点的概率之和.容斥法就是对这些点计数的一套方法.
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:exercise:1.42:a} 若$E_k$表示恰好属于事件$A_1,A_2,\ldots,A_n$中$k$个事件的所有样本点构成的集合，证明$P(\bigcup_{i=1}^n A_i)=\sum_{i=1}^n P(E_i)$.
+\item[(b)] 假定$x\in E_1$.证明$P(x\in E_1)=\sum_{i=1}^n P(x\in A_i)$.
+\item[(c)]\phantomsection\label{itm:exercise:1.42:c} 假定$x\in E_k$.不失一般性，可以假设$x\in A_1,A_2,\ldots,A_k$且$x\notin A_{k+1},A_{k+2},\ldots,A_n$.证明$P(x\in E_k)$在和$P_1$中出现$k$次，在和$P_2$中出现$\binom k2$次，在和$P_3$中出现$\binom k3$次，依此类推.
+\item[(d)] 证明
+$$
+k-\binom k2+\binom k3-+\cdots\pm\binom kk=1.
+$$
+（见习题\ref{exercise:1.27}.）\footnote{译注：原式在$\binom k3$后排成“$-+\cdots$”，保留该排印；意图应为继续交替加减.}
+\item[(e)] 证明\hyperref[itm:exercise:1.42:a]{(a)}–\hyperref[itm:exercise:1.42:c]{(c)}蕴含$\sum_{i=1}^n P(E_i)=P_1-P_2=\cdots\pm P_n$，从而建立容斥恒等式.\footnote{译注：原题在$P_1-P_2$后写等号；标准容斥和应为$P_1-P_2+P_3-\cdots+(-1)^{n+1}P_n$.}
+\end{enumerate}
+\end{exercise}
+
+
+\sourcepageanchor{67}
+
+\begin{exercise}\label{exercise:1.43}
+对于杂录\ref{sec:1.8.1}中的容斥恒等式：
+\begin{enumerate}
+\item[(a)] 从容斥恒等式推导Boole不等式和Bonferroni不等式.
+\item[(b)] 证明当$i\ge j$时，$P_i$满足$P_i\ge P_j$；并证明杂录\ref{sec:1.8.1}中的界限序列随着项数增加而得到改进.\footnote{译注：原题的不等号方向与杂录相反，且这些交集概率和一般不具单调性.例如4个事件都等于$A$时，$P_1=4P(A)$、$P_2=6P(A)$；更高阶又会下降.另见杂录处译注.}
+\item[(c)] 通常，界限中的项数越多，界限就越有用.然而，\hyperref[bib:source279]{Schwager（1984）}提醒说，在某些情形下改进并不大，尤其是各$A_i$高度相关时.考察极端情形：对每个$i$，都有$A_i=A$，此时这一界限序列会怎样？（见\hyperref[bib:source332]{Worsley（1982）}，以及\hyperref[bib:source333]{Worsley（1985）}与\hyperref[bib:source280]{Schwager（1985）}之间的往来讨论.）
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.44}
+标准化考试为概率论提供了一个有趣的应用.先假定一次考试包含20道选择题，每道题有四个可能答案.如果学生每题都猜，那么参加考试可以建模为20个独立事件组成的序列.在学生完全猜测的条件下，求他至少答对十题的概率.
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.45}
+证明式\eqref{eq:1.4.1}中定义的诱导概率函数是一个合法的概率函数，即它满足柯尔莫哥洛夫公理.
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.46}
+将七个球随机分配到七个格子中.令$X_i=$恰好含有$i$个球的格子数.$X_3$的概率分布是什么？（即对每个可能的$x$，求$P(X_3=x)$.）
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.47}
+证明下列函数都是累积分布函数（cdf）.
+\begin{enumerate}
+\item[(a)] $\frac12+\frac1\pi\tan^{-1}(x)$，$x\in(-\infty,\infty)$.
+\item[(b)] $(1+e^{-x})^{-1}$，$x\in(-\infty,\infty)$.
+\item[(c)] $e^{-e^{-x}}$，$x\in(-\infty,\infty)$.
+\item[(d)] $1-e^{-x}$，$x\in(0,\infty)$.\footnote{译注：要作为整个实数轴上的cdf，还须在$x\le0$时取0；原题只写出了正半轴上的形式.}
+\item[(e)] 式\eqref{eq:1.5.6}所定义的函数.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.48}
+证明定理\ref{thm:1.5.3}的必要性部分.
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.49}\index{SI0988@较大}
+若对所有$t$都有$F_X(t)\le F_Y(t)$，并且对某个$t$有$F_X(t)<F_Y(t)$，则称累积分布函数$F_X$在随机意义下大于（stochastically greater than）累积分布函数$F_Y$.证明：若$X\sim F_X$且$Y\sim F_Y$，则
+$$
+P(X>t)\ge P(Y>t)\quad\text{对每个 }t\text{ 都成立},
+$$
+并且
+$$
+P(X>t)>P(Y>t)\quad\text{对某个 }t\text{ 成立},
+$$
+也就是说，$X$往往比$Y$大.
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.50}
+验证公式\eqref{eq:1.5.4}，即几何级数部分和的公式.
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.51}
+一家电器商店收到一批30台微波炉，其中五台有缺陷（经理并不知情）.经理从中不放回地随机抽取四台，检查是否有缺陷.令$X=$发现的有缺陷微波炉台数.计算$X$的概率质量函数（pmf）和累积分布函数，并画出累积分布函数.
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.52}\index{SI0841@截断}
+设$X$是连续随机变量，概率密度函数为$f(x)$，累积分布函数为$F(x)$.对一个固定的数$x_0$，定义函数
+$$
+g(x)=\begin{cases}
+f(x)/[1-F(x_0)],&x\ge x_0,\\
+0,&x<x_0.
+\end{cases}
+$$
+证明$g(x)$是一个概率密度函数.（假定$F(x_0)<1$.）
+\end{exercise}
+
+
+\sourcepageanchor{68}
+
+\begin{exercise}\label{exercise:1.53}
+某条河流每年都会泛滥.假定最低水位定为1，最高水位$Y$的分布函数为
+$$
+F_Y(y)=P(Y\le y)=1-\frac1{y^2},\qquad 1\le y<\infty.
+$$
+\begin{enumerate}
+\item[(a)] 验证$F_Y(y)$是累积分布函数.\footnote{译注：原题只给$y\ge1$上的表达式；在全实数轴上定义cdf时，需在$y<1$处取0.}
+\item[(b)] 求$Y$的概率密度函数$f_Y(y)$.
+\item[(c)] 若把最低水位重新定为零，并使用原测量单位的$\frac1{10}$作为新单位，则最高水位变成$Z=10(Y-1)$.求$F_Z(z)$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.54}
+对下列各函数，确定使$f(x)$成为概率密度函数的$c$值.
+\begin{enumerate}
+\item[(a)] $f(x)=c\sin x$，$0<x<\pi/2$.
+\item[(b)] $f(x)=ce^{-|x|}$，$-\infty<x<\infty$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}\label{exercise:1.55}
+某电子设备的寿命记为$T$.若它在时刻$t=3$之前失效，其价值为$V=5$；否则，其价值为$V=2T$.若$T$的概率密度函数为
+$$
+f_T(t)=\frac1{1.5}e^{-t/(1.5)},\qquad t>0,
+$$
+求$V$的累积分布函数.
+\end{exercise}
+
+% 用户授权疑误脚注：2026-11-04

@@ -1,0 +1,46 @@
+EXERCISES                                                                  215
+
+5.51 One of the earlier methods (not one of the better ones) of generating pseudo-random standard nor-
+     mal random variables from uniform random variables is to take X = ∑12i=1Ui −6, where the Uis are       iid uniform(0,1).
+       (a) Justify the fact that X is approximately n(0,1).
+      (b) Can you think of any obvious way in which the approximation fails?
+       (c) Show how good (or bad) the approximation is by comparing the first four moments. (The fourth
+        moment is 29/10 and is a lengthy calculation – mgfs and computer algebra would help; see Example
+           12.6.6.)
+5.52 For each of the following distributions write down an algorithm for generating the indicated random
+      variables.
+       (a) Y ∼binomial(8, 23).
+      (b) Y ∼hypergeometric(N = 110,M = 8,K = 4).
+       (c) Y ∼negative binomial(5, 3).
+5.53 For each of the distributions in the previous exercise
+       (a) generate 1,000 variables from the indicated distribution.
+      (b) compare the mean, variance, and histogram of the generated random variables with the theoretical
+          values.
+5.54 Referring to Example 5.6.6 another sample of bay anchovy larvae counts yielded the data
+
+                         158,143,106,57,97,80,109,109,350,224,109,214,84.
+
+       (a) Use the technique of Example 5.6.6 to construct a simulated distribution of S2 to see if the assumption
+          of Poisson counts is tenable.
+      (b) A possible explanation of the failure of the Poisson assumptions (and increased variance) is the
+           failure of the assumption that the larvae are uniformly distributed in the river. If the larvae tend
+                                                                                                        µ2           to clump, the negative binomial(r, p) distribution (with mean µ = r 1−pp  and variance µ +  r ) is a
+          reasonable alternative model. For µ = ¯x, what values of r lead to simulated distributions that are
+          consistent with the data?
+5.55 Suppose the method of (5.6.7) is used to generate the random variable Y, where yi = i , i = 0,1,2,... .
+    Show that the expected number of comparisons is E(Y +1). (Hint: Exercise 2.14.)
+                                 < ∞.5.56 Let Y have the Cauchy distribution, fY (y) = 1+y21 ,−∞< y
+       (a) Show that FY (y) = tan−1(y) .
+      (b) Show how to simulate a Cauchy(a,b) random variable starting from a uniform(0,1) random variable.
+
+      (See Exercise 2.12 for a related result.)
+5.57 Park et al. (1996) describe a method for generating correlated binary variables based on the follow
+     scheme. Let X1,X2,X3 be independent Poisson random variables with mean λ1,λ2,λ3, respectively, and
+      create the random variables
+                                    Y1 = X1 +X3 and Y2 = X2 +X3.
+       (a) Show that Cov(Y1,Y2) = λ3.
+      (b) Define Zi = I(Yi = 0) and pi = e−(λi+λ3). Show that Zi are Bernoulli(pi) with
+                                                      p1p2(eλ3                                Corr(Z1,Z2) =           −1)          .
+                                         p1(1−p1)  p2(1−p2)
+       (c) Show that the correlation of Z1 and Z2 is not unrestricted in the range [−1,1], but
+                            Corr(Z1,Z2)         p2(1−p1)   p1(1−p2)    .                            ≤min    p1(1−p2),  p2(1−p1)

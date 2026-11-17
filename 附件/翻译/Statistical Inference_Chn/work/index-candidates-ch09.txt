@@ -1,0 +1,290 @@
+127:369 | Confidence coefficient | 置信系数 | 338
+  09-01.tex:33 置信系数 | 对于参数$\theta$的区间估计量$[L(\boldsymbol X),U(\boldsymbol X)]$，其置信系数（confidence coefficient）是覆盖概率的下确界$\inf_\theta P_\theta(\theta\in[L(\boldsymbol X),U(\boldsymbol X)])$.
+  09-01.tex:37 置信系数 | 区间估计量连同置信程度的度量（通常是置信系数），有时称为置信区间（confidence interval）. 我们经常将这个术语与区间估计量互换使用. 虽然我们主要关注置信区间，但有时也研究更一般的集合. 当进行一般讨论、还不完全确定集合的具体形式时，我们将称之为置信集（confidence set）. 置信系数等于某个数值（比如$1-\alpha$）的置信集，简称为$1-\alpha$置信集.
+  09-01.tex:39 置信系数 | 另一个要点涉及覆盖概率与置信系数. 因为不知道$\theta$的真实值，我们只能保证覆盖概率达到其下确界，即置信系数. 在一些情形下，这没有关系，因为覆盖概率是$\theta$的常数函数. 但在另一些情形下，覆盖概率可能是随$\theta$变动颇大的函数.
+127:387 | Confidence coefficient | 置信系数 | 356
+  09-03.tex:6 置信系数 | 除特殊情形外，置信集的覆盖概率是参数的函数，因此要考虑的不是一个值，而是无穷多个值. 不过，大多数时候，我们将通过置信系数，即覆盖概率的下确界，来度量覆盖概率的表现. 这是概括覆盖概率信息的一种方式，但并非唯一方式.（例如，也可以计算平均覆盖概率.）
+128:395 | Confidence coefficient > relation to risk | 与风险的关系 | 364
+  09-03.tex:244 置信系数 | 改变损失\eqref{eq:9.3.4}中$b$的大小，就能改变区间估计量的大小与覆盖概率的相对重要性，这是此前无法做到的. 为展示当前框架的灵活性，考虑某些极限情形. 若$b=0$，则大小不重要，只有覆盖概率重要，因此覆盖概率为$1$的区间估计量$C=(-\infty,\infty)$是最佳决策规则. 类似地，若$b=\infty$，则覆盖概率不重要，因此单点集合最优. 于是，一整系列决策规则都可能成为候选. 下例中，对于某个指定的有限$b$值范围，选择良好规则归结为用风险
+131:389 | Confidence interval > length > normal | 正态 | 358
+  09-03.tex:80 正态 | 对于基于枢轴量$(\bar X-\mu)/(S/\sqrt n)$的正态区间，我们知道，具有形式
+  09-03.tex:78 长度 | 回顾\autoref{ex:9.2.3}之后关于似然区域形式的讨论，由\autoref{thm:9.3.2}现在知道这是一种最优构造. \autoref{cor:9.3.10}给出的类似论证将说明，这种构造如何产生最优贝叶斯区域. 此外，我们现在也可以看出，\autoref{ex:9.3.1}中最优的平分$\alpha$方法，对于任何对称单峰pdf都最优（\autoref{exercise:9.39}）. 即使最优性准则与最小长度有所不同，\autoref{thm:9.3.2
+  09-03.tex:79 长度 | \begin{example}[期望长度的优化]\label{ex:9.3.3}
+132:388 | Confidence interval > length > optimal | 最优 | 357
+  09-03.tex:22 最优 | 在\autoref{ex:9.2.1}中，我们取$a=-z_{\alpha/2},b=z_{\alpha/2}$，但没有提及最优性. 若取$1-\alpha=.90$，则下列任一对数都给出$90\%$区间. \autoref{tab:9.3.3}中的数值研究提示，选择$a=-1.65,b=1.65$给出最好的区间，事实也确实如此. 在这种情形下，平分概率$\alpha$是最优策略.
+  09-03.tex:36 最优 | 平分$\alpha$的策略在上面的情形中最优，但并不总是最优. 上述情形中，平分$\alpha$之所以最优，是因为pdf在$-z_{\alpha/2}$和$z_{\alpha/2}$处高度相同. 下面证明一个说明此事实的定理；它具有一定的一般性，只需要假设pdf单峰. 回顾单峰（unimodal）的定义：若存在$x^*$，使$f(x)$在$x\le x^*$时非递减，在$x\ge x^*$时非递增，则称pdf $f(x)$单峰.（这是相当弱的要求.）
+  09-03.tex:20 长度 | 哪一对$a,b$最好？更正式地问，怎样选择$a,b$，可以在保持$1-\alpha$覆盖率的同时使置信区间长度最小？注意，置信区间的长度为$(b-a)\sigma/\sqrt n$，但由于每个区间长度都含因子$\sigma/\sqrt n$，可以忽略这一因子，而根据$b-a$的值比较长度. 因而，希望找到一对数$a,b$，使$P(a\le Z\le b)=1-\alpha$，并使$b-a$最小.
+133:392 | Confidence interval > length > relation to false coverage | 与错误覆盖的关系 | 361
+  09-03.tex:158 长度 | 使错误覆盖概率最小的集合也称为Neyman最短（Neyman-shortest）集合. 这个名称包含长度的意味，Pratt（1961）的下述定理为其提供了某种依据.
+  09-03.tex:165 长度 | \autoref{thm:9.3.9}表明，$C(x)$的期望长度等于错误覆盖概率之和（积分），其中积分遍及参数的所有错误值.
+  09-03.tex:171 长度 | &=\int_{\mathcal X}[U(x)-L(x)]f(x\mid\theta^*)\,dx&&\text{（长度的定义）}\\
+134:389 | Confidence interval > length > relation to HPD | 与最高后验密度的关系 | 358
+  09-03.tex:78 长度 | 回顾\autoref{ex:9.2.3}之后关于似然区域形式的讨论，由\autoref{thm:9.3.2}现在知道这是一种最优构造. \autoref{cor:9.3.10}给出的类似论证将说明，这种构造如何产生最优贝叶斯区域. 此外，我们现在也可以看出，\autoref{ex:9.3.1}中最优的平分$\alpha$方法，对于任何对称单峰pdf都最优（\autoref{exercise:9.39}）. 即使最优性准则与最小长度有所不同，\autoref{thm:9.3.2
+  09-03.tex:79 长度 | \begin{example}[期望长度的优化]\label{ex:9.3.3}
+  09-03.tex:82 长度 | 的最短$1-\alpha$置信区间取$a=-t_{n-1,\alpha/2},b=t_{n-1,\alpha/2}$. 区间长度是$s$的函数，一般形式为
+135:388 | Confidence interval > length > unimodal | 单峰 | 357
+  09-03.tex:36 单峰 | 平分$\alpha$的策略在上面的情形中最优，但并不总是最优. 上述情形中，平分$\alpha$之所以最优，是因为pdf在$-z_{\alpha/2}$和$z_{\alpha/2}$处高度相同. 下面证明一个说明此事实的定理；它具有一定的一般性，只需要假设pdf单峰. 回顾单峰（unimodal）的定义：若存在$x^*$，使$f(x)$在$x\le x^*$时非递减，在$x\ge x^*$时非递增，则称pdf $f(x)$单峰.（这是相当弱的要求.）
+  09-03.tex:38 单峰 | 设$f(x)$是单峰pdf. 若区间$[a,b]$满足
+  09-03.tex:55 单峰 | &\le\int_a^b f(x)\,dx&&\text{（由\hyperref[item:9.3.2.ii]{(ii)}、\hyperref[item:9.3.2.iii]{(iii)}及单峰性，$a\le x\le b$时$f(x)\ge f(a)$）}\\
+143:399 | Confidence interval > binomial > relation to F distribution | 与F分布的关系 | 368
+  09-04.tex:149 二项 | 若$X\sim\operatorname{negative\ binomial}(r,p)$，利用二项分布与负二项分布的关系，证明$p$的一个$1-\alpha$置信区间为
+  09-04.tex:142 置信区间 | \autoref{ex:9.2.15}表明，泊松参数的置信区间可用卡方临界点表示. 用类似技术证明，若$X\sim\operatorname{binomial}(n,p)$，则$p$的一个$1-\alpha$置信区间为
+  09-04.tex:146 binomial | （提示：回顾\autoref{exercise:2.40}中的恒等式，它可解释为：若$X\sim\operatorname{binomial}(n,\theta)$，则$P_\theta(X\ge x)=P(Y\le\theta)$，其中$Y\sim\operatorname{beta}(x,n-x+1)$. 使用\autoref{sec:5}中$F$分布与贝塔分布的性质.）
+144:401 | Confidence interval > bioequivalence | 生物等效性 | 370
+  09-04.tex:250 生物等效性 | 这类区间出现在生物等效性（bioequivalence）问题中，其目标是确定两种处理（药物的不同制剂、治疗的不同给药系统）是否产生相同效应. 这个问题的表述导致原假设与备择假设的角色“互换”（\autoref{exercise:8.47}），从而产生一些有趣的统计问题. 生物等效性的综述见Berger和Hsu（1996），置信集的推广见Brown、Casella和Hwang（1995）.
+  09-04.tex:244 置信区间 | 设$X\sim\mathrm n(\mu,1)$，考虑置信区间
+  09-04.tex:255 置信区间 | \item 若$\sigma^2$已知，求保证$\mu$的$.95$置信区间长度不超过$\sigma/4$的最小$n$.
+145:379 | Confidence interval > construction | 构造 | 348
+  09-02.tex:243 构造 | 关于这个问题，最后再说明一点. 我们现在分别构造了$\mu$和$\sigma$的置信区间. 对$\mu$和$\sigma$的\emph{同时}置信集感兴趣完全合情合理. Bonferroni不等式提供了实现这一目标的简单（且相当不错的）方法.（参见\autoref{exercise:9.14}.）
+  09-02.tex:248 构造 | 如果对于每个$\theta$，函数$Q(\boldsymbol x,\theta)$都是$\theta$的单调函数，那么就能保证置信集$C(\boldsymbol x)$是一个区间. 目前所见的枢轴量主要通过位置与尺度变换构造，所得的$Q$函数单调，因而产生置信区间.
+  09-02.tex:252 构造 | 如果感到困惑，或遇到陌生情形，我们建议在可能时通过反演LRT来构造置信集. 尽管无法保证这样的集合最优，但它绝不会很差. 不过，在某些情形下，这种策略无论在解析上还是计算上都太困难；接受域的反演有时是件相当费力的事. 如果本小节的方法适用，则实施起来相当直接，而且通常会产生合理的集合.
+145:381 | Confidence interval > construction | 构造 | 350
+  09-02.tex:323 置信区间 | 这个方法可用于获得位置指数pdf的置信区间.（\autoref{exercise:9.25}将这里的答案与似然法和枢轴法得到的答案比较. 另见\autoref{exercise:9.41}.）
+  09-02.tex:335 置信区间 | 是$\mu$的$1-\alpha$置信区间.
+  09-02.tex:337 置信区间 | 使用这个方法时有两点需要注意. 第一，只须对实际观测到的统计量值求解方程\eqref{eq:9.2.15}. 若观测到$T=t_0$，则$\theta$的置信区间实现值为$[\theta_L(t_0),\theta_U(t_0)]$. 因而只须解以下两个方程，求得$\theta_L(t_0),\theta_U(t_0)$：
+145:398 | Confidence interval > construction | 构造 | 367
+  09-04.tex:110 构造 | 本题进一步研究二项置信集的性质，特别是Sterne（1954）的构造. 与\autoref{ex:9.2.11}一样，仍考虑$\operatorname{binomial}(3,p)$分布.
+  09-04.tex:114 构造 | \item 证明以下接受域可被反演为$1-\alpha=.442$置信\emph{区间}，从而说明Sterne集合中的困难应归咎于\emph{最大概率构造}.
+  09-04.tex:125 构造 | （这实质上是Crow（1956）对Sterne构造的修改，参见\autoref{sec:9.5.2}.）
+146:395 | Confidence interval > decision theoretic | 决策论 | 364
+  09-03.tex:222 决策论 | 也可以将这些要求合并到一个损失函数中，利用决策论寻找最优估计量. 在区间估计中，行动空间$\mathcal A$由参数空间$\Theta$的子集构成；更正式地说，我们或许应称之为“集合估计”，因为最优规则未必是区间. 然而，出于实际考虑，我们主要研究以区间为集合估计量的情形；幸运的是，许多最优程序最终确实是区间.
+  09-03.tex:224 置信区间 | 用$C$（取自置信区间）表示$\mathcal A$中的元素，行动$C$的含义是作出区间估计“$\theta\in C$”. 决策规则$\delta(\boldsymbol x)$仅仅规定：对每个$\boldsymbol x\in\mathcal X$，若观测到$\boldsymbol X=\boldsymbol x$，将用哪个集合$C\in\mathcal A$估计$\theta$. 因此，仍沿用记号$C(\boldsymbol x)$.
+147:396 | Confidence interval > decision theoretic > difficulty | 困难 | 365
+  09-03.tex:264 困难 | 另一个困难在于对$\mathcal A$中允许集合形状的限制. 理想地，应由损失和风险函数判断哪些形状最好. 但总可以向区间估计量加入孤立点，在大小方面不受损失惩罚，却提高覆盖概率. 上例中本可以使用估计量
+  09-03.tex:262 决策论 | 决策论在区间估计问题中的应用，不像在点估计或假设检验问题中那样广泛. 一个原因是\eqref{eq:9.3.4}（或\autoref{ex:9.3.13}）中的$b$难以选择. 上例说明，一个看似合理的选择可能产生不符合直觉的结果，表明\eqref{eq:9.3.4}中的损失可能不适当. 有些人在其他问题中使用决策论分析，但仍倾向于仅使用置信系数固定为$1-\alpha$的区间估计量，然后用风险函数评价集合大小等其他品质.
+  09-04.tex:6 置信区间 | 设$X_1,\ldots,X_n$独立同分布于$\mathrm n(\theta,1)$. $\theta$的一个$95\%$置信区间为$\bar x\pm1.96/\sqrt n$. 令$p$表示额外的独立观测$X_{n+1}$落入这个区间的概率. $p$大于、小于还是等于$.95$？证明你的答案.
+148:395 | Confidence interval > decision theoretic > mean | 均值 | 364
+  09-03.tex:246 均值 | 设$X\sim\mathrm n(\mu,\sigma^2)$，假设$\sigma^2$已知. $X$通常是样本均值，而$\sigma^2$具有$\tau^2/n$的形式，其中$\tau^2$为已知总体方差，$n$为样本量. 对每个$c\ge0$，定义$\mu$的区间估计量$C(x)=[x-c\sigma,x+c\sigma]$. 将利用\eqref{eq:9.3.4}中的损失比较这些估计量. 区间的
+  09-03.tex:222 决策论 | 也可以将这些要求合并到一个损失函数中，利用决策论寻找最优估计量. 在区间估计中，行动空间$\mathcal A$由参数空间$\Theta$的子集构成；更正式地说，我们或许应称之为“集合估计”，因为最优规则未必是区间. 然而，出于实际考虑，我们主要研究以区间为集合估计量的情形；幸运的是，许多最优程序最终确实是区间.
+  09-03.tex:224 置信区间 | 用$C$（取自置信区间）表示$\mathcal A$中的元素，行动$C$的含义是作出区间估计“$\theta\in C$”. 决策规则$\delta(\boldsymbol x)$仅仅规定：对每个$\boldsymbol x\in\mathcal X$，若观测到$\boldsymbol X=\boldsymbol x$，将用哪个集合$C\in\mathcal A$估计$\theta$. 因此，仍沿用记号$C(\boldsymbol x)$.
+150:389 | Confidence interval > expected length > normal | 正态 | 358
+  09-03.tex:80 正态 | 对于基于枢轴量$(\bar X-\mu)/(S/\sqrt n)$的正态区间，我们知道，具有形式
+  09-03.tex:79 期望长度 | \begin{example}[期望长度的优化]\label{ex:9.3.3}
+  09-03.tex:84 期望长度 | 容易看出，如果考虑\emph{期望长度}准则，希望找到使
+151:381 | Confidence interval > exponential | 指数 | 350
+  09-02.tex:322 指数 | \begin{example}[位置指数分布区间]\label{ex:9.2.13}
+  09-02.tex:323 指数 | 这个方法可用于获得位置指数pdf的置信区间.（\autoref{exercise:9.25}将这里的答案与似然法和枢轴法得到的答案比较. 另见\autoref{exercise:9.41}.）
+  09-02.tex:335 置信区间 | 是$\mu$的$1-\alpha$置信区间.
+152:378 | Confidence interval > exponential > pivotal | 枢轴 | 347
+  09-02.tex:220 枢轴 | 对于位置问题，即使方差未知，枢轴区间的构造和计算也很容易. 事实上，我们已经用过这些思想，只是尚未赋予它们正式名称.
+  09-02.tex:221 枢轴 | \begin{example}[正态枢轴区间]\label{ex:9.2.10}
+  09-02.tex:222 枢轴 | 由\autoref{thm:5.3.1}可知，如果$X_1,\ldots,X_n$独立同分布于$\mathrm n(\mu,\sigma^2)$，则$(\bar X-\mu)/(\sigma/\sqrt n)$是枢轴量. 若$\sigma^2$已知，可用这个枢轴量计算$\mu$的置信区间. 对任意常数$a$，
+153:406 | Confidence interval > Fieller | Fieller | 375
+  09-05.tex:18 Fieller | \subsubsection{Fieller定理}\label{sec:9.5.3}
+  09-05.tex:19 Fieller | Fieller定理（Fieller 1954）用巧妙的论证，得到正态均值比的精确置信集.
+  09-05.tex:12 置信区间 | \subsubsection{离散分布中的置信区间}\label{sec:9.5.2}
+155:390 | Confidence interval > length > gamma | 伽马 | 359
+  09-03.tex:91 gamma | 设$X\sim\operatorname{gamma}(k,\beta)$. 量$Y=X/\beta$是枢轴量，$Y\sim\operatorname{gamma}(k,1)$，因此可以寻找满足
+  09-03.tex:95 长度 | 所以区间长度为$(1/a-1/b)x$，即与$(1/a)-(1/b)$成正比，而不是与$b-a$成正比.
+  09-03.tex:93 置信区间 | 的常数$a,b$来获得置信区间. 不过，盲目应用\autoref{thm:9.3.2}并不能得到最短置信区间. 即选择满足\eqref{eq:9.3.1}及$f_Y(a)=f_Y(b)$的$a,b$并非最优. 因为基于\eqref{eq:9.3.1}的$\beta$区间具有形式
+156:374 | Confidence interval > likelihood | 似然 | 343
+  09-02.tex:115 似然 | 其中某个函数$k'$给出$1-\alpha$的置信程度.\footnote{译注：上面“接受$H_0$”的似然比不等号原文为$\le$. 按\autoref{def:8.2.1}以及紧接的置信区域\eqref{eq:9.2.7}，此处应为$\ge$；这里保留原式.}
+  09-02.tex:117 似然 | 某些情形下（如正态分布和伽马分布），函数$k'$不依赖$\theta$. 此时似然区域有一种特别令人满意的解释：它由使似然最高的那些$\theta$值组成. 我们还将看到，在频率学派（\autoref{thm:9.3.2}）和贝叶斯学派（\autoref{cor:9.3.10}）中，最优性考虑也会导出这样的区间.
+  09-02.tex:99 置信区间 | 这个方程易于数值求解. 为具体说明，令$n=2$，并注意$\sum X_i\sim\operatorname{gamma}(2,\lambda)$以及$\sum X_i/\lambda\sim\operatorname{gamma}(2,1)$. 因此，由\eqref{eq:9.2.5}，置信区间变为$\{\lambda:\frac1a\sum x_i\le\lambda\le\frac1b\sum x_i\}$，其中$a,b$满足
+157:403 | Confidence interval > location | 位置 | 372
+  09-04.tex:379 位置 | 若$X_1,\ldots,X_n$独立同分布于位置pdf $f(x-\theta)$，证明置信集
+  09-04.tex:332 置信区间 | 它是$30\%$置信区间. 利用$\chi^2_{240,.7}=251.046$这一事实，证明$30\%$ UMA区间满足\footnote{译注：原文的卡方上侧概率下标$.7$与数值$251.046$不符；$251.046$约为$\chi^2_{240}$的上侧$.3$临界点. 本题关于$30\%$ UMA区间的说明以及前述临界点公式因此需一并核查，原式保留.}
+159:397 | Confidence interval > LRT > binomial | 二项 | 366
+  09-04.tex:36 二项 | \item 通过反演$H_0:p=p_0$对$H_1:p\ne p_0$的LRT，导出二项参数$p$的置信区间.
+  09-04.tex:20 LRT | \item\label{item:9.4.a}求$H_0:\lambda=\lambda_0$对$H_1:\lambda\ne\lambda_0$的水平$\alpha$ LRT.
+  09-04.tex:22 置信区间 | \item 求$\lambda$的$1-\alpha$置信区间.
+160:373 | Confidence interval > LRT > exponential | 指数 | 342
+  09-02.tex:64 exponential | 假设我们希望为$\operatorname{exponential}(\lambda)$总体的均值$\lambda$构造置信区间. 可通过反演$H_0:\lambda=\lambda_0$对$H_1:\lambda\ne\lambda_0$的水平$\alpha$检验得到这样的区间.
+  09-02.tex:63 似然比检验 | \begin{example}[反演似然比检验]\label{ex:9.2.3}
+  09-02.tex:66 似然比检验 | 若取随机样本$X_1,\ldots,X_n$，似然比检验（LRT）统计量为
+162:399 | Confidence interval > negative binomial > relation to F distribution | 与F分布的关系 | 368
+  09-04.tex:149 负二项 | 若$X\sim\operatorname{negative\ binomial}(r,p)$，利用二项分布与负二项分布的关系，证明$p$的一个$1-\alpha$置信区间为
+  09-04.tex:142 置信区间 | \autoref{ex:9.2.15}表明，泊松参数的置信区间可用卡方临界点表示. 用类似技术证明，若$X\sim\operatorname{binomial}(n,p)$，则$p$的一个$1-\alpha$置信区间为
+  09-04.tex:155 置信区间 | \item 设$X_1,\ldots,X_n$为来自参数为$\lambda$的泊松总体的随机样本，定义$Y=\sum X_i$. \autoref{ex:9.2.15}用\autoref{sec:9.2.3}的方法求得了$\lambda$的置信区间. 通过反演LRT构造$\lambda$的另一个区间，并比较这些区间.
+163:368 | Confidence interval > normal | 正态 | 337
+163:370 | Confidence interval > normal | 正态 | 339
+  09-02.tex:5 正态 | \begin{example}[反演正态检验]\label{ex:9.2.1}
+164:378 | Confidence interval > normal > pivotal | 枢轴 | 347
+  09-02.tex:220 枢轴 | 对于位置问题，即使方差未知，枢轴区间的构造和计算也很容易. 事实上，我们已经用过这些思想，只是尚未赋予它们正式名称.
+  09-02.tex:221 枢轴 | \begin{example}[正态枢轴区间]\label{ex:9.2.10}
+  09-02.tex:222 枢轴 | 由\autoref{thm:5.3.1}可知，如果$X_1,\ldots,X_n$独立同分布于$\mathrm n(\mu,\sigma^2)$，则$(\bar X-\mu)/(\sigma/\sqrt n)$是枢轴量. 若$\sigma^2$已知，可用这个枢轴量计算$\mu$的置信区间. 对任意常数$a$，
+165:368 | Confidence interval > one-sided | 单侧 | 337
+  EN n the majority of cases we will work with finite values for L and U, there is sometimes interest in one-sided interval estimates. For instance, if L(x) = −∞, then we have the one-sided interval (−∞,U(x)] and the assertion is that “θ ≤ U(x),” with no mention of a lower 
+  EN is sometimes interest in one-sided interval estimates. For instance, if L(x) = −∞, then we have the one-sided interval (−∞,U(x)] and the assertion is that “θ ≤ U(x),” with no mention of a lower bound. We could similarly take U(x) = ∞ and have a one-sided interval [L(x)
+166:375 | Confidence interval > one-sided > binomial | 二项 | 344
+  09-02.tex:131 二项 | \begin{example}[二项分布单侧置信界]\label{ex:9.2.5}
+  09-02.tex:136 二项 | 为简化问题，我们知道可以基于$T=\sum_{i=1}^nX_i\sim\operatorname{binomial}(n,p)$进行检验，因为$T$对$p$充分.（参见杂录一节.）由于二项分布具有单调似然比（\autoref{exercise:8.25}），由Karlin--Rubin定理（\autoref{thm:8.3.17}），在$T>k(p_0)$时拒绝$H_0$的检验是其大小下的UMP检验. 对每个$p_0$，希望选择常数$k(p_0)$（可取整数），使检验的水平
+  09-02.tex:143 二项 | 由二项分布的MLR性质，对任意$k=0,\ldots,n$，量
+167:374 | Confidence interval > one-sided > normal | 正态 | 343
+  09-02.tex:117 正态 | 某些情形下（如正态分布和伽马分布），函数$k'$不依赖$\theta$. 此时似然区域有一种特别令人满意的解释：它由使似然最高的那些$\theta$值组成. 我们还将看到，在频率学派（\autoref{thm:9.3.2}）和贝叶斯学派（\autoref{cor:9.3.10}）中，最优性考虑也会导出这样的区间.
+  09-02.tex:120 正态 | \begin{example}[正态单侧置信界]\label{ex:9.2.4}
+  09-02.tex:119 单侧 | 检验反演法完全一般，因为我们可以反演任意检验而得到置信集. 在\autoref{ex:9.2.3}中反演的是LRT，但也可以采用任何方法构造的检验. 此外，注意双侧检验的反演给出了双侧区间. 在接下来的例子中，我们反演单侧检验得到单侧区间.
+168:382 | Confidence interval > Poisson | 泊松 | 351
+  09-02.tex:370 泊松 | \begin{example}[泊松区间估计量]\label{ex:9.2.15}
+  09-02.tex:371 泊松 | 设$X_1,\ldots,X_n$为来自参数为$\lambda$的泊松总体的随机样本，并定义$Y=\sum X_i$. $Y$对$\lambda$充分，且$Y\sim\operatorname{Poisson}(n\lambda)$. 应用上述方法，取$\alpha_1=\alpha_2=\alpha/2$；如果观测到$Y=y_0$，就需要从方程
+  09-02.tex:375 泊松 | 中解出$\lambda$. 回顾\autoref{ex:3.3.1}中联系泊松族与伽马族的恒等式. 将该恒等式用于\eqref{eq:9.2.16}中的和式，可以写为（牢记$y_0$是$Y$的观测值）
+169:406 | Confidence interval > ratio of means | 均值之比 | 375
+  09-05.tex:12 置信区间 | \subsubsection{离散分布中的置信区间}\label{sec:9.5.2}
+  09-05.tex:13 置信区间 | 为离散分布的参数构造最优（或至少有所改进的）置信区间有很长的历史，\autoref{ex:9.2.11}已有所说明，其中考察了Sterne（1954）对Clopper和Pearson（1934）区间的修改. 当然，Sterne构造存在困难，但基本思想是正确的；Crow（1956）以及Blyth和Still（1983）修改了Sterne构造，后者产生了最短的一组精确区间. Casella（1986）给出了寻找一类最短二项置信区间的算法.
+171:369 | Confidence interval > relation to set estimator | 与集合估计量的关系 | 338
+  09-01.tex:37 置信区间 | 区间估计量连同置信程度的度量（通常是置信系数），有时称为置信区间（confidence interval）. 我们经常将这个术语与区间估计量互换使用. 虽然我们主要关注置信区间，但有时也研究更一般的集合. 当进行一般讨论、还不完全确定集合的具体形式时，我们将称之为置信集（confidence set）. 置信系数等于某个数值（比如$1-\alpha$）的置信集，简称为$1-\alpha$置信集.
+173:379 | Confidence interval > shortest > binomial | 二项 | 348
+  09-02.tex:254 二项 | 若不对所用接受域的具体类型施加额外条件，检验反演法可能带来某些麻烦. 为说明这一点，考虑下例，它展示了早期构造二项成功概率置信集的一种方法.
+  09-02.tex:255 二项 | \begin{example}[最短长度二项置信集]\label{ex:9.2.11}
+  09-02.tex:256 二项 | Sterne（1954）提出了下面构造二项置信集的方法，它产生最短长度的集合. 给定$\alpha$，对于每个$p$值，找出由概率最大的$x$值组成的大小为$\alpha$的接受域. 即对于每个$p$，将$x=0,\ldots,n$按概率从大到小排序，依次将值放入接受域$A(p)$，直到其概率为$1-\alpha$. 然后利用\eqref{eq:9.2.1}反演这些接受域，得到$1-\alpha$置信集；Sterne声称它具有长度最优性质.
+173:398 | Confidence interval > shortest > binomial | 二项 | 367
+  09-04.tex:110 二项 | 本题进一步研究二项置信集的性质，特别是Sterne（1954）的构造. 与\autoref{ex:9.2.11}一样，仍考虑$\operatorname{binomial}(3,p)$分布.
+  09-04.tex:95 置信区间 | 设$X_1,\ldots,X_n$独立同分布于$\mathrm n(\theta,\sigma^2)$，其中$\sigma^2$已知. 对下列每组假设，写出一个水平$\alpha$检验的接受域，以及反演该检验得到的$1-\alpha$置信区间.
+  09-04.tex:103 置信区间 | 给定独立同分布的$X_1,\ldots,X_n$，其pdf如下，求$\theta$的$1-\alpha$置信区间.
+175:403 | Confidence interval > UMA > length dominance | 长度优势 | 372
+  09-04.tex:332 置信区间 | 它是$30\%$置信区间. 利用$\chi^2_{240,.7}=251.046$这一事实，证明$30\%$ UMA区间满足\footnote{译注：原文的卡方上侧概率下标$.7$与数值$251.046$不符；$251.046$约为$\chi^2_{240}$的上侧$.3$临界点. 本题关于$30\%$ UMA区间的说明以及前述临界点公式因此需一并核查，原式保留.}
+176:403 | Confidence interval > UMA > normal | 正态 | 372
+  09-04.tex:357 正态 | 其中$\theta$为两个正态分布之一的均值，$\theta_0$是$\theta$的一个固定但任意的值. 观测到随机变量$X$，其分布为
+  09-04.tex:332 置信区间 | 它是$30\%$置信区间. 利用$\chi^2_{240,.7}=251.046$这一事实，证明$30\%$ UMA区间满足\footnote{译注：原文的卡方上侧概率下标$.7$与数值$251.046$不符；$251.046$约为$\chi^2_{240}$的上侧$.3$临界点. 本题关于$30\%$ UMA区间的说明以及前述临界点公式因此需一并核查，原式保留.}
+177:369 | Confidence interval > uniform | 均匀 | 338
+  09-01.tex:40 均匀 | \begin{example}[尺度均匀分布的区间估计量]\label{ex:9.1.6}
+  09-01.tex:41 uniform | 设$X_1,\ldots,X_n$为来自$\operatorname{uniform}(0,\theta)$总体的随机样本，并令$Y=\max\{X_1,\ldots,X_n\}$. 我们关心$\theta$的区间估计量，考虑两个候选估计量：$[aY,bY]$，$1\le a<b$，以及$[Y+c,Y+d]$，$0\le c<d$，其中
+  09-01.tex:37 置信区间 | 区间估计量连同置信程度的度量（通常是置信系数），有时称为置信区间（confidence interval）. 我们经常将这个术语与区间估计量互换使用. 虽然我们主要关注置信区间，但有时也研究更一般的集合. 当进行一般讨论、还不完全确定集合的具体形式时，我们将称之为置信集（confidence set）. 置信系数等于某个数值（比如$1-\alpha$）的置信集，简称为$1-\alpha$置信集.
+178:404 | Confidence interval > variance | 方差 | 373
+  09-04.tex:415 方差 | 设$X\sim\mathrm n(\mu,\sigma^2)$，但现在$\sigma^2$未知. 对每个$c\ge0$，定义$\mu$的区间估计量$C(x)=[x-cs,x+cs]$，其中$s^2$是与$X$独立的$\sigma^2$估计量，$\nu S^2/\sigma^2\sim\chi^2_\nu$（例如通常的样本方差）. 考虑对\eqref{eq:9.3.4}中损失的修改：
+  09-04.tex:385 置信区间 | 设$X_1,\ldots,X_n$为来自$\mathrm n(\mu,\sigma^2)$总体的随机样本，其中$\mu,\sigma^2$均未知. 以下每种寻找$\sigma^2$置信区间的方法都给出形式为
+  09-04.tex:389 置信区间 | 定义$f_p(t)$为自由度为$p$的$\chi_p^2$随机变量的pdf. 为获得$1-\alpha$置信区间，$a,b$必须满足
+179:368 | Confidence interval | 置信区间（另见置信集；置信程序；可信集） | 337
+180:406 | Confidence procedure | 置信程序（另见置信集；置信区间） | 375
+  09-05.tex:3 置信程序 | \subsubsection{置信程序}\label{sec:9.5.1}
+  09-05.tex:4 置信程序 | 通过定义一种称为置信程序（confidence procedure）的对象，可以在形式上联系置信集与检验（Joshi 1969）. 若$X\sim f(x\mid\theta)$，其中$x\in\mathcal X$且$\theta\in\Theta$，则置信程序是笛卡尔积空间$\mathcal X\times\Theta$中的集合. 对集合$\boldsymbol C\in\mathcal X\times\Theta$，定义为\footnote{译注：原文将作为集合的$\b
+  09-05.tex:7 置信程序 | 由置信程序，固定其中一个变量即可定义两个切片，或称截面. 固定$x$，定义$\theta$截面或置信集为
+184:383 | Confidence set > frequentist–Bayesian > interpretations | 解释 | 352
+  09-02.tex:410 解释 | 注意，贝叶斯可信集的解释和构造均比经典置信集更为直接. 但要记住，任何便利都不是无代价的. 构造与解释的简便伴随着额外假设. 贝叶斯模型所需的输入比经典模型更多.
+  09-02.tex:402 置信集 | 由于贝叶斯集合与经典集合所作的概率评价很不相同，为明确区分两者，贝叶斯集合估计称为可信集（credible set），而不是置信集.
+187:372 | Confidence set > relation to hypothesis test | 与假设检验的关系 | 341
+  09-02.tex:36 置信集 | 则随机集合$C(\boldsymbol X)$是一个$1-\alpha$置信集. 反之，设$C(\boldsymbol X)$是一个$1-\alpha$置信集. 对任意$\theta_0\in\Theta$，定义
+  09-02.tex:45 置信集 | 这说明$C(\boldsymbol X)$是一个$1-\alpha$置信集.
+  09-02.tex:51 置信集 | 虽然人们常说反演一个检验来得到置信集，但\autoref{thm:9.2.2}清楚表明，实际反演的是一族检验，对每个$\theta_0\in\Theta$各有一个检验，从而得到一个置信集.
+188:387 | Confidence set > size | 大小 | 356
+  09-03.tex:4 大小 | 集合估计中，有两个量相互竞争：大小和覆盖概率. 自然希望集合大小较小、覆盖概率较大，但这样的集合通常难以构造.（显然，增大集合就能获得较大的覆盖概率. 区间$(-\infty,\infty)$的覆盖概率为$1$！）在根据大小和覆盖概率优化集合之前，必须决定如何度量这些量.
+  09-03.tex:8 大小 | 说到置信集的大小，若集合为区间，通常指其长度. 若集合不是区间，或者处理的是多维集合，那么长度通常变为体积.（也有一些情形，采用长度之外的大小度量更自然，特别是在考虑等变性时. Schervish 1995，第6章，以及Berger 1985，第6章，讨论了这个主题.）
+  09-03.tex:9 大小 | \subsubsection{大小与覆盖概率}\label{sec:9.3.1}
+189:391 | Confidence set > UMA | 一致最准确 | 360
+  09-03.tex:121 UMA | 若一个$1-\alpha$置信集在某类$1-\alpha$置信集中使错误覆盖概率最小，则称其为一致最精确置信集（uniformly most accurate，UMA）. 例如，可以考虑在$[L(\boldsymbol x),\infty)$形式的集合中寻找UMA置信集. UMA置信集可通过反演UMP检验的接受域构造，下面将证明这一点. 遗憾的是，虽然UMA置信集很理想，但它只在相当少见的情形下存在（UMP检验也如此）. 特别地，由于UMP检验通常是单侧的，UMA区间也通常为
+  09-03.tex:123 置信集 | 设$\boldsymbol X\sim f(\boldsymbol x\mid\theta)$，其中$\theta$为实值参数. 对每个$\theta_0\in\Theta$，设$A^*(\theta_0)$是$H_0:\theta=\theta_0$对$H_1:\theta>\theta_0$的水平$\alpha$ UMP检验的接受域. 设$C^*(\boldsymbol x)$为反演这些UMP接受域所得的$1-\alpha$置信集. 则对于任何其他$1-\alpha$置信
+  09-03.tex:129 置信集 | P_\theta(\theta'\in C^*(\boldsymbol X))&=P_\theta(\boldsymbol X\in A^*(\theta'))&&\text{（反演置信集）}\\
+190:391 | Confidence set > UMA > normal | 正态 | 360
+  09-03.tex:121 置信集 | 若一个$1-\alpha$置信集在某类$1-\alpha$置信集中使错误覆盖概率最小，则称其为一致最精确置信集（uniformly most accurate，UMA）. 例如，可以考虑在$[L(\boldsymbol x),\infty)$形式的集合中寻找UMA置信集. UMA置信集可通过反演UMP检验的接受域构造，下面将证明这一点. 遗憾的是，虽然UMA置信集很理想，但它只在相当少见的情形下存在（UMP检验也如此）. 特别地，由于UMP检验通常是单侧的，UMA区间也通常为
+  09-03.tex:123 置信集 | 设$\boldsymbol X\sim f(\boldsymbol x\mid\theta)$，其中$\theta$为实值参数. 对每个$\theta_0\in\Theta$，设$A^*(\theta_0)$是$H_0:\theta=\theta_0$对$H_1:\theta>\theta_0$的水平$\alpha$ UMP检验的接受域. 设$C^*(\boldsymbol x)$为反演这些UMP接受域所得的$1-\alpha$置信集. 则对于任何其他$1-\alpha$置信
+  09-03.tex:129 置信集 | P_\theta(\theta'\in C^*(\boldsymbol X))&=P_\theta(\boldsymbol X\in A^*(\theta'))&&\text{（反演置信集）}\\
+191:391 | Confidence set > UMA > relation to UMP test | 与一致最强检验的关系 | 360
+  09-03.tex:121 置信集 | 若一个$1-\alpha$置信集在某类$1-\alpha$置信集中使错误覆盖概率最小，则称其为一致最精确置信集（uniformly most accurate，UMA）. 例如，可以考虑在$[L(\boldsymbol x),\infty)$形式的集合中寻找UMA置信集. UMA置信集可通过反演UMP检验的接受域构造，下面将证明这一点. 遗憾的是，虽然UMA置信集很理想，但它只在相当少见的情形下存在（UMP检验也如此）. 特别地，由于UMP检验通常是单侧的，UMA区间也通常为
+  09-03.tex:123 置信集 | 设$\boldsymbol X\sim f(\boldsymbol x\mid\theta)$，其中$\theta$为实值参数. 对每个$\theta_0\in\Theta$，设$A^*(\theta_0)$是$H_0:\theta=\theta_0$对$H_1:\theta>\theta_0$的水平$\alpha$ UMP检验的接受域. 设$C^*(\boldsymbol x)$为反演这些UMP接受域所得的$1-\alpha$置信集. 则对于任何其他$1-\alpha$置信
+  09-03.tex:129 置信集 | P_\theta(\theta'\in C^*(\boldsymbol X))&=P_\theta(\boldsymbol X\in A^*(\theta'))&&\text{（反演置信集）}\\
+192:392 | Confidence set > unbiased | 无偏 | 361
+  09-03.tex:148 无偏 | 在检验问题中考虑双侧检验时，我们发现无偏性既令人信服又有用. 置信区间问题中也有类似思想. 处理双侧置信区间时，将考虑范围限于无偏置信集是合理的. 记住，无偏检验的备择假设下的功效总大于原假设下的功效. 阅读下面定义时请牢记这一点.
+  09-03.tex:150 无偏 | 若一个$1-\alpha$置信集$C(\boldsymbol x)$对所有$\theta\ne\theta'$均满足$P_\theta(\theta'\in C(\boldsymbol X))\le1-\alpha$，则称其无偏（unbiased）.
+  09-03.tex:152 无偏 | 因此，对于无偏置信集，错误覆盖概率决不会大于最小正确覆盖概率. 无偏置信集可通过反演无偏检验得到. 即若$A(\theta_0)$是检验$H_0:\theta=\theta_0$对$H_1:\theta\ne\theta_0$的无偏水平$\alpha$接受域，且$C(\boldsymbol x)$是反演这些接受域形成的$1-\alpha$置信集，则$C(\boldsymbol x)$是无偏$1-\alpha$置信集（\autoref{exercise:9.46}）.
+193:392 | Confidence set > unbiased > normal | 正态 | 361
+  09-03.tex:154 正态 | 双侧正态区间
+  09-03.tex:148 无偏 | 在检验问题中考虑双侧检验时，我们发现无偏性既令人信服又有用. 置信区间问题中也有类似思想. 处理双侧置信区间时，将考虑范围限于无偏置信集是合理的. 记住，无偏检验的备择假设下的功效总大于原假设下的功效. 阅读下面定义时请牢记这一点.
+  09-03.tex:150 无偏 | 若一个$1-\alpha$置信集$C(\boldsymbol x)$对所有$\theta\ne\theta'$均满足$P_\theta(\theta'\in C(\boldsymbol X))\le1-\alpha$，则称其无偏（unbiased）.
+194:392 | Confidence set > unbiased > relation to unbiased test | 与无偏检验的关系 | 361
+  09-03.tex:148 无偏 | 在检验问题中考虑双侧检验时，我们发现无偏性既令人信服又有用. 置信区间问题中也有类似思想. 处理双侧置信区间时，将考虑范围限于无偏置信集是合理的. 记住，无偏检验的备择假设下的功效总大于原假设下的功效. 阅读下面定义时请牢记这一点.
+  09-03.tex:150 无偏 | 若一个$1-\alpha$置信集$C(\boldsymbol x)$对所有$\theta\ne\theta'$均满足$P_\theta(\theta'\in C(\boldsymbol X))\le1-\alpha$，则称其无偏（unbiased）.
+  09-03.tex:152 无偏 | 因此，对于无偏置信集，错误覆盖概率决不会大于最小正确覆盖概率. 无偏置信集可通过反演无偏检验得到. 即若$A(\theta_0)$是检验$H_0:\theta=\theta_0$对$H_1:\theta\ne\theta_0$的无偏水平$\alpha$接受域，且$C(\boldsymbol x)$是反演这些接受域形成的$1-\alpha$置信集，则$C(\boldsymbol x)$是无偏$1-\alpha$置信集（\autoref{exercise:9.46}）.
+224:369 | Coverage probability | 覆盖概率 | 338
+  09-01.tex:30 覆盖概率 | 对于参数$\theta$的区间估计量$[L(\boldsymbol X),U(\boldsymbol X)]$，其覆盖概率（coverage probability）是随机区间$[L(\boldsymbol X),U(\boldsymbol X)]$覆盖真实参数$\theta$的概率. 用符号表示为$P_\theta(\theta\in[L(\boldsymbol X),U(\boldsymbol X)])$或$P(\theta\in[L(\boldsymbol X),U(\
+  09-01.tex:33 覆盖概率 | 对于参数$\theta$的区间估计量$[L(\boldsymbol X),U(\boldsymbol X)]$，其置信系数（confidence coefficient）是覆盖概率的下确界$\inf_\theta P_\theta(\theta\in[L(\boldsymbol X),U(\boldsymbol X)])$.
+  09-01.tex:39 覆盖概率 | 另一个要点涉及覆盖概率与置信系数. 因为不知道$\theta$的真实值，我们只能保证覆盖概率达到其下确界，即置信系数. 在一些情形下，这没有关系，因为覆盖概率是$\theta$的常数函数. 但在另一些情形下，覆盖概率可能是随$\theta$变动颇大的函数.
+225:384 | Coverage probability > frequentist–Bayesian interpretation | 频率学派与贝叶斯解释 | 353
+  09-02.tex:431 覆盖概率 | 务必不要混淆可信概率（贝叶斯后验概率）与覆盖概率（经典概率）. 它们是很不同的量，有不同的含义与解释. 可信概率来自后验分布，后验分布又从先验分布获得其概率. 因而可信概率反映实验者的主观信念：这些信念用先验分布表达，再结合数据更新为后验分布. 贝叶斯关于$90\%$覆盖的断言，意味着实验者结合先验知识与数据后，对覆盖有$90\%$的把握.
+  09-02.tex:433 覆盖概率 | 另一方面，覆盖概率反映抽样程序的不确定性，其概率来自重复实验试验这一客观机制. 经典的$90\%$覆盖断言，意味着在一长串相同试验中，实现的置信集将有$90\%$覆盖真实参数.
+226:395 | Coverage probability > relation to risk | 与风险的关系 | 364
+  09-03.tex:242 覆盖概率 | 风险有两部分：区间的期望长度和区间估计量的覆盖概率. 风险反映了与前面各小节相同的愿望：同时希望期望长度小、覆盖概率高. 但现在不再先要求最低覆盖概率、再极小化长度，而是在风险函数中规定这两个量的权衡. 如果能显著缩短长度，较小的覆盖概率也许可以接受.
+  09-03.tex:244 覆盖概率 | 改变损失\eqref{eq:9.3.4}中$b$的大小，就能改变区间估计量的大小与覆盖概率的相对重要性，这是此前无法做到的. 为展示当前框架的灵活性，考虑某些极限情形. 若$b=0$，则大小不重要，只有覆盖概率重要，因此覆盖概率为$1$的区间估计量$C=(-\infty,\infty)$是最佳决策规则. 类似地，若$b=\infty$，则覆盖概率不重要，因此单点集合最优. 于是，一整系列决策规则都可能成为候选. 下例中，对于某个指定的有限$b$值范围，选择良好规则归结为用风险
+227:403 | Cox’s paradox | Cox悖论 | 372
+  09-04.tex:354 Cox悖论 | \begin{exercise}[Cox悖论]\label{exercise:9.49}
+  09-04.tex:368 Cox悖论 | 反演该检验的接受域导出$1-\alpha$置信集，并证明它以正概率为空集.（Cox悖论指出，经典最优程序有时忽略条件分布的信息，给出一个虽最优、却在某种意义上不合理的程序；参见Cox 1958或Cornfield 1969.）\footnote{译注：原文“否则总是拒绝$H_0$”若按字面理解，会使检验对全部样本都拒绝. 结合所给水平计算，合理意图应是：当$\sigma=1$时使用所列阈值，而当$\sigma=10$时总是拒绝. 此处保留原文表述.}
+231:385 | Credible set > normal | 正态 | 354
+  09-02.tex:460 正态 | \begin{example}[正态可信集的覆盖]\label{ex:9.2.18}
+  09-02.tex:438 可信集 | \autoref{ex:9.2.16}中的$90\%$置信集和可信集保持了各自的概率保证，但用另一种准则评价时，表现如何？首先来看置信集\eqref{eq:9.2.17}的可信概率：
+  09-02.tex:451 可信集 | 把可信集\eqref{eq:9.2.20}作为置信集评价时，它的表现也好不了多少. \autoref{fig:9.2.5}提示，随着$\lambda\to\infty$，可信集的覆盖概率趋于零. 为评价覆盖概率，写成
+232:383 | Credible set > Poisson | 泊松 | 352
+  09-02.tex:411 泊松 | \begin{example}[泊松可信集]\label{ex:9.2.16}
+  09-02.tex:412 Poisson | 现在为\autoref{ex:9.2.15}的问题构造可信集. 设$X_1,\ldots,X_n$独立同分布于$\operatorname{Poisson}(\lambda)$，并假定$\lambda$具有伽马先验pdf，$\lambda\sim\operatorname{gamma}(a,b)$. $\lambda$的后验pdf（\autoref{exercise:7.24}）为
+  09-02.tex:402 可信集 | 由于贝叶斯集合与经典集合所作的概率评价很不相同，为明确区分两者，贝叶斯集合估计称为可信集（credible set），而不是置信集.
+234:386 | Credible set > relation to confidence set > normal | 正态 | 355
+  09-02.tex:474 可信集 | 而$\theta$的一个$1-\alpha$可信集为
+  09-02.tex:486 可信集 | 尽管从$1-\alpha$可信集出发，我们得到的并非$1-\alpha$置信集，考虑如下参数配置即可看出. 固定$\theta\ne\mu$，令$\tau=\sigma/\sqrt n$，于是$\gamma=1$. 再令$\sigma/\sqrt n$非常小（$\to0$）. 容易看出，上述概率趋于零，因为若$\theta>\mu$，下界趋于无穷大；若$\theta<\mu$，上界趋于$-\infty$. 不过，若$\theta=\mu$，覆盖概率则有一个远离零的下界.
+234:400 | Credible set > relation to confidence set > normal | 正态 | 369
+  09-04.tex:182 正态 | \item\label{item:9.27.b}基于样本方差$s^2$，并对正态分布方差$\sigma^2$采用共轭$\operatorname{IG}(a,b)$先验，求$\sigma^2$的$1-\alpha$贝叶斯HPD可信集.
+  09-04.tex:183 可信集 | \item 从\hyperref[item:9.27.b]{(b)}的区间出发，求$a\to0$且$b\to\infty$时所得的$\sigma^2$的极限$1-\alpha$贝叶斯HPD可信集.
+  09-04.tex:192 可信集 | \item\label{item:9.28.b}求$\theta$的后验分布，并用它构造$\theta$的$1-\alpha$可信集.
+235:383 | Credible set | 可信集（另见置信集；置信区间；置信程序） | 352
+  09-02.tex:402 可信集 | 由于贝叶斯集合与经典集合所作的概率评价很不相同，为明确区分两者，贝叶斯集合估计称为可信集（credible set），而不是置信集.
+  09-02.tex:408 可信集 | 且$A$是$\theta$的可信集. 若$\pi(\theta\mid\boldsymbol x)$是pmf，则将上式中的积分替换为求和.
+  09-02.tex:410 可信集 | 注意，贝叶斯可信集的解释和构造均比经典置信集更为直接. 但要记住，任何便利都不是无代价的. 构造与解释的简便伴随着额外假设. 贝叶斯模型所需的输入比经典模型更多.
+445:406 | Fieller’s Theorem | Fieller定理 | 375
+  09-05.tex:18 Fieller定理 | \subsubsection{Fieller定理}\label{sec:9.5.3}
+  09-05.tex:19 Fieller定理 | Fieller定理（Fieller 1954）用巧妙的论证，得到正态均值比的精确置信集.
+471:393 | Highest posterior density (HPD) region | 最高后验密度区域 | 362
+  09-03.tex:197 最高后验密度区域 | \autoref{cor:9.3.10}所述的可信集称为最高后验密度区域（highest posterior density region，HPD区域），因为它由后验密度最高的参数值组成. 注意HPD区域与似然区域在形式上的相似性.
+507:372 | Hypothesis test > relation to confidence set | 与置信集的关系 | 341
+518:391 | Hypothesis test > UMP > relation to UMA set | 与一致最准确集的关系 | 360
+  EN s of the form [L(x), ∞). UMA confidence sets are constructed by inverting the acceptance regions of UMP tests, as we will prove below. Unfortunately, although a UMA confidence set is a desirable set, it exists only in rather rare circumstances (as do UMP tests). 
+  EN lthough a UMA confidence set is a desirable set, it exists only in rather rare circumstances (as do UMP tests). In particular, since UMP tests are generally one-sided, so are UMA intervals. They make for elegant theory, however. In the next theorem we see that a 
+521:392 | Hypothesis test > unbiased > relation to unbiased set | 与无偏集的关系 | 361
+  09-03.tex:148 无偏 | 在检验问题中考虑双侧检验时，我们发现无偏性既令人信服又有用. 置信区间问题中也有类似思想. 处理双侧置信区间时，将考虑范围限于无偏置信集是合理的. 记住，无偏检验的备择假设下的功效总大于原假设下的功效. 阅读下面定义时请牢记这一点.
+  09-03.tex:150 无偏 | 若一个$1-\alpha$置信集$C(\boldsymbol x)$对所有$\theta\ne\theta'$均满足$P_\theta(\theta'\in C(\boldsymbol X))\le1-\alpha$，则称其无偏（unbiased）.
+  09-03.tex:152 无偏 | 因此，对于无偏置信集，错误覆盖概率决不会大于最小正确覆盖概率. 无偏置信集可通过反演无偏检验得到. 即若$A(\theta_0)$是检验$H_0:\theta=\theta_0$对$H_1:\theta\ne\theta_0$的无偏水平$\alpha$接受域，且$C(\boldsymbol x)$是反演这些接受域形成的$1-\alpha$置信集，则$C(\boldsymbol x)$是无偏$1-\alpha$置信集（\autoref{exercise:9.46}）.
+560:379 | Inequality > Bonferroni’s | Bonferroni | 348
+  09-02.tex:243 Bonferroni | 关于这个问题，最后再说明一点. 我们现在分别构造了$\mu$和$\sigma$的置信区间. 对$\mu$和$\sigma$的\emph{同时}置信集感兴趣完全合情合理. Bonferroni不等式提供了实现这一目标的简单（且相当不错的）方法.（参见\autoref{exercise:9.14}.）
+646:376 | Location family > pivotal quantity | 枢轴量 | 345
+  09-02.tex:165 枢轴量 | \subsubsection{枢轴量}\label{sec:9.2.2}
+  09-02.tex:166 枢轴量 | \autoref{ex:9.1.6}中的两个置信区间在许多方面不同. 一个重要区别是，区间$\{aY,bY\}$的覆盖概率不依赖参数$\theta$的值，而$\{Y+c,Y+d\}$的覆盖概率却依赖它. 原因在于$\{aY,bY\}$的覆盖概率能够通过量$Y/\theta$表示；这个随机变量的分布不依赖参数，称为枢轴量（pivotal quantity），简称枢轴（pivot）.
+  09-02.tex:168 枢轴量 | 利用枢轴量构造置信集，由此产生所谓枢轴推断（pivotal inference），主要归功于G. A. Barnard（1949，1980），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. A. S. Fraser的结构推断（structural inference）理论（Fraser 1968，1979）. Berger和Wolpert（1984）对这些方法的优缺点作了有趣的讨论.
+649:376 | Location–scale family > pivotal quantity | 枢轴量 | 345
+  09-02.tex:165 枢轴量 | \subsubsection{枢轴量}\label{sec:9.2.2}
+  09-02.tex:166 枢轴量 | \autoref{ex:9.1.6}中的两个置信区间在许多方面不同. 一个重要区别是，区间$\{aY,bY\}$的覆盖概率不依赖参数$\theta$的值，而$\{Y+c,Y+d\}$的覆盖概率却依赖它. 原因在于$\{aY,bY\}$的覆盖概率能够通过量$Y/\theta$表示；这个随机变量的分布不依赖参数，称为枢轴量（pivotal quantity），简称枢轴（pivot）.
+  09-02.tex:168 枢轴量 | 利用枢轴量构造置信集，由此产生所谓枢轴推断（pivotal inference），主要归功于G. A. Barnard（1949，1980），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. A. S. Fraser的结构推断（structural inference）理论（Fraser 1968，1979）. Berger和Wolpert（1984）对这些方法的优缺点作了有趣的讨论.
+657:395 | Loss function > interval estimation | 区间估计 | 364
+  09-03.tex:222 区间估计 | 也可以将这些要求合并到一个损失函数中，利用决策论寻找最优估计量. 在区间估计中，行动空间$\mathcal A$由参数空间$\Theta$的子集构成；更正式地说，我们或许应称之为“集合估计”，因为最优规则未必是区间. 然而，出于实际考虑，我们主要研究以区间为集合估计量的情形；幸运的是，许多最优程序最终确实是区间.
+  09-03.tex:224 区间估计 | 用$C$（取自置信区间）表示$\mathcal A$中的元素，行动$C$的含义是作出区间估计“$\theta\in C$”. 决策规则$\delta(\boldsymbol x)$仅仅规定：对每个$\boldsymbol x\in\mathcal X$，若观测到$\boldsymbol X=\boldsymbol x$，将用哪个集合$C\in\mathcal A$估计$\theta$. 因此，仍沿用记号$C(\boldsymbol x)$.
+  09-03.tex:226 区间估计 | 区间估计问题的损失函数通常包括两个量：集合估计是否正确包含真值$\theta$的度量，以及集合估计大小的度量. 大多数时候只考虑作为区间的集合$C$，因而一个自然的大小度量是$\operatorname{Len}(C)=C\text{的长度}$. 为表示正确性度量，通常用
+721:392 | Neyman shortest | Neyman最短 | 361
+  09-03.tex:158 Neyman最短 | 使错误覆盖概率最小的集合也称为Neyman最短（Neyman-shortest）集合. 这个名称包含长度的意味，Pratt（1961）的下述定理为其提供了某种依据.
+756:376 | Pivotal quantity | 枢轴量 | 345
+  09-02.tex:165 枢轴量 | \subsubsection{枢轴量}\label{sec:9.2.2}
+  09-02.tex:166 枢轴量 | \autoref{ex:9.1.6}中的两个置信区间在许多方面不同. 一个重要区别是，区间$\{aY,bY\}$的覆盖概率不依赖参数$\theta$的值，而$\{Y+c,Y+d\}$的覆盖概率却依赖它. 原因在于$\{aY,bY\}$的覆盖概率能够通过量$Y/\theta$表示；这个随机变量的分布不依赖参数，称为枢轴量（pivotal quantity），简称枢轴（pivot）.
+  09-02.tex:168 枢轴量 | 利用枢轴量构造置信集，由此产生所谓枢轴推断（pivotal inference），主要归功于G. A. Barnard（1949，1980），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. A. S. Fraser的结构推断（structural inference）理论（Fraser 1968，1979）. Berger和Wolpert（1984）对这些方法的优缺点作了有趣的讨论.
+757:377 | Pivotal quantity > gamma | 伽马 | 346
+  09-02.tex:190 伽马 | \begin{example}[伽马枢轴量]\label{ex:9.2.8}
+  09-02.tex:191 伽马 | 设$X_1,\ldots,X_n$独立同分布于$\operatorname{exponential}(\lambda)$. 则$T=\sum X_i$是$\lambda$的充分统计量，且$T\sim\operatorname{gamma}(n,\lambda)$. 在伽马pdf中，$t$与$\lambda$以$t/\lambda$的形式共同出现；事实上，$\operatorname{gamma}(n,\lambda)$的pdf $(\Gamma(n)\lambda^n)^{-
+  09-02.tex:192 gamma | $$Q(T,\lambda)\sim\operatorname{gamma}(n,\lambda(2/\lambda))=\operatorname{gamma}(n,2),$$
+758:377 | Pivotal quantity > general form | 一般形式 | 346
+  09-02.tex:178 枢轴量 | \caption{位置尺度枢轴量}\label{tab:9.2.1}
+  09-02.tex:180 枢轴量 | pdf的形式&pdf的类型&枢轴量\\\midrule
+  09-02.tex:187 枢轴量 | 特别地，注意若$X_1,\ldots,X_n$为来自$\mathrm n(\mu,\sigma^2)$总体的随机样本，则$t$统计量$(\bar X-\mu)/(S/\sqrt n)$是枢轴量，因为$t$分布不依赖参数$\mu$和$\sigma^2$.
+759:376 | Pivotal quantity > location family | 位置族 | 345
+  09-02.tex:165 枢轴量 | \subsubsection{枢轴量}\label{sec:9.2.2}
+  09-02.tex:166 枢轴量 | \autoref{ex:9.1.6}中的两个置信区间在许多方面不同. 一个重要区别是，区间$\{aY,bY\}$的覆盖概率不依赖参数$\theta$的值，而$\{Y+c,Y+d\}$的覆盖概率却依赖它. 原因在于$\{aY,bY\}$的覆盖概率能够通过量$Y/\theta$表示；这个随机变量的分布不依赖参数，称为枢轴量（pivotal quantity），简称枢轴（pivot）.
+  09-02.tex:168 枢轴量 | 利用枢轴量构造置信集，由此产生所谓枢轴推断（pivotal inference），主要归功于G. A. Barnard（1949，1980），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. A. S. Fraser的结构推断（structural inference）理论（Fraser 1968，1979）. Berger和Wolpert（1984）对这些方法的优缺点作了有趣的讨论.
+760:376 | Pivotal quantity > location–scale family | 位置尺度族 | 345
+  09-02.tex:165 枢轴量 | \subsubsection{枢轴量}\label{sec:9.2.2}
+  09-02.tex:166 枢轴量 | \autoref{ex:9.1.6}中的两个置信区间在许多方面不同. 一个重要区别是，区间$\{aY,bY\}$的覆盖概率不依赖参数$\theta$的值，而$\{Y+c,Y+d\}$的覆盖概率却依赖它. 原因在于$\{aY,bY\}$的覆盖概率能够通过量$Y/\theta$表示；这个随机变量的分布不依赖参数，称为枢轴量（pivotal quantity），简称枢轴（pivot）.
+  09-02.tex:168 枢轴量 | 利用枢轴量构造置信集，由此产生所谓枢轴推断（pivotal inference），主要归功于G. A. Barnard（1949，1980），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. A. S. Fraser的结构推断（structural inference）理论（Fraser 1968，1979）. Berger和Wolpert（1984）对这些方法的优缺点作了有趣的讨论.
+761:376 | Pivotal quantity > scale family | 尺度族 | 345
+  09-02.tex:165 枢轴量 | \subsubsection{枢轴量}\label{sec:9.2.2}
+  09-02.tex:166 枢轴量 | \autoref{ex:9.1.6}中的两个置信区间在许多方面不同. 一个重要区别是，区间$\{aY,bY\}$的覆盖概率不依赖参数$\theta$的值，而$\{Y+c,Y+d\}$的覆盖概率却依赖它. 原因在于$\{aY,bY\}$的覆盖概率能够通过量$Y/\theta$表示；这个随机变量的分布不依赖参数，称为枢轴量（pivotal quantity），简称枢轴（pivot）.
+  09-02.tex:168 枢轴量 | 利用枢轴量构造置信集，由此产生所谓枢轴推断（pivotal inference），主要归功于G. A. Barnard（1949，1980），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. A. S. Fraser的结构推断（structural inference）理论（Fraser 1968，1979）. Berger和Wolpert（1984）对这些方法的优缺点作了有趣的讨论.
+822:392 | Pratt’s Theorem | Pratt定理 | 361
+848:380 | Probability integral transformation > confidence interval | 置信区间 | 349
+  09-02.tex:298 置信区间 | 则随机区间$[\theta_L(T),\theta_U(T)]$是$\theta$的$1-\alpha$置信区间.
+  09-02.tex:283 概率积分变换 | 首先，回顾概率积分变换\autoref{thm:2.1.10}：随机变量$F_T(T\mid\theta)$服从$\operatorname{uniform}(0,1)$分布，因而是枢轴量. 所以，若$\alpha_1+\alpha_2=\alpha$，则假设$H_0:\theta=\theta_0$的一个水平$\alpha$的接受域为（\autoref{exercise:9.11}）
+849:382 | Probability integral transformation > discrete | 离散 | 351
+858:390 | Probability of false coverage | 错误覆盖概率 | 359
+  09-03.tex:107 错误覆盖概率 | 覆盖错误值的概率，或称错误覆盖概率（probability of false coverage），间接度量置信集的大小. 直觉上，较小的集合覆盖的值较少，因此覆盖错误值的可能性也较小. 此外，后面还将看到联系大小与错误覆盖概率的方程.
+  09-03.tex:109 错误覆盖概率 | 先考虑一般情形，$\boldsymbol X\sim f(\boldsymbol x\mid\theta)$，通过反演接受域$A(\theta)$，构造$\theta$的$1-\alpha$置信集$C(\boldsymbol x)$. $C(\boldsymbol x)$的覆盖概率，即正确覆盖概率，为$\theta$的函数$P_\theta(\theta\in C(\boldsymbol X))$. 错误覆盖概率是$\theta$和$\theta'$的函数，定义为
+  09-03.tex:119 错误覆盖概率 | 对单侧和双侧区间采用不同的错误覆盖概率定义是合理的. 例如，有置信下界时，我们断言$\theta$大于某个值，只有当覆盖了过小的$\theta$值时才会发生错误覆盖. 类似论证导出置信上界与双侧界所用的定义.
+954:376 | Scale family > pivotal quantity | 枢轴量 | 345
+  09-02.tex:165 枢轴量 | \subsubsection{枢轴量}\label{sec:9.2.2}
+  09-02.tex:166 枢轴量 | \autoref{ex:9.1.6}中的两个置信区间在许多方面不同. 一个重要区别是，区间$\{aY,bY\}$的覆盖概率不依赖参数$\theta$的值，而$\{Y+c,Y+d\}$的覆盖概率却依赖它. 原因在于$\{aY,bY\}$的覆盖概率能够通过量$Y/\theta$表示；这个随机变量的分布不依赖参数，称为枢轴量（pivotal quantity），简称枢轴（pivot）.
+  09-02.tex:168 枢轴量 | 利用枢轴量构造置信集，由此产生所谓枢轴推断（pivotal inference），主要归功于G. A. Barnard（1949，1980），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. A. S. Fraser的结构推断（structural inference）理论（Fraser 1968，1979）. Berger和Wolpert（1984）对这些方法的优缺点作了有趣的讨论.
+958:369 | Set estimator > relation to confidence interval | 与置信区间的关系 | 338
+989:380 | Stochastic order > increasing | 递增 | 349
+  09-02.tex:287 递增 | 为了保证置信集是区间，需要$F_T(t\mid\theta)$关于$\theta$单调. 但我们在随机递增和随机递减的定义中已经见过这一点.（参见\autoref{sec:8}的杂录一节与\autoref{exercise:8.26}，或\autoref{exercise:3.41}至\autoref{exercise:3.43}.）若对$T$的样本空间$\mathcal T$中的每个$t$，$F(t\mid\theta)$是$\theta$的递减（递增）函数，则称cdf族$
+  09-02.tex:294 递增 | \item\label{item:9.2.12.ii}若对每个$t$，$F_T(t\mid\theta)$是$\theta$的递增函数，则以
+996:376 | Structural inference | 结构推断 | 345
+  09-02.tex:168 结构推断 | 利用枢轴量构造置信集，由此产生所谓枢轴推断（pivotal inference），主要归功于G. A. Barnard（1949，1980），但也可追溯到Fisher（1930）；Fisher使用的术语是逆概率（inverse probability）. 与之密切相关的是D. A. S. Fraser的结构推断（structural inference）理论（Fraser 1968，1979）. Berger和Wolpert（1984）对这些方法的优缺点作了有趣的讨论.

@@ -1,0 +1,15 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,pgfplots}
+\setCJKmainfont{SimSun}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+\begin{document}\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1,horizontal sep=1.3cm},width=8cm,height=6cm,xlabel={13个计数的无偏样本方差 $S^2$},ylabel={密度},xmin=0,xmax=130,ymin=0,ymax=.06,title style={font=\small}]
+\nextgroupplot[title={非参数：20,000次重抽样}]
+\addplot[ybar interval,fill=gray!35,draw=black] table[x=x,y=density] {10.14-nonparametric.dat};
+\addplot[dashed,domain=0:.06,variable=\y] ({44.8974358974359},\y);
+\nextgroupplot[title={参数：拟合泊松，20,000次}]
+\addplot[ybar interval,fill=gray!35,draw=black] table[x=x,y=density] {10.14-parametric.dat};
+\addplot[dashed,domain=0:.06,variable=\y] ({44.8974358974359},\y);
+\node[anchor=north east,font=\small] at (rel axis cs:.98,.96) {虚线：观测 $s^2=44.8974$};
+\end{groupplot}\end{tikzpicture}\end{document}

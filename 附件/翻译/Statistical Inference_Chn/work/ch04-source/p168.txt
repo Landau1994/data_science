@@ -1,0 +1,37 @@
+HIERARCHICAL MODELS AND MIXTURE DISTRIBUTIONS                       137
+  We close this section with one more hierarchical model, and illustrate one more conditional
+expectation calculation.
+Example 4.4.6 (Beta-binomial hierarchy)  One generalization of the binomial distribution is to
+allow the success probability to vary according to a distribution. A standard model for this situation
+is
+                       X|P ∼  binomial(P),    i = 1,...,n,
+                     P ∼  beta(α,β).
+   By iterating the expectation, we calculate the mean of X as
+                                        α
+                    EX = E[E(X|P)] = E[nP] = n α +β                                                                              ∥
+    Calculating the variance of X is only slightly more involved. We can make use of a formula for
+conditional variances, similar in spirit to the expected value identity of Theorem 4.4.3.
+Theorem 4.4.7 (Conditional variance identity)  For any two random variables X and Y,
+                       VarX = E(Var(X|Y))+Var(E(X|Y)),                         (4.4.4)
+provided that the expectations exist.
+Proof: By definition, we have
+
+                                                                                                                   ,                      = E [X −E(X|Y)+E(X|Y)−EX]2              VarX = E [X −EX]2
+where in the last step we have added and subtracted E(X|Y). Expanding the square in this lastexpectation now gives
+                  VarX =  E [X −E(X|Y)]2 +E [E(X|Y)−EX]2
+                           +2E([X −E(X|Y)][E(X|Y)−EX]).                    (4.4.5)
+The last term in this expression is equal to 0, however, which can easily be seen by iterating the
+expectation:
+        E([X −E(X|Y)][E(X|Y)−EX]) =  E(E{[X −E(X|Y)][E(X|Y)−EX]|Y}).
+                                                                                                 (4.4.6)
+In the conditional distribution X|Y, X is the random variable. So in the expression
+                        E{[X −E(X|Y)][E(X|Y)−EX]|Y},
+E(X|Y) and EX are constants. Thus,
+        E{[X −E(X|Y)][E(X|Y)−EX]|Y} =  (E(X|Y)−EX)(E{[X −E(X|Y)]|Y})
+                        =  (E(X|Y)−EX))(E(X|Y)−E(X|Y))
+                        =  (E(X|Y)−EX)(0)                        =   0.
+Thus, from (4.4.6), we have that E((X −E(X|Y))(E(X|Y) −EX)) = E(0) = 0. Referring back toequation (4.4.5), we see that
+                   = E E  [X −E(X|Y)]2|Y                                 = E(Var(X|Y)),           E [X −E(X|Y)]2
+and
+                          = Var(E(X|Y)),                    E [E(X|Y)−EX]2
+establishing (4.4.4).                                         2

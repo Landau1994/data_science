@@ -1,0 +1,46 @@
+296                                                 POINT ESTIMATION
+
+7.53 Finish some of the details left out of the proof of Theorem 7.3.20. Suppose W is an unbiased estimator
+      of τ(θ), and U is an unbiased estimator of zero. Show that if, for some θ = θ0,Covθ0(W,U)̸ = 0, then   W cannot be the best unbiased estimator of τ(θ).
+7.54 For the “Problem of the Nile” (see Exercise 6.37),
+       (a) Show that T is the MLE of θ and U is ancillary, and
+                  E(T) = Γ(n+1/2)Γ(n−1/2) θ and E(T 2) = Γ(n+1)Γ(n−1) θ2.
+                                        [Γ(n)]2                             [Γ(n)]2
+      (b) Let Z1 = (n−1)/∑Xi and Z2 = ∑Yi/n. Show that are both unbiased with variances θ2/(n−2) and         θ2/n, respectively.
+       (c) Find the best unbiased estimator of the form aZ1 +(1−a)Z2, calculate its variance, and compare it           to the bias-corrected MLE.
+7.55 For each of the following pdfs, let X1,...,Xn be a sample from that distribution. In each case, find the
+      best unbiased estimator of θr. (See Guenther (1978) for a complete discussion of this problem.)
+         = θ ,  0 < x < θ, r < n.       (a)  f(x|θ)    1
+                 > θ.      (b)  f(x|θ) = e−(x−θ),   x
+       (c)  f(x|θ) = e−θe−x−e−b ,  θ < x < b,  b known.
+7.56 Prove the assertion made in the text preceding Example 7.3.24: If T is a complete sufficient statistic for
+      a parameter θ, and h(X1,...,Xn) is any unbiased estimator of τ(θ), then φ(T) = E(h(X1,...,Xn)|T) is      the best unbiased estimator of τ(θ).
+7.57 Let X1,...,Xn+1 be iid Bernoulli(p), and define the function h(p) by
+
+                                                        n
+                                    h(p) = P                     ∑ Xi                              > Xn+1|p   ,                                                     i=1
+
+      the probability that the first n observations exceed the (n+1)st.
+       (a) Show that
+                                             1       if ∑ni=1 Xi > Xn+1                               T(X1,...,Xn+1) =                                             0     otherwise
+            is an unbiased estimator of h(p).
+      (b) Find the best unbiased estimator of h(p).
+7.58 Let X be an observation from the pdf
+                              θ    |x|
+                                = −1,0,1;  0 ≤θ ≤1.                         f(x|θ) =  2    (1−θ)1−|x|,   x
+       (a) Find the MLE of θ.
+      (b) Define the estimator T(X) by
+
+                                            2       if x = 1
+                                 T(X) =
+                                            0     otherwise.
+       Show that T(X) is an unbiased estimator of θ.
+       (c) Find a better estimator than T(X) and prove that it is better.
+7.59 Let X1,...,Xn be iid n(µ,σ2). Find the best unbiased estimator of σ p, where p is a known positive
+      constant, not necessarily an integer.
+7.60 Let X1,...,Xn be iid gamma(α,β) with α known. Find the best unbiased estimator of 1/β.
+7.61 Show that the log of the likelihood function for estimating σ2, based on observing S2 ∼σ2χ2ν/ν, can be      written in the form
+                                                         s2           s2
+                         = K1                                logL(σ2|s2)                                        σ2 −K2 log σ2 +K3,
+     where K1,K2, and K3 are constants, not dependent on σ2. Relate the above log likelihood to the loss
+      function discussed in Example 7.3.27. See Anderson (1984a) for a discussion of this relationship.

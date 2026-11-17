@@ -1,0 +1,46 @@
+176                                    PROPERTIES OF A RANDOM SAMPLE
+Proof: Let W = X. The Jacobian of the transformation from (X,Y) to (Z,W) is 1. So using (4.3.2),
+we obtain the joint pdf of (Z,W) as
+
+                         fZ,W(z,w) = fX,Y(w,z−w) = fX(w) fY(z−w).
+Integrating out w, we obtain the marginal pdf of Z as given in 5.2.3.                2
+
+   The limits of integration in (5.2.3) might be modified if fX or fY or both are positive only for
+some values. For example, if fX and  fY are positive only for positive values, then the limits of
+integration are 0 and z because the integrand is zero for values of w outside this range. Equations
+similar to the convolution formula of (5.2.3) can be derived for operations other than summing; for
+example, formulas for differences, products, and quotients are also obtainable (see Exercise 5.6).
+Example 5.2.10 (Sum of Cauchy random variables)  As an example of a situation where the
+mgf technique fails, consider sampling from a Cauchy distribution. We will eventually derive the
+distribution of Z, the mean of Z1,...,Zn, iid Cauchy(0,1) observations. We start, however, with the
+distribution of the sum of two independent Cauchy random variables and apply formula (5.2.3).
+   Let U and V  be independent Cauchy random  variables, U ∼Cauchy(0,σ) and V ∼Cauchy(0,τ), that is,
+
+                  1     1                 1     1              u < ∞,           fU(u) =                       ,     fV(v) =                      ,   −∞<              πσ 1+(u/σ)2           πτ 1+(v/τ)2            v < ∞.                                   −∞<
+Based on formula (5.2.3), the pdf of Z = U +V is given by
+
+                   ∞  1      1     1        1
+               fZ(z) =                                                       dw, −∞< z < ∞.        (5.2.4)                  πσ 1+(w/σ)2 πτ                 −∞               1+((z−w)/τ)2
+This integral is somewhat involved, but can be solved by a partial fraction decomposition and some
+careful antidifferentiation (see Exercise 5.7). The result is
+
+                             1          1
+                        fZ(z) =                                                                                     , −∞< z < ∞.                  (5.2.5)                        π(σ +τ) 1+(z/(σ +τ))2
+
+Thus, the sum of two independent Cauchy random variables is again a Cauchy, with the scale pa-
+rameters adding. It therefore follows that if Z1,...,Zn are iid Cauchy(0,1) random variables, then
+∑Zi is Cauchy(0,n) and also Z is Cauchy(0,1)! The sample mean has the same distribution as
+the individual observations. (See Example12.6.5 in the Computer Algebra appendix for a computer
+algebra version of this calculation.)                                                  ∥
+     If we are sampling from a location–scale family or if we are sampling from certain types of
+exponential families, the sampling distribution of sums of random variables, and in particular of ¯X,
+is easy to derive. We will close this section by discussing these two situations.
+  We first treat the location–scale case discussed in Section 3.5. Suppose X1,...,Xn is a random
+sample from (1/σ)f((x −µ)/σ), a member of a location–scale family. Then the distribution of ¯Xhas a simple relationship to the distribution of Z, the sample mean from a random sample from the
+standard pdf f(z). To see the nature of this relationship, note that from Theorem 3.5.6 there exist
+random variables Z1,...,Zn such that Xi = σZi + µ and the pdf of each Zi is f(z). Furthermore, we
+see that Z1,...,Zn are mutually independent. Thus, Z1,...,Zn is a random sample from f(z). The
+sample means ¯X and Z are related by
+
+                  1  n     1  n            1      n
+                =                                    = σZ + µ.                       ¯X = ∑ Xi              ∑ (σZi                      + µ) =   σ ∑ Zi +nµ                  n i=1     n i=1           n     i=1

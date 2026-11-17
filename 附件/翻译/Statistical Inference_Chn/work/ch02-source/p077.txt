@@ -1,0 +1,43 @@
+46                              TRANSFORMATIONS AND EXPECTATIONS
+(the x = 0 term is 0). Using the identity x  nx = n  n−1   , we have                                                 x−1
+                                  n
+            EX  =     n n−1            ∑         px(1−p)n−x                             x=1                       x−1
+                            n−1             =     n n−1                                     (substitute y =            ∑                             y=0     y    py+1(1−p)n−(y+1)                    x−1)
+                               n−1             =  np   n−1             ∑                                y=0    y    py(1−p)n−1−y
+
+             =  np,
+
+since the last summation must be 1, being the sum over all possible values of a binomial(n−1, p)
+pmf.                                                                          ∥
+Example 2.2.4 (Cauchy mean)  A classic example of a random variable whose expected value
+does not exist is a Cauchy random variable, that is, one with pdf
+
+                                1   1
+                              fX(x) =                                                                      ,   −∞< x < ∞.                             π 1+x2
+                        = 1, but E|X| = ∞. WriteIt is straightforward to check that −∞fX(x)dx∞
+                            ∞     1       2  ∞   x                 =      |x|      dx =             dx.                       E|X|      π 1+x2     π  0 1+x2                          −∞
+For any positive number M,
+
+                  M                 M                             x       log(1+x2)     log(1+M2)
+                             dx =        =                   .
+                             0  1+x2         2       0        2
+Thus,
+                            2  M   x       1
+                  E|X| = lim π  0  1+x2 dx = π lim       = ∞                  M→∞               M→∞log(1+M2)
+and EX does not exist.                                                            ∥
+   The process of taking expectations is a linear operation, which means that the expectation of a
+linear function of X can be easily evaluated by noting that for any constants a and b,
+
+                             E(aX +b) = aEX +b.                                 (2.2.1)
+
+For example, if X is binomial(n, p), so EX = np, then
+                       E(X −np) = EX −np = np−np = 0.
+   The expectation operator, in fact, has many properties that can help ease calculational effort.
+Most of these properties follow from the properties of the integral or sum, and are summarized in
+the following theorem.
+Theorem 2.2.5  Let X be a random variable and let a,b, and c be constants. Then for any functions
+g1(x) and g2(x) whose expectations exist,
+  a. E(ag1(X)+bg2(X)+c) = aEg1(X)+bEg2(X)+c.
+  b.  If g1(x) ≥0 for all x, then Eg1(X) ≥0.
+  c.  If g1(x) ≥g2(x) for all x, then Eg1(X) ≥Eg2(X).
+  d.  If a ≤g1(x) ≤b for all x, then a ≤Eg1(X) ≤b.

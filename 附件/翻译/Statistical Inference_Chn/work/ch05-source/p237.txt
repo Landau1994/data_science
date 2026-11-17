@@ -1,0 +1,45 @@
+206                                    PROPERTIES OF A RANDOM SAMPLE
+so N is a geometric random variable. Thus, to generate one Y we expect to need E(N) = c pairs
+(U,V), and in this sense minimizing c will optimize the algorithm.
+   Examining Figure 5.6.3 we see that the algorithm is wasteful in the area where U > 1c fY(V).
+This is because we are using a uniform random variable (V) to get a beta random variable (Y). To
+improve, we might start with something closer to the beta.
+   The testing step, step (b) of the algorithm, can be thought of as testing whether the random
+variable V “looks like” it could come from the density fY. Suppose that V ∼fV, and we compute
+                                                fY(y)                   M = sup    < ∞.
+                                                        y  fV(y)
+
+                                                                                       larger this ratio                                                                    1 fY(V)/ fV(V). The                                         MA generalization of step (b) is to compare U ∼uniform(0,1) to                                                                                          1is, the more V “looks like” a random density fY, and the more likely it is that U < M fY(V)/ fV(V).
+This is the basis of the general Accept/Reject Algorithm.
+
+
+5.6.3  The Accept/Reject Algorithm
+Theorem 5.6.8  Let Y ∼fY(y) and V ∼fV(V), where fY and fV have common support with
+                 M = sup fY(y)/fV(y) < ∞.
+                                                    y
+To generate a random variable Y ∼fY
+  a. Generate U ∼uniform(0,1), V ∼fV, independent.
+  b.  If U < M1 fY(V)/ fV(V) set Y = V; otherwise return to step 1.
+Proof: The generated random variable Y has cdf
+                    P(Y ≤y) =  P(V ≤y|stop)
+                                             1
+                   =  P(V ≤y|U < M fY(V)/ fV(V))
+                                                              1                                     M fY(V)/ fV(V))                                P(V ≤y,U <                   =
+                                 P(U < M1 fY(V)/ fV(V))
+                                                     y   M1 fY (v)/fV (v)                                                   0        du fV(v)dv                   =   −∞   1                                 ∞   M fY (v)/fV (v)                                                   0        du fV(v)dv                               −∞y
+                   =   −∞fY(v)dv,
+which is the desired cdf.                                       2
+
+   Note also that
+
+               M =  sup fY(y)/fV(y)
+                                                   y
+                                       1
+                  =  [P(U <   fY(V)/ fV(V)]−1
+                       M
+                                   1
+                  =
+                                   P(Stop)
+
+so the number of trials needed to generate one Y is a geometric (1/M) random variable, and M is
+the expected number of trials.

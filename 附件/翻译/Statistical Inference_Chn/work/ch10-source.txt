@@ -1,0 +1,2033 @@
+
+
+=== PDF 408; PRINT 377 ===
+                                   Chapter 10
+
+          Asymptotic Evaluations
+
+
+
+
+
+    I know, my dear Watson, that you share my love of all that is bizarre and outside the conven-
+   tions and humdrum routine of everyday life.
+                                                                  Sherlock Holmes
+                                                         The Red-Headed League
+    All of the criteria we have considered thus far have been finite-sample criteria. In contrast,
+we might consider asymptotic properties, properties describing the behavior of a procedure as the
+sample size becomes infinite. In this section, we will look at some of such properties, and consider
+point estimation, hypothesis testing, and interval estimation separately. We will place particular
+emphasis on the asymptotics of maximum likelihood procedures.
+   The power of asymptotic evaluations is that, when letting the sample size become infinite, cal-
+culations simplify. Evaluations that were impossible in the finite-sample case become routine. This
+simplification also allows us to examine some other techniques (such as bootstrap and M-estimation)
+that typically can only be evaluated asymptotically.
+    Letting the sample size increase without bound (sometimes referred to as “asymptopia”) should
+not be ridiculed as merely a fanciful exercise. Rather, asymptotics uncover the most fundamental
+properties of a procedure, and give us a very powerful and general evaluation tool.
+
+10.1  Point Estimation
+10.1.1  Consistency
+
+The property of consistency seems to be quite a fundamental one, requiring that the estimator con-
+verges to the “correct” value as the sample size becomes infinite. It is such a fundamental property
+that the worth of an inconsistent estimator should be questioned (or at least vigorously investigated).
+   Consistency (as well as all asymptotic properties) concerns a sequence of estimators rather
+than of a single estimator, although it is common to speak of a “consistent estimator.” If we ob-
+serve X1,X2,... according to a distribution f(x|θ), we can construct a sequence of estimatorsWn = Wn(X1,...,Xn) merely by performing the same estimation procedure for each sample size
+n. For example, ¯X1 = X1, ¯X2 = (X1 + X2)/2,  ¯X3 = (X1 + X2 + X3)/3, etc. We can now define a
+consistent sequence.
+Definition 10.1.1 A sequence of estimators Wn = Wn(X1,...,Xn) is a consistent sequence of esti-
+mators of the parameter θ if, for every ε > 0 and every θ ∈Θ,
+                             limn→∞Pθ(|Wn −θ| < ε) = 1.                           (10.1.1)
+
+
+    Informally, (10.1.1) says that as the sample size becomes infinite (and the sample information
+becomes better and better), the estimator will be arbitrarily close to the parameter with high prob-
+ability, an eminently desirable property. Or, turning things around, we can say that the probability
+
+
+DOI: 10.1201/9781003456285-10                                                              377
+
+=== PDF 409; PRINT 378 ===
+378                                       ASYMPTOTIC EVALUATIONS
+that a consistent sequence of estimators misses the true parameter is small. An equivalent statement
+to (10.1.1) is this. For every ε > 0 and every θ ∈Θ, a consistent sequence Wn will satisfy
+                             limn→∞Pθ(|Wn −θ| ≥ε) = 0.                           (10.1.2)
+Definition 10.1.1 should be compared to Definition 5.5.1, the definition of convergence in probabil-
+ity. Definition 10.1.1 says that a consistent sequence of estimators converges in probability to the
+parameter θ it is estimating. Whereas Definition 5.5.1 dealt with one sequence of random variables
+with one probability structure, Definition 10.1.1 deals with an entire family of probability structures,
+indexed by θ. For each different value of θ, the probability structure associated with the sequence
+Wn is different. And the definition says that for each value of θ, the probability structure is such
+that the sequence converges in probability to the true θ. This is the usual difference between a prob-
+ability definition and a statistics definition. The probability definition deals with one probability
+structure but the statistics definition deals with an entire family.
+Example 10.1.2 (Consistency of ¯X)  Let X1,X2,... be iid n(θ,1), and consider the sequence
+
+                                       1  n
+                                                      ¯Xn = ∑ Xi.                                       n i=1
+Recall that ¯Xn ∼n(θ,1/n), so
+                                    θ+ε   n    12                       ¯Xn   < ε) =                   e−(n/2)(¯xn−θ)2d ¯xn                  (definition)             Pθ(|  −θ|                2π                                   θ−εε          1                                    n    2
+                 =                                                                                                                     )                                                       e−(n/2)y2 dy             (substitute y = ¯xn −θ)                                  2π                                   −ε              1                                    ε√n           2                                      1                 =                   e−(1/2)t2dt              (substitute t = y√n))
+                                 −ε√n  2π
+                 =  P(−ε√n < Z < ε√n)                      (Z ∼n(0,1))
+             →  1  as n →∞
+and, hence, ¯Xn is a consistent sequence of estimators of θ.                                                                              ∥
+    In general, a detailed calculation, such as the above, is not necessary to verify consistency. Recall
+that, for an estimator Wn, Chebychev’s Inequality states
+                                              −θ)2] ,                           Pθ(|Wn −θ| ≥ε) ≤Eθ[(Wnε2
+so if, for every θ ∈Θ                              = 0                              n→∞Eθ[(Wnlim      −θ)2]
+then the sequence of estimators is consistent. Furthermore, by (7.3.1)
+
+                       = Varθ Wn +[BiasθWn]2.                      (10.1.3)                         Eθ[(Wn −θ)2]
+Putting this all together, we can state the following theorem.
+Theorem 10.1.3   If Wn is a sequence of estimators of a parameter θ satisfying
+     i. limn→∞Varθ Wn = 0,
+    ii. limn→∞BiasθWn = 0,
+for every θ ∈Θ, then Wn is a consistent sequence of estimators of θ.
+
+=== PDF 410; PRINT 379 ===
+POINT ESTIMATION                                                          379
+Example 10.1.4 (Continuation of Example 10.1.2)  Since
+
+                                                   1
+                           Eθ ¯Xn = θ  and  Varθ ¯Xn =                                                        n,
+the conditions of Theorem 10.1.3 are satisfied and the sequence ¯Xn is consistent. Furthermore, from
+Theorem 5.2.6, if there is iid sampling from any population with mean θ then ¯Xn is consistent for θ
+as long as the population has a finite variance.                                         ∥
+   At the beginning of this section we commented that the worth of an inconsistent sequence of
+estimators should be questioned. Part of the basis for this comment is the fact that there are so many
+consistent sequences, as the next theorem shows. Its proof is left to Exercise 10.2.
+Theorem 10.1.5   Let Wn be a consistent sequence of estimators of a parameter θ. Let a1,a2,...
+and b1,b2,... be sequences of constants satisfying
+    i. limn→∞an = 1 and
+   ii. limn→∞bn = 0.
+Then the sequence Un = anWn +bn is a consistent sequence of estimators of θ.
+
+  We close this section with the outline of a more general result concerning the consistency of
+maximum likelihood estimators. This result shows that MLEs are consistent estimators of their
+parameters, and is the first case we have seen in which a method of finding an estimator guarantees
+an optimality property.
+   To have consistency of the MLE, the underlying density (likelihood function) must satisfy cer-
+tain “regularity conditions” that we will not go into here, but see Miscellanea 10.6.2 for details.
+Theorem 10.1.6 (Consistency of MLEs)     Let X1,...,Xn be  iid  f(x|θ), and  let L(θ|x) =
+∏ni=1 f(xi|θ) be the likelihood function. Let ˆθ denote the MLE of θ. Let τ(θ) be a continuous
+function of θ. Under the regularity conditions in Miscellanea 10.6.2 on f(x|θ) and, hence, L(θ|x),
+for every ε > 0 and every θ ∈Θ,
+                                = 0.                           limn→∞Pθ(|τ(ˆθ)−τ(θ)| ≥ε)
+That is, τ( ˆθ) is a consistent estimator of τ(θ).
+Proof: The proof proceeds by showing that 1n logL(ˆθ|x) converges almost surely to Eθ(log f(X|θ))
+for every θ ∈Θ. Under some conditions on f(x|θ), this implies that ˆθ converges to θ in probabilityand, hence, τ(ˆθ) converges to τ(θ) in probability. For details see Stuart, Ord, and Arnold (1999,
+Chapter 18).                                             2
+
+
+10.1.2   Efficiency
+
+The property of consistency is concerned with the asymptotic accuracy of an estimator – does it
+converge to the parameter that it is estimating. In this section we look at a related property, efficiency,
+which is concerned with the asymptotic variance of an estimator.
+    In calculating an asymptotic variance, it is, perhaps, tempting to proceed as follows. Given
+an estimator Tn based on a sample of size n, we calculate the finite-sample variance VarTn, and
+then evaluate limn→∞knVarTn, where kn is some normalizing constant. (Note that, in many cases,
+VarTn →0 as n →∞, so we need a factor kn to force it to a limit.)
+Definition 10.1.7  For an estimator Tn, if limn→∞knVarTn = τ2 < ∞, where {kn} is a sequence ofconstants, then τ2 is called the limiting variance or limit of the variances.
+Example 10.1.8 (Limiting variances)  For the mean ¯Xn of n iid normal observations with EX = µ
+and VarX = σ2, if we take Tn = ¯Xn then lim√nVar ¯Xn = σ2 is the limiting variance of Tn.
+
+=== PDF 411; PRINT 380 ===
+380                                       ASYMPTOTIC EVALUATIONS
+   But a troubling thing happens if, for example, we were instead interested in estimating 1/µ
+using 1/ ¯Xn. If we now take Tn = 1/¯Xn we find that the variance is Var(Tn) = ∞, so the limit of the
+variances is infinity. But recall Example 5.5.23, where we said that the “approximate” mean and
+variance of 1/ ¯Xn was
+
+                                1        1
+                       E                                                  ¯Xn   ≈  µ ,
+                                1          1   4
+                             Var                   Var ¯Xn,                                                  ¯Xn   ≈   µ
+
+
+                                                               nµ4and thus by this second calculation the variance is Var(Tn) ≈σ2                                  < ∞.                      ∥
+   This example points out the problems of using the limit of the variances as a large sample
+                                        = 0, the region wheremeasure. Of course the exact finite sample variance of 1/¯X is ∞. However, if µ̸1/¯X gets very large has probability going to 0. So the second approximation in Example 10.1.8 is
+more realistic (as well as being much more useful). It is this second approach to calculating large
+sample variances that we adopt.
+Definition 10.1.9  For an estimator Tn, suppose that kn(Tn −µ) →n(0,σ2). The parameter σ2 iscalled the asymptotic variance or variance of the limit distribution of Tn.
+
+   For calculations of the variances of sample means and other types of averages, the limit variance
+and the asymptotic variance typically have the same value. But in more complicated cases, the
+limiting variance will sometimes fail us. It is also interesting to note that it is always the case that
+the asymptotic variance is smaller than the limiting variance (Lehmann and Casella, Section 6.1).
+Here is an illustration.
+Example 10.1.10 (Large sample mixture variances)  The hierarchical model
+
+
+                                                                         n                         Yn|Wn = wn ∼  n 0,wn +(1−wn)σ2
+                          Wn ∼  Bernoulli(pn)
+can exhibit big discrepancies between the asymptotic and limiting variances. (This is also sometimes
+                                                                                                         n )described as a mixture model, where we observe Yn ∼n(0,1) with probability pn and Yn ∼n(0,σ2
+with probability 1−pn.)    Firstly, using Theorem 4.4.7 we have
+
+                                                                  n .                                 Var(Yn) = pn +(1−pn)σ2
+                                                                                  n < ∞.It then follows that the limiting variance of Yn is finite only if limn(1−pn)σ2  On the other hand, the asymptotic distribution of Yn can be directly calculated using
+                      P(Yn < a) = pnP(Z < a)+(1−pn)P(Z < a/σn).
+
+                                                                             nSuppose now we let pn →1 and σn →∞in such a way that (1 −pn)σ2                                        →∞. It then follows that
+P(Yn < a) →P(Z < a), that is Yn →n(0,1) and we have
+                           limiting variance =  lim pn              n = ∞                                                        n   +(1−pn)σ2
+                      asymptotic variance =   1.
+
+See Exercise 10.6 for more details.                                                  ∥
+    In the spirit of the Cram´er–Rao Lower Bound (Theorem 7.3.9), there is an optimal asymptotic
+variance.
+
+=== PDF 412; PRINT 381 ===
+POINT ESTIMATION                                                          381
+Definition 10.1.11 A sequence of estimators Wn is asymptotically efficient for a parameter τ(θ) if
+√n[Wn                       in distribution, and      −τ(θ)] →n[0,v(θ)]
+                                                   [τ′(θ)]2                            v(θ) =                                                                    2
+                                 Eθ    ∂θ∂ log f(X|θ)
+that is, the asymptotic variance of Wn achieves the Cram´er–Rao Lower Bound.
+    Recall that Theorem 10.1.6 stated that, under general conditions, MLEs are consistent. Under
+somewhat stronger regularity conditions, the same type of theorem holds with respect to asymptotic
+efficiency so, in general, we can consider MLEs to be consistent and asymptotically efficient. Again,
+details on the regularity conditions are in Miscellanea 10.6.2.
+Theorem 10.1.12 (Asymptotic Efficiency of MLEs)   Let X1,...,Xn be iid f(x|θ), let ˆθ denotethe MLE of θ, and let τ(θ) be a continuous function of θ. Under the regularity conditions in Mis-
+cellanea 10.6.2 on f(x|θ) and, hence, L(θ|x)
+                           √n[τ(                                  ˆθ)−τ(θ)] →n[0,v(θ)],
+where v(θ) is the Cram´er–Rao Lower Bound. That is, τ(ˆθ) is a consistent and asymptotically effi-
+cient estimator of τ(θ).
+Proof: The proof of this theorem is interesting for its use of Taylor series, and its exploiting of the
+fact that the MLE is defined as the zero of the likelihood function. We will outline the proof showing
+that ˆθ is asymptotically efficient, the extension to τ( ˆθ) is left to Exercise 10.7.
+    Recall that l(θ|x) = ∑log f(xi|θ) is the log likelihood function. Denote derivatives (with respectto θ) by l′,l′′,.... Now expand the first derivative of the log likelihood around the true value θ0
+                             l′(θ|x) = l′(θ0|x)+(θ −θ0)l′′(θ0|x)+...,                    (10.1.4)
+where we are going to ignore the higher order terms (a justifiable maneuver under the regularity
+conditions).
+  Now substitute the MLE ˆθ for θ, and realize that the left-hand side of (10.1.4) is zero. Rear-
+ranging and multiplying through by √n, this gives us
+                   √n(ˆθ   = √n−l′(θ0|x) = −11√nl′(θ0|x)                        −θ0)                                               .                   (10.1.5)                                                   l′′(θ0|x)       nl′′(θ0|x)
+If we let I(θ0) = E[l′(θ0|X)]2 = 1/v(θ) denote the information number, application of the CentralLimit Theorem and the Law of Large Numbers will show (see Exercise 10.8 for details)
+
+                                                  n[0,I(θ0)] in distribution             −1√nl′(θ0|X) →
+                    and                                                                (10.1.6)
+                          1
+                                nl′′(θ0|X) →  I(θ0) in probability.
+Thus,  if we  let W               then √n(ˆθ       converges in distribution to W/I(θ0)                   ∼n[0,I(θ0)],         −θ0)                      ∼n[0,1/I(θ0)], proving the theorem.                                 2
+Example 10.1.13 (Asymptotic normality and consistency)  The above theorem shows that it is
+typically the case that MLEs are efficient and consistent. We want to note that this phrase is some-
+what redundant, as efficiency is only defined when the estimator is asymptotically normal and, as
+we will illustrate, asymptotic normality implies consistency. Suppose that
+                     √nWn −µ      in distribution,                           σ  →Z
+
+=== PDF 413; PRINT 382 ===
+382                                       ASYMPTOTIC EVALUATIONS
+where Z ∼n(0,1). By applying Slutsky’s Theorem (Theorem 5.5.17), we conclude
+                       σ                   σ               Wn   =      √nWn −µ             Z = 0,             −µ   √n       σ   →lim  √n                                           n→∞
+so Wn −µ →0 in distribution. From Theorem 5.5.13 we know that convergence in distribution to a
+point is equivalent to convergence in probability, so Wn is a consistent estimator of µ.          ∥
+
+10.1.3  Calculations and Comparisons
+
+The asymptotic formulas developed in the previous sections can provide us with approximate vari-
+ances for large sample use. Again, we have to be concerned with regularity conditions (Miscellanea
+10.6.2), but these are quite general, and almost always satisfied in common circumstances. One
+condition deserves special mention, however, whose violation can lead to complications, as we have
+already seen in Example 7.3.13. For the following approximations to be valid, it must be the case
+that the support of the pdf or pmf, hence likelihood function, must be independent of the parameter.
+   Assuming that an MLE is asymptotically efficient, the asymptotic variance in Theorem 10.1.6 is
+the Delta Method variance of Theorem 5.5.24 (without the 1/n term). Thus, we can use the Cram´er–
+Rao Lower Bound as an approximation to the true variance of the MLE. Suppose that X1,...,Xn are
+                                                                      2
+                                               ∂θ                     = Eθ −∂iid f(x|θ), ˆθ is the MLE of θ, and In(θ)                                            logL(θ|X)    is the information number of the
+sample. Using the Delta Method and asymptotic efficiency of MLEs, the variance of h(ˆθ) can be
+approximated by
+
+        Var(h(              ˆθ)|θ)≈[h′(θ)]2In(θ)
+                                 [h′(θ)]2                        using the identity
+           ≈                                        of Lemma 7.3.11         (10.1.7)
+                              ∂θ2                             logL(θ|X)                   Eθ −∂2
+                                                    the denominator is ˆIn( ˆθ), the                                                                                ˆθ                            [h′(θ)]2|θ=                                                                  .           ≈                           observed information number                          ∂θ2                              ˆθ               −∂2 logL(θ|X)|θ=
+Furthermore, it has been shown (Efron and Hinkley 1978) that use of the observed information
+number is superior to the expected information number, the information number as it appears in the
+Cram´er–Rao Lower Bound.
+   Notice that the variance estimation process is a two-step procedure, a fact that is somewhat
+masked by (10.1.7). To estimate Varθ h(ˆθ) first we approximate Varθ h(ˆθ), then we estimate the
+resulting approximation, usually by substituting ˆθ for θ. The resulting estimate can be denoted by
+Var ˆθ h( ˆθ) or Varθ h(ˆθ).
+                                                                                                                              ˆθ is a consistent estimator of I(θ), so                                              n ∂θ2     It follows from Theorem 10.1.6 that −1                                               ∂2 logL(θ|X)|θ=
+it follows that Varˆθ h(ˆθ) is a consistent estimator of Varθ h( ˆθ).
+Example 10.1.14 (Approximate binomial variance)   In Example 7.2.7, we saw that ˆp = ∑Xi/n
+is the MLE of p, where we have a random sample X1,...,Xn from a Bernoulli(p) population. We
+also know by direct calculation that
+                                   Varp ˆp = p(1−p) ,
+                                           n
+and a reasonable estimate of Varp ˆp is
+                                   Varp ˆp = ˆp(1−ˆp) .                                (10.1.8)
+                                           n
+
+=== PDF 414; PRINT 383 ===
+POINT ESTIMATION                                                          383
+If we apply the approximation in (10.1.7), with h(p) = p, we get as an estimate of Varp ˆp
+
+                                           1
+                                                                                             .                              Varp ˆp ≈                                               ∂p2                               ˆp                            −∂2 logL(p|x)|p=
+Recall that
+                        logL(p|x) = n ˆplog(p)+n(1−ˆp)log(1−p),
+and so
+                          ∂2                             ˆp
+                        =                         .                        ∂p2 logL(p|x)  −np2 −n(1−ˆp)                                           (1−p)2
+Evaluating the second derivative at p = ˆp yields
+
+                   ∂2                                    ˆp                 n
+                                                                                        ˆp =                                = −                          −nˆp2 −n(1−ˆp)                 ∂p2 logL(p|x)|p=                                             (1−ˆp)2      ˆp(1−ˆp),
+which gives a variance approximation identical to (10.1.8). We now can apply Theorem 10.1.6 to
+assert the asymptotic efficiency of ˆp and, in particular, that
+                         √n(                                ˆp−p) →n[0, p(1−p)]
+in distribution. If we also employ Theorem 5.5.17 (Slutsky’s Theorem) we can conclude that
+                      √n   ˆp−p                                           →n[0,1].                                        ˆp(1−ˆp)
+   Estimating the variance of ˆp is not really that difficult and it is not necessary to bring in all of the
+machinery of these approximations. If we move to a slightly more complicated function, however,
+things can get a bit tricky. Recall that in Exercise 5.5.22 we used the Delta Method to approximate
+the variance of ˆp/(1 −ˆp), an estimate of the odds p/(1−p). Now we see that this estimator is, infact, the MLE of the odds, and we can estimate its variance by
+
+                                                2                      2
+                                     ∂     p                (1−p)+p
+                                   ˆp                              ∂p  1−p    p= ˆp        (1−p)2    p= ˆp             ˆp
+            Var     ≈            =       n     =               .               1−ˆp    −∂2∂p2 logL(p|x) p= ˆp       p(1−p) p= ˆp     n(1−ˆp)3
+Moreover, we also know that the estimator is asymptotically efficient.                       ∥
+   The MLE variance approximation works well in many cases, but it is not infallible. In particular,
+we must be careful when the function h(ˆθ) is not monotone. In such cases, the derivative h′ will
+have a sign change, and that may lead to an underestimated variance approximation. Realize that,
+since the approximation is based on the Cram´er–Rao Lower Bound, it is probably an underestimate.
+However, nonmonotone functions can make this problem worse.
+Example 10.1.15 (Continuation of Example 10.1.14)  Suppose now that we want to estimate the
+variance of the Bernoulli distribution, p(1 −p). The MLE of this variance is given by ˆp(1 −ˆp),and an estimate of the variance of this estimator can be obtained by applying the approximation of
+(10.1.7). We have
+
+                                               2                                ∂
+                                       p= ˆp                          ∂p                                                                                                                                              ˆp                        ˆp)2                       p(1−p)        Var(                  = (1−2p)2|p=n     = ˆp(1−ˆp)(1−2     ,              ˆp(1−ˆp)) ≈                                                                                                      ˆp                               ∂p2                                                     p(1−p)|p= ˆp           n                  −∂2                              logL(p|x)|p=
+which can be zero if  ˆp = 12, a clear underestimate of the variance of ˆp(1 −ˆp). The fact that the
+function p(1−p) is not monotone is a cause of this problem.
+
+=== PDF 415; PRINT 384 ===
+384                                       ASYMPTOTIC EVALUATIONS
+   Using Theorem 10.1.6, we can conclude that our estimator is asymptotically efficient as long as
+p̸ = 1/2. If p = 1/2 we need to use a second-order approximation as given in Theorem 5.5.26 (see
+Exercise 10.10).                                                                 ∥
+   The property of asymptotic efficiency gives us a benchmark for what we can hope to attain in
+asymptotic variance (although see Miscellanea 10.6.1). We also can use the asymptotic variance as
+a means of comparing estimators, through the idea of asymptotic relative efficiency.
+Definition 10.1.16   If two estimators Wn and Vn satisfy
+                          √n[Wn           n[0,σ2W]                           −µ] →                             √n[Vn           n[0,σ2V]                           −µ] →
+in distribution, the asymptotic relative efficiency of Vn with respect to Wn is
+
+                                         σ2W                              ARE(Vn,Wn) =      .
+                                         σ2V
+
+Example 10.1.17 (AREs of Poisson estimators)  Suppose that X1,X2,...,Xn are iid Poisson(λ),
+and we are interested in estimating the zero probability. For example, the number of customers
+that come into a bank in a given time period is sometimes modeled as a Poisson random variable,
+and the zero probability is the probability that no one will enter the bank in one time period. If
+X ∼Poisson(λ), then P(X = 0) = e−λ, and a natural (but somewhat naive) estimator comes fromdefining Yi = I(Xi = 0) and using
+                                      1  n
+                                                                         ˆτ = ∑ Yi.                                      n i=1
+The Yis are Bernoulli(e−λ), and hence it follows that
+                            E(ˆτ) = e−λ   and   Var(ˆτ) = e−λ(1−e−λ) .
+                                                   n
+Alternatively, the MLE of e−λ is e−ˆλ, where ˆλ = ∑i Xi/n is the MLE of λ. Using Delta Method
+approximations, we have that
+                          E(e−ˆλ) ≈e−λ   and   Var(e−ˆλ) ≈λe−2λn    .
+Since
+                            √n(ˆτ                          −e−λ) →  n[0,e−λ(1−e−λ)]
+                         √n(e−ˆλ              n[0,λe−2λ]                          −e−λ) →
+in distribution, the ARE of ˆτ with respect to the MLE e−ˆλ is
+
+                                            λe−2λ                                ARE(ˆτ,e−ˆλ) =
+                                      e−λ(1−e−λ).
+Examination of this function shows that it is strictly decreasing with a maximum of 1 (the best that
+ˆτ could hope to do) attained at λ = 0 and tailing off rapidly to asymptote to 0 as λ →∞, being less
+that 10% when λ = 4. (See Exercise 10.9.)                                            ∥
+
+=== PDF 416; PRINT 385 ===
+POINT ESTIMATION                                                          385
+   Since the MLE is typically asymptotically efficient, another estimator cannot hope to beat its
+asymptotic variance. However, other estimators may have other desirable properties (ease of cal-
+culation, robustness to underlying assumptions) that make them desirable. In such situations, the
+efficiency of the MLE becomes important in calibrating what we are giving up if we use an alter-
+nate estimator.
+  We will look at one last example, contrasting ease of calculation with optimal variance. In the
+next section the robustness issue will be addressed.
+Example 10.1.18 (Estimating a gamma mean)   Difficult as it may seem to believe, estimation of
+the mean of a gamma distribution is not an easy task. Recall that the gamma pdf f(x|α,β) is givenby
+                                        1                      =        xα−1e−x/β.                                             α                             f(x|α,β)   Γ(α)β
+The mean of this distribution is αβ, and to compute the maximum likelihood estimator we have to
+deal with derivative of the gamma function (called the digamma function), which is never pleasant.
+In contrast, the method of moments gives us an easily computable estimate.
+   To be specific, suppose we have a random sample X1,X2,...,Xn from the gamma density above,
+but reparameterized so the mean, denoted by µ = αβ, is explicit. This gives
+
+                                       1                    =             xµ/β−1e−x/β,                                                  µ/β                          f(x|µ,β)  Γ(µ/β)β
+
+and the method of moments estimator of µ is ¯X with variance βµ/n.
+   To calculate the MLE, we use the log likelihood
+
+                                                    n
+                               l(µ,β|x) = i=1∑ log f(xi|µ,β).
+
+                                       = 0 to get the MLE ˆµ.To ease the computations, assume that β is known so we solve dµd l(µ,β|x)There is no explicit solution–so we proceed numerically.
+   By Theorem 10.1.6 we know that ˆµ is asymptotically efficient. The question of interest is how
+much do we lose by using the easier-to-calculate method of moments estimator. To compare, we
+calculate the asymptotic relative efficiency
+
+                              E                                                   dµ2                                −d2 l(µ,β|X)                      ARE(¯X, ˆµ) =
+                                   βµ
+
+and display it in Figure 10.1.1 for a selection of values of β. Of course, we know that the ARE
+must be bigger than 1, but we see from the figure that for larger values of β it pays to do the more
+complex calculation and use the MLE. (See Exercise 10.11 for an extension, and Example 12.6.7
+for details on the calculations.)                                                     ∥
+
+
+10.1.4  Bootstrap Standard Errors
+
+The bootstrap, which we first saw in Example 1.2.20, provides an alternative means of calculating
+standard errors. (It can also provide much more – see Miscellanea 10.6.3.)
+   The bootstrap is based on a simple, yet powerful, idea (whose mathematics can get quite in-
+volved1). In statistics, we learn about the characteristics of the population by taking samples. As the
+sample represents the population, analogous characteristics of the sample should give us information
+about the population characteristics. The bootstrap helps us learn about the sample characteristics
+
+   1See Lehmann 1999, Section 6.5, for a most readable introduction.
+
+=== PDF 417; PRINT 386 ===
+386                                       ASYMPTOTIC EVALUATIONS
+
+    ARE
+
+
+     7
+
+
+
+
+
+     4
+
+
+
+
+
+     1
+
+
+                      2              4              6              8              10
+                               Gamma mean
+
+Figure 10.1.1 Asymptotic relative efficiency of the method of moments estimator versus the MLE of a gamma
+mean. The four curves correspond to scale parameter values of (1, 3, 5, 10), with the higher curves corre-
+sponding to the higher values of the scale parameter.
+
+
+
+by taking resamples (that is, we retake samples from the original sample) and use this information to
+infer to the population. The bootstrap was developed by Efron in the late seventies, with the original
+ideas appearing in Efron (1979ab) and the monograph Efron (1982). See also Efron (1998) for more
+recent thoughts and developments.
+   Let us first look at a simple example where the bootstrap really isn’t needed.
+Example 10.1.19 (Bootstrapping a variance)   In Example 1.2.20, we calculated all possible av-
+erages of four numbers selected from
+
+                                       2,4,9,12
+
+where we drew the numbers with replacement. This is the simplest form of the bootstrap, sometimes
+referred to as the nonparametric bootstrap. Figure 1.2.2 displays these values in a histogram.
+   What we have created is a resample of possible values of the sample mean. We saw that there
+      = 35 distinct possible values, but these values are not equiprobable (and thus cannot beare  4+4−14
+treated like a random sample). The 44 = 256 (nondistinct) resamples are all equally likely, and they
+can be treated as a random sample. For the ith resample, we let ¯x∗i be the mean of that resample. We
+can then estimate the variance of the sample mean ¯X by
+
+                                      1    nn
+                                                                                            (10.1.9)                               Var∗(¯X) =   ∑ (¯x∗i                                          nn     i=1    −¯¯x∗)2,                           −1
+
+where ¯¯x∗= nn1 ∑nni=1 ¯x∗i , the mean of the resamples. (It is standard to let the notation ∗denote a
+bootstrapped, or resampled, value.)
+   For our example we have that the bootstrap mean and variance are ¯¯x∗= 6.75 and Var∗( ¯X) = 3.94.
+It turns out that, as far as means and variances are concerned, the bootstrap estimates are almost the
+same as the usual ones (see Exercise 10.13).                                           ∥
+
+=== PDF 418; PRINT 387 ===
+POINT ESTIMATION                                                          387
+  We have now seen how to calculate a bootstrap standard error, but in a problem where it is really
+not needed. However, the real advantage of the bootstrap is that, like the Delta Method, the variance
+formula (10.1.9) is applicable to virtually any estimator. Thus, for any estimator ˆθ(x) = ˆθ, we can
+write
+                                      1    nn
+                                                        (ˆθi∗     ∗)2,                        (10.1.10)                              Var∗(ˆθ) =   ∑                                         nn     i=1    −¯ˆθ                           −1
+                                                                              1 ∑nni=1 ˆθi∗ , the mean of thewhere ˆθi∗ is the estimator calculated from the ith resample, and ¯ˆθ∗= nn
+resampled values.
+Example 10.1.20 (Bootstrapping a binomial variance)   In Example 10.1.15, we used the Delta
+Method to estimate the variance of ˆp(1 −ˆp). Based on a sample of size n, we could alternativelyestimate this variance by
+
+                                   1    nn
+                    Var∗(     =   ∑                      ¯                           ˆp(1−ˆp))   nn     i=1 ( ˆp(1−ˆp)∗i − ˆp(1−ˆp)∗)2.                         −1                                        ∥
+   But now a problem pops up. For our Example 10.1.19, with n = 4, there were 256 terms in the
+bootstrap sum. In more typical sample sizes, this number grows so large as to be uncomputable.
+(Enumerating all the possible resamples when n > 15 is virtually impossible – certainly for the
+authors.) But now we remember that we are statisticians – we take a sample of the resamples.
+   Thus, for a sample x = (x1,x2,...,xn) and an estimate ˆθ(x1,x2,...,xn) = ˆθ, select B resamples
+(or bootstrap samples) and calculate
+
+                                      1   B
+                                                                                        (10.1.11)                              Var∗B(ˆθ) =                    ∑                                                        (ˆθi∗ −¯ˆθ∗)2.                                                     i=1                         B−1
+Example 10.1.21 (Conclusion of Example 10.1.20)  For a sample of size n = 24, we compute the
+Delta Method variance estimate and the bootstrap variance estimate of ˆp(1 −ˆp) using B = 1,000.
+For  ˆp̸ = 1/2, we use the first-order Delta Method variance of Example 10.1.15, while for ˆp = 1/2we use the second-order variance estimate of Theorem 5.5.26 (see Exercise 10.16). We see in Table
+10.1.1 that in all cases the bootstrap variance estimate is closer to the true variance, while the Delta
+Method variance is an underestimate. (This should not be a surprise, based on (10.1.7), which shows
+that the Delta Method variance estimate is based on a lower bound.)
+
+Table 10.1.1 Bootstrap (upper) and Delta Method (lower) variances of ˆp(1 −ˆp). The second-order DeltaMethod (see Theorem 5.5.26) is used when ˆp = 1/2. The true variance is calculated numerically assuming that
+ˆp = p.
+
+                                                                            ˆp = 1/4      ˆp = 1/2      ˆp = 2/3
+                                bootstrap     .00508    .00555    .00561
+                                delta method   .00195    .00022    .00102
+                               True       .00484    .00531    .00519
+
+   The Delta Method is a “first-order” approximation, in that it is based on the first term of a Taylor
+series expansion. When that term is zeroed out (as when ˆp = 1/2) we must then use the second-order
+Delta Method. In contrast, the bootstrap can often have “second-order” accuracy, getting more that
+the first term in an expansion correct (see Miscellanea 10.6.3). So here, the bootstrap automatically
+corrects for the case ˆp = 1/2. (Note that 2424 ≈1.33×1013, an enormous number, so enumerating
+the bootstrap samples is not feasible.)                                                ∥
+   The type of bootstrapping that we have been talking about so far is called the nonparametric
+bootstrap, as we have assumed no functional form for the population pdf or cdf. In contrast, we may
+also have a parametric bootstrap.
+
+=== PDF 419; PRINT 388 ===
+388                                       ASYMPTOTIC EVALUATIONS
+   Suppose we have a sample X1,X2,...,Xn from a distribution with pdf f(x|θ), where θ may be avector of parameters. We can estimate θ with ˆθ, the MLE, and draw samples
+                            X∗1 ,X∗2 ,...,X∗n ∼f(x|ˆθ).
+If we take B such samples, we can estimate the variance of ˆθ using (10.1.11). Note that these samples
+are not resamples of the data, but actual random samples drawn from f(x| ˆθ), which is sometimescalled the plug-in distribution.
+Example 10.1.22 (Parametric bootstrap)  Suppose that we have a sample
+                      −1.81,0.63,2.22,2.41,2.95,4.16,4.24,4.53,5.09
+with ¯x = 2.71 and s2 = 4.82. If we assume that the underlying distribution is normal, then a para-
+metric bootstrap would take samples
+                         X∗1 ,X∗2 ,...,X∗n ∼n(2.71,4.82).
+Based on B = 1000 samples, we calculate Var∗B(S2) = 4.33. Based on normal theory, the variance
+of S2 is 2(σ2)2/8, which we could estimate with the MLE 2(4.82)2/8 = 5.81. The data values
+were simulated from a normal distribution with variance 4, so the parametric bootstrap is a better
+estimate here. (In Example 5.6.6 we estimated the distribution of S2 using what we now know is the
+parametric bootstrap.)                                                             ∥
+  Now that we have and all-purpose method for computing standard errors, how do we know it
+is a good method?. In Example 10.1.21 it seems to do better than the Delta Method, which we
+know has some good properties. In particular, we know that the Delta Method, which is based on
+maximum likelihood estimation, will typically produce consistent estimators. Can we say the same
+for the bootstrap?
+   Although we cannot answer this question in great generality, we say that, in many cases, the
+bootstrap does provide use with a reasonable estimator that is consistent.
+   To be a bit more precise, we separate the two distinct pieces in calculating a bootstrap estimator.
+a. Establish that (10.1.11) converges to (10.1.10) as B →∞, that is
+                                    Var∗B(ˆθ) B→∞       ˆθ).                               →Var∗(
+b. Establish the consistency of the estimator (10.1.10), which uses the entire bootstrap sample, that
+    is
+                                     Var∗(ˆθ) n→∞      ˆθ).                              →Var(
+Part (a) can be established using the Law of Large Numbers (Exercise 10.15). Also notice that all
+of part (a) takes place in the sample. (Lehmann 1999, Section 6.5 calls Var∗B( ˆθ) an approximator
+rather than an estimator.)
+    Establishing part (b) is a bit delicate, and this is where consistency is established. Typically con-
+sistency will be obtained in iid sampling, but in more general situations it may not occur (Lehmann
+1999, Section 6.5 gives an example). For more details on consistency (necessarily at a more ad-
+vanced level) see Shao and Tu (1995, Section 3.2.2) or Shao (1999, Section 5.5.3)
+
+10.2  Robustness
+Thus far, we have evaluated the performance of estimators assuming that the underlying model is
+the correct one. Under this assumption, we have derived estimators that are optimal in some sense.
+However, if the underlying model is not correct, then we cannot be guaranteed of the optimality of
+our estimator.
+
+=== PDF 420; PRINT 389 ===
+ROBUSTNESS                                                                389
+  We cannot guard against all possible situations and, moreover, if our model is arrived at through
+some careful considerations, we shouldn’t have to. But we may be concerned about small or
+medium-sized deviations form our assumed model. This may lead us to the consideration of robust
+estimators. Such estimators will give up optimality at the assumed model in exchange for reasonable
+performance if the assumed model is not the true model. Thus we have a trade-off, and the more
+important criterion, optimality or robustness, is probably best decided on a case-by-case basis.
+   The term “robustness” can have many interpretations, but perhaps it is best summarized by
+Huber (1981, Section 1.2) who noted:
+    “... any statistical procedure should possess the following desirable features:
+  (1)  It should have a reasonably good (optimal or nearly optimal) efficiency at the assumed
+     model.
+  (2)  It should be robust in the sense that small deviations from the model assumptions should
+      impair the performance only slightly...
+  (3) Somewhat larger deviations from the model should not cause a catastrophe.”
+  We first look at some simple examples to understand these items better, then we proceed to look
+at more general robust estimators and measures of robustness.
+
+10.2.1  The Mean and the Median
+
+Is the sample mean a robust estimator? It may depend on exactly how we formalize measures of
+robustness.
+Example 10.2.1 (Robustness of the sample mean)  Let X1,X2,...,Xn be iid n(µ,σ2). We know
+that ¯X has variance Var(¯X) = σ2/n, which is the Cram´er–Rao Lower Bound. Hence, ¯X satisfies (1)
+in that it attains the best variance at the assumed model.
+   To investigate (2), the performance of ¯X under small deviations from the model, we first need
+to decide on what this means. A common interpretation is to use an δ-contamination model, that is,
+for small δ, assume that we observe
+                             n(µ,σ2)  with probability                             Xi                      1−δ,                ∼   f(x)      with probability δ,
+where f(x) is some other distribution.
+   Suppose that we take f(x) to be any density with mean µ and variance τ2. Then
+                                             τ2                      Var(¯X) =       +δ                        (1−δ)σ2n     n +δ(1−δ)(θ −µ)2.
+This actually looks pretty good for ¯X, since if θ ≈µ and σ ≈τ, ¯X will be near optimal. We canperturb the model a little more, however, and make things quite bad. Consider what happens if f(x)
+is a Cauchy pdf. Then it immediately follows that Var( ¯X) = ∞. (See Exercises 10.18 for details and
+10.19 for another situation.)                                                        ∥
+   Turning to item (3), we ask what happens if there is an usually aberrant observation. Envision a
+particular set of sample values and then consider the effect of increasing the largest observation. For
+example, suppose that X(n) = x, where x →∞. The effect of such an observation could be considered“catastrophic.” Although none of the distributional properties of ¯X are affected, the observed value
+would be “meaningless.” This illustrates the breakdown value, the idea of which is attributable to
+Hampel (1974).
+Definition 10.2.2   Let X(1) < ··· < X(n) be an ordered sample of size n, and let Tn be a statistic
+based on this sample. Tn has breakdown value b,0 ≤b ≤1 if, for every ε > 0,
+                          X({(1−b)n})→∞Tnlim    < ∞  and   X({(1−(b+ε))n})→∞Tnlim    = ∞.
+(Recall Definition 5.4.2 on percentile notation.)
+
+=== PDF 421; PRINT 390 ===
+390                                       ASYMPTOTIC EVALUATIONS
+     It is easy to see that the breakdown value of ¯X is 0, that is, if any fraction of the sample is driven
+to infinity, so is the value of ¯X. In stark contrast, the sample median is unchanged by this change
+of the sample values. This insensitivity to extreme observations is sometimes considered an asset
+of the sample median, which has a breakdown value of 50%. (See Exercise 10.20 for more about
+breakdown values.)
+   Since the median is improving on the robustness of the mean, we might ask if we are losing
+anything by switching to a more robust estimator (of course we must!). For example, in the simple
+normal model of Example 10.2.1, the mean is the best unbiased estimator if the model is true.
+Therefore it follows that at the normal model (and close to it) the mean is a better estimator. But,
+the key question is, just how much better is the mean at the normal model. If we can answer this,
+we can make an informative choice on which estimator to use – and which criterion (optimality or
+robustness) we consider more important. To answer this question in some generality we call on the
+criterion of asymptotic relative efficiency.
+   To compute the ARE of the median with respect to the mean, we must first establish the asymp-
+totic normality of the median, and calculate the variance of the asymptotic distribution.
+Example 10.2.3 (Asymptotic normality of the median)  To find the limiting distribution of the
+median, we resort to an argument similar to that in the proof of Theorems 5.4.3 and 5.4.4, that is,
+an argument based on the binomial distribution.
+   Let X1,X2,...,Xn be a sample from a population with pdf f and cdf F (assumed to be differen-
+tiable), with P(Xi ≤µ) = 1/2, so µ is the population median. Let Mn be the sample median, andconsider computing
+                                 lim  √n(Mn                         n→∞P      −µ) ≤a
+for some a. If we define the random variables Yi by
+                                 1   if Xi    +a/√n,                                       Yi =      ≤µ                                 0  otherwise,
+it follows that Yi is a Bernoulli random variable with success probability pn = F(µ + a/√n). To
+                                                                                                        is equivalentavoid complications, we will assume that n is odd and thus the event {Mn ≤µ +a/√n}
+to the event {∑iYi ≥(n+1)/2}.   Some algebra then yields
+
+                                           ∑iYi
+                                                                                                                      .           P √n(Mn                                   −npn  ≥(n+1)/2−npn                 −µ) ≤a = P                                   npn(1−pn)     npn(1−pn)
+Now pn →p = F(µ) = 1/2, so we expect that an application of the CLT will show that √∑iYi−npn                                                                                              npn(1−pn)
+converges in distribution to Z, a standard normal random variable. A straightforward limit calcula-
+tion will also show that
+                   (n+1)/2−npn        =                              →−2aF′(µ)  −2af(µ).                       npn(1−pn)
+Putting this all together yields that
+                  P √n(Mn                       −µ) ≤a →P(Z ≥−2af(µ)),
+and thus √n(Mn       is asymptotically normal with mean 0 and variance 1/[2f(µ)]2. (For details          −µ)see Exercise 10.22, and for a rigorous, and more general, development of this result, see Shao 1999,
+Section 5.3.)                                                                    ∥
+
+=== PDF 422; PRINT 391 ===
+ROBUSTNESS                                                                391
+Example 10.2.4 (AREs of the median to the mean)  As there are simple expressions for the
+asymptotic variances of the mean and the median, the ARE is quick to compute. Here we look
+at the ARE for three symmetric distributions and find, as might be expected, that as the tails of the
+distribution get heavier, the ARE gets bigger. That is, the performance of the median improves in
+distributions with heavy tails. See Exercise 10.23 for more comparisons.                    ∥
+
+
+                       Table 10.2.2 Median/mean asymptotic relative efficiencies
+                          Normal   Logistic   Double Exponential
+                                 .64        .82            2
+
+
+10.2.2  M-Estimators
+
+Many of the estimators that we use are the result of minimizing a particular criterion. For example, if
+X1,X2,...,Xn are iid from f(x|θ), possible estimators are the mean, the minimizer of ∑(xi −a)2; the
+                                                                         i=1                                                                         f(xi|θ) (or the minimizermedian, the minimizer of ∑|xi −a|; or the MLE, the maximizer of ∏nof the negative likelihood). As a systematic way of obtaining a robust estimator, we might attempt
+to write down a criterion function whose minimum would result in an estimator with desirable
+robustness properties.
+    In an attempt at defining a robust criterion, Huber (1964) considered a compromise between the
+mean and the median. The mean criterion is a square, which gives it sensitivity, but in the “tails”
+the square gives too much weight to big observations. In contrast, the absolute value criterion of the
+median does not overweight big or small observations. The compromise is to minimize a criterion
+function
+                                                n
+                                                                                            (10.2.1)                 ∑ ρ(xi                                             i=1   −a)
+where ρ is given by
+                                               12x2            if                             ρ(x) =                     |x| ≤k,                          (10.2.2)
+                                  k|x|−12k2   if |x| ≥k.
+The                                                                                         1     function ρ(x) acts like x2 for |x| ≤k, and like |x| for |x| > k. Moreover, since 2k2 = k|k| −12k2, the function is continuous (Exercise 10.28). The constant k, which can also be called a tuning
+parameter, controls the mix, with small values of k yielding a more “median-like” estimator.
+Example 10.2.5 (Huber estimator)  The estimator defined as the minimizer of (10.2.1) and
+(10.2.2) is called a Huber estimator. To see how the estimator works, and how the choice of k
+matters, consider the following data set consisting of eight standard normal deviates and three “out-
+liers”.
+            x = −1.28,−0.96,−0.46,−0.44,−0.26,−0.21,−0.063,0.39,3,6,9
+For these data the mean is 1.33 and the median is −.21. As k varies, we get the range of Huberestimates given in Table 10.2.3. We see that as k increases, the Huber estimate varies between the
+median and the mean, so we interpret increasing k as decreasing robustness to outliers.
+
+
+                                    Table 10.2.3 Huber estimators
+                    k        0     1     2     3    4    5    6    8    10
+                  estimate   −0.21   .03   −.04   .29   .41   .52   .87   .97   1.33
+                                                                              ∥
+   The estimator minimizing (10.2.2) is a special case of the estimators studied by Huber. For a
+general function ρ, we call the estimator minimizing ∑i ρ(xi −θ) an M-estimator, a name that isto remind us that these are maximum-likelihood-type estimators. Note that if we choose ρ to be the
+
+=== PDF 423; PRINT 392 ===
+392                                       ASYMPTOTIC EVALUATIONS
+negative log liklihood −l(θ|x), then the M-estimator is the usual MLE. But with more flexibility inchoosing the function to be minimized, estimators with different properties can be derived.
+   Since minimization of a function is typically done by solving for the zeros of the derivative
+(when we can take a derivative), defining ψ = ρ′, we see that an M-estimator is the solution to
+
+                                             n
+                            = 0.                                 (10.2.3)                ∑ ψ(xi −θ)                                          i=1
+
+Characterizing an estimator as the root of an equation is particularly useful for getting properties of
+the estimator, for arguments like those used for likelihood estimators can be extended. In particular,
+look at Section 10.1.2, especially the proof of Theorem 10.1.6. We assume that the function ρ(x) is
+symmetric, and its derivative ψ(x) is monotone increasing (which ensures that the root of (10.2.3)
+is the unique minimum). Then, as in the proof of Theorem 10.1.6, we write a Taylor expansion for
+φ as
+                      n                n                          n
+                 =       ∑ ψ(xi −θ)                    i=1                                     i=1              ∑ ψ(xi −θ0)+(θ −θ0) i=1∑ ψ′(xi −θ0)+...,
+where θ0 is the true value and we ignore the higher order terms. Let ˆθM be the solution to (10.2.3)
+and substitute this for θ to obtain
+
+                                n                            n
+                   0 =
+                              i=1           ∑ ψ(xi −θ0)+(ˆθM −θ0) i=1∑ ψ′(xi −θ0)+...,
+where the left-hand side is zero because ˆθM is the solution. Now, again analogous to the proof of
+Theorem 10.1.6 we rearrange terms, divide through by √n, and ignore the remainder terms to get
+
+                                         −1                                      ∑ni=1 ψ(xi −θ0) .                      √n(ˆθM   = √n                                                     1                            −θ0)                                                     n ∑ni=1 ψ′(xi −θ0)
+Now we assume that θ0 satisfies Eθ0ψ(X −θ0) = 0 (which is often taken as the definition of θ0). Itfollows that
+      −1  n                           n               = √n −1     ∑ ψ(Xi                ∑ ψ(Xi           0,Eθ0[ψ(X      √n i=1    −θ0)        n  i=1    −θ0) →n           −θ0)]2           (10.2.4)
+
+in distribution, and the Law of Large Numbers yields
+
+                          1  n
+                                                                                            (10.2.5)             ∑ ψ′(xi                          n i=1    −θ0) →Eθ0ψ′(X −θ0)
+
+in probability. Putting this all together we have
+                   √n(ˆθM              0, Eθ0ψ(X −θ0)2     .                    (10.2.6)                         −θ0) →n    [Eθ0ψ′(X                                                  −θ0)]2
+Example 10.2.6 (Limit distribution of the Huber estimator)   If X1,X2,...,Xn are iid from a pdf
+f(x−θ), where f is symmetric around zero, then for ρ given by (10.2.2) we have
+                                          x      if |x| ≤k,                             ψ(x) =   k      if x > k,                               (10.2.7)
+                              −k   if x < −k,
+
+=== PDF 424; PRINT 393 ===
+ROBUSTNESS                                                                393
+and thus
+
+                                 θ+k
+         Eθψ(X −θ) = −    (x−θ)f(x−θ)dx                                θ−k
+                                     θ−k               ∞
+                         +2k     f(x−θ)dx−2k θ+k f(x−θ)dx            (10.2.8)                              −∞
+                                              k               −k           ∞
+               = −   yf(y)dy+2k                       k  f(y)dy = 0,                                −k           −∞f(y)dy−2k
+where we substitute y = x −θ. The integrals add to 0 by the symmetry of  f. Thus, the Huberestimator has the correct mean. (See Exercise 10.25 for a generalization.)
+   To calculate the variance we need the expected value of ψ′. While ψ is not differentiable, be-
+yond the points of nondifferentiability (x = ±k) ψ′ will be zero. Thus, we only need deal with the
+expectation for |x| ≤k, and we have
+                         θ+k
+    Eθψ′(X −θ) =       f(x−θ)dx = P0(|X| ≤k)                        θ−k
+                         θ+k                     ∞                  θ−k
+           =   Eθ[ψ(X −θ)]2                       (x−θ)2 f(x−θ)dx+k2 θ+k f(x−θ)dx+k2     f(x−θ)dx                        θ−k                                   −∞                                  k              ∞
+           =      x2 f(x)dx+2k2     f(x)dx.
+                        −k                     k
+Thus, we can conclude that the Huber estimator is asymptotically normal with mean θ and asymp-
+totic variance
+                                            k
+                                     x2 f(x)dx+k2P0(|X| > k) .                               −k
+                                          [P0(|X| ≤k)]2                                 ∥
+   As we did in Example 10.2.4, we now examine the ARE of the Huber estimator for a variety of
+distributions.
+Example 10.2.7 (ARE of the Huber estimator)   As  the Huber  estimator  is,  in a  sense, a
+mean/median compromise, we’ll look at its relative efficiency with respect to both of these esti-
+mators. The Huber estimator behaves similarly to the mean for the normal and logistic distributions,
+and is an improvement on the median. For the double exponential it is an improvement over the
+mean, but not as good as the median. Recall that the mean is the MLE for the normal, and the
+median is the MLE for the double exponential (so AREs < 1 are expected). The Huber estimator
+has performance similar to the MLEs for these distributions, but also seems to maintain reasonable
+performance in other cases.
+
+
+                  Table 10.2.4 Huber estimator asymptotic relative efficiencies, k = 1.5
+                                Normal   Logistic   Double Exponential
+                             vs. mean      .96       1.08            1.37
+                            vs. median    1.51      1.31             .68
+                                                                              ∥
+  We see that an M-estimator is a compromise between robustness and efficiency. We now look a
+bit more closely at what we may be giving up, in terms of efficiency, to gain robustness.
+   Let us look more closely at the asymptotic variance in (10.2.6). The denominator of the variance
+contains the term Eθ0ψ′(X −θ), which we can write as
+                                                 ∂
+          Eθψ′(X −θ) =  ψ′(x−θ)f(x−θ)dx =   ∂θ ψ(x−θ)  f(x−θ)dx.
+
+=== PDF 425; PRINT 394 ===
+394                                       ASYMPTOTIC EVALUATIONS
+Now we use the differentiation product rule to get
+
+    d                          d                                d
+   dθ  ψ(x−θ)f(x−θ)dx =    dθ ψ(x−θ) f(x−θ)dx+  ψ(x−θ) dθ f(x−θ)  dx.
+
+If the left-hand side is zero, as it should be for reasonable ψ functions (mimicking the behavior of
+l′), we have
+
+             d                                    d
+    −   dθ ψ(x−θ) f(x−θ)dx =   ψ(x−θ) dθ f(x−θ) dx
+                                                 d
+                      =   ψ(x−θ) dθ log f(x−θ)  f(x−θ)dx,
+
+where we use the fact that dyg(y)/g(y)d      = dyd logg(y). This last expression can be written Eθ[ψ(X                                                  −
+θ)l′(θ|X)], where l(θ|X) is the log likelihood, yielding the identity
+                           d
+                  −Eθ  dθ ψ(X −θ) = Eθ[ψ(X −θ)l′(θ|X)]
+(which, when we choose ψ = l′, yields the (we hope) familiar equation −Eθ[l′′(θ|X)] = Eθl′(θ|X)2,see Lemma 7.3.11).
+     It is now a simple matter to compare the asymptotic variance of an M-estimator to that of the
+MLE. Recall that the asymptotic variance of the MLE, ˆθ is given by Eθl′(θ|X)2, so we have
+                                  [Eθ(ψ(X                  ARE(ˆθM, ˆθ) =         −θ0)l′(θ|X)]2                        (10.2.9)                             Eθψ(X          ≤1                                         −θ)2Eθl′(θ|X)2
+by virtue of the Cauchy–Swartz Inequality. Thus, an M-estimator is always less efficient than the
+MLE, and only matches its efficiency if ψ is proportional to l′ (see Exercise 10.29).
+    In this section we did not try to classify all types of robust estimators, but rather we were content
+with some examples. There are many good books that treat robustness in detail; the interested reader
+might try Staudte and Sheather (1990) or Hettmansberger and McKean (1998).
+
+10.3  Hypothesis Testing
+As in Section 10.1, this section describes a few methods for deriving some tests in complicated
+problems. We are thinking of problems in which no optimal test, as defined in earlier sections,
+exists (for example, no UMP unbiased test exists) or is known. In such situations, the derivation of
+any reasonable test might be of use. In two subsections, we will discuss large-sample properties of
+likelihood ratio tests and other approximate large-sample tests.
+
+
+10.3.1  Asymptotic Distribution of LRTs
+
+One of the most useful methods for complicated models is the likelihood ratio method of test con-
+struction because it gives an explicit definition of the test statistic,
+
+                                         sup                                              Θ0 L(θ|x)                                 λ(x) =
+                                         sup                                    Θ L(θ|x),
+and an explicit form for the rejection region, {x : λ(x) ≤c}. After the data X = x are observed
+the likelihood function, L(θ|x), is a completely defined function of the variable θ. Even if the two
+
+=== PDF 426; PRINT 395 ===
+HYPOTHESIS TESTING                                                       395
+suprema of L(θ|x), over the sets Θ0 and Θ, cannot be analytically obtained, they can usually becomputed numerically. Thus, the test statistic λ(x) can be obtained for the observed data point even
+if no convenient formula defining λ(x) is available.
+   To define a level α test, the constant c must be chosen so that
+                                 sup Pθ (λ(X) ≤c) ≤α.                              (10.3.1)                                 θ∈Θ0
+If we cannot derive a simple formula for λ(x), it might seem that it is hopeless to derive the sampling
+distribution of λ(X) and thus know how to pick c to ensure (10.3.1). However, if we appeal to
+asymptotics, we can get an approximate answer.
+   Analogous to Theorem 10.1.12, we have the following result.
+Theorem 10.3.1 (Asymptotic distribution of the LRT – simple H 0 )   For testing H0 : θ = θ0
+versus H1 : θ̸ = θ0, suppose X1,...,Xn are iid f(x|θ), ˆθ is the MLE of θ, and f(x|θ) satisfies
+the regularity conditions in Miscellanea 10.6.2. Then under H0, as n →∞
+                                                      1 in distribution,                        −2logλ(X) →χ2
+where χ21 is a χ2 random variable with 1 degree of freedom.
+Proof: First expand logL(θ|x) = l(θ|x) in a Taylor series around ˆθ, giving
+              = l(                              −ˆθ)2 +....                    l(θ|x)     ˆθ|x)+l′(ˆθ|x)(θ −ˆθ)+l′′( ˆθ|x)(θ 2!
+Now substitute the expansion for l(θ0|x) in −2logλx = −2l(θ0|x)+2l(ˆθ|x), and get
+                                                −ˆθ)2                            −2logλ(x) ≈(θ                                                     −l′′( ˆθ|x),
+where                  = 0. Since the denominator is the observed information ˆIn(ˆθ),     we use the fact that l′(ˆθ|x)     1
+and n ˆIn( ˆθ) →I(θ0), it follows from Theorem 10.1.12 and Slutsky’s Theorem (Theorem 5.5.17)
+that −2logλ(X) →χ21.                                       2
+Example 10.3.2 (Poisson LRT)  For testing H0 : λ = λ0 versus H1 : λ̸ = λ0 based on observingX1,...,Xn iid Poisson(λ), we have
+                                  e−nλ0λ 0Σxi
+                                                 −ˆλ)−ˆλ           −2logλ(X) = −2log        = 2n (λ0          log(λ0/ˆλ)  ,                                            e−nˆλ ˆλ Σxi
+where ˆλ = Σxi/n is the MLE of λ. Applying Theorem 10.3.1, we would reject H0 at level α if
+−2logλ(x) > χ21,α.   To get some idea of how accurate the asymptotics are, here is a small simulation of the test
+statistic. For λ0 = 5 and n = 25, Figure 10.3.1 shows a histogram of 10,000 values of −2logλ(x)along with the pdf of a χ21. The match seems to be reasonable. Moreover, a comparison of the
+simulated (exact) and χ21 (approximate) cutoff points in Table 10.3.5 shows that the cutoffs are
+remarkably similar.
+                                                                              ∥
+   Theorem 10.3.1 can be extended to the cases where the null hypothesis concerns a vector of
+parameters. The following generalization, which we state without proof, allows us to ensure (10.3.1)
+is true, at least for large samples. A complete discussion of this topic may be found in Stuart, Ord,
+and Arnold (1999, Chapter 22).
+
+=== PDF 427; PRINT 396 ===
+396                                       ASYMPTOTIC EVALUATIONS
+
+                      relative frequency
+
+
+
+
+
+                        .2
+
+
+
+                        .1
+
+
+                                                                   –2 log l
+                     0          1          2          3          4
+
+   Figure 10.3.1 Histogram of 10,000 values of −2logλ(x) along with the pdf of a χ21, λ0 = 5 and n = 25
+
+
+    Table 10.3.5 Percentiles of simulated (exact) and approximate percentiles of the Poisson LRT statistic
+                                Percentile    .80     .90     .95     .99
+                            Simulated   1.630   2.726   3.744   6.304
+                            χ2      1.642   2.706   3.841   6.635
+
+Theorem 10.3.3   Let X1,...,Xn be a random sample from a pdf or pmf f(x|θ). Under the regu-
+larity conditions in Miscellanea 10.6.2, if θ ∈Θ0 then the distribution of the statistic −2logλ(X)
+converges to a chi squared distribution as the sample size n →∞. The degrees of freedom of the
+limiting distribution is the difference between the number of free parameters specified by θ ∈Θ0
+and the number of free parameters specified by θ ∈Θ.
+    Rejection of H0 : θ ∈Θ0 for small values of λ(X) is equivalent to rejection for large values of
+−2logλ(X). Thus,
+                                                                           ν,α,                   H0 is rejected if and only if −2logλ(X) ≥χ2
+where ν is the degrees of freedom specified in Theorem 10.3.3. The Type I Error probability will be
+approximately α if θ ∈Θ0 and the sample size is large. In this way, (10.3.1) will be approximatelysatisfied for large sample sizes and an asymptotic size α test has been defined. Note that the theorem
+will actually imply only that
+                          n→∞Pθ(rejectlim        H0) = α   for each θ ∈Θ0,
+not that the supθ∈Θ0 Pθ(rejectH0) converges to α. This is usually the case for asymptotic size αtests.
+   The computation of the degrees of freedom for the test statistic is usually straightforward. Most
+often, Θ can be represented as a subset of q-dimensional Euclidian space that contains an open
+subset in ℜq and Θ0 can be represented as a subset of p-dimensional Euclidian space that contains
+an open subset in ℜp, where p < q. Then q−p = ν is the degrees of freedom for the test statistic.
+Example 10.3.4 (Multinomial LRT)  Let θ = (p1, p2, p3, p4, p5) where the p js are nonnegative
+and sum to one. Suppose X1,...,Xn are iid discrete random variables and Pθ(Xi = j) = p j, j =
+                                                                                 j and the likelihood function is1,...,5. Thus the pmf of Xi is f(j|θ) = p
+                                           n
+                          = py11 py22 py33 py44 py55 ,                         L(θ|x) = ∏i=1 f(xi|θ)
+
+=== PDF 428; PRINT 397 ===
+HYPOTHESIS TESTING                                                       397
+where yj = number of x1,...,xn equal to j. Consider testing
+
+             H0 : p1 = p2 = p3 and p4 = p5     versus    H1 : H0 is not true.
+The full parameter space, Θ, is really a four-dimensional set. Since p5 = 1−p1 −p2 −p3 −p4, thereare only four free parameters. The parameter set is defined by
+
+                                4
+                                   and  p j            j = 1,...,4,           ∑ pj                              j=1  ≤1        ≥0,
+
+a subset of ℜ4 containing an open subset of ℜ4. Thus q = 4. There is only one free parameter in the
+                                  = p3 must equal p1 and p4 = p5set specified by H0 because, once p1,0 ≤p1 ≤13, is fixed, then p2
+must equal 1−3p12    . Thus p             = 1, and the degrees of freedom is ν = 4−1 = 3.   To calculate λ(x), the MLE of θ under both Θ0 and Θ must be determined. By setting
+
+                       ∂
+                     ∂pj logL(θ|x) = 0   for each of j = 1,...,4,
+and using the facts that p5 = 1−p1 −p2 −p3 −p4 and y5 = n−y1 −y2 −y3 −y4, it can be verifiedthat the MLE of p j under Θ is ˆp j = y j/n. Under H0, the likelihood function reduces to
+
+                                                                  y4+y5
+                    = py1+y2+y31      1−3p1           .                           L(θ|x)               2
+
+Again, the usual method of setting the derivative equal to zero shows that the MLE of p1 under H0 is
+ˆp10 = (y1 +y2 +y3)/(3n). Then ˆp10 = ˆp20 = ˆp30 and ˆp40 = ˆp50 = (1−3 ˆp10)/2. Substituting these
+values and the ˆp j values into L(θ|x) and combining terms with the same exponent yields
+              y1 +y2 +y3   y1   y1 +y2 +y3   y2   y1 +y2 +y3   y3   y4 +y5   y4   y4 +y5   y5    λ(x) =                                                                                                                      .
+                 3y1              3y2              3y3           2y4         2y5
+
+Thus, the test statistic is
+                                                       5           yi
+                                                                                              ,                          (10.3.2)                                                                 yi log
+                                                    mi                         −2logλ(x) = 2 i=1∑
+where m1 = m2 = m3 = (y1 + y2 + y3)/3 and m4 = m5 = (y4 + y5)/2. The asymptotic size α test
+rejects H0 if −2logλ(x) ≥χ23,α. This example is one of a large class of testing problems for which
+the asymptotic theory of the likelihood ratio test is extensively used.                        ∥
+
+10.3.2  Other Large-Sample Tests
+
+Another common method of constructing a large-sample test statistic is based on an estimator that
+has an asymptotic normal distribution. Suppose we wish to test a hypothesis about a real-valued
+parameter θ, and Wn = W(X1,...,Xn) is a point estimator of θ, based on a sample of size n, that has
+been derived by some method. For example, Wn might be the MLE of θ. An approximate test, based
+on a normal approximation, can be justified in the following way. If σ2n denotes the variance of Wn
+and if we can use some form of the Central Limit Theorem to show that, as n →∞,(Wn −θ)/σn
+converges in distribution to a standard normal random variable, then (Wn −θ)/σn can be comparedto a n(0,1) distribution. We therefore have the basis for an approximate test.
+   There are, of course, many details to be verified in the argument of the previous paragraph, but
+this idea does have application in many situations. For example, if Wn is an MLE, Theorem 10.1.12
+can be used to validate the above arguments. Note that the distribution of Wn and, perhaps, the value
+of σn depend on the value of θ. The convergence, therefore, more formally says that for each fixed
+
+=== PDF 429; PRINT 398 ===
+398                                       ASYMPTOTIC EVALUATIONS
+value of θ ∈Θ, if we use the corresponding distribution for Wn and the corresponding value for σn,
+(Wn −θ)/σn converges to a standard normal. If for each n,σn is a calculable constant (which may
+depend on θ but not any other unknown parameters), then a test based on (Wn −θ)/σn might bederived.
+    In some instances, σn also depends on unknown parameters. In such a case, we look for an
+estimate Sn of σn with the property that σn/Sn converges in probability to one. Then, using Slutsky’s
+Theorem (as in Example 5.5.18) we can deduce that (Wn −θ)/Sn also converges in distribution to astandard normal distribution. A large-sample test may be based on this fact.
+   Suppose we wish to test the two-sided hypothesis H0: θ = θ0 versus H1: θ̸ = θ0. An approximate
+test can be based on the statistic Zn = (Wn −θ0)/Sn, and would reject H0 if and only if Zn < −zα/2
+or Zn > zα/2. If H0 is true, then θ = θ0 and Zn converges in distribution to Z ∼n(0,1). Thus, theType I Error probability,
+                Pθ0(Zn < −zα/2 or Zn > zα/2) →P(Z < −zα/2 or Z > zα/2) = α,
+and this is an asymptotically size α test.
+  Now consider an alternative parameter value θ̸ = θ0. We can write
+                          Wn      Wn      θ                            Zn =   −θ0 =  −θ +  −θ0 .                        (10.3.3)
+                                     Sn        Sn       Sn
+No matter what the value of θ, the term (Wn −θ)/Sn →n(0,1). Typically, it is also the case that
+σn →0 as n →∞. (Recall, σn = VarWn, and estimators typically become more precise as n →∞.)
+Thus, Sn will converge in probability to zero and the term (θ −θ0)/Sn will converge to +∞or −∞
+in probability, depending on whether (θ −θ0) is positive or negative. Thus, Zn will converge to +∞
+or −∞in probability, and
+                 Pθ(reject H0) = Pθ(Zn < −zα/2 or Zn > zα/2) →1,   as n →∞.
+In this way, a test with asymptotic size α and asymptotic power one can be constructed.
+     If we wish to test the one-sided hypothesis, H0 : θ ≤θ0 versus H1 : θ > θ0, a similar test might
+be constructed. Again, the test statistic Zn = (Wn −θ0)/Sn would be used and the test would rejectH0 if and only if Zn > zα. Using reasoning similar to the above, we could conclude that the power
+function of this test converges to zero, α, or one according as θ < θ0,θ = θ0, or θ > θ0. Thus this
+test too has reasonable asymptotic power properties.
+    In general, a Wald test is a test based on a statistic of the form
+
+                                 Wn                                    Zn =   −θ0 ,
+                                               Sn
+where θ0 is a hypothesized value of the parameter θ, Wn is an estimator of θ, and Sn is a standard
+error for Wn, an estimate of the standard deviation of Wn. If Wn is the MLE of θ, then, as discussed
+in Section 10.1.3, 1/  I(Wn) is a reasonable standard error for Wn. Alternatively, 1/   ˆI(Wn), where
+
+                                  ˆI(Wn) =       2                     −∂2∂θ  logL(θ|X) θ=Wn
+
+is the observed information number, is often used (see (10.1.7)).
+Example 10.3.5 (Large-sample binomial tests)   Let X1,...,Xn be a random sample from a
+Bernoulli(p) population. Consider testing H0 : p ≤p0 versus H1 : p > p0 where 0 < p0 < 1 is aspecified value. The MLE of p, based on a sample of size n, is ˆpn = ∑ni=1 Xi/n. Since ˆpn is just a
+sample mean, the Central Limit Theorem applies and states that for any p, 0 < p < 1,( ˆpn −p)/σn
+converges to a standard normal random variable. Here σn =   p(1−p)/n, a value that depends on
+
+=== PDF 430; PRINT 399 ===
+HYPOTHESIS TESTING                                                       399
+
+the unknown parameter p. A reasonable estimate of σn is Sn = p ˆpn(1−ˆpn)/n and it can be shown
+(Exercise 5.32) that σn/Sn converges in probability to one. Thus, for any p, 0 < p < 1,
+
+                                                        ˆpn −p
+                                       →n(0,1).
+               q ˆpn(1−ˆpn)
+                                                n
+
+The Wald test statistic Zn is defined by replacing p by p0 and the large-sample Wald test rejects H0
+if Zn > zα. As an alternative estimate of σn, it is easily checked that 1/I( ˆpn) = ˆpn(1 −ˆpn)/n. So,
+the same statistic Zn obtains if we use the information number to derive a standard error for ˆpn.
+     If there was interest in testing the two-sided hypothesis H0 : p = p0 versus H1 : p̸ = p0, where
+0 < p0 < 1 is a specified value, the above strategy is again applicable. However, in this case, there
+is an alternative approximate test. By the Central Limit Theorem, for any p, 0 < p < 1,
+
+                                                        ˆpn −p
+                                        →n(0,1).
+               p p(1−p)/n
+
+Therefore, if the null hypothesis is true, the statistic
+
+                                                           ˆpn −p0
+                                 Z′n =              ∼n(0,1).                (approximately)
+                p p0(1−p0)/n
+                                                                                            (10.3.4)
+The approximate level α test rejects H0 if |Z′n| > zα/2.
+    In cases where both tests are applicable, for example when testing H0 : p = p0, it is not clear
+which test is to be preferred. The power functions (actual, not approximate) cross one another,
+so each test is more powerful in a certain portion of the parameter space. (Ghosh (1979)) gives
+some insights into this problem. A related binomial controversy, that of the two-sample problem, is
+discussed by Robbins (1977) and Eberhardt and Fligner (1977). Two different test statistics for this
+problem are given in Exercise 10.31.)
+   Of course, any comparison of power functions is confounded by the fact that these are approx-
+imate tests, and do not necessarily maintain level α. The use of a continuity correction (Example
+3.3.2) can help in this problem. In many cases, approximate procedures that use the continuity cor-
+rection turn out to be conservative, that is, they maintain their nominal α level (see Example 10.4.6).
+                                                                              ∥
+
+   Equation (10.3.4) is a special case of another useful large-sample test, the score test. The score
+statistic is defined to be
+                               ∂              ∂
+                        S(θ) =    log f(X|θ) =    logL(θ|X).
+                          ∂θ           ∂θ
+From (7.3.8) we know that, for all θ, Eθ S(θ) = 0. In particular, if we are testing H0 : θ = θ0 and if
+H0 is true, then S(θ0) has mean zero. Furthermore, from (7.3.10),
+
+                                2!                          ∂                       ∂2
+          Varθ S(θ) = Eθ       logL(θ|X)   = −Eθ      2 logL(θ|X) = I(θ);                      ∂θ                   ∂θ
+
+the information number is the variance of the score statistic. The test statistic for the score test is
+
+                                  ZS = S(θ0)/p I(θ0).
+
+If H0 is true, ZS has mean zero and variance one. From Theorem 10.1.12 it follows that ZS converges
+to a standard normal random variable if H0 is true. Thus, the approximate level α score test rejects
+H0 if |ZS| > zα/2. If H0 is composite, then ˆθ0, an estimate of θ assuming H0 is true, replaces θ0 in
+ZS. If ˆθ0 is the restricted MLE, the restricted maximization might be accomplished using Lagrange
+multipliers. Thus, the score test is sometimes called the Lagrange multiplier test.
+
+=== PDF 431; PRINT 400 ===
+400                                       ASYMPTOTIC EVALUATIONS
+Example 10.3.6 (Binomial score test)  Consider again the Bernoulli model from Example 10.3.5,
+and consider testing H0 : p = p0 versus H1 : p̸ = p0. Straightforward calculations yield
+                                                   ˆpn                     n                       S(p) =   −p    and  I(p) =
+                         p(1−p)/n            p(1−p).
+Hence, the score statistic is
+                                   S(p0)            ˆpn                            ZS =     =     −p0       ,
+                                      I(p0)     p0(1−p0)/n
+the same as (10.3.4).                                                              ∥
+   One last class of approximate tests to be considered are robust tests (see Miscellanea 10.6.6).
+From Section 10.2, we saw that if X1,X2,...,Xn are iid from a location family, and ˆθM is an M-
+estimator, then
+                       √n(ˆθM            0,Varθ0(ˆθM)  ,                         (10.3.5)                             −θ0) →n
+                     Eθ0ψ(X−θ0)2  is the asymptotic variance. Thus, we can construct a “generalized”where Varθ0(ˆθM) =                      [Eθ0ψ′(X−θ0)]2
+score statistic,
+                                                     ˆθM                               ZGS = √n    −θ0    ,
+                                               Varθ0( ˆθM)
+or a generalized Wald statistic
+                                                     ˆθM                           ZGW = √n    −θ0    ,
+                                               Varθ0(ˆ    ˆθM)
+where Varθ0(ˆ    ˆθM) can be any consistent estimator. For example, we could use a bootstrap estimate
+of standard error, or simply substitute an estimator into (10.2.6) and use
+
+                                                 1
+                                                 n                                   ∑ni=1[ψ(xi −ˆθM)]2                                                                                                .                        (10.3.6)                             Var1(ˆ   ˆθM) =                                                                       2                                                  1
+                                                  n ∑ni=1 ψ′(xi −ˆθM)
+The choice of variance estimate can be important; see Boos 1992 or Carroll et al. 1995, Appendix
+A.3 for guidance.
+Example 10.3.7 (Tests based on the Huber estimator)   If X1,X2,...,Xn are iid from a pdf f(x−θ), where  f  is symmetric around zero, then for the Huber M-estimator using the ρ function in
+(10.2.2) and the ψ function (10.2.7), we have an asymptotic variance
+
+                                            k
+                               −k                                     x2 f(x)dx+k2P0(|X| > k) .                           (10.3.7)
+                                          [P0(|X| ≤k)]2
+    Therefore, based on the asymptotic normality of the M-estimator, we can (for example) test
+H0 : θ = θ0 vs. H1 : θ̸ = θ0 at level α by rejecting H0 if |ZGS| > zα/2. To be a bit more practical,we will look at the approximate tests that use an estimated standard error. We will use the statistic
+ZGW, but we will base our variance estimate on (10.3.7), that is
+
+                      1                                         1                                        > k)                         < k)+k2  n ∑ni=1                ∑ni=1(xi −ˆθM)2I(|xi −ˆθM|                                                                              I(|xi −ˆθM|                                                                                                                        .       (10.3.8)      Var2(ˆ   ˆθM) = n                                                                       2
+                               < k)                      1−1                                             n ∑ni=1 I(|xi −ˆθM|
+
+=== PDF 432; PRINT 401 ===
+INTERVAL ESTIMATION                                                      401
+Also, we added a “naive” test, ZN, that uses a simple variance estimate
+
+                                      1  n
+                                                                                            (10.3.9)                                Var3(ˆ   ˆθM) = ∑ (xi                                      n i=1   −ˆθM)2.
+
+  How do these tests fare? Analytical evaluation is difficult, but the following small simulation
+shows that the zα/2 cutoffs are generally too small (neglecting to account for variation in the variance
+estimates), as the actual size is typically greater than the nominal size. However, there is consistency
+across a range of distributions, with the double exponential being the best case. (This last occurrence
+is not totally surprising, as the Huber estimator enjoys an optimality property against distributions
+with exponential tails; see Huber 1981, Chapter 4.)                                     ∥
+
+
+Table 10.3.6 Power, at specified parameter values, of nominal α = .1 tests based on ZGW and ZN, for a sample
+of size n = 15 (10,000 simulations)
+
+                                                 Underlying pdf
+
+                                                                    Double
+                            Normal             t5           Logistic     Exponential
+                       ZGW   ZN   ZGW   ZN   ZGW   ZN   ZGW   ZN
+
+                  θ0          0.16   0.16   0.14   0.13   0.15   0.15   0.11   0.09
+               θ0 +.25σ      0.27   0.29   0.29   0.27   0.27   0.27   0.31   0.26
+               θ0 +.5σ       0.58   0.60   0.65   0.63   0.59   0.60   0.70   0.64
+               θ0 +.75σ      0.85   0.87   0.89   0.89   0.85   0.87   0.92   0.90
+                θ0 +1σ       0.96   0.97   0.98   0.97   0.96   0.97   0.98   0.98
+                θ0 +2σ          1.      1.      1.      1.      1.      1.      1.      1.
+
+
+10.4  Interval Estimation
+As we have done in the previous two sections, we now explore some approximate and asymptotic
+versions of confidence sets. Our purpose is as before, to illustrate some methods that will be of use
+in more complicated situations, methods that will get some answer. The answers obtained here are
+almost certainly not the best but are certainly not the worst. In many cases, however, they are the
+best that we can do.
+  We start, as previously, with approximations based on MLEs.
+
+
+10.4.1  Approximate Maximum Likelihood Intervals
+
+From the discussion in Section 10.1.2, and using Theorem 10.1.12, we have a general method to get
+an asymptotic distribution for a MLE. Hence, we have a general method to construct a confidence
+interval.
+     If X1,...,Xn are iid f(x|θ) and ˆθ is the MLE of θ, then from (7.4.1) the variance of a functionh(ˆθ) can be approximated by
+
+                                                                                                                             ˆθ                            Var(h(             [h′(θ)]2|θ=        .                                      ˆθ)|θ) ≈                                                ∂θ2                             ˆθ                             −∂2 logL(θ|x)|θ=
+
+=== PDF 433; PRINT 402 ===
+402                                       ASYMPTOTIC EVALUATIONS
+Now, for a fixed but arbitrary value of θ, we are interested in the asymptotic distribution of
+                                       h(ˆθ)−h(θ)  .
+                                        Var(h(ˆθ)|θ)
+It follows from Theorem 10.1.12 and Slutsky’s Theorem (Theorem 5.5.17 (see Exercise 10.33) that
+                                  h(ˆθ)−h(θ)                                        →n(0,1),
+                                   Var(h(ˆθ)|θ)
+giving the approximate confidence interval
+
+               h(ˆθ)−zα/2  Var(h(ˆθ)|θ) ≤h(θ) ≤h( ˆθ)+zα/2  Var(h( ˆθ)|θ).
+Example 10.4.1 (Continuation of Example 10.1.14)  We have a random sample X1,...,Xn from
+a Bernoulli(p) population. We saw that we could estimate the odds ratio, which is given by p/(1−
+p), by its MLE ˆp/(1−ˆp) and that this estimate has approximate variance
+                                                                      ˆp                   ˆp
+                               Var     ≈               .                               1−ˆp     n(1−ˆp)3
+We therefore can construct the approximate confidence interval
+
+                           ˆp                               ˆp        p            ˆp                               ˆp
+                −zα/2  Var     ≤    ≤     +zα/2  Var              .           1−ˆp            1−ˆp   1−p   1−ˆp            1−ˆp                                                                              ∥
+  A more restrictive form of the likelihood approximation, but one that, when applicable, gives
+better intervals, is based on the score statistic (Section 10.3.2). The random quantity
+
+                                                     ∂
+                                              ∂θ                    =        logL(θ|X)                             (10.4.1)                        Q(X|θ)              ∂2
+                                                  ∂θ2                              −Eθ     logL(θ|X)
+has a n(0,1) distribution asymptotically as n →∞. Thus, the set
+                               θ : |Q(x|θ)| ≤zα/2                                 (10.4.2)
+is an approximate 1−α confidence set. Notice that, applying results from Section 7.3.2, we have
+                                    Eθ  ∂θ∂ logL(θ|X)
+                     Eθ(Q(X|θ)) =           ∂2       = 0
+                                                  ∂θ2                              −Eθ     logL(θ|X)
+
+and
+                                         Varθ  ∂θ∂ logL(θ|X)
+                      Varθ(Q(X|θ)) =        ∂2       = 1                   (10.4.3)
+                                                  ∂θ2                              −Eθ     logL(θ|X)
+and so this approximation exactly matches the first two moments of a n(0,1) random variable. Wilks
+(1938) proved that these intervals have an asymptotic optimality property; they are, asymptotically,
+the shortest in a certain class of intervals.
+   Of course, these intervals are not totally general and may not always be applicable to a function
+h(θ). We must be able to express (10.4.2) as a function of h(θ).
+
+=== PDF 434; PRINT 403 ===
+INTERVAL ESTIMATION                                                      403
+Example 10.4.2 (Binomial score interval)   Again using a binomial example,  if Y = ∑ni=1 Xi,
+where each Xi is an independent Bernoulli(p) random variable, we have
+
+                                                        ∂
+                                             ∂p                    =          logL(p|Y)                        Q(Y|p)                  ∂2
+                                                      ∂p2                               −Ep     logL(p|Y)
+                                                       y   n−y
+                                                 p                    =   − 1−p                                                      n
+                                                 p(1−p)
+                    =     ˆp−p      ,
+                                  p(1−p)/n
+where ˆp = y/n. Using (10.4.2), an approximate 1−α confidence interval is given by
+                                p:    ˆp−p                     .                          (10.4.4)                                          ≤zα/2                               p(1−p)/n
+This is the interval that results from inverting the score statistic (Example 10.3.6). To calculate this
+interval we need to solve a quadratic in p; see Example 10.4.6 for details.                   ∥
+    In Section 10.3 we derived another likelihood test based on the fact that −2logλ(X) has an
+asymptotic chi squared distribution. This suggests that if X1,...,Xn are iid f(x|θ) and ˆθ is the MLEof θ, then the set
+                           θ :         L(θ|x)        1,α                            (10.4.5)                             −2log  L(    ≤χ2                                                         ˆθ|x)
+is an approximate 1 −α confidence interval. This is indeed the case, and gives us yet another ap-proximate likelihood interval.
+   Of course, (10.4.5) is just the highest likelihood region (9.2.7) that we originally derived by
+inverting the LRT statistic. However, we now have an automatic way of attaching an approximate
+confidence level.
+Example 10.4.3 (Binomial LRT interval)   For Y = ∑ni=1 Xi, where each Xi is an independent
+Bernoulli(p) random variable, we have the approximate 1−α confidence set
+                         p :        py(1−p)n−y        1,α    .                          −2log           ≤χ2                                          ˆpy(1−ˆp)n−y
+This confidence set, along with the intervals based on the score and Wald tests, are compared in
+Example 10.4.7.                                                                 ∥
+
+10.4.2  Other Large-Sample Intervals
+
+Most approximate confidence intervals are based on either finding approximate (or asymptotic)
+pivots or inverting approximate level α test statistics. If we have any statistics W and V and a
+parameter θ such that, as n →∞,
+                    W −θ                            V   →n(0,1),
+then we can form the approximate confidence interval for θ given by
+                 W −zα/2V ≤θ ≤W +zα/2V,
+which is essentially a Wald-type interval. Direct application of the Central Limit Theorem, together
+with Slutsky’s Theorem, will usually give an approximate confidence interval. (Note that the ap-
+proximate maximum likelihood intervals of the previous section all reflect this strategy.)
+
+=== PDF 435; PRINT 404 ===
+404                                       ASYMPTOTIC EVALUATIONS
+Example 10.4.4 (Approximate interval)   If X1,...,Xn are iid with mean µ and variance σ2 then,
+from the Central Limit Theorem,
+                           X −µ                          σ/√n →n(0,1).
+Moreover, from Slutsky’s Theorem, if S2 →σ2 in probability then
+                           X −µ                            S/√n →n(0,1),
+giving the approximate 1−α confidence interval
+                                                                                            (10.4.6)                          ¯x−zα/2s/√n ≤µ ≤¯x+zα/2s/√n.
+To see how good the approximation is, we present a small simulation to calculate the exact coverage
+probability of the approximate interval, for a variety of pdfs. Note that, since the interval is pivotal,
+the coverage probability does not depend on the parameter value – it is constant and hence is the
+confidence coefficient. We see from Table 10.4.7 that even for a sample size as small as n = 15,
+the pivotal confidence interval does a reasonable job, but clearly does not achieve the nominal
+confidence coefficient. This is, no doubt, do to the optimism of using the zα/2 cutoff, which does
+not account for the variability in S. As the sample size increases the approximation will improve.
+
+
+  Table 10.4.7 Confidence coefficient for the pivotal interval (10.4.6), n = 15, based on 10,000 simulations
+                                                 Underlying pdf
+
+                Nominal level   Normal      t5     Logistic   Double Exponential
+            1−α = .90     0.879    0.864    0.880          0.876
+            1−α = .95     0.931    0.924    0.931          0.933
+                                                                              ∥
+    In the above example, we could get an approximate confidence interval without specifying the
+form of the sampling distribution. We should be able to do better when we do specify the form.
+Example 10.4.5 (Approximate Poisson interval)   If X1,...,Xn are iid Poisson(λ), then we know
+that
+                           X −λ                            S/√n →n(0,1).
+However, this is true even if we did not sample from a Poisson population. Using the Poisson
+assumption, we know that Var(X) = λ = EX and X is a good estimator (Chapter 7) of λ. Thus,
+using the Poisson assumption, we could also get an approximate confidence interval from the fact
+that
+                           X −λ                              X/n →n(0,1),
+which is the interval that results from inverting the Wald test. We can use the Poisson assumption in
+another way. Since Var(X) = λ, it follows that
+                           X −λ                               λ/n →n(0,1),
+
+resulting in the interval corresponding to the score test, which is also the likelihood interval of
+(10.4.2) and is best according to Wilks (1938) (see Exercise 10.40).                        ∥
+
+=== PDF 436; PRINT 405 ===
+INTERVAL ESTIMATION                                                      405
+   Generally speaking, a reasonable rule of thumb is to use as few estimates and as many parame-
+ters as possible in an approximation. This is sensible for a very simple reason. Parameters are fixed
+and do not introduce any added variability into an approximation while each statistic brings more
+variability along with it.
+Example 10.4.6 (More on the binomial score interval)  For a random sample X1, ..., Xn from a
+Bernoulli(p) population, we saw in Example 10.3.5 that, as n →∞, both
+                           ˆp−p      and     ˆp−p
+                               ˆp(1−ˆp)/n         p(1−p)/n
+converge in distribution to a standard normal random variable, where ˆp = ∑xi/n. In Example 10.3.5
+we saw that we could base tests on either approximation, with the former being the Wald test and the
+latter the score test. We also know that we can use either approximation to form a confidence interval
+for p. However, the score test approximation (with fewer statistics and more parameter values) will
+give the interval (10.4.4) from Example 10.4.2, which is the asymptotically optimal one. That is,
+
+                                p:    ˆp−p                     ,                                          ≤zα/2                               p(1−p)/n
+is the better approximate interval.
+     It is not immediately clear what this interval looks like, but we can explicitly solve for the set
+of values. If we square both sides and rearrange terms, we are looking for the set of values of p that
+satisfy
+                                p: (           α/2 p(1−p)    .                                ˆp−p)2 ≤z2     n
+This inequality is a quadratic in p, which can be put in a more familiar form through some further
+rearrangement:
+                                     z2α/2                z2α/2                       p: 1+       p2    2 ˆp+    p+ ˆp2          .                             n    −        n      ≤0
+
+Since the coefficient of p2 in the quadratic is positive, the quadratic opens upward and, thus, the
+inequality is satisfied if p lies between the two roots of the quadratic. These two roots are
+
+                   2 ˆp+z2α/2/n±   (2 ˆp+z2α/2/n)2 −4 ˆp2(1+z2α/2/n)                                                                                            (10.4.7)
+                                2(1+z2α/2/n)
+
+and the roots define the endpoints of the confidence interval for p. Although the expressions for
+the roots are somewhat nasty, the interval is, in fact, a very good interval for p. The interval can be
+further improved, however, by using a continuity correction (Example 3.3.2). To do this, we would
+solve two separate quadratics (see Exercise 10.45),
+                       ˆp+ 2n1 −p          zα/2,         (larger root = upper interval endpoint)                      ≤                    p(1−p)/n
+                                  2n                   ˆp−1 −p          zα/2.       (smaller root = lower interval endpoint)                      ≤                    p(1−p)/n
+
+At the endpoints there are obvious modifications. If ∑xi = 0, then the lower interval endpoint is
+taken to be 0 while, if ∑xi = n, then the upper interval endpoint is taken to be 1. See Blyth (1986)
+for some good approximations.                                                     ∥
+
+=== PDF 437; PRINT 406 ===
+406                                       ASYMPTOTIC EVALUATIONS
+  We now have seen three intervals for a binomial proportion, those based on the Wald and score
+statistics, and the LRT interval of Example 10.4.3. Typically the Wald interval is least preferred, but
+it would be interesting to compare all three.
+Example 10.4.7 (Comparison of binomial intervals)   For Y = ∑ni=1 Xi, X1, ..., Xn iid from a
+Bernoulli(p) population, the Wald interval is
+
+                                  ˆp(1−ˆp)                  ˆp(1−ˆp) ,                  (10.4.8)                      ˆp−zα/2     n  ≤p ≤ˆp+zα/2     n
+
+the score interval (with continuity correction) is described in Example 10.4.6, and the approximate
+LRT is given in Example 10.4.3. To compare them, we look at an example.
+
+              x
+
+         12
+
+
+         10
+
+
+         8
+
+
+         6
+
+
+         4
+
+
+         2
+
+
+                                                                                        p
+           0                .2                .4                .6                .8            1
+
+Figure 10.4.1 Intervals for a binomial proportion from the LRT procedure (solid lines), the score procedure
+(long dashes), and the modified Wald procedure (short dashes)
+
+   For n = 12, Figure 10.4.1 shows the realized intervals for the three procedures. The LRT pro-
+cedure produces the shortest intervals, and the score interval the longest. For this picture we have
+made two modifications to the Wald interval. First, at y = 0 the unmodified interval is (0,0), so we
+have changed the upper endpoint to 1−(α/2)1/n, with a similar modification to the lower intervalat y = n. Also, there are some instances where the endpoints of the Wald interval go outside [0,1] –
+these have been truncated.
+   The longer length of the score interval is reflected in its higher coverage probability. Indeed,
+the score interval is the only one (of the three) that maintains a coverage probability above .9, and
+hence is the only interval with confidence coefficient .9. The LRT and Wald intervals appear to be
+too short, and their coverage probabilities are too far below .9 for them to be acceptable. Of course,
+their performance will improve with increasing n. For other alternatives, see Miscellanea 9.5.2.
+   So it appears that the continuity corrected score interval, although longer, is the interval of choice
+for small n (but see Exercise 10.44 for another option). The LRT and Wald procedures produce
+intervals that are just too short for small n, with the Wald interval also suffering from endpoint
+maladies.                                                                       ∥
+   As we did in Section 10.3.2, we briefly look at intervals based on robust estimators.
+Example 10.4.8 (Intervals based on the Huber estimator)   In a development similar to Exam-
+ple 10.3.7, we can form asymptotic confidence intervals based on the Huber M-estimator. If
+
+=== PDF 438; PRINT 407 ===
+INTERVAL ESTIMATION                                                      407
+
+           Cov. Prob.
+
+
+           1
+
+
+
+
+
+           0.9
+
+
+
+
+
+           0.8
+
+
+
+
+           0.7                                                                          p
+             0               .2               .4               .6               .8           1
+
+Figure 10.4.2 Coverage probabilities for nominal .9 confidence procedures for a binomial proportion; the LRT
+procedure (thin solid lines, shaded grey), the score procedure (dashes), and the modified Wald procedure (thick
+solid lines)
+
+X1,X2,...,Xn are iid from a pdf f(x −θ), where  f  is symmetric around zero, we have the ap-proximate interval for θ
+                                              Var( ˆθM)
+                                         ˆθM ±zα/2     n      ,
+where Var( ˆθM) is given by (10.3.7). Now we replace Var( ˆθM) by the estimates (10.3.8) and (10.3.9)
+to get Wald-type intervals. To evaluate these intervals, we produce a table similar to Table 10.4.7.
+It is interesting that, with the exception of the double exponential distribution, the intervals in Table
+10.4.8 fare worse than those in Table 10.4.7, which are based on the usual mean and variance. We
+do not have a good explanation for this, except to once again blame it on the over-optimism of the
+zα/2 cutoff.                                                                     ∥
+
+Table 10.4.8 Confidence coefficients for nominal 1−α = .9 intervals based on Huber’s M-estimator, n = 15,based on 10,000 simulations
+                                                      Underlying pdf
+
+                 Nominal level       Normal      t5     Logistic   Double Exponential
+              variance estimate (10.3.8)    .844    .856     .855            .889
+              variance estimate (10.3.9)    .837    .867     .855            .910
+
+   Thus far, all of the approximations mentioned have been based on letting n →∞. However,there are other situations where we might use approximate intervals. In Example 9.2.17, we needed
+approximations as the parameter went to infinity. In another situation, in Example 2.3.13, we saw
+that for certain parameter configurations, the Poisson distribution can be used to approximate the
+binomial. This suggests that, if such a parameter configuration is believed to be likely, then an
+approximate binomial interval can be based on the Poisson distribution. In that spirit we illustrate
+the following somewhat unusual case.
+
+=== PDF 439; PRINT 408 ===
+408                                       ASYMPTOTIC EVALUATIONS
+Example 10.4.9 (Negative binomial interval)   Let X1,...,Xn be iid negative binomial(r, p). We
+assume that r is known and we are interested in a confidence interval for p. Using the fact that
+Y = ∑Xi ∼negative binomial(nr, p), we can form intervals in a number of ways. Using a variationof the binomial–F distribution relationship, we can form an exact confidence interval (Exercise
+9.22) or we can use a normal approximation (Exercise 10.41). There is another approximation,
+which does not rely on large n, but rather small p.
+    In Exercise 2.38 it is established that, as p →0,
+                                                    2nr   in distribution.                           2pY →χ2
+So, for small p, 2pY is a pivot! Using this fact, we can construct a pivotal 1−α confidence interval,valid for small p:
+                              χ2            χ22nr,α/2                               p:  2nr,1−α/2                           .                                   2y  ≤p ≤   2y
+Details are in Exercise 10.47.                                                       ∥
+
+10.5  Exercises
+10.1 A random sample X1,...,Xn is drawn from a population with pdf
+
+                                 1
+                             f(x|θ) = 2(1+θx),  −1 < x < 1,  −1 < θ < 1.
+     Find a consistent estimator of θ and show that it is consistent.
+10.2 Prove Theorem 10.1.5.
+10.3 A random sample X1,...,Xn is drawn from a population that is n(θ,θ), where θ > 0.
+                                               = 0, where W =       (a) Show that the MLE of θ, ˆθ , is a root of the quadratic equation θ2 + θ −W        (1/n)∑ni=1 X2i , and determine which root equals the MLE.
+      (b) Find the approximate variance of ˆθ using the techniques of Section 10.1.3.
+10.4 A variation of the model in Exercise 7.19 is to let the random variables Y1,...,Yn satisfy
+
+                                               Yi = βXi +εi,    i = 1,...,n,
+     where X1,...,Xn are independent n(µ,τ2) random variables, and ε1,...,εn are iid n(0,σ2), and the
+     Xs and εs are independent. Exact variance calculations become quite difficult, so we might resort to
+      approximations. In terms of µ,τ2, and σ2, find approximate means and variances for
+       (a) ∑XiYi/∑X2i .
+      (b) ∑Yi/∑Xi.
+       (c) ∑(Yi/Xi)/n.
+10.5 For the situation of Example 10.1.8 show that for Tn = √n/¯Xn:
+       (a) Var(Tn) = ∞.
+      (b)  If µ̸ = 0 and we delete the interval (−δ,δ) from the sample space, then Var(Tn) < ∞.
+       (c)  If µ̸ = 0, the probability content of the interval (−δ,δ) approaches 0.
+10.6 For the situation of Example 10.1.10 show that
+       (a) EYn = 0 and Var(Yn) = pn +(1−pn)σ2n ;
+      (b) P(Yn < a) →P(Z < a), and hence Yn →n(0,1) (recall that pn →1, σn →∞and (1−pn)σ2n →∞).
+10.7 In the proof of Theorem 10.1.12 it was shown that the MLE ˆθ is an asymptotically efficient estimator of
+      θ. Show that if τ(θ) is a continuous function of θ, then τ(ˆθ) is a consistent and asymptotically efficient
+      estimator of τ(θ).
+
+=== PDF 440; PRINT 409 ===
+ EXERCISES                                                                  409
+
+ 10.8 Finish the proof of Theorem 10.1.6 by establishing the two convergence results in (10.1.6).
+        (a) Show that
+                                    1               1
+                                                                                                          ,                                    √n                                     √nl′(θ0|X) =                                                    n ∑i Wi
+
+                                   d
+         where Wi =  dθ f(Xi|θ) has mean 0 and variance I(θ0). Now use the CLT to establish the convergence                               f(Xi|θ)
+           to n[0,I(θ0)].
+       (b) Show that
+                                                                               d2                                          1
+                          =                                                                  dθ 2 f(Xi|θ) ,                            Wi2                     ∑                                          n                     −1nl′′(θ0|X)                                                                                                       i                                −1n ∑i                                                                   f(Xi|θ)
+         and that the mean of the first piece is I(θ0) and the mean of the second piece is 0. Apply the WLLN.
+ 10.9 Suppose that X1,...,Xn are iid Poisson(λ). Find the best unbiased estimator of
+        (a) e−λ , the probability that X = 0.
+       (b) λe−λ , the probability that X = 1.
+        (c) For the best unbiased estimators of parts (a) and (b), calculate the asymptotic relative efficiency with
+           respect to the MLE. Which estimators do you prefer? Why?
+       (d) A preliminary test of a possible carcinogenic compound can be performed by measuring the mutation
+            rate of microorganisms exposed to the compound. An experimenter places the compound in 15 petri
+           dishes and records the following number of mutant colonies:
+
+                                     10, 7, 8, 13, 8, 9, 5, 7, 6, 8, 3, 6, 6, 3, 5.
+          Estimate e−λ , the probability that no mutant colonies emerge, and λe−λ , the probability that one
+          mutant colony will emerge. Calculate both the best unbiased estimator and the MLE.
+10.10 Continue the calculations of Example 10.1.14, where the properties of the estimator of p(1 −p) we      looked at.
+        (a) Show that, if p̸ = 1/2, the MLE ˆp(1−ˆp) is asymptotically efficient.
+       (b)  If p = 1/2, use Theorem 5.5.26 to find a limiting distribution of ˆp(1−ˆp).
+        (c) Calculate the exact expression for Var[ ˆp(1−ˆp)]. Is the reason for the failure of the approximations         any clearer?
+10.11 This problem will look at some details and extensions of the calculation in Example 10.1.18.
+        (a) Reproduce Figure 10.1.1, calculating the ARE for known β. (You can follow the calculations in
+         Example 12.6.7, or do your own programming.)
+       (b) Verify that the ARE( ¯X, ˆµ) comparison is the same whether β is known or unknown.
+        (c) For estimation of β with known µ, show that the MOM and ML estimates are the same. (It may be
+            easier to use the (α,β) parameterization.)
+       (d) For estimation of β with unknown µ, the MOM and ML estimates are not the same. Compare these
+           estimates using asymptotic relative efficiency, and produce a figure like Figure 10.1.1, where the
+            different curves correspond to different values of µ.
+10.12 Verify that the superefficient estimator dn of Miscellanea 10.6.1 is asymptotically normal with variance
+      v(θ) = 1 when θ̸ = 0 and v(θ) = a2 when θ = 0. (See Lehmann and Casella 1998, Section 6.2, for more      on superefficient estimators.)
+10.13 Referring to Example 10.1.19:
+        (a) Verify that the bootstrap mean and variance of the sample 2,4,9,12 are 6.75 and 3.94, respectively.
+       (b) Verify 6.75 is the mean of the original sample.
+        (c) Verify that, when dividing by n instead of n −1, the bootstrap variance of the mean, and the usual           estimate of the variance of the mean are the same.
+       (d) Show how to calculate the bootstrap mean and standard error using the 4+4−14  = 35 distinct possible
+           resamples.
+        (e) Establish parts (b) and (c) for a general sample X1,X2,...,Xn.
+
+=== PDF 441; PRINT 410 ===
+ 410                                       ASYMPTOTIC EVALUATIONS
+
+10.14 In each of the following situations we will look at the parametric and nonparametric bootstrap. Compare
+       the estimates, and discuss advantages and disadvantages of the methods.
+        (a) Referring to Example 10.1.22, estimate the variance of S2 using a nonparametric bootstrap.
+       (b) In Example 5.6.6 we essentially did a parametric bootstrap of the distribution of S2 from a Poisson
+          sample. Use the nonparametric bootstrap to provide and alternate histogram of the distribution.
+        (c) In Example 10.1.18 we looked at the problem of estimating a gamma mean. Suppose that we have a
+         random sample
+                                         0.28,0.98,1.36,1.38,2.4,7.42
+         from a gamma(α,β) distribution. Estimate the mean and variance of the distribution using maximum
+           likelihood and bootstrapping.
+10.15  (a) Show that Var∗B(ˆθ) of (10.1.11) converges to Var∗(ˆθ) of (10.1.10) as B →∞.
+       (b) For fixed B and i = 1,2,..., calculate the bootstrap variance Var∗Bi(ˆθ). Use the Law of Large Numbers
+           to show that (1/m)∑mi=1 Var∗Bi(ˆθ) →Var∗(ˆθ) as m →∞.
+10.16 For the situation of Example 10.1.21, if we observed that  ˆp = 1/2, we might use a variance estimate
+      from Theorem 5.5.26. Show that this variance estimate would be equal to 2[Var( ˆp)]2.
+        (a)  If we observe ˆp = 11/24, verify that this variance estimate is .00007.
+       (b) Using simulation, calculate the “exact variance of ˆp(1−ˆp) when n = 24 and p = 11/24. Verify that                it is equal to .00529.
+        (c) Why do you think the Delta Method is so bad in this case? Might the second-order Delta Method do
+         any better? What about the bootstrap estimate?
+10.17 Efron (1982) analyzes data on law school admission, with the object being to examine the correlation
+      between the LSAT (Law School Admission Test) and the first year GPA (Grade Point Average). For each
+       of 15 law schools, we have the pair of data points (average LSAT, average GPA).
+
+                     (576,3.39)   (635,3.30)   (5.58,2.81)   (578,3.03)   (666,3.44)
+                     (580.3.07)   (555,3.00)   (661,3.43)   (651,3.36)   (605,3.13)
+                     (653,3.12)   (575,2.74)   (545,2.76)   (572,2.88)   (594,2.96)
+
+        (a) Calculate the correlation coefficient between LSAT and GPA.
+       (b) Use the nonparametric bootstrap to estimate the standard deviation of the correlation coefficient. Use
+       B = 1000 resamples, and also plot them in a histogram.
+        (c) Use the parametric bootstrap to estimate the standard deviation of the correlation coefficient. Assume
+            that (LSAT, GRE) has a bivariate normal distribution, and estimate the five parameters. Then generate
+         1,000 samples of 15 pairs from this bivariate normal distribution.
+       (d)  If (X,Y) are bivariate normal with correlation coefficient ρ and sample correlation r then the Delta
+         Method can be used to show that
+                                  √n(r                               −ρ) →n(0,(1−ρ2)2).
+         Use this fact to estimate the standard deviation of r. How does it compare to the bootstrap estimates?
+        Draw an approximate pdf of r.
+        (e) Fishers z-transformation is a variance stabilizing transformation for the correlation coefficient (see
+          Exercise 11.4). If (X,Y) are bivariate normal with correlation coefficient ρ and sample correlation r
+          then
+                                  1     1+r      1+ρ
+                                           log       −log                                  2                                1−r      1−ρ
+             is approximately normal. Use this fact to draw an approximate pdf of r.
+           (Establishing the normality result in part (d) involves some tedious matrix calculations; see Lehmann
+         and Casella 1998, Example 6.5). The z-transformation of part (e) yields faster convergence to nor-
+          mality that the Delta Method of part (d). Diaconis and Holmes 1994 do an exhaustive bootstrap for
+            this problem, enumerating all 77,558,760 correlation coefficients.)
+
+=== PDF 442; PRINT 411 ===
+ EXERCISES                                                                  411
+10.18 For the situation of Exercise 10.2.1, that is, if X1,X2,...,Xn are iid where Xi ∼n(θ,σ2) with probability
+      1 −δ and Xi ∼f(x) with probability δ, where f(x) is any density with mean µ and variance τ2, show       that
+                                                   τ2                             Var(¯X) = (1−δ)σ2n +δ n + δ(1−δ)(θn  −µ)2 .
+      Also deduce that contamination with a Cauchy pdf will always result in an infinite variance. (Hint: Write
+        this mixture model as a hierarchical model. Let Y = 0 with probability 1−δ and Y = 1 with probability
+      δ. Then Var(Xi) = E[Var(Xi)|Y]+Var(E[Xi|Y]).)
+10.19 Another way in which underlying assumptions can be violated is if there is correlation in the sampling,
+      which can seriously effect the properties of the sample mean. Suppose we introduce correlation in the
+       case discussed in Exercise 10.2.1, that is, we observe X1,X2,...,Xn where Xi ∼n(θ,σ2), but the Xis are      no longer independent.
+        (a) For the equicorrelated case, that is, Corr(Xi,Xj) = ρ for  i̸ = j, show that
+                                         σ2                                         Var(¯X) =  + n−1 ρσ2,
+                                              n     n
+          so Var(¯X)̸ →0 as n →∞.
+       (b)  If the Xis are observed through time (or distance), it is sometimes assumed that the correlation de-
+           creases with time (or distance), with one specific model being Corr(Xi,Xj) = ρ|i−j|. Show that in
+            this case
+                                   σ2   2σ2  ρ                                  Var(¯X) =  +        n+ 1−ρn    ,
+                                       n     n2 1−ρ    1−ρ
+          so Var(¯X) →0 as n →∞. (See Miscellanea 5.8.2 for another effect of correlation.)
+        (c) The correlation structure in part (b) arises in an autoregressive AR(1) model, where we assume
+            that Xi+1 = ρXi + δi, with δi iid n(0,1). If |ρ| < 1, and we define σ2 = 1/(1 −ρ2), show that          Corr(X1,Xi) = ρi−1.
+10.20 Referring to Definition 10.2.2 about breakdown values, show that
+        (a)  if Tn = ¯Xn, the sample mean, show that b = 0.
+       (b)  if Tn = Mn, the sample median, show that b = .5.
+       An estimator that “splits the difference” between the mean and the median in terms of sensitivity
+             is the α-trimmed mean, 0 < α < 12, defined as follows. ¯Xαn , the α-trimmed mean, is computed by
+           deleting the αn smallest observations and the αn largest observations, and taking the arithmetic
+        mean of the remaining observations.
+        (c)  if Tn = ¯Xαn , the α-trimmed mean of the sample, 0 < α < 12, show that 0 < b < 12.
+10.21 The breakdown performance of the mean and the median continues with their scale estimate counterparts.
+      For a sample X1,X2,...,Xn:
+        (a) Show that the breakdown value of the sample variance S2 = ∑(Xi −¯X)2/(n−1) is 0.
+       (b) A robust alternative is the median absolute deviation, or MAD, the median of |X1 −m|,|X2 −
+           m|,...,|Xn −m|, where m is the sample median. Show that this estimator has a breakdown value           of 50%.
+10.22 This exercise will look at some of the details of Example 10.2.3.
+        (a) Verify that, if n is odd, then
+
+                                                   ∑iYi                                                                                                                                    .                 P √n(Mn                                         −npn  ≥(n+1)/2−npn                      −µ) ≤a = P                                          npn(1−pn)     npn(1−pn)
+       (b) Verify that pn →p = F(µ) = 1/2, and
+                          (n+1)/2−npn        =                                    →−2aF′(µ)  −2af(µ).                              npn(1−pn)
+           (Hint: Establish that (n+1)/2−npn is the limit form of a derivative.)                            √n
+
+=== PDF 443; PRINT 412 ===
+ 412                                       ASYMPTOTIC EVALUATIONS
+
+        (c) Explain how to go from the statement that
+                         P √n(Mn                             −µ) ≤a →P(Z ≥−2af(µ)),                                                             to the conclusion that √n(Mn       is asymptotically normal with mean 0 and variance 1/[2 f(µ)]2.                         −µ)
+      (Note that the CLT would only directly apply if pn did not depend on n. As it does, more work needs to
+      be done to rigorously conclude limiting normality. When the work is done, the result is as expected.)
+10.23 In this exercise, we will further explore the ARE of the median to the mean, ARE(Mn, ¯X).
+        (a) Verify the three AREs given in Example 10.2.4.
+       (b) Show that ARE(Mn, ¯X) is unaffected by scale changes. That is, it doesn’t matter whether the under-
+           lying pdf is f(x) or (1/σ) f(x/σ).
+        (c) Calculate ARE(Mn, ¯X) when the underlying distribution is Student’s t with ν degrees of freedom,
+            for ν = 3,5,10,25,50,∞. What can you conclude about the ARE and the tails of the distribution?
+       (d) Calculate ARE(Mn, ¯X) when the underlying pdf is the Tukey model
+
+                                                   with probability                         X                      1−δ,                     ∼  n(0,σ2)  with probability δ.                                  n(0,1)
+           Calculate the ARE for a range of δ and σ. What can you conclude about the relative performance of
+           the mean and the median?
+10.24 Assuming that θ0 satisfies Eθ0ψ(X −θ0) = 0, show that (10.2.4) and (10.2.5) imply (10.2.6).
+10.25  If f(x) is a pdf symmetric around 0, and ρ is a symmetric function, show that            = 0,      where ψ = ρ′. Show that this then implies that if X1,X2,...,Xn are iid fromψ(x−θ)f(x−θ)dx                                                                                   f(x −θ) and ˆθM is the
+      minimizer of ∑i ρ(xi −θ), then ˆθM is asymptotically normal with mean equal to the true value of θ.
+10.26 Here we look at some details in the calculations in Example 10.2.6.
+        (a) Verify the expressions for Eθψ′(X −θ) and Eθ[ψ(X −θ)]2, and hence verify the formula for the           variance of ˆθM.
+       (b) When calculating the expected value of ψ′, we noted that ψ was not differentiable, but we could
+         work with the differentiable portion. Another approach is to realize that the expected value of ψ is
+            differentiable, and that in (10.2.5) we could write
+                             1  n               d
+                                                                                                                     .               ∑ ψ′(xi −θ0) → dθ0 Eθψ(X −θ0) θ0=θ                              n i=1        Show that this is the same limit as in (10.2.5).                                                                                         
+10.27 For the situation of Example 10.6.2:
+        (a) Verify that IF(¯X,x) = x−µ.
+       (b) For the median we have T(F) = m if P(X ≤m) = 1/2, or m = F−1(1/2). If X ∼Fδ , show that
+                                                                                            if x > a,
+                           P(X ≤a) =                     otherwise,  ,                                  (1−δ)F(a)(1−δ)F(a)+δ
+         and thus
+                                F−1     1         if x > F−1     1       ,
+                           T(Fδ ) =         2(1−δ)                 2(1−δ)                                                                                                                                                                            otherwise.                                F−1                          1−δ                                          1/2−δ         (c) Show that          
+                             1          1                     1                            F−1                             δ            −F−1  2  → 2 f(m),                                 2(1−δ)     1 
+         and complete the argument to calculate IF(M,x).
+           (Hint: Write aδ = F−1     1                                                                         , and argue that the limit is a′δ |δ=0. This latter quantity can be                                    2(1−δ)           calculated using implicitdifferentiation     and the fact that      = 2F(aδ ).)                                                (1−δ)−1
+
+=== PDF 444; PRINT 413 ===
+ EXERCISES                                                                  413
+10.28 Show that if ρ is defined by (10.2.2), then both ρ and ρ′ are continuous.
+10.29 From (10.2.9) we know that an M-estimator can never be more efficient than a maximum likelihood
+       estimator. However, we also know when it can be as efficient.
+        (a) Show that (10.2.9) is an equality if we choose ψ(x−θ) = cl′(θ|x) where l is the log likelihood and          c is a constant.
+       (b) For each of the following distributions, verify that the corresponding ψ functions give asymptotically
+            efficient M-estimators.
+              (i) Normal: f(x) = e−x2/2/(√2π), ψ(x) = x
+             (ii) Logistic: f(x) = e−x/(1+e−x)2, ψ(x) = tanh(x) where tanh(x) is the hyperbolic tangent
+             (iii) Cauchy: f(x) = [π(1+x2)]−1, ψ(x) = 2x/(1+x2)
+           (iv) Least Informative Distribution:
+                                               Ce−x2/2                                            f(x) =                     |x| ≤c,
+                                     > c,                                                     Ce−c|x|+c2/2   |x|
+             with ψ(x) = max{−c,min(c,x)}, and C and c are constants.
+      (See Huber 1981, Section 3.5, for more details.)
+10.30 For M-estimators there is a connection between the ψ function and the breakdown value. The details
+       are rather involved (Huber 1981, Section 3.2) but they can be summarized as follows: If ψ is a bounded
+       function, then the breakdown value of the associated M-estimator is given by
+
+                         η
+                   b∗=      where η = min                                     ,                    1+η           −ψ(−∞)ψ(∞) ,−ψ(∞)                                                 ψ(−∞)
+        (a) Calculate the breakdown value of the efficient M-estimators of Exercise 10.29. Which ones are both
+            efficient and robust?
+       (b) Calculate the breakdown value of these other M-estimators:
+              (i) The Huber estimator given by (10.2.1)
+             (ii) Tukey’s biweight: ψ(x) = x(c2 −x2) for |x| ≤c and 0 otherwise, where c is a constant
+             (iii) Andrew’s sine wave: ψ(x) = csin(x/c) for |x| ≤cπ and 0 otherwise,
+        (c) Evaluate the ARE of the estimators in part (b) with respect to the MLE when the underlying distri-
+           bution is (i) normal and (ii) double exponential.
+10.31 Binomial data gathered from more than one population are often presented in a contingency table. For
+       the case of two populations, the table might look like
+
+                                               Population
+                                          1    2        Total
+                                  Successes   S1    S2   S = S1 +S2
+                                      Failures     F1    F2   F = F1 +F2
+                                        Total     n1    n2   n = n1 +n2
+
+      where Population 1  is binomial(n1, p1), with S1 successes and F1  failures, and Population 2  is
+       binomial(n2, p2), with S2 successes and F2 failures. A hypothesis that is usually of interest is
+                           H0 : p1 = p2     versus    H1 : p1̸ = p2.
+        (a) Show that a test can be based on the statistic
+
+                                                          ( ˆp1                                 T =         −ˆp2)2        ,
+                                                      1    1                            +     (                                                               n1    n2                                                           ˆp(1−ˆp))
+         where ˆp1 = S1/n1, ˆp2 = S2/n2, and  ˆp = (S1 + S2)/(n1 + n2). Also, show that as n1,n2 →∞, the            distribution of T approaches χ21. (This is a special case of a test known as a chi squared test of
+          independence.)
+
+=== PDF 445; PRINT 414 ===
+414                                       ASYMPTOTIC EVALUATIONS
+
+      (b) Another way of measuring departure from H0 is by calculating an expected frequency table. This
+           table is constructed by conditioning on the marginal totals, and filling in the table according to
+        H0 : p1 = p2, that is,
+
+                                        Expected Frequencies
+                                        1          2           Total
+                                         n1S        n2S
+                             Successes                        S = S1 +S2
+                                          n1 +n2     n1 +n2
+
+                                     n1F       n2F
+                                 Failures                     F = F1 +F2
+                                          n1 +n2     n1 +n2
+                                   Total        n1          n2      n = n1 +n2
+
+         Using the expected frequency table, a statistic T ∗is computed by going through the cells of the tables
+         and computing
+                                        (observed−expected)2                        T ∗  = ∑                                                 expected
+                                                        n1S   2                 n2F   2
+                                                                           n1+n2                                         S1 −                                                   n1+n2            F2 −                    =                                                                                                                       .                                                      n1S     +···+       n2F
+                                                 n1+n2                   n1+n2
+        Show, algebraically, that T ∗= T and hence that T ∗is asymptotically chi squared.
+       (c) Another statistic that could be used to test equality of p1 and p2 is
+                                                                              ˆp1                               T ∗∗=         −ˆp2           .
+                                                                     ˆp1(1−ˆp1) + ˆp2(1−ˆp2)                                                                   n1           n2
+       Show that, under H0,T ∗∗is asymptotically n(0,1), and hence its square is asymptotically χ21. Fur-
+                    = T ∗.          thermore, show that (T ∗∗)2̸
+      (d) Under what circumstances is one statistic preferable to the other?
+       (e) A famous medical experiment was conducted by Joseph Lister in the late 1800s. Mortality associated
+         with surgery was quite high and Lister conjectured that the use of a disinfectant, carbolic acid, would
+          help. Over a period of several years Lister performed 75 amputations with and without using carbolic
+           acid. The data are
+                                                        Carbolic acid used?
+                                                      Yes  No
+                                           Patient lived?  Yes   34   19
+
+                                      No    6   16
+
+        Use these data to test whether the use of carbolic acid is associated with patient mortality.
+10.32 (a) Let (X1,...,Xn) ∼multinomial(m, p1,..., pn). Consider testing H0 : p1 = p2 versus H1 : p1̸ = p2. A            test that is often used, called McNemar’s Test, rejects H0 if
+                                           (X1 −X2)2 > χ21,α.                                         X1 +X2
+       Show that this test statistic has the form (as in Exercise 10.31)
+                                               n (observed−expected)2 ,                 ∑                                               1        expected
+
+        where the Xis are the observed cell frequencies and the expected cell frequencies are the MLEs of
+         mpi, under the assumption that p1 = p2.
+
+=== PDF 446; PRINT 415 ===
+ EXERCISES                                                                  415
+
+       (b) McNemar’s Test is often used in the following type of problem. Subjects are asked if they agree or
+           disagree with a statement. Then they read some information about the statement and are asked again
+               if they agree or disagree. The numbers of responses in each category are summarized in a 2×2 table            like this.
+                                                          Before
+                                                 Agree    Disagree
+                                     After  Agree       X3        X2
+                                          Disagree     X1        X4
+         The hypothesis H0 : p1 = p2 states that the proportion of people who change from agree to disagree
+             is the same as the proportion of people who change from disagree to agree. Another hypothesis
+            that might be tested is that the proportion of those who initially agree, then change, is the same
+           as the proportion of those who initially disagree, then change. Express this hypothesis in terms of
+           conditional probabilities and show that it is different from the above H0. (This hypothesis can be
+            tested with a χ2 test like those in Exercise 10.31.)
+10.33  Fill in the gap in Theorem 10.3.1. Use Theorem 10.1.12 and Slutsky’s Theorem (Theorem 5.5.17) to
+     show that (θ −ˆθ)/   −l′′(ˆθ|x) →n(0,1), and therefore −2logλ(X) →χ21.
+10.34 For testing H0 : p = p0 versus H1 : p̸ = p0, suppose we observe X1,...,Xn iid Bernoulli(p).
+        (a) Derive an expression for −2logλ(x), where λ(x) is the LRT statistic.
+       (b) As in Example 10.3.2, simulate the distribution of −2logλ(x) and compare it to the χ2 approxima-            tion.
+10.35 Let X1,...,Xn be a random sample from a n(µ,σ2) population.
+        (a)  If µ is unknown and σ2 is known, show that Z = √n(X             is a Wald statistic for testing                                                 −µ0)/σ        H0 : µ = µ0.
+       (b)  If σ2 is unknown and µ is known, find a Wald statistic for testing H0 : σ = σ0.
+10.36 Let X1,...,Xn be a random sample from a gamma(α,β) population. Assume α is known and β is un-
+      known. Consider testing H0 : β = β0.
+        (a) What is the MLE of β?
+       (b) Derive a Wald statistic for testing H0, using the MLE both in the numerator and denominator of the
+              statistic.
+        (c) Repeat part (b) but using the sample standard deviation in the standard error.
+10.37 Let X1,...,Xn be a random sample from a n(µ,σ2) population.
+        (a)  If µ is unknown and σ2 is known, show that Z = √n(X             is a score statistic for testing                                                 −µ0)/σ        H0 : µ = µ0.
+       (b)  If σ2 is unknown and µ is known, find a score statistic for testing H0 : σ = σ0.
+10.38 Let X1,...,Xn be a random sample from a gamma(α,β) population. Assume α is known and β is un-
+      known. Consider testing H0 : β = β0. Derive a score statistic for testing H0.
+10.39 Expand the comparisons made in Example 10.3.7.
+        (a) Another test based on Huber’s M-estimator would be one that used a variance estimate, based on
+            (10.3.6). Examine the performance of such a test statistic, and comment on its desirability (or lack
+            of) as an alternative to either (10.3.8) or (10.3.9).
+       (b) Another test based on Huber’s M-estimator would be one that used a variance from a bootstrap
+            calculation. Examine the performance of such a test statistic.
+        (c) A robust competitor to ˆθM is the median. Examine the performance of tests of a location parameter
+          based on the median.
+10.40 In Example 10.4.5 we saw that the Poisson assumption, together with the Central Limit Theorem, could
+      be used to form an approximate interval based on the fact that
+                                X −λ                                     λ/n →n(0,1).
+
+=== PDF 447; PRINT 416 ===
+ 416                                       ASYMPTOTIC EVALUATIONS
+
+     Show that this approximation is optimal according to Wilks (1938). That is, show that
+
+                                                          ∂
+                                                 ∂λ                                                logL(λ|X)         .                          X −λ =
+                              λ/n             ∂2
+                                                                                         2                                  −Eλ  ∂λ                                                    logL(λ|X)
+
+10.41 Let X1,...,Xn be iid negative binomial(r, p). We want to construct some approximate confidence intervals
+       for the negative binomial parameters.
+        (a) Calculate Wilks’ approximation (10.4.3) and show how to form confidence intervals with this ex-
+           pression.
+       (b) Find an approximate 1 −α confidence interval for the mean of the negative binomial distribution.        Show how to incorporate the continuity correction into your interval.
+        (c) The aphid data of Exercise 9.23 can also be modeled using the negative binomial distribution. Con-
+            struct an approximate 90% confidence interval for the aphid data using the results of part (b). Com-
+          pare the interval to the Poisson-based intervals of Exercise 9.23.
+10.42 Show that (10.4.5) is equivalent to the highest likelihood region (9.2.7) in that for any fixed α-level, they
+       will produce the same confidence set.
+10.43 In Example 10.4.7, two modifications were made to the Wald interval.
+        (a) At y = 0 the upper interval endpoint was changed to 1 −(α/2)1/n, and at y = n the lower interval          endpoint was changed to (α/2)1/n. Justify the choice of these endpoints. (Hint: Section 9.2.3.)
+       (b) The second modification was to truncate all intervals to be within [0,1]. Show that this change,
+           together with the one in part (a), results in an improvement over the original Wald interval.
+10.44 Agresti and Coull (1998) “strongly recommend” the score interval for a binomial parameter, but are
+      concerned that a formula such as (10.4.7) might be a bit formidable for an elementary course in statistics.
+     To produce a reasonable binomial interval with an easier formula, they suggest the following modification
+       to the Wald interval: Add two successes and two failures, then use the original Wald formula (10.4.8).
+      That is, use ˆp = (y+2)/(n+4) instead of ˆp = y/n. Using both length and coverage probability, compare
+        this interval to the binomial score interval. Do you agree that it is a reasonable alternative to the score
+       interval?
+      (Samuels and Lu 1992 suggest another modification to the Wald interval based on sample sizes.)
+10.45 Solve for the endpoints of the approximate binomial confidence interval, with continuity correction, given
+       in Example 10.4.6. Show that this interval is wider than the corresponding interval without continuity
+       correction, and that the continuity corrected interval has a uniformly higher coverage probability. (In fact,
+       the coverage probability of the uncorrected interval does not maintain 1−α; it dips below this level for
+     some parameter values. The corrected interval does maintain a coverage probability greater than 1 −α       for all parameter values.)
+10.46 Expand the comparisons made in Example 10.4.8.
+        (a) Produce a table similar to Table 10.4.8 that examines the robustness of intervals for a location pa-
+          rameter based on the median. (Intervals based on the mean are done in Table 10.4.7.)
+       (b) Another interval based on Huber’s M-estimator would be one that used a variance from a bootstrap
+            calculation. Examine the robustness of such an interval.
+10.47 Let X1,...,Xn be iid negative binomial(r, p).
+        (a) Complete the details of Example 10.4.9, that is, show that for small p the interval
+                                     χ2             χ22nr,α/2                                       p:  2nr,1−α/2                           ,                                2∑x  ≤p ≤  2∑x
+             is an approximate 1−α confidence interval.
+       (b) Show how to choose the endpoints in order to obtain a minimum length 1−α interval.
+10.48 For the case of Fieller’s confidence set (see Miscellanea 9.5.3), that  is, given a random sample
+       (X1,Y1),...,(Xn,Yn) from a bivariate normal distribution with parameters (µX,µY ,σ2X,σ2Y ,ρ), find an
+      approximate confidence interval for θ = µY /µX. Use the approximate moment calculations in Example
+       5.5.27 and apply the Central Limit Theorem.
+
+=== PDF 448; PRINT 417 ===
+MISCELLANEA                                                              417
+10.6  Miscellanea
+
+10.6.1 Superefficiency
+      Although the Cram´er–Rao Lower Bound of Theorem 7.3.9 is a bonafide lower bound on
+       the variance, the lower bound of Definition 10.1.11 and Theorem 10.1.6, which refers to the
+       asymptotic variance, can be violated. An example of an estimator that beats the bound of
+       Definition 10.1.11 was given by Hodges (see LeCam 1953).
+            If X1,...,Xn are iid n(θ,1), the Cram´er–Rao Lower Bound for unbiased estimators of θ
+         is v(θ) = 1/n. The estimator
+
+                                                         ¯X     if                                dn =                 |¯X| ≥1/n1/4,                                   a¯X    if  < 1/n1/4,                                                                           |¯X|
+         satisfies
+                        √n(dn                  in distribution,                              −θ)→n[0,v(θ)]
+      where v(θ) = 1 when θ̸ = 0 and v(θ) = a2 when θ = 0. If a < 1, inequality (7.2.5) is       therefore violated at θ = 0.
+        Although estimators such as dn, called superefficient, can be constructed in some general-
+          ity, they are more of a theoretical oddity than a practical concern. This is because the values
+       of θ for which the variance goes below the bound is a set of zero probability, that is, a set
+       of Lebesgue measure zero. However, the existence of superefficient estimators serves to re-
+      mind us to always be careful in our examination of assumptions for establishing properties
+       of estimators (and to be careful in general!).
+10.6.2 Suitable Regularity Conditions
+      The phrase “under suitable regularity conditions” is a somewhat abused phrase, as with
+      enough assumptions we can probably prove whatever we want. However, “regularity con-
+        ditions” are typically very technical, rather boring, and usually satisfied in most reasonable
+       problems. But they are a necessary evil, so we should deal with them. To be complete, we
+       present a set of regularity conditions that suffice to rigorously establish Theorems 10.1.6
+      and 10.1.12. These are not the most general conditions, but are sufficiently general for many
+       applications (with a notable exception being if the MLE is on the boundary of the parameter
+       space). Be forewarned, the following is not for the fainthearted, and can be skipped without
+        sacrificing much in the way of understanding.
+        These conditions mainly relate to differentiability of the density, and the ability to inter-
+      change differentiation and integration (as in the conditions for Theorem 7.3.9). For more
+        details and generality see Stuart, Ord, and Arnold (1999, Chapter 18), Ferguson (1996, Part
+        4), or Lehmann and Casella (1998, Section 6.3).
+        The following four assumptions are sufficient to prove Theorem 10.1.6, consistency of
+     MLEs:
+      (A1) We observe X1,X2,...,Xn, where Xi ∼f(x|θ) are iid.
+      (A2) The densities f(x|θ) of the observations are distinct, that is, if θ̸ = θ ′ then f(x|θ)̸ =
+             f(x|θ ′).
+      (A3) The densities f(x|θ) have common support, and f(x|θ) is differentiable in θ.
+      (A4) The parameter space Ωcontains an open set ω of which the true parameter value θ0 is
+           an interior point.
+        The next two assumptions, together with (A1)–(A4) are sufficient to prove Theorem
+       10.1.12, asymptotic normality and efficiency of MLEs.
+      (A5) For every x ∈X , the density f(x|θ) is three times differentiable with respect to θ, the
+              third derivative is continuous in θ, and   f(x|θ)dx can be differentiated three times            under the integral sign.
+
+=== PDF 449; PRINT 418 ===
+418                                       ASYMPTOTIC EVALUATIONS
+      (A6) For any θ0 ∈Ωthere exists a positive number c and a function M(x) (both of which         may depend on θ0) such that
+
+                  ∂3
+                        log f(x|θ) ≤M(x)   for all x ∈X ,  θ0 −c < θ < θ0 +c               ∂θ 3
+
+            with Eθ0[M(X)] < ∞.
+10.6.3 More on the Bootstrap
+      Theory
+      The theory behind the bootstrap is quite sophisticated, being based on Edgeworth expan-
+        sions. These are expansions (in the spirit of Taylor series expansions) of distribution func-
+        tions around a normal distribution. As an example, for X1,X2,···,Xn be iid√n(with density  f       with mean and variance µ and σ2 an Edgeworth expansion of the cdf of     ¯X−µ)σ     is (Hall
+       1992, Equation 2.17)
+                √n(¯X             P     −µ)    = Φ(w)+φ(w)  −1                              ,                   σ   ≤w              6√nκ(w2 −1)+O(1n)
+
+      where Φ and φ are, respectively, the distribution and density function of a standard normal
+      and κ = E(X1 −µ)3 is the skewness. The first term in the expansion is the “usual” normal       approximation and, as we add more terms the expansion becomes more accurate.
+        The amazing thing about the bootstrap is that, in some cases it automatically gets the
+      second term in the expansion correct (hence achieving “second-order” accuracy). This does
+       not happen in all cases, but one case in which it does occur is in bootstrapping a pivotal
+        quantity. The Edgeworth theory of bootstrap is given a thorough treatment by Hall (1992);
+       see also Shao and Tu (1995).
+       Practice
+     We have only used the bootstrap to calculate standard errors, it has many other uses, with
+       perhaps the most popular being the construction of confidence intervals. There are also many
+        variations of bootstrap, developed for different situations. In particular, dealing with depen-
+       dent data is somewhat delicate. For an introduction to the many uses use of the bootstrap,
+      and much more, see Efron and Tibshirani (1993).
+       Limitations
+      Although the bootstrap is perhaps the single most important development in statistical
+      methodology in recent times, it is not without its limitations and detractors. Out side of
+       the cases of iid sampling and pivotal quantities, the bootstrap is less automatic, but still can
+      be extremely useful. For an interesting treatment of these issues, see LePage and Billard
+       (1992) or Young (1994).
+10.6.4 Influence Functions
+    A measure of catastrophic occurences that does consider distributional properties is the in-
+       fluence function, which also measures the effect of an aberrant observation. The influence
+       function has an interpretation as a derivative, which also turns out to have some interesting
+       consequences.
+        The influence function of a statistic is actually calculated using its population counterpart.
+       For example, the influence function of the sample mean is calculated using the population
+      mean, as it seeks to measure the influence of perturbing the population. Similarly, the in-
+       fluence function of the sample median is calculated using the population median. To treat
+        this idea in a consistent manner, it makes sense to think of an estimator as a function that
+       operates on the cdf F, or its sample counterpart, the empirical cdf (Definition 1.5.1) Fn. Such
+        functions, that actually have other functions as arguments, are known as functionals.
+
+=== PDF 450; PRINT 419 ===
+MISCELLANEA                                                              419
+        Note that for a sample X1,X2,...,Xn, knowledge of the sample is equivalent to knowl-
+      edge of the empirical cdf Fn, as Fn has a jump of size 1/n at each Xi. Thus, a statistic
+     T = T(X1,X2,...,Xn) can equivalently be written T(Fn). In doing so, we can then denote its
+       population counterpart as T(F).
+       Definition 10.6.1  For a sample X1,X2,...,Xn from a population with cdf F, the influence
+       function of a statistic T = T(Fn) at a point x is
+
+                                        1
+                             IF(T,x) = lim                                        δ [T(Fδ)−T(F)],                                   δ→0
+      where X ∼Fδ if                          F  with probability           ,                      X               1−δ                  ∼  x   with probability δ,
+        that is, Fδ is a mixture of F and a point x.
+      Example 10.6.2 (Influence functions of the mean and median)  Suppose that we have a
+       population with continuous cdf F and pdf f. Let µ denote the population mean and ¯X the
+      sample mean, and let T(·) be the functional that calculates the mean of a population. Thus      T(Fn) = ¯X, T(F) = µ, and
+                               T(Fδ) = (1−δ)µ +δx,
+       so IF(¯X,x) = x−µ and, as x gets larger its influence on ¯X becomes increasingly large.       For the median M, we have (Exercise 10.27)
+
+                                                      1
+                                                  2f(m)      if x > m,
+                          IF(M,x) =        1
+                                                      2 f(m)   otherwise.                        −
+       So, in contrast to the mean, the median has a bounded influence function.              ∥
+      Why is a bounded influence function important? To answer that, we look at the influence
+       function of an M-estimator, of which the mean and median are special cases.
+                                      = 0, where X1,X2,...,Xn         Let ˆθM be the M-estimator that is the solution to ∑i ψ(xi −θ)       are iid with cdf F. In Section 10.2.2 we saw that ˆθM will be a consistent estimator of the
+       value θ0 that satisfies Eθ0ψ(X −θ0) = 0. The influence function of ˆθM is
+                   IF(ˆθM,x) =    ψ(x−θ0)   =   ψ(x−θ0)
+                   −  ψ′(t −θ0)f(t)dt   −E0(ψ′(X −θ0)).
+     Now if we recall (10.2.6), we see that the expected square of the influence function gives the
+       asymptotic variance of ˆθM, that is
+                      √n(ˆθM           0,Eθ0[IF(ˆθM,X)]2                            −θ0) →n
+        in distribution. Thus, the influence function is directly related to the asymptotic variance.
+10.6.5 Bootstrap Intervals
+       In Section 10.1.4 we saw the bootstrap to be a simple, general technique for obtaining a
+       standard error of any statistic. In calculating these standard errors, we actually construct a
+        distribution of a statistic, the bootstrap distribution. Then, a natural question arises. Is there
+       a simple, general method of using the bootstrap distribution to make a confidence statement?
+      The bootstrap can indeed be used to construct very good confidence intervals but, alas, the
+       simplicity of application that it enjoys in calculating standard errors does not carry over into
+       confidence intervals.
+
+=== PDF 451; PRINT 420 ===
+420                                       ASYMPTOTIC EVALUATIONS
+        Methods based on using percentiles of the bootstrap distribution, or on bootstrapping a t-
+         statistic (pivot) would seem to have potential of being generally applicable. However, Efron
+      and Tibshirani (1993, Section 13.4) note that “neither of these intervals works well in gen-
+        eral.” Hall (1992, Chapter 3) prefers the t-statistic method, and points out that bootstrapping
+       a pivot is a superior technique in general.
+          Percentile and percentile-t intervals are only the tip of a vast development of bootstrap
+       confidence intervals, many of which are excellent performers. However, we cannot sum-
+       marize these procedures in one simple recipe – different problems will require different
+       techniques.
+10.6.6 Robust Intervals
+      Although we went into some detail about robustness of point estimators in Section 10.2,
+       aside from Examples 10.3.7 and 10.4.8, we did not give much detail about robust tests and
+       confidence intervals. This is not a comment on the importance of the subject, but has more
+        to do with space.
+       When examining point estimators for robustness properties, the main concerns had to do
+       with performance under deviations (both small and large) from the underlying assumptions.
+      The same concerns are carried over to tests and intervals, with the expectation that robust
+       point estimators will lead to robust tests and intervals. In particular, we would want robust
+        tests to maintain power, and robust intervals to maintain coverage, over a range of deviations
+      from the underlying model. That this is the case is indicated by the fact (see Staudte and
+       Sheather 1990, Section 5.3.3) that the power function of a test can be related to the influence
+       function of the point estimate on which it is based. Of course, this immediately implies that
+       coverage properties of a related interval estimate can also be related to the influence function.
+      A nice introduction to robust tests, through estimating equations and score tests, is
+       given by Boos (1992). The books by Staudte and Sheather (1990) and Hettmansberger and
+     McKean (1998) are also excellent sources, as is the now-classic book by Huber (1981).

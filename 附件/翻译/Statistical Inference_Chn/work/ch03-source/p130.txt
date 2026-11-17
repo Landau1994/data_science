@@ -1,0 +1,36 @@
+LOCATION AND SCALE FAMILIES                                              99
+
+
+
+
+
+                                                                                               x
+             –6        –4        –2         0         2         4         6
+
+                        Figure 3.5.4 Members of the same location–scale family
+
+
+discussion of location families, the representation in terms of Z is a useful mathematical tool and
+can help us understand when a location–scale family might be appropriate in a modeling context.
+Setting σ = 1 in Theorem 3.5.6 yields a result for location (only) families, and setting µ = 0 yields
+a result for scale (only) families.
+Theorem 3.5.6   Let f(·) be any pdf. Let µ be any real number and let σ be any positive real
+number. Then X is a random variable with pdf (1/σ) f((x−µ)/σ) if and only if there exists arandom variable Z with pdf f(z) and X = σZ + µ.
+Proof: To prove the “if” part, define g(z) = σz + µ. Then X = g(Z), g is a monotone function,
+g−1(x) = (x−µ)/σ, and (d/dx)g−1(x) = 1/σ. Thus, by Theorem 2.1.5, the pdf of X is
+                                     d                   1                        fX(x) = fZ g−1(x)       = f  x−µ       .                                      dxg−1(x)      σ   σ
+   To prove the “only if” part, define g(x) = (x−µ)/σ and let Z = g(X). Theorem 2.1.5 againapplies, g−1(z) = σz+ µ, (d/dz)g−1(z) = σ, and the pdf of Z is
+
+                               d          1   (σz+                 fZ(z) = fX g−1(z)       =     f     µ)−µ  σ = f(z).                                dzg−1(z)   σ       σ
+
+Also,
+                                    X                σZ + µ = σg(X)+ µ = σ   −µ + µ = X.
+                                      σ                     2
+  An important fact to extract from Theorem 3.5.6 is that the random variable Z = (X −µ)/σ haspdf
+                                   1                                    fZ(z) =    f  z−0 = f(z).
+                                   1     1
+That is, the distribution of Z is that member of the location–scale family corresponding to µ =
+0,σ = 1. This was already proved for the special case of the normal family in Section 3.3.
+    Often, calculations can be carried out for the “standard” random variable Z with pdf f(z), and
+then the corresponding result for the random variable X with pdf (1/σ)f((x−µ)/σ) can be easilyderived. An example is given in the following theorem, which is a generalization of a computation
+done in Section 3.3 for the normal family.

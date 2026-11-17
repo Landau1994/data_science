@@ -1,0 +1,41 @@
+198                                    PROPERTIES OF A RANDOM SAMPLE
+Example 5.5.25 (Continuation of Example 5.5.23)  Suppose now that we have the mean of a
+             = 0, we haverandom sample ¯X. For µ̸
+                            1               1   4                  √n                                                    0,                                                  VarµX1                                              ¯X −1µ →n                                      µ
+
+in distribution.
+     If we do not know the variance of X1, to use the above approximation requires an estimate, say
+S2. Moreover, there is the question of what to do with the 1/µ term, as we also do not know µ. We
+can estimate everything, which gives us the approximate variance
+
+                                   1      1   4                                 Var                 S2.                                                         ¯X  ≈    ¯X
+
+Furthermore, as both ¯X and S2 are consistent estimators, we can again apply Slutsky’s Theorem to
+conclude that for µ̸ = 0                                               1                       √n                                                                             ¯X   µ                         −1
+                                              1  2                                     S   →n(0,1)                                                                           ¯X
+in distribution.
+   Note how we wrote this latter quantity, dividing through by the estimated standard deviation
+and making the limiting distribution a standard normal. This is the only way that makes sense if we
+need to estimate any parameters in the limiting distribution. We also note that there is an alternative
+approach when there are parameters to estimate, and here we can actually avoid using an estimate
+for µ in the variance (see the score test in Section 10.3.2).                                ∥
+   There are two extensions of the basic Delta Method that we need to deal with to complete our
+treatment. The first concerns the possibility that g′(µ) = 0. This could happen, for example, if we
+were interested in estimating the variance of a binomial variance. (See Exercise 5.44.)
+     If g′(θ) = 0, we take one more term in the Taylor expansion to get
+
+                                                   g′′(θ)
+                                  + Remainder.                 g(Yn) = g(θ)+g′(θ)(Yn −θ)+  2   (Yn −θ)2
+If we do some rearranging (setting g′ = 0), we have
+
+                                           g′′(θ)
+                              + Remainder.                  (5.5.12)                    g(Yn)−g(θ) =   2   (Yn −θ)2
+Now recall that the square of a n(0,1) is a χ21 (Example 2.1.9), which implies that
+                                      n(Yn −θ)2      1                                 σ2   →χ2
+in distribution. Therefore, an argument similar to that use in Theorem 5.5.24 will establish the
+following theorem.
+Theorem 5.5.26 (Second-order Delta Method)   Let Yn be a sequence of random variables that
+satisfies √n(Yn                   in distribution. For a given function g and a specific value of θ,          −θ) →n(0,σ2)suppose that g′(θ) = 0 and g′′(θ) exists and is not zero. Then
+
+                                                 g′′(θ)
+                                                             1 in distribution.                   (5.5.13)                      n[g(Yn)−g(θ)] →σ2  2  χ2

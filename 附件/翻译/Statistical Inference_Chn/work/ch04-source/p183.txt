@@ -1,0 +1,49 @@
+152                                      MULTIPLE RANDOM VARIABLES
+Example 4.6.13 (Multivariate change of variables)  Let (X1,X2,X3,X4) have joint pdf
+                fX(x1,x2,x3,x4) = 24e−x1−x2−x3−x4,  0 < x1 < x2 < x3 < x4 < ∞.
+
+Consider the transformation
+               U1 = X1,  U2 = X2 −X1,  U3 = X3 −X2,  U4 = X4 −X3.
+This transformation maps the set A onto the set B = {u: 0 < ui < ∞,i = 1,2,3,4}. The transfor-mation is one-to-one, so k = 1, and the inverse is
+
+          X1 = U1,  X2 = U1 +U2,  X3 = U1 +U2 +U3,  X4 = U1 +U2 +U3 +U4.
+
+The Jacobian of the inverse is
+                                  1  0  0  0
+                                  1  1  0  0                                  J =        = 1.                                  1  1  1  0
+                                  1  1  1  1
+Since the matrix is triangular, the determinant is equal to the product of the diagonal elements. Thus,
+from (4.6.7) we obtain
+                  fU(u1,...,u4) =  24e−u1−(u1+u2)−(u1+u2+u3)−(u1+u2+u3+u4)
+                  =  24e−4u1−3u2−2µ3−u4  on B.
+
+From this the marginal pdfs of U1,U2,U3, and U4 can be calculated. It turns out that fU(ui) =
+(5 −i)e−(5−i)ui,0 < ui. That is, Ui ∼exponential(1/(5 −i)). From Theorem 4.6.11 we see that
+U1,U2, U3, and U4 are mutually independent random variables.                            ∥
+   The model in Example 4.6.13 can arise in the following way. Suppose Y1,Y2,Y3, and Y4 are
+mutually independent random variables, each with an exponential(1) distribution. Define X1 =
+min(Y1,Y2,Y3,Y4), X2 = second smallest value of (Y1,Y2,Y3,Y4), X3 = second largest value of
+(Y1,Y2,Y3,Y4), and X4 = max(Y1,Y2,Y3,Y4). These variables will be called order statistics in Section
+5.5. There we will see that the joint pdf of (X1,X2,X3,X4) is the pdf given in Example 4.6.13. Now
+the variables U2, U3, and U4 defined in the example are called the spacings between the order statis-
+tics. The example showed that, for these exponential random variables (Y1,...,Yn), the spacings
+between the order statistics are mutually independent and also have exponential distributions.
+
+4.7  Inequalities
+In Section 3.6 we saw inequalities that were derived using probabilistic arguments. In the section
+we will see inequalities that apply to probabilities and expectations, but are based on arguments that
+use properties of functions and numbers.
+
+4.7.1  Numerical Inequalities
+
+The inequalities in this subsection, although often stated in terms of expectations, rely mainly on
+properties of numbers. In fact, they are all based on the following simple lemma.
+Lemma 4.7.1   Let a and b be any positive numbers, and let p and q be any positive numbers
+(necessarily greater than 1) satisfying
+                                   1   1
+                        + = 1.                                       (4.7.1)
+                                   p   q
+Then
+                                 1     1
+                        +                                pap                                       qbq ≥ab,                                    (4.7.2)
+with equality if and only if ap = bq.

@@ -1,0 +1,47 @@
+EXERCISES                                                                  161
+
+4.33 (Alternative derivation of the negative binomial distribution)   Solomon (1983) details the following
+      biological model. Suppose that each of a random number, N, of insects lays Xi eggs, where the Xis are
+      independent, identically distributed random variables. The total number of eggs laid is H = X1 +···+XN.     What is the distribution of H?
+           It is common to assume that N is Poisson(λ). Furthermore, if we assume that each Xi has the loga-
+      rithmic series distribution (see Exercise 3.14) with success probability p (Exercise 3.14), we have the
+      hierarchical model
+                   = X1             P(Xi = t) = log(p)−1  (1−p)tt                      H|N    +···+XN,                                        ,
+                             N ∼Poisson(λ).
+    Show that the marginal distribution of H is negative binomial (r, p), where r = −λ/log(p). (It is easiest      to calculate and identify the mgf of H using Theorems 4.4.3 and 4.6.7. Stuart and Ord (1987, Section
+      5.21) also mention this derivation of the logarithmic series distribution. They refer to H as a randomly
+      stopped sum.)
+4.34  (a) For the hierarchy in Example 4.4.6, show that the marginal distribution of X is given by the beta–
+         binomial distribution
+                                     n  Γ(α +β)                       P(X = x) =           Γ(x+α)Γ(n−x+β) .
+                                          x  Γ(α)Γ(β)    Γ(α +β +n)
+
+      (b) A variation on the hierarchical model in part (a) is
+                       X|P ∼negative binomial(r,P)  and  P ∼beta(α,β).
+         Find the marginal pmf of X, and its mean and variance. (This distribution is the beta–Pascal.)
+4.35  (a) For the hierarchy in Example 4.4.6, show that the variance of X can be written
+                                VarX = nEP(1−EP)+n(n−1)VarP.
+         (The first term reflects binomial variation with success probability EP, and the second term is often
+          called “extra-binomial” variation, showing how the hierarchical model has a variance that is larger
+          than the binomial alone.)
+      (b) For the hierarchy in Exercise 4.32, show that the variance of Y can be written
+                                                       1                                    VarY = EΛ+VarΛ = µ +  µ2,
+                                            α
+        where µ = EΛ. Identify the “extra-Poisson” variation induced by the hierarchy.
+4.36 One generalization of the Bernoulli trials hierarchy in Example 4.4.6 is to allow the success probability
+      to vary from trial to trial, keeping the trials independent. A standard model for this situation is
+                                       Xi|Pi  ∼   Bernoulli(Pi),    i = 1,...,n,
+                                            Pi  ∼  beta(α,β).
+     This model might be appropriate, for example, if we are measuring the success of a drug on n patients
+      and, because the patients are different, we are reluctant to assume that the success probabilities are
+      constant. (This can be thought of as an empirical Bayes model; see Miscellanea 7.5.6.)
+     A random variable of interest is Y = ∑ni=1 Xi, the total number of successes.
+       (a) Show that EY =  nα  .                     α+β
+      (b) Show  that VarY = nαβ/(α + β)2, and hence Y  has  the same mean and  variance  as a
+          binomial(n,  α  ) random variable. What is the distribution of Y?                 α+β
+       (c) Suppose now that the model is
+                                        Xi|Pi  ∼   binomial(ni,Pi),    i = 1,...,k,
+                                             Pi  ∼  beta(α,β).
+                                  = ∑ki=1 VarXi where       Show that for Y = ∑ki=1 Xi, EY = α+βα  ∑ki=1 ni and VarY
+                                     αβ(α +β +ni)
+                                    VarXi = ni                                          (α +β)2(α +β +1).

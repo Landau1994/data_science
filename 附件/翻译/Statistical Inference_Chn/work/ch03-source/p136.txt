@@ -1,0 +1,48 @@
+EXERCISES                                                                  105
+3.7  Exercises
+  3.1 Let X be a random variable with the general discrete uniform(N0,N1) distribution that puts equal proba-
+       bility on each of the values N0,N0 +1,...,N1. Here N0 ≤N1 and both are integers. Find expressions for    EX and VarX.
+  3.2 A manufacturer receives a lot of 100 parts from a vendor. The lot will be unacceptable if more than five of
+      the parts are defective. The manufacturer is going to select randomly K parts from the lot for inspection
+     and the lot will be accepted if no defective parts are found in the sample.
+       (a) How large does K have to be to ensure that the probability that the manufacturer accepts an unac-
+          ceptable lot is less than .10?
+      (b) Suppose the manufacturer decides to accept the lot if there is at most one defective in the sample.
+      How large does K have to be to ensure that the probability that the manufacturer accepts an unac-
+          ceptable lot is less than .10?
+  3.3 The flow of traffic at certain street corners can sometimes be modeled as a sequence of Bernoulli trials
+     by assuming that the probability of a car passing during any given second is a constant p and that there
+       is no interaction between the passing of cars at different seconds. Treating seconds as indivisible time
+      units (trials), the Bernoulli model applies. Suppose a pedestrian can cross the street only if no car is to
+      pass during the next three seconds. Find the probability that the pedestrian has to wait for exactly four
+     seconds before starting to cross.
+  3.4 A man with n keys wants to open his door and tries the keys at random. Exactly one key will open the
+      door. Find the mean number of trials if
+       (a) unsuccessful keys are not eliminated from further selections.
+      (b) unsuccessful keys are eliminated.
+  3.5 A standard drug is known to be effective in 80% of the cases in which it is used. A new drug is tested
+     on 100 patients and found to be effective in 85 cases. Is the new drug superior? (Hint: Evaluate the
+      probability of observing 85 or more successes assuming that the new and old drugs are equally effective.)
+  3.6 A large number of insects are expected to be attracted to a certain variety of rose plant. A commercial
+      insecticide is advertised as being 99% effective. Suppose 2,000 insects infest a rose garden where the
+      insecticide has been applied, and let X = # of surviving insects.
+       (a) What probability distribution might provide a reasonable model for this experiment?
+      (b) Write down, but do not evaluate, an expression for the probability that fewer than 100 insects survive,
+         using the model in part (a).
+       (c) Evaluate an approximation to the probability in part (b).
+  3.7 Let the number of chocolate chips in a certain type of cookie have a Poisson distribution. We want the
+      probability that a randomly chosen cookie has at least two chocolate chips to be greater than .99. Find
+      the smallest value of the mean of the distribution that ensures this probability.
+  3.8 Two movie theaters compete for the business of 1,000 customers. Assume that each customer chooses
+     between the movie theaters independently and with “indifference.” Let N denote the number of seats in
+     each theater.
+       (a) Using a binomial model, find an expression for N that will guarantee that the probability of turning
+        away a customer (because of a full house) is less than 1%.
+      (b) Use the normal approximation to get a numerical value for N.
+  3.9 Often, news stories that are reported as startling “one-in-a-million” coincidences are actually, upon closer
+      examination, not rare events and can even be expected to occur.
+   A few years ago an elementary school in New York state reported that their incoming kindergarten class
+      contained five sets of twins. This, of course, was reported throughout the state, with a quote from the
+      principal that this was a “statistical impossibility.”
+    Was it? Or was it an instance of what Diaconis and Mosteller (1989) call the “law of truly large numbers.”
+      Let’s do some calculations.

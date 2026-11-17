@@ -1,0 +1,48 @@
+INEQUALITIES                                                               155
+
+                                                                                                 g(x)
+          2
+
+
+
+
+
+          1                                                   l)g(x2)
+                        +(1–                                     lg(x1)
+
+
+
+
+
+          0                                                                                   x
+            0                x1                1                  x2              2
+
+                       Figure 4.7.1 Convex function and tangent lines at x1 and x2
+
+
+4.7.2  Functional Inequalities
+
+The inequalities in this section rely on properties of real-valued functions, rather than on any sta-
+tistical properties. In many cases, however, they prove to be very useful. One of the most useful is
+Jensen’s Inequality, which applies to convex functions.
+Definition 4.7.6 A function g(x) is convex if g(λx+(1−λ)y) ≤λg(x)+ (1−λ)g(y) for all x and
+y, and 0 < λ < 1. The function g(x) is concave if −g(x) is convex.
+    Informally, we can think of convex functions as functions that “hold water” – that is, they are
+bowl-shaped (g(x) = x2 is convex), while concave functions “spill water” (g(x) = logx is concave).
+More formally, convex functions lie below lines connecting any two points (see Figure 4.7.1). As
+λ goes from 0 to 1, λg(x1)+(1−λ)g(x2) defines a line connecting g(x1) and g(x2). This line liesabove g(x) if g(x) is convex. Furthermore, a convex function lies above all of its tangent lines (also
+shown in Figure 4.7.1), and that fact is the basis of Jensen’s Inequality.
+Theorem 4.7.7 (Jensen’s Inequality)  For any random variable X, if g(x) is a convex function
+then
+                                Eg(X) ≥g(EX).
+Equality holds if and only if, for every line a + bx that is tangent to g(x) at x = EX, P(g(X) =
+a+bX) = 1.
+Proof: To establish the inequality, let l(x) be a tangent line to g(x) at the point g(EX). (Recall that
+EX is a constant.) Write l(x) = a+bx for some a and b. The situation is illustrated in Figure 4.7.2.
+   Now, by the convexity of g we have g(x) ≥a+bx. Since expectations preserve inequalities,
+                             Eg(X) ≥  E(a+bX)                                                                              linearity of expectation,                        =  a+bEX                                                            Theorem 2.2.5
+                        =  l(EX)                        (definition of l(x))
+                        =  g(EX)                            (l is tangent at EX)
+
+
+as was to be shown.

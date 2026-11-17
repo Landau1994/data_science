@@ -1,0 +1,41 @@
+METHODS OF FINDING ESTIMATORS                                          261
+c. The Jacobian of the second-order partial derivatives is positive,
+
+                                ∂2 H(θ1,θ2)       ∂2  H(θ1,θ2)                             ∂θ21               ∂θ1∂θ2
+                                ∂2  H(θ1,θ2)     ∂2 H(θ1,θ2)                             ∂θ1∂θ2              ∂θ22             θ1=ˆθ1,θ2=ˆθ2              ∂2                                              ∂2               ∂2                                                              
+       =                  H(θ1,θ2)
+            ∂θ 12                      ∂θ 22 H(θ1,θ2)−  ∂θ1∂θ2 H(θ1,θ2)        > 0.                                              θ1=ˆθ1,θ2=ˆθ2
+For the normal log likelihood, the second-order partial derivatives are                                                                                                                                2
+                      ∂2                         =  −n ,                   ∂θ 2 logL(θ,σ2|x)     σ2
+                     ∂2                     n          n
+                         =                         ∑ (xi −θ)2,                   ∂(σ2)2 logL(θ,σ2|x)                                        2σ4 −1σ6 i=1
+                     ∂2                                 n
+                         =                       ∑ (xi −θ).                ∂θ∂σ2 logL(θ,σ2|x)                        −1σ4 i=1
+
+Properties (a) and (b) are easily seen to hold, and the Jacobian is
+
+                          −n                              σ2                                               σ4 ∑ni=1(xi −θ)                                                 n −1
+                                            2σ4            −1                         σ4 ∑ni=1(xi −θ)                       −1                                                 σ6 ∑ni=1(xi −θ)2  θ=¯x,σ2=ˆσ2
+
+                                          n                     n                                                                                                                                1         n                                                                                                                                                                                                                                                                                                                                                                                                                        
+         =       +               ∑ (xi      ∑ (xi                σ6  2    σ2 i=1  −θ)2 −1σ2 i=1  −θ)2
+                                                                               θ=¯x,σ2=ˆσ2                 −n2                                          1          n2              n                                                                                                                                                                                =       +    ˆσ2   ∑ (xi                        ˆσ6  2     ˆσ2  −1ˆσ2 i=1   −¯x)2                −n2                                     1 n2
+         =     > 0.
+                        ˆσ6 2
+Thus, the calculus conditions are satisfied and we have indeed found a maximum. (Of course, to be
+really formal, we have verified that (¯x, ˆσ2) is an interior maximum. We still have to check that it
+is unique, and that there is no maximum at infinity.) The amount of calculation, even in this simple
+problem, is formidable, and things will only get worse. (Think of what we would have to do for
+three parameters.) Thus, the moral is that, while we always have to verify that we have, indeed,
+found a maximum, we should look for ways to do it other than using second derivative conditions.
+∥
+    Finally, it was mentioned earlier that, since MLEs are found by a maximization process, they are
+susceptible to the problems associated with that process, among them that of numerical instability.
+We now look at this problem in more detail.
+    Recall that the likelihood function is a function of the parameter, θ, with the data, x, held con-
+stant. However, since the data are measured with error, we might ask how small changes in the data
+might affect the MLE. That is, we calculate ˆθ based on L(θ|x), but we might inquire what value we
+would get for the MLE if we based our calculations on L(θ|x+ε), for small ε. Intuitively, this newMLE, say ˆθ1, should be close to ˆθ if ε is small. But this is not always the case.
+Example 7.2.13 (Continuation of Example 7.2.2) Olkin et al. (1981) demonstrate that the MLEs
+of k and p in binomial sampling can be highly unstable. They illustrate their case with the following
+example. Five realizations of a binomial(k, p) experiment are observed, where both k and p are

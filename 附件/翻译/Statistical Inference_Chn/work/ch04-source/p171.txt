@@ -1,0 +1,47 @@
+140                                      MULTIPLE RANDOM VARIABLES
+Theorem 4.5.5    If X and Y are independent random variables then Cov(X,Y) = 0 and ρXY = 0.
+Proof: Since X and Y are independent, from Theorem 4.2.10 we have EXY = (EX)(EY). Thus,
+              Cov(X,Y) = EXY −(EX)(EY) = (EX)(EY)−(EX)(EY) = 0
+and
+                               Cov(X,Y)     0
+                            ρXY =      =    = 0.
+                                σXσY     σXσY                    2
+   Thus, the values Cov(X,Y) = ρXY = 0 in some sense indicate that there is no relationship
+between X and Y.  It is important to note, however, that Theorem 4.5.5 does not say that  if
+Cov(X,Y) = 0 then X and Y are independent. For example, if X ∼f(x −θ), symmetric around
+zero with EX = θ, and Y is the indicator function Y = I(|X −θ| < 2) then X and Y are obviouslynot independent. However,
+
+              ∞                                   2                       2
+     E(XY) = −∞xI(|x−θ| < 2) f(x−θ)dx =  −2(t +θ) f(t)dt = θ  −2 f(t)dt = EXEY,
+                            = 0. So it is easy to find uncorrelated, depen-where we used the fact that, by symmetry, −2t2   f(t)dtdent random variables.
+   Covariance and correlation measure only a particular kind of linear relationship that will be de-
+scribed further in Theorem 4.5.7. Also see Example 4.5.9, which discusses two random variables
+that have a strong relationship but whose covariance and correlation are zero because the relation-
+ship is not linear.
+   Covariance also plays an important role in understanding the variation in sums of random vari-
+ables, as the next theorem, a generalization of Theorem 2.3.4, indicates. (See Exercise 4.44 for a
+further generalization.)
+Theorem 4.5.6   If X and Y are any two random variables, and a and b are any two constants, then
+                   Var(aX +bY) = a2VarX +b2VarY +2abCov(X,Y).
+
+If X and Y are independent random variables, then
+
+                          Var(aX +bY) = a2VarX +b2VarY.
+
+Proof: The mean of aX +bY is E(aX +bY) = aEX +bEY = aµX +bµY. Thus,
+         Var(aX +bY) =  E((aX +bY)−(aµX +bµY))2
+              =  E(a(X −µX)+b(Y −µY))2
+              =  E a2(X −µX)2 +b2(Y −µY)2 +2ab(X −µX)(Y −µY)
+              =  a2E(X −µX)2 +b2E(Y −µY)2 +2abE(X −µX)(Y −µY)              =  a2VarX +b2VarY +2abCov(X,Y).
+
+If X and Y are independent then, from Theorem 4.5.5, Cov(X,Y) = 0 and the second equality is
+immediate from the first.                                       2
+
+   From Theorem 4.5.6 we see that if X and Y are positively correlated (Cov(X,Y) > 0), then the
+variation in X +Y is greater than the sum of the variations in X and Y. But if they are negatively cor-
+related, then the variation in X +Y is less than the sum. For negatively correlated random variables,
+large values of one tend to be observed with small values of the other and in the sum these two
+extremes cancel. The result, X +Y, tends not to have as many extreme values and hence has smaller
+variance. By choosing a = 1 and b = −1 we get an expression for the variance of the difference oftwo random variables, and similar arguments apply.
+   The nature of the linear relationship measured by covariance and correlation is somewhat ex-
+plained by the following theorem.

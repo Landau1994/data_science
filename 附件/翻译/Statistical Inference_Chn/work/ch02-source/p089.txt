@@ -1,0 +1,44 @@
+58                              TRANSFORMATIONS AND EXPECTATIONS
+That is, for each value θ0 for which f(x,θ) is differentiable at θ0 and satisfies conditions (i) and
+(ii), the order of integration and differentiation can be interchanged. Often the distinction between
+θ and θ0 is not stressed and (2.4.2) is written
+                         d   ∞            ∞  ∂
+                         =        f(x,θ)dx.                        (2.4.3)
+                      dθ                ∂θ                           −∞f(x,θ)dx   −∞
+    Typically, f(x,θ) is differentiable at all θ, not just at one value θ0. In this case, condition (i)
+of Theorem 2.4.3 can be replaced by another condition that often proves easier to verify. By an
+application of the mean value theorem, it follows that, for fixed x and θ0, and |δ| ≤δ0,
+                        f(x,θ0 +δ)−f(x,θ0) =  ∂  f(x,θ)
+                             δ          ∂θ                                                        θ=θ0+δ ∗(x)
+for some number δ ∗(x),|δ ∗(x)| ≤δ0. Therefore, condition (i) will be satisfied if we find a g(x,θ)that satisfies condition (ii) and
+
+               ∂
+                    f(x,θ)     ≤g(x,θ)      for all θ ′ such that |θ ′ −θ| ≤δ0.          (2.4.4)             ∂θ                            θ=θ′
+Note that in (2.4.4) δ0 is implicitly a function of θ, as is the case in Theorem 2.4.3. This is permitted
+since the theorem is applied to each value of θ individually. From (2.4.4) we get the following
+corollary.
+Corollary 2.4.4  Suppose f(x,θ) is differentiable in θ and there exists a function g(x,θ) such that
+                   < ∞. Then (2.4.3) holds.(2.4.4) is satisfied and −∞g(x,θ)dx∞
+   Notice that both condition (i) of Theorem 2.4.3 and (2.4.4) impose a uniformity requirement on
+the functions to be bounded; some type of uniformity is generally needed before derivatives and
+integrals can be interchanged.
+Example 2.4.5 (Interchanging integration and differentiation–I)  Let X have the exponential(λ)
+pdf given by f(x) = (1/λ)e−x/λ, 0 < x < ∞, and suppose we want to calculate
+
+                          d        d   ∞    1                       EXn =        xn      e−x/λ dx,                         (2.4.5)
+                       dλ      dλ  0     λ
+
+for integer n > 0. If we could move the differentiation inside the integral, we would have
+
+                        d            ∞ ∂     1                      EXn =          xn      e−x/λ dx
+                     dλ               0 ∂λ    λ
+                                   ∞ xn   x                     =                  e−x/λ dx                       (2.4.6)                                                       2                                                 0  λ   λ −1
+                                    1                     =    EXn+1    EXn.                                 λ 2    −1λ
+   To justify the interchange of integration and differentiation, we bound the derivative of
+xn(1/λ)e−x/λ. Now
+
+          ∂    xne−xλ         xne−x/λ  x          xne−x/λ   x                               x               =                                       +1  .            (since λ > 0)        ∂λ    λ                          λ 2   λ −1 ≤   λ                                                                 2    λ
+
+For some constant δ0 satisfying 0 < δ0 < λ, take
+                                       xne−x/(λ+δ0)     x                          g(x,λ) =             +1   .
+                                    (λ −δ0)2   λ −δ0

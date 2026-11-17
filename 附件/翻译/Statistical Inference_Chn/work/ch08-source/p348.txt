@@ -1,0 +1,38 @@
+METHODS OF EVALUATING TESTS                                            317
+Example 8.3.15 (UMP normal test)   Let X1,...,Xn be a random sample from a n(θ,σ2) popu-
+lation, σ2 known. The sample mean X is a sufficient statistic for θ. Consider testing H0 : θ = θ0
+versus H1 : θ = θ1 where θ0 > θ1. The inequality (8.3.4), g(x|θ1) > kg(x|θ0), is equivalent to
+                                (2σ2             02 +θ 12                                x <     logk)/n−θ          .
+                                          2(θ1 −θ0)
+The fact that θ1 −θ0 < 0 was used to obtain this inequality. The right-hand side increases from −∞to ∞as k increases from 0 to ∞. Thus, by Corollary 8.3.13, the test with rejection region x < c is the
+UMP level α test where α = Pθ0(X < c). If a particular α is specified, then the UMP test rejects H0
+if X < c =                This choice of c ensures that (8.3.5) is true.        −σzα/√n+θ0.                                                        ∥
+    Hypotheses, such as H0 and H1 in the Neyman–Pearson Lemma, that specify only one pos-
+sible distribution for the sample X are called simple hypotheses. In most realistic problems, the
+hypotheses of interest specify more than one possible distribution for the sample. Such hypotheses
+are called composite hypotheses. Since Definition 8.3.11 requires a UMP test to be most powerful
+against each individual θ ∈Θc0, the Neyman–Pearson Lemma can be used to find UMP tests inproblems involving composite hypotheses.
+    In particular, hypotheses that assert that a univariate parameter is large, for example, H : θ ≥θ0,or small, for example, H : θ < θ0, are called one-sided hypotheses. Hypotheses that assert that a
+parameter is either large or small, for example, H : θ̸ = θ0, are called two-sided hypotheses. A largeclass of problems that admit UMP level α tests involve one-sided hypotheses and pdfs or pmfs with
+the monotone likelihood ratio property.
+Definition 8.3.16  A family of pdfs or pmfs {g(t|θ) : θ ∈Θ} for a univariate random variableT with real-valued parameter θ has a monotone likelihood ratio (MLR) if, for every θ2 > θ1,
+g(t|θ2)/g(t|θ1) is a monotone (nonincreasing or nondecreasing) function of t on {t : g(t|θ1) > 0
+or g(t|θ2) > 0}. Note that c/0 is defined as ∞if 0 < c.
+   Many common families of distributions have an MLR. For example, the normal (known vari-
+ance, unknown mean), Poisson, and binomial all have an MLR. Indeed, any regular exponential
+family with g(t|θ) = h(t)c(θ)ew(θ)t has an MLR if w(θ) is a nondecreasing function (see Exercise8.25).
+Theorem 8.3.17 (Karlin–Rubin)  Consider testing H0: θ ≤θ0 versus H1: θ > θ0. Suppose that T
+is a sufficient statistic for θ and the family of pdfs or pmfs {g(t|θ): θ ∈Θ} of T has an MLR. Thenfor any t0, the test that rejects H0 if and only if T > t0 is a UMP level α test where α = Pθ0(T > t0).
+Proof: Let β(θ) = Pθ(T > t0) be the power function of the test. Fix θ ′ > θ0 and consider testing H′0:
+θ = θ0 versus H′1: θ = θ ′. Since the family of pdfs or pmfs of T has an MLR, β(θ) is nondecreasing
+(Exercise 8.34), so
+ i. supθ≤θ0β(θ) = β(θ0) = α, and this is a level α test.
+ii. Defining
+                                                                       ′)                                                   k′ = inf g(t|θ
+                                            t∈T g(t|θ0),
+   where T = {t : t > t0 and either g(t|θ ′) > 0 or g(t|θ0) > 0}, it follows that
+                                                                     ′)
+                             T > t0      > k′.                                 ⇔g(t|θ                                                  g(t|θ0)
+Together with Corollary 8.3.13, (i) and (ii) imply that β(θ ′) ≥β ∗(θ ′) where β ∗(θ) is the power
+function for any other level α test of H′0, that is, any test satisfying β(θ0) ≤α. However, any level
+α test of H0 satisfies β ∗(θ0) ≤supθ∈Θ0 β ∗(θ) ≤α. Thus, β(θ ′) ≥β ∗(θ ′) for any level α test ofH0. Since θ ′ was arbitrary, the test is a UMP level α test.                     2

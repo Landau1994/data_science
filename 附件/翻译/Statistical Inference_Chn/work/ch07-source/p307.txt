@@ -1,0 +1,44 @@
+276                                                 POINT ESTIMATION
+Example 7.3.14 (Normal variance bound)  Let X1,...,Xn be iid n(µ,σ2), and consider estima-
+tion of σ2, where µ is unknown. The normal pdf satisfies the assumptions of the Cram´er–Rao
+Theorem and Lemma 7.3.11, so we have
+                 ∂2           1                      1                         log              e−(1/2)(x−µ)2/σ2 =                ∂(σ2)2     (2πσ2)1/2                2σ4 −(x−µ)2σ6
+and
+                ∂2                                 1                        log          µ,σ2  =             −µ)2 µ,σ2       −E  ∂(σ2)2    f(X|µ,σ2)         −E  2σ4 −(X σ6
+                                              1
+                           =          .
+                                           2σ4
+Thus, any unbiased estimator, W, of σ2 must satisfy
+
+
+                                                                                       .                               Var(W|µ,σ2) ≥2σ4n
+In Example 7.3.3, we saw
+                                          2σ4
+                           =                                 Var(S2|µ,σ2)                                    n−1,
+so S2 does not attain the Cram´er–Rao Lower Bound.                                    ∥
+    In the above example we are left with an incomplete answer; that is, is there a better unbiased
+estimator of σ2 than S2, or is the Cram´er–Rao Lower Bound unattainable?
+   The conditions for attainment of the Cram´er–Rao Lower Bound are actually quite simple. Recall
+that the bound follows from an application of the Cauchy–Schwarz Inequality, so conditions for
+attainment of the bound are the conditions for equality in the Cauchy–Schwarz Inequality (see
+Section 4.7). Note also that Corollary 7.3.15 is a useful tool because it implicitly gives us a way of
+finding a best unbiased estimator.
+Corollary 7.3.15 (Attainment)  Let X1,...,Xn be iid f(x|θ), where f(x|θ) satisfies the conditions
+                                                i=1                                                 f(xi|θ) denote the likelihood function. If W(X) =of the Cram´er–Rao Theorem. Let L(θ|x) = ∏nW(X1,...,Xn) is any unbiased estimator of τ(θ), then W(X) attains the Cram´er–Rao Lower Bound
+if and only if
+                                            ∂
+                        a(θ)[W(x)−τ(θ)] = ∂θ logL(θ|x),                       (7.3.12)
+for some function a(θ).
+Proof: The Cram´er–Rao Inequality, as given in (7.3.6), can be written as
+
+                                                   2
+                     ∂       n                            ∂       n
+                                                                                                                                ,                            log         Covθ  W(X),           ∏                  ∂θ                                  i=1 f(Xi|θ)   ≤VarθW(X)Varθ  ∂θ log ∏i=1 f(Xi|θ)
+
+                              = 0, and using                                                                          the results of Theoremand, recalling that EθW = τ(θ),Eθ( ∂θ∂ log∏ni=1 f(Xi|θ))                                                                                  ∂
+4.5.7, we can have equality if and only if W(x)−τ(θ) is proportional to                                                                      ∂θ log∏ni=1 f(xi|θ). Thatis exactly what is expressed in (7.3.12).                               2
+Example 7.3.16 (Continuation of Example 7.3.14)  Here we have
+                                    1
+                    =                                                      e−(1/2)Σni=1(xi−µ)2/σ2,                      L(µ,σ2|x)                                    (2πσ2)n/2
+and hence
+                     ∂                 n     n  (xi                       =         −µ)2            .                     ∑                 ∂σ2 logL(µ,σ2|x)   2σ4   i=1    n   −σ2

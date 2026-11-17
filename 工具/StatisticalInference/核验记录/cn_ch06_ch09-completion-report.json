@@ -1,0 +1,2376 @@
+{
+  "created": "2026-11-13",
+  "modified_notes": 101,
+  "chapter_6_chinese_blocks": 43,
+  "chapter_9_chinese_blocks": 58,
+  "chapter_9_specific_hints": 58,
+  "modified_scope": "仅中文转述题块及第9章提示；元数据、英文原题、题内引用附段、解答与备注均不改",
+  "protected_prefix_and_solution_hash_checks": "101/101 passed",
+  "formula_multiset_checks": "101/101 passed",
+  "source_hint_retention_checks": "all passed",
+  "tables_preserved": 3,
+  "content_audit": {
+    "source_id": "DS011",
+    "checked_notes": 101,
+    "errors": [],
+    "warnings": [],
+    "scope": "只检语法结构，不代替原页逐字核对或数学证明审查；未运行Obsidian"
+  },
+  "residual_TeX": [],
+  "broken_links": [],
+  "records": [
+    {
+      "source_exercise": "6.1",
+      "note": "02 - 数理统计/习题/习题 ST081 - 零均值正态方差模型中绝对值的充分性.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 46,
+      "old_chinese_block_characters": 110,
+      "new_chinese_block_characters": 90,
+      "math_expressions_preserved": 3,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "d70ef7711be5f29f09974abb44c01a6ea8154eda4502967fa0a15590a7ef5778",
+      "solution_and_after_sha256": "1f6378182e10046fc0e0916ff6d6e2250f6798f953773486b3114c531a9e1393",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.2",
+      "note": "02 - 数理统计/习题/习题 ST082 - 不同平移阈值指数样本的充分最小比值.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 160,
+      "old_chinese_block_characters": 206,
+      "new_chinese_block_characters": 218,
+      "math_expressions_preserved": 4,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "c1440da05e2b5f205a6324536b79f30cfda082207d0b9f2b3e217e2ee4724d07",
+      "solution_and_after_sha256": "663166aba56597031883a381b6e7e974ff85864a7b8e8055d148605bf7f96e3b",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.3",
+      "note": "02 - 数理统计/习题/习题 ST083 - 双参数平移指数族的二维充分统计量.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 155,
+      "old_chinese_block_characters": 196,
+      "new_chinese_block_characters": 213,
+      "math_expressions_preserved": 3,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "9daf909484b72d5499e2f5ac7e9ad9ecc0d5ba72bab9cc4e9dcc2e81aa03d2cf",
+      "solution_and_after_sha256": "309bde66f51a72302c86d7f4537563e2f0513336651f9cee97d17d0715a167c2",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.4",
+      "note": "02 - 数理统计/习题/习题 ST084 - 指数族样本自然统计量的充分性证明.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 25,
+      "old_chinese_block_characters": 79,
+      "new_chinese_block_characters": 57,
+      "math_expressions_preserved": 0,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "bce4ed80118581d09f14750742b01109106a1aca7d35559f324eb84c477a3127",
+      "solution_and_after_sha256": "ac84cc6dd9dd4587ca1357ce1e2232cfd6b6f1ec4c6362b3db2ba65401694ddb",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.5",
+      "note": "02 - 数理统计/习题/习题 ST085 - 不同尺度均匀区间样本的二维充分统计量.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 175,
+      "old_chinese_block_characters": 220,
+      "new_chinese_block_characters": 233,
+      "math_expressions_preserved": 4,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "390f1c1fece896f8ebb4a0b8bfaea980649935fe6efb5fb9cf9783758f67c333",
+      "solution_and_after_sha256": "b8bb97f7e8e0f77d01e52dbf3b37fe8845c65d7d6a1aeb0425dfc1ca727be1e8",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.6",
+      "note": "02 - 数理统计/习题/习题 ST086 - 双参数Gamma族的和与对数和充分性.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 92,
+      "old_chinese_block_characters": 119,
+      "new_chinese_block_characters": 136,
+      "math_expressions_preserved": 3,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "b677951cca6a6aaf380b9d31543f68b56532d100ec03cd992630031a3633067b",
+      "solution_and_after_sha256": "8f9034f8364eb26e04ed9b0e645643e4dc5fd2cc171f17e3543a921d9cf34397",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.7",
+      "note": "02 - 数理统计/习题/习题 ST087 - 未知矩形边界的四维充分极值统计量.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 266,
+      "old_chinese_block_characters": 233,
+      "new_chinese_block_characters": 310,
+      "math_expressions_preserved": 8,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "f32e9e0b3177cdcf73901d10de80f94ed5df20afd191d64c45be5530cc3347f0",
+      "solution_and_after_sha256": "a7a7100ce1755177d446ea1024f447f098eb0609042faee812e20d6d7af3cb72",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.8",
+      "note": "02 - 数理统计/习题/习题 ST088 - 位置族次序统计量充分与不可约简断言的反例.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 260,
+      "old_chinese_block_characters": 128,
+      "new_chinese_block_characters": 173,
+      "math_expressions_preserved": 4,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "f98c7a58d23a76a3ed910d0022dc9617edb9649f11858c10399053a19471fff5",
+      "solution_and_after_sha256": "4ae6e83ce7bf003080d519a68475eed1e9d55c570de4624b691d26e5a00fe567",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.9",
+      "note": "02 - 数理统计/习题/习题 ST089 - 五种位置族的最小充分统计量比较.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 624,
+      "old_chinese_block_characters": 538,
+      "new_chinese_block_characters": 633,
+      "math_expressions_preserved": 17,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ],
+        [
+          1,
+          "d"
+        ],
+        [
+          1,
+          "e"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "dd06c5ceeaf0f6426e49054b983d9b725af0f276a6e8eb24399961dbb8fad2d5",
+      "solution_and_after_sha256": "4958f0fb83c3d37f68c2bfe60670cda802d6883d57b124780e92f032d2ea255c",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.10",
+      "note": "02 - 数理统计/习题/习题 ST090 - 滑动单位均匀区间最小充分统计量的不完备性.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 97,
+      "old_chinese_block_characters": 109,
+      "new_chinese_block_characters": 113,
+      "math_expressions_preserved": 1,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "5899323911b8f45735bb12f900c750301200f5fb1bc87b5325cc072268828580",
+      "solution_and_after_sha256": "65149c3c30ba03c325491d9dd6bd17bc29b151fc0acd77272c01b708d3e14b35",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.11",
+      "note": "02 - 数理统计/习题/习题 ST091 - 五种位置族中样本间距的辅助性与独立性.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 352,
+      "old_chinese_block_characters": 246,
+      "new_chinese_block_characters": 289,
+      "math_expressions_preserved": 6,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "52c160246bd090c25010ee7642ffe9a3b92b4427fa67ee07fac052fdf743a7b4",
+      "solution_and_after_sha256": "41f21a533fe2612f932ba373a8f8e792bf9f3f4a208844f17cc46630cb86a999",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.12",
+      "note": "02 - 数理统计/习题/习题 ST092 - 随机样本量二项模型的最小充分性与无偏比率.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 339,
+      "old_chinese_block_characters": 229,
+      "new_chinese_block_characters": 309,
+      "math_expressions_preserved": 14,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "d6ba9d7f4396e91a89907824dfe67dd9f8dec2d989bbbd788e0e230a52852308",
+      "solution_and_after_sha256": "304da3b21b26a709fbf0f53c86e42ccb2cb18a233a833cf74bfbe3be3b7ce4c0",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.13",
+      "note": "02 - 数理统计/习题/习题 ST093 - Weibull幂变换后的对数比辅助统计量.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 126,
+      "old_chinese_block_characters": 160,
+      "new_chinese_block_characters": 171,
+      "math_expressions_preserved": 6,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "0111bdefea79479bd44e72b12bc113e1f18573b9dbb9c179c7f9feaf4ee9573f",
+      "solution_and_after_sha256": "cb93f04c5c9a52020ad8de90183e384dbf53fab958cbd7de38d592ba03fa2fe4",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.14",
+      "note": "02 - 数理统计/习题/习题 ST094 - 位置族中中位数减样本均值的辅助性.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 62,
+      "old_chinese_block_characters": 97,
+      "new_chinese_block_characters": 107,
+      "math_expressions_preserved": 3,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "8bdaa475b309872d35d483f0406e816867afeb6f86f4bf2ef894bc90e83182d5",
+      "solution_and_after_sha256": "a44287d93e36e712ac6d5616581059090bf1696e1fb2969a06cbf385b6d88f1d",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.15",
+      "note": "02 - 数理统计/习题/习题 ST095 - 正态弯曲指数族的充分性与不完备反例.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 191,
+      "old_chinese_block_characters": 171,
+      "new_chinese_block_characters": 192,
+      "math_expressions_preserved": 6,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "4e6b86871cf32bf5a6422153f44931e8263bfb947f0410465bcf806fff108643",
+      "solution_and_after_sha256": "53404e38250fc2692b6cf57972734f2bc24a1c371951c526c49ed1ef6148a6bc",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.16",
+      "note": "02 - 数理统计/习题/习题 ST096 - 遗传连锁多项模型的弯曲指数族与最小充分量.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 342,
+      "old_chinese_block_characters": 233,
+      "new_chinese_block_characters": 295,
+      "math_expressions_preserved": 4,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "884b077d2f01d87659b48f950d8bea4403ce19cdc1faec3ce782c851191b70a2",
+      "solution_and_after_sha256": "eefa4940b7fa7cdf258e5e21de5e25f951e566117c127f93667e80ae9ab3b350",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.17",
+      "note": "02 - 数理统计/习题/习题 ST097 - 几何样本和的负二项分布与完备性.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 158,
+      "old_chinese_block_characters": 156,
+      "new_chinese_block_characters": 217,
+      "math_expressions_preserved": 5,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "30caa82cd79c8fdcfcbcb7d8c016c1105583b7fa7198d20366a5188a696887e7",
+      "solution_and_after_sha256": "5abb8e5f8bf16d94b6266fba65c93b3e03e567e8db0626e525a931ab713c903a",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.18",
+      "note": "02 - 数理统计/习题/习题 ST098 - 不用指数族完备性定理证明Poisson样本和完备.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 123,
+      "old_chinese_block_characters": 106,
+      "new_chinese_block_characters": 139,
+      "math_expressions_preserved": 3,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "6536e0c72bda4b8f68f0183968e4821d07c6f1b17d623607dbbc275d4fdf87da",
+      "solution_and_after_sha256": "8ed1dc2b005f519d4c1d4aaab7b441f30f4454d91706747b505eff7e91e61145",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.19",
+      "note": "02 - 数理统计/习题/习题 ST099 - 两个三点分布族的完备性对比.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 223,
+      "old_chinese_block_characters": 245,
+      "new_chinese_block_characters": 275,
+      "math_expressions_preserved": 13,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 1,
+      "metadata_and_english_sha256": "18ff33d9d95ece4e0d168a1838e6792b2791d1aaa5df93d591ef06fe3d6a6b2e",
+      "solution_and_after_sha256": "e7bd1b7c6d9ca833e127ae786fca3128232cbc224b511187a15d6b34bfcaa6e8",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.20",
+      "note": "02 - 数理统计/习题/习题 ST100 - 五种分布族的完备充分统计量.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 504,
+      "old_chinese_block_characters": 449,
+      "new_chinese_block_characters": 514,
+      "math_expressions_preserved": 16,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ],
+        [
+          1,
+          "d"
+        ],
+        [
+          1,
+          "e"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "6158a9c96ae690208640c2835161b554a3b30c8d7025fa5839b6f8fe993449ee",
+      "solution_and_after_sha256": "535cd4f3da64a9502130cdf084771c78eebd83d7b17025c3aadbf1f417fffd0c",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.21",
+      "note": "02 - 数理统计/习题/习题 ST101 - 三点对称模型的充分量完备性与指数族端点.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 251,
+      "old_chinese_block_characters": 207,
+      "new_chinese_block_characters": 265,
+      "math_expressions_preserved": 5,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "0f317acf30a3aca6e753bbc87628cf72f716f9a4e3b19013f09cdef8a876264d",
+      "solution_and_after_sha256": "570c7293a7150c78e85dc73cd79d6a4accca9a7bba7a6bbe15adf25a48b64a9f",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.22",
+      "note": "02 - 数理统计/习题/习题 ST102 - 幂密度样本和不足与对数和完备充分性.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 210,
+      "old_chinese_block_characters": 155,
+      "new_chinese_block_characters": 221,
+      "math_expressions_preserved": 5,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "86eee29aa056edcc1345e9801f32c992a88eb7424064dba91b9777d6d5b90400",
+      "solution_and_after_sha256": "fb8545240ff73e0580769b0dd1c1163dc41be4893a3c210267b03996c2e3d202",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.23",
+      "note": "02 - 数理统计/习题/习题 ST103 - 倍增均匀区间的最小充分性与不完备性.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 91,
+      "old_chinese_block_characters": 108,
+      "new_chinese_block_characters": 136,
+      "math_expressions_preserved": 4,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "683db35ee3c008be4d2cac5c6afbe65e483052a10650354bebc2c6f7fb7e963f",
+      "solution_and_after_sha256": "6bf9ee77e9a90a920e072064058a416a785b0bcf895c6d166b4d6f454195fb68",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.24",
+      "note": "02 - 数理统计/习题/习题 ST104 - 两点参数Poisson族的不完备反例.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 237,
+      "old_chinese_block_characters": 166,
+      "new_chinese_block_characters": 262,
+      "math_expressions_preserved": 3,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "2221bcf15d79bf518dc34ccfeb11c6d1ed503a053c7fa14722c2cbd89dcd7f77",
+      "solution_and_after_sha256": "8e5aa0d0366b0a3445152922d412cba2e9a8ecd7e7080347e0ed0fd9ee6eb31f",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.25",
+      "note": "02 - 数理统计/习题/习题 ST105 - 弯曲正态族中充分量与最小充分量的区别.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 510,
+      "old_chinese_block_characters": 280,
+      "new_chinese_block_characters": 433,
+      "math_expressions_preserved": 9,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ],
+        [
+          1,
+          "d"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "57525c8bd3e774189bc4e6b75ba7f25cc45fd4d93121a5d22cf54e573de6a7c3",
+      "solution_and_after_sha256": "6b86980332800e03087bf4ec07993cf94335aefcb0fc7ddeca93f07f383e7f3e",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.26",
+      "note": "02 - 数理统计/习题/习题 ST106 - 用有限子族判据验证五个最小充分统计量.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 450,
+      "old_chinese_block_characters": 281,
+      "new_chinese_block_characters": 471,
+      "math_expressions_preserved": 12,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 1,
+      "metadata_and_english_sha256": "0095fb07111958b4ae6bb802b3a31fb5355041aa435f29ee70554a9f5127fa3d",
+      "solution_and_after_sha256": "9dae8d6cdd1a3440e0cbcd7fd1cc80b0ce7e04b2e585018e840000add87a5ea3",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.27",
+      "note": "02 - 数理统计/习题/习题 ST107 - 逆高斯样本完备充分性与原卡方统计量的修正.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 815,
+      "old_chinese_block_characters": 409,
+      "new_chinese_block_characters": 552,
+      "math_expressions_preserved": 7,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "cbec9e8ed923e9a48b26fc3f18704a1e3b95ad6dc7e361924f1667e2b3e78ce8",
+      "solution_and_after_sha256": "4f45913ed13f999d8be62f6f908b889ebac30bf5097a5fa71688ccc7c72f200b",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.28",
+      "note": "02 - 数理统计/习题/习题 ST108 - 有限密度子族最小充分判据及函数方向勘误.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 314,
+      "old_chinese_block_characters": 144,
+      "new_chinese_block_characters": 240,
+      "math_expressions_preserved": 4,
+      "enumerated_parts": [],
+      "source_hint_markers": 1,
+      "retained_hint_markers": 1,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "a53f8f7081e29f8106ec3483155b5e3af5ca10af0b4901c49bb757173056d4ea",
+      "solution_and_after_sha256": "d0bb36c819b34747406b097e4ad72d26f899d2ea9802c2d0d4dbb24514f9d8bb",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.29",
+      "note": "02 - 数理统计/习题/习题 ST109 - 未知密度非参数族中次序统计量的最小充分性.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 183,
+      "old_chinese_block_characters": 123,
+      "new_chinese_block_characters": 219,
+      "math_expressions_preserved": 3,
+      "enumerated_parts": [],
+      "source_hint_markers": 1,
+      "retained_hint_markers": 1,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "54d2858a77bd6d7059523fce5c6529cbf933efd7565855eedd01fa303ac582c7",
+      "solution_and_after_sha256": "3ecce76fe4ca7e1c82dcbf931712be751b74a8d6e009e9ce91434bda4fc55299",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.30",
+      "note": "02 - 数理统计/习题/习题 ST110 - 平移指数样本最小值完备充分及与方差独立.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 222,
+      "old_chinese_block_characters": 153,
+      "new_chinese_block_characters": 206,
+      "math_expressions_preserved": 6,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "bc84baed015e6d5ba312422359caea963bf38aa02abd751e0254eebd3c706dc8",
+      "solution_and_after_sha256": "fa35de001665f73af6288efbea45fb90505882b5dfe9ccb7142443706cc9d0c1",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.31",
+      "note": "02 - 数理统计/习题/习题 ST111 - Basu定理简化正态方差与Gamma条件期望计算.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 1410,
+      "old_chinese_block_characters": 666,
+      "new_chinese_block_characters": 1102,
+      "math_expressions_preserved": 29,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          2,
+          "i"
+        ],
+        [
+          2,
+          "ii"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          2,
+          "i"
+        ],
+        [
+          2,
+          "ii"
+        ],
+        [
+          1,
+          "c"
+        ],
+        [
+          2,
+          "i"
+        ],
+        [
+          2,
+          "ii"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "7fce683ef93de468a6cddee525b286807a63e2ce3e18756d9b1710d74b947b1e",
+      "solution_and_after_sha256": "5fa6ad830afbe2ffe19b8fdedafee620f7824592f6a5f5a11d8454d5d5ca4849",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.32",
+      "note": "02 - 数理统计/习题/习题 ST112 - 由形式原则推出似然原则推论.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 192,
+      "old_chinese_block_characters": 209,
+      "new_chinese_block_characters": 237,
+      "math_expressions_preserved": 5,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "bf87ae3c9e48982c7b85e43cf7ed632175bee1b77eaeaebae994dec0de906543",
+      "solution_and_after_sha256": "f4b0367e3c3a3e1d235de45b1099baa3cc5c3649cce58753e249cebe59045d3b",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.33",
+      "note": "02 - 数理统计/习题/习题 ST113 - Birnbaum定理混合实验因子分解与双向证明.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 1147,
+      "old_chinese_block_characters": 324,
+      "new_chinese_block_characters": 923,
+      "math_expressions_preserved": 13,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "9cdaff07cecddb2ed92d23a2f1e7293ff45e00cc88d985fd40c1c41561d3a359",
+      "solution_and_after_sha256": "7c806453b1e82928a64d14eac3fa9c05dece8a82f8236b716406637dbe12bdcf",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.34",
+      "note": "02 - 数理统计/习题/习题 ST114 - 随机样本量与固定二项实验的比例似然.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 202,
+      "old_chinese_block_characters": 151,
+      "new_chinese_block_characters": 195,
+      "math_expressions_preserved": 5,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "ad22be2f6837d89854a9ccae27d2680e4aa2a785a7e6c0da1fb1d61dc8e2ef80",
+      "solution_and_after_sha256": "05079318802a9e4668dc49057426553c3a0be707eb1c4e91be6c230ad7be961a",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.35",
+      "note": "02 - 数理统计/习题/习题 ST115 - 最多三名病人的成功后继续规则与似然原则.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 161,
+      "old_chinese_block_characters": 154,
+      "new_chinese_block_characters": 206,
+      "math_expressions_preserved": 2,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "d1704d8f0c09a888fc3b49077b5e3a77cf06b1aa16b4e9fd12f5bdd3f2efcaa7",
+      "solution_and_after_sha256": "000a218748145396499c087b8f71d8e472667e52bda63c2e2924fc33decbb836",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.36",
+      "note": "02 - 数理统计/习题/习题 ST116 - 最小充分约简后的条件期望与方差单调性.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 345,
+      "old_chinese_block_characters": 250,
+      "new_chinese_block_characters": 312,
+      "math_expressions_preserved": 8,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "50f742bc1b3b703552b6bb13e046a2265a35fde34c8e9a7c9f8b1b3839fb8ac9",
+      "solution_and_after_sha256": "0f5c8c2f94b50e35b54e2824111d303135f3eb1b6b285f9954d13b90f8ceb7ed",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.37",
+      "note": "02 - 数理统计/习题/习题 ST117 - 尼罗河模型中比率统计量的Fisher信息损失.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 543,
+      "old_chinese_block_characters": 349,
+      "new_chinese_block_characters": 486,
+      "math_expressions_preserved": 10,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          2,
+          "i"
+        ],
+        [
+          2,
+          "ii"
+        ],
+        [
+          2,
+          "iii"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "1025cc79b1a41ef39a5736a26237f8ea3e173f05338108dafdb328450694fee3",
+      "solution_and_after_sha256": "68aa8ba2bf2c8cc137c37348d3e00437a1d74087624cdd33cdfaf025d2c05bc7",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.38",
+      "note": "02 - 数理统计/习题/习题 ST118 - 变换群的恒等元与非空条件.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 118,
+      "old_chinese_block_characters": 76,
+      "new_chinese_block_characters": 76,
+      "math_expressions_preserved": 0,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "11975e681c475dcd58a7cf6b18278d03c5f803dd7aee0a9d87d6c7d6b5ed4db0",
+      "solution_and_after_sha256": "6e647376c908d405d5a2355e80e68d403aa68c4efd0c56ae41118c0f5489acba",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.39",
+      "note": "02 - 数理统计/习题/习题 ST119 - 摄氏与华氏估计的测量等变和形式不变.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 522,
+      "old_chinese_block_characters": 322,
+      "new_chinese_block_characters": 509,
+      "math_expressions_preserved": 10,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "5ec38f8409b85599765e203a01f8c1ca0fb199420d48c59f7a6ec6635e59751d",
+      "solution_and_after_sha256": "11809dcb2dfedcbd71127efa581ddd7fd1ed020af1bbae05a88f5aeeb369fff4",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.40",
+      "note": "02 - 数理统计/习题/习题 ST120 - 位置尺度族中齐次统计量比值的辅助性.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 353,
+      "old_chinese_block_characters": 202,
+      "new_chinese_block_characters": 321,
+      "math_expressions_preserved": 13,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "f29450d3ef6e5380149db1b40cac379ef66684e2710f8b512a7bf89ef0a53d52",
+      "solution_and_after_sha256": "a2631e222d4576d18caa4906e4bece28b4e755f6ce8c91dd70b1972d2cefb3ae",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.41",
+      "note": "02 - 数理统计/习题/习题 ST121 - 位置估计的等变方程与样本均值无偏性.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 766,
+      "old_chinese_block_characters": 281,
+      "new_chinese_block_characters": 714,
+      "math_expressions_preserved": 24,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "4b16bede79d3ed37348a1a216353c63340922fbbf5f6ae41419284c4ae9fab9c",
+      "solution_and_after_sha256": "938545f0544f40b10eb8c9055110e5f4a2d482be7433e8cfadb30c563acc0040",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.42",
+      "note": "02 - 数理统计/习题/习题 ST122 - 位置估计对平移群与仿射群的等变和无偏条件.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 579,
+      "old_chinese_block_characters": 296,
+      "new_chinese_block_characters": 584,
+      "math_expressions_preserved": 14,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "5daabf73d3ca0343138e2985da5e3e405f70551aa2b6f4c4bdd66f17876b240d",
+      "solution_and_after_sha256": "29f202494f8153aa4c3acff7bfa79d4719f378c4550e4c45906b69da7ca336d4",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "6.43",
+      "note": "02 - 数理统计/习题/习题 ST123 - 方差估计的平移不变与尺度等变类.md",
+      "translation_source": "06-05.tex",
+      "raw_source_characters": 960,
+      "old_chinese_block_characters": 382,
+      "new_chinese_block_characters": 901,
+      "math_expressions_preserved": 21,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "b2d1fd77f8c505f296b47ae5897d124a4dc33bada5ab3586f056dda08822f817",
+      "solution_and_after_sha256": "a2bb405994407b6c5c303928ed8db4b4facaf1cc9fd913066e9052d6fc2cd9bc",
+      "hint_rewritten": false
+    },
+    {
+      "source_exercise": "9.1",
+      "note": "02 - 数理统计/习题/习题 ST249 - 上下置信限的错误事件相加.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 170,
+      "old_chinese_block_characters": 127,
+      "new_chinese_block_characters": 214,
+      "math_expressions_preserved": 6,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "5e08a8a9f5900aa1349cc0cbe2f6d554fd1a01bbc33de2e312c17101db5d810e",
+      "solution_and_after_sha256": "63604c66254cd787300f39bda25624384455ede12646886e29a0425e7d19bf07",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.2",
+      "note": "02 - 数理统计/习题/习题 ST250 - 均值置信区间对下一观测的覆盖率.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 153,
+      "old_chinese_block_characters": 86,
+      "new_chinese_block_characters": 197,
+      "math_expressions_preserved": 9,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "bf9342735b9f185516b3dd2cf249cf5b16692e9a56eecb0c90be17087857db7b",
+      "solution_and_after_sha256": "4e716900eb0c603396915c8f5b0d48babd3b3691835a17b9dac94cef9a3ffe36",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.3",
+      "note": "02 - 数理统计/习题/习题 ST251 - 幂分布尺度上置信限与代入形状参数.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 335,
+      "old_chinese_block_characters": 156,
+      "new_chinese_block_characters": 327,
+      "math_expressions_preserved": 9,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "85c45ccd0a5cb461229ba31ef951af9d9789df7b9b1b9605cc93c7fe8149f66e",
+      "solution_and_after_sha256": "bc885c6a22c54405a996ad8723f58ebf1a78f58db85ac648e0fe9ddd532c8e87",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.4",
+      "note": "02 - 数理统计/习题/习题 ST252 - 已知零均值的正态方差比似然比区间.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 355,
+      "old_chinese_block_characters": 149,
+      "new_chinese_block_characters": 333,
+      "math_expressions_preserved": 12,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "c16566c01d7d28b5375b6d9ed7f961d13b022098356a45a69168f4d4338787a5",
+      "solution_and_after_sha256": "f4292e6da62a3c3d6e85965f1cf458d96ad9d1a0bcf9963b5e2c1c9c83fdf097",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.5",
+      "note": "02 - 数理统计/习题/习题 ST253 - 伯努利上置信限的检验反演及端点.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 351,
+      "old_chinese_block_characters": 127,
+      "new_chinese_block_characters": 359,
+      "math_expressions_preserved": 6,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "6f26bd0d347e172799d42d1bc53dbd3b619d9fa5a6437a099ecf2d1ca55a7f80",
+      "solution_and_after_sha256": "36bfa211432a98f66717ab7c1e9e42b54543120b9d26888384a4bbfbe1f2e73c",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.6",
+      "note": "02 - 数理统计/习题/习题 ST254 - 二项分布似然比区间与精确校准边界.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 185,
+      "old_chinese_block_characters": 125,
+      "new_chinese_block_characters": 159,
+      "math_expressions_preserved": 4,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "cd59f0c343d39d1037544b36378eac7d001fc8c2b19f1402a9823a91825b28e3",
+      "solution_and_after_sha256": "8385765d775b0248031392e39fdb1112781c3ac439c368adf5eab183fd46836e",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.7",
+      "note": "02 - 数理统计/习题/习题 ST255 - 均值方差受约束正态族的剖面似然置信集.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 340,
+      "old_chinese_block_characters": 138,
+      "new_chinese_block_characters": 341,
+      "math_expressions_preserved": 14,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "2e8480324ecf57a310b6af22bba19c3c3ac2da8aa6402e5751aef659eef7e530",
+      "solution_and_after_sha256": "daca9a8d39dfc910ae44162e1d2f3d1c87600eff1a524ed3c522f069e6f5da6f",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.8",
+      "note": "02 - 数理统计/习题/习题 ST256 - 位置尺度族中的五个枢轴量.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 79,
+      "old_chinese_block_characters": 98,
+      "new_chinese_block_characters": 123,
+      "math_expressions_preserved": 2,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "76205751436ec60b2189508f2458562b28642ba3449d0552aaa255d500e1098e",
+      "solution_and_after_sha256": "945245efbdec396883f4f48ebf150115a5c262efcc394fd753f69f3c2527fa44",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.9",
+      "note": "02 - 数理统计/习题/习题 ST257 - 教材三类位置尺度枢轴的共同证明.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 33,
+      "old_chinese_block_characters": 76,
+      "new_chinese_block_characters": 65,
+      "math_expressions_preserved": 0,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "953c7dd097af8f4fc5a9f9e52b22242c1c07f53bdd3214d6c89a47ca7ee866c9",
+      "solution_and_after_sha256": "2b13855a801f69cac591250a3bf188191d0280e191d25ca13091c90a23d933df",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.10",
+      "note": "02 - 数理统计/习题/习题 ST258 - 变换密度形式的枢轴判据与共同像空间.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 278,
+      "old_chinese_block_characters": 127,
+      "new_chinese_block_characters": 260,
+      "math_expressions_preserved": 11,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "de8f2e3d7b6c5eefba13bc536ad6cf6e5b687ca6f35311d917c3375637055568",
+      "solution_and_after_sha256": "d1103139787afd07710b16c0656fa53819fab97cd033276bc3b50cf0283f794f",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.11",
+      "note": "02 - 数理统计/习题/习题 ST259 - 连续分布函数反演的接受域.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 232,
+      "old_chinese_block_characters": 131,
+      "new_chinese_block_characters": 277,
+      "math_expressions_preserved": 8,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "6656676c024bbe6c98ea40d717d8fab8abac21ebff1a400883453f24f16102a7",
+      "solution_and_after_sha256": "1472fb1d20b7d475da464fc18c81c63cb1805a58c30aab359429585d954e01d2",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.12",
+      "note": "02 - 数理统计/习题/习题 ST260 - 均值等于方差的正态族精确枢轴区间.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 100,
+      "old_chinese_block_characters": 92,
+      "new_chinese_block_characters": 145,
+      "math_expressions_preserved": 5,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "f5440232f3c437b1f9a41c46bfe2bf15d1ce5b70f53425b74bcd46bf8c3f250d",
+      "solution_and_after_sha256": "4f2bd6d232235197fda94fd7828d84a782cc24cc4ee3c526e6f1d04d3d130e4f",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.13",
+      "note": "02 - 数理统计/习题/习题 ST261 - 单个贝塔样本的覆盖率与更短枢轴区间.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 231,
+      "old_chinese_block_characters": 145,
+      "new_chinese_block_characters": 208,
+      "math_expressions_preserved": 4,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "8761967da7ca1867c742a9b44a5ac3950d2c15ebe052a5938a96f9a92b99a415",
+      "solution_and_after_sha256": "d5505b03291857d3695b5565de0a3f2ee1f301656d9f87a1d6831f50612eaa85",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.14",
+      "note": "02 - 数理统计/习题/习题 ST262 - 正态均值方差同时推断的两种Bonferroni集合.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 799,
+      "old_chinese_block_characters": 173,
+      "new_chinese_block_characters": 738,
+      "math_expressions_preserved": 11,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "5fd8c1c74e4e5fe236c099dc9fd9bf588255c2daf5f01d21bae97baa18fda8ca",
+      "solution_and_after_sha256": "65db3fe7c33e9e9e56062328ae38614123b151a35cd8b9324989da37cf5750e1",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.15",
+      "note": "02 - 数理统计/习题/习题 ST263 - Fieller均值比置信集的根与无界情形.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 217,
+      "old_chinese_block_characters": 129,
+      "new_chinese_block_characters": 228,
+      "math_expressions_preserved": 0,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "5e7637b4c03d52a837f3932cdea85d74f6f54b781b41da04d17b031c7b1413c3",
+      "solution_and_after_sha256": "bf817b10fb203c0029eaa6ad1430de20566cff432bf9ec7fe1a27c1432ade566",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.16",
+      "note": "02 - 数理统计/习题/习题 ST264 - 正态均值三个方向检验的反演.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 317,
+      "old_chinese_block_characters": 166,
+      "new_chinese_block_characters": 337,
+      "math_expressions_preserved": 11,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "a8a1b44186060656cf267451132015212d38e6266cbe02f529ddd6dc979499c9",
+      "solution_and_after_sha256": "b047f7bb7910610d0d2a2e09f4e63083b1c92d1fc62d73e96985c9f41c834082",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.17",
+      "note": "02 - 数理统计/习题/习题 ST265 - 均匀位置与三角尺度模型的精确区间.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 232,
+      "old_chinese_block_characters": 132,
+      "new_chinese_block_characters": 232,
+      "math_expressions_preserved": 8,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "adab0d532bb4d7429d2b6f59f5ac67489d4a50836fe71c19c5c428b5563848c6",
+      "solution_and_after_sha256": "c7d02fcb11a0b296b4c7e87145034f567cf9671f0f0b7513f1800a5ff2786c51",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.18",
+      "note": "02 - 数理统计/习题/习题 ST266 - Sterne二项置信集的断裂与Crow修复.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 756,
+      "old_chinese_block_characters": 222,
+      "new_chinese_block_characters": 652,
+      "math_expressions_preserved": 25,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 1,
+      "metadata_and_english_sha256": "cf638553a5c7fc77482b2491b94a2997bdd790ce355cbdc4c66bc2382a6d3e3e",
+      "solution_and_after_sha256": "48e25dee0d9cd48dddf0a6c273b519b1841039fa027a73b4aa154c2c6e7502c0",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.19",
+      "note": "02 - 数理统计/习题/习题 ST267 - 连续分布函数随参数增加时的区间反演.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 58,
+      "old_chinese_block_characters": 65,
+      "new_chinese_block_characters": 64,
+      "math_expressions_preserved": 0,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "95e611502b28cec045ff9f2d3f0539fe335c29b7ec299cc67b7694ba34af0fb8",
+      "solution_and_after_sha256": "32c31b1864837e3ae860b8a1e70507fab0ecfdb6bb480879f3b7d5cd139d4e02",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.20",
+      "note": "02 - 数理统计/习题/习题 ST268 - 离散分布函数双尾反演中的不等号疑误.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 749,
+      "old_chinese_block_characters": 194,
+      "new_chinese_block_characters": 620,
+      "math_expressions_preserved": 16,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ],
+        [
+          1,
+          "d"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "0816c92eb02240aa89fdf9afbb114773d0291ce43191edcbebb945a7eb03168e",
+      "solution_and_after_sha256": "ca59b2ac6dc91dfb22a36714913cc9de5b0ea6205b84580b00572a1ec9a7d91d",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.21",
+      "note": "02 - 数理统计/习题/习题 ST269 - Clopper与Pearson二项精确区间的F形式.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 636,
+      "old_chinese_block_characters": 104,
+      "new_chinese_block_characters": 609,
+      "math_expressions_preserved": 16,
+      "enumerated_parts": [],
+      "source_hint_markers": 1,
+      "retained_hint_markers": 1,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "af908457824031004f6f04c18d68c172df5b95c9b89861cd2a242af751303e83",
+      "solution_and_after_sha256": "8b4dc49cf70069f8e71efeb2c258debf1f8223c0f5d86d8b4c41924046e85da0",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.22",
+      "note": "02 - 数理统计/习题/习题 ST270 - 负二项成功概率的精确区间.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 244,
+      "old_chinese_block_characters": 95,
+      "new_chinese_block_characters": 281,
+      "math_expressions_preserved": 5,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "a0d457cdc7941951cb9e2495f3178ec53c332331c98076a60ff1bff32f6e25bb",
+      "solution_and_after_sha256": "3b1b65625bb1a173cc53165ab4c4d90ffb7f567e0cb1b19c5302c7f20599cd99",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.23",
+      "note": "02 - 数理统计/习题/习题 ST271 - 蚜虫计数的Poisson似然比与等尾区间.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 387,
+      "old_chinese_block_characters": 111,
+      "new_chinese_block_characters": 366,
+      "math_expressions_preserved": 7,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "ccb57f3861a575d4b1b2d4dccaab75f4c43ebecf6417454d3c12486e7980db34",
+      "solution_and_after_sha256": "4cd4317dcf76321301f0a6b96121f755a217d290c152040640306ccd8130e602",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.24",
+      "note": "02 - 数理统计/习题/习题 ST272 - Poisson区间覆盖率的有限指标和与跳跃.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 402,
+      "old_chinese_block_characters": 106,
+      "new_chinese_block_characters": 449,
+      "math_expressions_preserved": 5,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "eb2d843ec6f07e7bb852896fc95f9f05cb69f629d37672f67779cc92c84a8041",
+      "solution_and_after_sha256": "2becc71552a053a22525c3762445649b78e924eb39044640227011ef12d2a52b",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.25",
+      "note": "02 - 数理统计/习题/习题 ST273 - 平移指数位置参数的三种区间比较.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 266,
+      "old_chinese_block_characters": 91,
+      "new_chinese_block_characters": 300,
+      "math_expressions_preserved": 8,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "76a98877051e4c0e1cd3ee67ba4d8de6e3ad1b0f51fc3eaf620b74de45346f2c",
+      "solution_and_after_sha256": "401b2911a399f8826f78f102cdcac2f26ba91f711866d27adf9f6f318d6f498e",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.26",
+      "note": "02 - 数理统计/习题/习题 ST274 - 贝塔形状参数的Gamma后验可信区间.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 146,
+      "old_chinese_block_characters": 130,
+      "new_chinese_block_characters": 191,
+      "math_expressions_preserved": 6,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "f550f81422a814805e368db7804157ca9557201f099a843f1e41145467d44b12",
+      "solution_and_after_sha256": "c37ac27ab21a3d7640c13e6fa14b31d25905bba6c6165862cb366ada75105025",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.27",
+      "note": "02 - 数理统计/习题/习题 ST275 - 指数尺度与正态方差的逆Gamma最高后验密度集.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 571,
+      "old_chinese_block_characters": 161,
+      "new_chinese_block_characters": 524,
+      "math_expressions_preserved": 16,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "55029222ac9007683f3ba803381540809521afebe6bfc0c99e1e217187137593",
+      "solution_and_after_sha256": "28bc025605494a9eebafba2bcf3a735246b1963d390af7e0550e5d984011571d",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.28",
+      "note": "02 - 数理统计/习题/习题 ST276 - 正态逆Gamma共轭与经典均值区间的极限障碍.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 788,
+      "old_chinese_block_characters": 156,
+      "new_chinese_block_characters": 664,
+      "math_expressions_preserved": 14,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "c8c6c96f62c5fed31fff98aa41880a260789f442e645f616cf07a5c0a274d4e9",
+      "solution_and_after_sha256": "a3ca1ae61a51681fc3d5313119c739c025f59d5ade4491f29abb6565ae8c359f",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.29",
+      "note": "02 - 数理统计/习题/习题 ST277 - 二项贝塔可信区间与Clopper和Pearson区间比较.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 226,
+      "old_chinese_block_characters": 96,
+      "new_chinese_block_characters": 226,
+      "math_expressions_preserved": 7,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "e23f783426bdd79a4f48e7f3b5129397b313cd8977ea3ddea20b787c127a0b3b",
+      "solution_and_after_sha256": "61f5c53f64522ee0d24055525ae58718a909dcfdc66b155ac1771269fab370d3",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.30",
+      "note": "02 - 数理统计/习题/习题 ST278 - Poisson置信集后验概率消失的正确极限.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 426,
+      "old_chinese_block_characters": 157,
+      "new_chinese_block_characters": 383,
+      "math_expressions_preserved": 7,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "62da71318a0cd7e1bbd421bed7aa0057cd4629eefbc91ec52662491e020eb250",
+      "solution_and_after_sha256": "cfc96d88b7c5923ad0b548a652afd9aef4cf0a7f18a3d11a19698398e99dfad9",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.31",
+      "note": "02 - 数理统计/习题/习题 ST279 - 随机自由度卡方极限与Poisson可信区间覆盖率.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 568,
+      "old_chinese_block_characters": 172,
+      "new_chinese_block_characters": 484,
+      "math_expressions_preserved": 12,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "763081ab26c28381bd29add3662c55c6c212e45d6a4093053cf04e18297d5b28",
+      "solution_and_after_sha256": "3a1900a8a8f0b6d48dde841805c534f09c2243d99ee63b7ae1f8fe7371b57150",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.32",
+      "note": "02 - 数理统计/习题/习题 ST280 - 正态收缩可信区间的频率覆盖与反向比较.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 1191,
+      "old_chinese_block_characters": 181,
+      "new_chinese_block_characters": 1188,
+      "math_expressions_preserved": 15,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ],
+        [
+          1,
+          "d"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "d679b09f8aef6305be8f0c697dd21861ee4c3b4d36007a582535296e607942fc",
+      "solution_and_after_sha256": "d8c4f2ced297af456ab4d43a767abd580ec5112f921ec5a2f897b631b5889302",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.33",
+      "note": "02 - 数理统计/习题/习题 ST281 - 强制包含零的正态区间与后验概率.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 587,
+      "old_chinese_block_characters": 149,
+      "new_chinese_block_characters": 531,
+      "math_expressions_preserved": 15,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "831950f8028dd9a0e84167baca551eda6731d06721385b7a9f6bd0f75698288d",
+      "solution_and_after_sha256": "050bc879b49633222aa65fc437702511a85d28ca069f40dd36533871f37cbca4",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.34",
+      "note": "02 - 数理统计/习题/习题 ST282 - 保证正态均值区间长度的最小样本量.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 220,
+      "old_chinese_block_characters": 121,
+      "new_chinese_block_characters": 237,
+      "math_expressions_preserved": 13,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "0d1ded122d63703fca8e2675eba8922f04f2042c3fcd6bc270f544e497556b3d",
+      "solution_and_after_sha256": "b53238076c03d6cbeb38be5c64ffb0114b8b5c5131c970e9606c881d25d927f6",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.35",
+      "note": "02 - 数理统计/习题/习题 ST283 - 已知与未知正态方差的期望区间长度.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 167,
+      "old_chinese_block_characters": 105,
+      "new_chinese_block_characters": 184,
+      "math_expressions_preserved": 6,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "a5b888db2525d11d6816b8cedfefb1aa0dc9352a5de679ffcfe7e5a001c65537",
+      "solution_and_after_sha256": "3d12aff1c3c6e4e943d86990fdc3db5b41d56bb05835fe0e1a997793a1df0124",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.36",
+      "note": "02 - 数理统计/习题/习题 ST284 - 不同平移阈值指数样本的最短位置区间.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 176,
+      "old_chinese_block_characters": 113,
+      "new_chinese_block_characters": 221,
+      "math_expressions_preserved": 8,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "dea5c9cce5fa6628878f00e8515b7a78e8e680cfe5484e6cf5547a7ea03a0166",
+      "solution_and_after_sha256": "5520beefda4feca335183700bbe9c1a8f84007c19451f49539aeb9967ee18d39",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.37",
+      "note": "02 - 数理统计/习题/习题 ST285 - 均匀尺度参数的最短固定枢轴区间.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 176,
+      "old_chinese_block_characters": 98,
+      "new_chinese_block_characters": 235,
+      "math_expressions_preserved": 6,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "8782054fca7bbf4b654a3ff2a0e8376d507dea07402e53646826fe6c0360d8f6",
+      "solution_and_after_sha256": "4b6df31babca8d5f859c37d4a7372389baa6f56cea91189270a22f5bff84fb2b",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.38",
+      "note": "02 - 数理统计/习题/习题 ST286 - 连续单峰密度的短区间证明及平台边界.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 347,
+      "old_chinese_block_characters": 144,
+      "new_chinese_block_characters": 355,
+      "math_expressions_preserved": 13,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "b968995992abbf69f32da9d688a70d1dfaf008870566291335080840c5ae0f59",
+      "solution_and_after_sha256": "bfa1de76b2e44d4fe81d33befef35748e8ad168cd50f8934911ee71eb0f83745",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.39",
+      "note": "02 - 数理统计/习题/习题 ST287 - 对称单峰密度的等尾区间最短性.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 208,
+      "old_chinese_block_characters": 79,
+      "new_chinese_block_characters": 241,
+      "math_expressions_preserved": 8,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "04cc9a67e77a2449cb3e75da097fb3b7f2de87fd3e39591b76975ac0b987e790",
+      "solution_and_after_sha256": "32aa206f24546339cbc353184003b91be7d1ce614a943877a69a2f885455d120",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.40",
+      "note": "02 - 数理统计/习题/习题 ST288 - 对称似然与后验的高密度区间及条件.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 208,
+      "old_chinese_block_characters": 113,
+      "new_chinese_block_characters": 198,
+      "math_expressions_preserved": 6,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "dc225ef6d07cd716eaab3b3821a2935172879dafaa47be9f087b47683631a5c1",
+      "solution_and_after_sha256": "9c504b38484dc91781ecab4fbbe9d95046d3ab09480cd917645beed6cdd4f49f",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.41",
+      "note": "02 - 数理统计/习题/习题 ST289 - 下降密度的最短质量区间与指数位置区间.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 325,
+      "old_chinese_block_characters": 98,
+      "new_chinese_block_characters": 260,
+      "math_expressions_preserved": 9,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "9b876043d74bad20a78f3b97b2b21d4257e06b0d0f9a6aacab148b95c5acfc8f",
+      "solution_and_after_sha256": "8410870cfb0d6146d559d9c67a19090201cccf2efe0016c8c3c48e4bfbcd070c",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.42",
+      "note": "02 - 数理统计/习题/习题 ST290 - Gamma尺度枢轴区间的加权等高端点.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 275,
+      "old_chinese_block_characters": 127,
+      "new_chinese_block_characters": 280,
+      "math_expressions_preserved": 7,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "42a0c8260cc3d96be3609600026311f14d623c245a15e4cd25037f8b53a0a5d6",
+      "solution_and_after_sha256": "46f13ad966ce8feae7a5f6902359b73058a96de5a3fd9dd4da01b32e16f401bf",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.43",
+      "note": "02 - 数理统计/习题/习题 ST291 - 加权最短枢轴区域的Neyman和Pearson型证明.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 661,
+      "old_chinese_block_characters": 125,
+      "new_chinese_block_characters": 587,
+      "math_expressions_preserved": 15,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 1,
+      "retained_hint_markers": 1,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "9fd37f82c3106a6d4a5bec72b8fac05112e70842a26c8ba464f61950ba6e564f",
+      "solution_and_after_sha256": "52a042eca4ae0af1317ffe2c696aa60ac9b0a7a74a87ad07b20acf353196a788",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.44",
+      "note": "02 - 数理统计/习题/习题 ST292 - Poisson下限与logistic上限的UMA性质.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 329,
+      "old_chinese_block_characters": 115,
+      "new_chinese_block_characters": 331,
+      "math_expressions_preserved": 11,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "12643a33eafa79630512dfdde3d714b4dba1575faaeab21666f0e9fbe245f219",
+      "solution_and_after_sha256": "77ce94f6dfa60db66768e9c3b508f0fe821b986db8fa88d26c116c0367dfec55",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.45",
+      "note": "02 - 数理统计/习题/习题 ST293 - 指数尺度的UMA上限与更短期望长度反例.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 1040,
+      "old_chinese_block_characters": 166,
+      "new_chinese_block_characters": 869,
+      "math_expressions_preserved": 16,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ],
+        [
+          1,
+          "d"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "6a9a4e136e99ddc48feefec859647e4902a57a65ab96f02dfc91e59efb0c650b",
+      "solution_and_after_sha256": "ab2fc17cf46e2bd0dc120be9eb3f5ea34bd6785f9f5820e04c447605e51a2783",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.46",
+      "note": "02 - 数理统计/习题/习题 ST294 - 无偏检验反演为无偏置信集.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 164,
+      "old_chinese_block_characters": 70,
+      "new_chinese_block_characters": 209,
+      "math_expressions_preserved": 8,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "c3e5b6cc7ca90cebc690bb19d12bf64b8daa528d93f51d881d51b79de8bc983a",
+      "solution_and_after_sha256": "7b6ec759fd59b8e3ff542f3641086882997a9adfd31d0dcff51bab1b1a11c248",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.47",
+      "note": "02 - 数理统计/习题/习题 ST295 - 已知方差正态单侧置信限的无偏性.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 176,
+      "old_chinese_block_characters": 78,
+      "new_chinese_block_characters": 204,
+      "math_expressions_preserved": 5,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "19a4da0e91c7fc48b3e7d4051d6edb08a384ba1a1fcb5f0dd5a60c24a51c8b0e",
+      "solution_and_after_sha256": "2645428654d7bf8423e4e31a0679759d2986736f16cbde9313bcda0f48860505",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.48",
+      "note": "02 - 数理统计/习题/习题 ST296 - 未知方差正态t区间的LRT反演与无偏性.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 327,
+      "old_chinese_block_characters": 111,
+      "new_chinese_block_characters": 251,
+      "math_expressions_preserved": 4,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "22c769a4d52767a599a3d3ab5b3a1ac2aaa974cbd3c4ada66ea210adb6866c6f",
+      "solution_and_after_sha256": "a17a4c7c8ca74987c5348f1219d215dc64360b384967bd0b68d9d335dab2e938",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.49",
+      "note": "02 - 数理统计/习题/习题 ST297 - Cox混合精度悖论与原功效断言反例.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 897,
+      "old_chinese_block_characters": 158,
+      "new_chinese_block_characters": 801,
+      "math_expressions_preserved": 15,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "1b752a32dc00a99545eb37371e639f5080b739f35c00d9c54e4848def86f41a8",
+      "solution_and_after_sha256": "b4846d9a9941780538d8bb1b9edeaf44195cce7f8312dea6b8875cd28d95f155",
+      "hint_rewritten": true,
+      "optional_exercise_title_preserved": "Cox悖论"
+    },
+    {
+      "source_exercise": "9.50",
+      "note": "02 - 数理统计/习题/习题 ST298 - UMA置信集的重参数化与非单射限制.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 354,
+      "old_chinese_block_characters": 106,
+      "new_chinese_block_characters": 371,
+      "math_expressions_preserved": 10,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "b1f23900dc6e54011d6e70f2f449ced190053862e11142faa00d09ba031dbaad",
+      "solution_and_after_sha256": "8105297da24aaf8aee6198e9614c6795b1459e036d87bcd6d095327750218733",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.51",
+      "note": "02 - 数理统计/习题/习题 ST299 - 位置族固定平移区间的常数覆盖率.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 209,
+      "old_chinese_block_characters": 96,
+      "new_chinese_block_characters": 251,
+      "math_expressions_preserved": 6,
+      "enumerated_parts": [],
+      "source_hint_markers": 1,
+      "retained_hint_markers": 1,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "35ebae05003e9c1e4ffc2357f3f6efceee59df0e5d6f178c357ef997ca04b7b4",
+      "solution_and_after_sha256": "af938e232e80d2c918c310da6744a428d6c7ca6929167fcfab56c31ef9953872",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.52",
+      "note": "02 - 数理统计/习题/习题 ST300 - 正态方差四种区间的端点约束与数值比较.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 1020,
+      "old_chinese_block_characters": 270,
+      "new_chinese_block_characters": 1048,
+      "math_expressions_preserved": 30,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ],
+        [
+          1,
+          "d"
+        ],
+        [
+          1,
+          "e"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "014c720da0ab67183194eb4262ecd36c75dadd82e827988d51ac0eb447bd0606",
+      "solution_and_after_sha256": "15d58f138c16d4d57cd21b22621c4899603f403f438c161075cd648de24f5466",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.53",
+      "note": "02 - 数理统计/习题/习题 ST301 - 已知方差正态区间的长度覆盖损失最优解.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 589,
+      "old_chinese_block_characters": 174,
+      "new_chinese_block_characters": 626,
+      "math_expressions_preserved": 22,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ],
+        [
+          1,
+          "d"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "bb508d920f82f60677013c486c9f2cad89ef8fbb82b28d9376ea14c4d91abb01",
+      "solution_and_after_sha256": "2036c1fd498c50834248e664a250c87d15a3f251b18445783d06eeba51d63467",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.54",
+      "note": "02 - 数理统计/习题/习题 ST302 - 未知方差区间的尺度不变风险与t密度条件.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 634,
+      "old_chinese_block_characters": 143,
+      "new_chinese_block_characters": 655,
+      "math_expressions_preserved": 20,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "ab453de857d8521deecd7d5ac83b986e6431e3f0641dc7de0bbe7887c0bd6eb2",
+      "solution_and_after_sha256": "5dbcb85f367fcf9b9194aa57f1d455b259272b189c7365f543c200de92ac13c8",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.55",
+      "note": "02 - 数理统计/习题/习题 ST303 - 截断过宽区间在指定损失下的严格改进.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 616,
+      "old_chinese_block_characters": 112,
+      "new_chinese_block_characters": 669,
+      "math_expressions_preserved": 19,
+      "enumerated_parts": [],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "bd3bfa715c4aafd29ec45fedb9d8085805db5f6172fd3525760c4942fe9d4b16",
+      "solution_and_after_sha256": "fd540987d2eedf06503338684a858221b64db35d469a68ad48a57e0bfa8964c2",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.56",
+      "note": "02 - 数理统计/习题/习题 ST304 - 长度覆盖损失的贝叶斯最优集合.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 225,
+      "old_chinese_block_characters": 118,
+      "new_chinese_block_characters": 274,
+      "math_expressions_preserved": 7,
+      "enumerated_parts": [],
+      "source_hint_markers": 1,
+      "retained_hint_markers": 1,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "721ea1c5c654b991adb3ee1fc659e914d1335ad71d259cdad3c36ef801109b2e",
+      "solution_and_after_sha256": "ade10d43b63a7ba4e27eb0f9c5f73346490476ac6fe573f062bd38e965e0449c",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.57",
+      "note": "02 - 数理统计/习题/习题 ST305 - 正态预测与容忍区间及缺失总体比例条件.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 505,
+      "old_chinese_block_characters": 151,
+      "new_chinese_block_characters": 442,
+      "math_expressions_preserved": 17,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "67008961308c65aac073f43f5c3ff2cc78ed87a3596ad00a94f97d69a541b315",
+      "solution_and_after_sha256": "33b71c74fb57f039986345a5ed64f124391a369257b34f91769ea0f9713727a0",
+      "hint_rewritten": true
+    },
+    {
+      "source_exercise": "9.58",
+      "note": "02 - 数理统计/习题/习题 ST306 - 次序统计量的分布无关置信预测与容忍区间.md",
+      "translation_source": "09-04.tex",
+      "raw_source_characters": 643,
+      "old_chinese_block_characters": 185,
+      "new_chinese_block_characters": 480,
+      "math_expressions_preserved": 14,
+      "enumerated_parts": [
+        [
+          1,
+          "a"
+        ],
+        [
+          1,
+          "b"
+        ],
+        [
+          1,
+          "c"
+        ]
+      ],
+      "source_hint_markers": 0,
+      "retained_hint_markers": 0,
+      "tables_preserved": 0,
+      "metadata_and_english_sha256": "e42ab6c78927d52f1a6702e48f1cc76d672fa8094ab85c40b97653aba422e21b",
+      "solution_and_after_sha256": "118bda63ae1b6b296d5e66181f7ce686e05b7e7c3040ab1435216c49f7b3c1c7",
+      "hint_rewritten": true
+    }
+  ],
+  "part_audit": {
+    "source_enumerate_items": 163,
+    "converted_enumerate_items": 163,
+    "ordered_label_checks": "101/101 passed",
+    "table_nonempty_cells_checked": 46,
+    "table_6_26_parts": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ],
+    "errors": [],
+    "english_label_layout_notes": [
+      "9.40英文(a)(b)在同一段内，译稿及中文题块以独立分题排出；两者均完整。",
+      "9.58(c)句首引用(a)不是新增分题，源枚举仍为a,b,c。"
+    ]
+  },
+  "authorized_parallel_English_repairs_preserved": {
+    "repair_file": "tmp/pdfs/DS011-rest/ch06-ch09-english-repairs.json",
+    "checked": 14,
+    "mismatches": []
+  },
+  "optional_exercise_titles_preserved": [
+    "9.49 Cox悖论"
+  ]
+}

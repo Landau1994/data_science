@@ -1,0 +1,39 @@
+134                                      MULTIPLE RANDOM VARIABLES
+   The advantage of the hierarchy is that complicated processes may be modeled by a sequence of
+relatively simple models placed in a hierarchy. Also, dealing with the hierarchy is no more difficult
+than dealing with conditional and marginal distributions.
+Example 4.4.2 (Continuation of Example 4.4.1)  The random variable of interest, X = number
+of survivors, has the distribution given by
+                         ∞
+            P(X = x) =    P(X = x,Y = y)             ∑
+                               y=0
+                         ∞
+                                                                                   definition of              =    P(X =  = y)P(Y = y)             ∑                                      conditional probability                               y=0       x|Y
+                         ∞    y              e−λλ y          conditional probability
+              =                                                     ,             ∑                                   x  px(1−p)y−x      y!                    is zero if y < x                                y=x
+since X|Y = y is binomial(y, p) and Y is Poisson(λ). If we now simplify this last expression, can-celing what we can, and multiplying by λ x/λ x, we get
+                                  (λ p)xe−λ ∞                 P(X = x) =             ((1−p)λ)y−x                    ∑
+                                             x!    y=x   (y−x)!
+                                  (λ p)xe−λ ∞                  =             ((1−p)λ)t (t =                    ∑                                             x!    t=0      t!       y−x)
+                                  (λ p)xe−λ                    sum is a kernel for                  =             e(1−p)λ                                                                    a Poisson distribution                                             x!
+                                  (λ p)x                  =        e−λ p,
+                                           x!
+so X ∼Poisson(λ p). Thus, any marginal inference on X is with respect to a Poisson(λ p) distribu-tion, withY playing no part at all. IntroducingY in the hierarchy was mainly to aid our understanding
+of the model. There was an added bonus in that the parameter of the distribution of X is the product
+of two parameters, each relatively simple to understand.
+   The answer to the original question is now easy to compute:
+                             EX = λ p,
+so, on the average, λ p eggs will survive. If we were interested only in this mean, and did not need
+the distribution, we could have used properties of conditional expectations.                  ∥
+   Sometimes, calculations can be greatly simplified be using the following theorem. Recall from
+Section 4.2 that E(X|y) is a function of y and E(X|Y) is a random variable whose value depends onthe value of Y.
+Theorem 4.4.3   If X and Y are any two random variables, then
+                          EX = E(E(X|Y)),                                   (4.4.1)
+provided that the expectations exist.
+Proof: Let f(x,y) denote the joint pdf of X and Y. By definition, we have
+
+               EX =     x f(x,y)dxdy =      x f(x|y)dx  fY(y)dy,                 (4.4.2)
+where f(x|y) and fY(y) are the conditional pdf of X given Y = y and the marginal pdf of Y, respec-
+tively. But now notice that the inner integral in (4.4.2) is the conditional expectation E(X|y), and wehave
+                    EX =   E(X|y)fY(y)dy = E(E(X|Y)),
+as desired. Replace integrals by sums to prove the discrete case.                  2

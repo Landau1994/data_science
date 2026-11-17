@@ -1,0 +1,38 @@
+DIFFERENTIATING UNDER AN INTEGRAL SIGN                                 61
+    Justification of taking the derivative inside the summation is more straightforward than the inte-
+gration case. The following theorem provides the details.
+Theorem 2.4.8  Suppose that the series ∑∞x=0 h(θ,x) converges for all θ in an interval (a,b) of
+real numbers and
+    i. ∂θ∂ h(θ,x) is continuous in θ for each x,
+   ii. ∑∞x=0 ∂θ∂ h(θ,x) converges uniformly on every closed bounded subinterval of (a,b).
+Then
+                            d  ∞         ∞  ∂
+                         =                                                                                            (2.4.11)               ∑ h(θ,x)                    ∑    h(θ,x).                         dθ x=0          x=0 ∂θ
+
+   The condition of uniform convergence is the key one to verify in order to establish that the
+differentiation can be taken inside the summation. Recall that a series converges uniformly if its
+sequence of partial sums converges uniformly, a fact that we use in the following example.
+Example 2.4.9 (Continuation of Exercise 2.4.7)  To apply Theorem 2.4.8 we identify
+                                   h(θ, x) = θ(1−θ)x,
+and
+                         ∂
+                              h(θ, x) = (1−θ)x −θx(1−θ)x−1,                     ∂θ
+and verify that ∑∞x=0 ∂θ∂ h(θ,x) converges uniformly. Define Sn(θ) by
+
+                                           n
+                                                                                                   .                         Sn(θ) =               ∑ (1−θ)x −θx(1−θ)x−1                                    x=0
+The convergence will be uniform on [c,d ] ⊂(0,1) if, given ε > 0, we can find an N such that
+                    n > N ⇒|Sn(θ)−S∞(θ)| < ε   for all θ ∈[c,d ].
+Recall the partial sum of the geometric series (1.5.3). If y̸ = 1, then we can write
+                                             n
+                                             yk = 1−yn+1 .                ∑
+                                      k=0                               1−y
+Applying this, we have
+
+                                 n
+                       =  1−(1−θ)n+1            ∑ (1−θ)x           θ                            x=0
+                            n                           n
+                       =  θ                    ∑          ∑ θx(1−θ)x−1                         −∂∂θ (1−θ)x                       x=0                                               x=0
+                                          d   n
+                       =  −θ dθ x=0∑ (1−θ)x
+                                          d                       =        1−(1−θ)n+1   .                              −θ dθ       θ

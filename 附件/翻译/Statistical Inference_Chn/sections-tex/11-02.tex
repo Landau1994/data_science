@@ -1,0 +1,509 @@
+\subsection{单因素方差分析}\label{sec:11.2}
+在最简单的形式下，ANOVA是一种估计多个总体均值的方法，通常假设这些总体服从正态分布. 不过，ANOVA的核心在于统计设计：怎样用最少的观测，从尽可能多的总体中获得最多的信息？但ANOVA的设计问题不是我们主要关心的内容；我们将关注ANOVA中的推断，也就是估计与检验.
+
+\sourcepageanchor{453}
+经典ANOVA以检验为主要目标，特别是检验所谓“ANOVA原假设”. 但近年来，尤其随着计算能力的提高，实验人员已经认识到，检验一个假设（而且正如我们将看到的，这是个有些荒唐的假设）并不能形成良好的实验推断. 因此，虽然我们将推导ANOVA原假设的检验，它却远不是方差分析中最重要的部分. 更重要的是估计，包括点估计和区间估计. 特别是，基于对比（稍后定义）的推断极为重要.
+
+在单因素方差分析（也称单向分类）中，假设观测到的数据$Y_{ij}$服从模型
+\begin{equation}\label{eq:11.2.1}
+Y_{ij}=\theta_i+\varepsilon_{ij},\qquad i=1,\ldots,k,\quad j=1,\ldots,n_i,
+\end{equation}
+其中$\theta_i$为未知参数，$\varepsilon_{ij}$为误差随机变量.
+
+\begin{example}[单因素ANOVA]\label{ex:11.2.1}
+单因素ANOVA的数据$y_{ij}$可示意如下：
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+\multicolumn{5}{c}{处理}\\
+1&2&3&$\cdots$&$k$\\\midrule
+$y_{11}$&$y_{21}$&$y_{31}$&$\cdots$&$y_{k1}$\\
+$y_{12}$&$y_{22}$&$y_{32}$&$\cdots$&$y_{k2}$\\
+$\vdots$&$\vdots$&$\vdots$&$\cdots$&$y_{k3}$\\
+&&$y_{3n_3}$&&$\vdots$\\
+$y_{1n_1}$&&&&\\
+&$y_{2n_2}$&&&$y_{kn_k}$\\\bottomrule
+\end{tabular}
+\end{center}
+注意，我们并未假设各处理组的观测数相同.
+
+例如，考虑下面一项实验，它旨在评价三种毒素和一个对照处理对某种鳟鱼肝脏的相对影响. 数据为每条被处死的鱼的肝脏损伤程度（用标准单位表示）.
+\begin{center}
+\begin{tabular}{rrrr}
+\toprule
+毒素1&毒素2&毒素3&对照\\\midrule
+28&33&18&11\\
+23&36&21&14\\
+14&34&20&11\\
+27&29&22&16\\
+&31&24&\\
+&34&&\\\bottomrule
+\end{tabular}
+\end{center}
+\end{example}
+
+不失一般性，可假设$E\varepsilon_{ij}=0$；否则可以重新调整$\varepsilon_{ij}$，把剩余的均值吸收到$\theta_i$中. 因而
+$$
+EY_{ij}=\theta_i,\qquad j=1,\ldots,n_i,
+$$
+所以$\theta_i$是$Y_{ij}$的均值. $\theta_i$通常称为处理均值（treatment means），因为下标常对应不同的处理，或某一处理的不同水平，例如某种药物的剂量水平.\index{SI0039@因子的水平}\semanticindexanchor{39:453}\index{SI0055@处理均值}\semanticindexanchor{55:453}
+
+\eqref{eq:11.2.1}还有另一种模型形式，有时称为过参数化模型（overparameterized model），可写成
+\begin{equation}\label{eq:11.2.2}\index{SI0046@过参数化模型}\index{SI0741@方差分析}
+Y_{ij}=\mu+\tau_i+\varepsilon_{ij},\qquad i=1,\ldots,k,\quad j=1,\ldots,n_i,
+\end{equation}
+其中仍有$E\varepsilon_{ij}=0$. 由此模型得到
+$$EY_{ij}=\mu+\tau_i.$$
+
+\sourcepageanchor{454}
+在这种表述中，将$\mu$看作总均值（grand mean），即各处理共同的均值水平. 参数$\tau_i$表示处理$i$特有的效应，即该处理引起的偏离均值水平的程度. 但由于存在可识别性问题，我们不能分别估计$\tau_i$与$\mu$.
+
+\begin{definition}\label{def:11.2.2}\index{SI0038@可识别性}\index{SI0526@可识别性}\index{SI0527@方差分析}
+对于分布族$\{f(x\mid\theta):\theta\in\Theta\}$，如果不同的$\theta$值对应不同的pdf或pmf，就称参数$\theta$是可识别的（identifiable）. 也就是说，若$\theta\ne\theta'$，则$f(x\mid\theta)$与$f(x\mid\theta')$作为$x$的函数并不相同.
+\end{definition}
+
+可识别性是模型的性质，不是估计量或估计程序的性质. 但模型不可识别时，推断会遇到困难. 例如，若$f(x\mid\theta)=f(x\mid\theta')$，则来自这两个分布的观测看起来完全相同，我们无法知道参数真值究竟是$\theta$还是$\theta'$. 特别地，$\theta$与$\theta'$都会使似然函数取相同的值.
+
+应当认识到，可识别性问题通常可以通过重新定义模型来解决. 之前没有遇到可识别性问题的一个原因，是我们的模型不仅直观合理，而且可识别（例如，用均值和方差为正态总体建模）. 但这里的模型\eqref{eq:11.2.2}虽然直观合理，却不可识别. 在\autoref{sec:12}将看到二元正态分布的一种参数化，它很好地描述了某种情形，却不可识别.
+
+\eqref{eq:11.2.2}的参数化有$k+1$个参数$(\mu,\tau_1,\ldots,\tau_k)$，却只有$k$个均值$EY_{ij}$，$i=1,\ldots,k$. 若不进一步限制参数，就有不止一组$(\mu,\tau_1,\ldots,\tau_k)$值产生同一个分布. 通常在此模型中加上限制$\sum_{i=1}^k\tau_i=0$，从而实际上把参数个数减少为$k$，使模型可识别. 这一限制还使$\tau_i$可以解释为相对于总体均值水平的偏差. （见\autoref{exercise:11.5}.）
+
+对于单因素ANOVA，我们更愿意使用解释较直接的模型\eqref{eq:11.2.1}，即单元均值模型（cell means model）.\index{SI0029@单元均值模型}\semanticindexanchor{29:454} 但在更复杂的ANOVA中，模型\eqref{eq:11.2.2}有时在解释上更有优势.
+
+\subsubsection{模型与分布假设}\label{sec:11.2.1}\index{SI0027@假设}
+在模型\eqref{eq:11.2.1}下，进行任何估计之前所需的最低限度假设，是对所有$i,j$都有$E\varepsilon_{ij}=0$且$\operatorname{Var}\varepsilon_{ij}<\infty$. 在这些假设下，可以对$\theta_i$作一些估计（如\autoref{exercise:7.41}）. 但要作置信区间估计或检验，就需要分布假设. 下面是经典ANOVA假设.
+
+\paragraph{单因素ANOVA假设}
+按照模型观测随机变量$Y_{ij}$：
+$$
+Y_{ij}=\theta_i+\varepsilon_{ij},\qquad i=1,\ldots,k,\quad j=1,\ldots,n_i,
+$$
+其中
+\begin{enumerate}[label=(\roman*)]
+\item\label{item:11.2.assumption.i} 对所有$i,j$，$E\varepsilon_{ij}=0$，$\operatorname{Var}\varepsilon_{ij}=\sigma_i^2<\infty$. 对所有$i,i',j,j'$，除非$i=i'$且$j=j'$，否则$\operatorname{Cov}(\varepsilon_{ij},\varepsilon_{i'j'})=0$.
+\item\label{item:11.2.assumption.ii} $\varepsilon_{ij}$相互独立，且服从正态分布（正态误差）.
+\item\label{item:11.2.assumption.iii}\index{SI0034@方差相等}\index{SI0472@同方差性} 对所有$i$，$\sigma_i^2=\sigma^2$（方差相等，也称同方差性，homoscedasticity）.
+\end{enumerate}
+没有假设\hyperref[item:11.2.assumption.ii]{(ii)}，只能作点估计，或许还可寻找某一类中方差最小的估计量，却不能作区间估计或检验. 若假设某种非正态分布，区间与检验的推导会很困难（但仍可能做到）. 当然，当样本量适当且总体不太偏斜时，可以依靠中心极限定理.
+
+\sourcepageanchor{455}
+方差相等假设也相当重要. 有意思的是，它的重要性与正态性假设相联系. 一般而言，如果怀疑数据严重违反ANOVA假设，首先通常尝试对数据作非线性变换，\index{SI0054@数据变换}\semanticindexanchor{54:455}以便更接近满足ANOVA假设；这通常比为未经变换的数据寻找另一种模型容易. 若干常见变换可见\hyperref[bib:source294]{Snedecor和Cochran（1989）}，另见\autoref{exercise:11.1}和\autoref{exercise:11.2}. （关于变换的其他研究涉及Box--Cox幂变换族，见\autoref{exercise:11.3}.）
+
+\hyperref[bib:source43]{Box（1954）}的经典论文表明，ANOVA对正态性假设的稳健性取决于各方差接近相等的程度（相等更好）. 方差不等时的均值估计问题称为Behrens--Fisher问题，\index{SI0087@Behrens–Fisher问题}\semanticindexanchor{87:455}有着丰富的统计学历史，可追溯到Fisher（\hyperref[bib:source125]{1935}，\hyperref[bib:source126]{1939}）. \hyperref[bib:source311]{Stuart、Ord和Arnold（1999）}对Behrens--Fisher问题作了完整论述.
+
+本章余下部分将采用多数实验情形中的做法，假设这三个经典假设成立. 若数据需要变换或应用中心极限定理，则假设已经采取了这些措施.
+
+\subsubsection{经典的方差分析假设}\label{sec:11.2.2}
+经典ANOVA检验针对的原假设是
+$$H_0:\quad\theta_1=\theta_2=\cdots=\theta_k,$$
+在许多情况下，这个假设显得愚蠢、无趣，而且并不成立. 实验人员通常不会相信不同处理具有\emph{完全相同}的均值. 更合理地说，实验是为了查明哪些处理更好（例如均值更大）；ANOVA真正关心的是估计，而不是检验. （在某些特殊情形中，人们确实关心ANOVA原假设本身.）多数情形类似下面的例子.
+
+\begin{example}[ANOVA假设]\label{ex:11.2.3}
+ANOVA起初是分析农业实验的方法. 例如，在研究不同肥料对菠菜植株含锌量（$y_{ij}$）的影响时，考察五种处理. 每种处理由肥料物质（镁、钾和锌）的混合物组成，数据的排列类似\autoref{ex:11.2.1}. 五种处理如下，单位为磅/英亩：
+\begin{center}
+\begin{tabular}{rrrr}
+\toprule 处理&镁&钾&锌\\\midrule
+1&0&0&0\\2&0&200&0\\3&50&200&0\\4&200&200&0\\5&0&200&15\\\bottomrule
+\end{tabular}
+\end{center}
+经典ANOVA原假设其实没有什么吸引力，因为实验人员确信不同肥料混合物的效果有所不同. 真正关心的是将这些效果量化.
+\end{example}
+
+我们会花一些时间讨论ANOVA原假设，但主要把它作为达到另一目的的手段. 回顾\autoref{sec:9}建立的检验与区间估计之间的联系. 利用这一联系，可以先推导适当的检验，再将其反演，得到置信域（这里这条路线更容易）.
+
+ANOVA原假设的备择假设就是各均值不全相等，即检验
+\begin{equation}\label{eq:11.2.3}\index{SI0042@零假设}
+H_0:\quad\theta_1=\theta_2=\cdots=\theta_k
+\quad\text{对}\quad H_1:\quad\theta_i\ne\theta_j\text{，对某些 }i,j.
+\end{equation}
+
+\sourcepageanchor{456}
+等价地，可把$H_1$表述为$H_1$：非$H_0$. 要认识到，拒绝$H_0$时，只能断定$\theta_i$之间存在某种差异，却不能推断差异究竟在哪里. （注意，接受$H_1$并不意味着所有$\theta_i$都不同，而只意味着至少有两个不同.）
+
+ANOVA假设的一个问题，也是许多多元假设的共同问题，是假设不容易解释. 相比仅仅断言某些$\theta_i$不同，更有用的是给出$\theta_i$的统计描述. 通过把ANOVA假设分解为较小、较容易描述的部分，就能得到这种描述.
+
+我们已经遇到过把复杂假设分解成较小、较容易理解部分的方法——\autoref{sec:8}的并交法与交并法. 对ANOVA而言，并交法最合适，因为ANOVA原假设是一些较容易理解的单变量假设的交，而这些假设可用对比来表示. 此外，在我们将考察的情形中，基于并交法得到的检验与LRT相同（\autoref{exercise:11.13}），因而具有似然检验的所有性质.
+
+\begin{definition}\label{def:11.2.4}\index{SI0032@对比}\index{SI0199@对比}\index{SI0644@线性组合}
+设$\boldsymbol t=(t_1,\ldots,t_k)$是一组变量，可以是参数，也可以是统计量，且$\boldsymbol a=(a_1,\ldots,a_k)$为已知常数. 函数
+\begin{equation}\label{eq:11.2.4}
+\sum_{i=1}^k a_it_i
+\end{equation}
+称为$t_i$的线性组合（linear combination）. 若还有$\sum a_i=0$，就称为对比（contrast）.
+\end{definition}
+
+对比之所以重要，是因为它能用来比较处理均值. 例如，对均值$\theta_1,\ldots,\theta_k$和常数$\boldsymbol a=(1,-1,0,\ldots,0)$，
+$$\sum_{i=1}^k a_i\theta_i=\theta_1-\theta_2$$
+就是比较$\theta_1$与$\theta_2$的对比. （更多关于对比的内容见\autoref{exercise:11.10}.）
+
+并交方法的力量在于增进理解. ANOVA原假设是各个原假设的交，而这些单独的原假设很容易直观理解.
+
+\begin{theorem}\label{thm:11.2.5}\index{SI0056@并交检验}\index{SI0523@方差分析}
+设$\boldsymbol\theta=(\theta_1,\ldots,\theta_k)$为任意参数，则
+$$
+\theta_1=\theta_2=\cdots=\theta_k
+\quad\Longleftrightarrow\quad
+\sum_{i=1}^k a_i\theta_i=0\quad\text{对所有 }\boldsymbol a\in\mathcal A,
+$$
+其中$\mathcal A$为满足$\mathcal A=\{\boldsymbol a=(a_1,\ldots,a_k):\sum a_i=0\}$的常数组成的集合，也就是说，所有对比都必须满足$\sum a_i\theta_i=0$.
+\end{theorem}
+\begin{proof}
+若$\theta_1=\cdots=\theta_k=\theta$，则
+$$
+\sum_{i=1}^k a_i\theta_i=\sum_{i=1}^k a_i\theta
+=\theta\sum_{i=1}^k a_i=0,
+\qquad\text{（因为 }\boldsymbol a\text{ 满足 }\sum a_i=0\text{）},
+$$
+这就证明了一个方向（$\Rightarrow$）. 为证明另一个方向，考虑下列$\boldsymbol a_i\in\mathcal A$：
+$$
+\boldsymbol a_1=(1,-1,0,\ldots,0),\quad
+\boldsymbol a_2=(0,1,-1,0,\ldots,0),\quad\ldots,\quad
+\boldsymbol a_{k-1}=(0,\ldots,0,1,-1).
+$$
+（集合$(\boldsymbol a_1,\ldots,\boldsymbol a_{k-1})$张成$\mathcal A$中的元素，即任意$\boldsymbol a\in\mathcal A$都能写成$(\boldsymbol a_1,\ldots,\boldsymbol a_{k-1})$的线性组合.）用这些$\boldsymbol a_i$构成对比，得到
+$$
+\boldsymbol a_1\Rightarrow\theta_1=\theta_2,\quad
+\boldsymbol a_2\Rightarrow\theta_2=\theta_3,\quad\ldots,\quad
+\boldsymbol a_{k-1}\Rightarrow\theta_{k-1}=\theta_k,
+$$
+合在一起就推出$\theta_1=\cdots=\theta_k$，定理得证.
+\end{proof}
+
+\sourcepageanchor{457}
+由\autoref{thm:11.2.5}立即得到，ANOVA原假设可以表示为关于对比的假设. 即原假设成立当且仅当以下假设成立：
+$$
+H_0:\quad\sum_{i=1}^k a_i\theta_i=0
+\quad\text{对所有满足 }\sum_{i=1}^k a_i=0\text{ 的 }(a_1,\ldots,a_k).
+$$
+此外，如果$H_0$不成立，现在就知道一定至少有一个非零对比. 也就是说，ANOVA备择假设$H_1$：$\theta_i$不全相等，等价于
+$$
+H_1:\quad\sum_{i=1}^k a_i\theta_i\ne0
+\quad\text{对某些满足 }\sum_{i=1}^k a_i=0\text{ 的 }(a_1,\ldots,a_k).
+$$
+因此，使用对比的好处是，得到的假设稍容易理解，或许也稍容易解释. 但真正的好处是，使用对比后，我们可以按单变量的方式思考和处理问题.
+
+\subsubsection{关于均值线性组合的推断}\label{sec:11.2.3}\index{SI0040@线性组合}
+线性组合，特别是对比，在方差分析中起着极其重要的作用. 通过理解和分析对比，可以对$\theta_i$作有意义的推断. 上一节说明，ANOVA原假设实际上是关于对比的陈述. 事实上，ANOVA中大多数有意义的推断都能表示为一个或一组对比. 先从简单的情形开始，考虑单个线性组合的推断.
+
+在单因素ANOVA假设下，有
+$$Y_{ij}\sim\mathrm n(\theta_i,\sigma^2),\qquad i=1,\ldots,k,\quad j=1,\ldots,n_i.$$
+因此
+$$\bar Y_{i\cdot}=\frac1{n_i}\sum_{j=1}^{n_i}Y_{ij}\sim\mathrm n(\theta_i,\sigma^2/n_i),\qquad i=1,\ldots,k.$$
+关于记号的说明：通常约定，若一个下标用点$\cdot$代替，就表示已对这个下标求和.\index{SI0393@点记号}\semanticindexanchor{393:457}\index{SI0462@总均值}\semanticindexanchor{462:457} 因而$Y_{i\cdot}=\sum_{j=1}^{n_i}Y_{ij}$，$Y_{\cdot j}=\sum_{i=1}^kY_{ij}$. 加上一条横线表示取均值，如上面的$\bar Y_{i\cdot}$. 若对两个下标都求和并计算总体均值（称为总均值），为了使记号简单些，将破例写作$\bar{\bar Y}=(1/N)\sum_{i=1}^k\sum_{j=1}^{n_i}Y_{ij}$，其中$N=\sum_{i=1}^kn_i$.
+
+对任意常数$\boldsymbol a=(a_1,\ldots,a_k)$，$\sum_{i=1}^ka_i\bar Y_{i\cdot}$也服从正态分布（\autoref{exercise:11.8}），且
+$$
+E\left(\sum_{i=1}^ka_i\bar Y_{i\cdot}\right)=\sum_{i=1}^ka_i\theta_i,
+\qquad
+\operatorname{Var}\left(\sum_{i=1}^ka_i\bar Y_{i\cdot}\right)=\sigma^2\sum_{i=1}^k\frac{a_i^2}{n_i},
+$$
+并且
+$$
+\frac{\sum_{i=1}^ka_i\bar Y_{i\cdot}-\sum_{i=1}^ka_i\theta_i}
+{\sqrt{\sigma^2\sum_{i=1}^ka_i^2/n_i}}\sim\mathrm n(0,1).
+$$
+虽然这个结果很好，但通常希望在不知道$\sigma$的情况下对$\theta_i$作推断，所以需要用估计值代替$\sigma$. 若将各总体的样本方差记为$S_i^2$，即
+$$S_i^2=\frac1{n_i-1}\sum_{j=1}^{n_i}(Y_{ij}-\bar Y_{i\cdot})^2,\qquad i=1,\ldots,k,$$
+\sourcepageanchor{458}
+则$S_i^2$估计$\sigma^2$，且$(n_i-1)S_i^2/\sigma^2\sim\chi^2_{n_i-1}$. 此外，在ANOVA假设下，各个$S_i^2$都估计同一个$\sigma^2$，所以可以把它们合并来改进估计量. 因而使用$\sigma^2$的合并估计量（pooled estimator）$S_p^2$：
+\begin{equation}\label{eq:11.2.5}\index{SI0057@方差估计量}
+S_p^2=\frac1{N-k}\sum_{i=1}^k(n_i-1)S_i^2
+=\frac1{N-k}\sum_{i=1}^k\sum_{j=1}^{n_i}(Y_{ij}-\bar Y_{i\cdot})^2.
+\end{equation}
+注意$N-k=\sum(n_i-1)$. 由于各$S_i^2$独立，\autoref{lem:5.3.2}表明$(N-k)S_p^2/\sigma^2\sim\chi^2_{N-k}$. $S_p^2$也与每个$\bar Y_{i\cdot}$独立（\autoref{exercise:11.6}），故
+\begin{equation}\label{eq:11.2.6}
+\frac{\sum_{i=1}^ka_i\bar Y_{i\cdot}-\sum_{i=1}^ka_i\theta_i}{\sqrt{S_p^2\sum_{i=1}^ka_i^2/n_i}}\sim t_{N-k},
+\end{equation}
+即自由度为$N-k$的Student $t$分布.
+
+要在水平$\alpha$检验
+$$H_0:\quad\sum_{i=1}^ka_i\theta_i=0\quad\text{对}\quad H_1:\quad\sum_{i=1}^ka_i\theta_i\ne0,$$
+则在
+\begin{equation}\label{eq:11.2.7}\index{SI0051@t检验}\index{SI1017@方差分析}
+\left|\frac{\sum_{i=1}^ka_i\bar Y_{i\cdot}}{\sqrt{S_p^2\sum_{i=1}^ka_i^2/n_i}}\right|>t_{N-k,\alpha/2}
+\end{equation}
+时拒绝$H_0$. （\autoref{exercise:11.9}给出了涉及线性组合的一些其他检验.）此外，\eqref{eq:11.2.6}定义了一个枢轴量，反演后得到$\sum a_i\theta_i$的区间估计量. 以下不等式以概率$1-\alpha$成立：
+\begin{equation}\label{eq:11.2.8}\index{SI0030@置信区间}\index{SI0136@方差分析}
+\begin{aligned}
+\sum_{i=1}^ka_i\bar Y_{i\cdot}-t_{N-k,\alpha/2}\sqrt{S_p^2\sum_{i=1}^k\frac{a_i^2}{n_i}}
+&\le\sum_{i=1}^ka_i\theta_i\\
+&\le\sum_{i=1}^ka_i\bar Y_{i\cdot}+t_{N-k,\alpha/2}\sqrt{S_p^2\sum_{i=1}^k\frac{a_i^2}{n_i}}.
+\end{aligned}
+\end{equation}
+
+\begin{example}[ANOVA对比]\label{ex:11.2.6}\index{SI0032@对比}
+$\boldsymbol a$的特定取值产生特定的检验或置信区间. 例如，要比较处理1和2，取$\boldsymbol a=(1,-1,0,\ldots,0)$. 利用\eqref{eq:11.2.6}，检验$H_0:\theta_1=\theta_2$对$H_1:\theta_1\ne\theta_2$时，在
+$$\left|\frac{\bar Y_{1\cdot}-\bar Y_{2\cdot}}{\sqrt{S_p^2(1/n_1+1/n_2)}}\right|>t_{N-k,\alpha/2}$$
+时拒绝$H_0$.
+
+注意，这个检验与两样本$t$检验（\autoref{exercise:8.41}）的区别在于，这里估计$\sigma^2$时，不仅利用处理1和2，也利用处理3到$k$的信息.
+
+另一种情形是把处理1与处理2和3的平均效果比较（例如，处理1为对照，2和3为实验处理，考察某种总体效应）. 此时取$\boldsymbol a=(1,-\tfrac12,-\tfrac12,0,\ldots,0)$，在
+$$\left|\frac{\bar Y_{1\cdot}-\tfrac12\bar Y_{2\cdot}-\tfrac12\bar Y_{3\cdot}}
+{\sqrt{S_p^2(1/n_1+1/(4n_2)+1/(4n_3))}}\right|>t_{N-k,\alpha/2}$$
+时拒绝$H_0:\theta_1=\tfrac12(\theta_2+\theta_3)$.
+
+\sourcepageanchor{459}
+利用\eqref{eq:11.2.6}或\eqref{eq:11.2.8}，便有办法检验或估计ANOVA中的任意线性组合. 明智地选择线性组合，可以使我们了解处理均值的许多信息. 例如，考察对比$\theta_1-\theta_2$、$\theta_2-\theta_3$和$\theta_1-\theta_3$，可以了解$\theta_i$的大小顺序. （当然，进行多个检验或构造多个区间时，必须注意总体$\alpha$水平，但可以使用Bonferroni不等式. 见\autoref{ex:11.2.9}.）
+
+由多个对比的组合得出正式结论时，也必须谨慎.\index{SI0032@对比}\semanticindexanchor{32:459} 考虑假设
+$$H_0:\quad\theta_1=\tfrac12(\theta_2+\theta_3)\quad\text{对}\quad H_1:\quad\theta_1<\tfrac12(\theta_2+\theta_3)$$
+和
+$$H_0:\quad\theta_2=\theta_3\quad\text{对}\quad H_1:\quad\theta_2<\theta_3.$$
+若两个原假设都被拒绝，可以得出$\theta_3$大于$\theta_1$与$\theta_2$的结论，但仅由这两个检验，不能对$\theta_2$与$\theta_1$的大小顺序作正式结论. （见\autoref{exercise:11.10}.）
+\end{example}
+
+现在利用这些关于线性组合的单变量结果，以及\autoref{thm:11.2.5}给出的ANOVA原假设与对比的关系，推导ANOVA原假设的检验.
+
+\subsubsection{方差分析的\texorpdfstring{$F$}{F}检验}\label{sec:11.2.4}\index{SI0056@并交检验}
+上一节介绍了如何处理ANOVA中的单个线性组合，特别是对比. 在\autoref{sec:11.2}还看到，ANOVA原假设等价于一个关于对比的假设. 本节利用这一等价性，结合\autoref{sec:8}的并交方法，推导ANOVA假设的检验.
+
+由\autoref{thm:11.2.5}，ANOVA假设检验可以写成
+$$
+H_0:\ \sum_{i=1}^ka_i\theta_i=0\text{，对所有 }\boldsymbol a\in\mathcal A
+\quad\text{对}\quad
+H_1:\ \sum_{i=1}^ka_i\theta_i\ne0\text{，对某些 }\boldsymbol a\in\mathcal A,
+$$
+其中$\mathcal A=\{\boldsymbol a=(a_1,\ldots,a_k):\sum_{i=1}^ka_i=0\}$. 为更清楚地将其视作并交检验，对每个$\boldsymbol a$定义集合
+$$\Theta_{\boldsymbol a}=\left\{\boldsymbol\theta=(\theta_1,\ldots,\theta_k):\sum_{i=1}^ka_i\theta_i=0\right\}.$$
+则有
+$$\boldsymbol\theta\in\{\boldsymbol\theta:\theta_1=\cdots=\theta_k\}
+\Longleftrightarrow\boldsymbol\theta\in\Theta_{\boldsymbol a}\text{，对所有 }\boldsymbol a\in\mathcal A
+\Longleftrightarrow\boldsymbol\theta\in\bigcap_{\boldsymbol a\in\mathcal A}\Theta_{\boldsymbol a},$$
+这说明ANOVA原假设可以写成一个交集.
+
+回顾\autoref{sec:8.2.3}的并交方法，只要对任意一个$\boldsymbol a$，能够拒绝
+$$H_{0\boldsymbol a}:\quad\boldsymbol\theta\in\Theta_{\boldsymbol a}
+\quad\text{对}\quad H_{1\boldsymbol a}:\quad\boldsymbol\theta\notin\Theta_{\boldsymbol a},$$
+就拒绝$H_0:\boldsymbol\theta\in\bigcap_{\boldsymbol a\in\mathcal A}\Theta_{\boldsymbol a}$，因而也拒绝ANOVA原假设. 用\eqref{eq:11.2.6}的$t$统计量检验$H_{0\boldsymbol a}$：
+\begin{equation}\label{eq:11.2.9}
+T_{\boldsymbol a}=\left|\frac{\sum_{i=1}^ka_i\bar Y_{i\cdot}-\sum_{i=1}^ka_i\theta_i}
+{\sqrt{S_p^2\sum_{i=1}^ka_i^2/n_i}}\right|.
+\end{equation}
+
+\sourcepageanchor{460}
+于是，当$T_{\boldsymbol a}>k$时拒绝$H_{0\boldsymbol a}$，其中$k$为某个常数. 按照并交方法，如果能够对任意一个$\boldsymbol a$拒绝，就能够对使$T_{\boldsymbol a}$最大的$\boldsymbol a$拒绝. 因此，ANOVA原假设的并交检验是在$\sup_{\boldsymbol a}T_{\boldsymbol a}>k$时拒绝$H_0$，其中$k$选择为满足$P_{H_0}(\sup_{\boldsymbol a}T_{\boldsymbol a}>k)=\alpha$.
+
+计算$\sup_{\boldsymbol a}T_{\boldsymbol a}$并非直接明了，但稍加仔细也不困难. 这是一个约束最大化问题，类似前面遇到的问题（例如\autoref{exercise:7.41}计算了约束最小值）. 我们将采用类似此前的办法，使用Cauchy--Schwarz不等式. （也可用Lagrange乘子等方法，但那样就必须用二阶条件验证所得确为最大值.）
+
+最大化的大部分技术论证放在下面的引理中，再应用引理求$T_{\boldsymbol a}$的上确界. 这个引理只是关于二次函数约束最大值的陈述. 不想深入技术细节的读者可以跳过证明.
+
+\begin{lemma}\label{lem:11.2.7}\index{SI0681@二次函数的最大值}
+设$(v_1,\ldots,v_k)$为常数，$(c_1,\ldots,c_k)$为正常数. 对$\mathcal A=\{\boldsymbol a=(a_1,\ldots,a_k):\sum a_i=0\}$，有
+\begin{equation}\label{eq:11.2.10}
+\max_{\boldsymbol a\in\mathcal A}\left\{\frac{(\sum_{i=1}^ka_iv_i)^2}{\sum_{i=1}^ka_i^2/c_i}\right\}
+=\sum_{i=1}^kc_i(v_i-\bar v_c)^2,
+\end{equation}
+其中$\bar v_c=\sum c_iv_i/\sum c_i$. 最大值在任何形如$a_i=Kc_i(v_i-\bar v_c)$的$\boldsymbol a$处取得，其中$K$为非零常数.\footnote{译注：分母要求$\boldsymbol a\ne\boldsymbol0$，原集合未排除零向量. 所列取等向量还需$v_i$不全相同；若全相同，则对每个非零对比向量商均为0，而所列向量本身为零. 原文保留.}
+\end{lemma}
+\begin{proof}
+定义$\mathcal B=\{\boldsymbol b=(b_1,\ldots,b_k):\sum b_i=0\text{ 且 }\sum b_i^2/c_i=1\}$. 对任意$\boldsymbol a\in\mathcal A$，定义$\boldsymbol b=(b_1,\ldots,b_k)$为
+$$b_i=\frac{a_i}{\sqrt{\sum_{i=1}^ka_i^2/c_i}},$$
+注意$\boldsymbol b\in\mathcal B$. 对任意$\boldsymbol a\in\mathcal A$，
+$$\frac{(\sum_{i=1}^ka_iv_i)^2}{\sum_{i=1}^ka_i^2/c_i}=\left(\sum_{i=1}^kb_iv_i\right)^2.$$
+我们先求$\boldsymbol b\in\mathcal B$时$(\sum b_iv_i)^2$的上界，再证明引理给出的最大化向量$\boldsymbol a$能达到该上界.
+
+由于处理的是乘积之和，自然可以尝试Cauchy--Schwarz不等式（\autoref{sec:4.7}），但必须仔细纳入涉及$c_i$的约束. 可如下进行. 定义$C=\sum c_i$，写成
+$$\frac1{C^2}\left(\sum_{i=1}^kb_iv_i\right)^2
+=\left\{\sum_{i=1}^k\left(\frac{b_i}{c_i}\right)(v_i)\left(\frac{c_i}{C}\right)\right\}^2.$$
+这是由比值$c_i/C$定义的概率测度下某个协方差的平方. 形式上，若定义随机变量$B,V$满足
+$$P\left(B=\frac{b_i}{c_i},V=v_i\right)=\frac{c_i}{C},\qquad i=1,\ldots,k,$$
+
+\sourcepageanchor{461}
+则$EB=\sum(b_i/c_i)(c_i/C)=\sum b_i/C=0$. 因而
+\begin{align*}
+&\left\{\sum_{i=1}^k\left(\frac{b_i}{c_i}\right)(v_i)\left(\frac{c_i}{C}\right)\right\}^2\\
+&\quad=(EBV)^2\\
+&\quad=(\operatorname{Cov}(B,V))^2\qquad(EB=0)\\
+&\quad\le(\operatorname{Var}B)(\operatorname{Var}V)\qquad\text{（Cauchy--Schwarz不等式）}\\
+&=\left(\sum_{i=1}^k\left(\frac{b_i}{c_i}\right)^2\frac{c_i}{C}\right)
+\left(\sum_{i=1}^k(v_i-\bar v_c)^2\frac{c_i}{C}\right),
+\end{align*}
+其中$\bar v_c=\sum c_iv_i/\sum c_i$. 利用$\sum b_i^2/c_i=1$并消去公共因子，得到
+\begin{equation}\label{eq:11.2.11}
+\left(\sum_{i=1}^kb_iv_i\right)^2\le\sum_{i=1}^kc_i(v_i-\bar v_c)^2,
+\qquad\text{对任意 }\boldsymbol b\in\mathcal B.
+\end{equation}
+最后，若$a_i=Kc_i(v_i-\bar v_c)$，其中$K$为任意非零常数，则$\boldsymbol a\in\mathcal A$，且\footnote{译注：原式第二个等号把$K/|K|$省去了；当$K<0$时须补一个负号. 后续最终比较的是平方，取等结论不受影响.}
+$$b_i=\frac{Kc_i(v_i-\bar v_c)}{\sqrt{\sum_{i=1}^k(Kc_i(v_i-\bar v_c))^2/c_i}}
+=\frac{c_i(v_i-\bar v_c)}{\sqrt{\sum_{i=1}^kc_i(v_i-\bar v_c)^2}}.$$
+由于$\sum c_i(v_i-\bar v_c)=0$，
+\begin{align*}
+\sum_{i=1}^kb_iv_i
+&=\frac{\sum_{i=1}^kc_i(v_i-\bar v_c)v_i}{\sqrt{\sum_{i=1}^kc_i(v_i-\bar v_c)^2}}\\
+&=\frac{\sum_{i=1}^kc_i(v_i-\bar v_c)^2}{\sqrt{\sum_{i=1}^kc_i(v_i-\bar v_c)^2}}
+=\sqrt{\sum_{i=1}^kc_i(v_i-\bar v_c)^2},
+\end{align*}
+于是\eqref{eq:11.2.11}取等. 因此上界可以达到，函数在这样的$\boldsymbol a$处最大.
+\end{proof}
+
+回到\eqref{eq:11.2.9}的$T_{\boldsymbol a}$，显然最大化$T_{\boldsymbol a}$等价于最大化$T_{\boldsymbol a}^2$. 有
+$$T_{\boldsymbol a}^2=
+\frac{(\sum_{i=1}^ka_i\bar Y_{i\cdot}-\sum_{i=1}^ka_i\theta_i)^2}{S_p^2\sum_{i=1}^ka_i^2/n_i}
+=\frac{(\sum_{i=1}^ka_i\bar U_i)^2}{S_p^2\sum_{i=1}^ka_i^2/n_i},
+\qquad(\bar U_i=\bar Y_{i\cdot}-\theta_i).$$
+注意$S_p^2$不影响最大化，对上式应用\autoref{lem:11.2.7}，得到以下定理.
+
+\begin{theorem}\label{thm:11.2.8}
+对\eqref{eq:11.2.9}定义的$T_{\boldsymbol a}$，有
+\begin{equation}\label{eq:11.2.12}
+\sup_{\boldsymbol a:\sum a_i=0}T_{\boldsymbol a}^2
+=\frac{\sum_{i=1}^kn_i\bigl((\bar Y_{i\cdot}-\bar{\bar Y})-(\theta_i-\bar\theta)\bigr)^2}{S_p^2},
+\end{equation}
+\sourcepageanchor{462}
+其中$\bar{\bar Y}=\sum n_i\bar Y_{i\cdot}/\sum n_i$，$\bar\theta=\sum n_i\theta_i/\sum n_i$. 此外，在ANOVA假设下，
+\begin{equation}\label{eq:11.2.13}
+\sup_{\boldsymbol a:\sum a_i=0}T_{\boldsymbol a}^2\sim(k-1)F_{k-1,N-k},
+\end{equation}
+即$\sup_{\boldsymbol a:\sum a_i=0}T_{\boldsymbol a}^2/(k-1)$服从自由度为$k-1$和$N-k$的$F$分布. （回顾$N=\sum n_i$.）
+\end{theorem}
+\begin{proof}
+为证明\eqref{eq:11.2.12}，使用\hyperref[lem:11.2.7]{引理11.2.1}，将$v_i$对应为$\bar U_i$，$c_i$对应为$n_i$，结果立即得到.\footnote{译注：原文写引理11.2.1，此处实际应为\autoref{lem:11.2.7}；11.2.1是例. 保留原显示编号.}
+
+为证明\eqref{eq:11.2.13}，必须说明\eqref{eq:11.2.12}的分子、分母是独立的卡方随机变量各除以其自由度. 由ANOVA假设得到两点：分子、分母独立，且$S_p^2\sim\sigma^2\chi^2_{N-k}/(N-k)$. 还需一些工作才能证明
+$$\frac1{\sigma^2}\sum_{i=1}^kn_i\bigl((\bar Y_{i\cdot}-\bar{\bar Y})-(\theta_i-\bar\theta)\bigr)^2\sim\chi^2_{k-1}.$$
+不过这是可以做到的，留作习题. （见\autoref{exercise:11.7}.）
+\end{proof}
+
+若$H_0:\theta_1=\theta_2=\cdots=\theta_k$成立，则对所有$i=1,\ldots,k$都有$\theta_i=\bar\theta$，\eqref{eq:11.2.12}中的$\theta_i-\bar\theta$项消失. 因此，对ANOVA假设
+$$H_0:\ \theta_1=\theta_2=\cdots=\theta_k\quad\text{对}\quad H_1:\ \theta_i\ne\theta_j\text{，对某些 }i,j,$$
+其水平为$\alpha$的检验在
+\begin{equation}\label{eq:11.2.14}\index{SI0036@F检验}
+\frac{\sum_{i=1}^kn_i(\bar Y_{i\cdot}-\bar{\bar Y})^2}{S_p^2}>(k-1)F_{k-1,N-k,\alpha}
+\end{equation}
+时拒绝$H_0$. 这一拒绝域通常写作
+$$\text{若 }F=\frac{\sum_{i=1}^kn_i(\bar Y_{i\cdot}-\bar{\bar Y})^2/(k-1)}{S_p^2}>F_{k-1,N-k,\alpha}\text{，则拒绝 }H_0,$$
+检验统计量$F$称为ANOVA $F$统计量（ANOVA $F$ statistic）.
+
+\subsubsection{对比的同时估计}\label{sec:11.2.5}\index{SI0032@对比}
+已经介绍了如何估计和检验ANOVA中的单个对比；$t$统计量见\eqref{eq:11.2.6}，区间见\eqref{eq:11.2.8}. 然而，ANOVA中经常希望作不止一个推断，而多个水平为$\alpha$的检验所形成的同时推断，未必仍处于水平$\alpha$. 在ANOVA的背景下，前面已提到过这个问题.
+
+\begin{example}[两两差值]\label{ex:11.2.9}\index{SI0028@Bonferroni不等式}\index{SI0561@方差分析}
+很多时候关心的是均值的两两差值. 因此，若ANOVA的均值为$\theta_1,\ldots,\theta_k$，就可能关心$\theta_1-\theta_2$、$\theta_2-\theta_3$、$\theta_3-\theta_4$等的区间估计. 利用Bonferroni不等式，可建立同时推断的陈述. 定义
+$$C_{ij}=\left\{\theta_i-\theta_j:\theta_i-\theta_j\in\bar Y_{i\cdot}-\bar Y_{j\cdot}
+\pm t_{N-k,\alpha/2}\sqrt{S_p^2\left(\frac1{n_i}+\frac1{n_j}\right)}\right\}.$$
+则对每个$C_{ij}$，$P(C_{ij})=1-\alpha$，但例如$P(C_{12}\text{ 且 }C_{23})<1-\alpha$. 然而，后一类推断正是ANOVA中希望作出的推断.
+
+\sourcepageanchor{463}
+回顾\eqref{eq:1.2.10}给出的Bonferroni不等式：对任意集合$A_1,\ldots,A_n$，
+$$P\left(\bigcap_{i=1}^nA_i\right)\ge\sum_{i=1}^nP(A_i)-(n-1).$$
+这里希望为$P(\bigcap_{i,j}C_{ij})$给出界，即所有两两比较区间都覆盖各自差值的概率.
+
+若希望对$m$个置信集的覆盖作同时$1-\alpha$的陈述，那么由Bonferroni不等式，可以将每个置信集构造成水平为$\gamma$，其中$\gamma$满足
+$$1-\alpha=\sum_{i=1}^m\gamma-(m-1),$$
+等价地，
+$$\gamma=1-\frac\alpha m.$$
+还可以稍作推广，不必要求每个单独推断的水平相同. 可将每个置信集构造成水平为$\gamma_i$，其中$\gamma_i$满足
+$$1-\alpha=\sum_{i=1}^m\gamma_i-(m-1).$$
+在有$k$个处理的ANOVA中，若各$t$区间的置信度为$1-2\alpha/[k(k-1)]$，便可对全部$k(k-1)/2$个两两差值作置信度为$1-\alpha$的同时推断.
+\end{example}
+
+\hyperref[bib:source275]{Scheff\'e（1959）}给出了另一种相当优美的同时推断方法. Scheff\'e方法有时称为$S$方法，可以对所有对比构造同时置信区间（或检验）. （\autoref{exercise:11.14}表明，Scheff\'e方法也可用来构造任意线性组合的同时区间，而不只限于对比.）该方法允许设定一个置信系数，对所有对比区间同时有效，而不只是对某个指定的组有效. 若要考察大量对比，更宜使用Scheff\'e方法；若对比数较少，Bonferroni界几乎肯定更小. （其他多重比较方法的讨论见\autoref{sec:11.5}.）
+
+Scheff\'e方法对所有对比具有同时$1-\alpha$覆盖率，这一结论容易由ANOVA检验的并交性质证明.
+
+\begin{theorem}\label{thm:11.2.10}\index{SI0047@Scheffé方法}\index{SI0955@Scheffé方法}
+在ANOVA假设下，若$M=\sqrt{(k-1)F_{k-1,N-k,\alpha}}$，则以下不等式对所有$\boldsymbol a\in\mathcal A=\{\boldsymbol a=(a_1,\ldots,a_k):\sum a_i=0\}$同时成立的概率为$1-\alpha$：
+$$\sum_{i=1}^ka_i\bar Y_{i\cdot}-M\sqrt{S_p^2\sum_{i=1}^k\frac{a_i^2}{n_i}}
+\le\sum_{i=1}^ka_i\theta_i
+\le\sum_{i=1}^ka_i\bar Y_{i\cdot}+M\sqrt{S_p^2\sum_{i=1}^k\frac{a_i^2}{n_i}}.$$
+\end{theorem}
+\begin{proof}
+同时概率陈述要求$M$满足
+$$P\left(\left|\sum_{i=1}^ka_i\bar Y_{i\cdot}-\sum_{i=1}^ka_i\theta_i\right|
+\le M\sqrt{S_p^2\sum_{i=1}^k\frac{a_i^2}{n_i}}\text{，对所有 }\boldsymbol a\in\mathcal A\right)=1-\alpha,$$
+等价地，
+$$P(T_{\boldsymbol a}^2\le M^2\text{，对所有 }\boldsymbol a\in\mathcal A)=1-\alpha,$$
+\sourcepageanchor{464}
+其中$T_{\boldsymbol a}$由\eqref{eq:11.2.9}定义. 但由于
+$$P(T_{\boldsymbol a}^2\le M^2\text{，对所有 }\boldsymbol a\in\mathcal A)
+=P\left(\sup_{\boldsymbol a:\sum a_i=0}T_{\boldsymbol a}^2\le M^2\right),$$
+\autoref{thm:11.2.8}表明，选取$M^2=(k-1)F_{k-1,N-k,\alpha}$就满足所需的概率要求.
+\end{proof}
+
+Scheff\'e方法的一项真正优势，是允许合法的“数据窥探”（data snooping）.\index{SI0033@数据窥探}\semanticindexanchor{33:464} 在经典统计学中，检验由数据启发的假设是禁忌，因为这会使结果产生偏倚，进而使推断失效. （通常不会仅仅因为发现$\bar Y_{1\cdot}$与$\bar Y_{2\cdot}$不同，就检验$H_0:\theta_1=\theta_2$. 见\autoref{exercise:11.18}.）但使用Scheff\'e方法时，这一策略是合法的. 区间或检验对所有对比都有效，是否由数据启发并无区别，因为Scheff\'e方法已经将它们全部考虑在内.
+
+当然，Scheff\'e方法提供如此大的推断能力，必须付出代价，代价表现为区间长度. 为保证同时置信水平，区间可能相当长. 例如，可以证明（\autoref{exercise:11.15}），比较$t$和$F$分布时，对任意$\nu,\alpha,k$，临界点满足
+$$t_{\nu,\alpha/2}\le\sqrt{(k-1)F_{k-1,\nu,\alpha}},$$
+所以Scheff\'e区间总比单个对比的区间宽，有时宽得多（这也支持一种观点：实验中，没有什么能代替细致的规划和准备）. 区间长度的现象也延伸到检验. 由上述不等式还可知，Scheff\'e检验的功效低于$t$检验.
+
+\subsubsection{平方和的分解}\label{sec:11.2.6}
+ANOVA为思考不同处理如何影响测量变量提供了一种有用的方式，即把变异分配给不同来源. 分配变异的基本思想可概括为下面的恒等式.
+
+\begin{theorem}\label{thm:11.2.11}\index{SI0050@平方和}
+对任意数$y_{ij}$，$i=1,\ldots,k$，$j=1,\ldots,n_i$，有
+\begin{equation}\label{eq:11.2.15}
+\sum_{i=1}^k\sum_{j=1}^{n_i}(y_{ij}-\bar{\bar y})^2
+=\sum_{i=1}^kn_i(\bar y_{i\cdot}-\bar{\bar y})^2
++\sum_{i=1}^k\sum_{j=1}^{n_i}(y_{ij}-\bar y_{i\cdot})^2,
+\end{equation}
+其中$\bar y_{i\cdot}=\frac1{n_i}\sum_jy_{ij}$，$\bar{\bar y}=\sum_i n_i\bar y_{i\cdot}/\sum_i n_i$.
+\end{theorem}
+\begin{proof}
+证明非常简单，仅依赖于处理均值时交叉项常常消失这一事实. 写成
+$$\sum_{i=1}^k\sum_{j=1}^{n_i}(y_{ij}-\bar{\bar y})^2
+=\sum_{i=1}^k\sum_{j=1}^{n_i}\bigl((y_{ij}-\bar y_{i\cdot})+(\bar y_{i\cdot}-\bar{\bar y})\bigr)^2,$$
+展开右端并重新合并各项即可. （见\autoref{exercise:11.21}.）
+\end{proof}
+
+\eqref{eq:11.2.15}中的各个和称为平方和（sums of squares），用来度量数据中可归因于不同来源的变异. （有时也称校正平方和，corrected sums of squares，其中“校正”指减去了均值.）特别地，单因素ANOVA模型
+$$Y_{ij}=\theta_i+\varepsilon_{ij}$$
+\sourcepageanchor{465}
+中的各项与\eqref{eq:11.2.15}中的各项一一对应. \eqref{eq:11.2.15}说明如何将变异分配给处理（处理\emph{之间}的变异）和随机误差（处理\emph{内部}的变异）. \eqref{eq:11.2.15}的左端不区分处理类别，度量全部变异；右端两项则分别度量仅由处理引起的变异和仅由随机误差引起的变异. 这些变异来源满足上述恒等式，表明由平方和度量的数据变异，与ANOVA模型一样具有可加性.
+
+平方和较容易处理的一个原因是，在正态性下，校正平方和是卡方随机变量；而已经看到，独立卡方变量相加可得到新的卡方变量.
+
+在ANOVA假设下，特别是若$Y_{ij}\sim\mathrm n(\theta_i,\sigma^2)$，容易证明
+\begin{equation}\label{eq:11.2.16}
+\frac1{\sigma^2}\sum_{i=1}^k\sum_{j=1}^{n_i}(Y_{ij}-\bar Y_{i\cdot})^2\sim\chi^2_{N-k},
+\end{equation}
+因为对每个$i=1,\ldots,k$，$\frac1{\sigma^2}\sum_{j=1}^{n_i}(Y_{ij}-\bar Y_{i\cdot})^2\sim\chi^2_{n_i-1}$，且它们相互独立，而对独立卡方随机变量，$\sum_{i=1}^k\chi^2_{n_i-1}\sim\chi^2_{N-k}$. 此外，若对所有$i,j$都有$\theta_i=\theta_j$，则
+\begin{equation}\label{eq:11.2.17}
+\frac1{\sigma^2}\sum_{i=1}^kn_i(\bar Y_{i\cdot}-\bar{\bar Y})^2\sim\chi^2_{k-1}
+\quad\text{且}\quad
+\frac1{\sigma^2}\sum_{i=1}^k\sum_{j=1}^{n_i}(Y_{ij}-\bar{\bar Y})^2\sim\chi^2_{N-1}.
+\end{equation}
+所以在$H_0:\theta_1=\cdots=\theta_k$下，\eqref{eq:11.2.15}的平方和分解就是卡方随机变量的分解. 缩放后，左端服从$\chi^2_{N-1}$分布，右端是两个独立随机变量的和，分别服从$\chi^2_{k-1}$和$\chi^2_{N-k}$. 注意，卡方分解只有在\eqref{eq:11.2.15}右端各项独立时才成立；这里的独立性来自ANOVA假设中的正态性. 卡方分解也在稍一般的背景下成立，其刻画有时称为Cochran定理（Cochran's Theorem）.\index{SI0107@Cochran定理}\semanticindexanchor{107:465} （见\hyperref[bib:source282]{Searle（1971）}，以及\autoref{sec:11.5}.）
+
+一般而言，可以把一个平方和分解成互不相关的对比的平方和，各有一个自由度. 若平方和有$\nu$个自由度且服从$\chi^2_\nu$，就可分解成$\nu$个独立项，每项服从$\chi^2_1$.
+
+量$(\sum a_i\bar Y_{i\cdot})^2/(\sum a_i^2/n_i)$称为处理对比$\sum a_i\bar Y_{i\cdot}$的对比平方和（contrast sum of squares）. 在单因素ANOVA中，总能找到常数组$\boldsymbol a^{(l)}=(a_1^{(l)},\ldots,a_k^{(l)})$，$l=1,\ldots,k-1$，使其满足\footnote{译注：原书下一式各分子排作$\sum_i a_i^{(l)}\bar Y_{i\cdot}^{\,2}$，与前文对比平方和定义不一致；按定义应是$(\sum_i a_i^{(l)}\bar Y_{i\cdot})^2$. 此处照录原式. 紧接着关于\eqref{eq:11.2.18}左、右端卡方分布的说明，实际指这条平方和分解式，并须在相应对比均值为零时取中心卡方分布.}
+$$\sum_{i=1}^kn_i(\bar Y_{i\cdot}-\bar{\bar Y})^2
+=\frac{\sum_{i=1}^ka_i^{(1)}\bar Y_{i\cdot}^{\,2}}{\sum_{i=1}^k(a_i^{(1)})^2/n_i}
++\frac{\sum_{i=1}^ka_i^{(2)}\bar Y_{i\cdot}^{\,2}}{\sum_{i=1}^k(a_i^{(2)})^2/n_i}
++\cdots+\frac{\sum_{i=1}^ka_i^{(k-1)}\bar Y_{i\cdot}^{\,2}}{\sum_{i=1}^k(a_i^{(k-1)})^2/n_i}$$
+以及
+\begin{equation}\label{eq:11.2.18}\index{SI0031@对比平方和}
+\sum_{i=1}^k\frac{a_i^{(l)}a_i^{(l')}}{n_i}=0\qquad\text{对所有 }l\ne l'.
+\end{equation}
+所以各个对比平方和互不相关，从而在正态性下相互独立（\autoref{lem:5.3.3}）. 适当归一化后，\eqref{eq:11.2.18}左端服从$\chi^2_{k-1}$，右端是$k-1$个$\chi^2_1$. （这种对比称为正交对比，orthogonal contrasts.\index{SI0044@正交对比}\semanticindexanchor{44:465} 见\autoref{exercise:11.10}和\autoref{exercise:11.11}.）
+
+通常将ANOVA $F$检验的结果汇总成一种标准形式，称为ANOVA表. 表中还给出一些有用的中间统计量，列标题应当不言自明.
+
+\begin{example}[\autoref{ex:11.2.1}续]\label{ex:11.2.12}\index{SI0053@表}
+鱼类毒素数据的ANOVA表如下. $F$统计量为26.09，高度显著，表明有强有力的证据说明各毒素产生不同的效应.
+\end{example}
+\sourcepageanchor{466}
+\begin{center}
+单向分类的ANOVA表
+
+\small
+\begin{tabular}{p{.15\textwidth}cp{.26\textwidth}p{.21\textwidth}c}
+\toprule 变异来源&自由度&平方和&均方&$F$统计量\\\midrule
+处理组之间&$k-1$&$\mathrm{SSB}=\sum n_i(\bar y_i-\bar{\bar y})^2$&$\mathrm{MSB}=\mathrm{SSB}/(k-1)$&$F=\dfrac{\mathrm{MSB}}{\mathrm{MSW}}$\\[1ex]
+处理组内部&$N-k$&$\mathrm{SSW}=\sum\sum(y_{ij}-\bar y_{i\cdot})^2$&$\mathrm{MSW}=$\newline$\mathrm{SSW}/(N-k)$&\\[1ex]
+总计&$N-1$&$\mathrm{SST}=\sum\sum(y_{ij}-\bar{\bar y})^2$&&\\\bottomrule
+\end{tabular}
+
+\medskip
+\begin{tabular}{lrrrr}
+\toprule 变异来源&自由度&平方和&均方&$F$统计量\\\midrule
+处理&3&995.90&331.97&26.09\\
+组内&15&190.83&12.72&\\
+总计&18&1,186.73&&\\\bottomrule
+\end{tabular}
+\end{center}
+
+由\eqref{eq:11.2.15}可知，平方和这一列可以“相加”，即$\mathrm{SSB}+\mathrm{SSW}=\mathrm{SST}$. 类似地，自由度列也可以相加. 但均方列不能，因为它们是平均值，而不是总和.
+
+ANOVA表没有引入新的统计量，只是为计算和呈现提供一种有序的形式. $F$统计量与之前推导的完全相同；此外，MSW就是通常的$\sigma^2$合并无偏估计量，即\eqref{eq:11.2.5}的$S_p^2$（\autoref{exercise:11.22}）.

@@ -1,0 +1,48 @@
+METHODS OF EVALUATING ESTIMATORS                                      285
+  We can also use a Bayesian approach to the problem of loss function optimality, where we
+would have a prior distribution, π(θ). In a Bayesian analysis we would use this prior distribution to
+compute an average risk
+                                  R(θ,δ)π(θ)dθ,
+                              Θ
+known as the Bayes risk. Averaging the risk function gives us one number for assessing the perfor-
+mance of an estimator with respect to a given loss function. Moreover, we can attempt to find the
+estimator that yields the smallest value of the Bayes risk. Such an estimator is called the Bayes rule
+with respect to a prior π, and is often denoted δ π.
+   Finding the Bayes decision rule for a given prior π may look like a daunting task, but it turns out
+to be rather mechanical, as the following theorem indicates. (The technique of finding Bayes rules
+by the method given below works in greater generality than presented here; see Brown and Purves
+1973.)
+   For X ∼f(x|θ) and θ ∼π, the Bayes risk of a decision rule δ can be written as
+
+               R(θ,δ)π(θ)dθ =                                           L(θ,δ(x)) f(x|θ)dx  π(θ)dθ.             Θ                                Θ  X
+Now if we write f(x|θ)π(θ) = π(θ|x)m(x), where π(θ|x) is the posterior distribution of θ andm(x) is the marginal distribution of X, we can write the Bayes risk as
+
+                 R(θ,δ)π(θ)dθ =
+               Θ                        X   Θ L(θ,δ(x))π(θ|x)dθ  m(x)dx.           (7.3.19)
+
+The quantity in square brackets is the expected value of the loss function with respect to the posterior
+distribution, called the posterior expected loss. It is a function only of x, and not a function of θ.
+Thus, for each x, if we choose the action δ(x) to minimize the posterior expected loss, we will
+minimize the Bayes risk.
+   Notice that we now have a recipe for constructing a Bayes rule. For a given observation x,
+the Bayes rule should minimize the posterior expected loss. This is quite unlike any prescription we
+have had in previous sections. For example, consider the methods of finding best unbiased estimators
+discussed previously. To use Theorem 7.3.23, first we need to find a complete sufficient statistic T.
+Then we need to find a function φ(T) that is an unbiased estimator of the parameter. The Rao–
+Blackwell Theorem, Theorem 7.3.17, may be helpful if we know of some unbiased estimator of the
+parameter. But if we cannot dream up some unbiased estimator, then the method does not tell us
+how to construct one.
+   Even if the minimization of the posterior expected loss cannot be done analytically, the integral
+can be evaluated and the minimization carried out numerically. In fact, having observed X = x, we
+need to do the minimization only for this particular x. However, in some problems we can explicitly
+describe the Bayes rule.
+Example 7.3.28 (Two Bayes rules)  Consider a point estimation problem for a real-valued param-
+eter θ.
+a. For squared error loss, the posterior expected loss is
+
+                                   = x  .                          = E (θ −a)2|X                        Θ(θ −a)2π(θ|x)dθ
+  Here θ is the random variable with distribution π(θ|x). By Example 2.2.6, this expected value is
+   minimized by δ π(x) = E(θ|x). So the Bayes rule is the mean of the posterior distribution.
+b. For absolute error loss, the posterior expected loss is E(|θ −a||X = x). By applying Exercise
+   2.18, we see that this is minimized by choosing δ π(x) = median of π(θ|x).
+                                                                              ∥

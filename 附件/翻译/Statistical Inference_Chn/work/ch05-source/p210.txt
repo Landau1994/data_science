@@ -1,0 +1,43 @@
+SAMPLING FROM THE NORMAL DISTRIBUTION                                179
+important part in the derivation of the pdf of S2. Recall from Section 3.3 that the chi squared pdf is
+a special case of the gamma pdf, and is given by
+
+                               1                         f(x) =             x(p/2)−1e−x/2,  0 < x < ∞,
+                            Γ(p/2)2p/2
+
+where p is called the degrees of freedom. We now summarize some pertinent facts about the chi
+squared distribution.
+Lemma 5.3.2 (Facts about chi squared random variables)  We use the notation χ2p to denote a
+chi squared random variable with p degrees of freedom.
+  a.  If Z is a n(0,1) random variable, then Z2 ∼χ21, that is, the square of a standard normal random   variable is a chi squared random variable.
+  b.  If X1,...,Xn are independent, and Xi ∼χ2pi, then X1 +···+Xn ∼χ2p1+···+pn, that is, independent   chi squared variables add to a chi squared variable, and the degrees of freedom also add.
+Proof: We have encountered these facts already. Part (a) was established in Example 2.1.7. Part
+(b) is a special case of Example 4.6.8, which has to do with sums of independent gamma random
+variables. Since a χ2p random variable is a gamma(p/2,2), application of the example gives part (b).
+2
+
+Proof of Theorem 5.3.1(c): We will employ an induction argument to establish the distribution of
+S2, using the notation ¯Xk and S2k to denote the sample mean and variance based on the first k obser-
+vations. (Note that the actual ordering of the observations is immaterial – we are just considering
+them to be ordered to facilitate the proof.) It is straightforward to establish (see Exercise 5.15) that
+                                   n =       + n−1  (Xn                             (5.3.1)                  (n−1)S2  (n−2)S2n−1     n       −¯Xn−1)2.
+
+                                       1 = 0, we have from (5.3.1) thatNow consider n = 2. Defining 0×S2
+                                     1
+                                     S22 = 2(X2 −X1)2.
+Since the distribution of (X2    √ 2 is n(0,1), part (a) of Lemma 5.3.2 shows that S22     1.                     −X1)/                                ∼χ2
+                                                                           kProceeding with the induction, assume that for n = k,(k−1)S2                                      ∼χ2k−1. For n = k+1 we have from(5.3.1)
+                                               k
+                         kS2k+1 = (k −1)S2k +  k +1  (Xk+1 −¯Xk)2.                      (5.3.2)
+
+                                                         kAccording to the induction hypothesis, (k−1)S2                             ∼χ2k−1. If we can establish that (k/(k +1))(Xk+1−
+                                                                                                             k , and the                                                                            k+1¯Xk)2 ∼χ21, independent of S2k, it will follow from part (b) of Lemma 5.3.2 that kS2                                                  ∼χ2theorem will be proved.
+                                                         k again follows from Theorem 4.6.12. The vector   The independence of (Xk+1 −¯Xk)2 and S2
+(Xk+1, ¯Xk) is independent of S2k and so is any function of the vector. Furthermore, Xk+1 −¯Xk is anormal random variable with mean 0 and variance
+                                                  k +1
+                                Var(Xk+1 −¯Xk) =   k   ,
+
+                                                    2and therefore (k/(k +1))(Xk+1 −¯Xk)2 ∼χ21, and the theorem is established.
+   The independence of ¯X and S2 can be established in a manner different from that used in the
+proof of Theorem 5.3.1. Rather than show that the joint pdf factors, we can use the following lemma,
+which ties together independence and correlation for normal samples.

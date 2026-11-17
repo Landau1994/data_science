@@ -1,0 +1,47 @@
+332                                             HYPOTHESIS TESTING
+        where g(v|u) is the conditional pdf of V given U, and h(u) is the marginal pdf of U. Argue that (1)
+          the likelihood can be equivalently factored and (2) the piece involving g(v|u) has the same maximum         whether or not the means are restricted. Thus, it can be ignored (since it will cancel) and the LRT is
+           just based only on h(u). However, h(u) is a normal pdf with mean µX −µY , and the LRT is the usual         one-sample t test, as derived in Exercise 8.38.
+8.41 Let X1,...,Xn be a random sample from a n(µX,σ2X), and let Y1,...,Ym be an independent random sample
+     from a n(µY ,σ2Y ). We are interested in testing
+                          H0 : µX = µY     versus    H1 : µX̸ = µY ,
+     with the assumption that σ2X = σ2Y = σ2.
+       (a) Derive the LRT for these hypotheses. Show that the LRT can be based on the statistic
+
+                                      X                                   T =    −Y       ,
+                                                                           S2p  1n + m1
+
+        where
+                                   1         n          m
+                                                                                                                       .                                  +                              S2p =                     ∑ (Xi −X)2                           ∑ (Yi −Y)2                                                     i=1                                                                    i=1                        (n+m−2)
+         (The quantity S2p is sometimes referred to as a pooled variance estimate. This type of estimate will
+         be used extensively in Section 11.2.)
+      (b) Show that, under H0, T ∼tn+m−2. (This test is known as the two-sample t test.)
+       (c) Samples of wood were obtained from the core and periphery of a certain Byzantine church. The date
+          of the wood was determined, giving the following data.
+                                      Core            Periphery
+                                 1294   1251     1284   1274
+                                 1279   1248     1272   1264
+                                 1274   1240     1256   1256
+                                 1264   1232     1254   1250
+                                 1263   1220     1242
+                                 1254   1218
+                                 1251   1210
+        Use the two-sample t test to determine if the mean age of the core is the same as the mean age of the
+          periphery.
+8.42 The assumption of equal variances, which was made in Exercise 8.41, is not always tenable. In such a
+      case, the distribution of the statistic is no longer a t. Indeed, there is doubt as to the wisdom of calculating
+      a pooled variance estimate. (This problem, of making inference on means when variances are unequal,
+        is, in general, quite a difficult one. It is known as the Behrens–Fisher Problem.) A natural test to try is
+      the following modification of the two-sample t test: Test
+                          H0 : µX = µY     versus    H1 : µX̸ = µY ,
+     where we do not assume that σ2X = σ2Y , using the statistic
+                                     X −Y       ,                                 T ′ =
+                                                                   S2X    S2Y
+                                                           n + m
+
+     where
+                             1    n                      1   m
+                         S2X =                                                         Y =               ∑ (Xi −X)2  and  S2                             ∑ (Yi −Y)2.                                       i=1                                                                        i=1                    n−1               m−1
+     The exact distribution of T ′ is not pleasant, but we can approximate the distribution using Satterthwaite’s
+     approximation (Example 7.2.3).

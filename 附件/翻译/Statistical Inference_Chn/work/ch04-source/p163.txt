@@ -1,0 +1,47 @@
+132                                      MULTIPLE RANDOM VARIABLES
+    In Example 4.3.4, we found that U and V are independent random variables. There is a much
+simpler, but very important, situation in which new variables U and V, defined in terms of original
+variables X and Y, are independent. Theorem 4.3.5 describes this.
+Theorem 4.3.5  Let X and Y be independent random variables. Let g(x) be a function only of x and
+h(y) be a function only of y. Then the random variables U = g(X) and V = h(Y) are independent.
+Proof: We will prove the theorem assuming U and V are continuous random variables. For any
+u ∈ℜand v ∈ℜ, define
+                     Au = {x : g(x) ≤u}  and  Bv = {y : h(y) ≤v}.
+Then the joint cdf of (U,V) is
+
+                   FU,V(u,v) =  P(U ≤u,V ≤v)                            (definition of cdf)
+                 =  P(X ∈Au,Y ∈Bv)                     (definition of U and V)
+                 =  P(X ∈Au)P(Y ∈Bv). (Theorem 4.2.10)
+The joint pdf of (U,V) is
+
+                                  ∂2
+                       fU,V(u,v) =  ∂u∂vFU,V(u,v)                       (equation (4.1.3))
+                                   d             d
+                   =   duP(X ∈Au)   dvP(Y ∈Bv)
+
+where, as the notation indicates, the first factor is a function only of u and the second factor is a
+function only of v. Hence, by Lemma 4.2.7, U and V are independent.               2
+
+     It may be that there is only one function, say U = g1(X,Y), of interest. In such cases, this method
+may still be used to find the distribution of U. If another convenient function, V = g2(X,Y), can be
+chosen so that the resulting transformation from (X,Y) to (U,V) is one-to-one on A , then the joint
+pdf of (U,V) can be derived using (4.3.2) and the marginal pdf of U can be obtained from the joint
+pdf. In the previous example, perhaps we were interested only in U = XY. We could choose to
+define V = X, recognizing that the resulting transformation is one-to-one on A . Then proceed as in
+the example to obtain the marginal pdf of U. But other choices, such as V = Y, would work as well
+(see Exercise 4.23).
+   Of course, in many situations, the transformation of interest is not one-to-one. Just as The-
+orem 2.1.8 generalized the univariate method to many-to-one functions, the same can be done
+here. As before, A = {(x,y) : fX,Y(x,y) > 0}. Suppose A0,A1,...,Ak form a partition of A with
+these properties. The set A0, which may be empty, satisfies P((X,Y) ∈A0) = 0. The transforma-tion U = g1(X,Y) and V = g2(X,Y) is a one-to-one transformation from Ai onto B for each
+i = 1,2,...,k. Then for each i, the inverse functions from B to Ai can be found. Denote the ith
+inverse by x = h1i(u,v) and y = h2i(u,v). This ith inverse gives, for (u,v) ∈B, the unique (x,y) ∈Aisuch that (u,v) = (g1(x,y),g2(x,y)). Let Ji denote the Jacobian computed from the ith inverse. Then
+assuming that these Jacobians do not vanish identically on B, we have the following representation
+of the joint pdf, fU,V(u,v):
+
+                                                   k
+                                                                                                 (4.3.6)                           fU,V(u,v) = ∑                                          i=1 fX,Y(h1i(u,v),h2i(u,v))|Ji|.
+
+Example 4.3.6 (Distribution of the ratio of normal variables)   Let X and Y be independent
+n(0,1) random variables. Consider the transformation U = X/Y and V = |Y|. (U and V can bedefined to be any value, say (1,1), if Y = 0 since P(Y = 0) = 0.) This transformation is not one-to-
+one since the points (x,y) and (−x,−y) are both mapped into the same (u,v) point. But if we restrict

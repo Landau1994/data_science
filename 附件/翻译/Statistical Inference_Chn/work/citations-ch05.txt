@@ -1,0 +1,47 @@
+sections-tex/05-03.tex:183 $F$分布可以在比这里更一般的条件下导出.即使母总体不是正态，方差比也可能服从$F$分布.Kelker（1970）证明，只要母总体具有某种对称性（球对称性，spherical symmetry），方差比就服从$F$分布.
+sections-tex/05-04.tex:28 年薪62,500美元的新秀.讨论工资、价格或任何有少数极端值的变量时，中位数比均值更能代表“典型”值.还有其他可由次序统计量定义、对极端值较不敏感的统计量，例如\autoref{exercise:10.20}中的$\alpha$截尾均值；Tukey（1977）等书对此有所讨论.
+sections-tex/05-05.tex:5 我们主要关注三种收敛，讨论的详略有所不同.（例如，Billingsley 1995或Resnick 1999对收敛有完整论述.）特别地，我们想考察$n\to\infty$时$n$个观测的均值$\bar X_n$的行为.
+sections-tex/05-05.tex:5 我们主要关注三种收敛，讨论的详略有所不同.（例如，Billingsley 1995或Resnick 1999对收敛有完整论述.）特别地，我们想考察$n\to\infty$时$n$个观测的均值$\bar X_n$的行为.
+sections-tex/05-05.tex:66 可以预料，几乎处处收敛作为更强的条件，蕴含依概率收敛.逆命题当然不成立，\autoref{ex:5.5.8}已说明这一点.然而，如果序列依概率收敛，就可以找到一个几乎处处收敛的子序列.（Resnick 1999，第6.3节详细讨论了这两种收敛的联系.）
+sections-tex/05-05.tex:74 在弱大数定律与强大数定律中，都假设方差有限.虽然多数应用中这一假设成立（也很理想），但事实上它强于实际所需条件.去掉这一假设，弱定律与强定律仍然成立.唯一需要的矩条件是$E|X_i|<\infty$（见Resnick 1999，第7章；或Billingsley 1995，第22节）.
+sections-tex/05-05.tex:74 与强大数定律中，都假设方差有限.虽然多数应用中这一假设成立（也很理想），但事实上它强于实际所需条件.去掉这一假设，弱定律与强定律仍然成立.唯一需要的矩条件是$E|X_i|<\infty$（见Resnick 1999，第7章；或Billingsley 1995，第22节）.
+sections-tex/05-05.tex:173 证明与\autoref{thm:5.5.14}几乎相同，只是用特征函数代替矩母函数.分布的特征函数总存在，所以无须在定理假设中提及.不过证明更细致，因为须处理复变量函数.详见Billingsley（1995，第27节）.
+sections-tex/05-05.tex:349 证明需要处理多元随机变量的收敛.这里不涉及这些多元问题的细节，暂且接受\autoref{thm:5.5.28}.感兴趣的读者可参阅Lehmann和Casella（1998，第1.8节）.
+sections-tex/05-06.tex:41 家对均匀随机数生成问题已作了卓有成效的研究.）有许多生成伪随机数（pseudo-random numbers）的算法，产生的数可通过几乎所有均匀性检验.此外，多数优秀统计软件包都有合理的均匀随机数生成器.（关于伪随机数生成，更多内容见Devroye 1985或Ripley 1987.）
+sections-tex/05-06.tex:41 作了卓有成效的研究.）有许多生成伪随机数（pseudo-random numbers）的算法，产生的数可通过几乎所有均匀性检验.此外，多数优秀统计软件包都有合理的均匀随机数生成器.（关于伪随机数生成，更多内容见Devroye 1985或Ripley 1987.）
+sections-tex/05-06.tex:81 \begin{example}[Box–Muller，1958]\label{ex:5.6.4}
+sections-tex/05-06.tex:110 负二项分布，\eqref{eq:5.6.8}中的算法也适用.理论上这可能需要大量求值，但实际上有简单巧妙的加速方法，因而通常不会如此.例如，不必按$1,2,\ldots$的次序逐个检查$y_i$，从靠近均值的$y_i$开始可能快得多（见Ripley 1987，第3.3节，以及\autoref{exercise:5.55}）.
+sections-tex/05-06.tex:123 为说明这种方法的用途，考虑1984年8月下旬在哈德逊河取得的海湾{\CJKfontspec{SimSun}鳀}鱼幼体计数样本：
+sections-tex/05-06.tex:237 虽然MCMC方法至少可追溯到Metropolis等（1953），但它们真正受到广泛重视，是在Geman和Geman（1984）的基础上，随着Gelfand和Smith（1990）的工作而发生的.更多内
+sections-tex/05-06.tex:237 虽然MCMC方法至少可追溯到Metropolis等（1953），但它们真正受到广泛重视，是在Geman和Geman（1984）的基础上，随着Gelfand和Smith（1990）的工作而发生的.更多内容见\autoref{sec:5.8.5}.
+sections-tex/05-06.tex:237 虽然MCMC方法至少可追溯到Metropolis等（1953），但它们真正受到广泛重视，是在Geman和Geman（1984）的基础上，随着Gelfand和Smith（1990）的工作而发生的.更多内容见\autoref{sec:5.8.5}.
+sections-tex/05-07.tex:19 iid随机变量的一种推广是可交换随机变量（exchangeable random variables），这一概念出自De Finetti（1972）.Feller（1971）也讨论了可交换性.若随机变量$X_1,\ldots,X_n$中任意容量为$k$（$k\le n$）的子集的任意排
+sections-tex/05-07.tex:19 iid随机变量的一种推广是可交换随机变量（exchangeable random variables），这一概念出自De Finetti（1972）.Feller（1971）也讨论了可交换性.若随机变量$X_1,\ldots,X_n$中任意容量为$k$（$k\le n$）的子集的任意排列都具有相同分布，则称它们
+sections-tex/05-07.tex:69 利用此恒等式证明，相关系数等于1，当且仅当全部样本点位于一条直线上（Wright 1992）.\footnote{译注：原文写相关系数“等于1”.一般直线上的点可能具有负斜率，正确的共线刻画应是相关系数绝对值为1，并要求两组样本方
+sections-tex/05-07.tex:281 （上述结果的详细论述见Billingsley 1995，第25节.）
+sections-tex/05-07.tex:352 Park等（1996）给出如下生成相关二元变量的方法.设$X_1,X_2,X_3$为均值分别为$\lambda_1,\lambda_2,\lambda_3$的独
+sections-tex/05-07.tex:370 （Russell 1991描述过这种模拟实验，并将问题归于Gnedenko 1978.）
+sections-tex/05-07.tex:370 （Russell 1991描述过这种模拟实验，并将问题归于Gnedenko 1978.）
+sections-tex/05-07.tex:403 证明它依概率收敛到$Eh(X)$.此外，证明若$h$是常数，这一估计量优于(a)中的估计量.（Casella和Robert 1996进一步研究了其性质.）
+sections-tex/05-07.tex:412 Rubin（1988）称此法为抽样／重要性再抽样（Sampling/Importance Resampling，SIR）算法；Smith和Gelfand（199
+sections-tex/05-07.tex:412 Rubin（1988）称此法为抽样／重要性再抽样（Sampling/Importance Resampling，SIR）算法；Smith和Gelfand（1992）称其为加权自助法（weighted bootstrap）.
+sections-tex/05-07.tex:440 [Mengersen和Tweedie 1995表明，若满足上确界条件，即$\sup f/g<\!\le M<\infty$（$f$为目标密度，$g$为候选密度），Metropolis算法
+sections-tex/05-08.tex:10 还有大量其他类型的中心极限定理，尤其是旨在放宽独立性假设的结果.虽然不能完全取消这一假设，但可以使其限制更弱（见Billingsley 1995，第27节；或Resnick 1999，第8章）.
+sections-tex/05-08.tex:10 还有大量其他类型的中心极限定理，尤其是旨在放宽独立性假设的结果.虽然不能完全取消这一假设，但可以使其限制更弱（见Billingsley 1995，第27节；或Resnick 1999，第8章）.
+sections-tex/05-08.tex:12 本章多数计算假定观测相互独立，一些期望的计算也依赖这一事实.H. A. David（1985）指出，若观测相关，$S^2$可能是$\sigma^2$的有偏估计，即$ES^2=\sigma^2$未必成立.但可能偏差的范围很容易计算.若
+sections-tex/05-08.tex:21 Saw等（1984）证明，用$\bar X$代替$\mu$、$S^2$代替$\sigma^2$，可得到
+sections-tex/05-08.tex:29 如前所述，强大数定律\autoref{thm:5.5.9}可在较弱条件下证明，只要求随机变量的均值有限（例如见Resnick 1999，第7章；或Billingsley 1995，第22节）.不过，在矩母函数存在的假设下，Koopmans（1993）给出了只使用微积分的证明
+sections-tex/05-08.tex:29 如前所述，强大数定律\autoref{thm:5.5.9}可在较弱条件下证明，只要求随机变量的均值有限（例如见Resnick 1999，第7章；或Billingsley 1995，第22节）.不过，在矩母函数存在的假设下，Koopmans（1993）给出了只使用微积分的证明.
+sections-tex/05-08.tex:29 如前所述，强大数定律\autoref{thm:5.5.9}可在较弱条件下证明，只要求随机变量的均值有限（例如见Resnick 1999，第7章；或Billingsley 1995，第22节）.不过，在矩母函数存在的假设下，Koopmans（1993）给出了只使用微积分的证明.
+sections-tex/05-08.tex:49 顾名思义，这些方法基于马尔可夫链（Markov chains），这是我们尚未研究的概率结构（入门介绍见Chung 1974或Ross 1988）.若随机变量序列$X_1,X_2,\ldots$满足
+sections-tex/05-08.tex:49 顾名思义，这些方法基于马尔可夫链（Markov chains），这是我们尚未研究的概率结构（入门介绍见Chung 1974或Ross 1988）.若随机变量序列$X_1,X_2,\ldots$满足
+sections-tex/05-08.tex:58 要充分理解MCMC方法，确实需要了解更多马尔可夫链知识，这里不展开.MCMC的理论及应用已有大量文献.Tanner（1993）提供了统计计算方法的良好入门介绍；Robert（1994，第9章）也作了介绍，偏重理论且带有Bayes色彩.Casella和George（
+sections-tex/05-08.tex:58 要充分理解MCMC方法，确实需要了解更多马尔可夫链知识，这里不展开.MCMC的理论及应用已有大量文献.Tanner（1993）提供了统计计算方法的良好入门介绍；Robert（1994，第9章）也作了介绍，偏重理论且带有Bayes色彩.Casella和George（1992）通过Gibbs抽样器（一种特定MCMC方法）给出
+sections-tex/05-08.tex:58 MC方法，确实需要了解更多马尔可夫链知识，这里不展开.MCMC的理论及应用已有大量文献.Tanner（1993）提供了统计计算方法的良好入门介绍；Robert（1994，第9章）也作了介绍，偏重理论且带有Bayes色彩.Casella和George（1992）通过Gibbs抽样器（一种特定MCMC方法）给出了更易读的入门介绍.Gibbs抽样器或许仍是应用最广的MCMC方法，也是这类方法流行的原因
+sections-tex/05-08.tex:58 绍，偏重理论且带有Bayes色彩.Casella和George（1992）通过Gibbs抽样器（一种特定MCMC方法）给出了更易读的入门介绍.Gibbs抽样器或许仍是应用最广的MCMC方法，也是这类方法流行的原因之一［源于Gelfand和Smith（1990）在Geman和Geman（1984）基础上的奠基性工作］.涉及MCMC的参考文献实在太多.其他入门文献包括Gelman和Rubin（199
+sections-tex/05-08.tex:58 asella和George（1992）通过Gibbs抽样器（一种特定MCMC方法）给出了更易读的入门介绍.Gibbs抽样器或许仍是应用最广的MCMC方法，也是这类方法流行的原因之一［源于Gelfand和Smith（1990）在Geman和Geman（1984）基础上的奠基性工作］.涉及MCMC的参考文献实在太多.其他入门文献包括Gelman和Rubin（1992）、Geyer和Thompson（
+sections-tex/05-08.tex:58 Gibbs抽样器或许仍是应用最广的MCMC方法，也是这类方法流行的原因之一［源于Gelfand和Smith（1990）在Geman和Geman（1984）基础上的奠基性工作］.涉及MCMC的参考文献实在太多.其他入门文献包括Gelman和Rubin（1992）、Geyer和Thompson（1992）、Smith和Roberts（1993）的论文；Tierney（1994）给出了尤其优美的理论介
+sections-tex/05-08.tex:58 方法，也是这类方法流行的原因之一［源于Gelfand和Smith（1990）在Geman和Geman（1984）基础上的奠基性工作］.涉及MCMC的参考文献实在太多.其他入门文献包括Gelman和Rubin（1992）、Geyer和Thompson（1992）、Smith和Roberts（1993）的论文；Tierney（1994）给出了尤其优美的理论介绍.Robert和Casella（1999
+sections-tex/05-08.tex:58 elfand和Smith（1990）在Geman和Geman（1984）基础上的奠基性工作］.涉及MCMC的参考文献实在太多.其他入门文献包括Gelman和Rubin（1992）、Geyer和Thompson（1992）、Smith和Roberts（1993）的论文；Tierney（1994）给出了尤其优美的理论介绍.Robert和Casella（1999）则以一整本教材系统讨论这一领域.
+sections-tex/05-08.tex:58 ）在Geman和Geman（1984）基础上的奠基性工作］.涉及MCMC的参考文献实在太多.其他入门文献包括Gelman和Rubin（1992）、Geyer和Thompson（1992）、Smith和Roberts（1993）的论文；Tierney（1994）给出了尤其优美的理论介绍.Robert和Casella（1999）则以一整本教材系统讨论这一领域.
+sections-tex/05-08.tex:58 CMC的参考文献实在太多.其他入门文献包括Gelman和Rubin（1992）、Geyer和Thompson（1992）、Smith和Roberts（1993）的论文；Tierney（1994）给出了尤其优美的理论介绍.Robert和Casella（1999）则以一整本教材系统讨论这一领域.

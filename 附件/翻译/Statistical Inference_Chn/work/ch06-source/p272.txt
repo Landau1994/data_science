@@ -1,0 +1,48 @@
+THE EQUIVARIANCE PRINCIPLE                                              241
+If the Conditionality Principle were invoked first, then separate sufficient statistics would have to be
+defined for each experiment. In this case, the Formal Likelihood Principle would no longer follow.
+(A key argument in the proof of Birnbaum’s Theorem is that T(J,XJ) can take on the same value
+for sample points from each experiment. This cannot happen with separate sufficient statistics.)
+   At any rate, since many intuitively appealing inference procedures do violate the Likelihood
+Principle, it is not universally accepted by all statisticians. Yet it is mathematically appealing and
+does suggest a useful data reduction technique.
+
+6.4  The Equivariance Principle
+The previous two sections both describe data reduction principles in the following way. A function
+T(x) of the sample is specified and the principle states that if x and y are two sample points with
+T(x) = T(y) then the same inference about θ should be made whether x or y is observed. The
+function T(x) is a sufficient statistic when the Sufficiency Principle is used. The “value” of T(x)
+is the set of all likelihood functions proportional to L(θ|x) if the Likelihood Principle is used.The Equivariance Principle describes a data reduction technique in a slightly different way. In any
+application of the Equivariance Principle, a function T(x) is specified but, if T(x) = T(y), then
+the Equivariance Principle states that the inference made if x is observed should have a certain
+relationship to the inference made if y is observed, although the two inferences may not be the
+same. This restriction on the inference procedure sometimes leads to a simpler analysis, just as do
+the data reduction principles discussed in earlier sections.2
+   Although commonly combined into what is called the Equivariance Principle, the data reduction
+technique we will now describe actually combines two different equivariance considerations.
+   The first type of equivariance might be called measurement equivariance. It prescribes that the
+inference made should not depend on the measurement scale that is used. For example, suppose two
+foresters are going to estimate the average diameter of trees in a forest. The first uses data on tree
+diameters expressed in inches and the second uses the same data expressed in meters. Now both
+are asked to produce an estimate in inches. (The second might conveniently estimate the average
+diameter in meters and then transform the estimate to inches.) Measurement equivariance requires
+that both foresters produce the same estimates. No doubt, almost all would agree that this type of
+equivariance is reasonable.
+   The second type of equivariance, actually an invariance, might be called formal invariance. It
+states that if two inference problems have the same formal structure in terms of the mathematical
+model used, then the same inference procedure should be used in both problems. The elements of
+the model that must be the same are: Θ, the parameter space; {f(x|θ): θ ∈Θ}, the set of pdfs orpmfs for the sample; and the set of allowable inferences and consequences of wrong inferences.
+This last element has not been discussed much prior to this; for this section we will assume that the
+set of possible inferences is the same as Θ, that is, an inference is simply a choice of an element
+of Θ as an estimate or guess at the true value of θ. Formal invariance is concerned only with the
+mathematical entities involved, not the physical description of the experiment. For example, Θ may
+be Θ = {θ : θ > 0} in two problems. But in one problem θ may be the average price of a dozen eggsin the United States (measured in cents) and in another problem θ may refer to the average height of
+giraffes in Kenya (measured in meters). Yet, formal invariance equates these two parameter spaces
+since they both refer to the same set of real numbers.
+EQUIVARIANCE PRINCIPLE: If Y = g(X) is a change of measurement scale such that the model
+for Y has the same formal structure as the model for X, then an inference procedure should be both
+measurement equivariant and formally equivariant.
+
+   2As in many other texts (Schervish 1995; Lehmann and Casella 1998; Stuart, Ord, and Arnold 1999) we distinguish
+between equivariance, in which the estimate changes in a prescribed way as the data are transformed, and invariance, in
+which the estimate remains unchanged as the data are transformed.

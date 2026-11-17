@@ -1,0 +1,131 @@
+{
+  "pdf_sha256": "169e9684f3a5f583810e10de61861732290555e3c646a1313e73316876436717",
+  "pdf_page_count": 696,
+  "reviewer": "final_visual_a",
+  "review_type": "actual_visual_delta_layout_review",
+  "render_directory": "work/wholebook-final-review",
+  "render_dpi": 120,
+  "pages_viewed": [
+    32,
+    33,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    143,
+    144,
+    168,
+    169,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    222,
+    223
+  ],
+  "sheets_viewed": [
+    "changes-001.png",
+    "changes-002.png",
+    "changes-003.png",
+    "changes-004.png",
+    "changes-005.png",
+    "changes-006.png",
+    "changes-007.png",
+    "changes-008.png",
+    "changes-009.png",
+    "changes-010.png",
+    "changes-011.png",
+    "changes-012.png"
+  ],
+  "findings": [],
+  "resolved_findings": [
+    {
+      "original_id": "A-01",
+      "pages": [
+        101,
+        102
+      ],
+      "status": "resolved",
+      "observation": "定理 2.3.11 现在与条件 (a)、(b) 同从物理页 102 开始，不再只留单行导语于前页底部。"
+    },
+    {
+      "original_id": "A-02",
+      "pages": [
+        113,
+        114
+      ],
+      "status": "resolved",
+      "observation": "习题 2.14 题号与正文、分题同在物理页 114，不再出现前页底部孤立题号。"
+    },
+    {
+      "original_id": "A-03",
+      "pages": [
+        143,
+        144
+      ],
+      "status": "resolved",
+      "observation": "物理页 144 顶部的承接段落连贯，『因此』没有跨页拆成单字。"
+    },
+    {
+      "original_id": "A-04",
+      "pages": [
+        168,
+        169
+      ],
+      "status": "resolved",
+      "observation": "习题 3.34 从物理页 169 开始，导语与任务、分题同行页。"
+    },
+    {
+      "original_id": "A-05",
+      "pages": [
+        180,
+        181
+      ],
+      "status": "resolved",
+      "observation": "脚注 49 的标记与脚注文字同在物理页 180；脚注分隔线、文字及页码清楚，无重叠。"
+    },
+    {
+      "original_id": "A-06",
+      "pages": [
+        222,
+        223
+      ],
+      "status": "resolved",
+      "observation": "例 4.7.8 从物理页 223 图 4.7.2 后开始，标题、变量引入及均值定义同页，不再在前页底部孤立一行。"
+    }
+  ],
+  "result": "在所列 48 个变化页的整页实际目视复检中，未发现新增的文字或公式裁切、内容重叠、图片标题分离、脚注或页码冲突、孤立题号等需修订的版式问题。",
+  "scope": "复检对象为 delta 清单内物理页不超过 232 的全部 48 页，包含目录 32–33 页。逐张实际查看 12 张 2×2 拼图的全部页面内容，不限于原 6 处修复位置。本报告仅记录版式核验，不构成逐句翻译对照、数学正确性独立审校或全 696 页重新目视核验。旧版未变化页的目视记录见 wholebook-visual-a.json/.md；像素一致性由全书 delta 文件记录。"
+}

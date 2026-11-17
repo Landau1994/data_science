@@ -1,0 +1,248 @@
+\subsection{多元分布}\label{sec:4.6}
+本章开头讨论过在实验中观测两个以上随机变量的情形. 前几节主要研究二元随机向量 $(X,Y)$；本节讨论多元随机向量 $(X_1,\ldots,X_n)$. 在章首的例子中，测量一个人的体温、身高、体重和血压. 这里 $n=4$，观测的随机向量为 $(X_1,X_2,X_3,X_4)$，其中 $X_1$ 是体温，$X_2$ 是身高，等等. 前几节的概念，包括边缘分布与条件分布，都能从二元推广到多元情形. 本节介绍其中一些推广.
+
+\textit{记号说明：}使用粗体字母表示多个变量. 因此，用 $\mathbf X$ 表示随机变量 $X_1,\ldots,X_n$，用 $\mathbf x$ 表示样本 $x_1,\ldots,x_n$.
+
+随机向量 $\mathbf X=(X_1,\ldots,X_n)$ 的样本空间是 $\mathbb R^n$ 的一个子集. 若 $(X_1,\ldots,X_n)$ 为离散随机向量（样本空间可数），其联合 pmf 定义为 $f(\mathbf x)=f(x_1,\ldots,x_n)=P(X_1=x_1,\ldots,X_n=x_n)$，$(x_1,\ldots,x_n)\in\mathbb R^n$. 对任意 $A\subset\mathbb R^n$，
+\begin{equation}\label{eq:4.6.1}\index{SI0853@联合}
+P(\mathbf X\in A)=\sum_{\mathbf x\in A}f(\mathbf x).
+\end{equation}
+若 $(X_1,\ldots,X_n)$ 为连续随机向量，其联合 pdf 是满足
+\begin{equation}\label{eq:4.6.2}\index{SI0833@联合}
+P(\mathbf X\in A)=\int\cdots\int_A f(\mathbf x)\,d\mathbf x
+=\int\cdots\int_A f(x_1,\ldots,x_n)\,dx_1\cdots dx_n
+\end{equation}
+的函数 $f(x_1,\ldots,x_n)$. 这些是 $n$ 重积分，积分限应使积分遍及 $A$ 中所有点 $\mathbf x$.
+
+设 $g(\mathbf x)=g(x_1,\ldots,x_n)$ 是定义在 $\mathbf X$ 的样本空间上的实值函数，则 $g(\mathbf X)$ 是随机变量，其期望在连续和离散情形下分别为
+\begin{equation}\label{eq:4.6.3}\index{SI0429@联合}
+\begin{aligned}
+Eg(\mathbf X)&=\int_{-\infty}^{\infty}\cdots\int_{-\infty}^{\infty}g(\mathbf x)f(\mathbf x)\,d\mathbf x,\\
+Eg(\mathbf X)&=\sum_{\mathbf x\in\mathbb R^n}g(\mathbf x)f(\mathbf x).
+\end{aligned}
+\end{equation}
+这些以及其他定义都类似于二元情形，只是积分或求和现在是在 $\mathbb R^n$ 的适当子集上进行，而不是 $\mathbb R^2$.
+
+$(X_1,\ldots,X_n)$ 中任意一部分坐标的边缘 pdf 或 pmf，都可以通过对其他坐标的所有可能值积分或求和得到.\index{SI0834@边缘}\semanticindexanchor{834:176}\index{SI0855@边缘}\semanticindexanchor{855:176}
+\sourcepageanchor{177}
+
+例如，前 $k$ 个坐标 $(X_1,\ldots,X_k)$ 的边缘 pdf 或 pmf 为
+\begin{equation}\label{eq:4.6.4}
+f(x_1,\ldots,x_k)=\int_{-\infty}^{\infty}\cdots\int_{-\infty}^{\infty}f(x_1,\ldots,x_n)\,dx_{k+1}\cdots dx_n,
+\end{equation}
+或
+\begin{equation}\label{eq:4.6.5}
+f(x_1,\ldots,x_k)=\sum_{(x_{k+1},\ldots,x_n)\in\mathbb R^{n-k}}f(x_1,\ldots,x_n),
+\end{equation}
+其中 $(x_1,\ldots,x_k)\in\mathbb R^k$. 给定其余坐标的值时，某一部分坐标的条件 pdf 或 pmf，可由联合 pdf 或 pmf 除以其余坐标的边缘 pdf 或 pmf 得到. 例如，若 $f(x_1,\ldots,x_k)>0$，给定 $X_1=x_1,\ldots,X_k=x_k$ 时 $(X_{k+1},\ldots,X_n)$ 的条件 pdf 或 pmf，是关于 $(x_{k+1},\ldots,x_n)$ 的函数
+\begin{equation}\label{eq:4.6.6}\index{SI0830@条件}\index{SI0851@条件}
+f(x_{k+1},\ldots,x_n\mid x_1,\ldots,x_k)=\frac{f(x_1,\ldots,x_n)}{f(x_1,\ldots,x_k)}.
+\end{equation}
+下例说明这些思想.
+\begin{example}[多元 pdf]\label{ex:4.6.1}
+令 $n=4$，并取
+$$f(x_1,x_2,x_3,x_4)=\begin{cases}\dfrac34(x_1^2+x_2^2+x_3^2+x_4^2),&0<x_i<1,\ i=1,2,3,4,\\0,&\text{其他情形}.\end{cases}$$
+此非负函数是随机向量 $(X_1,X_2,X_3,X_4)$ 的联合 pdf，可以验证
+$$\begin{aligned}
+&\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x_1,x_2,x_3,x_4)\,dx_1\,dx_2\,dx_3\,dx_4\\
+&\quad=\int_0^1\int_0^1\int_0^1\int_0^1\frac34(x_1^2+x_2^2+x_3^2+x_4^2)\,dx_1\,dx_2\,dx_3\,dx_4\\
+&\quad=1.
+\end{aligned}$$
+此联合 pdf 可用于计算如下概率：
+$$\begin{aligned}
+&P\left(X_1<\frac12,X_2<\frac34,X_4>\frac12\right)\\
+&\quad=\int_{1/2}^1\int_0^1\int_0^{3/4}\int_0^{1/2}\frac34(x_1^2+x_2^2+x_3^2+x_4^2)\,dx_1\,dx_2\,dx_3\,dx_4.
+\end{aligned}$$
+注意，这些积分限把积分限制在所求事件内且 $f(x_1,x_2,x_3,x_4)>0$ 的点上. 四项 $\frac34x_1^2$、$\frac34x_2^2$ 等可分别积分，再将结果相加. 例如，
+$$\int_{1/2}^1\int_0^1\int_0^{3/4}\int_0^{1/2}\frac34x_1^2\,dx_1\,dx_2\,dx_3\,dx_4=\frac3{256}.$$
+其余三个积分分别为 $7/1024$、$3/64$ 和 $21/256$.\footnote{译注：第二项即 $\frac34x_2^2$ 的积分应为 $(3/4)(1/2)(9/64)(1)(1/2)=27/1024$，原文写为 $7/1024$. 因而下面所求总概率应为 $171/1024$，而非原文的 $151/1024$. 此处保留原数值.} 所以
+$$P\left(X_1<\frac12,X_2<\frac34,X_4>\frac12\right)=\frac3{256}+\frac7{1024}+\frac3{64}+\frac{21}{256}=\frac{151}{1024}.$$
+\sourcepageanchor{178}
+
+利用\eqref{eq:4.6.4}，将变量 $x_3,x_4$ 积掉，即可求得 $(X_1,X_2)$ 的边缘 pdf：
+$$\begin{aligned}
+f(x_1,x_2)&=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x_1,x_2,x_3,x_4)\,dx_3\,dx_4\\
+&=\int_0^1\int_0^1\frac34(x_1^2+x_2^2+x_3^2+x_4^2)\,dx_3\,dx_4
+=\frac34(x_1^2+x_2^2)+\frac12,
+\end{aligned}$$
+其中 $0<x_1<1$，$0<x_2<1$. 任何只涉及 $X_1,X_2$ 的概率或期望，都可用此边缘 pdf 计算. 例如，
+$$\begin{aligned}
+EX_1X_2&=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}x_1x_2 f(x_1,x_2)\,dx_1\,dx_2\\
+&=\int_0^1\int_0^1x_1x_2\left(\frac34(x_1^2+x_2^2)+\frac12\right)\,dx_1\,dx_2\\
+&=\int_0^1\int_0^1\left(\frac34x_1^3x_2+\frac34x_1x_2^3+\frac12x_1x_2\right)\,dx_1\,dx_2\\
+&=\int_0^1\left(\frac3{16}x_2+\frac38x_2^3+\frac14x_2\right)\,dx_2
+=\frac3{32}+\frac3{32}+\frac18=\frac5{16}.
+\end{aligned}$$
+对任意满足 $0<x_1<1$、$0<x_2<1$ 的 $(x_1,x_2)$，有 $f(x_1,x_2)>0$，可以用\eqref{eq:4.6.6} 求给定 $X_1=x_1,X_2=x_2$ 时 $(X_3,X_4)$ 的条件 pdf. 对这样的 $(x_1,x_2)$，当 $0<x_3<1$、$0<x_4<1$ 时，$f(x_1,x_2,x_3,x_4)>0$，相应的条件 pdf 为
+$$\begin{aligned}
+f(x_3,x_4\mid x_1,x_2)&=\frac{f(x_1,x_2,x_3,x_4)}{f(x_1,x_2)}\\
+&=\frac{\frac34(x_1^2+x_2^2+x_3^2+x_4^2)}{\frac34(x_1^2+x_2^2)+\frac12}
+=\frac{x_1^2+x_2^2+x_3^2+x_4^2}{x_1^2+x_2^2+\frac23}.
+\end{aligned}$$
+例如，给定 $X_1=1/3$、$X_2=2/3$ 时 $(X_3,X_4)$ 的条件 pdf 为
+$$f\left(x_3,x_4\mid X_1=\frac13,X_2=\frac23\right)
+=\frac{(1/3)^2+(2/3)^2+x_3^2+x_4^2}{(1/3)^2+(2/3)^2+2/3}
+=\frac5{11}+\frac9{11}x_3^2+\frac9{11}x_4^2.$$
+用它可计算
+$$\begin{aligned}
+&P\left(X_3>\frac34,X_4<\frac12\mathrel{\Big|}X_1=\frac13,X_2=\frac23\right)\\
+&\quad=\int_0^{1/2}\int_{3/4}^1\left(\frac5{11}+\frac9{11}x_3^2+\frac9{11}x_4^2\right)\,dx_3\,dx_4\\
+&\quad=\int_0^{1/2}\left(\frac5{44}+\frac{111}{704}+\frac9{44}x_4^2\right)\,dx_4\\
+&\quad=\frac5{88}+\frac{111}{1408}+\frac3{352}=\frac{203}{1408}.
+\end{aligned}$$
+\end{example}
+在给出离散多元随机向量的条件与边缘分布计算例子之前，先介绍一个重要的离散多元分布族. 它将二项分布族推广到每次试验有 $n$ 个（而不是两个）不同可能结果的情形.
+\sourcepageanchor{179}
+
+\begin{definition}\label{def:4.6.2}\index{SI0348@多项}
+设 $n,m$ 为正整数，$p_1,\ldots,p_n$ 满足 $0\le p_i\le1$，$i=1,\ldots,n$，且 $\sum_{i=1}^np_i=1$. 如果随机向量 $(X_1,\ldots,X_n)$ 的联合 pmf 在每个 $x_i$ 均为非负整数且 $\sum_{i=1}^nx_i=m$ 的集合上为
+$$f(x_1,\ldots,x_n)=\frac{m!}{x_1!\cdots x_n!}p_1^{x_1}\cdots p_n^{x_n}=m!\prod_{i=1}^n\frac{p_i^{x_i}}{x_i!},$$
+则称其服从试验次数为 $m$、格概率（cell probabilities）为 $p_1,\ldots,p_n$ 的多项分布（multinomial distribution）.
+\end{definition}
+多项分布是下列实验的模型. 实验包含 $m$ 次独立试验，每次试验得到 $n$ 个不同可能结果之一. 在每次试验中，第 $i$ 个结果出现的概率均为 $p_i$，$X_i$ 统计这 $m$ 次试验中第 $i$ 个结果出现的次数. 当 $n=2$ 时，这就是二项实验：每次有 $n=2$ 个可能结果，$X_1$ 统计 $m$ 次试验中的“成功”次数，$X_2=m-X_1$ 统计“失败”次数. 在一般的多项实验中，要统计 $n$ 种不同的可能结果.
+\begin{example}[多元 pmf]\label{ex:4.6.3}
+考虑掷一颗六面骰子十次. 假设骰子不均匀，出现 1 的概率为 $1/21$，出现 2 的概率为 $2/21$，一般地，出现 $i$ 的概率为 $i/21$. 考虑随机向量 $(X_1,\ldots,X_6)$，其中 $X_i$ 统计十次投掷中 $i$ 出现的次数. 则该向量服从多项分布，试验次数 $m=10$，可能结果数 $n=6$，格概率为 $p_1=1/21,p_2=2/21,\ldots,p_6=6/21$. 用\autoref{def:4.6.2} 中的公式，可计算出现四个 6、三个 5、两个 4 和一个 3 的概率：
+$$\begin{aligned}
+f(0,0,1,2,3,4)&=\frac{10!}{0!0!1!2!3!4!}\left(\frac1{21}\right)^0\left(\frac2{21}\right)^0
+\left(\frac3{21}\right)^1\left(\frac4{21}\right)^2\left(\frac5{21}\right)^3\left(\frac6{21}\right)^4\\
+&=.0059.
+\end{aligned}$$
+\end{example}
+因子 $m!/(x_1!\cdots x_n!)$ 称为多项系数（multinomial coefficient）. 它表示将 $m$ 个物体分成 $n$ 组、第一组有 $x_1$ 个、第二组有 $x_2$ 个、……、第 $n$ 组有 $x_n$ 个的方法数. 二项式定理（\autoref{thm:3.2.2}）的一个推广是多项式定理.\index{SI0712@多项式系数}\semanticindexanchor{712:179}
+\begin{theorem}[多项式定理]\label{thm:4.6.4}\index{SI0713@多项式定理}
+设 $m,n$ 为正整数，$\mathscr A$ 为所有每个 $x_i$ 均为非负整数且 $\sum_{i=1}^nx_i=m$ 的向量 $\mathbf x=(x_1,\ldots,x_n)$ 组成的集合. 对任意实数 $p_1,\ldots,p_n$，
+$$(p_1+\cdots+p_n)^m=\sum_{\mathbf x\in\mathscr A}\frac{m!}{x_1!\cdots x_n!}p_1^{x_1}\cdots p_n^{x_n}.$$
+\end{theorem}
+\autoref{thm:4.6.4} 表明多项 pmf 的和为 1. 集合 $\mathscr A$ 就是\autoref{def:4.6.2} 中概率为正的点集. 根据该定理，在这些点上将 pmf 求和，得到 $(p_1+\cdots+p_n)^m=1^m=1$.
+
+现在考虑多项模型的一些边缘与条件分布. 对单个坐标 $X_i$，若把第 $i$ 个结果称为“成功”，其他结果称为“失败”，则 $X_i$ 统计 $m$ 次独立试验中的成功次数，每次成功概率为 $p_i$. 因而，$X_i$ 应服从 $\operatorname{binomial}(m,p_i)$. 为验证这一点，应根据\eqref{eq:4.6.5} 计算 $X_i$ 的边缘分布. 例如，考虑 $X_n$ 的边缘 pmf. 固定 $x_n\in\{0,1,\ldots,n\}$，\footnote{译注：原文取值上界 $n$ 应为试验次数 $m$；$n$ 是类别数.} 要计算 $f(x_n)$，须对所有可能的 $(x_1,\ldots,x_{n-1})$ 求和.\index{SI0269@与多项的关系}\semanticindexanchor{269:179}\index{SI0350@与二项的关系}\semanticindexanchor{350:179}
+\sourcepageanchor{180}
+
+也就是说，对所有 $x_i$ 均为非负整数且 $\sum_{i=1}^{n-1}x_i=m-x_n$ 的 $(x_1,\ldots,x_{n-1})$ 求和. 记此集合为 $\mathscr B$，则
+$$\begin{aligned}
+f(x_n)&=\sum_{(x_1,\ldots,x_{n-1})\in\mathscr B}\frac{m!}{x_1!\cdots x_n!}p_1^{x_1}\cdots p_n^{x_n}\\
+&=\sum_{(x_1,\ldots,x_{n-1})\in\mathscr B}\frac{m!}{x_1!\cdots x_n!}p_1^{x_1}\cdots p_n^{x_n}
+\frac{(m-x_n)!}{(m-x_n)!}\frac{(1-p_n)^{m-x_n}}{(1-p_n)^{m-x_n}}\\
+&=\frac{m!}{x_n!(m-x_n)!}p_n^{x_n}(1-p_n)^{m-x_n}\\
+&\quad\times\sum_{(x_1,\ldots,x_{n-1})\in\mathscr B}\frac{(m-x_n)!}{x_1!\cdots x_{n-1}!}
+\left(\frac{p_1}{1-p_n}\right)^{x_1}\cdots\left(\frac{p_{n-1}}{1-p_n}\right)^{x_{n-1}}.
+\end{aligned}$$
+利用 $x_1+\cdots+x_{n-1}=m-x_n$、$p_1+\cdots+p_{n-1}=1-p_n$ 以及\autoref{thm:4.6.4}，可见最后的和式等于 1. 因而，$X_n$ 的边缘分布是 $\operatorname{binomial}(m,p_n)$. 类似论证表明，其余每个坐标的边缘分布也都是二项分布.
+
+已知 $X_n=x_n$ 时，必有 $m-x_n$ 次试验的结果属于前 $n-1$ 类. 向量 $(X_1,\ldots,X_{n-1})$ 统计这 $m-x_n$ 次试验中每类结果的次数. 因而，给定 $X_n=x_n$ 时，$(X_1,\ldots,X_{n-1})$ 似乎应服从多项分布；事实确实如此. 根据\eqref{eq:4.6.6}，条件 pmf 为
+$$\begin{aligned}
+f(x_1,\ldots,x_{n-1}\mid x_n)&=\frac{f(x_1,\ldots,x_n)}{f(x_n)}\\
+&=\frac{\dfrac{m!}{x_1!\cdots x_n!}p_1^{x_1}\cdots p_n^{x_n}}
+{\dfrac{m!}{x_n!(m-x_n)!}p_n^{x_n}(1-p_n)^{m-x_n}}\\
+&=\frac{(m-x_n)!}{x_1!\cdots x_{n-1}!}\left(\frac{p_1}{1-p_n}\right)^{x_1}\cdots\left(\frac{p_{n-1}}{1-p_n}\right)^{x_{n-1}}.
+\end{aligned}$$
+这是试验次数为 $m-x_n$、格概率为 $p_1/(1-p_n),\ldots,p_{n-1}/(1-p_n)$ 的多项分布的 pmf.\footnote{译注：此处除以 $1-p_n$ 的推导要求 $p_n<1$，条件分布还要求 $P(X_n=x_n)>0$. 当 $p_n=1$ 时，$X_n=m$、其余坐标恒为 0，应单独按退化分布处理.} 事实上，给定其余坐标的值时，$(X_1,\ldots,X_n)$ 中任意一部分坐标的条件分布都是多项分布.
+
+从条件分布可以看出，向量 $(X_1,\ldots,X_n)$ 的各坐标有关系. 尤其是 $m$ 固定时，必然有某种负相关. 事实上，所有两两协方差都为负，由下式给出（\autoref{exercise:4.39}）：\footnote{译注：原文期望式中应减去均值 $mp_i,mp_j$，而非 $p_i,p_j$；即 $\operatorname{Cov}(X_i,X_j)=E[(X_i-mp_i)(X_j-mp_j)]=-mp_ip_j$，$i\ne j$. 当某个格概率为 0 时协方差为 0，故“都为负”在允许边界概率的定义下应为“都非正”.}\index{SI0349@协方差}\semanticindexanchor{349:180}
+$$\operatorname{Cov}(X_i,X_j)=E[(X_i-p_i)(X_j-p_j)]=-mp_ip_j.$$
+因此，成功概率较大的变量之间负相关更强. 这很合理，因为变量总和固定为 $m$，一个开始变大时，另一个就不太可能也变大.
+\begin{definition}\label{def:4.6.5}\index{SI0554@随机变量}
+设 $\mathbf X_1,\ldots,\mathbf X_n$ 是联合 pdf 或 pmf 为 $f(\mathbf x_1,\ldots,\mathbf x_n)$ 的随机向量，以 $f_{\mathbf X_i}(\mathbf x_i)$ 表示 $\mathbf X_i$ 的边缘 pdf 或 pmf. 如果对每个 $(\mathbf x_1,\ldots,\mathbf x_n)$，均有
+$$f(\mathbf x_1,\ldots,\mathbf x_n)=f_{\mathbf X_1}(\mathbf x_1)\cdots f_{\mathbf X_n}(\mathbf x_n)=\prod_{i=1}^n f_{\mathbf X_i}(\mathbf x_i),$$
+则称 $\mathbf X_1,\ldots,\mathbf X_n$ 为相互独立的随机向量（mutually independent random vectors）. 如果这些向量都是一维的，则称 $X_1,\ldots,X_n$ 为相互独立的随机变量.
+\end{definition}
+如果 $X_1,\ldots,X_n$ 相互独立，知道部分坐标的值，不会提供其余坐标取值的信息. 利用\autoref{def:4.6.5}，可以证明：给定其余坐标的值时，任意一部分坐标的条件分布，
+\sourcepageanchor{181}
+
+都等于这部分坐标的边缘分布. 相互独立蕴含任意一对 $X_i,X_j$ 两两独立（pairwise independent），即它们的二元边缘 pdf 或 pmf $f(x_i,x_j)$ 满足\autoref{def:4.2.5}. 但相互独立比两两独立要求更多. 和\autoref{ex:1.3.11} 一样，可以指定 $(X_1,\ldots,X_n)$ 的一个概率分布，使每对 $(X_i,X_j)$ 都两两独立，但 $X_1,\ldots,X_n$ 不相互独立.
+
+相互独立的随机变量有许多良好性质. 以下定理的证明类似于\autoref{sec:4.2} 和\autoref{sec:4.3} 中相应结论的证明.
+\begin{theorem}[\autoref{thm:4.2.10} 的推广]\label{thm:4.6.6}\index{SI0427@独立性}\index{SI0553@期望值}
+设 $X_1,\ldots,X_n$ 相互独立，$g_1,\ldots,g_n$ 为实值函数，且 $g_i(x_i)$ 只依赖于 $x_i$，$i=1,\ldots,n$. 则
+$$E(g_1(X_1)\cdots g_n(X_n))=(Eg_1(X_1))\cdots(Eg_n(X_n)).$$
+\end{theorem}
+\begin{theorem}[\autoref{thm:4.2.12} 的推广]\label{thm:4.6.7}\index{SI0695@和}
+设 $X_1,\ldots,X_n$ 相互独立，mgf 分别为 $M_{X_1}(t)$、$\ldots$、$M_{X_n}(t)$. 令 $Z=X_1+\cdots+X_n$，则 $Z$ 的 mgf 为
+$$M_Z(t)=M_{X_1}(t)\cdots M_{X_n}(t).$$
+特别地，如果 $X_1,\ldots,X_n$ 同分布，mgf 均为 $M_X(t)$，则
+$$M_Z(t)=(M_X(t))^n.$$
+\end{theorem}
+\begin{example}[Gamma 变量之和的 mgf]\label{ex:4.6.8}\index{SI0316@和}
+假设 $X_1,\ldots,X_n$ 相互独立，$X_i$ 的分布为 $\operatorname{gamma}(\alpha_i,\beta)$. 由\autoref{ex:2.3.8}，$\operatorname{gamma}(\alpha,\beta)$ 分布的 mgf 为 $M(t)=(1-\beta t)^{-\alpha}$. 因而，若 $Z=X_1+\cdots+X_n$，则
+$$\begin{aligned}
+M_Z(t)&=M_{X_1}(t)\cdots M_{X_n}(t)\\
+&=(1-\beta t)^{-\alpha_1}\cdots(1-\beta t)^{-\alpha_n}
+=(1-\beta t)^{-(\alpha_1+\cdots+\alpha_n)}.
+\end{aligned}$$
+这是 $\operatorname{gamma}(\alpha_1+\cdots+\alpha_n,\beta)$ 分布的 mgf. 所以，具有共同尺度参数 $\beta$ 的独立 Gamma 随机变量之和仍服从 Gamma 分布.
+\end{example}
+如果考虑独立随机变量的线性函数之和，就可得到\autoref{thm:4.6.7} 的一个推广.
+\begin{corollary}\label{cor:4.6.9}
+设 $X_1,\ldots,X_n$ 相互独立，mgf 为 $M_{X_1}(t),\ldots,M_{X_n}(t)$；$a_1,\ldots,a_n$ 和 $b_1,\ldots,b_n$ 为固定常数. 令 $Z=(a_1X_1+b_1)+\cdots+(a_nX_n+b_n)$，则
+$$M_Z(t)=e^{t(\sum b_i)}M_{X_1}(a_1t)\cdots M_{X_n}(a_nt).$$
+\end{corollary}
+\begin{proof}
+由定义，$Z$ 的 mgf 为
+$$\begin{aligned}
+M_Z(t)&=Ee^{tZ}\\
+&=Ee^{t\sum(a_iX_i+b_i)}\\
+&=e^{t(\sum b_i)}E(e^{ta_1X_1}\cdots e^{ta_nX_n})&&\text{（指数与期望的性质）}\\
+&=e^{t(\sum b_i)}M_{X_1}(a_1t)\cdots M_{X_n}(a_nt),&&\text{（\autoref{thm:4.6.6}）}
+\end{aligned}$$
+即所欲证.
+\end{proof}
+毫无疑问，\autoref{cor:4.6.9} 最重要的应用是正态随机变量的情形：独立正态随机变量的线性组合服从正态分布.
+\sourcepageanchor{182}
+
+\begin{corollary}\label{cor:4.6.10}\index{SI0362@线性组合}
+设 $X_1,\ldots,X_n$ 相互独立，$X_i\sim n(\mu_i,\sigma_i^2)$，$a_1,\ldots,a_n$ 和 $b_1,\ldots,b_n$ 为固定常数. 则
+$$Z=\sum_{i=1}^n(a_iX_i+b_i)\sim n\left(\sum_{i=1}^n(a_i\mu_i+b_i),\sum_{i=1}^na_i^2\sigma_i^2\right).$$
+\end{corollary}
+\begin{proof}
+回顾 $n(\mu,\sigma^2)$ 随机变量的 mgf 为 $M(t)=e^{\mu t+\sigma^2t^2/2}$. 代入\autoref{cor:4.6.9}，得到
+$$\begin{aligned}
+M_Z(t)&=e^{t(\sum b_i)}e^{\mu_1a_1t+\sigma_1^2a_1^2t^2/2}\cdots e^{\mu_na_nt+\sigma_n^2a_n^2t^2/2}\\
+&=e^{(\sum(a_i\mu_i+b_i))t+(\sum a_i^2\sigma_i^2)t^2/2},
+\end{aligned}$$
+即所述正态分布的 mgf.
+\end{proof}
+\begin{theorem}[\autoref{lem:4.2.7} 的推广]\label{thm:4.6.11}
+设 $\mathbf X_1,\ldots,\mathbf X_n$ 为随机向量. 它们相互独立，当且仅当存在函数 $g_i(\mathbf x_i)$，$i=1,\ldots,n$，使联合 pdf 或 pmf 可以写为
+$$f(\mathbf x_1,\ldots,\mathbf x_n)=g_1(\mathbf x_1)\cdots g_n(\mathbf x_n).$$
+\end{theorem}
+\begin{theorem}[\autoref{thm:4.3.5} 的推广]\label{thm:4.6.12}
+设 $\mathbf X_1,\ldots,\mathbf X_n$ 为独立随机向量，$g_i(\mathbf x_i)$ 仅依赖于 $\mathbf x_i$，$i=1,\ldots,n$. 则随机变量 $U_i=g_i(\mathbf X_i)$，$i=1,\ldots,n$，相互独立.
+\end{theorem}
+本节最后介绍求随机向量变换分布的方法的推广. 我们将推广\eqref{eq:4.3.6}，用原随机向量的 pdf 表示新随机向量的 pdf. 要完全理解本节剩余内容，需要一些矩阵代数知识，例如可参阅 \hyperref[bib:source283]{Searle (1982)}. 尤其需要计算矩阵的行列式. 这是本书唯一需要此类知识的地方.
+
+设 $(X_1,\ldots,X_n)$ 的 pdf 为 $f_{\mathbf X}(x_1,\ldots,x_n)$，令 $\mathscr A=\{\mathbf x:f_{\mathbf X}(\mathbf x)>0\}$. 考虑新随机向量 $(U_1,\ldots,U_n)$，由 $U_1=g_1(X_1,\ldots,X_n)$、$U_2=g_2(X_1,\ldots,X_n)$、……、$U_n=g_n(X_1,\ldots,X_n)$ 定义. 假设 $A_0,A_1,\ldots,A_k$ 构成 $\mathscr A$ 的一个划分，并满足下列性质. 集合 $A_0$ 可以为空，且 $P((X_1,\ldots,X_n)\in A_0)=0$. 对每个 $i=1,2,\ldots,k$，变换 $(U_1,\ldots,U_n)=(g_1(\mathbf X),\ldots,g_n(\mathbf X))$ 从 $A_i$ 一一映满到 $\mathscr B$. 对每个 $i$，都可以求出从 $\mathscr B$ 到 $A_i$ 的逆函数，记为 $x_1=h_{1i}(u_1,\ldots,u_n)$、$x_2=h_{2i}(u_1,\ldots,u_n)$、……、$x_n=h_{ni}(u_1,\ldots,u_n)$. 对 $(u_1,\ldots,u_n)\in\mathscr B$，此第 $i$ 个逆变换给出唯一的 $(x_1,\ldots,x_n)\in A_i$，使 $(u_1,\ldots,u_n)=(g_1(x_1,\ldots,x_n),\ldots,g_n(x_1,\ldots,x_n))$. 记根据第 $i$ 个逆变换计算的 Jacobian 为 $J_i$，即\index{SI0248@行列式}\semanticindexanchor{248:182}
+$$J_i=\begin{vmatrix}
+\dfrac{\partial x_1}{\partial u_1}&\dfrac{\partial x_1}{\partial u_2}&\cdots&\dfrac{\partial x_1}{\partial u_n}\\[4pt]
+\dfrac{\partial x_2}{\partial u_1}&\dfrac{\partial x_2}{\partial u_2}&\cdots&\dfrac{\partial x_2}{\partial u_n}\\[4pt]
+\vdots&\vdots&\ddots&\vdots\\
+\dfrac{\partial x_n}{\partial u_1}&\dfrac{\partial x_n}{\partial u_2}&\cdots&\dfrac{\partial x_n}{\partial u_n}
+\end{vmatrix}
+=\begin{vmatrix}
+\dfrac{\partial h_{1i}(\mathbf u)}{\partial u_1}&\dfrac{\partial h_{1i}(\mathbf u)}{\partial u_2}&\cdots&\dfrac{\partial h_{1i}(\mathbf u)}{\partial u_n}\\[4pt]
+\dfrac{\partial h_{2i}(\mathbf u)}{\partial u_1}&\dfrac{\partial h_{2i}(\mathbf u)}{\partial u_2}&\cdots&\dfrac{\partial h_{2i}(\mathbf u)}{\partial u_n}\\[4pt]
+\vdots&\vdots&\ddots&\vdots\\
+\dfrac{\partial h_{ni}(\mathbf u)}{\partial u_1}&\dfrac{\partial h_{ni}(\mathbf u)}{\partial u_2}&\cdots&\dfrac{\partial h_{ni}(\mathbf u)}{\partial u_n}
+\end{vmatrix},$$
+这是一个 $n\times n$ 矩阵的行列式. 假设这些 Jacobian 在 $\mathscr B$ 上都不恒为零，那么对于 $\mathbf u\in\mathscr B$，联合 pdf 为
+\begin{equation}\label{eq:4.6.7}\index{SI0836@多元变换}
+f_{\mathbf U}(u_1,\ldots,u_n)=\sum_{i=1}^k f_{\mathbf X}(h_{1i}(u_1,\ldots,u_n),\ldots,h_{ni}(u_1,\ldots,u_n))|J_i|.
+\end{equation}
+\sourcepageanchor{183}
+
+\begin{example}[多元变量替换]\label{ex:4.6.13}
+设 $(X_1,X_2,X_3,X_4)$ 的联合 pdf 为
+$$f_{\mathbf X}(x_1,x_2,x_3,x_4)=24e^{-x_1-x_2-x_3-x_4},\qquad0<x_1<x_2<x_3<x_4<\infty.$$
+考虑变换
+$$U_1=X_1,\quad U_2=X_2-X_1,\quad U_3=X_3-X_2,\quad U_4=X_4-X_3.$$
+此变换将 $\mathscr A$ 映满到 $\mathscr B=\{\mathbf u:0<u_i<\infty,\ i=1,2,3,4\}$. 该变换是一一的，所以 $k=1$，逆变换为
+$$X_1=U_1,\quad X_2=U_1+U_2,\quad X_3=U_1+U_2+U_3,\quad X_4=U_1+U_2+U_3+U_4.$$
+逆变换的 Jacobian 为
+$$J=\begin{vmatrix}1&0&0&0\\1&1&0&0\\1&1&1&0\\1&1&1&1\end{vmatrix}=1.$$
+因为矩阵是三角矩阵，其行列式等于对角元素的乘积. 因而，由\eqref{eq:4.6.7} 得到\footnote{译注：原文下面化简后的指数写为 $-2\mu_3$；按上一行的变量替换应为 $-2u_3$，原文未定义 $\mu_3$. 此处保留原式.}
+$$\begin{aligned}
+f_{\mathbf U}(u_1,\ldots,u_4)&=24e^{-u_1-(u_1+u_2)-(u_1+u_2+u_3)-(u_1+u_2+u_3+u_4)}\\
+&=24e^{-4u_1-3u_2-2\mu_3-u_4},\qquad\mathbf u\in\mathscr B.
+\end{aligned}$$
+由此可以计算 $U_1,U_2,U_3,U_4$ 的边缘 pdf，结果为 $f_U(u_i)=(5-i)e^{-(5-i)u_i}$，$0<u_i$. 即 $U_i\sim\operatorname{exponential}(1/(5-i))$. 从\autoref{thm:4.6.11} 可见，$U_1,U_2,U_3,U_4$ 相互独立.
+\end{example}
+\autoref{ex:4.6.13} 的模型可以如下产生. 假设 $Y_1,Y_2,Y_3,Y_4$ 相互独立，每个都服从 $\operatorname{exponential}(1)$ 分布. 定义 $X_1=\min(Y_1,Y_2,Y_3,Y_4)$，$X_2=$ 其中第二小的值，$X_3=$ 其中第二大的值，$X_4=\max(Y_1,Y_2,Y_3,Y_4)$. \autoref{sec:5.5} 将这些变量称为次序统计量（order statistics），并会证明它们的联合 pdf 就是\autoref{ex:4.6.13} 所给出的 pdf. 例中定义的 $U_2,U_3,U_4$ 称为次序统计量之间的间距（spacings）. 该例表明，对这些指数随机变量 $(Y_1,\ldots,Y_n)$，次序统计量的间距相互独立，且也服从指数分布.\index{SI0737@间距}\semanticindexanchor{737:183}

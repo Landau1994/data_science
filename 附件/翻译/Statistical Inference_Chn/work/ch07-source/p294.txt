@@ -1,0 +1,47 @@
+METHODS OF FINDING ESTIMATORS                                          263
+The marginal pdf of Y is
+
+                              1            n  Γ(α +β)                 f(y) =     f(y, p)dp =            Γ(y+α)Γ(n−y+β) ,           (7.2.9)
+                            0               y  Γ(α)Γ(β)   Γ(n+α +β)
+
+a distribution known as the beta–binomial (see Exercise 4.34 and Example 4.4.6). The posterior
+distribution, the distribution of p given y, is
+
+                             f(y, p)     Γ(n+α +β)
+                f(p|y) =  f(y) =                   py+α−1(1−p)n−y+β−1,                        Γ(y+α)Γ(n−y+β)
+which is beta(y + α,n −y + β). (Remember that p is the variable, y is treated as fixed.) A naturalestimate for p is the mean of the posterior distribution, which would give us as the Bayes estimator
+of p,
+                            y+α
+                                                ˆpB =                              α +β +n.
+                                                                              ∥
+   Consider how the Bayes estimate of p is formed. The prior distribution has mean α/(α + β),
+which would be our best estimate of p without having seen the data. Ignoring the prior information,
+we would probably use p = y/n as our estimate of p. The Bayes estimate of p combines all of this
+information. The manner in which this information is combined is made clear if we write ˆpB as
+                            n        y     α +β      α
+                           ˆpB =          +                                    .                    α +β +n   n    α +β +n   α +β
+
+Thus pB is a linear combination of the prior mean and the sample mean, with the weights being
+determined by α, β, and n.
+   When estimating a binomial parameter, it is not necessary to choose a prior distribution from
+the beta family. However, there was a certain advantage to choosing the beta family, not the least
+of which being that we obtained a closed-form expression for the estimator. In general, for any
+sampling distribution, there is a natural family of prior distributions, called the conjugate family.
+Definition 7.2.15   Let F denote the class of pdfs or pmfs f(x|θ) (indexed by θ). A class ∏ofprior distributions is a conjugate family for F if the posterior distribution is in the class ∏for all
+ f ∈F, all priors in ∏, and all x ∈X .
+   The beta family is conjugate for the binomial family. Thus, if we start with a beta prior, we will
+end up with a beta posterior. The updating of the prior takes the form of updating its parameters.
+Mathematically, this is very convenient, for it usually makes calculation quite easy. Whether or not
+a conjugate family is a reasonable choice for a particular problem, however, is a question to be left
+to the experimenter.
+  We end this section with one more example.
+Example 7.2.16 (Normal Bayes estimators)  Let X ∼n(θ,σ2), and suppose that the prior distri-bution on θ is n(µ,τ2). (Here we assume that σ2, µ, and τ2 are all known.) The posterior distribution
+of θ is also normal, with mean and variance given by
+
+                                            τ2       σ2
+                            E(θ|x) =   τ2 +σ2 x+ σ2 +τ2 µ,
+                                                                                            (7.2.10)
+                                      σ2τ2
+                          Var(θ|x) =  σ2 +τ2 .
+(See Exercise 7.22 for details.) Notice that the normal family is its own conjugate family. Again
+using the posterior mean we have the Bayes estimator of θ is E(θ|X).

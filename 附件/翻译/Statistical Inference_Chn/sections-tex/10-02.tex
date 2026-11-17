@@ -1,0 +1,209 @@
+\subsection{稳健性}\label{sec:10.2}
+迄今为止，我们总是假设基础模型正确来评价估计量的表现. 在这个假设下，已经导出在某种意义下最优的估计量. 然而，若基础模型不正确，估计量的最优性就无法保证.
+
+\sourcepageanchor{420}
+我们无法防范所有可能的情形；而且，如果模型经过仔细考虑才确定，也不应有这种必要.\index{SI0813@稳健}\semanticindexanchor{813:420} 但我们可能关心与所假设模型的小幅或中等程度偏离. 这会引导我们考虑稳健估计量（robust estimators）. 这类估计量放弃在假设模型下的最优性，换取假设模型不是真实模型时的合理表现. 因此存在取舍，最优性与稳健性哪个更重要，最好视具体情形决定.
+
+“稳健性”一词可以有多种解释；\hyperref[bib:source171]{Huber（1981}，第1.2节）的说法或许是最好的概括：
+\begin{quote}
+“……任何统计程序都应具有以下理想特征：
+\begin{enumerate}[label=(\arabic*)]
+\item\label{item:10.2.huber.1} 在假设模型下，应有相当好的（最优或近乎最优的）效率.
+\item\label{item:10.2.huber.2} 它应当稳健，即模型假设的小幅偏离只应轻微损害表现……
+\item\label{item:10.2.huber.3} 模型较大一些的偏离不应造成灾难.”
+\end{enumerate}
+\end{quote}
+先看一些简单例子以更好地理解这些要求，然后再看更一般的稳健估计量和稳健性度量.
+
+\subsubsection{均值与中位数}\label{sec:10.2.1}
+样本均值是稳健估计量吗？这可能取决于如何精确地形式化稳健性的度量.
+
+\begin{example}[样本均值的稳健性]\label{ex:10.2.1}
+设$X_1,X_2,\ldots,X_n$独立同分布于$\mathrm n(\mu,\sigma^2)$. 已知$\bar X$的方差$\operatorname{Var}(\bar X)=\sigma^2/n$就是Cramér--Rao下界. 因而$\bar X$满足\hyperref[item:10.2.huber.1]{(1)}，在假设模型下达到最佳方差.
+
+为研究\hyperref[item:10.2.huber.2]{(2)}，即$\bar X$在模型小幅偏离时的表现，先要明确这种偏离的含义. 通常的解释是采用$\delta$污染模型（$\delta$-contamination model），即对很小的$\delta$，假设观测到
+$$X_i\sim\begin{cases}\mathrm n(\mu,\sigma^2),&\text{概率为$1-\delta$},\\f(x),&\text{概率为$\delta$},\end{cases}$$
+其中$f(x)$是另一个分布.
+
+假设取$f(x)$为任意均值为$\mu$、方差为$\tau^2$的密度. 则\footnote{译注：原文先说污染分布的均值为$\mu$，随后却使用未定义的$\theta$；若意指污染均值为$\theta$，独立样本均值的混合方差最后一项还应除以$n$. 此处原文与原式均保留.}
+$$\operatorname{Var}(\bar X)=(1-\delta)\frac{\sigma^2}n+\delta\frac{\tau^2}n+\delta(1-\delta)(\theta-\mu)^2.$$
+这看起来对$\bar X$相当有利，因为若$\theta\approx\mu$且$\sigma\approx\tau$，$\bar X$就接近最优. 不过，可以进一步扰动模型，使情况相当糟糕. 考虑$f(x)$为柯西pdf的情形，立即可得$\operatorname{Var}(\bar X)=\infty$. （细节见\autoref{exercise:10.18}，另一个情形见\autoref{exercise:10.19}.）
+\end{example}
+
+转向要求\hyperref[item:10.2.huber.3]{(3)}，我们问：若有一个异常偏离的观测，会发生什么？设想一组固定的样本值，然后考虑增大其中最大观测值的影响. 例如，假设$X_{(n)}=x$，其中$x\to\infty$. 这种观测的影响可被认为是“灾难性的”. 虽然$\bar X$的分布性质并未改变，观测值却会变得“毫无意义”. 这说明了崩溃值（breakdown value）的概念，该思想归于\hyperref[bib:source156]{Hampel（1974）}.
+
+\begin{definition}\label{def:10.2.2}\index{SI0100@崩溃值}\index{SI0769@崩溃值}
+设$X_{(1)}<\cdots<X_{(n)}$为容量$n$的有序样本，$T_n$为基于该样本的统计量. 若对每个$\varepsilon>0$，
+$$\lim_{X_{(\{(1-b)n\})}\to\infty}T_n<\infty\quad\text{且}\quad
+\lim_{X_{(\{(1-(b+\varepsilon))n\})}\to\infty}T_n=\infty,$$
+则称$T_n$的崩溃值为$b$，$0\leq b\leq1$.
+\end{definition}
+（百分位数记号见\autoref{def:5.4.2}.）
+
+\sourcepageanchor{421}
+容易看出，$\bar X$的崩溃值是0，也就是说，将样本中任意比例的观测推向无穷，$\bar X$也随之趋于无穷. 与此形成鲜明对比，样本中位数不因样本值的这种变化而改变. 对极端观测的不敏感有时被视为样本中位数的优点，其崩溃值为50\%. （关于崩溃值的更多内容见\autoref{exercise:10.20}.）\footnote{译注：\autoref{def:10.2.2}的第一个极限在$b=0$时要求最大观测趋于无穷而统计量仍有限，与这里样本均值的说法在有限样本边界上不相容. 需明确崩溃比例的上确界或渐近约定，并限制$\varepsilon$以保证次序下标有效；原定义和结论照录，待核实.}
+
+既然中位数比均值更稳健，我们可以问，改用更稳健的估计量是否会有所损失（当然一定会！）. 例如，在\autoref{ex:10.2.1}的简单正态模型中，如果模型真实，均值是最佳无偏估计量. 因此，在正态模型下（及其附近），均值是更好的估计量. 但关键问题是，在正态模型下均值究竟好多少. 若能回答，就可以有根据地选择估计量，并判断最优性和稳健性哪个准则更重要. 为在一定一般性下回答这个问题，使用渐近相对效率准则.
+
+计算中位数相对于均值的ARE，首先必须建立中位数的渐近正态性，计算渐近分布的方差.
+
+\begin{example}[中位数的渐近正态性]\label{ex:10.2.3}\index{SI0804@极限分布}
+为求中位数的极限分布，采用与\autoref{thm:5.4.3}和\autoref{thm:5.4.4}证明相似的论证，即基于二项分布的论证.
+
+设$X_1,X_2,\ldots,X_n$来自pdf为$f$、cdf为$F$（假设可微）的总体，且$P(X_i\leq\mu)=1/2$，所以$\mu$是总体中位数. 令$M_n$为样本中位数，考虑对某个$a$计算
+$$\lim_{n\to\infty}P\bigl(\sqrt n(M_n-\mu)\leq a\bigr).$$
+若定义随机变量$Y_i$为
+$$Y_i=\begin{cases}1,&X_i\leq\mu+a/\sqrt n,\\0,&\text{其他},\end{cases}$$
+则$Y_i$为成功概率$p_n=F(\mu+a/\sqrt n)$的伯努利随机变量. 为避免复杂情况，假设$n$为奇数，于是事件$\{M_n\leq\mu+a/\sqrt n\}$等价于$\{\sum_iY_i\geq(n+1)/2\}$.
+
+作一些代数运算得到
+$$P\bigl(\sqrt n(M_n-\mu)\leq a\bigr)=P\left(\frac{\sum_iY_i-np_n}{\sqrt{np_n(1-p_n)}}\geq\frac{(n+1)/2-np_n}{\sqrt{np_n(1-p_n)}}\right).$$
+现在$p_n\to p=F(\mu)=1/2$，因此预期应用中心极限定理可证明$(\sum_iY_i-np_n)/\sqrt{np_n(1-p_n)}$依分布收敛到标准正态随机变量$Z$. 直接计算极限也可得到
+$$\frac{(n+1)/2-np_n}{\sqrt{np_n(1-p_n)}}\longrightarrow-2aF'(\mu)=-2af(\mu).$$
+综合起来，得到
+$$P\bigl(\sqrt n(M_n-\mu)\leq a\bigr)\longrightarrow P(Z\geq-2af(\mu)),$$
+因此$\sqrt n(M_n-\mu)$渐近正态，均值为0，方差为$1/[2f(\mu)]^2$. （细节见\autoref{exercise:10.22}；严格且更一般的推导见\hyperref[bib:source287]{Shao，1999}，第5.3节.）
+\end{example}
+
+\sourcepageanchor{422}
+\begin{example}[中位数相对于均值的ARE]\label{ex:10.2.4}\index{SI0068@中位数相对于均值}
+均值与中位数的渐近方差都有简单表达式，因此很快就能计算ARE. 这里考察三种对称分布的ARE，发现正如预期的那样，分布尾部越重，ARE越大. 也就是说，在重尾分布下中位数表现更好. 更多比较见\autoref{exercise:10.23}.
+\end{example}
+\par\begin{table}[htbp]
+\centering\setcounter{table}{1}
+\caption{中位数相对于均值的渐近相对效率}\label{tab:10.2.2}
+\begin{tabular}{ccc}\toprule 正态分布&逻辑斯蒂分布&双指数分布\\\midrule .64&.82&2\\\bottomrule\end{tabular}
+\end{table}\par
+
+\subsubsection{\texorpdfstring{$M$}{M}估计量}\label{sec:10.2.2}\index{SI0816@M估计量}
+许多估计量都是通过极小化某种准则得到的. 例如，若$X_1,X_2,\ldots,X_n$独立同分布于$f(x\mid\theta)$，可采用的估计量包括：均值，它极小化$\sum(x_i-a)^2$；中位数，它极小化$\sum|x_i-a|$；或MLE，它极大化$\prod_{i=1}^nf(x_i\mid\theta)$（或极小化负似然）. 作为系统获得稳健估计量的方法，可以尝试写出某种准则函数，使其极小值对应具有理想稳健性质的估计量.
+
+为定义稳健准则，\hyperref[bib:source170]{Huber（1964）}考虑了均值与中位数之间的折中. 均值准则为平方，这赋予它敏感性，但在“尾部”，平方给予大观测过多的权重. 相比之下，中位数的绝对值准则不会过分加重大观测或小观测的权重. 折中方案是极小化准则函数
+\begin{equation}\label{eq:10.2.1}
+\sum_{i=1}^n\rho(x_i-a),
+\end{equation}
+其中$\rho$为
+\begin{equation}\label{eq:10.2.2}\index{SI1043@调节参数}
+\rho(x)=\begin{cases}\frac12x^2,&|x|\leq k,\\k|x|-\frac12k^2,&|x|\geq k.\end{cases}
+\end{equation}
+函数$\rho(x)$在$|x|\leq k$时类似$x^2$，在$|x|>k$时类似$|x|$. 此外，因为$\frac12k^2=k|k|-\frac12k^2$，该函数连续（\autoref{exercise:10.28}）. 常数$k$也称调节参数（tuning parameter），它控制两者的混合；$k$越小，得到的估计量越“类似中位数”.
+
+\begin{example}[Huber估计量]\label{ex:10.2.5}\index{SI0814@Huber估计量}
+以\eqref{eq:10.2.1}和\eqref{eq:10.2.2}的极小化点定义的估计量称为Huber估计量. 为了解它如何工作以及$k$的选择为何重要，考虑以下数据集，其中有八个标准正态偏差值和三个“离群值”：
+$$\boldsymbol x=-1.28,-0.96,-0.46,-0.44,-0.26,-0.21,-0.063,0.39,3,6,9.$$
+这些数据的均值为1.33，中位数为$-.21$. 随$k$变化，Huber估计值如\autoref{tab:10.2.3}所示. 可见当$k$增大时，Huber估计在中位数与均值之间变化，因此可以把增大$k$理解为降低对离群值的稳健性.
+
+\par\begin{table}[htbp]\centering
+\caption{Huber估计量}\label{tab:10.2.3}
+\begin{tabular}{c|rrrrrrrrr}\toprule
+$k$&0&1&2&3&4&5&6&8&10\\\midrule
+估计值&$-.21$&.03&$-.04$&.29&.41&.52&.87&.97&1.33\\\bottomrule
+\end{tabular}
+\end{table}\par
+\end{example}
+
+极小化\eqref{eq:10.2.2}的估计量是Huber所研究估计量的特例. 对一般函数$\rho$，把极小化$\sum_i\rho(x_i-\theta)$的估计量称为$M$估计量（$M$-estimator），这个名称提醒我们它们属于最大似然型估计量（maximum-likelihood-type estimators）. 注意，若选择$\rho$为负对数似然$-l(\theta\mid\boldsymbol x)$，则$M$估计量就是通常的MLE.
+\sourcepageanchor{423}
+不过，若在选择待极小化的函数时更灵活，就能导出具有不同性质的估计量.
+
+由于极小化函数通常通过求导数的零点来完成（在可求导时），定义$\psi=\rho'$，可见$M$估计量是方程
+\begin{equation}\label{eq:10.2.3}
+\sum_{i=1}^n\psi(x_i-\theta)=0
+\end{equation}
+的解.
+
+将估计量刻画为方程的根，对研究其性质特别有用，因为似然估计中使用的论证可以推广.\index{SI1029@泰勒级数}\semanticindexanchor{1029:423} 特别参见\autoref{sec:10.1.2}，尤其是\autoref{thm:10.1.6}的证明. 假设$\rho(x)$对称，其导数$\psi(x)$单调递增（这保证\eqref{eq:10.2.3}的根是唯一极小值点）. 然后，像\autoref{thm:10.1.6}的证明一样，对$\phi$作泰勒展开如下：\footnote{译注：本段原文写$\phi$，但此前定义的是$\psi$；所引\autoref{thm:10.1.6}应核对为\autoref{thm:10.1.12}. 此外，对$\psi(x_i-\theta)$关于$\theta$展开，一阶项前应为负号；原文以下展开及整理后的负号均保留. 最后的方差因分母平方而不受此符号问题影响.}
+$$\sum_{i=1}^n\psi(x_i-\theta)=\sum_{i=1}^n\psi(x_i-\theta_0)+(\theta-\theta_0)\sum_{i=1}^n\psi'(x_i-\theta_0)+\cdots,$$
+其中$\theta_0$是真值，并忽略高阶项. 令$\hat\theta_M$为\eqref{eq:10.2.3}的解，代替$\theta$得到
+$$0=\sum_{i=1}^n\psi(x_i-\theta_0)+(\hat\theta_M-\theta_0)\sum_{i=1}^n\psi'(x_i-\theta_0)+\cdots,$$
+左侧为零是因为$\hat\theta_M$为解. 现在再次类似\autoref{thm:10.1.6}的证明，整理各项，除以$\sqrt n$，忽略余项，得到
+$$\sqrt n(\hat\theta_M-\theta_0)=\frac{-\frac1{\sqrt n}\sum_{i=1}^n\psi(x_i-\theta_0)}{\frac1n\sum_{i=1}^n\psi'(x_i-\theta_0)}.$$
+现假设$\theta_0$满足$E_{\theta_0}\psi(X-\theta_0)=0$（通常也将此作为$\theta_0$的定义）. 于是
+\begin{equation}\label{eq:10.2.4}
+-\frac1{\sqrt n}\sum_{i=1}^n\psi(X_i-\theta_0)
+=\sqrt n\left[-\frac1n\sum_{i=1}^n\psi(X_i-\theta_0)\right]
+\longrightarrow\mathrm n\bigl(0,E_{\theta_0}[\psi(X-\theta_0)]^2\bigr)
+\end{equation}
+依分布成立，而大数定律给出
+\begin{equation}\label{eq:10.2.5}
+\frac1n\sum_{i=1}^n\psi'(x_i-\theta_0)\longrightarrow E_{\theta_0}\psi'(X-\theta_0)
+\end{equation}
+依概率成立. 综合起来有
+\begin{equation}\label{eq:10.2.6}\index{SI0815@极限分布}
+\sqrt n(\hat\theta_M-\theta_0)\longrightarrow\mathrm n\left(0,\frac{E_{\theta_0}\psi(X-\theta_0)^2}{[E_{\theta_0}\psi'(X-\theta_0)]^2}\right).
+\end{equation}
+
+\begin{example}[Huber估计量的极限分布]\label{ex:10.2.6}
+若$X_1,X_2,\ldots,X_n$独立同分布于pdf $f(x-\theta)$，其中$f$关于零对称，则对\eqref{eq:10.2.2}给出的$\rho$，有
+\begin{equation}\label{eq:10.2.7}
+\psi(x)=\begin{cases}x,&|x|\leq k,\\k,&x>k,\\-k,&x<-k,\end{cases}
+\end{equation}
+\sourcepageanchor{424}
+所以\footnote{译注：按\eqref{eq:10.2.7}直接积分，下一式第一项应为正号，左右尾的系数应分别为$-k$与$k$；原文的负号及$\pm2k$与该定义不符. 对称性仍使两种写法均为零，原式保留.}
+\begin{equation}\label{eq:10.2.8}
+\begin{aligned}
+E_\theta\psi(X-\theta)
+&=-\int_{\theta-k}^{\theta+k}(x-\theta)f(x-\theta)\,dx\\
+&\quad+2k\int_{-\infty}^{\theta-k}f(x-\theta)\,dx-2k\int_{\theta+k}^\infty f(x-\theta)\,dx\\
+&=-\int_{-k}^kyf(y)\,dy+2k\int_{-\infty}^{-k}f(y)\,dy-2k\int_k^\infty f(y)\,dy=0,
+\end{aligned}
+\end{equation}
+其中代入$y=x-\theta$. 由$f$的对称性，各积分相加为零. 因此Huber估计量具有正确的均值. （推广见\autoref{exercise:10.25}.）
+
+为计算方差，需要$\psi'$的期望. 虽然$\psi$并非处处可微，但超出不可微点$x=\pm k$之后，$\psi'$为零. 因此只需处理$|x|\leq k$内的期望，有
+$$\begin{aligned}
+E_\theta\psi'(X-\theta)&=\int_{\theta-k}^{\theta+k}f(x-\theta)\,dx=P_0(|X|\leq k),\\
+E_\theta[\psi(X-\theta)]^2
+&=\int_{\theta-k}^{\theta+k}(x-\theta)^2f(x-\theta)\,dx\\
+&\quad+k^2\int_{\theta+k}^\infty f(x-\theta)\,dx+k^2\int_{-\infty}^{\theta-k}f(x-\theta)\,dx\\
+&=\int_{-k}^kx^2f(x)\,dx+2k^2\int_k^\infty f(x)\,dx.
+\end{aligned}$$
+因此，Huber估计量渐近正态，均值为$\theta$，渐近方差为
+$$\frac{\int_{-k}^kx^2f(x)\,dx+k^2P_0(|X|>k)}{[P_0(|X|\leq k)]^2}.$$
+\end{example}
+
+像\autoref{ex:10.2.4}一样，现在考察多种分布下Huber估计量的ARE.
+
+\begin{example}[Huber估计量的ARE]\label{ex:10.2.7}\index{SI0067@Huber估计量}
+Huber估计量在某种意义上是均值与中位数的折中，因此考察它相对于这两个估计量的相对效率. 对正态分布和逻辑斯蒂分布，Huber估计量与均值表现相近，且优于中位数. 对双指数分布，它优于均值，但不如中位数. 回顾，均值是正态分布的MLE，中位数是双指数分布的MLE（因此预期ARE小于1）. 对这些分布，Huber估计量具有接近MLE的表现，同时在其他情形下似乎也保持合理表现.
+
+\par\begin{table}[htbp]\centering
+\caption{Huber估计量的渐近相对效率，$k=1.5$}\label{tab:10.2.4}
+\begin{tabular}{l|ccc}\toprule
+&正态分布&逻辑斯蒂分布&双指数分布\\\midrule
+相对于均值&.96&1.08&1.37\\
+相对于中位数&1.51&1.31&.68\\\bottomrule
+\end{tabular}
+\end{table}\par
+\end{example}
+
+可见，$M$估计量在稳健性与效率之间折中. 下面更仔细地看看，为获得稳健性，可能在效率方面放弃多少.
+
+更仔细地考察\eqref{eq:10.2.6}中的渐近方差. 分母包含$E_{\theta_0}\psi'(X-\theta)$，可写为\footnote{译注：原文把$\psi'(x-\theta)$等同于$\partial\psi(x-\theta)/\partial\theta$；若撇号是对函数自变量求导，二者相差负号. 原式保留；下一页的乘积求导恒等式则显式处理了该负号.}
+$$E_\theta\psi'(X-\theta)=\int\psi'(x-\theta)f(x-\theta)\,dx
+=\int\left[\frac\partial{\partial\theta}\psi(x-\theta)\right]f(x-\theta)\,dx.$$
+
+\sourcepageanchor{425}
+现用乘积求导法则得到
+$$\begin{aligned}
+\frac d{d\theta}\int\psi(x-\theta)f(x-\theta)\,dx
+&=\int\left[\frac d{d\theta}\psi(x-\theta)\right]f(x-\theta)\,dx\\
+&\quad+\int\psi(x-\theta)\left[\frac d{d\theta}f(x-\theta)\right]\,dx.
+\end{aligned}$$
+若左侧为零——合理的$\psi$函数应当如此，仿照$l'$的行为——则有
+$$\begin{aligned}
+-\int\left[\frac d{d\theta}\psi(x-\theta)\right]f(x-\theta)\,dx
+&=\int\psi(x-\theta)\left[\frac d{d\theta}f(x-\theta)\right]\,dx\\
+&=\int\psi(x-\theta)\left[\frac d{d\theta}\log f(x-\theta)\right]f(x-\theta)\,dx,
+\end{aligned}$$
+其中利用了$\frac d{dy}g(y)/g(y)=\frac d{dy}\log g(y)$. 最后一个表达式可写为$E_\theta[\psi(X-\theta)l'(\theta\mid X)]$，其中$l(\theta\mid X)$是对数似然，从而得到恒等式
+$$-E_\theta\left[\frac d{d\theta}\psi(X-\theta)\right]=E_\theta[\psi(X-\theta)l'(\theta\mid X)].$$
+（取$\psi=l'$时，就得到我们希望读者已经熟悉的等式$-E_\theta[l''(\theta\mid X)]=E_\theta l'(\theta\mid X)^2$，见\autoref{lem:7.3.11}.）
+
+现在比较$M$估计量与MLE的渐近方差就很简单. 回顾MLE $\hat\theta$的渐近方差为$E_\theta l'(\theta\mid X)^2$，因此\footnote{译注：原文此句将MLE渐近方差写为信息量；正确的通常形式是其倒数$1/E_\theta[l'(\theta\mid X)]^2$. 接下来的ARE公式与倒数形式一致. 原句保留.}
+\begin{equation}\label{eq:10.2.9}
+\operatorname{ARE}(\hat\theta_M,\hat\theta)=\frac{[E_\theta(\psi(X-\theta_0)l'(\theta\mid X)]^2}{E_\theta\psi(X-\theta)^2E_\theta l'(\theta\mid X)^2}\leq1,
+\end{equation}
+其中应用Cauchy--Schwarz不等式. 因此，$M$估计量的效率总低于MLE，且只有当$\psi$与$l'$成比例时才能达到相同效率（见\autoref{exercise:10.29}）.
+
+本节并未试图将所有稳健估计量分类，而是满足于若干例子. 有许多优秀著作详细讨论稳健性；感兴趣的读者可阅读\hyperref[bib:source299]{Staudte和Sheather（1990）}或\hyperref[bib:source165]{Hettmansberger和McKean（1998）}\footnote{译注：原书正文将第一作者姓氏拼作Hettmansberger，书后对应条目[165]作Hettmansperger；正文拼写保留，链接至该条目.}.

@@ -1,0 +1,39 @@
+EXERCISES                                                                  157
+   The next inequality merely exploits the definition of covariance, but sometimes proves to be
+useful. If X is a random variable with finite mean µ and g(x) is a nondecreasing function, then
+
+                              E(g(X)(X −µ)) ≥0,
+since
+           E(g(X)(X −µ))
+        =  E g(X)(X −µ)I(−∞,0)(X −µ) +E g(X)(X −µ)I[0,∞)(X −µ)
+        ≥  E g(µ)(X −µ)I(−∞,0)(X −µ)
+               +E g(µ)(X −µ)I[0,∞)(X −µ)                (since g is nondecreasing)
+        =  g(µ)E(X −µ)        =   0.
+
+A generalization of this argument can be used to establish the following inequality (see Exercise
+4.65).
+Theorem 4.7.9 (Covariance Inequality)   Let X be any random variable, and g(x) and h(x) any
+functions such that Eg(X), Eh(X), and E(g(X)h(X)) exist.
+  a.  If g(x) is a nondecreasing function and h(x) is a nonincreasing function, then
+                           E(g(X)h(X)) ≤(Eg(X))(Eh(X)).
+  b.  If g(x) and h(x) are either both nondecreasing or both nonincreasing, then
+                           E(g(X)h(X)) ≥(Eg(X))(Eh(X)).
+
+   The intuition behind the inequality is easy. In case (a) there is negative correlation between g
+and h, while in case (b) there is positive correlation. The inequalities merely reflect this fact. The
+usefulness of the Covariance Inequality is that it allows us to bound an expectation without using
+higher-order moments.
+
+4.8  Exercises
+  4.1 A random  point (X,Y)  is  distributed  uniformly                                                  on  the  square  with  vertices  (1,1),(1,−1),                                                               1                                                               4 on the square. Determine the probabilities of     (−1,1),(−1,−1). That is, the joint pdf is f(x,y) =      the following events.
+       (a) X2 +Y 2 < 1
+      (b) 2X −Y > 0
+       (c) |X +Y| < 2
+  4.2 Prove the following properties of bivariate expectations (the bivariate analogue to Theorem 2.2.5). For
+     random variables X and Y, functions g1(x,y) and g2(x,y), and constants a, b, and c,
+       (a) E(ag1(X,Y)+bg2(X,Y)+c) = aE(g1(X,Y))+bE(g2(X,Y))+c.
+      (b)  If g1(x,y) ≥0 then E(g1(X,Y)) ≥0.
+       (c)  If g1(x,y) ≥g2(x,y) then E(g1(X,Y)) ≥E(g2(X,Y)).
+      (d)  If a ≤g1(x,y) ≤b then a ≤E(g1(X,Y)) ≤b.
+  4.3 Using Definition 4.1.1, show that the random vector (X,Y) defined at the end of Example 4.1.5 has the
+     pmf given in that example.

@@ -1,0 +1,144 @@
+\subsection{指数族}\label{sec:3.4}
+如果一个pdf或pmf族可表示为
+\begin{equation}\label{eq:3.4.1}\index{SI0435@指数族}
+f(x\mid\theta)=h(x)c(\theta)\exp\left(\sum_{i=1}^k w_i(\theta)t_i(x)\right),
+\end{equation}
+就称它为指数族（exponential family）.
+\sourcepageanchor{123}
+
+这里$h(x)\ge0$和$t_1(x),\ldots,t_k(x)$是观测值$x$的实值函数（它们不能依赖于$\theta$），而$c(\theta)\ge0$和$w_1(\theta),\ldots,w_k(\theta)$是可能为向量值的参数$\theta$的实值函数（它们不能依赖\mbox{于$x$）.} 上一节介绍的许多常见分布族都是指数族，包括连续的正态族、Gamma族和Beta族，以及离散的二项族、Poisson族和负二项族.
+
+要验证一个pdf或pmf族是指数族，必须识别出函数$h(x)$、$c(\theta)$、$w_i(\theta)$和$t_i(x)$，并说明该族具有\eqref{eq:3.4.1}的形式. 下例说明这一点.
+
+\begin{example}[二项指数族]\label{ex:3.4.1}\index{SI0262@指数族}
+设$n$为正整数，考虑$0<p<1$的二项$(n,p)$族. 对$x=0,\ldots,n$及$0<p<1$，这个族的pmf为
+\begin{equation}\label{eq:3.4.2}
+\begin{aligned}
+f(x\mid p)&=\binom nx p^x(1-p)^{n-x}\\
+&=\binom nx(1-p)^n\left(\frac p{1-p}\right)^x\\
+&=\binom nx(1-p)^n\exp\left(\log\left(\frac p{1-p}\right)x\right).
+\end{aligned}
+\end{equation}
+定义
+$$h(x)=\begin{cases}\binom nx,&x=0,\ldots,n,\\0,&\text{其他情形},\end{cases}\qquad c(p)=(1-p)^n,\quad0<p<1,$$
+$$w_1(p)=\log\left(\frac p{1-p}\right),\quad0<p<1,\qquad\text{及}\qquad t_1(x)=x.$$
+于是
+\begin{equation}\label{eq:3.4.3}
+f(x\mid p)=h(x)c(p)\exp[w_1(p)t_1(x)],
+\end{equation}
+这就是$k=1$时的\eqref{eq:3.4.1}. 特别注意，只有$x=0,\ldots,n$时$h(x)>0$，且$c(p)$只在$0<p<1$时有定义. 这一点很重要，因为对所有$x$值，\eqref{eq:3.4.3}都必须与\eqref{eq:3.4.2}一致，而且只有$0<p<1$时它才是指数族（因此参数的函数只在这里定义）. 此外，二项模型有时包含参数值$p=0$和1，但这里没有把它们包括进来，因为当$p=0$和1时，使$f(x\mid p)>0$的$x$值集合与其他$p$值时不同.
+\end{example}
+\eqref{eq:3.4.1}的特殊形式使指数族具有许多良好的数学性质. 对统计模型更重要的是，这种形式还带来许多良好的统计性质. 下面说明计算指数族的矩的一条捷径.
+
+\begin{theorem}\label{thm:3.4.2}\index{SI0439@矩}\index{SI0538@指数族}
+若$X$是pdf或pmf具有\eqref{eq:3.4.1}形式的随机变量，则\footnote{译注：上述公式需要相应参数导数存在，并且允许把求导与积分或求和交换. 原定理未在陈述中写出这些正则性条件；其证明所用的运算须在这些条件成立处理解.}
+\begin{equation}\label{eq:3.4.4}
+E\left(\sum_{i=1}^k\frac{\partial w_i(\theta)}{\partial\theta_j}t_i(X)\right)=-\frac\partial{\partial\theta_j}\log c(\theta)
+\end{equation}
+以及
+\begin{equation}\label{eq:3.4.5}
+\operatorname{Var}\left(\sum_{i=1}^k\frac{\partial w_i(\theta)}{\partial\theta_j}t_i(X)\right)=-\frac{\partial^2}{\partial\theta_j^2}\log c(\theta)-E\left(\sum_{i=1}^k\frac{\partial^2w_i(\theta)}{\partial\theta_j^2}t_i(X)\right).
+\end{equation}
+\end{theorem}
+
+这些等式虽然看起来令人生畏，但用于具体情形时却可能相当好用. 它们的优点在于，可把积分或求和替换为通常更直接的求导.
+\sourcepageanchor{124}
+
+\begin{example}[二项均值和方差]\label{ex:3.4.3}\index{SI0266@矩}
+由\autoref{ex:3.4.1}有
+\begin{align*}
+\frac d{dp}w_1(p)&=\frac d{dp}\log\frac p{1-p}=\frac1{p(1-p)},\\
+\frac d{dp}\log c(p)&=\frac d{dp}n\log(1-p)=\frac{-n}{1-p}.
+\end{align*}
+因而由\autoref{thm:3.4.2}得到
+$$E\left(\frac1{p(1-p)}X\right)=\frac n{1-p},$$
+稍加整理就得到$E(X)=np$. 方差恒等式也以类似方式起作用.
+\end{example}
+\autoref{thm:3.4.2}的证明是一段微积分练习，留在\autoref{exercise:3.31}中. 一个特殊情形还见\autoref{exercise:3.32}.
+
+现在来看另一个例子，以及指数族的其他一些特征.
+
+\begin{example}[正态指数族]\label{ex:3.4.4}\index{SI0360@指数族}
+设$f(x\mid\mu,\sigma^2)$为$\operatorname n(\mu,\sigma^2)$的pdf族，其中$\theta=(\mu,\sigma)$，$-\infty<\mu<\infty$，$\sigma>0$. 则
+\begin{equation}\label{eq:3.4.6}
+\begin{aligned}
+f(x\mid\mu,\sigma^2)&=\frac1{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)\\
+&=\frac1{\sqrt{2\pi}\sigma}\exp\left(-\frac{\mu^2}{2\sigma^2}\right)\exp\left(-\frac{x^2}{2\sigma^2}+\frac{\mu x}{\sigma^2}\right).
+\end{aligned}
+\end{equation}
+定义
+\begin{align*}
+h(x)&=1\quad\text{对所有 }x,\\
+c(\theta)=c(\mu,\sigma)&=\frac1{\sqrt{2\pi}\sigma}\exp\left(\frac{-\mu^2}{2\sigma^2}\right),\quad-\infty<\mu<\infty,\ \sigma>0,\\
+w_1(\mu,\sigma)&=\frac1{\sigma^2},\quad\sigma>0,\qquad w_2(\mu,\sigma)=\frac\mu{\sigma^2},\quad\sigma>0,\\
+t_1(x)&=-x^2/2,\qquad\text{及}\qquad t_2(x)=x.
+\end{align*}
+于是
+$$f(x\mid\mu,\sigma^2)=h(x)c(\mu,\sigma)\exp[w_1(\mu,\sigma)t_1(x)+w_2(\mu,\sigma)t_2(x)],$$
+这就是$k=2$时的\eqref{eq:3.4.1}. 再次注意，参数的函数只在参数的取值范围内定义.
+\end{example}
+一般而言，在指数族中，使$f(x\mid\theta)>0$的$x$值集合不能依赖于$\theta$. pdf或pmf的整个定义都必须包含在\eqref{eq:3.4.1}的形式中. 最容易的实现方法是使用示性函数，把$x$的取值范围纳入$f(x\mid\theta)$的表达式.
+
+\begin{definition}\label{def:3.4.5}\index{SI0556@示性函数}
+集合$A$的示性函数（indicator function）通常记作$I_A(x)$，定义为
+$$I_A(x)=\begin{cases}1,&x\in A,\\0,&x\notin A.\end{cases}$$
+另一种记号是$I(x\in A)$.
+\end{definition}
+\sourcepageanchor{125}
+
+因此，\autoref{ex:3.4.4}中的正态pdf可写为
+$$f(x\mid\mu,\sigma^2)=h(x)c(\mu,\sigma)\exp[w_1(\mu,\sigma)t_1(x)+w_2(\mu,\sigma)t_2(x)]I_{(-\infty,\infty)}(x).$$
+因为示性函数只是$x$的函数，可以把它并入$h(x)$，从而表明这个pdf具有\eqref{eq:3.4.1}的形式.
+
+由\eqref{eq:3.4.1}，因子$\exp(\cdot)$恒为正，所以对任意$\theta\in\Theta$，即对使$c(\theta)>0$的任意$\theta$，有$\{x:f(x\mid\theta)>0\}=\{x:h(x)>0\}$，而这个集合不依赖于$\theta$. 所以，例如由$f(x\mid\theta)=\theta^{-1}\exp(1-(x/\theta))$，$0<\theta<x<\infty$给出的pdf族不是指数族，尽管可写成$\theta^{-1}\exp(1-(x/\theta))=h(x)c(\theta)\exp(w(\theta)t(x))$，其中$h(x)=e^1$，$c(\theta)=\theta^{-1}$，$w(\theta)=\theta^{-1}$且$t(x)=-x$. 用示性函数把pdf写出来，就能看得很清楚：
+$$f(x\mid\theta)=\theta^{-1}\exp\left(1-\left(\frac x\theta\right)\right)I_{[\theta,\infty)}(x).$$
+这个示性函数无法并入\eqref{eq:3.4.1}中的任何函数，因为它既不是仅关于$x$的函数，也不是仅关于$\theta$的函数，而且不能表示成指数形式. 因此，这不是指数族.
+
+指数族有时参数化为
+\begin{equation}\label{eq:3.4.7}
+f(x\mid\eta)=h(x)c^*(\eta)\exp\left(\sum_{i=1}^k\eta_i t_i(x)\right).
+\end{equation}
+这里$h(x)$和$t_i(x)$与原参数化\eqref{eq:3.4.1}中的函数相同. 集合
+$$\mathcal H=\left\{\eta=(\eta_1,\ldots,\eta_k):\int_{-\infty}^\infty h(x)\exp\left(\sum_{i=1}^k\eta_i t_i(x)\right)\,dx<\infty\right\}$$
+称为该族的自然参数空间（natural parameter space）. 如果$X$为离散型，就把积分换成对使$h(x)>0$的$x$值求和. 对$\eta\in\mathcal H$，必须有\index{SI0440@自然参数}\semanticindexanchor{440:125}
+$$c^*(\eta)=\left[\int_{-\infty}^\infty h(x)\exp\left(\sum_{i=1}^k\eta_i t_i(x)\right)\,dx\right]^{-1},$$
+以保证pdf的积分为1. 因为\eqref{eq:3.4.1}中原来的$f(x\mid\theta)$是pdf或pmf，集合$\{\eta=(w_1(\theta),\ldots,w_k(\theta)):\theta\in\Theta\}$必为自然参数空间的子集. 但也可能还有其他$\eta\in\mathcal H$. 自然参数化及自然参数空间有许多有用的数学性质. 例如，$\mathcal H$是凸集.
+
+\begin{example}[续\autoref{ex:3.4.4}]\label{ex:3.4.6}
+为确定正态分布族的自然参数空间，在\eqref{eq:3.4.6}中以$\eta_i$替换$w_i(\mu,\sigma)$，得到
+\begin{equation}\label{eq:3.4.8}
+f(x\mid\eta_1,\eta_2)=\frac{\sqrt{\eta_1}}{\sqrt{2\pi}}\exp\left(-\frac{\eta_2^2}{2\eta_1}\right)\exp\left(-\frac{\eta_1x^2}2+\eta_2x\right).
+\end{equation}
+积分有限，当且仅当$x^2$的系数为负. 这意味着$\eta_1$必须为正. 若$\eta_1>0$，则无论$\eta_2$取何值，积分都有限. 因此，自然参数空间为$\{(\eta_1,\eta_2):\eta_1>0,-\infty<\eta_2<\infty\}$. 对照\eqref{eq:3.4.8}和\eqref{eq:3.4.6}，可得$\eta_2=\mu/\sigma^2$，$\eta_1=1/\sigma^2$. 自然参数虽然提供了方便的数学表达，但有时缺乏像均值和方差那样简单的解释.
+\end{example}
+在表示式\eqref{eq:3.4.1}中，向量$\theta$的维数常常等于$k$，即指数中求和项的个数. 但不一定如此，向量$\theta$的维数也可能等于$d<k$. 这样的指数族称为弯曲指数族（curved exponential family）.
+
+\begin{definition}\label{def:3.4.7}\index{SI0436@曲线}
+弯曲指数族是具有\eqref{eq:3.4.1}形式的密度族，其中向量$\theta$的维数等于$d<k$. 若$d=k$，则该族是满指数族（full exponential family）. （另见\hyperref[sec:3.8.3]{杂录3.8.3}.）
+\end{definition}
+\sourcepageanchor{126}
+
+\begin{example}[一个弯曲指数族]\label{ex:3.4.8}
+\autoref{ex:3.4.4}中的正态族是满指数族. 但若假定$\sigma^2=\mu^2$，该族就成为弯曲的. （这样的模型可用于方差分析；见\autoref{exercise:11.1}和\autoref{exercise:11.2}.）此时
+\begin{equation}\label{eq:3.4.9}
+\begin{aligned}
+f(x\mid\mu)&=\frac1{\sqrt{2\pi\mu^2}}\exp\left(-\frac{(x-\mu)^2}{2\mu^2}\right)\\
+&=\frac1{\sqrt{2\pi\mu^2}}\exp\left(-\frac12\right)\exp\left(-\frac{x^2}{2\mu^2}+\frac x\mu\right).
+\end{aligned}
+\end{equation}
+对正态族，满指数族的参数空间为$(\mu,\sigma^2)=\mathbb R\times(0,\infty)$，而弯曲族的参数空间$(\mu,\sigma^2)=(\mu,\mu^2)$是一条抛物线.
+\end{example}
+弯曲指数族有许多用途. 下例给出一个简单应用.
+
+\begin{example}[正态近似]\label{ex:3.4.9}\index{SI0373@正态近似}
+在\autoref{sec:5}中将看到，若$X_1,\ldots,X_n$为来自Poisson$(\lambda)$总体的样本，则$\bar X=\sum_iX_i/n$的分布近似为
+$$\bar X\sim\operatorname n(\lambda,\lambda/n),$$
+这是一个弯曲指数族.
+
+中心极限定理（\autoref{thm:5.5.14}）为$\operatorname n(\lambda,\lambda/n)$近似提供了依据. 实际上可以意识到，大多数这样的中心极限定理近似都会导出弯曲正态族. 我们已经见过正态—二项近似（\autoref{ex:3.3.2}）：若$X_1,X_2,\ldots,X_n$独立同分布，服从Bernoulli$(p)$，则近似地
+$$\bar X\sim\operatorname n(p,p(1-p)/n).$$
+另一个例子见\autoref{ex:5.5.16}.
+\end{example}
+虽然参数空间维数较低这一事实会对族的性质产生一定影响，但我们将看到，弯曲族仍然具有满族的许多性质. 特别地，\autoref{thm:3.4.2}适用于弯曲指数族. 此外，满指数族与弯曲指数族还具有其他统计性质，本书余下部分将陆续讨论. 例如，假设我们拥有来自一个总体的大量数据值，其pdf或pmf具有\eqref{eq:3.4.1}的形式. 那么，只须从数据中算出$k$个数（$k$为\eqref{eq:3.4.1}中求和项的个数），就可概括数据中关于$\theta$的全部信息. 这种“数据压缩”性质将在\autoref{sec:6}讨论充分统计量时更详细地处理（\autoref{thm:6.2.10}）.
+
+关于指数族的进一步入门介绍，见\hyperref[bib:source198]{Lehmann（1986}，第2.7节），或\hyperref[bib:source200]{Lehmann和Casella（1998}，第1.5节及注1.10.6）. \hyperref[bib:source50]{Brown（1986）}的经典专著提供了更深入且全面的介绍.

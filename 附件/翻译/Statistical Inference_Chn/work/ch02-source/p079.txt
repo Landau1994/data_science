@@ -1,0 +1,41 @@
+48                              TRANSFORMATIONS AND EXPECTATIONS
+   When evaluating expectations of nonlinear functions of X, we can proceed in one of two ways.
+From the definition of Eg(X), we could directly calculate
+
+                                    ∞
+                           Eg(X) = −∞g(x) fX(x)dx.                              (2.2.4)
+But we could also find the pdf fY(y) of Y = g(X) and we would have
+
+                                        ∞
+                          Eg(X) = EY =  −∞yfY(y)dy.                             (2.2.5)
+Example 2.2.7 (Uniform-exponential relationship–II)  Let X have a uniform(0,1) distribution,
+that is, the pdf of X is given by
+
+                                     1   if 0                                   fX(x) =      ≤x ≤1                                     0  otherwise,
+
+and define a new random variable g(X) = −logX. Then
+                                                   1
+                                                                              0 = 1.                Eg(X) = E(−logX) =  0 −logxdx = x−xlogx|1
+But we also saw in Example 2.1.4 that Y = −logX has cdf 1−e−y and, hence, pdf fY(y)    d                                              = dy(1−
+e−y) = e−y, 0 < y < ∞, which is a special case of the exponential pdf with λ = 1. Thus, by Example
+2.2.2, EY = 1.                                                                   ∥
+
+2.3  Moments and Moment Generating Functions
+The various moments of a distribution are an important class of expectations.
+Definition 2.3.1  For each integer n, the nth moment of X (or FX(x)), µ′n, is
+                                         µ′n = EXn.
+
+The nth central moment of X, µn, is
+                                   µn = E(X −µ)n,
+where µ = µ′1 = EX.
+   Aside from the mean, EX, of a random variable, perhaps the most important moment is the
+second central moment, more commonly known as the variance.
+Definition 2.3.2  The variance of a random variable X is its second central moment, VarX =
+E(X −EX)2. The positive square root of VarX is the standard deviation of X.
+   The variance gives a measure of the degree of spread of a distribution around its mean. We saw
+earlier in Example 2.2.6 that the quantity E(X −b)2 is minimized by choosing b = EX. Now weconsider the absolute size of this minimum. The interpretation attached to the variance is that larger
+values mean X is more variable. At the extreme, if VarX = E(X −EX)2 = 0, then X is equal to EX,with probability 1, and there is no variation in X. The standard deviation has the same qualitative
+interpretation: Small values mean X is very likely to be close to EX, and large values mean X is very
+variable. The standard deviation is easier to interpret in that the measurement unit on the standard
+deviation is the same as that for the original variable X. The measurement unit on the variance is the
+square of the original unit.

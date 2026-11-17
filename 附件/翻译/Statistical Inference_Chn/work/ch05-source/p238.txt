@@ -1,0 +1,39 @@
+GENERATING A RANDOM SAMPLE                                            207
+Example 5.6.9 (Beta random variable generation–II)  To generate Y ∼beta(2.7,6.3) considerthe algorithm
+  a. Generate U ∼uniform(0,1) , V ∼beta(2,6).
+             = V; otherwise return to step 1.  b.  If U < M1  fVfY (V)(V) set Y
+This Accept/Reject Algorithm will generate the required Y as long as supy fY(y)/ fV(y) ≤M < ∞.For the given densities we have M = 1.67, so the requirement is satisfied. (See Exercise 5.63.)
+   For this algorithm EN = 1.67, while for the algorithm of Example 5.6.7, which uses the uniform
+V, we have EN = 2.67. Although this seems to indicate that the latter algorithm is faster, remember
+that generating a beta(2,6) random variable will need eight uniform random variables. Thus, com-
+parison of algorithms is not always straightforward, and will include consideration of both computer
+speed and programming ease.                                                      ∥
+   The importance of the requirement that M < ∞should be stressed. This can be interpreted as
+requiring the density of V (often called the candidate density) to have heavier tails than the density
+of Y (often called the target density). This requirement tends to insure that we will obtain a good
+representation of the values of Y, even those values that are in the tails. For example, if V ∼Cauchy
+and Y ∼n(0,1), then we expect the range of V samples to be wider than that of Y samples, and weshould get good performance from an Accept/Reject Algorithm based on these densities. However,
+it is much more difficult to change n(0,1) random variables into Cauchy random variables because
+the extremes will be underrepresented.
+   There are cases, however, where the target density has heavy tails, and it is difficult to get
+candidate densities that will result in finite values of M. In such cases the Accept/Reject Algorithm
+will no longer apply, and one is lead to another class of methods known as Markov Chain Monte
+Carlo (MCMC) methods. Special cases of such methods are known as the Gibbs Sampler and the
+Metropolis Algorithm. We state the latter:
+Metropolis Algorithm Let Y ∼fY(y) and V ∼fV(v), where fY and fV have common support. To
+generate Y ∼fY
+    0. Generate V ∼fV. Set Z0 = V.
+For i = 1,2,...
+
+    1. Generate Ui ∼uniform(0,1) , Vi ∼fV and calculate
+                                             fY(Vi)  fV(Zi−1)       .                                   ρi = min                                            fV(Vi) · fY(Zi−1),1
+    2. Set
+
+                                                Vi     if Ui                                      Zi =           ≤ρi
+                                          Zi−1   if Ui > ρi
+Then, as i →∞, Zi converges to Y in distribution.
+
+   Although the algorithm does not require a finite M, it does not produce a random variable with
+exactly the density fY, but rather a convergent sequence. In practice, after the algorithm is run for a
+while (i gets big), the Zs that are produced behave very much like variables from fY  . (See Chib and
+Greenberg for an elementary introduction to the Metropolis Algorithm.)

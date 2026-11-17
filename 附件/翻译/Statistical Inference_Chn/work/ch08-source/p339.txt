@@ -1,0 +1,38 @@
+308                                             HYPOTHESIS TESTING
+and H1 will be accepted as true otherwise. In particular, if µ = θ0 so that prior to experimentation
+probability 12 is assigned to both H0 and H1, then H0 will be accepted as true if x ≤θ0 and H1
+accepted otherwise.                                                              ∥
+   Other methods that use the posterior distribution to make inferences in hypothesis testing prob-
+lems are discussed in Section 8.3.5.
+
+8.2.3  Union–Intersection and Intersection–Union Tests
+
+In some situations, tests for complicated null hypotheses can be developed from tests for simpler
+null hypotheses. We discuss two related methods.
+   The union–intersection method of test construction might be useful when the null hypothesis is
+conveniently expressed as an intersection, say
+                               H0 : θ ∈   Θγ.                                     (8.2.3)
+                                              γ∈Γ
+Here Γ is an arbitrary index set which may be finite or infinite, depending on the problem. Suppose
+that tests are available for each of the problems of testing H0γ : θ ∈Θγ versus H1γ : θ ∈Θcγ. Say
+the rejection region for the test of H0γ is {x: Tγ(x) ∈Rγ}. Then the rejection region for the union–intersection test is
+                                    {x : Tγ(x) ∈Rγ}.                                  (8.2.4)
+                                    γ∈Γ
+The rationale is simple. If any one of the hypotheses H0γ is rejected, then H0, which, by (8.2.3),
+is true only if H0γ is true for every γ, must also be rejected. Only if each of the hypotheses H0γ is
+accepted as true will the intersection H0 be accepted as true.
+    In some situations a simple expression for the rejection region of a union–intersection test can
+be found. In particular, suppose that each of the individual tests has a rejection region of the form
+{x: Tγ(x) > c}, where c does not depend on γ. The rejection region for the union–intersection test,given in (8.2.4), can be expressed as
+                            {x: Tγ(x) > c} = {x: sup Tγ(x) > c}.
+                           γ∈Γ                    γ∈Γ
+Thus the test statistic for testing H0 is T(x) = supγ∈Γ Tγ(x). Some examples in which T(x) has asimple formula may be found in Chapter 11.
+Example 8.2.8 (Normal union-intersection test)   Let X1,...,Xn be a random sample from a
+n(µ,σ2) population. Consider testing H0: µ = µ0 versus H1: µ̸ = µ0 where µ0 is a specified number.We can write H0 as the intersection of two sets,
+                         H0 : {µ : µ ≤µ0}∩{µ : µ ≥µ0}.
+The LRT of H0L : µ ≤µ0 versus H1L : µ > µ0 is
+                                            X                      reject H0L : µ       in favor of H1L : µ > µ0 if  −µ0                     ≤µ0                   S/√n ≥tL
+(see Exercise 8.37). Similarly, the LRT of H0U : µ ≥µ0 versus H1U : µ < µ0 is
+                                           X                     reject H0U : µ       in favor of H1U : µ < µ0 if  −µ0                    ≥µ0                   S/√n ≤tU.
+Thus the union–intersection test of H0 : µ = µ0 versus H1 : µ̸ = µ0 formed from these two LRTs is
+                           X         X                               reject H0 if  −µ0      or  −µ0                            S/√n ≥tL   S/√n ≤tU.

@@ -1,0 +1,47 @@
+                                   Chapter 3
+
+    Common Families of Distributions
+
+
+
+
+
+  How do all these unusuals strike you, Watson?
+   Their cumulative effect is certainly considerable, and yet each of them is quite possible in
+    itself.
+                                                   Sherlock Holmes and Dr. Watson
+                                                The Adventure of the Abbey Grange
+
+3.1  Introduction
+Statistical distributions are used to model populations; as such, we usually deal with a family of
+distributions rather than a single distribution. This family is indexed by one or more parameters,
+which allows us to vary certain characteristics of the distribution while staying with one functional
+form. For example, we may specify that the normal distribution is a reasonable choice to model a
+particular population, but we cannot precisely specify the mean. Then, we deal with a parametric
+family, normal distributions with mean µ, where µ is an unspecified parameter, −∞< µ < ∞.    In this chapter we catalog many of the more common statistical distributions, some of which we
+have previously encountered. For each distribution we will give its mean and variance, and many
+other useful or descriptive measures that may aid understanding. We will also indicate some typical
+applications of these distributions and some interesting and useful interrelationships. Some of these
+facts are summarized in tables at the end of the book. This chapter is, by no means, comprehensive
+in its coverage of statistical distributions. That task has been accomplished by Johnson and Kotz
+(1969–1972) in their multiple-volume work Distributions in Statistics, and in the updated volumes
+Johnson, Kotz, and Balakrishnan (1994, 1995) and Johnson, Kotz, and Kemp (1992).
+
+3.2  Discrete Distributions
+A random variable X is said to have a discrete distribution if the range of X, the sample space, is
+countable. In most situations, the random variable has integer-valued outcomes.
+
+Discrete Uniform Distribution
+
+A random variable X has a discrete uniform(1,N) distribution if
+
+                                      1
+                        P(X = x|N) = N ,   x = 1,2,...,N,                          (3.2.1)
+where N is a specified integer. This distribution puts equal mass on each of the outcomes 1,2,...,N.
+A note on notation: When we are dealing with parametric distributions, as will almost always be the
+case, the distribution is dependent on values of the parameters. In order to emphasize this fact and
+to keep track of the parameters, we write them in the pmf preceded by a “|” (given). This conventionwill also be used with cdfs, pdfs, expectations, and other places where it might be necessary to keep
+track of the parameters. When there is no possibility of confusion, the parameters may be omitted
+in order not to clutter up notation too much.
+
+70                                                  DOI: 10.1201/9781003456285-3

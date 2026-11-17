@@ -1,0 +1,137 @@
+\sourcepageanchor{267}
+\subsection{似然原则}\label{sec:6.3}
+本节研究一个称为似然函数的特定而重要的统计量，它也可以用来概括数据.似然函数有许多用法，本节和后面各章会分别提及其中一些.但本节主要考虑一个论证，它说明如果接受某些其他原则，就必须把似然函数用作数据约简工具.
+\subsubsection{似然函数}\label{sec:6.3.1}
+\begin{definition}\label{def:6.3.1}\index{SI0619@似然函数}
+设$f(\boldsymbol x\mid\theta)$为样本$\boldsymbol X=(X_1,\ldots,X_n)$的联合pdf或pmf.给定观测$\boldsymbol X=\boldsymbol x$，定义为
+$$L(\theta\mid\boldsymbol x)=f(\boldsymbol x\mid\theta)$$
+的$\theta$的函数，称为似然函数（likelihood function）.
+\end{definition}
+若$\boldsymbol X$是离散随机向量，则$L(\theta\mid\boldsymbol x)=P_\theta(\boldsymbol X=\boldsymbol x)$.若比较两个参数点的似然函数值，发现
+$$P_{\theta_1}(\boldsymbol X=\boldsymbol x)=L(\theta_1\mid\boldsymbol x)>L(\theta_2\mid\boldsymbol x)=P_{\theta_2}(\boldsymbol X=\boldsymbol x),$$
+那么我们实际观测的样本在$\theta=\theta_1$时比在$\theta=\theta_2$时更有可能出现.可以将其解释为，$\theta_1$作为$\theta$真值的可能性比$\theta_2$更可信.利用这种信息，人们提出过许多不同方法；不过，考察$\theta$各种可能值下实际观测样本的概率，显然是合理的.这正是似然函数提供的信息.
+
+若$X$是连续实值随机变量，且其pdf关于$x$连续，则当$\varepsilon$很小时，$P_\theta(x-\varepsilon<X<x+\varepsilon)$近似等于$2\varepsilon f(x\mid\theta)=2\varepsilon L(\theta\mid x)$（这来自导数的定义）.因此，
+$$\frac{P_{\theta_1}(x-\varepsilon<X<x+\varepsilon)}{P_{\theta_2}(x-\varepsilon<X<x+\varepsilon)}\approx\frac{L(\theta_1\mid x)}{L(\theta_2\mid x)},$$
+比较两个参数值处的似然函数，再次给出了观测样本值$x$出现概率的近似比较.
+
+\autoref{def:6.3.1}似乎把似然函数定义成了与pdf或pmf相同的东西.这两个函数唯一的区别在于哪个变量被视为固定，哪个变量在变化.考虑pdf或pmf $f(\boldsymbol x\mid\theta)$时，视$\theta$固定，而$\boldsymbol x$为变量；考虑似然函数$L(\theta\mid\boldsymbol x)$时，视$\boldsymbol x$为观测样本点，而$\theta$遍历所有可能的参数值.
+\begin{example}[负二项似然]\label{ex:6.3.2}\index{SI0622@负二项}
+设$X$服从$r=3$、成功概率$p$的负二项分布.若观测到$x=2$，似然函数就是$0\le p\le1$上的五次多项式：
+$$L(p\mid2)=P_p(X=2)=\binom42p^3(1-p)^2.$$
+一般地，若观测到$X=x$，似然函数是次数为$3+x$的多项式，
+$$L(p\mid x)=\binom{3+x-1}{x}p^3(1-p)^x.$$
+\end{example}
+\sourcepageanchor{268}
+似然原则规定如何把似然函数用作数据约简工具.
+\begin{quote}
+\textbf{似然原则：}\index{SI0624@似然原则}\semanticindexanchor{624:268}若两个样本点$\boldsymbol x$和$\boldsymbol y$满足$L(\theta\mid\boldsymbol x)$与$L(\theta\mid\boldsymbol y)$成比例，即存在常数$C(\boldsymbol x,\boldsymbol y)$使
+\begin{equation}\label{eq:6.3.1}
+L(\theta\mid\boldsymbol x)=C(\boldsymbol x,\boldsymbol y)L(\theta\mid\boldsymbol y)\qquad\text{对所有$\theta$},
+\end{equation}
+则根据$\boldsymbol x$和$\boldsymbol y$得出的结论应完全一致.
+\end{quote}
+注意\eqref{eq:6.3.1}中的常数$C(\boldsymbol x,\boldsymbol y)$可随$(\boldsymbol x,\boldsymbol y)$而不同，但不依赖$\theta$.
+
+特别地，当$C(\boldsymbol x,\boldsymbol y)=1$时，似然原则说：若两个样本点产生相同的似然函数，则它们含有相同的关于$\theta$的信息.但似然原则还进一步声称，即使两个样本点的似然函数只是成比例，它们也含有等价的关于$\theta$的信息.理由是：似然函数用来比较各参数值的可信程度；若$L(\theta_2\mid\boldsymbol x)=2L(\theta_1\mid\boldsymbol x)$，则在某种意义上，$\theta_2$比$\theta_1$可信两倍.若\eqref{eq:6.3.1}也成立，则$L(\theta_2\mid\boldsymbol y)=2L(\theta_1\mid\boldsymbol y)$.因此，无论观测到$\boldsymbol x$还是$\boldsymbol y$，都会得出$\theta_2$比$\theta_1$可信两倍的结论.
+
+上一段谨慎地使用“可信”（plausible）一词，而非“有概率”（probable），因为我们往往把$\theta$视为固定值，虽说它未知.此外，尽管$f(\boldsymbol x\mid\theta)$作为$\boldsymbol x$的函数是pdf，却不能保证$L(\theta\mid\boldsymbol x)$作为$\theta$的函数也是pdf.
+
+一种称为信仰推断（fiducial inference）的推断形式，\index{SI0444@信仰推断}\semanticindexanchor{444:268}有时把似然解释为$\theta$的概率.即把$L(\theta\mid\boldsymbol x)$乘以$M(\boldsymbol x)=(\int_{-\infty}^{\infty}L(\theta\mid\boldsymbol x)\,d\theta)^{-1}$（参数空间可数时用求和代替积分），再把$M(\boldsymbol x)L(\theta\mid\boldsymbol x)$解释为$\theta$的pdf（当然须$M(\boldsymbol x)$有限！）.显然，满足\eqref{eq:6.3.1}的$L(\theta\mid\boldsymbol x)$与$L(\theta\mid\boldsymbol y)$给出相同的pdf，因为$C(\boldsymbol x,\boldsymbol y)$只会被吸收入归一化常数.大多数统计学家并不赞同信仰推断理论，但它历史悠久，可追溯至\hyperref[bib:source124]{Fisher（1930）}关于所谓逆概率（inverse probability）的工作，即概率积分变换的一项应用.现在出于历史原因，计算一个信仰分布.
+\begin{example}[正态信仰分布]\label{ex:6.3.3}
+设$X_1,\ldots,X_n$为iid $n(\mu,\sigma^2)$，$\sigma^2$已知.用\eqref{eq:6.2.4}作为$L(\mu\mid\boldsymbol x)$的表达式，先注意\eqref{eq:6.3.1}成立当且仅当$\bar x=\bar y$，此时
+$$C(\boldsymbol x,\boldsymbol y)=\exp\left(-\sum_{i=1}^n(x_i-\bar x)^2/(2\sigma^2)+\sum_{i=1}^n(y_i-\bar y)^2/(2\sigma^2)\right).$$
+所以似然原则认为，对于满足$\bar x=\bar y$的任意两个样本点，应得出相同的关于$\mu$的结论.为计算$\mu$的信仰pdf，若定义$M(\boldsymbol x)=n^{n/2}\exp(\sum_{i=1}^n(x_i-\bar x)^2/(2\sigma^2))$，则$M(\boldsymbol x)L(\mu\mid\boldsymbol x)$（作为$\mu$的函数）是$n(\bar x,\sigma^2/n)$的pdf.\footnote{译注：原文此处归一化因子写$n^{n/2}$，与\eqref{eq:6.2.4}不符.按该式积分，指数项之前的因子应为$\sqrt n(2\pi\sigma^2)^{(n-1)/2}$，这样乘积才积分为1.}这就是$\mu$的信仰分布，信仰推断论者可对$\mu$作如下概率计算.
+
+参数$\mu$服从$n(\bar x,\sigma^2/n)$分布，因而$(\mu-\bar x)/(\sigma/\sqrt n)$服从$n(0,1)$.于是
+\begin{align*}
+.95&=P\left(-1.96<\frac{\mu-\bar x}{\sigma/\sqrt n}<1.96\right)\\
+&=P(-1.96\sigma/\sqrt n<\mu-\bar x<1.96\sigma/\sqrt n)\\
+&=P(\bar x-1.96\sigma/\sqrt n<\mu<\bar x+1.96\sigma/\sqrt n).
+\end{align*}
+这些代数运算类似前面的计算，但解释截然不同.这里$\bar x$是已观测数据所给出的固定已知数，而$\mu$是具有正态概率分布的变量.
+\end{example}
+后面各章讨论具体推断方法时，将介绍似然函数其他更常见的用途.现在则考察一个论证，说明似然原则是另外两个基本原则的必然结果.
+\sourcepageanchor{269}
+\subsubsection{形式化的似然原则}\label{sec:6.3.2}\index{SI0627@形式化}
+对离散分布，似然原则可以从两个直观上更简单的思想推出.对连续分布，在附加一些限制后也成立.本小节只处理离散分布.\hyperref[bib:source22]{Berger和Wolpert（1984）}深入讨论了离散与连续两种情形的似然原则.\hyperref[bib:source35]{Birnbaum（1962）}最早在一篇里程碑式论文中证明这些结果，但这里的叙述更接近Berger和Wolpert.
+
+形式上，把实验$E$定义为三元组$(\boldsymbol X,\theta,\{f(\boldsymbol x\mid\theta)\})$，其中$\boldsymbol X$为随机向量，对参数空间$\Theta$中的某个$\theta$，具有pmf $f(\boldsymbol x\mid\theta)$.实验者知道进行了哪个实验$E$，并观测到特定样本$\boldsymbol X=\boldsymbol x$，便会对$\theta$作出某种推断或结论.以$\operatorname{Ev}(E,\boldsymbol x)$表示这个结论，\index{SI0419@证据}\semanticindexanchor{419:269}含义是由$E$和$\boldsymbol x$产生的关于$\theta$的证据.
+\begin{example}[证据函数]\label{ex:6.3.4}
+设实验$E$为观测iid $n(\mu,\sigma^2)$变量$X_1,\ldots,X_n$，其中$\sigma^2$已知.因为样本均值$\bar X$是$\mu$的充分统计量，且$E\bar X=\mu$，可以用观测值$\bar X=\bar x$估计$\mu$.为衡量估计精度，通常报告$\bar X$的标准差$\sigma/\sqrt n$.所以可以定义$\operatorname{Ev}(E,\boldsymbol x)=(\bar x,\sigma/\sqrt n)$.这里$\bar x$坐标依赖观测样本$\boldsymbol x$，而$\sigma/\sqrt n$坐标依赖关于$E$的知识.
+\end{example}
+为把证据函数概念与熟悉的内容联系起来，现在用这些概念重述\autoref{sec:6.2}的充分性原则.
+\begin{quote}
+\textbf{形式化的充分性原则：}\index{SI0998@形式化}\semanticindexanchor{998:269}考虑实验$E=(\boldsymbol X,\theta,\{f(\boldsymbol x\mid\theta)\})$，设$T(\boldsymbol X)$是$\theta$的充分统计量.若样本点$\boldsymbol x$和$\boldsymbol y$满足$T(\boldsymbol x)=T(\boldsymbol y)$，则$\operatorname{Ev}(E,\boldsymbol x)=\operatorname{Ev}(E,\boldsymbol y)$.
+\end{quote}
+形式化的充分性原则比\autoref{sec:6.2}的充分性原则略进了一步.那里没有提及实验；这里则约定充分统计量相同时证据相同.由形式化的充分性原则和下面这个十分合理的原则，可以推出似然原则.
+\begin{quote}
+\textbf{条件性原则（Conditionality Principle）：}\index{SI0125@条件性原则}\semanticindexanchor{125:269}设$E_1=(\boldsymbol X_1,\theta,\{f_1(\boldsymbol x_1\mid\theta)\})$和$E_2=(\boldsymbol X_2,\theta,\{f_2(\boldsymbol x_2\mid\theta)\})$为两个实验，二者只须具有同一未知参数$\theta$.考虑如下混合实验：先观测随机变量$J$，其中$P(J=1)=P(J=2)=1/2$（与$\theta$、$\boldsymbol X_1$或$\boldsymbol X_2$无关），然后进行实验$E_J$.形式上，所进行的实验为$E^*=(\boldsymbol X^*,\theta,\{f^*(\boldsymbol x^*\mid\theta)\})$，其中$\boldsymbol X^*=(j,\boldsymbol X_j)$且$f^*(\boldsymbol x^*\mid\theta)=f^*((j,\boldsymbol x_j)\mid\theta)=\tfrac12f_j(\boldsymbol x_j\mid\theta)$.则
+\begin{equation}\label{eq:6.3.2}
+\operatorname{Ev}(E^*,(j,\boldsymbol x_j))=\operatorname{Ev}(E_j,\boldsymbol x_j).
+\end{equation}
+\end{quote}
+条件性原则只是说：若随机选取两个实验中的一个，完成所选实验并得到数据$\boldsymbol x$，那么关于$\theta$的信息只依赖实际进行的实验.也就是说，它与从一开始就非随机地决定做该实验、并观测到数据$\boldsymbol x$时获得的信息相同.进行了这个实验而非其他实验这一事实，并没有增加、减少或改变关于$\theta$的知识.
+\begin{example}[二项／负二项实验]\label{ex:6.3.5}
+设所关心的参数是概率$p$，$0<p<1$，表示某枚硬币投掷后正面朝上的概率.令$E_1$为投掷硬币20次、记录其中正面次数的实验.$E_1$是二项实验，$\{f_1(x_1\mid p)\}$是$\operatorname{binomial}(20,p)$的pmf族.令$E_2$为一直掷到第7次正面出现、记录第7次正面前反面次数的实验.$E_2$是负二项实验.现在假设实验者用随机数表在两个实验间选择，恰好选到$E_2$，得到的数据是第7次正面在第20次试验出现.
+\sourcepageanchor{270}
+条件性原则认为，实验者此时拥有的关于$\theta$的信息$\operatorname{Ev}(E^*,(2,13))$，与他直接选择做负二项实验、从未考虑过二项实验时会拥有的信息$\operatorname{Ev}(E_2,13)$相同.
+\end{example}
+现在可由形式化的充分性原则与条件性原则，推出下面的形式化似然原则.
+\begin{quote}
+\textbf{形式化的似然原则：}\index{SI0627@形式化}\semanticindexanchor{627:270}设有两个实验$E_1=(\boldsymbol X_1,\theta,\{f_1(\boldsymbol x_1\mid\theta)\})$和$E_2=(\boldsymbol X_2,\theta,\{f_2(\boldsymbol x_2\mid\theta)\})$，其未知参数$\theta$相同.设$\boldsymbol x_1^*$、$\boldsymbol x_2^*$分别为$E_1$与$E_2$的样本点，并且
+\begin{equation}\label{eq:6.3.3}
+L(\theta\mid\boldsymbol x_2^*)=CL(\theta\mid\boldsymbol x_1^*)
+\end{equation}
+对所有$\theta$成立，其中常数$C$可依赖$\boldsymbol x_1^*$和$\boldsymbol x_2^*$，却不依赖$\theta$.则
+$$\operatorname{Ev}(E_1,\boldsymbol x_1^*)=\operatorname{Ev}(E_2,\boldsymbol x_2^*).$$
+\end{quote}
+形式化似然原则涉及两个实验，\autoref{sec:6.3.1}的似然原则只涉及一个，因此二者不同.不过令$E_2$为$E_1$的精确重复，就能由形式化似然原则推出似然原则.所以形式化似然原则的两个实验设置，在某种程度上是人为安排；重要后果是下面的推论，其证明留作习题（见\autoref{exercise:6.32}）.
+\begin{quote}
+\textbf{似然原则推论：}若$E=(\boldsymbol X,\theta,\{f(\boldsymbol x\mid\theta)\})$是一个实验，则$\operatorname{Ev}(E,\boldsymbol x)$应只通过$L(\theta\mid\boldsymbol x)$依赖$E$和$\boldsymbol x$.
+\end{quote}
+现在陈述Birnbaum定理，再考察其有些出人意料的后果.
+\begin{theorem}[Birnbaum定理]\label{thm:6.3.6}\index{SI0093@Birnbaum定理}\index{SI0626@Birnbaum定理}
+由形式化的充分性原则与条件性原则可推出形式化的似然原则.逆命题也成立.
+\end{theorem}
+\begin{proof}
+只概述证明，细节留作\autoref{exercise:6.33}.设$E_1$、$E_2$、$\boldsymbol x_1^*$、$\boldsymbol x_2^*$如形式化似然原则中所定义，并以$E^*$表示条件性原则中的混合实验.在$E^*$的样本空间上定义统计量
+$$T(j,\boldsymbol x_j)=\begin{cases}(1,\boldsymbol x_1^*),&j=1\text{且}\boldsymbol x_1=\boldsymbol x_1^*\text{，或}j=2\text{且}\boldsymbol x_2=\boldsymbol x_2^*,\\(j,\boldsymbol x_j),&\text{其他情形}.\end{cases}$$
+利用因子分解定理，可证明$T(J,\boldsymbol X_J)$是$E^*$实验中的充分统计量.于是形式化的充分性原则推出
+\begin{equation}\label{eq:6.3.4}
+\operatorname{Ev}(E^*,(1,\boldsymbol x_1^*))=\operatorname{Ev}(E^*,(2,\boldsymbol x_2^*)),
+\end{equation}
+条件性原则推出
+\begin{equation}\label{eq:6.3.5}
+\begin{aligned}
+\operatorname{Ev}(E^*,(1,\boldsymbol x_1^*))&=\operatorname{Ev}(E_1,\boldsymbol x_1^*),\\
+\operatorname{Ev}(E^*,(2,\boldsymbol x_2^*))&=\operatorname{Ev}(E_2,\boldsymbol x_2^*),
+\end{aligned}
+\end{equation}
+从而可得$\operatorname{Ev}(E_1,\boldsymbol x_1^*)=\operatorname{Ev}(E_2,\boldsymbol x_2^*)$，即形式化的似然原则.
+
+证明逆命题时，先令一个实验为$E^*$，另一个为$E_j$.可证明$\operatorname{Ev}(E^*,(j,\boldsymbol x_j))=\operatorname{Ev}(E_j,\boldsymbol x_j)$，即条件性原则.然后，若$T(\boldsymbol X)$充分且$T(\boldsymbol x)=T(\boldsymbol y)$，则似然成比例，由形式化似然原则有$\operatorname{Ev}(E,\boldsymbol x)=\operatorname{Ev}(E,\boldsymbol y)$，即形式化的充分性原则.
+\end{proof}
+\sourcepageanchor{271}
+\begin{example}[续\autoref{ex:6.3.5}]\label{ex:6.3.7}\index{SI0126@解释}\index{SI0625@二项与负二项}\index{SI0628@解释}\index{SI0999@解释}
+再次考虑二项与负二项实验及两个样本点$x_1=7$（二项实验20次中7次正面）和$x_2=13$（第7次正面在第20次投掷出现）.似然函数分别为
+$$L(p\mid x_1=7)=\binom{20}7p^7(1-p)^{13}\qquad\text{（二项实验）},$$
+以及
+$$L(p\mid x_2=13)=\binom{19}6p^7(1-p)^{13}\qquad\text{（负二项实验）}.$$
+这两个似然函数成比例，所以形式化似然原则认为两种情形应得出相同的关于$p$的结论.特别地，该原则断言：第一种情形因完成20次试验而停止抽样，第二种情形因观测到第7次正面而停止抽样，这一事实与我们关于$p$的结论无关.\hyperref[bib:source206]{Lindley和Phillips（1976）}对二项–负二项推断问题作了深入讨论.
+\end{example}
+不同实验产生等价推断这一点，可以通过考察Birnbaum定理证明中定义的充分统计量$T$及样本点$x_1^*=7$、$x_2^*=13$进一步阐明.对混合实验中除$(1,7)$和$(2,13)$之外的任何样本点，$T$会告诉我们做的是二项还是负二项实验，以及实验结果.但对$(1,7)$和$(2,13)$，有$T(1,7)=T(2,13)=(1,7)$.若只用充分统计量推断且$T=(1,7)$，则只知道观测到20次中有7次正面，却不知道7和20中哪一个是固定量.
+
+许多常用统计程序违反形式化似然原则.用这些程序，会对\autoref{ex:6.3.5}中的两个实验得出不同结论.这似乎奇怪，因为由Birnbaum定理，此时必违反充分性原则或条件性原则之一.下面更仔细地考察这两个原则.
+
+形式化的充分性原则，本质上与\autoref{sec:6.1}所讨论的相同.那里说明全部关于$\theta$的信息都包含在充分统计量中，知道整个样本无法增加任何信息.所以把证据建立在充分统计量上，是非常可信的原则.这个原则一个容易导致违反的弱点，是它强烈依赖模型.如\autoref{ex:6.2.9}之后所述，相信该原则就必须相信模型，而这未必容易做到.
+
+大多数数据分析者分析数据集时都会做某种“模型检查”.多数模型检查必然基于充分统计量以外的统计量.例如，考察模型残差（residuals）是常见做法，残差衡量模型未能解释的数据变异.（\autoref{sec:11}和\autoref{sec:12}将更详细地介绍残差.）这种做法立即违反充分性原则，因为残差并非基于充分统计量.（当然，它也直接违反似然原则.）因此必须认识到，在考虑充分性原则或似然原则之前，我们必须认可模型.
+
+条件性原则非形式地说就是“只有实际进行的实验才重要”.即在\autoref{ex:6.3.5}中，若做的是二项实验，那么未进行的负二项实验就不应以任何方式影响关于$\theta$的结论.这一原则也显得非常可信.
+
+既然违反形式化似然原则意味着违反充分性或条件性原则之一，那么统计实践为何仍会违反它？一些作者探讨过此问题，包括\hyperref[bib:source103]{Durbin（1970）}和\mbox{\hyperref[bib:source185]{Kalbfleisch（1975）}.}\allowbreak{}Kalbfleisch的一种论点是：形式化似然原则的证明并不令人信服，因为它在忽略条件性原则的情况下应用充分性原则.\autoref{thm:6.3.6}证明中所用的充分统计量$T(J,\boldsymbol X_J)$，是在混合实验上定义的.
+\sourcepageanchor{272}
+若先援引条件性原则，就必须分别为每个实验定义充分统计量.此时不再能推出形式化似然原则.（Birnbaum定理证明的关键，是$T(J,\boldsymbol X_J)$能对来自两个实验的样本点取同一个值.分别定义充分统计量时就不会如此.）
+
+无论如何，许多直观上有吸引力的推断程序确实违反似然原则，所以它并未得到所有统计学家的普遍接受.不过，它在数学上有吸引力，也确实提供一种有用的数据约简技术.

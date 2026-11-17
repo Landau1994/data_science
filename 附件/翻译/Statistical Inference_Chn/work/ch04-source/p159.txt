@@ -1,0 +1,44 @@
+128                                      MULTIPLE RANDOM VARIABLES
+Example 4.2.13 (Mgf of a sum of normal variables)  Sometimes Theorem 4.2.12 can be used to
+easily derive the distribution of Z from knowledge of the distribution of X and Y. For example, let
+X ∼n(µ,σ2) and Y ∼n(γ,τ2) be independent normal random variables. From Exercise 2.33, themgfs of X and Y are
+
+               MX(t) = exp(µt +σ2t2/2)  and  MY(t) = exp(γt +τ2t2/2).
+
+Thus, from Theorem 4.2.12, the mgf of Z = X +Y is
+
+                  MZ(t) = MX(t)MY(t) = exp (µ +γ)t +(σ2 +τ2)t2/2  .
+
+This is the mgf of a normal random variable with mean µ + γ and variance σ2 + τ2. This result is
+important enough to be stated as a theorem.                                           ∥
+Theorem 4.2.14  Let X ∼n(µ,σ2) and Y ∼n(γ,τ2) be independent normal random variables.Then the random variable Z = X +Y has a n(µ +γ,σ2 +τ2) distribution.
+
+     If f(x,y) is the joint pdf for the continuous random vector (X,Y), (4.2.1) may fail to hold on a
+set A of (x,y) values for which  A  dxdy = 0. In such a case, X and Y are still called independent
+random variables. This reflects the fact that two pdfs that differ only on a set such as A define the
+same probability distribution for (X,Y). To see this, suppose f(x,y) and  f ∗(x,y) are two pdfs that
+are equal everywhere except on a set A for which  A  dxdy = 0. Let (X,Y) have pdf f(x,y), let
+(X∗,Y ∗) have pdf f ∗(x,y), and let B be any subset of ℜ2. Then
+
+      P((X,Y) ∈B) =  B   f(x,y)dxdy =        f(x,y)dxdy =              f ∗(x,y)dxdy                                              B∩Ac                   B∩Ac
+            =                                             f ∗(x,y)dxdy = P((X∗,Y ∗) ∈B).                        B
+Thus, (X,Y) and (X∗,Y ∗) have the same probability distribution. So, for example, f(x,y) = e−x−y,
+x > 0 and y > 0, is a pdf for two independent exponential random variables and satisfies (4.2.1). But,
+ f ∗(x,y), which is equal to f(x,y) except that f ∗(x,y) = 0 if x = y, is also the pdf for two independent
+exponential random variables even though (4.2.1) is not true on the set A = {(x,x) : x > 0}.
+
+4.3  Bivariate Transformations
+In Section 2.1, methods of finding the distribution of a function of a random variable were discussed.
+In this section we extend these ideas to the case of bivariate random vectors.
+   Let (X,Y) be a bivariate random vector with a known probability distribution. Now consider
+a new bivariate random vector (U,V) defined by U = g1(X,Y) and V = g2(X,Y) where g1(x,y)
+and g2(x,y) are some specified functions. If B is any subset of ℜ2, then (U,V) ∈B if and only if
+(X,Y) ∈A, where A = {(x,y) : (g1(x,y),g2(x,y)) ∈B}. Thus, P((U,V) ∈B) = P((X,Y) ∈A), andthe probability distribution of (U,V) is completely determined by the probability distribution of
+(X,Y).
+     If (X,Y) is a discrete bivariate random vector, then there is only a countable set of values for
+which the joint pmf of (X,Y) is positive. Call this set A . Define the set B = {(u,v) : u = g1(x,y)
+and v = g2(x,y) for some (x,y) ∈A }. Then B is the countable set of possible values for the discrete
+random vector (U,V). And if, for any (u,v) ∈B, Auv is defined to be {(x,y) ∈A  : g1(x,y) = u and
+g2(x,y) = v} then the joint pmf of (U,V), fU,V(u,v), can be computed from the joint pmf of (X,Y)by
+               fU,V(u,v) = P(U = u,V = v) = P((X,Y)    = ∑   fX,Y(x,y).                                           ∈Auv)                               (4.3.1)
+                                                                                   (x,y)∈Auv

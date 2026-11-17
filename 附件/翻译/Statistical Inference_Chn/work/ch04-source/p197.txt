@@ -1,0 +1,46 @@
+166                                      MULTIPLE RANDOM VARIABLES
+
+4.61 DeGroot (1986) gives the following example of the Borel Paradox (Miscellanea 4.9.3): Suppose that
+     X1 and X2 are iid exponential(1) random variables, and define Z = (X2 −1)/X1. The probability-zero
+       sets {Z = 0} and {X2 = 1} seem to be giving us the same information, but lead to different conditional       distributions.
+       (a) Find the distribution of X1|Z = 0, and compare it to the distribution of X1|X2 = 1.
+      (b) For small ε > 0 and x1 > 0,x2 > 0, consider the sets
+                                         x2                B1 =              :  <  −1 <   and B2 =              :   < x2 <                        {(x1,x2) −ε     x1    ε}          {(x1,x2) 1−ε      1+ε}.
+       Draw these sets and support the argument that B1 is informative about X1, but B2 is not.
+       (c) Calculate P(X1 ≤x|B1) and P(X1 ≤x|B2), and show that their limits (as ε →0) agrees with part (a).
+     (Communicated by L. Mark Berliner, Ohio State University.)
+4.62 Finish the proof of the equality in Jensen’s Inequality (Theorem 4.7.7). Let g(x) be a convex function.
+     Suppose a+bx is a line tangent to g(x) at x = EX, and g(x) > a+bx except at x = EX. Then Eg(X) >
+     g(EX) unless P(X = EX) = 1.
+4.63 A random variable X is defined by Z = logX, where EZ = 0. Is EX greater than, less than, or equal to 1?
+4.64 This exercise involves a well-known inequality known as the triangle inequality (a special case of
+     Minkowski’s Inequality).
+       (a) Prove (without using Minkowski’s Inequality) that for any numbers a and b
+
+                                      |a+b| ≤|a|+|b|.
+      (b) Use part (a) to establish that for any random variables X and Y with finite expectations,
+
+                                     E|X +Y| ≤E|X|+E|Y|.
+4.65 Prove the Covariance Inequality by generalizing the argument given in the text immediately preceding
+      the inequality.
+
+4.9  Miscellanea
+
+ 4.9.1 The Exchange Paradox
+      The “Exchange Paradox” (Christensen and Utts 1992) has generated a lengthy dialog among
+         statisticians. The problem (or the paradox) goes as follows:
+    A swami puts m dollars in one envelope, and 2m dollars in another. You and your op-
+       ponent each get one of the envelopes (at random). You open your envelope and find x
+        dollars, and then the swami asks you if you want to trade envelopes. You reason that if
+      you switch, you will either get x/2 or 2x dollars, each with probability 1/2. This makes
+       the expected value of a switch equal to (1/2)(x/2)+(1/2)(2x) = 5x/4, which is greater
+       than the x dollars that you hold in your hand. So you offer to trade.
+      The paradox is that your opponent has done the same calculation. How can the trade be
+       advantageous for both of you?
+     (i) Christensen and Utts say “The conclusion that trading envelopes is always optimal is based
+      on the assumption that there is no information obtained by observing the contents of the
+       envelope,” and offer the following resolution.
+         Let M ∼π(m) be the pdf for the amount of money placed in the first envelope, and let X be
+       the amount of money in your envelope. Then P(X = m|M = m) = P(X = 2m|M = m) = 1/2,      and hence
+                                 π(x)                              π(x/2)
+         P(M = x|X = x) = π(x)+π(x/2) and P(M = x/2|X = x) = π(x)+π(x/2).

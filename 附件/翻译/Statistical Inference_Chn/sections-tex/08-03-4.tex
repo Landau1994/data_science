@@ -1,0 +1,71 @@
+\sourcepageanchor{353}
+\subsubsection{\texorpdfstring{$p$}{p} 值}\label{sec:8.3.4}
+假设检验完成后，必须以在统计上有意义的方式报告结论. 一种报告方式是给出所用检验的大小 $\alpha$，以及拒绝或接受 $H_0$ 的决定. 检验大小包含重要信息：若 $\alpha$ 小，拒绝 $H_0$ 的决定相当有说服力；若 $\alpha$ 大，这一决定就不太有说服力，因为检验错误作出该决定的概率较大. 另一种方式是报告称为 $p$ 值（$p$-value）的某种检验统计量的取值.
+\begin{definition}\label{def:8.3.26}\index{SI0742@p值}
+$p$ 值 $p(\boldsymbol X)$ 是一个检验统计量，对每个样本点 $\boldsymbol x$ 满足 $0\le p(\boldsymbol x)\le1$. $p(\boldsymbol X)$ 的小值为 $H_1$ 为真提供证据. 若对每个 $\theta\in\Theta_0$ 和每个 $0\le\alpha\le1$，都有
+\begin{equation}\label{eq:8.3.8}P_\theta(p(\boldsymbol X)\le\alpha)\le\alpha,\end{equation}
+则称该 $p$ 值有效（valid\mbox{）.}
+\end{definition}
+若 $p(\boldsymbol X)$ 有效，很容易基于它构造水平 $\alpha$ 的检验. 当且仅当 $p(\boldsymbol X)\le\alpha$ 时拒绝 $H_0$ 的检验，由\eqref{eq:8.3.8}可知水平为 $\alpha$. 用 $p$ 值报告检验结果的优点是，每位读者都能选择自己认为适当的 $\alpha$，将报告的 $p(\boldsymbol x)$ 与之比较，判断这些数据会导致接受还是拒绝 $H_0$. 此外，$p$ 值越小，拒绝 $H_0$ 的证据越强. 因而，$p$ 值在一个更连续的尺度上报告检验结果，而不只是“接受 $H_0$”或“拒绝 $H_0$”这样的二分决策.
+
+\autoref{thm:8.3.27}给出定义有效 $p$ 值最常用的方法.
+\begin{theorem}\label{thm:8.3.27}
+设 $W(\boldsymbol X)$ 是一个检验统计量，其大值为 $H_1$ 为真提供证据. 对每个样本点 $\boldsymbol x$，定义
+\begin{equation}\label{eq:8.3.9}p(\boldsymbol x)=\sup_{\theta\in\Theta_0}P_\theta(W(\boldsymbol X)\ge W(\boldsymbol x)).\end{equation}
+则 $p(\boldsymbol X)$ 是有效 $p$ 值.
+\end{theorem}
+\begin{proof}
+固定 $\theta\in\Theta_0$. 用 $F_\theta(w)$ 表示 $-W(\boldsymbol X)$ 的累积分布函数，定义
+$$\begin{aligned}
+p_\theta(\boldsymbol x)&=P_\theta(W(\boldsymbol X)\ge W(\boldsymbol x))\\
+&=P_\theta(-W(\boldsymbol X)\le-W(\boldsymbol x))=F_\theta(-W(\boldsymbol x)).
+\end{aligned}$$
+则随机变量 $p_\theta(\boldsymbol X)$ 等于 $F_\theta(-W(\boldsymbol X))$. 因此，由概率积分变换或\autoref{exercise:2.10}，$p_\theta(\boldsymbol X)$ 的分布在随机意义下大于或等于 $\operatorname{uniform}(0,1)$ 分布，即对每个 $0\le\alpha\le1$，$P_\theta(p_\theta(\boldsymbol X)\le\alpha)\le\alpha$. 因为对每个 $\boldsymbol x$，$p(\boldsymbol x)=\sup_{\theta'\in\Theta_0}p_{\theta'}(\boldsymbol x)\ge p_\theta(\boldsymbol x)$，所以
+$$P_\theta(p(\boldsymbol X)\le\alpha)\le P_\theta(p_\theta(\boldsymbol X)\le\alpha)\le\alpha.$$
+这对每个 $\theta\in\Theta_0$ 和每个 $0\le\alpha\le1$ 成立，故 $p(\boldsymbol X)$ 有效.
+\end{proof}
+\eqref{eq:8.3.9}的上确界可能难以计算. 下面两个例子说明不太困难的常见情形：第一例无需取上确界；第二例则容易确定使上确界达到的 $\theta$ 值.
+\begin{example}[双侧正态检验的 $p$ 值]\label{ex:8.3.28}
+设 $X_1,\ldots,X_n$ 是来自 $\mathrm n(\mu,\sigma^2)$ 总体的随机样本. 考虑检验 $H_0:\mu=\mu_0$ 对 $H_1:\mu\ne\mu_0$. 由\autoref{exercise:8.38}，似然比检验在 $W(\boldsymbol X)=|\bar X-\mu_0|/(S/\sqrt n)$ 较大时拒绝 $H_0$. 若 $\mu=\mu_0$，不论 $\sigma$ 为何，$(\bar X-\mu_0)/(S/\sqrt n)$ 均服从自由度为 $n-1$ 的 Student $t$ 分布. 因而计算\eqref{eq:8.3.9}时，对所有 $\theta$ 值，也就是所有 $\sigma$ 值，概率都相同. 所以，这个双侧 $t$ 检验由\eqref{eq:8.3.9}给出的 $p$ 值为
+$$p(\boldsymbol x)=2P\left(T_{n-1}\ge\frac{|\bar x-\mu_0|}{s/\sqrt n}\right),$$
+其中 $T_{n-1}$ 服从自由度为 $n-1$ 的 Student $t$ 分布.
+\end{example}
+\sourcepageanchor{354}
+\begin{example}[单侧正态检验的 $p$ 值]\label{ex:8.3.29}
+再考虑\autoref{ex:8.3.28}的正态模型，但检验 $H_0:\mu\le\mu_0$ 对 $H_1:\mu>\mu_0$. 由\autoref{exercise:8.37}，似然比检验在 $W(\boldsymbol X)=(\bar X-\mu_0)/(S/\sqrt n)$ 较大时拒绝 $H_0$. 下列论证说明，对此统计量，\eqref{eq:8.3.9}的上确界总在参数 $(\mu_0,\sigma)$ 处达到，且所取 $\sigma$ 值无关紧要. 考虑任意 $\mu\le\mu_0$ 和任意 $\sigma$：
+$$\begin{aligned}
+P_{\mu,\sigma}(W(\boldsymbol X)\ge W(\boldsymbol x))
+&=P_{\mu,\sigma}\left(\frac{\bar X-\mu_0}{S/\sqrt n}\ge W(\boldsymbol x)\right)\\
+&=P_{\mu,\sigma}\left(\frac{\bar X-\mu}{S/\sqrt n}\ge W(\boldsymbol x)+\frac{\mu_0-\mu}{S/\sqrt n}\right)\\
+&=P_{\mu,\sigma}\left(T_{n-1}\ge W(\boldsymbol x)+\frac{\mu_0-\mu}{S/\sqrt n}\right)\\
+&\le P(T_{n-1}\ge W(\boldsymbol x)).
+\end{aligned}$$
+这里 $T_{n-1}$ 仍服从自由度为 $n-1$ 的 Student $t$ 分布. 最后一行的不等式成立，是因为 $\mu_0\ge\mu$，所以 $(\mu_0-\mu)/(S/\sqrt n)$ 是非负随机变量. 此处省去 $P$ 的下标，因为该概率不依赖 $(\mu,\sigma)$. 另外，
+$$\begin{aligned}
+P(T_{n-1}\ge W(\boldsymbol x))&=P_{\mu_0,\sigma}\left(\frac{\bar X-\mu_0}{S/\sqrt n}\ge W(\boldsymbol x)\right)\\
+&=P_{\mu_0,\sigma}(W(\boldsymbol X)\ge W(\boldsymbol x)),
+\end{aligned}$$
+由于 $(\mu_0,\sigma)\in\Theta_0$，这一概率正是\eqref{eq:8.3.9}取上确界时所考虑的概率之一. 因此，单侧 $t$ 检验由\eqref{eq:8.3.9}给出的 $p$ 值为
+$$p(\boldsymbol x)=P(T_{n-1}\ge W(\boldsymbol x))=P\left(T_{n-1}\ge\frac{\bar x-\mu_0}{s/\sqrt n}\right).$$
+\end{example}
+定义有效 $p$ 值的另一种方法，是对充分统计量取条件分布，从而替代\eqref{eq:8.3.9}. 设 $S(\boldsymbol X)$ 是模型 $\{f(\boldsymbol x\mid\theta):\theta\in\Theta_0\}$ 的充分统计量. （为避免检验功效低，重要的是 $S$ 仅对原假设模型充分，而不是对整个模型 $\{f(\boldsymbol x\mid\theta):\theta\in\Theta\}$ 充分.）若原假设为真，给定 $S=s$ 后 $\boldsymbol X$ 的条件分布不依赖 $\theta$. 再令 $W(\boldsymbol X)$ 为大值支持 $H_1$ 为真的检验统计量. 对每个样本点 $\boldsymbol x$ 定义
+\begin{equation}\label{eq:8.3.10}\index{SI0743@条件}p(\boldsymbol x)=P(W(\boldsymbol X)\ge W(\boldsymbol x)\mid S=S(\boldsymbol x)).\end{equation}
+像\autoref{thm:8.3.27}那样论证，但只考虑给定 $S=s$ 后 $\boldsymbol X$ 的这一个条件分布，可知对任意 $0\le\alpha\le1$，
+$$P(p(\boldsymbol X)\le\alpha\mid S=s)\le\alpha.$$
+于是，对任意 $\theta\in\Theta_0$，无条件地有
+$$\begin{aligned}
+P_\theta(p(\boldsymbol X)\le\alpha)&=\sum_sP(p(\boldsymbol X)\le\alpha\mid S=s)P_\theta(S=s)\\
+&\le\sum_s\alpha P_\theta(S=s)\le\alpha.
+\end{aligned}$$
+所以，\eqref{eq:8.3.10}定义的 $p(\boldsymbol X)$ 有效. 对连续 $S$，求和可换成积分，但此法通常用于离散 $S$，如下例.
+\begin{example}[Fisher 精确检验]\label{ex:8.3.30}
+设 $S_1,S_2$ 是独立观测，$S_1\sim\operatorname{binomial}(n_1,p_1)$，$S_2\sim\operatorname{binomial}(n_2,p_2)$. 考虑检验 $H_0:p_1=p_2$ 对 $H_1:p_1>p_2$. 在 $H_0$ 下，用 $p$ 表示 $p_1=p_2$ 的共同值，$(S_1,S_2)$ 的联合质量函数为
+$$\begin{aligned}
+f(s_1,s_2\mid p)&=\binom{n_1}{s_1}p^{s_1}(1-p)^{n_1-s_1}\binom{n_2}{s_2}p^{s_2}(1-p)^{n_2-s_2}\\
+&=\binom{n_1}{s_1}\binom{n_2}{s_2}p^{s_1+s_2}(1-p)^{n_1+n_2-(s_1+s_2)}.
+\end{aligned}$$
+\sourcepageanchor{355}
+因此，$S=S_1+S_2$ 在 $H_0$ 下是充分统计量. 给定 $S=s$，合理的做法是用 $S_1$ 作检验统计量，当 $S_1$ 较大时拒绝 $H_0$、支持 $H_1$，因为较大的 $S_1$ 对应较小的 $S_2=s-S_1$. 给定 $S=s$ 后 $S_1$ 的条件分布为 $\operatorname{hypergeometric}(n_1+n_2,n_1,s)$（见\autoref{exercise:8.48}\mbox{）.} 所以，\eqref{eq:8.3.10}中的条件 $p$ 值为
+$$p(s_1,s_2)=\sum_{j=s_1}^{\min\{n_1,s\}}f(j\mid s),$$
+即超几何概率之和. 由这个 $p$ 值定义的检验称为 Fisher 精确检验（Fisher's Exact Test\mbox{）.}
+\end{example}

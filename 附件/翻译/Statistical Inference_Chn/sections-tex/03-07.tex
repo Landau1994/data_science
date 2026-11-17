@@ -1,0 +1,353 @@
+\sourcepageanchor{136}
+\subsection{习题}\label{sec:3.7}
+\setcounter{exercise}{0}
+\begin{exercise}\label{exercise:3.1}
+设随机变量$X$具有一般离散均匀$(N_0,N_1)$分布，它给$N_0,N_0+1,\ldots,N_1$各个值赋予相同的概率. 这里$N_0\le N_1$且二者均为整数. 求$EX$与$\operatorname{Var}X$的表达式.
+\end{exercise}
+\begin{exercise}\label{exercise:3.2}
+一个制造商收到供应商交来的一批100个零件. 若其中不合格零件超过五个，这批货就是不可接受的. 制造商将从中随机选择$K$个零件检查，如果样本中没有发现不合格零件，就接受这批货.
+\begin{enumerate}
+\item[(a)] $K$至少要多大，才能保证制造商接受不可接受批次的概率小于$.10$？
+\item[(b)] 假设制造商决定，只要样本中至多有一个不合格零件，就接受这批货. $K$至少要多大，才能保证制造商接受不可接受批次的概率小于$.10$？
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.3}
+某些街角的交通流量，有时可建模为一列Bernoulli试验：假定任意给定一秒内有车通过的概率为常数$p$，且不同秒内的车辆通过情况互不影响. 把每秒视为不可分的时间单位（试验），就可应用Bernoulli模型. 假设只有未来三秒内没有车通过时，行人才能横穿街道. 求该行人在开始横穿前恰好需要等待四秒的概率.
+\end{exercise}
+\begin{exercise}\label{exercise:3.4}
+一个有$n$把钥匙的人想开门，于是随机试钥匙. 恰有一把钥匙能打开门. 在下列情况下求试验次数的均值：
+\begin{enumerate}
+\item[(a)] 试过而未成功的钥匙仍可在以后再次选取.
+\item[(b)] 试过而未成功的钥匙被排除.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.5}
+已知一种标准药物在使用它的病例中有80\%有效. 在100名患者中试验一种新药，发现85例有效. 新药是否更好？（提示：假定新药和旧药同样有效，计算观察到85次或更多成功的概率.）
+\end{exercise}
+\begin{exercise}\label{exercise:3.6}
+预计某个品种的玫瑰会吸引大量昆虫. 一种市售杀虫剂宣称有效率为99\%. 假设2000只昆虫侵入一个已喷洒该杀虫剂的玫瑰园，令$X=$存活昆虫数.
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:exercise:3.6:a} 哪一种概率分布可能为这个实验提供合理模型？
+\item[(b)]\phantomsection\label{itm:exercise:3.6:b} 用\hyperref[itm:exercise:3.6:a]{(a)}中的模型，写出存活昆虫少于100只的概率表达式，但不要计算.
+\item[(c)] 计算\hyperref[itm:exercise:3.6:b]{(b)}中概率的一个近似值.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.7}
+设某种曲奇中巧克力碎片的数量具有Poisson分布. 我们希望随机选取的一块曲奇含有至少两片巧克力的概率大于$.99$. 求能保证这一概率的分布均值的最小值.\footnote{译注：原文要求概率严格“大于”$.99$，在均值为连续参数时满足条件的集合是一个开射线，因而严格来说只有下确界而无最小值；若改为“不小于”$.99$，则存在最小值.}
+\end{exercise}
+\begin{exercise}\label{exercise:3.8}
+两家电影院争夺1000名顾客的生意. 假设每个顾客独立且“无偏好”地选择其中一家. 令$N$表示每家影院的座位数.
+\begin{enumerate}
+\item[(a)] 使用二项模型，求$N$应满足的一个表达式，以保证因满座而拒绝顾客的概率小于1\%.
+\item[(b)] 用正态近似求$N$的数值.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.9}\index{SI0109@巧合}
+新闻经常把一些巧合报道成惊人的“百万分之一”事件，但仔细考察后，它们实际上并不罕见，甚至是可以预期发生的.
+
+几年前，纽约州一所小学报告，其新入学的幼儿园儿童中有五对双胞胎. 这件事当然传遍全州，报道还引用校长的话，称这是“统计上不可能的事”.
+
+果真如此吗？还是说，这只是\hyperref[bib:source100]{Diaconis和Mosteller（1989）}所称“真正大数定律”的一个例子？让我们作一些计算.
+\sourcepageanchor{137}
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:exercise:3.9:a} 双胞胎出生的概率约为$1/90$，可假定一所小学大约有60名儿童进入幼儿园（三个班，每班20人）. 解释为什么这个“统计上不可能”的事件可视为二项$(60,1/90)$中出现五次或更多成功的概率. 它是否罕见到足以成为新闻？
+\item[(b)]\phantomsection\label{itm:exercise:3.9:b} 即使\hyperref[itm:exercise:3.9:a]{(a)}中的概率足够小，值得报道，也应考虑它可能发生在县内任何一所学校，以及州内任何一个县，而报道方式仍然完全一样. （“真正大数定律”开始发挥作用了.）纽约州有62个县，假定每个县有五所小学是合理的. 这个事件仍可称为“统计上不可能”，还是已经变成可以预期发生的事情？
+\item[(c)] 如果\hyperref[itm:exercise:3.9:b]{(b)}中的概率仍然显得很小，再进一步考虑：这个事件可能发生在50个州中的任何一个、过去十年中的任何一年，仍会受到同样的新闻报道.
+\end{enumerate}
+除了\hyperref[bib:source100]{Diaconis和Mosteller（1989）}，还可参见\hyperref[bib:source157]{Hanley（1992）}对巧合的进一步讨论.
+\end{exercise}
+\begin{exercise}\label{exercise:3.10}
+\hyperref[bib:source290]{Shuster（1991）}描述了他为一宗涉及贩卖可卡因的案件所作的一些概率计算. 佛罗里达州一个警察部门查获496包疑似可卡因，从中随机抽取四包检验，确认确实是可卡因. 随后警察又随机挑出两包，假扮毒贩把它们卖给被告. 最后这两包在接受检验、确认确为可卡因之前遗失了.
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:exercise:3.10:a} 若原来的496包由$N$包可卡因和$M=496-N$包非可卡因组成，证明先选出四包可卡因、再选出两包非可卡因的概率，也就是被告没有购买可卡因而无罪的概率，为\footnote{译注：这个式子是“四包检验为可卡因且随后两包为非可卡因”的联合抽样概率. 在已经观察到前四包均为可卡因后，固定$N,M$时后两包均为非可卡因的条件概率是$\binom M2/\binom{N+M-4}2$. 因此，把原联合概率直接称为被告的“无罪概率”需谨慎；此处保留原题的表述.}
+$$\frac{\binom N4\binom M2}{\binom{N+M}4\binom{N+M-4}2}.$$
+
+\item[(b)] 对$M,N$最大化\hyperref[itm:exercise:3.10:a]{(a)}中的概率，就最大化了被告的“无罪概率”. 证明这个概率为$.022$，在$M=165$、$N=331$时达到.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.11}
+超几何分布可用二项分布或Poisson分布近似. （当然也可用其他分布近似，但本题只关注这两种.）设$X$具有超几何分布
+$$P(X=x\mid N,M,K)=\frac{\binom Mx\binom{N-M}{K-x}}{\binom NK},\qquad x=0,1,\ldots,K.$$
+\begin{enumerate}
+\item[(a)] 证明，当$N\to\infty$、$M\to\infty$且$M/N\to p$时，\index{SI0061@以二项近似超几何}\semanticindexanchor{61:137}
+$$P(X=x\mid N,M,K)\to\binom Kx p^x(1-p)^{K-x},\qquad x=0,1,\ldots,K.$$
+（Stirling公式，见\autoref{exercise:1.23}，可能有用.）
+\item[(b)]\phantomsection\label{itm:exercise:3.11:b}\index{SI0062@以泊松近似超几何} 利用二项分布可用Poisson分布近似这一事实，证明若$N\to\infty$、$M\to\infty$、$K\to\infty$、$M/N\to0$且$KM/N\to\lambda$，则
+$$P(X=x\mid N,M,K)\to\frac{e^{-\lambda}\lambda^x}{x!},\qquad x=0,1,\ldots.$$
+\item[(c)] 不用二项分布的Poisson近似，直接验证\hyperref[itm:exercise:3.11:b]{(b)}中的近似. （\autoref{lem:2.3.14}有帮助.）
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.12}\index{SI0270@与负二项的关系}\index{SI0353@与二项的关系}
+设$X$具有二项$(n,p)$分布，$Y$具有负二项$(r,p)$分布. 证明$F_X(r-1)=1-F_Y(n-r)$.
+\end{exercise}
+\sourcepageanchor{138}
+
+\begin{exercise}\label{exercise:3.13}\index{SI0385@截断}
+截断离散分布（truncated discrete distribution）是指某个特定类别无法被观察到，并从样本空间中去除后得到的分布. 特别地，若$X$的取值范围为$0,1,2,\ldots$，且无法观察0这一类别（通常如此），则零截断随机变量$X_T$的pmf为
+$$P(X_T=x)=\frac{P(X=x)}{P(X>0)},\qquad x=1,2,\ldots.$$
+分别从下列分布出发，求零截断随机变量的pmf、均值和方差：
+\begin{enumerate}
+\item[(a)] $X\sim\operatorname{Poisson}(\lambda)$.
+\item[(b)] $X\sim\text{负二项}(r,p)$，如\eqref{eq:3.2.10}.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.14}\index{SI0327@对数级数}
+从零截断负二项分布出发（参见\autoref{exercise:3.13}），令$r\to0$，就得到一个有趣的分布——对数级数分布（logarithmic series distribution）. 若随机变量$X$满足
+$$P(X=x)=\frac{-(1-p)^x}{x\log p},\qquad x=1,2,\ldots,\quad0<p<1,$$
+则称其具有参数为$p$的对数级数分布.
+\begin{enumerate}
+\item[(a)] 验证这定义了一个合法的概率函数.
+\item[(b)] 求$X$的均值与方差. （对数级数分布已被证明在物种丰度建模中有用. 对这个分布更详细的讨论见\hyperref[bib:source309]{Stuart和Ord（1987）}.）
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.15}\index{SI0378@与负二项的关系}
+\autoref{sec:3.2}曾指出，当$r\to\infty$、$p\to1$且$r(1-p)\to\lambda$时，Poisson$(\lambda)$分布是负二项$(r,p)$分布的极限. 证明在这些条件下，负二项分布的矩母函数收敛到Poisson分布的矩母函数.
+\end{exercise}
+\begin{exercise}\label{exercise:3.16}
+验证正文中给出的关于Gamma函数的以下两个恒等式.
+\begin{enumerate}
+\item[(a)] $\Gamma(\alpha+1)=\alpha\Gamma(\alpha)$.
+\item[(b)] $\Gamma(1/2)=\sqrt\pi$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.17}\index{SI0309@矩}
+对Gamma分布建立一个类似\eqref{eq:3.3.18}的公式. 若$X\sim\operatorname{gamma}(\alpha,\beta)$，则对任意正常数$\nu$，
+$$EX^\nu=\frac{\beta^\nu\Gamma(\nu+\alpha)}{\Gamma(\alpha)}.$$
+\end{exercise}
+\begin{exercise}\label{exercise:3.18}\index{SI0314@与负二项的关系}\index{SI0355@与伽马的关系}
+负二项随机变量与Gamma随机变量之间有一个有趣的关系，有时可提供有用的近似. 设$Y$为参数$r,p$的负二项随机变量，其中$p$为成功概率. 证明当$p\to0$时，随机变量$pY$的矩母函数收敛到参数为$r$和1的Gamma分布的矩母函数.
+\end{exercise}
+\begin{exercise}\label{exercise:3.19}\index{SI0315@与泊松的关系}\index{SI0377@与伽马的关系}
+证明
+$$\int_x^\infty\frac1{\Gamma(\alpha)}z^{\alpha-1}e^{-z}\,dz=\sum_{y=0}^{\alpha-1}\frac{x^ye^{-x}}{y!},\qquad\alpha=1,2,3,\ldots.$$
+（提示：用分部积分.）把这个公式表述为Poisson随机变量与Gamma随机变量之间的概率关系.
+\end{exercise}
+\begin{exercise}\label{exercise:3.20}\index{SI0305@折叠正态}
+设随机变量$X$具有pdf
+$$f(x)=\frac2{\sqrt{2\pi}}e^{-x^2/2},\qquad0<x<\infty.$$
+\begin{enumerate}
+\item[(a)] 求$X$的均值和方差. （这个分布有时称为折叠正态分布，folded normal.）
+\item[(b)] 若$X$具有折叠正态分布，求变换$g(X)=Y$及$\alpha,\beta$的值，使$Y\sim\operatorname{gamma}(\alpha,\beta)$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.21}
+写出定义下列pdf的矩母函数所需的积分：
+$$f(x)=\frac1\pi\frac1{1+x^2}.$$
+这个积分有限吗？（你预期它会有限吗？）
+\end{exercise}
+\sourcepageanchor{139}
+
+\begin{exercise}\label{exercise:3.22}
+对下列每个分布，验证正文中给出的$EX$与$\operatorname{Var}X$公式.
+\begin{enumerate}
+\item[(a)] 若$X$具有Poisson$(\lambda)$分布，验证$\operatorname{Var}X$. （提示：计算$EX(X-1)=EX^2-EX$.）
+\item[(b)] 若$X$具有负二项$(r,p)$分布，验证$\operatorname{Var}X$.
+\item[(c)] 若$X$具有Gamma$(\alpha,\beta)$分布，验证$\operatorname{Var}X$.
+\item[(d)] 若$X$具有Beta$(\alpha,\beta)$分布，验证$EX$与$\operatorname{Var}X$.
+\item[(e)] 若$X$具有双指数$(\mu,\sigma)$分布，验证$EX$与$\operatorname{Var}X$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.23}\index{SI0370@帕累托}
+参数为$\alpha,\beta$的Pareto分布具有pdf
+$$f(x)=\frac{\beta\alpha^\beta}{x^{\beta+1}},\qquad\alpha<x<\infty,\quad\alpha>0,\quad\beta>0.$$
+\begin{enumerate}
+\item[(a)] 验证$f(x)$是pdf.
+\item[(b)] 推导这个分布的均值和方差.
+\item[(c)] 证明若$\beta\le2$，则方差不存在.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.24}
+许多“有名”分布是前面讨论过的常见分布的特殊情形. 对下列每个有名分布，推导pdf的形式，验证它是pdf，并计算均值和方差.
+\begin{enumerate}
+\item[(a)] 若$X\sim\operatorname{exponential}(\beta)$，则$Y=X^{1/\gamma}$具有Weibull$(\gamma,\beta)$分布，其中$\gamma>0$为常数.\index{SI0391@威布尔}\semanticindexanchor{391:139}
+\item[(b)] 若$X\sim\operatorname{exponential}(\beta)$，则$Y=(2X/\beta)^{1/2}$具有Rayleigh分布.\index{SI0380@瑞利}\semanticindexanchor{380:139}
+\item[(c)] 若$X\sim\operatorname{gamma}(a,b)$，则$Y=1/X$具有逆Gamma分布（inverse gamma distribution）$IG(a,b)$. （这个分布在方差的Bayes估计中有用；见\autoref{exercise:7.23}.）
+\item[(d)] 若$X\sim\operatorname{gamma}(3/2,\beta)$，则$Y=(X/\beta)^{1/2}$具有Maxwell分布.\index{SI0335@麦克斯韦}\semanticindexanchor{335:139}
+\item[(e)] 若$X\sim\operatorname{exponential}(1)$，则$Y=\alpha-\gamma\log X$具有Gumbel$(\alpha,\gamma)$分布，其中$-\infty<\alpha<\infty$且$\gamma>0$. （Gumbel分布也称为极值分布，extreme value distribution.）\index{SI0300@极值}\semanticindexanchor{300:139}\index{SI0322@耿贝尔}\semanticindexanchor{322:139}
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.25}\index{SI0469@风险率函数}
+假设随机变量$T$为某个对象的寿命（可能是电子元件的寿命，或接受某种治疗的受试者的生存时间）. 与随机变量$T$相关的风险函数$h_T(t)$定义为
+$$h_T(t)=\lim_{\delta\to0}\frac{P(t\le T<t+\delta\mid T\ge t)}\delta.$$
+因此，可把$h_T(t)$解释为：在对象存活到时间$t$的条件下，该对象存活至略晚于$t$的时刻的概率变化率.\footnote{译注：定义式的分子是给定存活到$t$后在$[t,t+\delta)$内失效的概率，故风险函数更准确地说是条件瞬时失效率；原文将其描述为“存活至略晚于$t$”的概率变化率，表述容易混淆. 极限应理解为$\delta\downarrow0$.} 证明若$T$为连续随机变量，则
+$$h_T(t)=\frac{f_T(t)}{1-F_T(t)}=-\frac d{dt}\log(1-F_T(t)).$$
+\end{exercise}
+\begin{exercise}\label{exercise:3.26}
+验证下列pdf具有所给出的风险函数（见\autoref{exercise:3.25}）.
+\begin{enumerate}
+\item[(a)] 若$T\sim\operatorname{exponential}(\beta)$，则$h_T(t)=1/\beta$.\index{SI0291@风险率函数}\semanticindexanchor{291:139}
+\item[(b)] 若$T\sim\operatorname{Weibull}(\gamma,\beta)$，则$h_T(t)=(\gamma/\beta)t^{\gamma-1}$.\index{SI0392@风险率函数}\semanticindexanchor{392:139}
+\item[(c)] 若$T\sim\operatorname{logistic}(\mu,\beta)$，即\index{SI0330@风险率函数}\semanticindexanchor{330:139}
+$$F_T(t)=\frac1{1+e^{-(t-\mu)/\beta}},$$
+则$h_T(t)=(1/\beta)F_T(t)$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.27}
+对下列每个族，说明族中是否所有pdf都是单峰的（见\autoref{exercise:2.27}）.
+\begin{enumerate}
+\item[(a)] 均匀$(a,b)$.
+\item[(b)] Gamma$(\alpha,\beta)$.
+\item[(c)] $\operatorname n(\mu,\sigma^2)$.
+\item[(d)] Beta$(\alpha,\beta)$.
+\end{enumerate}
+\end{exercise}
+\sourcepageanchor{140}
+
+\begin{exercise}\label{exercise:3.28}\index{SI0435@指数族}
+证明下列各族都是指数族.
+\begin{enumerate}
+\item[(a)] 参数$\mu$或$\sigma$之一已知的正态族.
+\item[(b)] 参数$\alpha$或$\beta$之一已知，或二者均未知的Gamma族.
+\item[(c)] 参数$\alpha$或$\beta$之一已知，或二者均未知的Beta族.
+\item[(d)] Poisson族.
+\item[(e)] $r$已知、$0<p<1$的负二项族.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.29}
+对\autoref{exercise:3.28}中的每个族，描述其自然参数空间.
+\end{exercise}
+\begin{exercise}\label{exercise:3.30}
+使用\autoref{thm:3.4.2}的恒等式：
+\begin{enumerate}
+\item[(a)] 计算二项随机变量的方差.
+\item[(b)] 计算Beta$(a,b)$随机变量的均值和方差.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.31}
+本题将证明\autoref{thm:3.4.2}.
+\begin{enumerate}
+\item[(a)] 从等式
+$$\int f(x\mid\theta)=h(x)c(\theta)\exp\left(\sum_{i=1}^k w_i(\theta)t_i(x)\right)\,dx=1,$$
+出发，对两边求导，再整理各项以建立\eqref{eq:3.4.4}. （$\frac d{dx}\log g(x)=g'(x)/g(x)$这一事实有帮助.）\footnote{译注：原式把“$f(x\mid\theta)=$”直接写在积分号与被积表达式之间，形式不完整. 应理解为$\int f(x\mid\theta)\,dx=\int h(x)c(\theta)\exp(\sum_iw_i(\theta)t_i(x))\,dx=1$. 原式照录.}
+\item[(b)] 对上面的等式再求一次导数，然后整理以建立\eqref{eq:3.4.5}. （$\frac{d^2}{dx^2}\log g(x)=g''(x)/g(x)-(g'(x)/g(x))^2$这一事实有帮助.）
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.32}\leavevmode
+\begin{enumerate}
+\item[(a)] 若一个指数族可写成\eqref{eq:3.4.7}的形式，证明\autoref{thm:3.4.2}中的恒等式简化为
+\begin{align*}
+E(t_j(X))&=-\frac\partial{\partial\eta_j}\log c^*(\eta),\\
+\operatorname{Var}(t_j(X))&=-\frac{\partial^2}{\partial\eta_j^2}\log c^*(\eta).
+\end{align*}
+\item[(b)] 用这个恒等式计算Gamma$(a,b)$随机变量的均值与方差.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.33}
+对下列每个族：
+\begin{enumerate}
+\item[(i)] 验证它是指数族.
+\item[(ii)] 描述参数向量$\theta$所在的曲线.
+\item[(iii)] 画出弯曲参数空间的示意图.
+\end{enumerate}
+\begin{enumerate}
+\item[(a)] $\operatorname n(\theta,\theta)$.
+\item[(b)] $\operatorname n(\theta,a\theta^2)$，$a$已知.
+\item[(c)] Gamma$(\alpha,1/\alpha)$.
+\item[(d)] $f(x\mid\theta)=C\exp(-(x-\theta)^4)$，$C$为归一化常数.
+\end{enumerate}
+\end{exercise}
+\needspace{6\baselineskip}
+\begin{exercise}\label{exercise:3.34}\index{SI0437@正态近似}
+在\autoref{ex:3.4.9}中，我们看到正态近似可产生弯曲指数族. 对下列每个正态近似：
+\begin{enumerate}
+\item[(i)] 描述参数向量$\theta$所在的曲线.
+\item[(ii)] 画出弯曲参数空间的示意图.
+\end{enumerate}
+\begin{enumerate}
+\item[(a)] Poisson近似：$\bar X\sim\operatorname n(\lambda,\lambda/n)$.
+\item[(b)] 二项近似：$\bar X\sim\operatorname n(p,p(1-p)/n)$.
+\item[(c)] 负二项近似：$\bar X\sim\operatorname n(r(1-p)/p,r(1-p)/np^2)$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.35}\leavevmode
+\begin{enumerate}
+\item[(a)] 近似Poisson的正态族也可参数化为$\operatorname n(e^\theta,e^\theta)$，其中$-\infty<\theta<\infty$. 画出参数空间的图形，并与\hyperref[exercise:3.34]{习题3.34(a)}中的近似比较.\footnote{译注：原式方差为$e^\theta$，而所引用的\hyperref[exercise:3.34]{习题3.34(a)}是样本均值的近似，其方差为$\lambda/n$. 若这里也表示同一固定样本量$n$的样本均值族，在令$\lambda=e^\theta$后方差应为$e^\theta/n$；若指单个Poisson变量的正态近似，则原式可成立. 原文意图待核实.}
+\sourcepageanchor{141}
+\item[(b)] 假设$X\sim\operatorname{gamma}(\alpha,\beta)$，并假定$EX=\mu$. 画出参数空间的示意图.
+\item[(c)] 假设$X_i\sim\operatorname{gamma}(\alpha_i,\beta_i)$，$i=1,2,\ldots,n$，并假定$EX_i=\mu$. 描述参数空间$(\alpha_1,\ldots,\alpha_n,\beta_1,\ldots,\beta_n)$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.36}
+考虑pdf $f(x)=\frac{63}4(x^6-x^8)$，$-1<x<1$. 对下列各情形，在同一坐标轴上画出$(1/\sigma)f((x-\mu)/\sigma)$.
+\begin{enumerate}
+\item[(a)] $\mu=0,\sigma=1$.
+\item[(b)] $\mu=3,\sigma=1$.
+\item[(c)] $\mu=3,\sigma=2$.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.37}
+证明，若$f(x)$是关于0对称的pdf，则$\mu$是位置—尺度pdf $(1/\sigma)f((x-\mu)/\sigma)$，$-\infty<x<\infty$的中位数.
+\end{exercise}
+\begin{exercise}\label{exercise:3.38}
+设$Z$为pdf为$f(z)$的随机变量. 定义$z_\alpha$为满足下列关系的一个数：
+$$\alpha=P(Z>z_\alpha)=\int_{z_\alpha}^\infty f(z)\,dz.$$
+证明，若$X$是pdf为$(1/\sigma)f((x-\mu)/\sigma)$的随机变量，且$x_\alpha=\sigma z_\alpha+\mu$，则$P(X>x_\alpha)=\alpha$. （因此，若有$z_\alpha$值的数表，就能容易地算出位置—尺度族任意成员的$x_\alpha$值.）
+\end{exercise}
+\begin{exercise}\label{exercise:3.39}\index{SI0276@柯西}
+考虑\autoref{sec:3.3}定义的Cauchy族. 这个族可推广为位置—尺度族，其pdf形式为
+$$f(x\mid\mu,\sigma)=\frac1{\sigma\pi\left(1+\left(\frac{x-\mu}\sigma\right)^2\right)},\qquad-\infty<x<\infty.$$
+Cauchy分布的均值和方差不存在，所以参数$\mu$和$\sigma^2$不是均值和方差. 但它们仍有重要意义. 证明，若$X$是参数为$\mu,\sigma$的Cauchy随机变量，则
+\begin{enumerate}
+\item[(a)] $\mu$是$X$分布的中位数，即$P(X\ge\mu)=P(X\le\mu)=1/2$.
+\item[(b)] $\mu+\sigma$和$\mu-\sigma$是$X$分布的四分位数，即$P(X\ge\mu+\sigma)=P(X\le\mu-\sigma)=1/4$. （提示：先对$\mu=0,\sigma=1$证明，再用\autoref{exercise:3.38}.）
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.40}
+设$f(x)$为任意均值为$\mu$、方差为$\sigma^2$的pdf. 说明如何以$f(x)$为基础构造位置—尺度族，使该族的标准pdf（记为$f^*(x)$）具有均值0、方差1.
+\end{exercise}
+\begin{exercise}\label{exercise:3.41}\index{SI0989@递增}
+若$\theta_1>\theta_2$蕴含$F(x\mid\theta_1)$在随机意义下大于$F(x\mid\theta_2)$，则称cdf族$\{F(x\mid\theta),\theta\in\Theta\}$关于$\theta$随机递增（stochastically increasing）. （随机大于的定义见\autoref{exercise:1.49}.）
+\begin{enumerate}
+\item[(a)] 证明，固定$\sigma^2$时，$\operatorname n(\mu,\sigma^2)$族关于$\mu$随机递增.
+\item[(b)] 证明，固定形状参数$\alpha$时，\eqref{eq:3.3.6}的Gamma$(\alpha,\beta)$族关于尺度参数$\beta$随机递增.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.42}
+随机递增族的定义见\autoref{exercise:3.41}.
+\begin{enumerate}
+\item[(a)] 证明，位置族关于其位置参数随机递增.
+\item[(b)] 证明，若样本空间为$[0,\infty)$，则尺度族关于其尺度参数随机递增.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.43}\index{SI0987@递减}
+若$\theta_1>\theta_2$蕴含$F(x\mid\theta_2)$在随机意义下大于$F(x\mid\theta_1)$，则称cdf族$\{F(x\mid\theta),\theta\in\Theta\}$关于$\theta$随机递减（stochastically decreasing）. （见\autoref{exercise:3.41}和\autoref{exercise:3.42}.）
+\begin{enumerate}
+\item[(a)] 证明，若$X\sim F_X(x\mid\theta)$，其中$X$的样本空间为$(0,\infty)$，且$F_X(x\mid\theta)$关于$\theta$随机递增，则$F_Y(y\mid\theta)$关于$\theta$随机递减，其中$Y=1/X$.
+\item[(b)] 证明，若$X\sim F_X(x\mid\theta)$，其中$F_X(x\mid\theta)$关于$\theta$随机递增且$\theta>0$，则$F_X(x\mid1/\theta)$关于$\theta$随机递减.
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.44}
+对任意$EX^2$与$E|X|$存在的随机变量$X$，证明$P(|X|\ge b)$既不超过$EX^2/b^2$，也不超过$E|X|/b$，其中$b$为正常数. 若$f(x)=e^{-x}$，$x>0$，证明当$b=3$时其中一个界更好，而当$b=\sqrt2$时另一个界更好. （注意\hyperref[sec:3.8.2]{杂录3.8.2}中的Markov不等式.）
+\end{exercise}
+\sourcepageanchor{142}
+
+\begin{exercise}\label{exercise:3.45}\index{SI0574@矩母函数}
+设随机变量$X$具有矩母函数$M_X(t)$，$-h<t<h$.
+\begin{enumerate}
+\item[(a)]\phantomsection\label{itm:exercise:3.45:a} 证明$P(X\ge a)\le e^{-at}M_X(t)$，$0<t<h$. （采用类似Chebyshev不等式证明的方法即可.）
+\item[(b)] 类似地，证明$P(X\le a)\le e^{-at}M_X(t)$，$-h<t<0$.
+\item[(c)] \hyperref[itm:exercise:3.45:a]{(a)}的一个特例是：对矩母函数有定义的所有$t\ge0$，$P(X\ge0)\le Ee^{tX}$. 对函数$h(t,x)$，什么样的一般条件可以保证：对$Eh(t,X)$存在的所有$t\ge0$，都有$P(X\ge0)\le Eh(t,X)$？［在\hyperref[itm:exercise:3.45:a]{(a)}中，$h(t,x)=e^{tx}$.］
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.46}
+对$X\sim\operatorname{uniform}(0,1)$和$X\sim\operatorname{exponential}(\lambda)$，计算$P(|X-\mu_X|\ge k\sigma_X)$，并将答案与Chebyshev不等式给出的界比较.
+\end{exercise}
+\begin{exercise}\label{exercise:3.47}\index{SI0576@正态}
+若$Z$为标准正态随机变量，证明\autoref{ex:3.6.3}中不等式的以下对应式：
+$$P(|Z|\ge t)\ge\sqrt{\frac2\pi}\frac t{1+t^2}e^{-t^2/2}.$$
+\end{exercise}
+\begin{exercise}\label{exercise:3.48}
+对二项分布、负二项分布和超几何分布，推导类似\eqref{eq:3.6.2}的递推关系.
+\end{exercise}
+\begin{exercise}\label{exercise:3.49}
+在假定函数$g$满足适当条件的前提下，证明下列Stein引理的对应结果.
+\begin{enumerate}
+\item[(a)] 若$X\sim\operatorname{gamma}(\alpha,\beta)$，则\index{SI0539@伽马}\semanticindexanchor{539:142}
+$$E(g(X)(X-\alpha\beta))=\beta E(Xg'(X)).$$
+\item[(b)] 若$X\sim\operatorname{beta}(\alpha,\beta)$，则\index{SI0530@贝塔}\semanticindexanchor{530:142}
+$$E\left[g(X)\left(\beta-(\alpha-1)\frac{1-X}X\right)\right]=E((1-X)g'(X)).$$
+\end{enumerate}
+\end{exercise}
+\begin{exercise}\label{exercise:3.50}
+证明\hyperref[thm:3.6.8]{定理3.6.8(b)}中给出的负二项分布恒等式.
+\end{exercise}

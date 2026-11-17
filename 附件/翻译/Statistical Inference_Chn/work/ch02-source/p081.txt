@@ -1,0 +1,41 @@
+50                              TRANSFORMATIONS AND EXPECTATIONS
+     It is sometimes easier to use an alternative formula for the variance, given by
+                             VarX = EX2 −(EX)2,                                (2.3.1)
+which is easily established by noting
+                 VarX =  E(X −EX)2                         = E[X2 −2XEX +(EX)2]
+                =  EX2 −2(EX)2 +(EX)2
+                =  EX2 −(EX)2,
+where we use the fact that E(XEX) = (EX)(EX) = (EX)2, since EX is a constant. We now illustrate
+some moment calculations with a discrete distribution.
+Example 2.3.5 (Binomial variance)  Let X ∼binomial(n, p), that is,
+                               n
+                  P(X = x) =                      x = 0,1,...,n.                                   x  px(1−p)n−x,
+We have previously seen that EX = np. To calculate VarX we first calculate EX2. We have
+                                              n     n
+                                                                                                 (2.3.2)                       EX2 = ∑ x2                                       x=0    x  px(1−p)n−x.
+In order to sum this series, we must first manipulate the binomial coefficient in a manner similar to
+that used for EX (Example 2.2.3). We write
+
+                          n            n!                           x2   = x         = xn n−1   .                      (2.3.3)
+                             x     (x−1)!(n−x)!     x−1
+The summand in (2.3.2) corresponding to x = 0 is zero, and using (2.3.3) we have
+
+                          n
+      EX2 =  n   x n−1         ∑         px(1−p)n−x                     x=1                  x−1
+                     n−1         =  n   (y+1) n−1                                           (setting y =         ∑                      y=0          y    py+1(1−p)n−1−y                      x−1)
+                      n−1                             n−1         =  np   y n−1           +np   n−1          ∑             ∑                       y=0     y    py(1−p)n−1−y     y=0    y    py(1−p)n−1−y.
+Now it is easy to see that the first sum is equal to (n −1)p (since it is the mean of a binomial(n −1, p)), while the second sum is equal to 1. Hence,
+                         EX2 = n(n−1)p2 +np.                                (2.3.4)
+Using (2.3.1), we have
+
+
+                           =              VarX = n(n−1)p2 +np−(np)2                                       −np2 +np                                  = np(1−p).               ∥
+
+    Calculation of higher moments proceeds in an analogous manner, but usually the mathematical
+manipulations become quite involved. In applications, moments of order 3 or 4 are sometimes of
+interest, but there is usually little statistical reason for examining higher moments than these.
+  We now introduce a new function that is associated with a probability distribution, the moment
+generating function (mgf). As its name suggests, the mgf can be used to generate moments. In
+practice, it is easier in many cases to calculate moments directly than to use the mgf. However, the
+main use of the mgf is not to generate moments, but to help in characterizing a distribution. This
+property can lead to some extremely powerful results when used properly.

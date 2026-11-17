@@ -1,0 +1,48 @@
+264                                                 POINT ESTIMATION
+   The Bayes estimator is, again, a linear combination of the prior and sample means. Notice also
+that as τ2, the prior variance, is allowed to tend to infinity, the Bayes estimator tends toward the
+sample mean. We can interpret this as saying that, as the prior information becomes more vague,
+the Bayes estimator tends to give more weight to the sample information. On the other hand, if the
+prior information is good, so that σ2 > τ2, then more weight is given to the prior mean.        ∥
+
+7.2.4  The EM Algorithm1
+
+A last method that we will look at for finding estimators is inherently different in its approach, and
+specifically designed to find MLEs. Rather than detailing a procedure for solving for the MLE, we
+specify an algorithm that is guaranteed to converge to the MLE. This algorithm is called the EM
+(Expectation-Maximization) algorithm. It is based on the idea of replacing one difficult likelihood
+maximization with a sequence of easier maximizations whose limit is the answer to the original
+problem. It is particularly suited to “missing data” problems, as the very fact that there are missing
+data can sometimes make calculations cumbersome. However, we will see that filling in the “missing
+data” will often make the calculation go more smoothly. (We will also see that “missing data” have
+different interpretations – see, for example, Exercise 7.30.)
+    In using the EM algorithm we consider two different likelihood problems. The problem that we
+are interested in solving is the “incomplete-data” problem, and the problem that we actually solve
+is the “complete-data problem.” Depending on the situation, we can start with either problem.
+Example 7.2.17 (Multiple Poisson rates)  We observe X1,X2, ..., Xn and Y1,Y2, ..., Yn, all mu-
+tually independent, where Yi ∼Poisson(βτi) and Xi ∼Poisson(τi). This would model for instance,the incidence of a disease, Yi, where the underlying rate is a function of an overall effect β and an
+additional factor τi. For example, τi could be a measure of population density in area i, or perhaps
+health status of the population in area i. We do not see τi, but get information on it through Xi.
+   The joint pmf is therefore
+                                f((x1,y1),(x2,y2),...,(xn,yn))|β,τ1,τ2,...,τn)
+                                            n  e−βτi(βτi)yi e−τi(τi)xi
+                  =                                         .                         (7.2.11)             ∏                                          i=1      yi!          xi!
+
+The likelihood estimators, which can be found by straightforward differentiation (see Exercise 7.27),
+are
+                       ∑ni=1 yi          x j +yj                                     ˆβ =       and ˆτj =           ,     j = 1,2,...,n.                  (7.2.12)
+                       ∑ni=1 xi                ˆβ +1
+   The likelihood based on the pmf (7.2.11)  is the complete-data likelihood, and ((x1,y1),
+(x2,y2),...,(xn,yn)) is called the complete data. Missing data, which is a common occurrence,
+would make estimation more difficult. Suppose, for example, that the value of x1 was missing. We
+could also discard y1 and proceed with a sample of size n−1, but this is ignoring the information iny1. Using this information would improve our estimates.
+    Starting from the pmf (7.2.11), the pmf of the sample with x1 missing is defined naturally by
+
+                 ∞
+                                                                                            (7.2.13)         ∑ f((x1,y1),(x2,y2),...,(xn,yn))|β,τ1,τ2,...,τn)dx1.                     x1=0
+
+The likelihood based on (7.2.13) is the incomplete-data likelihood. This is the likelihood that we
+need to maximize.                                                               ∥
+
+   1This section contains material that is somewhat specialized and more advanced. It may be skipped without interrupting
+the flow of the text.

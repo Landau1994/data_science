@@ -1,0 +1,44 @@
+EXERCISES                                                                  297
+7.62 Let X1,...,Xn be a random sample from a n(θ,σ2) population, σ2 known. Consider estimating θ using
+     squared error loss. Let π(θ) be a n(µ,τ2) prior distribution on θ and let δ π be the Bayes estimator of θ.
+      Verify the following formulas for the risk function and Bayes risk.
+       (a) For any constants a and b, the estimator δ(x) = aX +b has risk function
+                                       σ2                                R(θ,δ) = a2                                            n +(b−(1−a)θ)2.
+      (b) Let η = σ2/(nτ2 +σ2). The risk function for the Bayes estimator is
+                                           σ2
+                               R(θ,δ π) = (1−η)2 n +η2(θ −µ)2.
+       (c) The Bayes risk for the Bayes estimator is
+                                        B(π,δ π) = τ2η.
+7.63 Let X ∼n(µ,1). Let δ π be the Bayes estimator of µ for squared error loss. Compute and graph the risk
+      functions, R(µ,δ π), for π(µ) ∼n(0,1) and π(µ) ∼n(0,10). Comment on how the prior affects the risk      function of the Bayes estimator.
+7.64 Let X1,...,Xn                  be independent random variables, where Xi has cdf F(x|θi). Show that, for i = 1,...,n,              πi        if δi (Xi)  is a Bayes rule for estimating θi using loss L(θi,ai) and prior πi(θi), then δ π(X) =
+      (δ π1(X1),...,δ πn(Xn)) is a Bayes rule for estimating θ = (θ1,...,θn) using the loss ∑ni=1 L(θi,ai) and
+      prior π(θ) = ∏ni=1 πi(θi).
+7.65 A loss function investigated by Zellner (1986) is the LINEX (LINear–EXponential) loss, a loss function
+       that can handle asymmetries in a smooth way. The LINEX loss is given by
+                                 L(θ,a) = ec(a−θ) −c(a−θ)−1,
+     where c is a positive constant. As the constant c varies, the loss function varies from very asymmetric to
+      almost symmetric.
+       (a) For c = .2,.5, 1, plot L(θ,a) as a function of a−θ.
+                                                        =      (b)  If X ∼F(x|θ), show that the Bayes estimator of θ, using a prior π,  is given by δ π(X)
+         −1c log E(e−cθ|X).
+       (c) Let X1,...,Xn be iid n(θ,σ2), where σ2 is known, and suppose that θ has the noninformative prior
+        π(θ) = 1. Show that the Bayes estimator versus LINEX loss is given by δ B(X) = X −(cσ2/(2n)).
+      (d) Calculate the posterior expected loss for δ B(X) and X using LINEX loss.
+       (e) Calculate the posterior expected loss for δ B(X) and X using squared error loss.
+7.66 The jackknife is a general technique for reducing bias in an estimator (Quenouille 1956). A one-step
+      jackknife estimator is defined as follows. Let X1,...,Xn be a random sample, and let Tn = Tn(X1,...,Xn)
+     be some estimator of a parameter θ. In order to “jackknife” Tn we calculate the n statistics Tn(i), i =
+      1,...,n, where Tn(i) is calculated just as Tn but using the n −1 observations with Xi removed from the      sample. The jackknife estimator of θ, denoted by JK(Tn), is given by
+                                                                  n
+                                   JK(Tn) = nTn                         ∑ Tn(i).                            −n−1n   i=1
+      (In general, JK(Tn) will have a smaller bias than Tn. See Miller (1974) for a good review of the properties
+      of the jackknife.)
+     Now, to be specific, let X1,...,Xn be iid Bernoulli(θ). The object is to estimate θ2.
+       (a) Show that the MLE of θ2,(∑ni=1 Xi/n)2, is a biased estimator of θ2.
+      (b) Derive the one-step jackknife estimator based on the MLE.
+       (c) Show that the one-step jackknife estimator is an unbiased estimator of θ2. (In general, jackknifing
+         only reduces bias. In this special case, however, it removes it entirely.)
+      (d)  Is this jackknife estimator the best unbiased estimator of θ2? If so, prove it. If not, find the best
+         unbiased estimator.
+7.67 Prove Theorem 10.1.5.

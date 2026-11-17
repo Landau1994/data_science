@@ -1,0 +1,46 @@
+280                                                 POINT ESTIMATION
+Such a function is h(x) = sin(2πx). Now
+                    Covθ(X −12,sin(2πX))               =  Covθ(X,sin(2πX))
+                              θ+1
+               =       xsin(2πx)dx
+                                    θ
+                                        θ+1    θ+1 cos(2πx)
+               =           +             dx     (integration by parts)                          −xcos(2πx)2π     θ       θ      2π
+
+               =                     ,                         −cos(2πθ)2π
+where we used cos(2π(θ +1)) = cos(2πθ) and sin(2π(θ +1)) = sin(2πθ).
+                 2 is correlated with an unbiased estimator of zero, and cannot be a best unbiased   Hence X −1
+estimator of θ. In fact, it is straightforward                                         + sin(2πX)/(2π) is                                                                                    2                                              to check that the estimator X −1                                            1
+unbiased for θ and has variance .071 < 12.                                            ∥
+   To answer the question about existence of a best unbiased estimator, what is needed is some
+characterization of all unbiased estimators of zero. Given such a characterization, we could then see
+if our candidate for best unbiased estimator is, in fact, optimal.
+    Characterizing the unbiased estimators of zero is not an easy task and requires conditions on the
+pdf (or pmf) with which we are working. Note that, thus far in this section, we have not specified
+conditions on pdfs (as were needed, for example, in the Cram´er–Rao Lower Bound). The price we
+have paid for this generality is the difficulty in verifying the existence of the best unbiased estimator.
+     If a family of pdfs or pmfs f(x|θ) has the property that there are no unbiased estimators of zero(other than zero itself), then our search would be ended, since any statistic W satisfies Covθ(W,0) =
+0. Recall that the property of completeness, defined in Definition 6.1.4, guarantees such a situation.
+Example 7.3.22 (Continuation of Example 7.3.13)  For X1,...,Xn iid uniform(0,θ), we saw that
+n+1
+  n Y is an unbiased estimator of θ, where Y = max{X1,...,Xn}. The conditions of the Cram´er–RaoTheorem are not satisfied, and we have not yet established whether this estimator is best unbiased.
+In Example 6.2.23, however, it was shown that Y is a complete sufficient statistic. This means that
+the family of pdfs of Y is complete, and there are no unbiased estimators of zero that are based on
+Y. (By sufficiency, in the form of the Rao–Blackwell Theorem, we need consider only unbiased
+estimators of zero based on Y.) Therefore, n+1n Y is uncorrelated with all unbiased estimators of zero
+(since the only one is zero itself) and thus n+1n Y is the best unbiased estimator of θ.                                                                              ∥
+     It is worthwhile to note once again that what is important is the completeness of the family of
+distributions of the sufficient statistic. Completeness of the original family is of no consequence.
+This follows from the Rao–Blackwell Theorem, which says that we can restrict attention to func-
+tions of a sufficient statistic, so all expectations will be taken with respect to its distribution.
+  We sum up the relationship between completeness and best unbiasedness in the following theo-
+rem.
+Theorem 7.3.23   Let T be a complete sufficient statistic for a parameter θ, and let φ(T) be any
+estimator based only on T. Then φ(T) is the unique best unbiased estimator of its expected value.
+
+  We close this section with an interesting and useful application of the theory developed here.
+In many situations, there will be no obvious candidate for an unbiased estimator of a function
+τ(θ), much less a candidate for best unbiased estimator. However, in the presence of completeness,
+the theory of this section tells us that if we can find any unbiased estimator, we can find the best
+unbiased estimator. If T is a complete sufficient statistic for a parameter θ, and h(X1,...,Xn) is any
+unbiased estimator of τ(θ), then φ(T) = E(h(X1,...,Xn)|T) is the best unbiased estimator of τ(θ)(see Exercise 7.56).

@@ -1,0 +1,44 @@
+92                          COMMON FAMILIES OF DISTRIBUTIONS
+Here h(x) ≥0 and t1(x),...,tk(x) are real-valued functions of the observation x (they cannot depend
+on θ), and c(θ) ≥0 and w1(θ),...,wk(θ) are real-valued functions of the possibly vector-valuedparameter θ (they cannot depend on x). Many common families introduced in the previous section
+are exponential families. These include the continuous families – normal, gamma, and beta; and the
+discrete families – binomial, Poisson, and negative binomial.
+   To verify that a family of pdfs or pmfs is an exponential family, we must identify the func-
+tions h(x), c(θ), wi(θ), and ti(x) and show that the family has the form (3.4.1). The next example
+illustrates this.
+Example 3.4.1 (Binomial exponential family)   Let n be a positive integer and consider the
+binomial(n, p) family with 0 < p < 1. Then the pmf for this family, for x = 0,...,n, and 0 < p < 1,
+is
+                                 n
+                         f(x|p) =    x  px(1−p)n−x
+                                 n            p     x
+                  =                                                          (3.4.2)                                     x  (1−p)n                               1−p
+                                 n                   p
+                  =              exp  log         x   .                                     x  (1−p)n                                    1−p
+Define                               n
+                                  x    x = 0,...,n                h(x) =                               ,     c( p) =          0 < p < 1,                     0     otherwise             (1−p)n,
+                               p
+                 w1( p) = log               ,  0 < p < 1,   and   t1(x) = x.
+                    1−p
+Then we have
+                               f(x|p) = h(x)c( p)exp[w1( p)t1(x)],                          (3.4.3)
+which is of the form (3.4.1) with k = 1. In particular, note that h(x) > 0 only if x = 0,...,n and c( p)
+is defined only if 0 < p < 1. This is important, as (3.4.3) must match (3.4.2) for all values of x, and
+is only an exponential family if 0 < p < 1 (so the functions of the parameter are only defined here).
+Also, the parameter values p = 0 and 1 are sometimes included in the binomial model, but we have
+not included them here because the set of x values for which f(x|p) > 0 is different for p = 0 and 1
+than for other p values.                                                            ∥
+   The specific form of (3.4.1) results in exponential families having many nice mathematical prop-
+erties. But more importantly for a statistical model, the form of (3.4.1) results in many nice statistical
+properties. We next illustrate a calculational shortcut for moments of an exponential family.
+Theorem 3.4.2    If X is a random variable with pdf or pmf of the form (3.4.1), then
+
+                        k ∂wi(θ)
+          E                    =        logc(θ)                                   (3.4.4)       ∑        ti(X)                    i=1  ∂θj       −∂∂θj
+                        k ∂wi(θ)                                             k ∂2wi(θ)
+                    =            Var                                                                                                                           .       (3.4.5)       ∑        ti(X)                                                     2      ∑      2  ti(X)                    i=1  ∂θj         −∂2∂θ j logc(θ)−E  i=1  ∂θ j
+
+
+Although these equations may look formidable, when applied to specific cases they can work out
+quite nicely. Their advantage is that we can replace integration or summation by differentiation,
+which is often more straightforward.

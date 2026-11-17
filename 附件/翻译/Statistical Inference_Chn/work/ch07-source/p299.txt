@@ -1,0 +1,45 @@
+268                                                 POINT ESTIMATION
+(This is true without the normality assumption; see Theorem 5.2.6.) The MSEs of these estimators
+are given by
+
+                                             σ2
+                           E(¯X −µ)2 =  Var ¯X = n  ,
+                                               2σ4                        =  VarS2 =                           E(S2 −σ2)2                                        n−1.
+The MSE of ¯X remains σ2/n even if the normality assumption is dropped. However, the above
+expression for the MSE of S2 does not remain the same if the normality assumption is relaxed (see
+Exercise 5.8).                                                                   ∥
+   Although many unbiased estimators are also reasonable from the standpoint of MSE, be aware
+that controlling bias does not guarantee that MSE is controlled. In particular, it is sometimes the
+case that a trade-off occurs between variance and bias in such a way that a small increase in bias
+can be traded for a larger decrease in variance, resulting in an improvement in MSE.
+Example 7.3.4 (Continuation of Example 7.3.3)  An alternative estimator for σ2 is the maxi-
+                         = n−1n  S2. It is straightforward to calculatemum likelihood estimator ˆσ2 = 1n ∑ni=1(Xi −¯X)2
+                      Eˆσ2 = E n−1 S2 = n−1 σ2,
+                                     n         n
+
+so ˆσ2 is a biased estimator of σ2. The variance of ˆσ2 can also be calculated as
+
+                                                              2
+                 Var ˆσ2 = Var  n−1 S2 =  n−1   VarS2 = 2(n−1)σ4 ,
+                             n           n                  n2
+
+and, hence, its MSE is given by
+
+                                                                     2
+             E(ˆσ2    = 2(n−1)σ4 + n−1 σ2     =  2n−1  σ4.                −σ2)2       n2         n   −σ2         n2
+
+We thus have
+                                             2               E(ˆσ2    =  2n−1  σ4 <        σ4 = E(S2                  −σ2)2       n2                        −σ2)2,                               n−1
+showing that ˆσ2 has smaller MSE than S2. Thus, by trading off variance for bias, the MSE is im-
+proved.                                                                        ∥
+  We hasten to point out that the above example does not imply that S2 should be abandoned as
+an estimator of σ2. The above argument shows that, on the average, ˆσ2 will be closer to σ2 than
+S2 if MSE is used as a measure. However, ˆσ2 is biased and will, on the average, underestimate σ2.
+This fact alone may make us uncomfortable about using ˆσ2 as an estimator of σ2. Furthermore, it
+can be argued that MSE, while a reasonable criterion for location parameters, is not reasonable for
+scale parameters, so the above comparison should not even be made. (One problem is that MSE
+penalizes equally for overestimation and underestimation, which is fine in the location case. In the
+scale case, however, zero is a natural lower bound, so the estimation problem is not symmetric.
+Use of MSE in this case tends to be forgiving of underestimation.) The end result of this is that no
+absolute answer is obtained but rather more information is gathered about the estimators in the hope
+that, for a particular situation, a good estimator is chosen.

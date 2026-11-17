@@ -1,0 +1,41 @@
+274                                                 POINT ESTIMATION
+   The quantity Eθ    ∂θ∂ log f(X|θ)      is called the information number, or Fisher informationof the sample. This terminology          reflects2the fact that the information number gives a bound on the
+variance of the best unbiased estimator of θ. As the information number gets bigger and we have
+more information about θ, we have a smaller bound on the variance of the best unbiased estimator.
+    In fact, the term Information Inequality is an alternative to Cram´er–Rao Inequality, and the
+Information Inequality exists in much more general forms than is presented here. A key difference
+of the more general form is that all assumptions about the candidate estimators are removed, and
+are replaced with assumptions on the underlying density. In this form, the Information Inequality
+becomes very useful in comparing the performance of estimators. See Lehmann and Casella (1998,
+Section 2.6) for details.
+   For any differentiable function τ(θ) we now have a lower bound on the variance of any estimator
+W satisfying (7.3.4) and EθW = τ(θ). The bound depends only on τ(θ) and f(x|θ), and is a uniformlower bound on the variance. Any candidate estimator satisfying EθW = τ(θ) and attaining this
+lower bound is a best unbiased estimator of τ(θ).
+   Before looking at some examples, we present a computational result that aids in the application
+of this theorem. Its proof is left to Exercise 7.39.
+Lemma 7.3.11  If f(x|θ) satisfies
+              d                        ∂
+                 Eθ             dθ                  ∂θ                           log f(X|θ) =  ∂θ   ∂θ log f(x|θ)  f(x|θ)  dx           ∂            ∂           
+(true for an exponential family), then
+
+                  Eθ                                                                   2                                                           log f(X|θ)   .                    ∂θ                               log f(X|θ)   = −Eθ  ∂θ            ∂        2    ∂2       
+   Using the tools just developed, we return to, and settle, the Poisson example.
+Example 7.3.12 (Conclusion of Example 7.3.8)  Here τ(λ) = λ, so τ′(λ) = 1. Also, since we
+have an exponential family, using Lemma 7.3.11 gives us
+
+                ∂       n
+                       =                                                          log                                                                  2         Eλ        log ∏                                       ∂λ     f(X|λ)       ∂λ     i=1 f(Xi|λ)2     −nEλ ∂2                                        
+                                                                 X                              ∂2      e−λλ
+                       =               log                                                                  2                                  −nEλ  ∂λ     X! 
+                       =           +X logλ                                                                  2                                  −nEλ  ∂λ (−λ        −logX!)                              ∂2              
+                       =                                                                  2                                  −nEλ −Xλ                                        n     
+                       =       .
+                                    λ
+Hence for any unbiased estimator, W, of λ, we must have
+
+                                      Varλ W        .                        ≥λn
+Since Varλ ¯X = λ/n, ¯X is a best unbiased estimator of λ.                                                                              ∥
+     It is important to remember that a key assumption in the Cram´er–Rao Theorem is the ability
+to differentiate under the integral sign, which, of course, is somewhat restrictive. As we have seen,
+densities in the exponential class will satisfy the assumptions, but, in general, such assumptions
+need to be checked, or contradictions such as the following will arise.

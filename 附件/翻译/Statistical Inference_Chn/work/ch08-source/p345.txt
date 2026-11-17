@@ -1,0 +1,44 @@
+314                                             HYPOTHESIS TESTING
+But for any (µ,σ2) = θ ∈Θ0, µ = µ0 and thus (X −µ0)/  S2/n has a Student’s t distribution
+with n−1 degrees of freedom. So any choice of tU = tn−1,1−α1 and tL = tn−1,α2, with α1 +α2 = α,
+will yield a test with Type I Error probability of exactly α for all θ ∈Θ0. The usual choice is
+tL = −tU = tn−1,α/2.                                                              ∥
+   Other than α levels, there are other features of a test that might also be of concern. For example,
+we would like a test to be more likely to reject H0 if θ ∈Θc                                                                    0 than if θ ∈Θ0. All of the powerfunctions in Figures 8.3.1 and 8.3.2 have this property, yielding tests that are called unbiased.
+
+                                                                                                          0Definition 8.3.9 A test with power function β(θ) is unbiased if β(θ ′) ≥β(θ ′′) for every θ ′ ∈Θc
+and θ ′′ ∈Θ0.
+Example 8.3.10 (Conclusion of Example 8.3.3)  An LRT of H0 : θ ≤θ0 versus H1 : θ > θ0 haspower function
+                                                 θ0                          β(θ) = P  Z > c+  −θ    ,                                   σ/√n
+where Z ∼n(0,1). Since β(θ) is an increasing function of θ (for fixed θ0), it follows that
+                     β(θ) > β(θ0) = max β(t),   for all θ > θ0,
+                                               t≤θ0
+and, hence, that the test is unbiased.                                                 ∥
+    In most problems there are many unbiased tests. (See Exercise 8.45.) Likewise, there are many
+size α tests, likelihood ratio tests, etc. In some cases we have imposed enough restrictions to narrow
+consideration to one test. For the two problems in Example 8.3.7, there is only one size α likelihood
+ratio test. In other cases there remain many tests from which to choose. We discussed only the one
+that rejects H0 for large values of T. In the following sections we will discuss other criteria for
+selecting one out of a class of tests, criteria that are all related to the power functions of the tests.
+
+
+8.3.2  Most Powerful Tests
+
+In previous sections we have described various classes of hypothesis tests. Some of these classes
+control the probability of a Type I Error, for example, level α tests have Type I Error probabilities at
+most α for all θ ∈Θ0. A good test in such a class would also have a small Type II Error probability,
+that is, a large power function for θ ∈Θc0. If one test had a smaller Type II Error probability than allother tests in the class, it would certainly be a strong contender for the best test in the class, a notion
+that is formalized in the next definition.
+Definition 8.3.11  Let C be a class of tests for testing H0: θ ∈Θ0 versus H1: θ ∈Θc0. A test in class
+C , with power function β(θ), is a uniformly most powerful (UMP) class C test if β(θ) ≥β ′(θ) for             0 and every β ′(θ) that is a power function of a test in class C .every θ ∈Θc
+    In this section, the class C will be the class of all level α tests. The test described in Definition
+8.3.11 is then called a UMP level α test. For this test to be interesting, restriction to the class
+C must involve some restriction on the Type I Error probability. A minimization of the Type II
+Error probability without some control of the Type I Error probability is not very interesting. (For
+example, a test that rejects H0 with probability 1 will never make a Type II Error. See Exercise 8.16.)
+   The requirements in Definition 8.3.11 are so strong that UMP tests do not exist in many realistic
+problems. But in problems that have UMP tests, a UMP test might well be considered the best test in
+the class. Thus, we would like to be able to identify UMP tests if they exist. The following famous
+theorem clearly describes which tests are UMP level α tests in the situation where the null and
+alternative hypotheses both consist of only one probability distribution for the sample (that is, when
+both H0 and H1 are simple hypotheses).

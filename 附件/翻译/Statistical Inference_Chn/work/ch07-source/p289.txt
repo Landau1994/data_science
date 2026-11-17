@@ -1,0 +1,44 @@
+258                                                 POINT ESTIMATION
+     If L(θ|x) cannot be maximized analytically, it may be possible to use a computer and maxi-
+mize L(θ|x) numerically. In fact, this is one of the most important features of MLEs. If a model(likelihood) can be written down, then there is some hope of maximizing it numerically and, hence,
+finding MLEs of the parameters. When this is done, there is still always the question of whether
+a local or global maximum has been found. Thus, it is always important to analyze the likelihood
+function as much as possible, to find the number and nature of its local maxima, before using nu-
+meric maximization.
+Example 7.2.9 (Binomial MLE, unknown number of trials)  Let X1,...,Xn be a random sample
+from a binomial(k, p) population where p is known and k is unknown. For example, we flip a coin
+we know to be fair and observe xi heads but we do not know how many times the coin was flipped.
+The likelihood function is
+                                                n   k
+                               L(k|x, p) = ∏i=1   xi  pxi(1−p)k−xi.
+Maximizing L(k|x, p) by differentiation is difficult because of the factorials and because k must bean integer. Thus we try a different approach.
+   Of course, L(k|x, p) = 0 if k < maxi xi. Thus the MLE is an integer k ≥maxi xi that satisfies
+L(k|x, p)/L(k −1|x, p) ≥1 and L(k + 1|x, p)/L(k|x, p) < 1. We will show that there is only onesuch k. The ratio of likelihoods is
+                                    L(k|x, p) = (k(1−p))n
+                              L(k −1|x, p)  ∏ni=1(k −xi).
+Thus the condition for a maximum is
+
+                                 n                                          n
+            (k(1−p))n ≥ ∏i=1 (k −xi)  and  ((k +1)(1−p))n < ∏i=1 (k +1−xi).
+
+Dividing by kn and letting z = 1/k, we want to solve
+
+                                                       n
+                        =                            (1−p)n ∏i=1 (1−xiz)
+for 0 ≤z ≤1/maxi xi. The right-hand side is clearly a strictly decreasing function of z for z in thisrange with a value of 1 at z = 0 and a value of 0 at z = 1/maxi xi. Thus there is a unique z (call it ˆz)
+that solves the equation. The quantity 1/ˆz may not be an integer. But the integer ˆk that satisfies the
+inequalities, and is the MLE, is the largest integer less than or equal to 1/ˆz (see Exercise 7.5). Thus,
+this analysis shows that there is a unique maximum for the likelihood function and it can be found
+by numerically solving an nth-degree polynomial equality. This description of the MLE for k was
+found by Feldman and Fox (1968). See Example 7.2.13 for more about estimating k.           ∥
+  A useful property of maximum likelihood estimators is what has come to be known as the in-
+variance property of maximum likelihood estimators (not to be confused with the type of invariance
+discussed in Chapter 6). Suppose that a distribution is indexed by a parameter θ, but the interest is in
+finding an estimator for some function of θ, say τ(θ). Informally speaking, the invariance property
+of MLEs says that if ˆθ is the MLE of θ, then τ(ˆθ) is the MLE of τ(θ). For example, if θ is the mean
+of a normal distribution, the MLE of sin(θ) is sin(¯X). We present the approach of Zehna (1966),
+but see Pal and Berry (1992) for alternate approaches to MLE invariance.
+   There are, of course, some technical problems to be overcome before we can formalize this
+notion of invariance of MLEs, and they mostly focus on the function τ(θ) that we are trying to
+estimate. If the mapping θ →τ(θ) is one-to-one (that is, for each value of θ there is a unique valueof τ(θ), and vice versa), then there is no problem. In this case, it is easy to see that it makes no
+difference whether we maximize the likelihood as a function of θ or as a function of τ(θ) – in

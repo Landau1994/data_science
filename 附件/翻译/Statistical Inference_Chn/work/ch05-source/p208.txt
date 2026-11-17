@@ -1,0 +1,43 @@
+SAMPLING FROM THE NORMAL DISTRIBUTION                                177
+Thus, again applying Theorem 3.5.6, we find that if g(z) is the pdf of Z, then (1/σ)g((x−µ)/σ) isthe pdf of ¯X. It may be easier to work first with Z1,...,Zn and f(z) to find the pdf g(z) of Z. If this
+is done, the parameters µ and σ do not have to be dealt with, which may make the computations
+less messy. Then we immediately know that the pdf of ¯X is (1/σ)g((x−µ)/σ).    In Example 5.2.10, we found that if Z1,...,Zn is a random sample from a Cauchy(0,1) distribu-
+tion, then Z also has a Cauchy(0,1) distribution. Now we can conclude that if X1,...,Xn is a random
+sample from a Cauchy(µ,σ) distribution, then ¯X also has a Cauchy(µ,σ) distribution. It is impor-
+tant to note that the dispersion in the distribution of ¯X, as measured by σ, is the same, regardless
+of the sample size n. This is in sharp contrast to the more common situation in Theorem 5.2.6 (the
+population has finite variance) where Var ¯X = σ2/n decreases as the sample size increases.
+   When sampling is from an exponential family, some sums from a random sample have sam-
+pling distributions that are easy to derive. The statistics T1,...,Tk in the next theorem are important
+summary statistics, as will be seen in Section 6.2.
+Theorem 5.2.11   Suppose X1,...,Xn is a random sample from a pdf or pmf f(x|θ), where
+                                                                   k
+                            f(x|θ) = h(x)c(θ)exp  i=1∑ wi(θ)ti(x)
+
+is a member of an exponential family. Define statistics T1,...,Tk by
+
+                                                   n
+                                                                                    i = 1,...,k.                            Ti(X1,...,Xn) = ∑ ti(Xj),
+                                               j=1
+If the set {(w1(θ),w2(θ),...,wk(θ)),θ ∈Θ} contains an open subset of ℜk, then the distributionof (T1,...,Tk) is an exponential family of the form
+
+                                                                                 k
+                                                                                                                 .              (5.2.6)                   fT(u1,...,uk|θ) = H(u1,...,uk)[c(θ)]n exp  i=1∑ wi(θ)ui
+
+
+   The open set condition eliminates a density such as the n(θ,θ 2) and, in general, eliminates
+curved exponential families from Theorem 5.2.11. Note that in the pdf or pmf of (T1,...,Tk), the
+functions c(θ) and wi(θ) are the same as in the original family although the function H(u1,...,uk)
+is, of course, different from h(x). We will not prove this theorem but will only illustrate the result in
+a simple case.
+Example 5.2.12 (Sum of Bernoulli random variables)  Suppose X1,...,Xn is a random sample
+from a Bernoulli(p) distribution. From Example 3.4.1 (with n = 1) we see that a Bernoulli(p) dis-
+tribution is an exponential family with k = 1,c(p) = (1−p),w1(p) = log(p/(1−p)), and t1(x) = x.
+Thus, in the previous theorem, T1 = T1(X1,...,Xn) = X1 + ··· + Xn. From the definition of the bi-nomial distribution in Section 3.2, we know that T1 has a binomial(n, p) distribution. From Exam-
+ple 3.4.1 we also see that a binomial(n, p) distribution is an exponential family with the same w1(p)
+and c(p) = (1−p)n. Thus, expression (5.2.6) is verified for this example.                   ∥
+
+5.3  Sampling from the Normal Distribution
+This section deals with the properties of sample quantities drawn from a normal population – still
+one of the most widely used statistical models. Sampling from a normal population leads to many
+useful properties of sample statistics, and also to many well-known sampling distributions.

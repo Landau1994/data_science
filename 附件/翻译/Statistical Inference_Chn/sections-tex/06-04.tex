@@ -1,0 +1,71 @@
+\subsection{等变性原则}\label{sec:6.4}\index{SI0403@等变性（另见不变性）}
+前两节以如下方式描述数据约简原则：指定样本的一个函数$T(\boldsymbol x)$，并规定若两个样本点$\boldsymbol x$和$\boldsymbol y$满足$T(\boldsymbol x)=T(\boldsymbol y)$，那么无论观测到哪一个，都应对$\theta$作出相同推断.使用充分性原则时，函数$T(\boldsymbol x)$是充分统计量；使用似然原则时，$T(\boldsymbol x)$的“值”是所有与$L(\theta\mid\boldsymbol x)$成比例的似然函数组成的集合.等变性原则以略有不同的方式描述数据约简技术.每次应用等变性原则时，都指定函数$T(\boldsymbol x)$，但若$T(\boldsymbol x)=T(\boldsymbol y)$，该原则要求观测到$\boldsymbol x$所作的推断与观测到$\boldsymbol y$所作的推断具有某种关系，虽然二者未必相同.这种对推断程序的限制有时能简化分析，正如前面各节的数据约简原则一样.\footnote{与许多其他教材（\hyperref[bib:source276]{Schervish 1995}；\hyperref[bib:source200]{Lehmann和Casella 1998}；\hyperref[bib:source311]{Stuart、Ord和Arnold 1999）}一样，我们区分等变性（equivariance）和不变性（invariance）：前者指数据变换时估计值按规定方式变化，后者指数据变换时估计值保持不变.}
+
+虽然通常合称等变性原则，下面所述的数据约简技术实际上结合了两种不同的等变性考虑.
+
+第一类可称为测量等变性（measurement equivariance）.\index{SI0401@测量}\semanticindexanchor{401:272}它规定推断不应依赖所采用的测量尺度.例如，设两位林业人员要估计一片森林树木的平均直径.第一位使用以英寸表示的树径数据，第二位使用以米表示的同一数据.现在要求两人都给出以英寸表示的估计.（第二位可以先方便地以米估计平均直径，再把估计转换为英寸.）测量等变性要求两人得出相同估计.毫无疑问，几乎所有人都会同意这种等变性是合理的.
+
+第二类等变性实际上是不变性，可称为形式不变性（formal invariance）.\index{SI0589@形式化}\semanticindexanchor{589:272}它规定：若两个推断问题的数学模型具有相同的形式结构，就应使用同一推断程序.必须相同的模型要素是参数空间$\Theta$、样本pdf或pmf集合$\{f(\boldsymbol x\mid\theta):\theta\in\Theta\}$，以及允许作出的推断的集合和错误推断的后果.最后这一要素此前未多作讨论；本节假设可能推断的集合就是$\Theta$，即推断只是从$\Theta$选取一个元素，作为$\theta$真值的估计或猜测.形式不变性只关心涉及的数学对象，不关心实验的物理描述.例如，两个问题的参数空间都可能是$\Theta=\{\theta:\theta>0\}$，但一个问题中$\theta$表示美国一打鸡蛋的平均价格（以美分计），另一个问题中$\theta$表示肯尼亚长颈鹿的平均身高（以米计）.形式不变性仍将这两个参数空间视为相同，因为它们指向同一实数集合.
+\begin{quote}
+\textbf{等变性原则：}\index{SI0404@等变性原则}\semanticindexanchor{404:272}若$\boldsymbol Y=g(\boldsymbol X)$是测量尺度的改变，且$\boldsymbol Y$的模型与$\boldsymbol X$的模型具有相同形式结构，则推断程序应既满足测量等变性，又满足形式等变性.
+\end{quote}
+\sourcepageanchor{273}
+下面说明这两种等变性概念如何结合，提供有用的数据约简.
+\begin{example}[二项等变性]\label{ex:6.4.1}\index{SI0400@二项}
+设$X$服从样本容量$n$已知、成功概率$p$未知的二项分布.设$T(x)$为观测到$X=x$时采用的$p$估计.除了用成功次数$X$推断$p$，也可以用失败次数$Y=n-X$.$Y$也服从二项分布，参数为$(n,q=1-p)$.设$T^*(y)$为观测到$Y=y$时采用的$q$估计，则此时$p$的估计为$1-T^*(y)$.若观测到$x$次成功，$p$的估计是$T(x)$；但$x$次成功意味着$n-x$次失败，$1-T^*(n-x)$也是$p$的估计.测量等变性要求两个估计相等，即$T(x)=1-T^*(n-x)$，因为从$X$到$Y$只是测量尺度的改变.此外，基于$X$和$Y$的推断问题形式结构相同，二者都服从$\operatorname{binomial}(n,\theta)$，$0\le\theta\le1$.所以形式不变性要求对所有$z=0,\ldots,n$有$T(z)=T^*(z)$.因此测量与形式不变性共同要求
+\begin{equation}\label{eq:6.4.1}
+T(x)=1-T^*(n-x)=1-T(n-x).
+\end{equation}
+若只考虑满足\eqref{eq:6.4.1}的估计量，所愿考虑的估计量集合便大为缩小和简化.指定任意估计量需要指定$T(0),T(1),\ldots,T(n)$；指定满足\eqref{eq:6.4.1}的估计量则只须指定$T(0),T(1),\ldots,T([n/2])$，其中$[n/2]$是不大于$n/2$的最大整数.其余$T(x)$值由已指定的值及\eqref{eq:6.4.1}决定.例如，$T(n)=1-T(0)$、$T(n-1)=1-T(1)$.等变性原则总是实现这种类型的数据约简：对某些样本点应作的推断，决定了对其他样本点应作的推断.
+
+本问题的两个等变估计量是$T_1(x)=x/n$和$T_2(x)=.9(x/n)+.1(.5)$.$T_1(x)$用样本成功比例估计$p$.$T_2(x)$把样本比例向$.5$“收缩”；若有理由认为$p$接近$.5$，这样的估计可能合理.容易验证二者均满足\eqref{eq:6.4.1}，故都等变.$T_3(x)=.8(x/n)+.2(1)$则不等变，因为$T_3(0)=.2\ne0=1-T_3(n-0)$，不满足\eqref{eq:6.4.1}.关于测量与形式不变性的更多内容，见\autoref{exercise:6.39}.
+\end{example}
+\autoref{ex:6.4.1}以及任何等变性论证的关键之一，是变换的选择.该例使用的数据变换为$Y=n-X$.等变性原则应用中的变换（测量尺度的改变），用样本空间上的一组函数描述，称为变换群（group of transformations）.
+\begin{definition}\label{def:6.4.2}\index{SI0466@变换的}
+从样本空间$\mathcal X$到自身的满射函数集合$\{g(\boldsymbol x):g\in\mathcal G\}$称为$\mathcal X$上的变换群，若
+\begin{enumerate}[label=(\roman*)]
+\item\label{item:6.4.2i}（逆）对每个$g\in\mathcal G$，存在$g'\in\mathcal G$，使对所有$\boldsymbol x\in\mathcal X$有$g'(g(\boldsymbol x))=\boldsymbol x$.
+\item\label{item:6.4.2ii}（复合）对每个$g\in\mathcal G$和$g'\in\mathcal G$，存在$g''\in\mathcal G$，使对所有$\boldsymbol x\in\mathcal X$有$g'(g(\boldsymbol x))=g''(\boldsymbol x)$.
+\item\label{item:6.4.2iii}（单位元）由$e(\boldsymbol x)=\boldsymbol x$定义的恒等映射$e$是$\mathcal G$的元素.
+\end{enumerate}
+\end{definition}
+有时第三个要求被列为群定义的一部分.但\hyperref[item:6.4.2iii]{(iii)}是\hyperref[item:6.4.2i]{(i)}和\hyperref[item:6.4.2ii]{(ii)}的推论，不必单独验证（见\autoref{exercise:6.38}）.
+\begin{example}[续\autoref{ex:6.4.1}]\label{ex:6.4.3}
+此问题只涉及两个变换，可设$\mathcal G=\{g_1,g_2\}$，其中$g_1(x)=n-x$、$g_2(x)=x$.条件\hyperref[item:6.4.2i]{(i)}和\hyperref[item:6.4.2ii]{(ii)}容易验证.取$g'=g$即验证\hyperref[item:6.4.2i]{(i)}，也就是说每个元素都是自身的逆.例如，
+$$g_1(g_1(x))=g_1(n-x)=n-(n-x)=x.$$
+\sourcepageanchor{274}
+在\hyperref[item:6.4.2ii]{(ii)}中，若$g'=g$，取$g''=g_2$；若$g'\ne g$，则$g''=g_1$满足等式.例如，取$g'\ne g=g_1$，则
+$$g_2(g_1(x))=g_2(n-x)=n-x=g_1(x).$$
+\end{example}
+要使用等变性原则，必须能对变换后的问题应用形式不变性.即改变测量尺度后仍应具有相同形式结构.由于结构不变，我们希望底层模型或分布族保持不变.下一个定义概括这一要求.
+\begin{definition}\label{def:6.4.4}\index{SI0588@分布}
+设$\mathcal F=\{f(\boldsymbol x\mid\theta):\theta\in\Theta\}$是$\boldsymbol X$的pdf或pmf集合，$\mathcal G$是样本空间$\mathcal X$的变换群.若对每个$\theta\in\Theta$和$g\in\mathcal G$，存在唯一$\theta'\in\Theta$，使得当$\boldsymbol X$具有分布$f(\boldsymbol x\mid\theta)$时，$\boldsymbol Y=g(\boldsymbol X)$具有分布$f(\boldsymbol y\mid\theta')$，则称$\mathcal F$在群$\mathcal G$下不变.
+\end{definition}
+\begin{example}[\autoref{ex:6.4.1}的结束]\label{ex:6.4.5}
+二项问题中须同时检查$g_1$和$g_2$.若$X\sim\operatorname{binomial}(n,p)$，则$g_1(X)=n-X\sim\operatorname{binomial}(n,1-p)$，故$p'=1-p$，这里$p$起\autoref{def:6.4.4}中$\theta$的作用.又$g_2(X)=X\sim\operatorname{binomial}(n,p)$，故此时$p'=p$.因此二项pmf集合在群$\mathcal G=\{g_1,g_2\}$下不变.
+\end{example}
+\autoref{ex:6.4.1}的变换群只有两个元素.许多情况下变换群是无限的，下例说明这一点（另见\autoref{exercise:6.41}和\autoref{exercise:6.42}）.
+\begin{example}[正态位置不变性]\label{ex:6.4.6}\index{SI0405@解释}\index{SI0464@位置}\index{SI0591@正态}
+设$X_1,\ldots,X_n$为iid $n(\mu,\sigma^2)$，$\mu$和$\sigma^2$均未知.考虑变换群$\mathcal G=\{g_a(\boldsymbol x):-\infty<a<\infty\}$，其中$g_a(x_1,\ldots,x_n)=(x_1+a,\ldots,x_n+a)$.要验证它是群，须验证\autoref{def:6.4.2}的\hyperref[item:6.4.2i]{(i)}和\hyperref[item:6.4.2ii]{(ii)}.对\hyperref[item:6.4.2i]{(i)}，注意
+\begin{align*}
+g_{-a}(g_a(x_1,\ldots,x_n))&=g_{-a}(x_1+a,\ldots,x_n+a)\\
+&=(x_1+a-a,\ldots,x_n+a-a)\\
+&=(x_1,\ldots,x_n).
+\end{align*}
+所以$g=g_a$时，$g'=g_{-a}$满足\hyperref[item:6.4.2i]{(i)}.对\hyperref[item:6.4.2ii]{(ii)}，注意
+\begin{align*}
+g_{a_2}(g_{a_1}(x_1,\ldots,x_n))&=g_{a_2}(x_1+a_1,\ldots,x_n+a_1)\\
+&=(x_1+a_1+a_2,\ldots,x_n+a_1+a_2)\\
+&=g_{a_1+a_2}(x_1,\ldots,x_n).
+\end{align*}
+所以$g=g_{a_1}$、$g'=g_{a_2}$时，$g''=g_{a_1+a_2}$满足\hyperref[item:6.4.2ii]{(ii)}，从而\autoref{def:6.4.2}得到验证.$\mathcal G$是变换群.
+
+此问题中的$\mathcal F$是由“$X_1,\ldots,X_n$为iid $n(\mu,\sigma^2)$，其中某个$-\infty<\mu<\infty$、$\sigma^2>0$”定义的全部联合密度$f(x_1,\ldots,x_n\mid\mu,\sigma^2)$的集合.对任意$-\infty<a<\infty$，由
+$$(Y_1,\ldots,Y_n)=g_a(X_1,\ldots,X_n)=(X_1+a,\ldots,X_n+a)$$
+定义的$Y_1,\ldots,Y_n$是iid $n(\mu+a,\sigma^2)$随机变量.故$\boldsymbol Y=g_a(\boldsymbol X)$的联合分布属于$\mathcal F$，从而$\mathcal F$在$\mathcal G$下不变.用\autoref{def:6.4.4}的记号，若$\theta=(\mu,\sigma^2)$，则$\theta'=(\mu+a,\sigma^2)$.
+\end{example}
+再提醒一次，等变性原则由两类不同的等变性组成.测量等变性直观上合理.许多人想到等变性原则时，认为它只指测量等变性.若真如此，该原则大概会被普遍接受.但另一原则——形式不变性——很不一样.
+\sourcepageanchor{275}
+它把数学结构相同的任意两个问题等同起来，不考虑它们试图解释的物理现实.它认为即使物理现实很不相同，同一推断程序仍然适用；这一假设有时难以证明合理.
+
+不过，与充分性和似然原则一样，等变性原则是一种数据约简技术，通过规定相关样本点上必须作出的其他推断来限制推断.三种原则都规定不同样本点上推断之间的关系，限制允许推断的集合，并由此简化问题分析.

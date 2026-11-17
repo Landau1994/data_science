@@ -1,0 +1,42 @@
+GENERATING A RANDOM SAMPLE                                            201
+   Examples 5.6.1 and 5.6.2 highlight the major concerns of this section. First, we must examine
+how to generate the random variables that we need and second, we then use a version of the Law of
+Large Numbers to validate the simulation approximation.
+   Since we have to start somewhere, we start with the assumption that we can generate iid uniform
+random variablesU1,... Um. (This problem of generating uniform random numbers has been worked
+on, with great success, by computer scientists.) There exist many algorithms for generating pseudo-
+random numbers which will pass almost all tests for uniformity. Moreover, most good statistical
+packages have a reasonable uniform random number generator. (See Devroye 1985 or Ripley 1987
+for more on generating pseudo-random numbers.)
+   Since we are starting from the uniform random variables, our problem here is really not the
+problem of generating the desired random variables, but rather of transforming the uniform random
+variables to the desired distribution. In essence, there are two general methodologies for doing this,
+which we shall (noninformatively) call direct and indirect methods.
+
+
+5.6.1  Direct Methods
+
+A direct method of generating a random variable is one for which there exists a closed-form func-
+tion g(u) such that the transformed variable Y = g(U) has the desired distribution when U ∼uniform(0,1). As might be recalled, this was already accomplished for continuous random variables
+in Theorem 2.1.10, the Probability Integral Transform, where any distribution was transformed to
+the uniform. Hence the inverse transformation solves our problem.
+Example 5.6.3 (Probability Integral Transform)   If Y is a continuous random variable with cdf
+FY, then Theorem 2.1.10 implies that the random variable F−1Y  (U), where U ∼uniform(0,1), has
+distribution FY. If Y ∼exponential(λ) , then
+                           F−1Y  (U) = −λ log(1−U)
+
+is an exponential(λ) random variable (see Exercise 5.49).
+   Thus, if we generate U1,...,Un as iid uniform random variables, Yi = −λ log(1 −Ui),  i =1,...,n are iid exponential(λ) random variables. As an example, for n = 10,000, we generate
+u1,u2,...,u10,000 and calculate
+
+                     1                 1
+                 = .5019 and          = .0842.                  ∑ui               ∑(ui                     n                            −¯u)2                           n−1
+
+                                             = 1/2 and,From (5.6.4), which follows from the WLLN (Theorem 5.5.2), we know that ¯U →EU
+from Example 5.5.3, S2 →VarU = 1/12 = .0833, so our estimates are quite close to the true pa-rameters. The transformed variables Yi have an exponential(2) distribution, and we find that
+
+                    1                  1
+                 = 2.0004 and         = 4.0908,                  ∑yi                ∑(yi                    n                              −¯y)2                           n−1
+
+in close agreement with EY = 2 and VarY = 4. Figure 5.6.1 illustrates the agreement between the
+sample histogram and the population pdf.                                             ∥

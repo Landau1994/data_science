@@ -1,0 +1,40 @@
+EXERCISES                                                                   63
+
+  2.5 Use Theorem 2.1.8 to find the pdf of Y in Example 2.1.2. Show that the same answer is obtained by
+      differentiating the cdf given in (2.1.6).
+  2.6 In each of the following find the pdf of Y and show that the pdf integrates to 1.
+                   < ∞; Y = |X|3       (a)  fX(x) = 12e−|x|, −∞< x
+      (b)  fX(x) = 38(x+1)2, −1                  < x < 1; Y = 1−X2
+       (c)  fX(x) = 38(x+1)2,−1                 < x < 1; Y = 1−X2 if X ≤0 and Y = 1−X if X > 0
+  2.7 Let X have pdf fX(x) = 9(x+1),2       −1 ≤x ≤2.
+       (a) Find the pdf of Y = X2. Note that Theorem 2.1.8 is not directly applicable in this problem.
+      (b) Show that Theorem 2.1.8 remains valid if the sets A0,A1,...,Ak contain X , and apply the extension
+           to solve part (a) using A0 = /0, A1 = (−2,0) and A2 = (0,2).
+  2.8 In each of the following show that the given function is a cdf and find F−1X  (y).
+                                         if x < 0
+       (a) FX(x) =                                         if x           01−e−x    ≥0.
+                   ex/2                 if x < 0
+      (b) FX(x) =  1/2                   if 0  < 1                     ≤x                                 if 1                 1−(e1−x/2)      ≤x.
+                                                  if x < 0       (c) FX(x) =                                                   if x              ex/41−(e−x/4)      ≥0.
+     Note that, in part (c), FX(x) is discontinuous but (2.1.13) is still the appropriate definition of F−1X  (y).
+  2.9  If the random variable X has pdf
+
+                                               1 < x < 3                                          f(x) =    2
+                                          0     otherwise,                                   x−1
+      find a monotone function u(x) such that the random variable Y = u(X) has a uniform(0,1) distribution.
+2.10 In Theorem 2.1.10 the probability integral transform was proved, relating the uniform cdf to any contin-
+     uous cdf. In this exercise we investigate the relationship between discrete random variables and uniform
+     random variables. Let X be a discrete random variable with cdf FX(x) and define the random variable Y
+      as Y = FX(X).
+       (a) Prove that Y is stochastically greater than a uniform(0,1); that is, if U ∼uniform (0,1), then
+                      P(Y > y) ≥P(U > y) =  1−y,    for all y, 0 < y < 1,
+                      P(Y > y) > P(U > y) =  1−y,    for some y, 0 < y < 1.
+          (Recall that stochastically greater was defined in Exercise 1.49.)
+      (b) Equivalently, show that the cdf of Y satisfies FY (y) ≤y for all 0 < y < 1 and FY (y) < y for some 0
+     < y < 1. (Hint:  Let x0 be a jump point of FX, and define y0 = FX(x0). Show that P(Y ≤y0) = y0.      Now establish the inequality by considering y = y0 +ε. Pictures of the cdfs will help.)
+2.11 Let X have the standard normal pdf, fX(x) = (1/√ 2π)e−x2/2.
+       (a) Find EX2 directly, and then by using the pdf of Y = X2 from Example 2.1.7 and calculating EY.
+      (b) Find the pdf of Y = |X|, and find its mean and variance.
+2.12 A random right triangle can be constructed in the following manner. Let X be a random angle whose
+      distribution is uniform on (0,π/2). For each X, construct a triangle as pictured below. Here, Y = height
+      of the random triangle. For a fixed constant d, find the distribution of Y and EY.

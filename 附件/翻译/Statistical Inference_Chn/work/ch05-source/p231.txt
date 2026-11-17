@@ -1,0 +1,45 @@
+200                                    PROPERTIES OF A RANDOM SAMPLE
+5.6  Generating a Random Sample
+Thus far, we have been concerned with the many methods of describing the behavior of random
+variables – transformations, distributions, moment calculations, limit theorems. In practice, these
+random variables are used to describe and model real phenomena, and observations on these random
+variables are the data that we collect.
+   Thus, typically, we observe random variables X1,...,Xn from a distribution f(x|θ) and are most
+concerned with using properties of f(x|θ) to describe the behavior of the random variables. In thissection we are, in effect, going to turn that strategy around. Here we are concerned with generating
+a random sample X1,...,Xn from a given distribution f(x|θ).
+Example 5.6.1 (Exponential lifetime)  Suppose that a particular electrical component is to be
+modeled with an exponential(λ) lifetime. The manufacturer is interested in determining the proba-
+bility that, out of c components, at least t of them will last h hours. Taking this one step at a time,
+we have
+                    p1 = P(component lasts at least h hours) = P(X ≥h|λ)                (5.6.1)
+and assuming that the components are independent, we can model the outcomes of the c components
+as Bernoulli trials, so
+
+                         p2 =  P(at least t components last h hours)
+                                             c    c
+                =                                                                                                 (5.6.2)              ∑   k   pk1(1−p1)c−k.                                       k=t
+
+   Although calculation of (5.6.2) is straightforward, it can be computationally burdensome, espe-
+cially if both t and c are large numbers. Moreover, the exponential model has the advantage that p1
+can be expressed in closed form, that is,
+
+                                ∞ 1                                p1 =      e−x/λ dx = e−h/λ.                             (5.6.3)                                             h  λ
+
+However, if each component were modeled with, say, a gamma distribution, then p1 may not be
+expressible in closed form. This would make calculation of p2 even more involved.            ∥
+  A simulation approach to calculation of expressions such as (5.6.2) is to generate random vari-
+ables with the desired distribution, and then use the Law of Large Numbers (Theorem 5.5.2) to
+validate the simulation. That is, if Yi, i = 1,...,n are iid, then a consequence of that theorem (pro-
+vided the assumptions hold) is
+                               1  n
+                                                                                                 (5.6.4)                ∑ h(Yi)                               n i=1    −→Eh(Y)
+in probability, as n →∞. (Expression (5.6.4) also holds almost everywhere, a consequence of The-orem 5.5.9, the Strong Law of Large Numbers.)
+Example 5.6.2 (Continuation of Example 5.6.1)  The probability p2 can be calculated using the
+following steps. For j = 1,...,n
+  a. Generate X1,...,Xc iid ∼exponential(λ).
+  b. Set Yj = 1 if at least t Xis are ≥h, otherwise set Yj = 0.
+Then, because Yj ∼Bernoulli(p2) and EYj = p2,
+                              1  n
+                                                  as n               ∑ Yj                              n j=1  →p2   →∞.
+
+                                                                              ∥

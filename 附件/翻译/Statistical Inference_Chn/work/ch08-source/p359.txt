@@ -1,0 +1,49 @@
+328                                             HYPOTHESIS TESTING
+8.12 For samples of size n = 1,4,16, 64,100, from a normal population with mean µ and known variance σ2,
+      plot the power function of the following tests. Take α = .05.
+       (a) H0 : µ ≤0 versus H1 : µ > 0
+      (b) H0 : µ = 0 versus H1 : µ̸ = 0
+8.13 Let X1,X2 be iid uniform(θ,θ + 1). For testing H0 : θ = 0 versus H1 : θ > 0, we have two competing
+       tests:
+
+                                 φ1(X1) :     Reject H0 if X1 > .95,
+                              φ2(X1,X2) :     Reject H0 if X1 +X2 > C.
+
+       (a) Find the value of C so that φ2 has the same size as φ1.
+      (b) Calculate the power function of each test. Draw a well-labeled graph of each power function.
+       (c) Prove or disprove:  φ2 is a more powerful test than φ1.
+      (d) Show how to get a test that has the same size, but is more powerful than φ2.
+8.14 For a random sample X1,...,Xn of Bernoulli(p) variables, it is desired to test
+
+                           H0 : p = .49     versus    H1 : p = .51.
+
+     Use the Central Limit Theorem to determine, approximately, the sample size needed so that the two
+      probabilities of error are both about .01. Use a test function that rejects H0 if ∑ni=1 Xi is large.
+8.15 Show that for a random sample X1,...,Xn from a n(0,σ2) population, the most powerful test of H0: σ =
+     σ0 versus H1 : σ = σ1, where σ0 < σ1, is given by
+                                           1       if ΣX2i > c                              φ(ΣX2i ) =
+                                           0       if ΣX2i ≤c.
+     For a given value of α, the size of the Type I Error, show how the value of c is explicitly determined.
+8.16 One very striking abuse of α levels is to choose them after seeing the data, and to choose them in such
+      a way as to force rejection (or acceptance) of a null hypothesis. To see what the true Type I and Type II
+      Error probabilities of such a procedure are, calculate size and power of the following two trivial tests:
+       (a) Always reject H0, no matter what data are obtained (equivalent to the practice of choosing the α
+           level to force rejection of H0).
+      (b) Always accept H0, no matter what data are obtained (equivalent to the practice of choosing the α
+           level to force acceptance of H0).
+8.17 Suppose that X1,...,Xn are iid with a beta(µ,1) pdf and Y1,...,Ym are iid with a beta(θ,1) pdf. Also
+     assume that the Xs are independent of the Ys.
+       (a) Find an LRT of H0 : θ = µ versus H1 : θ̸ = µ.
+      (b) Show that the test in part (a) can be based on the statistic
+                                               ΣlogXi                                  T =                          .
+                                           ΣlogXi +ΣlogYi
+
+       (c) Find the distribution of T when H0 is true, and then show how to get a test of size α = .10.
+8.18 Let X1,...,Xn be a random sample from a n(θ,σ2) population, σ2 known. An LRT of H0: θ = θ0 versus
+                                > c.     H1 : θ̸ = θ0 is a test that rejects H0 if |X −θ0|/(σ/√n)
+       (a) Find an expression, in terms of standard normal probabilities, for the power function of this test.
+      (b) The experimenter desires a Type I Error probability of .05, and a maximum Type II Error probability
+          of .25 at θ = θ0 +σ. Find values of n and c that will achieve this.
+8.19 The random variable X has pdf f(x) = e−x,x > 0. One observation is obtained on the random variable
+    Y = Xθ, and a test of H0 : θ = 1 versus H1 : θ = 2 needs to be constructed. Find the UMP level α = .10
+       test and compute the Type II Error probability.

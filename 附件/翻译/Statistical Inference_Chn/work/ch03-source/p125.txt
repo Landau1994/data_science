@@ -1,0 +1,43 @@
+94                          COMMON FAMILIES OF DISTRIBUTIONS
+Thus, the normal pdf of Example 3.4.4 would be written
+             = h(x)c(µ,σ)exp[w1(µ,σ)t1(x)+w2(µ,σ)t2(x)]I(−∞,∞)(x).            f(x|µ,σ2)
+Since the indicator function is a function only of x, it can be incorporated into the function h(x),
+showing that this pdf is of the form (3.4.1).
+   From (3.4.1), since the factor exp(·) is always positive, it can be seen that for any θ ∈Θ, that
+is, for any θ for which c(θ) > 0,{x: f(x|θ) > 0} = {x: h(x) > 0} and this set does not depend on
+θ. So, for example, the set of pdfs given by f(x|θ) = θ −1 exp(1−(x/θ)),0 < θ < x < ∞, is not an
+exponential family even though we can write θ −1 exp(1−(x/θ)) = h(x)c(θ)exp(w(θ)t(x)) where
+h(x) = e1, c(θ) = θ −1, w(θ) = θ −1, and t(x) = −x. Writing the pdf with indicator functions makesthis very clear. We have
+                                                  x
+                            f(x|θ) = θ −1 exp 1−  θ    I[θ,∞)(x).
+The indicator function cannot be incorporated into any of the functions of (3.4.1) since it is not a
+function of x alone, not a function of θ alone, and cannot be expressed as an exponential. Thus, this
+is not an exponential family.
+  An exponential family is sometimes reparameterized as
+
+                                                                      k
+                                                                                                  .                         (3.4.7)                            f(x|η) = h(x)c∗(η)exp  i=1∑ ηiti(x)
+
+Here the h(x) and ti(x) functions are the same as in the original parameterization (3.4.1). The set
+                    ∞
+                                           i=1 ηiti(x) dx < ∞} is called the natural parameter spaceH = {η = (η1,...,ηk): −∞h(x)exp ∑kfor the family. (The integral is replaced by a sum over the values of x for which h(x) > 0 if X
+is discrete.) For the values of η          , we must have c∗(η) =  ∞        ∑ki=1 ηiti(x) dx −1               ∈H                        −∞h(x)exp
+to ensure that the pdf integrates to 1. Since the original f(x|θ) in (3.4.1) is a pdf or pmf, the set
+{η = (w1(θ),...,wk(θ)): θ ∈Θ} must be a subset of the natural parameter space. But there may
+be other values of η ∈H  also. The natural parameterization and the natural parameter space havemany useful mathematical properties. For example, H  is convex.
+Example 3.4.6 (Continuation of Example 3.4.4)  To determine the natural parameter space for
+the normal family of distributions, replace wi(µ,σ) with ηi in (3.4.6) to obtain
+
+                                                        2                        √η1            2                                               exp                                    +η 2x   .               (3.4.8)                                             −η1x22                   f(x|η1,η 2) = √ 2π exp −η2η1
+
+The integral will be finite if and only if the coefficient on x2 is negative. This means η1 must be
+positive. If η1 > 0, the integral will be finite regardless of the value of η 2. Thus, the natural pa-
+                                                 2 < ∞}. Identifying (3.4.8) with (3.4.6), we see thatrameter space is {(η1,η2) : η1 > 0,−∞< ηη 2 = µ/σ2,η1 = 1/σ2. Although natural parameters provide a convenient mathematical formula-
+tion, they sometimes lack simple interpretations like the mean and variance.                  ∥
+    In the representation (3.4.1) it is often the case that the dimension of the vector θ is equal to
+k, the number of terms in the sum in the exponent. This need not be so, and it is possible for the
+dimension of the vector θ to be equal to d < k. Such an exponential family is called a curved
+exponential family.
+Definition 3.4.7 A curved exponential family is a family of densities of the form (3.4.1) for which
+the dimension of the vector θ is equal to d < k. If d = k the family is a full exponential family. (See
+also Miscellanea 3.8.3.)

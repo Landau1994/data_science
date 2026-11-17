@@ -1,0 +1,23 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{fontspec,xeCJK,amsmath,pgfplots}
+\setCJKmainfont{SimSun}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+\begin{document}\begin{tikzpicture}
+\begin{groupplot}[group style={group size=3 by 1,horizontal sep=1.4cm},width=6.5cm,height=6cm,xmin=1,xmax=10,tick label style={font=\small},legend style={font=\scriptsize,at={(.5,-.25)},anchor=north},title style={font=\small}]
+\nextgroupplot[title={定义10.1.16的正确方向},xlabel={均值 $\mu$},ylabel={$\mathrm{ARE}(\bar X,\hat\mu)$},ymin=0,ymax=1.05]
+\addplot[black,solid] table[x=mu,y=b1] {10.11-mean.dat};\addlegendentry{$\beta=1$}
+\addplot[black,densely dotted] table[x=mu,y=b3] {10.11-mean.dat};\addlegendentry{$\beta=3$}
+\addplot[black,dashdotted] table[x=mu,y=b5] {10.11-mean.dat};\addlegendentry{$\beta=5$}
+\addplot[black,dashed] table[x=mu,y=b10] {10.11-mean.dat};\addlegendentry{$\beta=10$}
+\nextgroupplot[title={原图方向：上述ARE的倒数},xlabel={均值 $\mu$},ylabel={$v_{MOM}/v_{ML}$},ymin=1,ymax=8]
+\addplot[black,solid] table[x=mu,y=inv1] {10.11-mean.dat};\addlegendentry{$\beta=1$}
+\addplot[black,densely dotted] table[x=mu,y=inv3] {10.11-mean.dat};\addlegendentry{$\beta=3$}
+\addplot[black,dashdotted] table[x=mu,y=inv5] {10.11-mean.dat};\addlegendentry{$\beta=5$}
+\addplot[black,dashed] table[x=mu,y=inv10] {10.11-mean.dat};\addlegendentry{$\beta=10$}
+\nextgroupplot[title={未知均值时尺度估计的效率},xlabel={尺度 $\beta$},ylabel={$\mathrm{ARE}(\tilde\beta,\hat\beta)$},ymin=0,ymax=1.05]
+\addplot[black,solid] table[x=beta,y=m1] {10.11-scale.dat};\addlegendentry{$\mu=1$}
+\addplot[black,densely dotted] table[x=beta,y=m3] {10.11-scale.dat};\addlegendentry{$\mu=3$}
+\addplot[black,dashdotted] table[x=beta,y=m5] {10.11-scale.dat};\addlegendentry{$\mu=5$}
+\addplot[black,dashed] table[x=beta,y=m10] {10.11-scale.dat};\addlegendentry{$\mu=10$}
+\end{groupplot}\end{tikzpicture}\end{document}

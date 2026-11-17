@@ -1,0 +1,263 @@
+60:85 | Approximation > binomial by Poisson | 以泊松近似二项 | 54
+  02-03.tex:216 近似 | \begin{example}[泊松近似]\label{ex:2.3.13}
+  02-03.tex:217 近似 | 初等统计课程通常介绍的一种近似是：二项概率（见\autoref{ex:2.3.5}）可以用通常更容易计算的泊松概率（Poisson probabilities）来近似. 二项分布由两个量 $n$ 和 $p$ 刻画. 通常的说法是，当“$n$ 大而 $np$ 小”时，泊松近似有效，有时还会给出经验规则.
+101:99 | Carleman’s Condition | Carleman条件 | 68
+  EN termines the distribution. A sufficient condition for the moment sequence to be unique is Carleman’s Condition (Chung 1974). If X ∼ FX and we denote E X r = µr′ , then the moment sequence is unique if ∞ 
+103:100 | Characteristic function | 特征函数 | 69
+  02-06.tex:33 特征函数 | \paragraph{特征函数.}
+  02-06.tex:34 特征函数 | 这些函数中最有用的也许是特征函数（characteristic function）. $X$ 的特征函数定义为
+  02-06.tex:38 特征函数 | 特征函数的作用远超过矩母函数. 当 $F_X$ 的矩存在时，$\phi_X$ 可以像矩母函数一样生成这些矩. 特征函数总是存在，并且完全确定分布. 也就是说，每个累积分布函数都有唯一的特征函数. 因而，例如我们可以陈述一个类似于\autoref{thm:2.3.11}的定理，却不必附加限制条件.
+104:100 | Characteristic function > convergence | 收敛 | 69
+  02-06.tex:40 收敛 | \begin{theorem}[特征函数的收敛]\label{thm:2.6.1}
+  02-06.tex:43 收敛 | 且 $\phi_X(t)$ 是一个特征函数.\footnote{译注：原文把条件写成仅在 $0$ 的某个邻域内收敛；一般特征函数不一定解析，仅有局部相同不足以确定分布，因此该条件一般不够. 通常的连续性定理要求对所有实数 $t$ 收敛，并要求极限函数在 $0$ 处连续（此处若已假设极限为特征函数，连续性自动满足）. 原文结论中的大写 $X$ 也应为自变量 $x$，这里一并保留原述.} 则对 $F_X(x)$ 连续的所有 $X$，
+  02-06.tex:33 特征函数 | \paragraph{特征函数.}
+241:72 | Cumulative distribution function (cdf) > monotone transformation | 单调变换 | 41
+  02-01.tex:117 累积分布函数 | 设 $X$ 的累积分布函数为 $F_X(x)$，$Y=g(X)$，并按\eqref{eq:2.1.7}定义 $\mathscr X$ 与 $\mathscr Y$.
+  02-01.tex:132 累积分布函数 | 如果 $Y$ 有连续的概率密度函数，对它的累积分布函数求导便得到该密度.
+257:98 | Distribution > beta > relation to binomial | 与二项的关系 | 67
+  02-05.tex:257 分布 | 因而对所有 $r$，$\mathrm EX_1^r=\mathrm EX_2^r$. （Romano and Siegel (1986) 讨论了这个例子的极端版本，即一整类不同的密度具有相同的各阶矩. 此外，Berg (1988) 表明，正态分布的较简单变换，例如 $X^3$，也会出现这种矩的现象.）
+  02-05.tex:261 分布 | \autoref{ex:2.3.10}所依据的对数正态分布具有一个有趣性质. 若密度为
+  02-05.tex:263 分布 | 则\autoref{exercise:2.35}表明所有阶矩都存在且有限. 然而，这个分布没有矩母函数，即
+261:70 | Distribution > binomial | 二项 | 39
+  02-01.tex:32 二项 | \begin{example}[二项变换]\label{ex:2.1.1}
+  02-01.tex:33 二项 | 如果离散随机变量 $X$ 的概率质量函数具有下列形式，就称它服从二项分布（binomial distribution）：
+  02-01.tex:37 二项 | 其中 $n$ 是正整数，$0\le p\le1$. 数 $n$ 和 $p$ 称为参数（parameters）；改变它们，就得到不同的二项分布.
+264:76 | Distribution > binomial > mean | 均值 | 45
+  02-02.tex:2 均值 | 随机变量的期望值（expected value），或期望（expectation），就是它的平均值；这里的“平均”是按照概率分布加权的平均. 我们把平均值理解为居中的值，因此分布的期望值可以视为其中心的一种度量. 按概率分布对随机变量的各个值加权，我们希望得到一个数，以概括该随机变量的一次观测的典型值或预期值.
+  02-02.tex:5 均值 | 随机变量 $g(X)$ 的期望值或均值（mean），记为 $\mathrm E g(X)$，定义为
+  02-02.tex:13 均值 | \begin{example}[指数分布的均值]\label{ex:2.2.2}
+265:83 | Distribution > binomial > mgf | 矩母函数 | 52
+  02-03.tex:123 矩母函数 | 其中 $\Gamma(\alpha)$ 表示伽马函数（gamma function），它的一些性质将在\autoref{sec:3.3}中给出. 矩母函数为
+  02-03.tex:143 矩母函数 | 如果 $t\ge1/\beta$，\eqref{eq:2.3.5}被积函数中的 $(1/\beta)-t$ 非正，而\eqref{eq:2.3.6}中的积分为无穷大. 因此，伽马分布的矩母函数只在 $t<1/\beta$ 时存在. （我们将在\autoref{sec:3.3}中更详细地讨论伽马函数.）
+  02-03.tex:151 矩母函数 | \begin{example}[二项分布的矩母函数]\label{ex:2.3.9}
+268:98 | Distribution > binomial > relation to beta | 与贝塔的关系 | 67
+  02-05.tex:277 二项 | 设 $X$ 具有负二项分布（negative binomial distribution），概率质量函数为
+  02-05.tex:257 分布 | 因而对所有 $r$，$\mathrm EX_1^r=\mathrm EX_2^r$. （Romano and Siegel (1986) 讨论了这个例子的极端版本，即一整类不同的密度具有相同的各阶矩. 此外，Berg (1988) 表明，正态分布的较简单变换，例如 $X^3$，也会出现这种矩的现象.）
+  02-05.tex:261 分布 | \autoref{ex:2.3.10}所依据的对数正态分布具有一个有趣性质. 若密度为
+272:81 | Distribution > binomial > variance | 方差 | 50
+  02-03.tex:45 方差 | 有时使用方差的另一个公式更容易：
+  02-03.tex:57 方差 | \begin{example}[二项分布的方差]\label{ex:2.3.5}
+  02-03.tex:64 二项 | 为求出这个级数之和，必须先对二项系数作变换，方法与求 $\mathrm EX$ 时类似（\autoref{ex:2.2.3}）. 写成
+277:94 | Distribution > Cauchy > generation | 生成 | 63
+  02-05.tex:35 分布 | 用\autoref{thm:2.1.8}求\autoref{ex:2.1.2}中 $Y$ 的概率密度函数. 证明，对\eqref{eq:2.1.6}给出的累积分布函数求导会得到相同答案.
+  02-05.tex:53 分布 | 对下列各情形，证明给定函数是累积分布函数，并求 $F_X^{-1}(y)$.
+  02-05.tex:64 分布 | 求一个单调函数 $u(x)$，使随机变量 $Y=u(X)$ 具有 $\operatorname{uniform}(0,1)$ 分布.
+278:77 | Distribution > Cauchy > mean | 均值 | 46
+  02-02.tex:41 均值 | \begin{example}[柯西分布的均值]\label{ex:2.2.4}
+  02-02.tex:42 柯西 | 期望不存在的随机变量的一个经典例子是柯西随机变量（Cauchy random variable），其概率密度函数为
+283:98 | Distribution > chi squared > relation to negative binomial | 与负二项的关系 | 67
+  02-05.tex:282 卡方 | \item[(b)] 定义新随机变量 $Y=2pX$. 证明，当 $p\downarrow0$ 时，$Y$ 的矩母函数收敛到自由度为 $2r$ 的卡方随机变量的矩母函数，即证明
+  02-05.tex:257 分布 | 因而对所有 $r$，$\mathrm EX_1^r=\mathrm EX_2^r$. （Romano and Siegel (1986) 讨论了这个例子的极端版本，即一整类不同的密度具有相同的各阶矩. 此外，Berg (1988) 表明，正态分布的较简单变换，例如 $X^3$，也会出现这种矩的现象.）
+  02-05.tex:261 分布 | \autoref{ex:2.3.10}所依据的对数正态分布具有一个有趣性质. 若密度为
+284:74 | Distribution > chi squared > relation to normal | 与正态的关系 | 43
+  02-01.tex:205 卡方 | \begin{example}[正态分布与卡方分布的关系]\label{ex:2.1.9}
+  02-01.tex:220 卡方 | 这是我们将经常遇到的密度，即自由度为 $1$ 的卡方随机变量（chi squared random variable）的概率密度函数.
+  02-01.tex:206 分布 | 设 $X$ 具有标准正态分布（standard normal distribution），
+292:76 | Distribution > exponential > mean | 均值 | 45
+  02-02.tex:2 均值 | 随机变量的期望值（expected value），或期望（expectation），就是它的平均值；这里的“平均”是按照概率分布加权的平均. 我们把平均值理解为居中的值，因此分布的期望值可以视为其中心的一种度量. 按概率分布对随机变量的各个值加权，我们希望得到一个数，以概括该随机变量的一次观测的典型值或预期值.
+  02-02.tex:5 均值 | 随机变量 $g(X)$ 的期望值或均值（mean），记为 $\mathrm E g(X)$，定义为
+  02-02.tex:13 均值 | \begin{example}[指数分布的均值]\label{ex:2.2.2}
+294:90 | Distribution > exponential > recursion relation | 递推关系 | 59
+  02-04.tex:121 递推关系 | 注意，\eqref{eq:2.4.6}给出了指数分布的矩的递推关系，
+  02-04.tex:117 指数 | 由于指数分布的各阶矩都存在，只要 $\lambda-\delta_0>0$，就有 $\int_{-\infty}^\infty g(x,\lambda)\,dx<\infty$，所以可以交换积分与求导.
+  02-04.tex:119 指数 | 上面用指数分布说明的性质，对一大类密度都成立，\autoref{sec:3.4}将讨论这一类密度.
+296:72 | Distribution > exponential > relation to uniform | 与均匀的关系 | 41
+  02-01.tex:124 指数 | \begin{example}[均匀分布与指数分布的关系——I]\label{ex:2.1.4}
+  02-01.tex:117 分布 | 设 $X$ 的累积分布函数为 $F_X(x)$，$Y=g(X)$，并按\eqref{eq:2.1.7}定义 $\mathscr X$ 与 $\mathscr Y$.
+  02-01.tex:125 分布 | 设 $X$ 在 $(0,1)$ 上服从均匀分布，概率密度函数为 $f_X(x)=1$，$0<x<1$，在其他地方为 $0$，所以 $F_X(x)=x$，$0<x<1$. 考虑随机变量 $Y=-\log X$. 因为
+297:80 | Distribution > exponential > variance | 方差 | 49
+  02-03.tex:21 方差 | \begin{example}[指数分布的方差]\label{ex:2.3.3}
+  02-03.tex:22 方差 | 设 $X$ 具有\autoref{ex:2.2.2}中定义的 $\operatorname{exponential}(\lambda)$ 分布. 在那里我们算出了 $\mathrm EX=\lambda$，现在可以计算方差：
+  02-03.tex:29 方差 | 可见，指数分布的方差与参数 $\lambda$ 直接相关. \autoref{fig:2.3.1}给出了不同 $\lambda$ 值对应的几个指数分布. 注意，$\lambda$ 越小，分布就越集中在均值周围. 指数分布的方差作为 $\lambda$ 的函数所表现出的性质，是下列定理所概括的方差性质的一个特殊情形.
+308:82 | Distribution > gamma > mgf | 矩母函数 | 51
+  02-03.tex:89 矩母函数 | 设 $X$ 是具有累积分布函数 $F_X$ 的随机变量. $X$（或 $F_X$）的矩母函数，记为 $M_X(t)$，定义为
+  02-03.tex:91 矩母函数 | 前提是这个期望对 $0$ 的某个邻域内的 $t$ 存在. 也就是说，存在 $h>0$，使得对所有 $-h<t<h$，$\mathrm Ee^{tX}$ 都存在. 如果这个期望在 $0$ 的任何邻域内都不是处处存在的，就说矩母函数不存在.
+  02-03.tex:93 矩母函数 | 更明确地说，$X$ 的矩母函数可写为
+313:73 | Distribution > gamma > relation to inverted gamma | 与逆伽马的关系 | 42
+  02-01.tex:152 伽马 | \begin{example}[逆伽马概率密度函数]\label{ex:2.1.6}
+  02-01.tex:153 伽马 | 设 $f_X(x)$ 是伽马概率密度函数（gamma pdf）
+  02-01.tex:161 伽马 | 这是称为逆伽马概率密度函数（inverted gamma pdf）的密度的一种特殊情形.
+326:73 | Distribution > inverted gamma > relation to gamma | 与伽马的关系 | 42
+  02-01.tex:152 逆伽马 | \begin{example}[逆伽马概率密度函数]\label{ex:2.1.6}
+  02-01.tex:161 逆伽马 | 这是称为逆伽马概率密度函数（inverted gamma pdf）的密度的一种特殊情形.
+  02-01.tex:164 分布 | 在许多应用中，函数 $g$ 可能既不递增也不递减，因而不能应用上述结果. 不过，$g$ 常常在某些区间上单调，这就使我们能够得到 $Y=g(X)$ 的分布表达式. （如果 $g$ 在任何区间上都不单调，我们就有大麻烦了.）
+333:98 | Distribution > lognormal > mgf | 矩母函数 | 67
+  02-05.tex:263 矩母函数 | 则\autoref{exercise:2.35}表明所有阶矩都存在且有限. 然而，这个分布没有矩母函数，即
+  02-05.tex:272 矩母函数 | \item[(c)] 计算密度 $f_1$ 和 $f_2$ 的矩母函数. 它们相似还是不同？
+  02-05.tex:281 矩母函数 | \item[(a)] 计算 $X$ 的矩母函数.
+334:84 | Distribution > lognormal > moments | 矩 | 53
+  02-03.tex:178 对数正态 | （密度 $f_1$ 是对数正态密度（lognormal pdf）的一种特殊情形.）
+  02-03.tex:168 分布 | 如前所述，矩母函数的主要用途并不是生成矩，而在于它在许多情况下能够刻画分布. 不过，用矩来刻画分布会遇到一些技术困难，现在就来研究这些困难.
+  02-03.tex:170 分布 | 如果矩母函数存在，它就刻画了无穷多个矩. 一个自然的问题是：刻画这无穷多个矩，是否就唯一确定了分布函数？遗憾的是，答案是否定的. 仅仅刻画所有矩，不足以唯一确定分布，因为两个不同的随机变量可能具有相同的各阶矩.
+354:98 | Distribution > negative binomial > relation to chi squared | 与卡方的关系 | 67
+  02-05.tex:277 负二项 | 设 $X$ 具有负二项分布（negative binomial distribution），概率质量函数为
+  02-05.tex:257 分布 | 因而对所有 $r$，$\mathrm EX_1^r=\mathrm EX_2^r$. （Romano and Siegel (1986) 讨论了这个例子的极端版本，即一整类不同的密度具有相同的各阶矩. 此外，Berg (1988) 表明，正态分布的较简单变换，例如 $X^3$，也会出现这种矩的现象.）
+  02-05.tex:261 分布 | \autoref{ex:2.3.10}所依据的对数正态分布具有一个有趣性质. 若密度为
+364:90 | Distribution > normal > recursion relation | 递推关系 | 59
+  02-04.tex:121 递推关系 | 注意，\eqref{eq:2.4.6}给出了指数分布的矩的递推关系，
+  02-04.tex:125 正态 | 使 $(n+1)$ 阶矩的计算相对容易. 其他分布也有这种关系. 特别地，如果 $X$ 具有均值为 $\mu$、方差为 $1$ 的正态分布，概率密度函数为 $f(x)=(1/\sqrt{2\pi})e^{-(x-\mu)^2/2}$，\footnote{译注：原文递推式中导数前为负号. 由 $\partial f(x;\mu)/\partial\mu=(x-\mu)f(x;\mu)$ 可得 $\frac d{d\mu}\mathrm EX^n=\mathrm EX^{n+1}
+  02-04.tex:131 正态 | 仍设 $X$ 具有均值为 $\mu$、方差为 $1$ 的正态分布，考虑 $X$ 的矩母函数，
+366:74 | Distribution > normal > relation to chi squared | 与卡方的关系 | 43
+  02-01.tex:205 正态 | \begin{example}[正态分布与卡方分布的关系]\label{ex:2.1.9}
+  02-01.tex:206 正态 | 设 $X$ 具有标准正态分布（standard normal distribution），
+  02-01.tex:225 分布 | 设 $X$ 具有连续的累积分布函数 $F_X(x)$，并定义随机变量 $Y=F_X(X)$. 则 $Y$ 在 $(0,1)$ 上服从均匀分布，即 $P(Y\le y)=y$，$0<y<1$.
+372:86 | Distribution > Poisson > mgf | 矩母函数 | 55
+  02-03.tex:225 矩母函数 | 现在证明矩母函数收敛，从而为这一近似提供依据. 回顾
+  02-03.tex:246 矩母函数 | 即泊松分布的矩母函数.
+  02-03.tex:251 矩母函数 | 本节最后给出关于矩母函数的一个有用结果.
+390:72 | Distribution > uniform > relation to exponential | 与指数的关系 | 41
+  02-01.tex:124 均匀 | \begin{example}[均匀分布与指数分布的关系——I]\label{ex:2.1.4}
+  02-01.tex:125 均匀 | 设 $X$ 在 $(0,1)$ 上服从均匀分布，概率密度函数为 $f_X(x)=1$，$0<x<1$，在其他地方为 $0$，所以 $F_X(x)=x$，$0<x<1$. 考虑随机变量 $Y=-\log X$. 因为
+  02-01.tex:117 分布 | 设 $X$ 的累积分布函数为 $F_X(x)$，$Y=g(X)$，并按\eqref{eq:2.1.7}定义 $\mathscr X$ 与 $\mathscr Y$.
+422:76 | Expected value | 期望值 | 45
+  02-02.tex:1 期望值 | \subsection{期望值}\label{sec:2.2}
+  02-02.tex:2 期望值 | 随机变量的期望值（expected value），或期望（expectation），就是它的平均值；这里的“平均”是按照概率分布加权的平均. 我们把平均值理解为居中的值，因此分布的期望值可以视为其中心的一种度量. 按概率分布对随机变量的各个值加权，我们希望得到一个数，以概括该随机变量的一次观测的典型值或预期值.
+  02-02.tex:5 期望值 | 随机变量 $g(X)$ 的期望值或均值（mean），记为 $\mathrm E g(X)$，定义为
+430:78 | Expected value > minimizing property | 最小化性质 | 47
+  EN EXPECTED VALUES 47 Proof: We will give details only for the continuous case
+  EN a similar manner. Example 2.2.6 (Minimizing distance) The expected value of a random variable has another prop- erty, one that we can think of as relating to the interpretation of E X as a good guess at a value of X. Suppose we 
+431:95 | Expected value > of maxima and minima | 极大值与极小值的 | 64
+432:77 | Expected value > properties | 性质 | 46
+  02-02.tex:62 性质 | 实际上，期望算子有许多能够减轻计算工作的性质. 其中多数来自积分或求和的性质，概括于下面的定理.
+434:79 | Expected value > two calculation methods | 两种计算方法 | 48
+454:99 | Generating function > cumulant | 累积量 | 68
+  02-06.tex:19 累积量 | \paragraph{累积量母函数.}
+  02-06.tex:20 累积量 | 对随机变量 $X$，累积量母函数（cumulant generating function）是函数 $\log[M_X(t)]$. 它可用来生成 $X$ 的累积量（cumulants），累积量被定义为（颇为迂回地）累积量母函数的泰勒级数中的系数（见\autoref{exercise:2.32}）.\footnote{译注：通常第 $r$ 阶累积量定义为 $\log M_X(t)$ 在 $0$ 处的 $r$ 阶导数；它是以 $t^r/r!$ 为基底时的系数，而不是普通 $t^r
+  02-06.tex:4 母函数 | 分布不一定由它的矩确定. 但如果 $\sum_{r=1}^\infty\mu^r r^k/k!$ 具有正的收敛半径，其中 $X\sim F_X$，$\mathrm EX^r=\mu'_r$，那么矩序列具有唯一性，从而分布被唯一确定（Billingsley 1995，第~30~节）.\footnote{译注：原文级数印为 $\sum_{r=1}^\infty\mu^r r^k/k!$，求和指标、幂指数与后面的矩记号不一致，也未给出作为幂级数变量的量. 从上下文看，可能意指矩母函
+455:99 | Generating function > factorial moment | 阶乘矩 | 68
+  02-06.tex:22 阶乘矩 | \paragraph{阶乘矩母函数.}
+  02-06.tex:23 阶乘矩 | 若期望存在，$X$ 的阶乘矩母函数（factorial moment generating function）定义为 $\mathrm Et^X$. 这个名称来自于它满足
+  02-06.tex:26 阶乘矩 | 其中右端是一个阶乘矩. 若 $X$ 为离散随机变量，则可以写成
+456:99 | Generating function > probability | 概率 | 68
+  02-06.tex:28 概率 | 阶乘矩母函数又称为概率母函数（probability generating function），因为幂级数的系数给出了概率. 也就是说，为求 $X=k$ 的概率，计算\footnote{译注：原文最后一式在 $t=1$ 处求值，应为在 $t=0$ 处求值才能抽取 $t^k$ 的系数. 这里的普通概率母函数通常还要求 $X$ 取非负整数值；任意离散取值不一定形成关于 $t$ 的普通幂级数.}
+  02-06.tex:4 母函数 | 分布不一定由它的矩确定. 但如果 $\sum_{r=1}^\infty\mu^r r^k/k!$ 具有正的收敛半径，其中 $X\sim F_X$，$\mathrm EX^r=\mu'_r$，那么矩序列具有唯一性，从而分布被唯一确定（Billingsley 1995，第~30~节）.\footnote{译注：原文级数印为 $\sum_{r=1}^\infty\mu^r r^k/k!$，求和指标、幂指数与后面的矩记号不一致，也未给出作为幂级数变量的量. 从上下文看，可能意指矩母函
+  02-06.tex:10 母函数 | Feller (1971) 对拉普拉斯变换作了非常完整的论述，矩母函数是其特殊情形. 特别地，Feller 证明了（与 Billingsley 类似），只要
+459:91 | Geometric series > differentiation | 求导 | 60
+  02-04.tex:171 求导 | 现在转向何时可以交换求导与求和的问题，这种运算对离散分布具有重要作用. 当然，我们只关心无穷和，因为有限和总可以逐项求导.
+  02-04.tex:172 求导 | \begin{example}[交换求和与求导]\label{ex:2.4.7}
+  02-04.tex:192 求导 | 实质上，我们通过求导求出了级数 $\sum_{x=0}^\infty x\theta(1-\theta)^x$ 的和.
+536:95 | Identity > expectation > continuous | 连续 | 64
+  02-05.tex:91 连续 | 考虑一列相互独立的抛硬币试验，每次正面朝上的概率为 $p$. 定义随机变量 $X$ 为从第一次试验开始的游程（正面或反面连续出现）的长度. （例如，观察到 TTTH 或 HHHT 时，都有 $X=3$.）求 $X$ 的分布及 $\mathrm EX$.
+  02-05.tex:95 连续 | \item[(a)] 设 $X$ 是连续的非负随机变量［当 $x<0$ 时，$f(x)=0$］. 证明
+  02-05.tex:114 连续 | 分布的中位数（median）是满足 $P(X\le m)\ge\frac12$ 且 $P(X\ge m)\ge\frac12$ 的数 $m$. （若 $X$ 连续，则 $m$ 满足 $\int_{-\infty}^m f(x)\,dx=\int_m^\infty f(x)\,dx=\frac12$.）求下列分布的中位数.
+537:95 | Identity > expectation > discrete | 离散 | 64
+  02-05.tex:98 离散 | \item[(b)] 设 $X$ 是取值范围为非负整数的离散随机变量. 证明
+  02-05.tex:104 期望 | Betteley (1977) 给出了一个有趣的期望加法法则. 设 $X,Y$ 为任意两个随机变量，定义
+585:92 | Interchange > differentiation and summation | 求导与求和 | 61
+586:93 | Interchange > integration and summation | 积分与求和 | 62
+  EN rm on any closed bounded interval. Therefore, the series of derivatives converges uniformly and the interchange of differentiation and summation is justified. ∥ We close this section with a theorem that is similar to Theorem 2.4.8, 
+595:83 | Kernel | 核 | 52
+  02-03.tex:131 kernel | 现在可以认出，\eqref{eq:2.3.5}中的被积函数是另一个伽马密度的核（kernel）. （函数的核是函数的主要部分，即忽略常数后余下的部分.）利用对任意正常数 $a,b$，
+598:70 | Kolmogorov’s Axioms > induced probability | 诱导概率 | 39
+599:96 | Kurtosis | 峰度 | 65
+  02-05.tex:190 峰度 | $\alpha_3$ 称为偏度（skewness），$\alpha_4$ 称为峰度（kurtosis）. 偏度衡量密度的不对称性（见\autoref{exercise:2.26}）. 峰度虽然更难解释，但它衡量密度的尖峭或平坦程度.
+601:85 | Laplace transform | 拉普拉斯变换 | 54
+  02-03.tex:208 拉普拉斯变换 | \autoref{thm:2.3.11}和\autoref{thm:2.3.12}的证明依赖于拉普拉斯变换（Laplace transform）理论. （经典参考文献是 Widder (1946)，Feller (1971) 也对拉普拉斯变换作了全面介绍.）$M_X(t)$ 的定义式，即
+  02-03.tex:212 拉普拉斯变换 | 定义了一个拉普拉斯变换（$M_X(t)$ 是 $f_X(x)$ 的拉普拉斯变换）. 拉普拉斯变换的一个关键性质是唯一性. 若对满足 $|t|<h$ 的所有 $t$，\eqref{eq:2.3.8}都成立，其中 $h$ 为某个正数，那么给定 $M_X(t)$ 后，只有一个函数 $f_X(x)$ 满足\eqref{eq:2.3.8}. 有了这个事实，前面两个定理就相当合理了. 尽管它们的严格证明没有超出本书的范围，但证明较为技术化，并不能带来真正的理解，因此这里略去.
+616:88 | Lebesgue’s Dominated Convergence Theorem | 勒贝格控制收敛定理 | 57
+  EN d conclusions of some important results can be given. The following theorems are all corollaries of Lebesgue’s Dominated Convergence Theorem (see, for example, Rudin (1976)). Theorem 2.4.2 Suppose the function h(x, y) is continuous at y0 for each x, and there exists a function g(x) satisfying i. 
+618:87 | Leibnitz’s Rule | Leibnitz法则 | 56
+  EN  a(θ ) where −∞ < a(θ ), b(θ ) < ∞ for all θ . The rule for differentiating (2.4.1) is called Leibnitz’s Rule and is an application of the Fundamental Theorem of Calculus and the chain rule. Theorem 2.4.1 (Leibnitz’s Rule) If f (x, θ ), a(θ ), and
+  EN ule and is an application of the Fundamental Theorem of Calculus and the chain rule. Theorem 2.4.1 (Leibnitz’s Rule) If f (x, θ ), a(θ ), and b(θ ) are differentiable with respect to θ , then b(θ ) 
+664:69 | Mapping | 映射 | 38
+  02-01.tex:6 映射 | 形式上，若写 $y=g(x)$，则函数 $g(x)$ 定义了从 $X$ 的原样本空间 $\mathscr X$ 到新样本空间 $\mathscr Y$（随机变量 $Y$ 的样本空间）的映射，即
+  02-01.tex:8 映射 | 我们给 $g$ 配上一个逆映射（inverse mapping），记为 $g^{-1}$；它把 $\mathscr Y$ 的子集映到 $\mathscr X$ 的子集，定义为
+665:69 | Mapping > inverse | 逆 | 38
+  02-01.tex:8 inverse | 我们给 $g$ 配上一个逆映射（inverse mapping），记为 $g^{-1}$；它把 $\mathscr Y$ 的子集映到 $\mathscr X$ 的子集，定义为
+  02-01.tex:6 映射 | 形式上，若写 $y=g(x)$，则函数 $g(x)$ 定义了从 $X$ 的原样本空间 $\mathscr X$ 到新样本空间 $\mathscr Y$（随机变量 $Y$ 的样本空间）的映射，即
+684:95 | Median | 中位数 | 64
+  02-05.tex:114 中位数 | 分布的中位数（median）是满足 $P(X\le m)\ge\frac12$ 且 $P(X\ge m)\ge\frac12$ 的数 $m$. （若 $X$ 连续，则 $m$ 满足 $\int_{-\infty}^m f(x)\,dx=\int_m^\infty f(x)\,dx=\frac12$.）求下列分布的中位数.
+  02-05.tex:123 中位数 | 其中 $m$ 为 $X$ 的中位数（见\autoref{exercise:2.17}）.
+685:95 | Median > minimizing property | 最小化性质 | 64
+  02-05.tex:114 中位数 | 分布的中位数（median）是满足 $P(X\le m)\ge\frac12$ 且 $P(X\ge m)\ge\frac12$ 的数 $m$. （若 $X$ 连续，则 $m$ 满足 $\int_{-\infty}^m f(x)\,dx=\int_m^\infty f(x)\,dx=\frac12$.）求下列分布的中位数.
+  02-05.tex:123 中位数 | 其中 $m$ 为 $X$ 的中位数（见\autoref{exercise:2.17}）.
+689:82 | Moment generating function (mgf) | 矩母函数 | 51
+  02-03.tex:89 矩母函数 | 设 $X$ 是具有累积分布函数 $F_X$ 的随机变量. $X$（或 $F_X$）的矩母函数，记为 $M_X(t)$，定义为
+  02-03.tex:91 矩母函数 | 前提是这个期望对 $0$ 的某个邻域内的 $t$ 存在. 也就是说，存在 $h>0$，使得对所有 $-h<t<h$，$\mathrm Ee^{tX}$ 都存在. 如果这个期望在 $0$ 的任何邻域内都不是处处存在的，就说矩母函数不存在.
+  02-03.tex:93 矩母函数 | 更明确地说，$X$ 的矩母函数可写为
+689:100 | Moment generating function (mgf) | 矩母函数 | 69
+  02-06.tex:38 矩母函数 | 特征函数的作用远超过矩母函数. 当 $F_X$ 的矩存在时，$\phi_X$ 可以像矩母函数一样生成这些矩. 特征函数总是存在，并且完全确定分布. 也就是说，每个累积分布函数都有唯一的特征函数. 因而，例如我们可以陈述一个类似于\autoref{thm:2.3.11}的定理，却不必附加限制条件.
+  02-06.tex:50 矩母函数 | \subsubsection{矩母函数能否刻画分布？}\label{sec:2.6.3}
+  02-06.tex:51 矩母函数 | 在以上述问题为题的文章中，McCullagh (1994) 考察了一对与\autoref{ex:2.3.10}类似、但具有矩母函数的密度，
+690:85 | Moment generating function (mgf) > convergence | 收敛 | 54
+  02-03.tex:200 收敛 | 下一个定理讨论一个收敛的矩母函数序列，我们不再单独处理有界支撑的情形. 注意，如果极限矩母函数在 $0$ 的某个邻域内存在，则唯一性假设自动满足（\hyperref[sec:2.6.1]{杂录~2.6.1}）.
+  02-03.tex:201 收敛 | \begin{theorem}[矩母函数的收敛]\label{thm:2.3.12}
+  02-03.tex:206 收敛 | 也就是说，矩母函数在 $|t|<h$ 时收敛到一个矩母函数，蕴含累积分布函数的收敛.
+691:85 | Moment generating function (mgf) > identically distributed | 同分布 | 54
+  02-03.tex:192 矩母函数 | 如果随机变量具有有界支撑，就不会出现矩的唯一性问题. 此时，无穷矩序列确实唯一确定分布（例如，见 Billingsley 1995，第~30~节）. 而且，如果矩母函数在零的某个邻域内存在，无论支撑集怎样，分布都被唯一确定. 因而，所有阶矩都存在与矩母函数存在并不等价. 下列定理说明如何刻画分布.
+  02-03.tex:197 矩母函数 | \item[(b)] 若矩母函数存在，并且对 $0$ 的某个邻域内的所有 $t$ 有 $M_X(t)=M_Y(t)$，则对所有 $u$ 有 $F_X(u)=F_Y(u)$.
+  02-03.tex:200 矩母函数 | 下一个定理讨论一个收敛的矩母函数序列，我们不再单独处理有界支撑的情形. 注意，如果极限矩母函数在 $0$ 的某个邻域内存在，则唯一性假设自动满足（\hyperref[sec:2.6.1]{杂录~2.6.1}）.
+693:86 | Moment generating function (mgf) > properties | 性质 | 55
+  02-03.tex:260 性质 | &=\mathrm E\bigl(e^{(aX)t}e^{bt}\bigr)&&\text{（指数函数的性质）}\\
+  02-03.tex:225 矩母函数 | 现在证明矩母函数收敛，从而为这一近似提供依据. 回顾
+  02-03.tex:246 矩母函数 | 即泊松分布的矩母函数.
+697:79 | Moments | 矩 | 48
+  EN = 1. ∥ 2.3 Moments and Moment Generating Functions The various moments of a distribution are an important class of expectations. Definition 2.3.1 For each integer n, the nth mo
+  EN  ∥ 2.3 Moments and Moment Generating Functions The various moments of a distribution are an important class of expectations. Definition 2.3.1 For each integer n, the nth moment of X (or FX (x)), µn′ , is 
+698:84 | Moments > nonuniqueness | 非唯一性 | 53
+  EN MOMENTS AND MOMENT GENERATING FUNCTIONS 53 1.2 1.0 
+  EN  2 Figure 2.3.2 Two pdfs with the same moments: f1 (x) = √ 1 e−(log x) /2 and f2 (x) = f1 (x)[1 + sin(2π log x)] 2πx As previously men
+698:98 | Moments > nonuniqueness | 非唯一性 | 67
+  EN  E X1r = er /2 , r = 0, 1, . . . . So f1 (x) has all of its moments, and all of the moments are finite. (b) Now show that ∞ xr f1 (x) sin(2π log x) dx
+  EN  E X1r = er /2 , r = 0, 1, . . . . So f1 (x) has all of its moments, and all of the moments are finite. (b) Now show that ∞ xr f1 (x) sin(2π log x) dx = 0, 
+699:99 | Moments > uniqueness | 唯一性 | 68
+  02-06.tex:3 唯一性 | \subsubsection{矩序列的唯一性}\label{sec:2.6.1}
+  02-06.tex:4 唯一性 | 分布不一定由它的矩确定. 但如果 $\sum_{r=1}^\infty\mu^r r^k/k!$ 具有正的收敛半径，其中 $X\sim F_X$，$\mathrm EX^r=\mu'_r$，那么矩序列具有唯一性，从而分布被唯一确定（Billingsley 1995，第~30~节）.\footnote{译注：原文级数印为 $\sum_{r=1}^\infty\mu^r r^k/k!$，求和指标、幂指数与后面的矩记号不一致，也未给出作为幂级数变量的量. 从上下文看，可能意指矩母函
+  02-06.tex:6 唯一性 | 矩序列具有唯一性的一个充分条件是 Carleman 条件（Carleman's Condition；Chung 1974）. 若 $X\sim F_X$，并记 $\mathrm EX^r=\mu'_r$，则当
+720:82 | Neighborhood | 邻域 | 51
+  02-03.tex:91 邻域 | 前提是这个期望对 $0$ 的某个邻域内的 $t$ 存在. 也就是说，存在 $h>0$，使得对所有 $-h<t<h$，$\mathrm Ee^{tX}$ 都存在. 如果这个期望在 $0$ 的任何邻域内都不是处处存在的，就说矩母函数不存在.
+729:71 | One-to-one transformation | 一一变换 | 40
+730:71 | Onto transformation | 满射变换 | 40
+750:70 | Parameter | 参数 | 39
+  02-01.tex:37 参数 | 其中 $n$ 是正整数，$0\le p\le1$. 数 $n$ 和 $p$ 称为参数（parameters）；改变它们，就得到不同的二项分布.
+  02-01.tex:47 参数 | 最后一个等式使用了\autoref{def:1.2.17}蕴含的二项系数恒等式 $\binom ny=\binom n{n-y}$. 因此，$Y$ 也具有二项分布，但参数为 $n$ 和 $1-p$.
+832:96 | Probability density function (pdf) > even | 偶 | 65
+  02-05.tex:138 概率密度函数 | 设 $X$ 的概率密度函数为
+  02-05.tex:141 概率密度函数 | \item[(a)] 验证 $f(x)$ 是概率密度函数.
+  02-05.tex:146 概率密度函数 | 设 $X$ 的概率密度函数为
+835:72 | Probability density function (pdf) > monotone transformation | 单调变换 | 41
+  02-01.tex:125 概率密度函数 | 设 $X$ 在 $(0,1)$ 上服从均匀分布，概率密度函数为 $f_X(x)=1$，$0<x<1$，在其他地方为 $0$，所以 $F_X(x)=x$，$0<x<1$. 考虑随机变量 $Y=-\log X$. 因为
+  02-01.tex:132 概率密度函数 | 如果 $Y$ 有连续的概率密度函数，对它的累积分布函数求导便得到该密度.
+  02-01.tex:134 概率密度函数 | 设 $X$ 的概率密度函数为 $f_X(x)$，$Y=g(X)$，其中 $g$ 是单调函数，$\mathscr X$ 和 $\mathscr Y$ 按\eqref{eq:2.1.7}定义. 假定 $f_X$ 在 $\mathscr X$ 上连续，$g^{-1}$ 在 $\mathscr Y$ 上有连续导数，则
+837:74 | Probability density function (pdf) > piecewise monotone transformation | 分段单调变换 | 43
+  02-01.tex:189 概率密度函数 | 设 $X$ 的概率密度函数为 $f_X(x)$，$Y=g(X)$，并按\eqref{eq:2.1.7}定义样本空间 $\mathscr X$. 假定存在 $\mathscr X$ 的划分 $A_0,A_1,\ldots,A_k$，使得 $P(X\in A_0)=0$，且 $f_X(x)$ 在每个 $A_i$ 上连续. 再假定存在分别定义在 $A_1,\ldots,A_k$ 上的函数 $g_1(x),\ldots,g_k(x)$，满足
+  02-01.tex:214 概率密度函数 | $Y$ 的概率密度函数为
+  02-01.tex:220 概率密度函数 | 这是我们将经常遇到的密度，即自由度为 $1$ 的卡方随机变量（chi squared random variable）的概率密度函数.
+840:96 | Probability density function (pdf) > symmetric | 对称 | 65
+  02-05.tex:165 对称 | \item[(b)] $M_X(t)$ 关于零对称.
+  02-05.tex:169 对称 | 设 $f(x)$ 为概率密度函数，$a$ 为一个数，使得对所有 $\varepsilon>0$ 都有 $f(a+\varepsilon)=f(a-\varepsilon)$. 称这样的密度关于点 $a$ 对称（symmetric）.
+  02-05.tex:171 对称 | \item[(a)] 举出三个对称密度的例子.
+842:96 | Probability density function (pdf) > unimodal | 单峰 | 65
+  02-05.tex:179 单峰 | 设 $f(x)$ 为概率密度函数，$a$ 为一个数，使得当 $a\ge x\ge y$ 时，$f(a)\ge f(x)\ge f(y)$；当 $a\le x\le y$ 时，也有 $f(a)\ge f(x)\ge f(y)$. 称这样的密度为单峰（unimodal）密度，$a$ 为一个众数（mode）.
+  02-05.tex:181 单峰 | \item[(a)] 举出一个众数唯一的单峰密度.
+  02-05.tex:182 单峰 | \item[(b)] 举出一个众数不唯一的单峰密度.
+847:74 | Probability integral transformation | 概率积分变换 | 43
+  02-01.tex:224 概率积分变换 | \begin{theorem}[概率积分变换]\label{thm:2.1.10}
+849:94 | Probability integral transformation > discrete | 离散 | 63
+  02-05.tex:67 离散 | \autoref{thm:2.1.10}证明了概率积分变换，把均匀累积分布函数与任意连续累积分布函数联系起来. 本题研究离散随机变量与均匀随机变量之间的关系. 设 $X$ 是累积分布函数为 $F_X(x)$ 的离散随机变量，定义 $Y=F_X(X)$.
+861:76 | Random number generation | 随机数生成 | 45
+870:85 | Random variable > identically distributed > moments | 矩 | 54
+  02-03.tex:192 随机变量 | 如果随机变量具有有界支撑，就不会出现矩的唯一性问题. 此时，无穷矩序列确实唯一确定分布（例如，见 Billingsley 1995，第~30~节）. 而且，如果矩母函数在零的某个邻域内存在，无论支撑集怎样，分布都被唯一确定. 因而，所有阶矩都存在与矩母函数存在并不等价. 下列定理说明如何刻画分布.
+  02-03.tex:202 随机变量 | 设 $\{X_i,\ i=1,2,\ldots\}$ 是随机变量序列，每个随机变量的矩母函数为 $M_{X_i}(t)$. 再设
+  02-03.tex:214 随机变量 | 矩序列可能不具有唯一性，是件麻烦事. 如果证明某个矩序列收敛，我们还不能正式断言随机变量收敛. 为了得出这一结论，还必须核实矩序列的唯一性，而这通常是一项可怕的工作（\hyperref[sec:2.6.1]{杂录~2.6.1}）. 但是，如果矩母函数序列在 $0$ 的某个邻域内收敛，那么随机变量就收敛. 因此，矩母函数的收敛可以视为随机变量序列收敛的一个充分但非必要条件.
+978:96 | Skewness | 偏度 | 65
+  02-05.tex:190 偏度 | $\alpha_3$ 称为偏度（skewness），$\alpha_4$ 称为峰度（kurtosis）. 偏度衡量密度的不对称性（见\autoref{exercise:2.26}）. 峰度虽然更难解释，但它衡量密度的尖峭或平坦程度.
+980:79 | Standard deviation | 标准差 | 48
+  02-03.tex:12 标准差 | 随机变量 $X$ 的方差（variance）就是它的二阶中心矩，$\operatorname{Var}X=\mathrm E(X-\mathrm EX)^2$. $\operatorname{Var}X$ 的正平方根称为 $X$ 的标准差（standard deviation）.
+  02-03.tex:14 标准差 | 方差衡量分布在其均值周围的分散程度. 前面在\autoref{ex:2.2.6}中已经看到，选择 $b=\mathrm EX$ 可使 $\mathrm E(X-b)^2$ 最小. 现在我们考虑这个最小值本身的大小. 方差的解释是，其值越大，$X$ 的变异越大. 极端地，如果 $\operatorname{Var}X=\mathrm E(X-\mathrm EX)^2=0$，那么 $X$ 以概率 $1$ 等于 $\mathrm EX$，$X$ 完全没有变异. 标准差有相同的定性
+988:94 | Stochastic order > greater | 较大 | 63
+  EN FX (x) and define the random variable Y as Y = FX (X). (a) Prove that Y is stochastically greater than a uniform(0, 1); that is, if U ∼ uniform (0, 1), then P(Y > y) ≥ P(U > y) = 1 − y, for all y, 0 < y < 1, 
+  EN ) > P(U > y) = 1 − y, for some y, 0 < y < 1. (Recall that stochastically greater was defined in Exercise 1.49.) (b) Equivalently, show that the cdf of Y satisfies FY (y) ≤ y for all 0 < y < 1 and FY (y) < y for some 0 < y < 1.
+1015:71 | Support | 支持集 | 40
+  02-01.tex:85 support | 集合 $\mathscr X$ 称为 $f_X$ 的支撑集（support set），或非正式地称为支撑（support）. 也就是说，$f_X$ 在支撑集上为正，在其他地方为零. 概率质量函数以及任意非负函数也有支撑集.
+1040:71 | Transformation > monotone | 单调 | 40
+  02-01.tex:87 单调 | 如果函数 $g$ 满足 $u>v$ 蕴含 $g(u)>g(v)$，或者满足 $u<v$ 蕴含 $g(u)>g(v)$，就称 $g$ 为单调函数（monotone function）；前一种情况称为递增，后一种情况称为递减. 单调函数 $g:\mathscr X\to\mathscr Y$ 是一一且满的. 每个 $x$ 对应一个 $y$，而每个 $y$ 至多对应一个 $x$，所以它是一一的；由于 $\mathscr Y$ 是 $g$ 的像，它也是满的.
+  02-01.tex:71 变换 | \caption{\autoref{ex:2.1.2}中变换 $y=\sin^2(x)$ 的图形.}\label{fig:2.1.1}
+1062:79 | Variance | 方差 | 48
+  02-03.tex:10 方差 | 除随机变量的均值 $\mathrm EX$ 以外，最重要的矩或许就是二阶中心矩，通常称为方差.
+  02-03.tex:12 方差 | 随机变量 $X$ 的方差（variance）就是它的二阶中心矩，$\operatorname{Var}X=\mathrm E(X-\mathrm EX)^2$. $\operatorname{Var}X$ 的正平方根称为 $X$ 的标准差（standard deviation）.
+  02-03.tex:14 方差 | 方差衡量分布在其均值周围的分散程度. 前面在\autoref{ex:2.2.6}中已经看到，选择 $b=\mathrm EX$ 可使 $\mathrm E(X-b)^2$ 最小. 现在我们考虑这个最小值本身的大小. 方差的解释是，其值越大，$X$ 的变异越大. 极端地，如果 $\operatorname{Var}X=\mathrm E(X-\mathrm EX)^2=0$，那么 $X$ 以概率 $1$ 等于 $\mathrm EX$，$X$ 完全没有变异. 标准差有相同的定性
+1066:80 | Variance > properties | 性质 | 49
+  02-03.tex:29 性质 | 可见，指数分布的方差与参数 $\lambda$ 直接相关. \autoref{fig:2.3.1}给出了不同 $\lambda$ 值对应的几个指数分布. 注意，$\lambda$ 越小，分布就越集中在均值周围. 指数分布的方差作为 $\lambda$ 的函数所表现出的性质，是下列定理所概括的方差性质的一个特殊情形.
+  02-03.tex:21 方差 | \begin{example}[指数分布的方差]\label{ex:2.3.3}
+  02-03.tex:22 方差 | 设 $X$ 具有\autoref{ex:2.2.2}中定义的 $\operatorname{exponential}(\lambda)$ 分布. 在那里我们算出了 $\mathrm EX=\lambda$，现在可以计算方差：

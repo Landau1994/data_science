@@ -1,0 +1,39 @@
+226                                       PRINCIPLES OF DATA REDUCTION
+We can define
+                                                          n
+                      h(x) = (2πσ2)−n/2 exp  ∑ (xi                          − i=1  −x)2/(2σ2)   ,
+which does not depend on the unknown parameter µ. The factor in (6.2.4) that contains µ depends
+on the sample x only through the function T(x) = x, the sample mean. So we have
+                              g(t|µ) = exp −n(t −µ)2/(2σ2)
+and note that
+                                 f(x|µ) = h(x)g(T(x)|µ).
+Thus, by the Factorization Theorem, T(X) = X is a sufficient statistic for µ.                 ∥
+   The Factorization Theorem requires that the equality f(x|θ) = g(T(x)|θ)h(x) hold for all x and
+θ. If the set of x on which f(x|θ) is positive depends on θ, care must be taken in the definition of hand g to ensure that the product is 0 where f is 0. Of course, correct definition of h and g makes the
+sufficient statistic evident, as the next example illustrates.
+Example 6.2.8 (Uniform sufficient statistic)  Let X1,...,Xn be iid observations from the discrete
+uniform distribution on 1,...,θ. That is, the unknown parameter, θ, is a positive integer and the
+pmf of Xi is
+                                                 1                                            x = 1,,2,...,θ,                     =   θ                               f(x|θ)    0   otherwise.
+Thus, the joint pmf of X1,...,Xn is
+
+                            θ −n   xi              for i = 1,...,n,                =         ∈{1,...,θ}                       f(x|θ)    0     otherwise.
+The restriction “xi ∈{1,...,θ} for i = 1,...,n” can be re-expressed as “xi ∈{1,2,...} for i = 1,...,n
+(note that there is no θ in this restriction) and maxi xi ≤θ.” If we define T(x) = maxi xi,
+                              1   xi             for i = 1,...,n,                         h(x) =       ∈{1,2,...}                              0  otherwise,
+
+and
+                                    θ −n    t                     =       ≤θ,                                 g(t|θ)    0     otherwise,
+it is easily verified that f(x|θ) = g(T(x)|θ)h(x) for all x and θ. Thus, the largest order statistic,T(X) = maxi Xi, is a sufficient statistic in this problem.
+   This type of analysis can sometimes be carried out more clearly and concisely using indicator
+functions. Recall that IA(x) is the indicator function of the set A, that is, it is equal to 1 if x ∈A and
+equal to 0 otherwise. Let N = {1,2,...} be the set of positive integers and let Nθ = {1,2,...,θ}.
+Then the joint pmf of X1,···,Xn is
+                                          n                       n
+                                                           INθ (xi).                                                     (xi) = θ −n ∏                          f(x|θ) = ∏i=1 θ −1INθ                                                              i=1
+
+Defining T(x) = maxi xi, it is clear that
+
+                                  n                n
+                     =          ∏ INθ (xi)               ∏IN (xi)  INθ (T(x)).
+                                i=1             i=1

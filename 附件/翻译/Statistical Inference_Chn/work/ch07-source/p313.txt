@@ -1,0 +1,45 @@
+282                                                 POINT ESTIMATION
+7.3.4  Loss Function Optimality
+
+Our evaluations of point estimators have been based on their mean squared error performance. Mean
+squared error is a special case of a function called a loss function. The study of the performance,
+and the optimality, of estimators evaluated through loss functions is a branch of decision theory.
+    After the data X = x are observed, where X ∼f(x|θ), θ ∈Θ, a decision regarding θ is made.The set of allowable decisions is the action space, denoted by A . Often in point estimation problems
+A  is equal to Θ, the parameter space, but this will change in other problems (such as hypothesis
+testing – see Section 8.3.5).
+   The loss function in a point estimation problem reflects the fact that if an action a is close to
+θ, then the decision a is reasonable and little loss is incurred. If a is far from θ then a large loss is
+incurred. The loss function is a nonnegative function that generally increases as the distance between
+a and θ increases. If θ is real-valued, two commonly used loss functions are
+                        absolute error loss,    L(θ,a) =  |a−θ|and
+                       squared error loss,    L(θ,a) =  (a−θ)2.
+Both of these loss functions increase as the distance between θ and a increases, with minimum
+value L(θ,θ) = 0. That is, the loss is minimum if the action is correct. Squared error loss gives
+relatively more penalty for large discrepancies and absolute error loss gives relatively more penalty
+for small discrepancies. A variation of squared error loss, one that penalizes overestimation more
+than underestimation, is
+                                                                           if a < θ,                           L(θ,a) =  (a−θ)2
+                                 10(a−θ)2   if a ≥θ.
+A loss that penalizes errors in estimation more if θ is near zero than if |θ| is large, a relative squarederror loss, is
+                                 L(θ,a) = (a−θ)2 .
+                                     |θ|+1
+Notice that both of these last variations of squared error loss could have been based instead on
+absolute error loss. In general, the experimenter must consider the consequences of various errors
+in estimation for different values of θ and specify a loss function that reflects these consequences.
+    In a loss function or decision theoretic analysis, the quality of an estimator is quantified in its
+risk function, that is, for an estimator δ(x) of θ, the risk function, a function of θ, is
+
+                             R(θ,δ) = EθL(θ,δ(X)).                             (7.3.16)
+
+At a given θ, the risk function is the average loss that will be incurred if the estimator δ(x) is used.
+   Since the true value of θ is unknown, we would like to use an estimator that has a small value
+of R(θ,δ) for all values of θ. This would mean that, regardless of the true value of θ, the estimator
+will have a small expected loss. If the qualities of two different estimators, δ1 and δ2, are to be
+compared, then they will be compared by comparing their risk functions, R(θ,δ1) and R(θ,δ2). If
+R(θ,δ1) < R(θ,δ2) for all θ ∈Θ, then δ1 is the preferred estimator because δ1 performs better forall θ. More typically, the two risk functions will cross. Then the judgment as to which estimator is
+better may not be so clear-cut.
+   The risk function for an estimator δ is the expected loss, as defined in (7.3.16). For squared
+error loss, the risk function is a familiar quantity, the mean squared error (MSE) that was used in
+Section 7.3.1. There the MSE of an estimator was defined as MSE(θ) = Eθ(δ(X) −θ)2, which is
+just EθL(θ,δ(X)) = R(θ,δ) if L(θ,a) = (a−θ)2. As in (7.3.1) we have that, for squared error loss,
+                          = Varθ δ(X)+(Biasθ δ(X))2 .           (7.3.17)        R(θ,δ) = Varθ δ(X)+(Eθδ(X)−θ)2

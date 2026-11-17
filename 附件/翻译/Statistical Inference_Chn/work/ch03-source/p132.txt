@@ -1,0 +1,38 @@
+INEQUALITIES AND IDENTITIES                                              101
+Example 3.6.2 (Illustrating Chebychev)  The most widespread use of Chebychev’s Inequality
+involves means and variances. Let g(x) = (x−µ)2/σ2, where µ = EX and σ2 = VarX. For conve-nience write r = t2. Then
+
+                          (X                           1                  P    −µ)2         E(X −µ)2 =    .                          σ2   ≥t2 ≤1t2    σ2        t2
+
+Doing some obvious algebra, we get the inequality
+
+
+                                                                                       ,                                P(|X −µ| ≥tσ) ≤1t2
+and its companion
+
+                                                                                          ,                               P(|X −µ| < tσ) ≥1−1t2
+which gives a universal bound on the deviation |X −µ| in terms of σ. For example, taking t = 2, weget
+                              = .25,                             P(|X −µ| ≥2σ) ≤122
+so there is at least a 75% chance that a random variable will be within 2σ of its mean (no matter
+what the distribution of X).                                                        ∥
+   While Chebychev’s Inequality is widely applicable, it is necessarily conservative. (See, for ex-
+ample, Exercise 3.46 and Miscellanea 3.8.2.) In particular, we can often get tighter bounds for some
+specific distributions.
+Example 3.6.3 (A normal probability inequality)   If Z is standard normal, then
+
+                                    2 e−t2/2
+                           P(|Z| ≥t) ≤  π     t    ,   for all t > 0.                        (3.6.1)
+Compare this with Chebychev’s Inequality. For  t = 2, Chebychev gives P(|Z| ≥t) ≤.25, but  (2/π)e−2/2 = .054, a vast improvement.
+   To prove (3.6.1), write
+
+                                       1    ∞                        P(Z    =            e−x2/2 dx                         ≥t)   √ 2π    t
+                                       1    ∞ x                        since x/t > 1                                                          e−x2/2 dx                      ≤ √ 2π    t    t                            for x > t
+                                       1  e−t2/2
+                      = √ 2π     t    ,
+and use the fact that P(|Z| ≥t) = 2P(Z ≥t). A lower bound on P(|Z| ≥t) can be established in a
+similar way (see Exercise 3.47).                                                     ∥
+   Many other probability inequalities exist, and almost all of them are similar in spirit to Cheby-
+chev’s. For example, we will see (Exercise 3.45) that
+                            P(X ≥a) ≤e−atMX(t),
+but, of course, this inequality requires the existence of the mgf. Other inequalities, tighter than
+Chebychev but requiring more assumptions, exist (as detailed in Miscellanea 3.8.2).

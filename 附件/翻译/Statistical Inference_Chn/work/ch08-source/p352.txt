@@ -1,0 +1,41 @@
+METHODS OF EVALUATING TESTS                                            321
+    Typically, the individual rejection regions Rγ are chosen so that αγ = α for all γ. In such a case,
+Theorem 8.3.23 states that the resulting IUT is a level α test.
+   Theorem 8.3.23, which provides an upper bound for the size of an IUT, is somewhat more useful
+than Theorem 8.3.21, which provides an upper bound for the size of a UIT. Theorem 8.3.21 applies
+only to UITs constructed from likelihood ratio tests. In contrast, Theorem 8.3.23 applies to any IUT.
+   The bound in Theorem 8.3.21 is the size of the LRT, which, in a complicated problem, may be
+difficult to compute. In Theorem 8.3.23, however, the LRT need not be used to obtain the upper
+bound. Any test of H0γ with known size αγ can be used and then the upper bound on the size of the
+IUT is given in terms of the known sizes αγ,γ ∈Γ.   The IUT in Theorem 8.3.23 is a level α test. But the size of the IUT may be much less than α;
+the IUT may be very conservative. The following theorem gives conditions under which the size of
+the IUT is exactly α, and the IUT is not too conservative.
+Theorem 8.3.24  Consider testing H0 : θ      kj=1 Θj where k is a finite positive integer. For each                          ∈ j = 1,...,k, let Rj be the rejection region of a level α test of H0j. Suppose that for some i = 1,...,k,
+there exists a sequence of parameter points, θl ∈Θi, l = 1,2,..., such that,
+ i. liml→∞Pθl(X ∈Ri) = α,
+ii. for each j = 1,...,k,   j̸ = i, liml→∞Pθl(X ∈R j) = 1.
+Then, the IUT with rejection region R =   kj=1 R j is a size α test.
+Proof: By Theorem 8.3.23, R is a level α test, that is,
+                                  sup Pθ(X ∈R) ≤α.                                  (8.3.7)                                   θ∈Θ0
+But, because all the parameter points θl satisfy θl ∈Θi ⊂Θ0,
+                     sup Pθ(X ∈R) ≥  l→∞Pθl(Xlim    ∈R)                     θ∈Θ0                                                                         k
+                      =  l→∞Pθl(Xlim    ∈ j=1 Rj)
+                                                               k
+                                                                               Bonferroni                                          lim                    ∑ Pθl(X                           Inequality                                ∈R j)−(k −1)                      ≥                                     l→∞ j=1
+                      =   (k −1)+α −(k −1)               (by (i) and (ii))
+                      =  α.
+This and (8.3.7) imply the test has size exactly equal to α.                     2
+
+Example 8.3.25 (Intersection-union test)    In Example 8.2.9, let n = m = 58, t = 1.672, and
+b = 57. Then each of the individual tests has size α = .05 (approximately). Therefore, by Theorem
+8.3.23, the IUT is a level α = .05 test, that is, the probability of deciding the product is good, when
+in fact it is not, is no more than .05. In fact, this test is a size α = .05 test. To see this consider a
+sequence of parameter points θl = (θ1l,θ2), with θ1l →∞as l →∞and θ2 = .95. All such parameter
+points are in Θ0 because θ2 ≤.95. Also, Pθl(X ∈R1) →1 as θ1l →∞while Pθl(X ∈R2) = .05 for
+all l because θ2 = .95. Thus, by Theorem 8.3.24, the IUT is a size α test.                    ∥
+   Note that, in Example 8.3.25, only the marginal distributions of the X1,...,Xn and Y1,...,Ym
+were used to find the size of the test. This point is extremely important, and directly relates to the
+usefulness of IUTs, because the joint distribution is often difficult to know and, if known, often
+difficult to work with. For example, Xi and Yi may be related if they are measurements on the same
+piece of fabric, but this relationship would have to be modeled and used to calculate the exact power
+of the IUT at any particular parameter value.

@@ -1,0 +1,83 @@
+\subsection{杂录}\label{sec:11.5}
+\sourcepageanchor{494}
+\subsubsection{Cochran定理}\label{sec:11.5.1}\index{SI0107@Cochran定理}
+正态随机变量的平方和经适当缩放与中心化后，服从卡方分布. 这类结果最早由\hyperref[bib:source80]{Cochran（1934）}给出. Cochran定理给出了缩放所需的充要条件，使独立同分布正态随机变量平方后求和所得的量服从卡方分布. 条件并不难，但最好用矩阵性质来陈述，这里不作讨论. Cochran定理的直接推论是，单因素ANOVA中的卡方随机变量按\autoref{sec:11.2.6}所述方式分解. 另一个推论是，在随机完全区组ANOVA（\hyperref[sec:11.5.3]{杂录11.5.3}）中，各均方都具有卡方分布.
+
+Cochran定理已有推广，现在已知正态变量（未必独立同分布）平方所得量服从卡方分布的充要条件. 细节见\hyperref[bib:source309]{Stuart和Ord（1987}，第15章）.
+
+\subsubsection{多重比较}\label{sec:11.5.2}\index{SI0714@多重比较}
+本章介绍了两种同时推断的方法：Scheff\'e方法和使用Bonferroni不等式. 还有大量其他同时推断程序，多数涉及两两比较的推断，即均值之差. 这些程序可用于估计单因素ANOVA中的处理均值.
+
+Tukey提出的一种方法（见\hyperref[bib:source221]{Miller，1981）}有时称为$Q$方法，\index{SI0718@Tukey的Q方法}\semanticindexanchor{718:494}它使用Scheff\'e式的最大化论证，但只对两两差值最大化，而不是对所有对比. $Q$分布是以下统计量的分布：
+$$Q=\max_{i,j}\left|\frac{(\bar Y_{i\cdot}-\bar Y_{j\cdot})-(\theta_i-\theta_j)}{\sqrt{S_p^2(1/n+1/n)}}\right|,$$
+其中对所有$i$有$n_i=n$. （\hyperref[bib:source164]{Hayter，1984}，证明：若$n_i\ne n_j$，并将上面的$n$替换为调和均值$n_h$，其中$1/n_h=\tfrac12((1/n_i)+(1/n_j))$，所得程序是保守的.）如果只关心两两差值，$Q$方法比Scheff\'e的$S$方法更有功效（区间更短），因此是一种改进. 这很容易看出，因为按定义，$Q$的最大化产生的最大值小于$S$方法.
+
+其他处理两两差值的多重比较程序也比$S$方法更有功效. 其中包括LSD（最小显著差，Least Significant Difference）程序、受保护LSD、Duncan程序和Student--Neumann--Keuls程序. 后两者是多重极差程序（multiple range procedures）：各次比较所用的临界点随比较而改变.
+
+充分理解多重比较程序的一个困难，是第一类错误的定义并非不可变动. 有些程序改变了多重比较中第一类错误的定义，所以“$\alpha$水平”的确切含义未必清楚. 所考虑的一些错误率称为全实验错误率（experimentwise error rate）、每次比较错误率（comparisonwise error rate）和族错误率（familywise error rate）. \hyperref[bib:source221]{Miller（1981）}和\hyperref[bib:source169]{Hsu（1996）}是这方面的良好参考书. \hyperref[bib:source58]{Carmer和Walker（1982）}对此有一篇幽默而富有启发性的论述.
+
+\subsubsection{随机完全区组设计}\label{sec:11.5.3}
+\autoref{sec:11.2}讨论数据的单向分类，即实验中只有一种分类（处理）. 一般而言，ANOVA允许多种分类，其中最常用的ANOVA之一是随机完全区组（Randomized Complete Block，RCB）ANOVA.
+
+\sourcepageanchor{495}
+区组（block）或区组因子（blocking factor）是在实验中专为消除变异而设置的分类. 与处理不同，通常并不关心区组间差异. 区组化实践起源于农业，实验人员利用相似的生长条件控制实验方差. 为对此建模，把实验中的实际区组看成来自一个大区组总体的随机样本，因而它们成为随机因子（random factor）.
+
+\paragraph{RCB ANOVA假设}
+按照下列模型观测随机变量$Y_{ij}$：
+$$Y_{ij}\mid\boldsymbol b=\mu+\tau_i+b_j+\varepsilon_{ij},\qquad i=1,\ldots,k,\quad j=1,\ldots,r,$$
+其中：
+\begin{enumerate}[label=(\roman*)]
+\item\label{item:11.5.3.i} 随机变量$\varepsilon_{ij}$独立同分布于$\mathrm n(0,\sigma^2)$，$i=1,\ldots,k$，$j=1,\ldots,r$（方差相等的正态误差）.
+\item\label{item:11.5.3.ii} 随机变量$B_1,\ldots,B_r$的实现值（未观测）为区组$b_1,\ldots,b_r$；它们独立同分布于$\mathrm n(0,\sigma_B^2)$，并与所有$i,j$的$\varepsilon_{ij}$独立.
+\end{enumerate}
+$Y_{ij}$的均值、方差为
+$$EY_{ij}=\mu+\tau_i,\qquad\operatorname{Var}Y_{ij}=\sigma_B^2+\sigma^2.$$
+此外，虽然$Y_{ij}$在给定条件下互不相关，但不取条件时，区组内部存在相关性. 区组$j$中$Y_{ij}$与$Y_{i'j}$（$i\ne i'$）的相关系数为
+$$\frac{\operatorname{Cov}(Y_{ij},Y_{i'j})}{\sqrt{(\operatorname{Var}Y_{ij})(\operatorname{Var}Y_{i'j})}}
+=\frac{\sigma_B^2}{\sigma_B^2+\sigma^2},$$
+这个量称为组内相关系数（intraclass correlation）. 因此，模型不仅意味着区组内有相关，而且意味着正相关. 这是加性模型以及$\varepsilon$与$B$独立的假设所带来的结果（\autoref{exercise:11.23}\mbox{）.} 即使$Y_{ij}$并不独立，这种组内相关结构仍导出均方之比具有$F$分布的方差分析（\hyperref[sec:11.5.1]{杂录11.5.1}）.
+
+\subsubsection{其他类型的方差分析}\label{sec:11.5.4}\index{SI0045@其他模型}
+所考虑的两种ANOVA——单因素ANOVA和RCB ANOVA——是最简单的类型. 例如，完全区组设计的一种推广是不完全区组设计（incomplete block design）. 有时实际条件限制，无法将所有处理放入每个区组，就需要不完全区组设计. 决定怎样在这种设计中安排处理，既困难又关键. 当然，设计越复杂，分析也越复杂.
+
+统计设计研究如何用最少的观测获得最多的信息，这一主题在许多情形下导向更复杂、更有效率的ANOVA. 基于部分因子设计（fractional factorials）、拉丁方（Latin squares）、平衡不完全区组（balanced incomplete blocks）等设计的ANOVA，可以有效收集关于某一现象的大量信息. 这一主题较好的综合参考书是\hyperref[bib:source82]{Cochran和Cox（1957）}、\hyperref[bib:source94]{Dean和Voss（1999）}以及\hyperref[bib:source192]{Kuehl（2000）}.
+
+\subsubsection{置信带的形状}\label{sec:11.5.5}
+置信带有许多形状，不仅限于Scheff\'e置信带规定的双曲线形状. 例如，\hyperref[bib:source131]{Gafarian（1964）}说明了如何在有限区间上构造直线置信带. Gafarian型置信带允许作如下形式的陈述：
+$$P\bigl(\hat\alpha+\hat\beta x-d_\alpha\le\alpha+\beta x\le\hat\alpha+\hat\beta x+d_\alpha
+\text{，对所有 }x\in[a,b]\bigr)=1-\alpha.$$
+
+\sourcepageanchor{496}
+Gafarian给出了$d_\alpha$的数值表. 有限宽度的置信带必然只能适用于有限的$x$范围. 任意$1-\alpha$水平的置信带，在$|x|\to\infty$时都必须具有无限长度.
+
+\hyperref[bib:source71]{Casella和Strawderman（1980）}等人说明了如何在有限区间上构造Scheff\'e型置信带，在维持与无限区间Scheff\'e置信带相同置信度的同时缩小宽度. \hyperref[bib:source227]{Naiman（1983）}比较了有限区间上直线置信带与Scheff\'e置信带的表现. 按他的平均宽度准则，Scheff\'e置信带更优. 不过，有些情形中，实验人员可能觉得直线置信带的解释更自然.
+
+除了直线和双曲线，还有其他可能的形状. \hyperref[bib:source241]{Piegorsch（1985）}研究并刻画了在概率陈述无法再改进意义下的容许形状，得到了容许置信带必须满足的“增长条件”. Naiman（\hyperref[bib:source227]{1983}，\hyperref[bib:source228]{1984}，\hyperref[bib:source229]{1987}）及Naiman和Wynn（\hyperref[bib:source230]{1992}，\hyperref[bib:source231]{1997}）将这一理论发展到很高水平，建立有用的不等式和几何恒等式，进一步改进推断.
+
+\subsubsection{Stein悖论}\label{sec:11.5.6}\index{SI0048@Stein估计}\index{SI0983@方差分析}
+方差分析的一部分涉及一组正态均值的同时估计. 自\hyperref[bib:source301]{Stein（1956）}开始，对这一特定问题的发展深刻影响了点估计的理论和应用.
+
+方差分析的一个典范形式是观测$\boldsymbol X=(X_1,\ldots,X_p)$，其中各$X_i\sim\mathrm n(\theta_i,1)$相互独立，$i=1,\ldots,p$，目标是估计$\boldsymbol\theta=(\theta_1,\ldots,\theta_p)$. 通常用$X_i$估计$\theta_i$，但\hyperref[bib:source301]{Stein（1956）}建立了一个令人惊讶的结果：若$p\ge3$，则下面的$\theta_i$估计量
+$$\delta_S^i(\boldsymbol X)=\left(1-\frac{p-2}{\sum_{i=1}^pX_i^2}\right)X_i$$
+在下述意义下是$\theta_i$的更好估计量：
+$$\sum_{i=1}^pE_{\boldsymbol\theta}(X_i-\theta_i)^2
+\ge\sum_{i=1}^pE_{\boldsymbol\theta}\bigl(\delta_S^i(\boldsymbol X)-\theta_i\bigr)^2.$$
+即Stein估计量的均方误差之和总较小，通常严格小于$\boldsymbol X$的均方误差之和.
+
+注意，比较估计量时使用的是各分量均方误差之和，而每个$\delta_S^i$都可以是整个向量$(X_1,\ldots,X_p)$的函数，因此估计每个均值时都可以使用全部数据. 由于$X_i$相互独立，可能以为把$\delta_S^i$限制为仅是$X_i$的函数就已足够. 但对均方误差求和，就把各分量联系在一起.
+
+在单因素ANOVA中，观测到
+$$\bar Y_{i\cdot}\sim\mathrm n\left(\theta_i,\frac{\sigma^2}{n_i}\right),\qquad i=1,\ldots,k,\quad\text{相互独立},$$
+其中$\bar Y_{i\cdot}$为单元均值. Stein估计量具有形式
+$$\delta_S^i(\bar Y_{1\cdot},\ldots,\bar Y_{k\cdot})
+=\left(1-\frac{(k-2)\sigma^2}{\sum n_j\bar Y_{j\cdot}^{\,2}}\right)^+\bar Y_{i\cdot},
+\qquad i=1,\ldots,k.$$
+还可以选择有意义的收缩目标，进一步改进这一Stein型估计量（上述估计量向零收缩\mbox{）.} \hyperref[bib:source205]{Lindley（1962）}提出的一种估计量向观测的总均值收缩，其形式为
+$$\delta_L^i(\bar Y_{1\cdot},\ldots,\bar Y_{k\cdot})
+=\bar{\bar Y}+\left(1-\frac{(k-3)\sigma^2}{\sum n_j(\bar Y_{j\cdot}-\bar{\bar Y})^2}\right)^+
+(\bar Y_{i\cdot}-\bar{\bar Y}),\qquad i=1,\ldots,k.$$
+
+\sourcepageanchor{497}
+选择其他收缩目标可能更合适. \hyperref[bib:source68]{Casella和Hwang（1987）}对此作了讨论，包括改进Scheff\'e $S$方法等置信陈述的方法. \hyperref[bib:source225]{Morris（1983）}也讨论了这些估计量的应用.
+
+使用Stein型估计量已有许多理论发展，不仅涉及点估计，还涉及置信集估计；已证明，将中心移到Stein估计量处，能提高覆盖概率并缩小置信集. Stein估计量与经验贝叶斯估计量（\hyperref[sec:7.5.6]{杂录7.5.6}）也有密切联系，这最早由Efron和Morris在20世纪70年代的一系列论文（\hyperref[bib:source111]{1972}，\hyperref[bib:source112]{1973}，\hyperref[bib:source113]{1975}）中揭示：利用共同的先验分布把$\boldsymbol\theta$的各分量联系起来. \hyperref[bib:source200]{Lehmann和Casella（1998}，第5章）介绍了这一理论以及Stein估计量的一些应用.

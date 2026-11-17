@@ -1,0 +1,57 @@
+{
+  "3.33": {
+    "tex": "工具/StatisticalInference/ch03-figures/exercise-3-33.tex",
+    "pdf": "附件/习题图/DS011/习题3.33-参数轨迹.pdf",
+    "png": "附件/习题图/DS011/习题3.33-参数轨迹.png",
+    "parameters": {
+      "a": 1
+    },
+    "construction": "independent-PGFPlots",
+    "sha256_png": "03c0b951202b5bfe8f5bb5c3ecaf8527db31ffd8b6b354f0de78719d5d749efa"
+  },
+  "3.34": {
+    "tex": "工具/StatisticalInference/ch03-figures/exercise-3-34.tex",
+    "pdf": "附件/习题图/DS011/习题3.34-近似族曲线.pdf",
+    "png": "附件/习题图/DS011/习题3.34-近似族曲线.png",
+    "parameters": {
+      "n": 5,
+      "r": 2
+    },
+    "construction": "independent-PGFPlots",
+    "sha256_png": "2447bafed082382a71afa67611cec776ae8d85612f2a9a27687c810731c0349e"
+  },
+  "3.35": {
+    "tex": "工具/StatisticalInference/ch03-figures/exercise-3-35.tex",
+    "pdf": "附件/习题图/DS011/习题3.35-重参数化与均值约束.pdf",
+    "png": "附件/习题图/DS011/习题3.35-重参数化与均值约束.png",
+    "parameters": {
+      "n_comparison": 5,
+      "gamma_mean": 1
+    },
+    "construction": "independent-PGFPlots",
+    "sha256_png": "010014011e66d2b44b8e09f318dabfd2ff18b0297cd6fb6f9a720ab87171de93"
+  },
+  "3.36": {
+    "tex": "工具/StatisticalInference/ch03-figures/exercise-3-36.tex",
+    "pdf": "附件/习题图/DS011/习题3.36-位置尺度密度.pdf",
+    "png": "附件/习题图/DS011/习题3.36-位置尺度密度.png",
+    "parameters": {
+      "cases": [
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "construction": "independent-PGFPlots",
+    "sha256_png": "affde73c6c4c55a8ef3660f91c79ca60f0ffb6abfbbe03ec9bff14189895086a"
+  }
+}

@@ -1,0 +1,441 @@
+\sourcepageanchor{284}
+\subsection{构造估计量的方法}\label{sec:7.2}
+有时，决定如何估计一个参数很容易，仅靠直觉就常常能得到很好的估计量.例如，用参数的样本对应量来估计它，通常是合理的.特别地，样本均值是总体均值的良好估计.在实践中常见的、更复杂的模型里，我们需要更加系统的参数估计方法.本节详细介绍四种构造估计量的方法.
+\subsubsection{矩估计法}\label{sec:7.2.1}\index{SI0806@矩估计法}
+矩估计法（method of moments）也许是构造点估计量最古老的方法，至少可追溯到19世纪末的Karl Pearson.它的优点是使用十分简单，而且几乎总能给出某种估计.遗憾的是，在许多情形下，这种方法给出的估计量还有改进余地.不过，当其他方法难以运用时，它是一个良好的起点.
+
+设$X_1,\ldots,X_n$是来自pdf或pmf为$f(x\mid\theta_1,\ldots,\theta_k)$的总体的样本.矩估计量通过令前$k$个样本矩等于对应的$k$个总体矩，并求解所得联立方程组来构造.更精确地，定义
+\begin{equation}\label{eq:7.2.1}
+\begin{aligned}
+m_1&=\frac1n\sum_{i=1}^nX_i^1,&\quad\mu_1'&=EX^1,\\
+m_2&=\frac1n\sum_{i=1}^nX_i^2,&\mu_2'&=EX^2,\\
+&\ \vdots&&\ \vdots\\
+m_k&=\frac1n\sum_{i=1}^nX_i^k,&\mu_k'&=EX^k.
+\end{aligned}
+\end{equation}
+总体矩$\mu_j'$通常是$\theta_1,\ldots,\theta_k$的函数，记作$\mu_j'(\theta_1,\ldots,\theta_k)$.通过求解下面的方程组，把$(\theta_1,\ldots,\theta_k)$表示成$(m_1,\ldots,m_k)$的函数，就得到$(\theta_1,\ldots,\theta_k)$的矩估计量$(\widetilde\theta_1,\ldots,\widetilde\theta_k)$：
+\begin{equation}\label{eq:7.2.2}
+\begin{aligned}
+m_1&=\mu_1'(\theta_1,\ldots,\theta_k),\\
+m_2&=\mu_2'(\theta_1,\ldots,\theta_k),\\
+&\ \vdots\\
+m_k&=\mu_k'(\theta_1,\ldots,\theta_k).
+\end{aligned}
+\end{equation}
+\begin{example}[正态分布的矩估计]\label{ex:7.2.1}\index{SI0809@正态}
+设$X_1,\ldots,X_n$独立同分布于$n(\theta,\sigma^2)$.用前面的记号，$\theta_1=\theta$、$\theta_2=\sigma^2$.有$m_1=\bar X$、$m_2=(1/n)\sum X_i^2$、$\mu_1'=\theta$、$\mu_2'=\theta^2+\sigma^2$，因而须求解
+$$\bar X=\theta,\qquad\frac1n\sum X_i^2=\theta^2+\sigma^2.$$
+解出$\theta$和$\sigma^2$，得到矩估计量
+$$\widetilde\theta=\bar X\qquad\text{及}\qquad\widetilde{\sigma^2}=\frac1n\sum X_i^2-\bar X^2=\frac1n\sum(X_i-\bar X)^2.$$
+\end{example}
+在这个简单例子中，矩估计法的解与直觉一致，也许使我们对二者都更有信心.不过，当没有显而易见的估计量可用时，这种方法更有帮助.
+\sourcepageanchor{285}
+\begin{example}[二项分布的矩估计]\label{ex:7.2.2}\index{SI0807@二项}
+设$X_1,\ldots,X_n$独立同分布于$\operatorname{binomial}(k,p)$，即
+$$P(X_i=x\mid k,p)=\binom kx p^x(1-p)^{k-x},\qquad x=0,1,\ldots,k.$$
+这里假设$k$和$p$都未知，希望获得两个参数的点估计量.（二项模型的这种稍不寻常的应用，曾用于估计那些已知有大量未报案事件的犯罪发生率.对这样的犯罪，真实报案率$p$和总发生次数$k$都未知.）
+
+令前两个样本矩等于相应总体矩，得到方程组
+\begin{align*}
+\bar X&=kp,\\
+\frac1n\sum X_i^2&=kp(1-p)+k^2p^2,
+\end{align*}
+现在须由此解出$k$和$p$.稍作代数运算，得到矩估计量
+$$\widetilde k=\frac{\bar X^2}{\bar X-(1/n)\sum(X_i-\bar X)^2},$$
+以及
+$$\widetilde p=\frac{\bar X}{\widetilde k}.$$
+诚然，这些并非总体参数的最佳估计量.特别地，它们可能给出$k$和$p$的负估计值，而这些参数当然必须为正.（这里估计量的值域与所估计参数的值域不一致.）不过，为矩估计法说句公道话，负估计值只会在样本均值小于样本方差时出现，而这意味着数据的变异程度很大.在这个例子中，矩估计法至少给出了$k$和$p$点估计量的一组候选者.虽然直觉也许能为$p$的估计量提供一个候选者，但想出$k$的估计量困难得多.
+\end{example}
+矩估计法在获得统计量分布的近似方面很有用.这种有时称为“矩匹配”（moment matching）的技巧，通过匹配分布的矩来给出近似.理论上，任何统计量分布的矩都可与任一分布的矩匹配；但在实践中，最好采用形状相似的分布.下面的例子展示了这种技巧最著名的应用之一，即\hyperref[bib:source272]{Satterthwaite（1946）}近似.它至今仍在使用（见\autoref{exercise:8.42}）.
+\begin{example}[Satterthwaite近似]\label{ex:7.2.3}\index{SI0808@卡方}\index{SI0952@Satterthwaite近似}
+若$Y_i$（$i=1,\ldots,k$）为独立的$\chi_{r_i}^2$随机变量，我们已经看到（\autoref{lem:5.3.2}），$\sum Y_i$也服从卡方分布，自由度为$\sum r_i$.遗憾的是，$\sum a_iY_i$（$a_i$为已知常数）的分布一般相当难以求出.不过，假定某个自由度$\nu$的$\chi_\nu^2$能提供良好近似，看来是合理的.
+
+这几乎就是Satterthwaite的问题.他关心的是近似一个$t$统计量的分母，而$\sum a_iY_i$表示该统计量分母的平方.因此，给定$a_1,\ldots,a_k$，他希望找到一个$\nu$，使
+$$\sum_{i=1}^ka_iY_i\sim\frac{\chi_\nu^2}\nu\qquad\text{（近似地）}.$$
+因为$E(\chi_\nu^2/\nu)=1$，为了匹配一阶矩，需要
+$$E\left(\sum_{i=1}^ka_iY_i\right)=\sum_{i=1}^ka_iEY_i=\sum_{i=1}^ka_ir_i=1,$$
+\sourcepageanchor{286}
+这对$a_i$给出了一个约束，但没有提供如何估计$\nu$的信息.为此必须匹配二阶矩，需要
+$$E\left(\sum_{i=1}^ka_iY_i\right)^2=E\left(\frac{\chi_\nu^2}\nu\right)^2=\frac2\nu+1.$$
+应用矩估计法，去掉第一个期望算子并解出$\nu$，得到
+$$\widehat\nu=\frac2{(\sum_{i=1}^ka_iY_i)^2-1}.$$
+因此，直接应用矩估计法确实给出了$\nu$的估计量，但它可能取负值.我们可以想象Satterthwaite会对这种可能性感到震惊，因为这并非他提出的估计量.他作了更多努力，按下面的方式对矩估计法进行了专门调整.写成
+\begin{align*}
+E\left(\sum a_iY_i\right)^2
+&=\operatorname{Var}\left(\sum a_iY_i\right)+\left(E\sum a_iY_i\right)^2\\
+&=\left(E\sum a_iY_i\right)^2\left[\frac{\operatorname{Var}(\sum a_iY_i)}{(E\sum a_iY_i)^2}+1\right]\\
+&=\left[\frac{\operatorname{Var}(\sum a_iY_i)}{(E\sum a_iY_i)^2}+1\right].\qquad\left(E\sum a_iY_i=1\right)
+\end{align*}
+现在令二阶矩相等，得到
+$$\nu=\frac{2(E\sum a_iY_i)^2}{\operatorname{Var}(\sum a_iY_i)}.$$
+最后，利用$Y_1,\ldots,Y_k$是独立卡方随机变量这一事实，写成
+\begin{align*}
+\operatorname{Var}\left(\sum a_iY_i\right)&=\sum a_i^2\operatorname{Var}Y_i\\
+&=2\sum\frac{a_i^2(EY_i)^2}{r_i}.\qquad\left(\operatorname{Var}Y_i=\frac{2(EY_i)^2}{r_i}\right)
+\end{align*}
+代入这个方差表达式，并去掉期望算子，得到Satterthwaite估计量
+$$\widehat\nu=\frac{(\sum a_iY_i)^2}{\sum\frac{a_i^2}{r_i}Y_i^2}.$$
+这一近似很好，至今仍被广泛使用.注意，Satterthwaite成功得到了一个总为正的估计量，从而消除了直接矩估计量所存在的明显问题.
+\end{example}
+\subsubsection{极大似然估计量}\label{sec:7.2.2}
+极大似然法（method of maximum likelihood）是迄今最常用的构造估计量的技巧.回顾一下，若$X_1,\ldots,X_n$为来自pdf或pmf为$f(x\mid\theta_1,\ldots,\theta_k)$的总体的独立同分布样本，则似然函数定义为
+\begin{equation}\label{eq:7.2.3}
+L(\boldsymbol\theta\mid\boldsymbol x)=L(\theta_1,\ldots,\theta_k\mid x_1,\ldots,x_n)=\prod_{i=1}^nf(x_i\mid\theta_1,\ldots,\theta_k).
+\end{equation}
+\begin{definition}\label{def:7.2.4}\index{SI0667@最大似然估计量}
+对于每个样本点$\boldsymbol x$，设$\widehat{\boldsymbol\theta}(\boldsymbol x)$是在固定$\boldsymbol x$时，使$L(\boldsymbol\theta\mid\boldsymbol x)$作为$\boldsymbol\theta$的函数达到最大值的一个参数值.基于样本$\boldsymbol X$的参数$\boldsymbol\theta$的极大似然估计量（maximum likelihood estimator，MLE）为$\widehat{\boldsymbol\theta}(\boldsymbol X)$.
+\end{definition}
+\sourcepageanchor{287}
+注意，由其构造可知，MLE的值域与参数的值域一致.此外，在讨论估计量的实现值时，我们也用缩写MLE表示极大似然估计值.
+
+直观上，MLE是估计量的一个合理选择.MLE是使观测样本最有可能出现的参数点.一般而言，MLE是良好的点估计量，具有后面要讨论的一些最优性质.
+
+求函数最大值的一般问题有两个内在困难，因此极大似然估计也有这些困难.第一个问题是实际找到全局最大值，并验证找到的确实是全局最大值.很多时候，这只是一道简单的微分学练习；不过，即使对常见密度，有时也会出现困难.第二个问题是数值敏感性，即估计值对数据的微小变化有多敏感？（严格说，这是与任何极大化方法相关的数学问题，而非统计问题.不过，既然MLE是通过极大化求得的，这个问题就必须处理.）遗憾的是，有时稍有差别的样本会产生差别极大的MLE，使它的使用受到质疑.我们先考虑寻找MLE的问题.
+
+若似然函数关于$\theta_i$可微，则MLE的可能候选者是满足
+\begin{equation}\label{eq:7.2.4}
+\frac\partial{\partial\theta_i}L(\boldsymbol\theta\mid\boldsymbol x)=0,\qquad i=1,\ldots,k
+\end{equation}
+的$(\theta_1,\ldots,\theta_k)$值.
+
+注意，\eqref{eq:7.2.4}的解只是MLE的\emph{可能候选者}，因为一阶导数为零只是极大值的必要条件，而非充分条件.而且，一阶导数的零点只能定位函数定义域内部的极值点.若极值在边界取得，一阶导数未必为零.因此，必须另外检查边界上的极值.
+
+一阶导数为零的点，可能是局部或全局极小值点、局部或全局极大值点，或者拐点.我们的任务是找到全局最大值.
+\begin{example}[正态似然]\label{ex:7.2.5}\index{SI0679@正态}
+设$X_1,\ldots,X_n$独立同分布于$n(\theta,1)$，用$L(\theta\mid\boldsymbol x)$表示似然函数.则
+$$L(\theta\mid\boldsymbol x)=\prod_{i=1}^n\frac1{(2\pi)^{1/2}}e^{-(1/2)(x_i-\theta)^2}=\frac1{(2\pi)^{n/2}}e^{(-1/2)\sum_{i=1}^n(x_i-\theta)^2}.$$
+方程$(d/d\theta)L(\theta\mid\boldsymbol x)=0$化为
+$$\sum_{i=1}^n(x_i-\theta)=0,$$
+其解为$\widehat\theta=\bar x$.因此，$\bar x$是MLE的候选者.为了验证$\bar x$确实是似然函数的全局最大值点，可以作如下论证.首先，$\widehat\theta=\bar x$是$\sum(x_i-\theta)=0$的唯一解，所以$\bar x$是一阶导数的唯一零点.其次，验证
+$$\left.\frac{d^2}{d\theta^2}L(\theta\mid\boldsymbol x)\right|_{\theta=\bar x}<0.$$
+因此，$\bar x$是内部唯一的极值点，且为极大值点.最后，为验证它是全局最大值点，必须检查边界$\pm\infty$.取极限很容易说明似然在$\pm\infty$为零.故$\widehat\theta=\bar x$是全局最大值点，从而$\bar X$是MLE.（实际上，可以稍微巧妙些，免去检查$\pm\infty$.既然已确定$\bar x$是唯一的内部极值点，且为极大值点，则$\pm\infty$不可能再有极大值.否则，内部必有一个极小值点，与唯一性矛盾.）
+\end{example}
+\sourcepageanchor{288}
+另一种求MLE的方法，是不用微分而直接极大化.这种方法在代数上通常更简单，尤其当导数表达式繁杂时；不过，由于没有固定规则可循，有时更难实施.一种一般技巧是为似然函数找到一个全局上界，再确立达到该上界的点是唯一的.
+\begin{example}[续\autoref{ex:7.2.5}]\label{ex:7.2.6}
+回顾\autoref{thm:5.2.4}：对任意数$a$，
+$$\sum_{i=1}^n(x_i-a)^2\ge\sum_{i=1}^n(x_i-\bar x)^2,$$
+等号成立当且仅当$a=\bar x$.这意味着对任意$\theta$，
+$$e^{-(1/2)\sum(x_i-\theta)^2}\le e^{-(1/2)\sum(x_i-\bar x)^2},$$
+等号成立当且仅当$\theta=\bar x$.因此，$\bar X$是MLE.
+\end{example}
+在大多数情形中，尤其准备使用微分时，处理$L(\boldsymbol\theta\mid\boldsymbol x)$的自然对数$\log L(\boldsymbol\theta\mid\boldsymbol x)$（称为对数似然，log likelihood），\index{SI0621@对数似然}\semanticindexanchor{621:288}比直接处理$L(\boldsymbol\theta\mid\boldsymbol x)$更容易.这样做可行，是因为对数函数在$(0,\infty)$上严格递增，意味着$L(\boldsymbol\theta\mid\boldsymbol x)$和$\log L(\boldsymbol\theta\mid\boldsymbol x)$的极值点相同（见\autoref{exercise:7.3}）.
+\begin{example}[Bernoulli分布的MLE]\label{ex:7.2.7}\index{SI0669@伯努利}
+设$X_1,\ldots,X_n$独立同分布于$\operatorname{Bernoulli}(p)$.似然函数为
+$$L(p\mid\boldsymbol x)=\prod_{i=1}^np^{x_i}(1-p)^{1-x_i}=p^y(1-p)^{n-y},$$
+其中$y=\sum x_i$.虽然这个函数求导并不太难，但对数似然的求导容易得多：
+$$\log L(p\mid\boldsymbol x)=y\log p+(n-y)\log(1-p).$$
+若$0<y<n$，对$\log L(p\mid\boldsymbol x)$求导并令结果为零，得到解$\widehat p=y/n$.也容易验证，此时$y/n$是全局最大值点.若$y=0$或$y=n$，则
+$$\log L(p\mid\boldsymbol x)=\begin{cases}n\log(1-p),&\text{若 }y=0,\\n\log p,&\text{若 }y=n.\end{cases}$$
+两种情形下，$\log L(p\mid\boldsymbol x)$都是$p$的单调函数，也同样容易验证各自都有$\widehat p=y/n$.因此，我们说明了$\sum X_i/n$是$p$的MLE.
+\end{example}
+在这个推导中，我们假设参数空间为$0\le p\le1$.为了使$\widehat p=y/n$在$y=0$和$n$时也是MLE，参数空间必须包括$p=0$和$1$.与\autoref{ex:3.4.1}比较：那里为了满足指数族的要求，取的是$0<p<1$.
+
+寻找极大似然估计量时，还须注意，极大化只在参数取值范围内进行.在某些情形中，这一点十分重要.
+\begin{example}[参数范围受限的MLE]\label{ex:7.2.8}
+设$X_1,\ldots,X_n$独立同分布于$n(\theta,1)$，并且已知$\theta$必须非负.在不限制$\theta$时，我们已看到其MLE为$\bar X$；不过，若$\bar X$为负，它便落在参数范围之外.
+
+若$\bar x$为负，很容易验证（见\autoref{exercise:7.4}），似然函数$L(\theta\mid\boldsymbol x)$在$\theta\ge0$时关于$\theta$递减，在$\widehat\theta=0$处最大.因此，此时$\theta$的MLE为
+$$\widehat\theta=\bar X\ \text{若 }\bar X\ge0,\qquad\text{而}\qquad\widehat\theta=0\ \text{若 }\bar X<0.$$
+\end{example}
+\sourcepageanchor{289}
+若不能解析地极大化$L(\boldsymbol\theta\mid\boldsymbol x)$，也许可以借助计算机对它作数值极大化.实际上，这是MLE最重要的特点之一.只要能够写出模型（似然），就有希望通过数值方法将其极大化，从而找到参数的MLE.不过，采用这种方法时，总有一个问题：找到的是局部还是全局最大值？因此，在使用数值极大化之前，始终应尽可能充分地分析似然函数，确定局部极大值的数目和性质.
+\begin{example}[试验次数未知的二项分布MLE]\label{ex:7.2.9}\index{SI0671@二项}
+设$X_1,\ldots,X_n$是来自$\operatorname{binomial}(k,p)$总体的随机样本，其中$p$已知，$k$未知.例如，投掷一枚已知公平的硬币，观测到$x_i$次正面，却不知道硬币一共投了多少次.似然函数为
+$$L(k\mid\boldsymbol x,p)=\prod_{i=1}^n\binom k{x_i}p^{x_i}(1-p)^{k-x_i}.$$
+由于阶乘的存在，而且$k$必须是整数，通过微分来极大化$L(k\mid\boldsymbol x,p)$很困难.因此，尝试另一种方法.
+
+当然，当$k<\max_ix_i$时，$L(k\mid\boldsymbol x,p)=0$.故MLE是一个整数$k\ge\max_ix_i$，满足
+$$\frac{L(k\mid\boldsymbol x,p)}{L(k-1\mid\boldsymbol x,p)}\ge1\qquad\text{及}\qquad\frac{L(k+1\mid\boldsymbol x,p)}{L(k\mid\boldsymbol x,p)}<1.$$
+我们将说明这样的$k$只有一个.似然之比为
+$$\frac{L(k\mid\boldsymbol x,p)}{L(k-1\mid\boldsymbol x,p)}=\frac{(k(1-p))^n}{\prod_{i=1}^n(k-x_i)}.$$
+因此，极大值的条件为
+\begin{gather*}
+(k(1-p))^n\ge\prod_{i=1}^n(k-x_i),\\
+((k+1)(1-p))^n<\prod_{i=1}^n(k+1-x_i).
+\end{gather*}
+除以$k^n$，令$z=1/k$，我们希望在$0\le z\le1/\max_ix_i$内求解
+$$(1-p)^n=\prod_{i=1}^n(1-x_iz).$$
+显然，右端在这个范围内是$z$的严格递减函数，$z=0$时取值1，$z=1/\max_ix_i$时取值0.因此，方程有唯一解$z$，记为$\widehat z$.$1/\widehat z$未必是整数.不过，满足这些不等式、从而为MLE的整数$\widehat k$，就是不超过$1/\widehat z$的最大整数（见\autoref{exercise:7.5}）.因此，这一分析说明似然函数存在唯一的最大值点，并可通过数值求解一个$n$次多项式方程来找到它.\footnote{译注：原文的“唯一”须留意并列最大值：当$1/\widehat z=m$为整数时，$L(m)=L(m-1)$，二者均为MLE；文中的严格第二不等式选取了其中较大的一个.例如$n=1$、$x_1=1$、$p=1/2$时，$k=1,2$并列.此外，若所有$x_i=0$，这里的$1/\max_ix_i$未定义，须另外处理边界情形.}这种关于$k$的MLE的描述由\hyperref[bib:source116]{Feldman和Fox（1968）}给出.关于$k$的估计，另见\autoref{ex:7.2.13}.
+\end{example}
+极大似然估计量有一个有用性质，通常称为MLE的不变性（invariance property），不要与\autoref{sec:6}讨论的不变性混淆.设分布由参数$\theta$标定，但我们感兴趣的是$\theta$的某个函数，比如$\tau(\theta)$的估计量.非正式地说，MLE的不变性是指：若$\widehat\theta$是$\theta$的MLE，则$\tau(\widehat\theta)$是$\tau(\theta)$的MLE.例如，若$\theta$是正态分布的均值，则$\sin(\theta)$的MLE为$\sin(\bar X)$.这里介绍\hyperref[bib:source337]{Zehna（1966）}的处理；关于MLE不变性的其他处理方法，参见\hyperref[bib:source238]{Pal和Berry（1992）}.
+
+当然，要把MLE不变性的概念形式化，还须克服一些技术问题，它们大多集中在我们想估计的函数$\tau(\theta)$上.若映射$\theta\mapsto\tau(\theta)$是一一的（即每个$\theta$对应唯一的$\tau(\theta)$，反之亦然），就没有问题.此时容易看出，无论把似然视为$\theta$的函数还是$\tau(\theta)$的函数来极大化，
+\sourcepageanchor{290}
+都得到相同答案.令$\eta=\tau(\theta)$，则反函数$\tau^{-1}(\eta)=\theta$有良好定义，而$\tau(\theta)$的似然函数写成$\eta$的函数为
+$$L^*(\eta\mid\boldsymbol x)=\prod_{i=1}^nf(x_i\mid\tau^{-1}(\eta))=L(\tau^{-1}(\eta)\mid\boldsymbol x),$$
+并且
+$$\sup_\eta L^*(\eta\mid\boldsymbol x)=\sup_\eta L(\tau^{-1}(\eta)\mid\boldsymbol x)=\sup_\theta L(\theta\mid\boldsymbol x).$$
+因此，$L^*(\eta\mid\boldsymbol x)$的最大值在$\eta=\tau(\theta)=\tau(\widehat\theta)$处取得，说明$\tau(\theta)$的MLE就是$\tau(\widehat\theta)$.
+
+很多时候，这个简单形式的MLE不变性并不适用，因为我们感兴趣的许多函数不是一一的.例如，估计正态均值的平方$\theta^2$时，映射$\theta\mapsto\theta^2$并非一一映射.因此，需要一个更一般的定理，实际上还需要对$\tau(\theta)$的似然函数给出更一般的定义.
+
+若$\tau(\theta)$不是一一的，则给定$\eta$，可能有不止一个$\theta$满足$\tau(\theta)=\eta$.此时，对$\eta$的极大化与对$\theta$的极大化之间的对应可能失效.例如，若$\widehat\theta$为$\theta$的MLE，可能还有另一个$\theta$值，比如$\theta_0$，满足$\tau(\widehat\theta)=\tau(\theta_0)$.我们需要避免这样的困难.
+
+为此，为$\tau(\theta)$定义诱导似然函数（induced likelihood function）$L^*$：
+\begin{equation}\label{eq:7.2.5}\index{SI0620@诱导}
+L^*(\eta\mid\boldsymbol x)=\sup_{\{\theta:\tau(\theta)=\eta\}}L(\theta\mid\boldsymbol x).
+\end{equation}
+使$L^*(\eta\mid\boldsymbol x)$最大的值$\widehat\eta$，称为$\eta=\tau(\theta)$的MLE.由\eqref{eq:7.2.5}可见，$L^*$与$L$的最大值相同.
+\begin{theorem}[MLE的不变性]\label{thm:7.2.10}\index{SI0677@不变性}
+若$\widehat\theta$是$\theta$的MLE，则对任意函数$\tau(\theta)$，$\tau(\theta)$的MLE为$\tau(\widehat\theta)$.
+\end{theorem}
+\begin{proof}
+令$\widehat\eta$表示使$L^*(\eta\mid\boldsymbol x)$最大的值.须证$L^*(\widehat\eta\mid\boldsymbol x)=L^*[\tau(\widehat\theta)\mid\boldsymbol x]$.如前所述，$L$与$L^*$的最大值相同，因而
+\begin{align*}
+L^*(\widehat\eta\mid\boldsymbol x)&=\sup_\eta\sup_{\{\theta:\tau(\theta)=\eta\}}L(\theta\mid\boldsymbol x)&&\text{（$L^*$的定义）}\\
+&=\sup_\theta L(\theta\mid\boldsymbol x)\\
+&=L(\widehat\theta\mid\boldsymbol x),&&\text{（$\widehat\theta$的定义）}
+\end{align*}
+第二个等号成立，是因为逐次极大化等于无约束地对$\theta$极大化，而后者在$\widehat\theta$处达到.此外，
+\begin{align*}
+L(\widehat\theta\mid\boldsymbol x)&=\sup_{\{\theta:\tau(\theta)=\tau(\widehat\theta)\}}L(\theta\mid\boldsymbol x)&&\text{（$\widehat\theta$是MLE）}\\
+&=L^*[\tau(\widehat\theta)\mid\boldsymbol x].&&\text{（$L^*$的定义）}
+\end{align*}
+因此，这一连串等式表明$L^*(\widehat\eta\mid\boldsymbol x)=L^*(\tau(\widehat\theta)\mid\boldsymbol x)$，从而$\tau(\widehat\theta)$是$\tau(\theta)$的MLE.
+\end{proof}
+利用此定理，现在知道正态均值平方$\theta^2$的MLE为$\bar X^2$.也可将\autoref{thm:7.2.10}应用于更复杂的函数；例如，当$p$为二项分布概率时，$\sqrt{p(1-p)}$的MLE为$\sqrt{\widehat p(1-\widehat p)}$.
+
+在结束极大似然估计量的构造问题之前，还有几点需要提及.
+\sourcepageanchor{291}
+MLE的不变性在多元情形也成立.\autoref{thm:7.2.10}的证明没有任何地方排除$\theta$为向量的可能.若$(\theta_1,\ldots,\theta_k)$的MLE为$(\widehat\theta_1,\ldots,\widehat\theta_k)$，而$\tau(\theta_1,\ldots,\theta_k)$是参数的任意函数，则$\tau(\theta_1,\ldots,\theta_k)$的MLE为$\tau(\widehat\theta_1,\ldots,\widehat\theta_k)$.
+
+若$\boldsymbol\theta=(\theta_1,\ldots,\theta_k)$是多维的，寻找MLE就是求一个多元函数的最大值.若似然函数可微，令一阶偏导数为零便给出内部极值点的必要条件.不过，在多维情形中，用二阶导数条件检查极大值很繁琐，可以先尝试其他方法.先介绍一种通常更简单的技巧，即逐次极大化.
+\begin{example}[$\mu$与$\sigma$未知时的正态MLE]\label{ex:7.2.11}\index{SI0679@正态}
+设$X_1,\ldots,X_n$独立同分布于$n(\theta,\sigma^2)$，其中$\theta$与$\sigma^2$均未知.则
+$$L(\theta,\sigma^2\mid\boldsymbol x)=\frac1{(2\pi\sigma^2)^{n/2}}e^{-(1/2)\sum_{i=1}^n(x_i-\theta)^2/\sigma^2},$$
+以及
+$$\log L(\theta,\sigma^2\mid\boldsymbol x)=-\frac n2\log2\pi-\frac n2\log\sigma^2-\frac12\sum_{i=1}^n(x_i-\theta)^2/\sigma^2.$$
+关于$\theta$和$\sigma^2$的偏导数为
+$$\frac\partial{\partial\theta}\log L(\theta,\sigma^2\mid\boldsymbol x)=\frac1{\sigma^2}\sum_{i=1}^n(x_i-\theta),$$
+以及
+$$\frac\partial{\partial\sigma^2}\log L(\theta,\sigma^2\mid\boldsymbol x)=-\frac n{2\sigma^2}+\frac1{2\sigma^4}\sum_{i=1}^n(x_i-\theta)^2.$$
+令这些偏导数为零并求解，得$\widehat\theta=\bar x$、$\widehat{\sigma^2}=n^{-1}\sum_{i=1}^n(x_i-\bar x)^2$.为验证此解确为全局最大值点，首先回顾：若$\theta\ne\bar x$，则$\sum(x_i-\theta)^2>\sum(x_i-\bar x)^2$.因此，对任意$\sigma^2$，
+\begin{equation}\label{eq:7.2.6}
+\frac1{(2\pi\sigma^2)^{n/2}}e^{-(1/2)\sum_{i=1}^n(x_i-\bar x)^2/\sigma^2}
+\ge\frac1{(2\pi\sigma^2)^{n/2}}e^{-(1/2)\sum_{i=1}^n(x_i-\theta)^2/\sigma^2}.
+\end{equation}
+所以，验证已经找到极大似然估计量的问题，就化为一维问题：验证
+$$ (\sigma^2)^{-n/2}\exp\left(-\frac12\sum(x_i-\bar x)^2/\sigma^2\right) $$
+在$\sigma^2=n^{-1}\sum(x_i-\bar x)^2$处达到全局最大值.用一元微积分很容易完成验证；事实上，估计量$(\bar X,n^{-1}\sum(X_i-\bar X)^2)$就是MLE.\footnote{译注：这里及下一例的内部极大值计算要求$\sum(x_i-\bar x)^2>0$.若全部观测相同（特别是$n=1$），在通常参数空间$\sigma^2>0$上似然随$\sigma^2\downarrow0$无界，最大值并不取得；不能把零方差直接当作该参数空间内的MLE.}
+
+注意，\eqref{eq:7.2.6}不等式左端称为$\sigma^2$的剖面似然（profile likelihood）.参见\autoref{sec:7.5.5}.
+\end{example}
+现在考虑用二元微积分求解同一个问题.
+\begin{example}[续\autoref{ex:7.2.11}]\label{ex:7.2.12}\index{SI0673@微积分}
+要用二元微积分验证函数$H(\theta_1,\theta_2)$在$(\widehat\theta_1,\widehat\theta_2)$处有局部极大值，须说明下列三个条件成立.
+\begin{enumerate}[label=(\alph*)]
+\item\phantomsection\label{itm:ex:7.2.12:a} 一阶偏导数为零：
+$$\left.\frac\partial{\partial\theta_1}H(\theta_1,\theta_2)\right|_{\theta_1=\widehat\theta_1,\theta_2=\widehat\theta_2}=0\quad\text{且}\quad\left.\frac\partial{\partial\theta_2}H(\theta_1,\theta_2)\right|_{\theta_1=\widehat\theta_1,\theta_2=\widehat\theta_2}=0.$$
+\item\phantomsection\label{itm:ex:7.2.12:b} 至少一个二阶偏导数为负：
+$$\left.\frac{\partial^2}{\partial\theta_1^2}H(\theta_1,\theta_2)\right|_{\theta_1=\widehat\theta_1,\theta_2=\widehat\theta_2}<0\quad\text{或}\quad\left.\frac{\partial^2}{\partial\theta_2^2}H(\theta_1,\theta_2)\right|_{\theta_1=\widehat\theta_1,\theta_2=\widehat\theta_2}<0.$$
+\sourcepageanchor{292}
+\item\phantomsection\label{itm:ex:7.2.12:c} 二阶偏导数的Jacobian为正：\footnote{译注：这里原文把二阶偏导数矩阵的行列式称为Jacobian；通常术语是Hessian矩阵的行列式，它也可看作梯度映射的Jacobian行列式.原称谓保留.}
+\begin{align*}
+&\left.\begin{vmatrix}
+\dfrac{\partial^2}{\partial\theta_1^2}H(\theta_1,\theta_2)&\dfrac{\partial^2}{\partial\theta_1\partial\theta_2}H(\theta_1,\theta_2)\\[4pt]
+\dfrac{\partial^2}{\partial\theta_1\partial\theta_2}H(\theta_1,\theta_2)&\dfrac{\partial^2}{\partial\theta_2^2}H(\theta_1,\theta_2)
+\end{vmatrix}\right|_{\theta_1=\widehat\theta_1,\theta_2=\widehat\theta_2}\\
+&\quad=\left.\left[\frac{\partial^2H(\theta_1,\theta_2)}{\partial\theta_1^2}\frac{\partial^2H(\theta_1,\theta_2)}{\partial\theta_2^2}-\left(\frac{\partial^2H(\theta_1,\theta_2)}{\partial\theta_1\partial\theta_2}\right)^2\right]\right|_{\theta_1=\widehat\theta_1,\theta_2=\widehat\theta_2}>0.
+\end{align*}
+\end{enumerate}
+对于正态对数似然，二阶偏导数为
+\begin{align*}
+\frac{\partial^2}{\partial\theta^2}\log L(\theta,\sigma^2\mid\boldsymbol x)&=-\frac n{\sigma^2},\\
+\frac{\partial^2}{\partial(\sigma^2)^2}\log L(\theta,\sigma^2\mid\boldsymbol x)&=\frac n{2\sigma^4}-\frac1{\sigma^6}\sum_{i=1}^n(x_i-\theta)^2,\\
+\frac{\partial^2}{\partial\theta\partial\sigma^2}\log L(\theta,\sigma^2\mid\boldsymbol x)&=-\frac1{\sigma^4}\sum_{i=1}^n(x_i-\theta).
+\end{align*}
+容易看出\hyperref[itm:ex:7.2.12:a]{(a)}和\hyperref[itm:ex:7.2.12:b]{(b)}成立，Jacobian为
+\begin{align*}
+&\left.\begin{vmatrix}
+-\dfrac n{\sigma^2}&-\dfrac1{\sigma^4}\sum_{i=1}^n(x_i-\theta)\\[4pt]
+-\dfrac1{\sigma^4}\sum_{i=1}^n(x_i-\theta)&\dfrac n{2\sigma^4}-\dfrac1{\sigma^6}\sum_{i=1}^n(x_i-\theta)^2
+\end{vmatrix}\right|_{\theta=\bar x,\sigma^2=\widehat{\sigma^2}}\\
+&=\left.\frac1{\sigma^6}\left[-\frac{n^2}2+\frac n{\sigma^2}\sum_{i=1}^n(x_i-\theta)^2-\frac1{\sigma^2}\left(\sum_{i=1}^n(x_i-\theta)\right)^2\right]\right|_{\theta=\bar x,\sigma^2=\widehat{\sigma^2}}\\
+&=\frac1{\widehat\sigma^6}\left[-\frac{n^2}2+\frac{n^2}{\widehat\sigma^2}\widehat\sigma^2-\frac1{\widehat\sigma^2}\left(\sum_{i=1}^n(x_i-\bar x)\right)^2\right]\\
+&=\frac1{\widehat\sigma^6}\frac{n^2}2>0.
+\end{align*}
+因此，微积分条件得到满足，确实找到了极大值.（当然，严格说来，我们只验证了$(\bar x,\widehat\sigma^2)$是内部极大值点.还须检查它是唯一的，而且无穷远处没有极大值.）即使这么简单的问题，计算量也已经相当可观，往后只会更糟.（想想有三个参数时需要做些什么.）因此，得到的教训是：虽然总要验证确实找到了极大值，但应寻找二阶导数条件以外的验证方法.
+\end{example}
+最后，前面提到，MLE通过极大化过程求得，因此容易受到该过程相关问题的影响，包括数值不稳定性.现在更详细地考察这个问题.
+
+回顾似然函数是参数$\boldsymbol\theta$的函数，数据$\boldsymbol x$保持不变.不过，数据测量有误差，因此可以问，数据的微小变化会如何影响MLE？即我们根据$L(\boldsymbol\theta\mid\boldsymbol x)$计算$\widehat{\boldsymbol\theta}$，但也可询问：若对于很小的$\boldsymbol\varepsilon$，改为根据$L(\boldsymbol\theta\mid\boldsymbol x+\boldsymbol\varepsilon)$计算，会得到怎样的MLE？直观上，当$\boldsymbol\varepsilon$很小时，新的MLE，记为$\widehat{\boldsymbol\theta}_1$，应当接近$\widehat{\boldsymbol\theta}$.但事实并非总是如此.
+\begin{example}[续\autoref{ex:7.2.2}]\label{ex:7.2.13}\index{SI0671@二项}\index{SI0676@不稳定性}
+\hyperref[bib:source237]{Olkin等（1981）}说明，在二项抽样中，$k$和$p$的MLE可能极不稳定.他们用下面的例子说明这一点.观测到一个$\operatorname{binomial}(k,p)$试验的五个实现值，其中$k$和$p$都
+\sourcepageanchor{293}
+未知.第一组数据为$(16,18,22,25,27)$（这是未知次数的二项试验中观测到的成功次数）.对此数据集，$k$的MLE为$\widehat k=99$.若第二组数据为$(16,18,22,25,28)$，唯一的变化是把27换成28，则$k$的MLE为$\widehat k=190$，显示出极大的变异.
+\end{example}
+当似然函数在最大值附近十分平坦，或不存在有限的最大值点时，就会出现这种现象.若MLE可显式求出——我们后面的例子往往如此——通常不会有这个问题.不过，很多情形像上例一样，MLE不能显式求解，必须用数值方法寻找.面对这种问题时，多花一点时间考察解的稳定性，往往是明智的.
+\subsubsection{Bayes估计量}\label{sec:7.2.3}
+Bayes统计方法与我们一直采用的经典方法有根本区别.然而，Bayes方法的某些方面对其他统计方法也很有帮助.在介绍构造Bayes估计量的方法之前，先讨论Bayes统计的思路.
+
+在经典方法中，参数$\theta$被视为未知但固定的量.从由$\theta$标定的总体中抽取随机样本$X_1,\ldots,X_n$，再根据样本观测值获得关于$\theta$取值的知识.在Bayes方法中，$\theta$则被视为一个其变动可由概率分布描述的量，这个分布称为先验分布（prior distribution）.\index{SI0824@先验分布}\semanticindexanchor{824:293}它是依据实验者信念形成的主观分布，在看到数据之前制定（因此称为“先验”分布）.随后，从由$\theta$标定的总体中抽取样本，用样本信息更新先验分布.更新后的先验称为后验分布（posterior distribution）.\index{SI0819@后验分布}\semanticindexanchor{819:293}更新使用了\autoref{sec:1}中介绍的Bayes法则，因此称为Bayes统计.
+
+若以$\pi(\theta)$表示先验分布，以$f(\boldsymbol x\mid\theta)$表示抽样分布，则后验分布，即给定样本$\boldsymbol x$时$\theta$的条件分布，为
+\begin{equation}\label{eq:7.2.7}
+\pi(\theta\mid\boldsymbol x)=\frac{f(\boldsymbol x\mid\theta)\pi(\theta)}{m(\boldsymbol x)},\qquad\bigl(f(\boldsymbol x\mid\theta)\pi(\theta)=f(\boldsymbol x,\theta)\bigr),
+\end{equation}
+其中$m(\boldsymbol x)$是$\boldsymbol X$的边缘分布，即
+\begin{equation}\label{eq:7.2.8}
+m(\boldsymbol x)=\int f(\boldsymbol x\mid\theta)\pi(\theta)\,d\theta.
+\end{equation}
+注意，后验分布是以观测到样本为条件的条件分布.然后用它对$\theta$作出陈述，而$\theta$仍被视为随机量.例如，可以用后验分布的均值作为$\theta$的点估计值.
+
+\emph{关于记号的说明：}讨论参数$\theta$上的分布时，我们将打破此前“大写字母表示随机变量，小写字母表示函数自变量”的记号约定.因此，会说随机量$\theta$具有分布$\pi(\theta)$.这更符合通常用法，不应造成混淆.
+\begin{example}[二项分布的Bayes估计]\label{ex:7.2.14}\index{SI0079@伯努利}
+设$X_1,\ldots,X_n$独立同分布于$\operatorname{Bernoulli}(p)$.则$Y=\sum X_i$服从$\operatorname{binomial}(n,p)$.假设$p$的先验分布为$\operatorname{beta}(\alpha,\beta)$.$Y$与$p$的联合分布为
+\begin{align*}
+f(y,p)&=\left[\binom ny p^y(1-p)^{n-y}\right]\left[\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}p^{\alpha-1}(1-p)^{\beta-1}\right]\\
+&\hspace{2cm}\text{（条件分布$\times$边缘分布，即$f(y\mid p)\times\pi(p)$）}\\
+&=\binom ny\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}p^{y+\alpha-1}(1-p)^{n-y+\beta-1}.
+\end{align*}
+\sourcepageanchor{294}
+$Y$的边缘pdf为
+\begin{equation}\label{eq:7.2.9}
+f(y)=\int_0^1f(y,p)\,dp=\binom ny\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}\frac{\Gamma(y+\alpha)\Gamma(n-y+\beta)}{\Gamma(n+\alpha+\beta)},
+\end{equation}
+这种分布称为beta--二项分布（见\autoref{exercise:4.34}和\autoref{ex:4.4.6}）.后验分布，即给定$y$时$p$的分布，为
+$$f(p\mid y)=\frac{f(y,p)}{f(y)}=\frac{\Gamma(n+\alpha+\beta)}{\Gamma(y+\alpha)\Gamma(n-y+\beta)}p^{y+\alpha-1}(1-p)^{n-y+\beta-1},$$
+也就是$\operatorname{beta}(y+\alpha,n-y+\beta)$分布.（记住，这里$p$是变量，$y$被视为固定.）$p$的一个自然估计值是后验分布的均值，由此得到$p$的Bayes估计量
+$$\widehat p_B=\frac{y+\alpha}{\alpha+\beta+n}.$$
+\end{example}
+考察一下$p$的Bayes估计值如何形成.先验分布的均值为$\alpha/(\alpha+\beta)$，在没有看到数据时，这会是我们对$p$的最佳估计.如果忽略先验信息，我们可能会用$p=y/n$作为$p$的估计值.$p$的Bayes估计值把这些信息全部结合起来.把$\widehat p_B$写成
+$$\widehat p_B=\left(\frac n{\alpha+\beta+n}\right)\left(\frac yn\right)+\left(\frac{\alpha+\beta}{\alpha+\beta+n}\right)\left(\frac\alpha{\alpha+\beta}\right),$$
+便能清楚看到这种结合方式.因此，$p_B$是先验均值与样本均值的线性组合，权重由$\alpha$、$\beta$和$n$决定.
+
+估计二项分布参数时，并不一定要从beta族中选取先验分布.不过，选择beta族有一定好处，其中一个重要好处就是得到了估计量的闭式表达式.一般而言，对任意抽样分布，都有一个自然的先验分布族，称为共轭族（conjugate family）.
+\begin{definition}\label{def:7.2.15}\index{SI0195@共轭族}
+用$\mathcal F$表示由$\theta$标定的pdf或pmf $f(\boldsymbol x\mid\theta)$的类.若对所有$f\in\mathcal F$、$\Pi$中的所有先验，以及所有$\boldsymbol x\in\mathcal X$，后验分布都属于类$\Pi$，则先验分布类$\Pi$称为$\mathcal F$的共轭族.
+\end{definition}
+beta族与二项族共轭.因此，若从beta先验开始，最终就得到beta后验.先验的更新表现为其参数的更新.数学上这很方便，因为通常会使计算很容易.不过，对某一具体问题，共轭族是否为合理选择，应由实验者判断.
+
+以最后一个例子结束本小节.
+\begin{example}[正态分布的Bayes估计量]\label{ex:7.2.16}\index{SI0080@正态}
+设$X\sim n(\theta,\sigma^2)$，假设$\theta$的先验分布为$n(\mu,\tau^2)$.（这里假设$\sigma^2$、$\mu$和$\tau^2$都已知.）$\theta$的后验分布也为正态，均值和方差为
+\begin{equation}\label{eq:7.2.10}
+\begin{aligned}
+E(\theta\mid x)&=\frac{\tau^2}{\tau^2+\sigma^2}x+\frac{\sigma^2}{\sigma^2+\tau^2}\mu,\\
+\operatorname{Var}(\theta\mid x)&=\frac{\sigma^2\tau^2}{\sigma^2+\tau^2}.
+\end{aligned}
+\end{equation}
+（细节见\autoref{exercise:7.22}.）注意，正态族是它自身的共轭族.仍取后验均值，得到$\theta$的Bayes估计量为$E(\theta\mid X)$.
+\sourcepageanchor{295}
+Bayes估计量再次成为先验均值与样本均值的线性组合.还要注意，当先验方差$\tau^2$趋于无穷时，Bayes估计量趋于样本均值.可以把这解释为：先验信息越模糊，Bayes估计量就越重视样本信息.另一方面，如果先验信息很好，使得$\sigma^2>\tau^2$，那么先验均值就获得更大的权重.
+\end{example}
+\subsubsection{EM算法}\label{sec:7.2.4}\index{SI0007@EM}\index{SI0013@缺失数据}\index{SI0395@EM算法（见算法：EM）}
+我们最后考察的一种构造估计量的方法，在思路上与前面的方法有本质区别，它专门用于寻找MLE.\footnote{本小节的内容较为专门，也更深入.略去本小节不会影响正文的连贯性.}这里不是详细给出一个解出MLE的过程，而是指定一种保证收敛到MLE的算法.\footnote{译注：一般EM算法保证的是观测数据似然的非递减性；这本身不保证参数序列收敛，更不保证收敛到全局MLE.收敛及全局最优性需要附加条件，并可能依赖初值.本节原文的保证性表述保留；参见后面\autoref{thm:7.2.20}所实际陈述的单调性质.}它称为EM算法，即期望--极大化算法（Expectation-Maximization algorithm）.其思想是：把一次困难的似然极大化，换成一系列较容易的极大化，其极限便是原问题的答案.它特别适用于“缺失数据”问题，因为数据缺失本身有时就会使计算繁琐.不过，我们将看到，把“缺失数据”补上，反而常使计算更加顺畅.（还会看到，“缺失数据”有不同解释，例如见\autoref{exercise:7.30}.）
+
+使用EM算法时，要考虑两个不同的似然问题.我们希望解决的是“不完全数据”问题，实际求解的则是“完全数据”问题.视情况而定，可以从任一个问题开始.
+\begin{example}[多个Poisson率]\label{ex:7.2.17}
+观测到$X_1,X_2,\ldots,X_n$和$Y_1,Y_2,\ldots,Y_n$，它们全部相互独立，其中$Y_i\sim\operatorname{Poisson}(\beta\tau_i)$，$X_i\sim\operatorname{Poisson}(\tau_i)$.例如，这可用于建模某种疾病的发生次数$Y_i$，其潜在发生率由总体效应$\beta$和一个附加因子$\tau_i$共同决定.$\tau_i$可以衡量地区$i$的人口密度，或该地区人群的健康状况.我们看不到$\tau_i$，但通过$X_i$获得关于它的信息.
+
+因此，联合pmf为
+\begin{equation}\label{eq:7.2.11}\index{SI0009@完整数据似然}
+\begin{aligned}
+&f((x_1,y_1),(x_2,y_2),\ldots,(x_n,y_n)\mid\beta,\tau_1,\tau_2,\ldots,\tau_n)\\
+&\qquad=\prod_{i=1}^n\frac{e^{-\beta\tau_i}(\beta\tau_i)^{y_i}}{y_i!}\frac{e^{-\tau_i}\tau_i^{x_i}}{x_i!}.
+\end{aligned}
+\end{equation}
+通过直接微分即可求得似然估计量（见\autoref{exercise:7.27}）：
+\begin{equation}\label{eq:7.2.12}
+\widehat\beta=\frac{\sum_{i=1}^ny_i}{\sum_{i=1}^nx_i},\qquad\widehat\tau_j=\frac{x_j+y_j}{\widehat\beta+1},\quad j=1,2,\ldots,n.
+\end{equation}
+基于pmf \eqref{eq:7.2.11}的似然称为完全数据似然（complete-data likelihood），而
+$$((x_1,y_1),(x_2,y_2),\ldots,(x_n,y_n))$$
+称为完全数据.数据缺失很常见，\index{SI0008@完整数据}\semanticindexanchor{8:295}它会使估计更困难.例如，假设$x_1$的值缺失.我们可以把$y_1$也丢弃，用大小为$n-1$的样本继续分析，但这忽略了$y_1$中的信息.使用这些信息可以改进估计.
+
+从pmf \eqref{eq:7.2.11}出发，$x_1$缺失时样本的pmf自然定义为\footnote{译注：原文离散求和末尾多出$dx_1$，应删去该微分符号；此处按原式保留.原式中条件竖线前还多了一个右括号，译文仅配平函数括号.}
+\begin{equation}\label{eq:7.2.13}\index{SI0012@不完整数据似然}
+\sum_{x_1=0}^\infty f((x_1,y_1),(x_2,y_2),\ldots,(x_n,y_n)\mid\beta,\tau_1,\tau_2,\ldots,\tau_n)\,dx_1.
+\end{equation}
+基于\eqref{eq:7.2.13}的似然是不完全数据似然（incomplete-data likelihood）.\index{SI0011@不完整数据}\semanticindexanchor{11:295}这正是需要极大化的似然.
+\end{example}
+\sourcepageanchor{296}
+一般而言，可以从完全数据问题走向不完全数据问题，也可以反过来.若$\boldsymbol Y=(Y_1,Y_2,\ldots,Y_n)$是不完全数据，$\boldsymbol X=(X_1,X_2,\ldots,X_m)$为增广数据（augmented data），使$(\boldsymbol Y,\boldsymbol X)$成为完全数据，则$\boldsymbol Y$的密度$g(\cdot\mid\theta)$与$(\boldsymbol Y,\boldsymbol X)$的密度$f(\cdot\mid\theta)$满足
+\begin{equation}\label{eq:7.2.14}
+g(\boldsymbol y\mid\theta)=\int f(\boldsymbol y,\boldsymbol x\mid\theta)\,d\boldsymbol x.
+\end{equation}
+把它们看成似然，则$L(\theta\mid\boldsymbol y)=g(\boldsymbol y\mid\theta)$是不完全数据似然，$L(\theta\mid\boldsymbol y,\boldsymbol x)=f(\boldsymbol y,\boldsymbol x\mid\theta)$是完全数据似然.当$L(\theta\mid\boldsymbol y)$难以处理时，完全数据似然有时会更容易处理.
+\begin{example}[续\autoref{ex:7.2.17}]\label{ex:7.2.18}
+在\eqref{eq:7.2.11}中对$x_1$求和，得到不完全数据似然：
+\begin{equation}\label{eq:7.2.15}
+\begin{aligned}
+&L(\beta,\tau_1,\tau_2,\ldots,\tau_n\mid y_1,(x_2,y_2),\ldots,(x_n,y_n))\\
+&\qquad=\left[\prod_{i=1}^n\frac{e^{-\beta\tau_i}(\beta\tau_i)^{y_i}}{y_i!}\right]\left[\prod_{i=2}^n\frac{e^{-\tau_i}\tau_i^{x_i}}{x_i!}\right],
+\end{aligned}
+\end{equation}
+其中$(y_1,(x_2,y_2),\ldots,(x_n,y_n))$是不完全数据.这就是需要极大化的似然.微分后得到MLE方程
+\begin{equation}\label{eq:7.2.16}
+\begin{aligned}
+\widehat\beta&=\frac{\sum_{i=1}^ny_i}{\sum_{i=1}^n\widehat\tau_i},\\
+y_1&=\widehat\tau_1\widehat\beta,\\
+x_j+y_j&=\widehat\tau_j(\widehat\beta+1),\qquad j=2,3,\ldots,n,
+\end{aligned}
+\end{equation}
+现在用EM算法求解.
+\end{example}
+EM算法使我们只需处理$L(\theta\mid\boldsymbol y,\boldsymbol x)$以及给定$\boldsymbol y$与$\theta$时$\boldsymbol X$的条件pdf或pmf，就能极大化$L(\theta\mid\boldsymbol y)$.定义
+\begin{equation}\label{eq:7.2.17}
+\begin{aligned}
+L(\theta\mid\boldsymbol y,\boldsymbol x)&=f(\boldsymbol y,\boldsymbol x\mid\theta),\qquad L(\theta\mid\boldsymbol y)=g(\boldsymbol y\mid\theta),\\
+k(\boldsymbol x\mid\theta,\boldsymbol y)&=\frac{f(\boldsymbol y,\boldsymbol x\mid\theta)}{g(\boldsymbol y\mid\theta)}.
+\end{aligned}
+\end{equation}
+重新整理\eqref{eq:7.2.17}的最后一个等式，得到恒等式
+\begin{equation}\label{eq:7.2.18}
+\log L(\theta\mid\boldsymbol y)=\log L(\theta\mid\boldsymbol y,\boldsymbol x)-\log k(\boldsymbol x\mid\theta,\boldsymbol y).
+\end{equation}
+由于$\boldsymbol x$是缺失数据，并未观测到，我们将\eqref{eq:7.2.18}右端换成它在$k(\boldsymbol x\mid\theta',\boldsymbol y)$下的期望，得到新的恒等式
+\begin{equation}\label{eq:7.2.19}
+\begin{aligned}
+\log L(\theta\mid\boldsymbol y)
+&=E[\log L(\theta\mid\boldsymbol y,\boldsymbol X)\mid\theta',\boldsymbol y]\\
+&\quad-E[\log k(\boldsymbol X\mid\theta,\boldsymbol y)\mid\theta',\boldsymbol y].
+\end{aligned}
+\end{equation}
+现在开始算法：从初值$\theta^{(0)}$出发，按下式生成序列$\theta^{(r)}$：
+\begin{equation}\label{eq:7.2.20}
+\theta^{(r+1)}=\text{使 }E[\log L(\theta\mid\boldsymbol y,\boldsymbol X)\mid\theta^{(r)},\boldsymbol y]\text{ 最大的值}.
+\end{equation}
+算法的“E步”计算期望对数似然，“M步”寻找其最大值.在探讨算法为何确实收敛到MLE之前，先回到我们的例子.
+\sourcepageanchor{297}
+\begin{example}[\autoref{ex:7.2.17}的结尾]\label{ex:7.2.19}
+用$(\boldsymbol x,\boldsymbol y)=((x_1,y_1),(x_2,y_2),\ldots,(x_n,y_n))$表示完全数据，用$(\boldsymbol x_{(-1)},\boldsymbol y)=(y_1,(x_2,y_2),\ldots,(x_n,y_n))$表示不完全数据.完全数据对数似然的期望为\footnote{译注：原文\eqref{eq:7.2.21}最后一次分组中，$[\tau_ix_i\log\tau_i]$和$[\tau_1x_1\log\tau_1]$应分别为$[-\tau_i+x_i\log\tau_i]$和$[-\tau_1+x_1\log\tau_1]$；第二组括号的求和下标$2=1$应为$i=2$.这些原文误排保留，紧随的\eqref{eq:7.2.22}实际采用了正确的$-\tau_1+x_1\log\tau_1$项.}
+\begin{equation}\label{eq:7.2.21}
+\begin{aligned}
+&E[\log L(\beta,\tau_1,\tau_2,\ldots,\tau_n\mid(\boldsymbol x,\boldsymbol y))\mid\boldsymbol\tau^{(r)},(\boldsymbol x_{(-1)},\boldsymbol y)]\\
+&=\sum_{x_1=0}^\infty\log\left(\prod_{i=1}^n\frac{e^{-\beta\tau_i}(\beta\tau_i)^{y_i}}{y_i!}\frac{e^{-\tau_i}\tau_i^{x_i}}{x_i!}\right)\frac{e^{-\tau_1^{(r)}}(\tau_1^{(r)})^{x_1}}{x_1!}\\
+&=\sum_{i=1}^n[-\beta\tau_i+y_i(\log\beta+\log\tau_i)-\log y_i!]\\
+&\quad+\sum_{i=2}^n[-\tau_i+x_i\log\tau_i-\log x_i!]\\
+&\quad+\sum_{x_1=0}^\infty[-\tau_1+x_1\log\tau_1-\log x_1!]\frac{e^{-\tau_1^{(r)}}(\tau_1^{(r)})^{x_1}}{x_1!}\\
+&=\left(\begin{aligned}&\sum_{i=1}^n[-\beta\tau_i+y_i(\log\beta+\log\tau_i)]+\sum_{i=2}^n[\tau_ix_i\log\tau_i]\\
+&+\sum_{x_1=0}^\infty[\tau_1x_1\log\tau_1]\frac{e^{-\tau_1^{(r)}}(\tau_1^{(r)})^{x_1}}{x_1!}\end{aligned}\right)\\
+&\quad-\left(\sum_{i=1}^n\log y_i!+\sum_{2=1}^n\log x_i!+\sum_{x_1=0}^\infty\log x_1!\frac{e^{-\tau_1^{(r)}}(\tau_1^{(r)})^{x_1}}{x_1!}\right),
+\end{aligned}
+\end{equation}
+在最后一个等式中，把含$\beta$和$\tau_i$的项以及不含这些参数的项分别归为一组.由于计算期望对数似然的目的是关于$\beta$和$\tau_i$将其极大化，可以忽略第二组括号中的项.因此，只需极大化第一组括号中的项，其中最后一个和可写成
+\begin{equation}\label{eq:7.2.22}
+-\tau_1+\log\tau_1\sum_{x_1=0}^\infty x_1\frac{e^{-\tau_1^{(r)}}(\tau_1^{(r)})^{x_1}}{x_1!}=-\tau_1+\tau_1^{(r)}\log\tau_1.
+\end{equation}
+将此代回\eqref{eq:7.2.21}可见，期望完全数据似然与原来的完全数据似然相同，区别仅在于把$x_1$替换为$\tau_1^{(r)}$.所以，第$r$步的MLE只对\eqref{eq:7.2.12}稍作改动，为
+\begin{equation}\label{eq:7.2.23}
+\begin{aligned}
+\widehat\beta^{(r+1)}&=\frac{\sum_{i=1}^ny_i}{\tau_1^{(r)}+\sum_{i=2}^nx_i},\qquad
+\widehat\tau_1^{(r+1)}=\frac{\widehat\tau_1^{(r)}+y_1}{\widehat\beta^{(r+1)}+1},\\
+\widehat\tau_j^{(r+1)}&=\frac{x_j+y_j}{\widehat\beta^{(r+1)}+1},\qquad j=2,3,\ldots,n.
+\end{aligned}
+\end{equation}
+这既定义了E步（用$\widehat\tau_1^{(r)}$替换$x_1$），也定义了M步（按\eqref{eq:7.2.23}计算第$r$次迭代的\mbox{MLE）.}EM算法的性质保证序列$(\widehat\beta^{(r)},\widehat\tau_1^{(r)},\widehat\tau_2^{(r)},\ldots,\widehat\tau_n^{(r)})$在$r\to\infty$时收敛到不完全数据MLE.更多内容见\autoref{exercise:7.27}.
+\end{example}
+我们不给出EM序列$\{\widehat\theta^{(r)}\}$收敛到不完全数据MLE的完整证明，但下面的关键性质提示了这一点.证明留作\autoref{exercise:7.31}.
+\begin{theorem}[单调EM序列]\label{thm:7.2.20}\index{SI0010@收敛}
+由\eqref{eq:7.2.20}定义的序列$\{\widehat\theta^{(r)}\}$满足
+\begin{equation}\label{eq:7.2.24}
+L(\widehat\theta^{(r+1)}\mid\boldsymbol y)\ge L(\widehat\theta^{(r)}\mid\boldsymbol y),
+\end{equation}
+等号成立当且仅当相继迭代给出相同的极大化期望完全数据对数似然值，即\footnote{译注：一般情况下，这里“当且仅当”的充分方向还需缺失数据条件分布相同.由\eqref{eq:7.2.19}，观测对数似然的增量等于下面期望差加上$D_{\mathrm{KL}}(k(\cdot\mid\widehat\theta^{(r)},\boldsymbol y)\Vert k(\cdot\mid\widehat\theta^{(r+1)},\boldsymbol y))$.两项均非负，故观测似然相等要求二者都为零；仅期望差为零一般不够.}
+\begin{align*}
+&E[\log L(\widehat\theta^{(r+1)}\mid\boldsymbol y,\boldsymbol X)\mid\widehat\theta^{(r)},\boldsymbol y]\\
+&\qquad=E[\log L(\widehat\theta^{(r)}\mid\boldsymbol y,\boldsymbol X)\mid\widehat\theta^{(r)},\boldsymbol y].
+\end{align*}
+\end{theorem}

@@ -1,0 +1,12 @@
+\subsection{引言}\label{sec:11.1}
+到目前为止，我们一直用依赖待估参数的pdf或pmf为随机变量建模. 在许多情形中，包括下面的一些情形，随机变量的模型不仅包含未知参数，还包含已知的（有时可以控制的）协变量（covariates）. 这就是方差分析（analysis of variance，ANOVA）和回归分析（regression analysis）的方法. 它们以线性关系这一基础假设为依据，构成实际应用中统计方法的一大核心部分.
+
+ANOVA是应用最广泛的统计技术之一. ANOVA的一个基本思想——分解变异——是实验统计学的基本思想. ANOVA的名称有些名不副实，因为它关心的并不是分析方差，而是分析\emph{均值的变异}.
+
+我们将研究一种常见的ANOVA，即单因素ANOVA（oneway ANOVA）.\index{SI0043@单因素}\semanticindexanchor{43:452} 关于ANOVA设计各方面的全面论述，可参阅\hyperref[bib:source82]{Cochran和Cox（1957）}的经典教材，或较现代但仍带有一定经典色彩的\hyperref[bib:source94]{Dean和Voss（1999）}以及\hyperref[bib:source192]{Kuehl（2000）}的论述. \hyperref[bib:source232]{Neter等（1993）}的教材介绍了实验统计学的总体策略.
+
+回归技术，特别是线性回归，很可能当选最受欢迎的统计工具. 回归有各种形式：线性、非线性、简单、多元、参数、非参数，等等. 本章考察最简单的情形：只有一个预测变量的线性回归. （这通常称为简单线性回归（simple linear regression），以区别于处理多个预测变量的多元线性回归（multiple linear regression）.）
+
+回归的一个主要目的是探索一个变量对其他变量的依赖.\index{SI0878@回归}\semanticindexanchor{878:452}\index{SI0901@总体}\semanticindexanchor{901:452} 在简单线性回归中，通过关系$EY=\alpha+\beta x$，将随机变量$Y$的均值建模为另一个可观测变量$x$的函数. 一般而言，把$EY$表示为$x$的函数的那个函数，称为总体回归函数（population regression function）.
+
+关于回归模型，较好的综合参考书是\hyperref[bib:source75]{Christensen（1996）}以及\hyperref[bib:source102]{Draper和Smith（1998\mbox{）.}} \hyperref[bib:source311]{Stuart、Ord和Arnold（1999}，第27章）给出了更偏重理论的论述.

@@ -1,0 +1,46 @@
+228                                       PRINCIPLES OF DATA REDUCTION
+6.2.2  Minimal Sufficient Statistics
+
+In the preceding section we found one sufficient statistic for each model considered. In any problem
+there are, in fact, many sufficient statistics.
+     It is always true that the complete sample, X, is a sufficient statistic. We can factor the pdf or
+pmf of X as f(x|θ) = f(T(x)|θ)h(x) where T(x) = x and h(x) = 1 for all x. By the FactorizationTheorem, T(X) = X is a sufficient statistic.
+    Also, it follows that any one-to-one function of a sufficient statistic is a sufficient statistic. Sup-
+pose T(X) is a sufficient statistic and define T ∗(x) = r(T(x)) for all x where r is a one-to-one
+function with inverse r−1. Then by the Factorization Theorem there exist g and h such that
+                       f(x|θ) = g(T(x)|θ)h(x) = g(r−1(T ∗(x))|θ)h(x).
+Defining g∗(t|θ) = g(r−1(t)|θ), we see that
+                                 f(x|θ) = g∗(T ∗(x)|θ)h(x).
+So, by the Factorization Theorem, T ∗(X) is a sufficient statistic.
+   Because of the numerous sufficient statistics in a problem, we might ask whether one sufficient
+statistic is any better than another. Recall that the purpose of a sufficient statistic is to achieve data
+reduction without loss of information about the parameter θ; thus, a statistic that achieves the most
+data reduction while still retaining all the information about θ might be considered preferable. The
+definition of such a statistic is formalized now.
+Definition 6.2.11 A sufficient statistic T(X) is called a minimal sufficient statistic if, for any other
+sufficient statistic T ′(X),T(x) is a function of T ′(x).
+   To say that T(x) is a function of T ′(x) simply means that if T ′(x) = T ′(y) then T(x) = T(y). In
+terms of the partition sets described at the beginning of the chapter, if {Bt′ : t′ ∈T ′} are partition
+sets for T ′(x), and {At : t ∈T } are the partition sets for T(x), then Definition 6.2.11 states that
+every Bt′ is a subset of some At. Thus, the partition associated with a minimal sufficient statistic is
+the coarsest possible partition for a sufficient statistic and a minimal sufficient statistic achieves the
+greatest possible data reduction for a sufficient statistic.
+Example 6.2.12 (Two normal sufficient statistics)  The model considered in Example 6.2.4 has
+X1, ..., Xn iid n(µ,σ2) with σ2 known. Using factorization (6.2.4), we concluded that T(X) = X is
+a sufficient statistic for µ. Instead, we could write down factorization (6.2.5) for this problem (σ2
+is a known value now) and correctly conclude that T ′(X) = (X,S2) is a sufficient statistic for µ in
+this problem. Clearly T(X) achieves a greater data reduction than T ′(X) since we do not know the
+sample variance if we know only T(X). We can write T(x) as a function of T ′(x) by defining the
+function r(a,b) = a. Then T(x) = x = r(x,s2) = r(T ′(x)). Since T(X) and T ′(X) are both sufficient
+statistics, they both contain the same information about µ. Thus, the additional information about the
+value of S2, the sample variance, does not add to our knowledge of µ since the population variance
+σ2 is known. Of course, if σ2 is unknown, as in Example 6.2.9, T(X) = X is not a sufficient statistic
+and T ′(X) contains more information about the parameter (µ,σ2) than does T(X).            ∥
+   Using Definition 6.2.11 to find a minimal sufficient statistic is impractical, as was using Defi-
+nition 6.2.1 to find sufficient statistics. We would need to guess that T(X) was a minimal sufficient
+statistic and then verify the condition in the definition. (Note that we did not show that X is a mini-
+mal sufficient statistic in Example 6.2.12.) Fortunately, the following result of Lehmann and Scheff´e
+(1950, Theorem 6.3) gives an easier way to find a minimal sufficient statistic.
+Theorem 6.2.13  Let f(x|θ) be the pmf or pdf of a sample X. Suppose there exists a function T(x)
+such that, for every two sample points x and y, the ratio f(x|θ)/ f(y|θ) is constant as a function ofθ if and only if T(x) = T(y). Then T(X) is a minimal sufficient statistic for θ.
+Proof: To simplify the proof, we assume f(x|θ) > 0 for all x ∈X and θ.

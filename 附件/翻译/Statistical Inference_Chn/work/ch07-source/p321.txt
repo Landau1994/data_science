@@ -1,0 +1,47 @@
+290                                                 POINT ESTIMATION
+
+7.18 Let (X1,Y1),...,(Xn,Yn) be iid bivariate normal random variables (pairs) where all five parameters are
+     unknown.
+       (a) Show that the                                                                                1                   method of moments                                           estimators for µX,µY ,σ2X, σ2Y ,ρ are ˜µX = ¯x, ˜µY = ¯y, ˜σ2X = n ∑(xi−                     1                                        1
+             ¯x)2, ˜σ2Y = n ∑(yi −¯y)2, ˜ρ =                                        n ∑(xi −¯x)(yi −¯y)/(ˆσX ˆσY ).
+      (b) Derive the MLEs of the unknown parameters and show that they are the same as the method of mo-
+         ments estimators. (One attack is to write the joint pdf as the product of a conditional and a marginal,
+           that is, write
+
+                                                                  Y                                                                                    X),                      f(x,y|µX,µY ,σ2X,σ2                                         Y ,ρ) = f(y|x,µX,µY ,σ2X,σ2                                                  ,ρ)× f(x|µX,σ2
+         and argue that the MLEs for µX and σ2X are given by ¯x and 1n ∑(xi −¯x)2. Then, turn things around
+           to get the MLEs for µY and σ2Y . Finally, work with the “partially maximized” likelihood function
+            L(¯x, ¯y, ˆσ2X, ˆσ2Y ,ρ|x,y) to get the MLE for ρ. As might be guessed, this is a difficult problem.)
+7.19 Suppose that the random variables Y1,...,Yn satisfy
+                                               Yi = βxi +εi,    i = 1,...,n,
+     where x1,...,xn are fixed constants, and ε1,...,εn are iid n(0,σ2),σ2 unknown.
+       (a) Find a two-dimensional sufficient statistic for (β,σ2).
+      (b) Find the MLE of β, and show that it is an unbiased estimator of β.
+       (c) Find the distribution of the MLE of β.
+7.20 Let Y1,...,Yn be as defined in Exercise 7.19.
+       (a) Show that ∑Yi/∑xi is an unbiased estimator of β.
+      (b) Calculate the exact variance of ∑Yi/∑xi and compare it to the variance of the MLE.
+7.21 Again, let Y1,...,Yn be as defined in Exercise 7.19.
+       (a) Show that [∑(Yi/xi)]/n is also an unbiased estimator of β.
+      (b) Calculate the exact variance of [∑(Yi/xi)]/n and compare it to the variances of the estimators in the
+          previous two exercises.
+7.22 This exercise will prove the assertions in Example 7.2.16, and more. Let X1,...,Xn be a random sample
+     from a n(θ,σ2) population, and suppose that the prior distribution on θ is n(µ,τ2). Here we assume that
+     σ2, µ, and τ2 are all known.
+       (a) Find the joint pdf of ¯X and θ.
+      (b) Show that m(¯x|σ2,µ,τ2), the marginal distribution of ¯X, is n(µ,(σ2/n)+τ2).
+       (c) Show that π(θ|¯x,σ2,µ,τ2), the posterior distribution of θ, is normal with mean and variance given        by (7.2.10).
+7.23  If S2 is the sample variance based on a sample of size n from a normal population, we know that (n −     1)S2/σ2 has a χ2   distribution. The conjugate prior for σ2 is the inverted gamma pdf, IG(α,β), given
+                    n−1     by
+                                  1      1                                     < σ2 < ∞,                       π(σ2) =      α         e−1/(βσ 2),  0                              Γ(α)β  (σ2)α+1
+     where α and β are positive constants. Show that the posterior distribution of σ2 is IG(α + n−12  ,[ (n−1)S22  +
+       1 ]−1). Find the mean of this distribution, the Bayes estimator of σ2.      β
+7.24 Let X1,...,Xn be iid Poisson(λ), and let λ have a gamma(α,β) distribution, the conjugate family for the
+      Poisson.
+       (a) Find the posterior distribution of λ.
+      (b) Calculate the posterior mean and variance.
+7.25 We examine a generalization of the hierarchical (Bayes) model considered in Example 7.2.16 and Exer-
+      cise 7.22. Suppose that we observe X1,...,Xn, where
+
+                             = 1,...,n,   independent,                                 Xi|θi  ∼   n(θi,σ2),    i
+                                    θi       n(µ,τ2),    i = 1,...,n,   independent.                    ∼

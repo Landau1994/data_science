@@ -1,0 +1,37 @@
+{
+  "10.11_known_mean_MLE_shape_score_residual": 0.0,
+  "10.13_multiset_weight_sum_mean_variance": [
+    1.0,
+    6.75,
+    3.921875
+  ],
+  "10.10_formula_max_error_25_finite_models": 3.469446951953614e-18,
+  "10.45_exact_counterexample": {
+    "n": 1,
+    "p": 0.0546,
+    "Y1_lower_endpoint": 0.05462075552885201,
+    "coverage": 0.9454
+  },
+  "10.39_46_reaggregate_existing_records": {
+    "normal": {
+      "rows": 3000,
+      "maximum_probability_difference": 0,
+      "printed_SE_infinite": 453
+    },
+    "t5": {
+      "rows": 3000,
+      "maximum_probability_difference": 0,
+      "printed_SE_infinite": 162
+    },
+    "logistic": {
+      "rows": 3000,
+      "maximum_probability_difference": 0,
+      "printed_SE_infinite": 5
+    },
+    "laplace": {
+      "rows": 3000,
+      "maximum_probability_difference": 0,
+      "printed_SE_infinite": 89
+    }
+  }
+}
